@@ -62,4 +62,18 @@ class User extends Authenticatable
     public function post(){
         return $this->hasMany(Post::class, 'created_by');  //  select * from post where created_by
     }
+
+    /**
+     * Get the roles for the user.
+     */
+    public function roles() {
+        return $this->belongsToMany(Role::class, 'role_user');
+    }
+
+    /**
+     * Check if the user is administrator
+     */
+    public function isAdmin() {
+        return $this->roles()->where('name', 'Administrator')->exists();
+    }
 }
