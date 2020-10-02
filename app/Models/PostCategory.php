@@ -28,6 +28,10 @@ class PostCategory extends Model
             ->saveSlugsTo('slug');
     }
 
+    public function post(){
+        return $this->hasMany(Post::class, 'category_id');  //  select * from post where category_id
+    }
+
 
 
 
