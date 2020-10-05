@@ -35,7 +35,7 @@ class Post extends Model
             }*/
 
             // Remove all malicious code (XSS) - http://htmlpurifier.org/  - https://github.com/mewebstudio/Purifier
-            $model->body = clean($model->get('body'));
+            //$model->body = clean($model->get('body'));  //package mews/purifier was causing errors with strange characters in the body.. I have uninstalled it 
             $model->created_by = Auth::id();
         });
     }

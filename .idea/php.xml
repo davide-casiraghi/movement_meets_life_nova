@@ -140,8 +140,6 @@
       <path value="$PROJECT_DIR$/vendor/optimistdigital/nova-menu-builder" />
       <path value="$PROJECT_DIR$/vendor/optimistdigital/nova-tailwind" />
       <path value="$PROJECT_DIR$/vendor/spatie/laravel-sluggable" />
-      <path value="$PROJECT_DIR$/vendor/mews/purifier" />
-      <path value="$PROJECT_DIR$/vendor/ezyang/htmlpurifier" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7" />

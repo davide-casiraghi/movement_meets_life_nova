@@ -18,7 +18,6 @@
         "laravel/sanctum": "^2.6",
         "laravel/tinker": "^2.0",
         "livewire/livewire": "^2.0",
-        "mews/purifier": "^3.3",
         "optimistdigital/nova-menu-builder": "^4.0",
         "spatie/laravel-sluggable": "^2.5"
     },
