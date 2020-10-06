@@ -13,3 +13,4 @@ yarn-error.log
 .vagrant
 Vagrantfile
 nova
+!/app/nova/
