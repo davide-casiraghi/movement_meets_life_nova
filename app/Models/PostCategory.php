@@ -13,13 +13,18 @@ class PostCategory extends Model
     use HasFactory;
     use HasSlug;
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
     protected $fillable = [
         'name', 'slug', 'description',
     ];
 
     // https://stackoverflow.com/questions/48264084/how-to-get-unique-slug-to-same-post-title-for-other-time-too
     /**
-     * Get the options for generating the slug.
+     * Generates a unique slug.
      */
     public function getSlugOptions() : SlugOptions
     {
@@ -28,6 +33,9 @@ class PostCategory extends Model
             ->saveSlugsTo('slug');
     }
 
+    /**
+     * Returns the posts are assigned to this category.
+     */
     public function post(){
         return $this->hasMany(Post::class, 'category_id');  //  select * from post where category_id
     }

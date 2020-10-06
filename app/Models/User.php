@@ -59,6 +59,9 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
+    /**
+     * Returns the posts written by this user.
+     */
     public function post(){
         return $this->hasMany(Post::class, 'created_by');  //  select * from post where created_by
     }
