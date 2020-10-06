@@ -33,11 +33,11 @@ class Post extends Model
         static::saving(function ($model) {
 
             // Intro image picture upload
-            if ($model->file('introimage')) {
+            /*if ($model->file('introimage')) {
                 $introImagePictureFile = $model->file('introimage');
                 $imageName = $introImagePictureFile->hashName();
                 $model->introimage = $imageName;
-            }
+            }*/
 
             // Remove all malicious code (XSS) - http://htmlpurifier.org/  - https://github.com/mewebstudio/Purifier
             //$model->body = clean($model->get('body'));  //package mews/purifier was causing errors with strange characters in the body.. I have uninstalled it
