@@ -18,7 +18,7 @@ class CreateEventsTable extends Migration
 
             $table->foreignId('event_category_id')->constrained();
             $table->foreignId('event_venue_id')->constrained();
-            $table->foreignId('event_repeat_type_id')->constrained();
+            $table->foreignId('event_repeat_type_id')->constrained();  //it deletes the referencing rows in the child table when the referenced row is deleted in the parent table which has a primary key.
             $table->foreignId('user_id')->constrained();
 
             $table->string('title');
