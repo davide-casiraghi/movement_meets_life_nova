@@ -8,6 +8,7 @@ use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use Spatie\NovaTranslatable\Translatable;
 
 class Testimonial extends Resource
 {
@@ -47,11 +48,13 @@ class Testimonial extends Resource
             Text::make('Author')
                 ->sortable()
                 ->rules('required', 'max:255'),
-            Text::make('Profession')
-                ->sortable(),
-            Trix::make('Description')
-                ->sortable()
-                ->rules('required'),
+            Translatable::make([
+                Text::make('Profession')
+                    ->sortable(),
+                Trix::make('Description')
+                    ->sortable()
+                    ->rules('required'),
+            ]),
             Image::make('Photo')
                 ->disk('public')
                 ->maxWidth(500),

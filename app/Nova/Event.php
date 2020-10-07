@@ -10,6 +10,7 @@ use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use Spatie\NovaTranslatable\Translatable;
 
 class Event extends Resource
 {
@@ -49,9 +50,11 @@ class Event extends Resource
             Text::make('Title')
                 ->sortable()
                 ->rules('required', 'max:255'),
-            Trix::make('Description')
-                ->sortable()
-                ->rules('required'),
+            Translatable::make([
+                Trix::make('Description')
+                    ->sortable()
+                    ->rules('required'),
+            ]),
             Image::make('Image')->disk('public'),
             BelongsTo::make('Event Category', 'category'),
             BelongsTo::make('Event Venue', 'venue'),

@@ -6,11 +6,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
+use Spatie\Translatable\HasTranslations;
 
 class Event extends Model
 {
     use HasFactory;
     use HasSlug;
+    use HasTranslations;
 
     /**
      * The attributes that aren't mass assignable.
@@ -18,6 +20,13 @@ class Event extends Model
      * @var array
      */
     protected $guarded = [];
+
+    /**
+     * The attributes that are translatable.
+     *
+     * @var array
+     */
+    public $translatable = ['description'];
 
     /**
      * Generates a unique slug.

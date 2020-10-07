@@ -7,6 +7,7 @@ use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use Spatie\NovaTranslatable\Translatable;
 
 class Quote extends Resource
 {
@@ -43,9 +44,11 @@ class Quote extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Trix::make('Description')
-                ->sortable()
-                ->rules('required'),
+            Translatable::make([
+                Trix::make('Description')
+                    ->sortable()
+                    ->rules('required'),
+            ]),
             Text::make('Author')
                 ->sortable(),
         ];

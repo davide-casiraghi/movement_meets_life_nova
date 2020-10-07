@@ -12,6 +12,7 @@
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
+        "joedixon/nova-translation": "^1.0",
         "laravel/framework": "^8.0",
         "laravel/jetstream": "^1.3",
         "laravel/nova": "*",
@@ -19,7 +20,9 @@
         "laravel/tinker": "^2.0",
         "livewire/livewire": "^2.0",
         "optimistdigital/nova-menu-builder": "^4.0",
-        "spatie/laravel-sluggable": "^2.5"
+        "spatie/laravel-sluggable": "^2.5",
+        "spatie/laravel-translatable": "^4.5",
+        "spatie/nova-translatable": "^3.0"
     },
     "require-dev": {
         "facade/ignition": "^2.3.6",

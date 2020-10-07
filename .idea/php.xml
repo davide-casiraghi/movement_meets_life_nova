@@ -140,6 +140,11 @@
       <path value="$PROJECT_DIR$/vendor/optimistdigital/nova-menu-builder" />
       <path value="$PROJECT_DIR$/vendor/optimistdigital/nova-tailwind" />
       <path value="$PROJECT_DIR$/vendor/spatie/laravel-sluggable" />
+      <path value="$PROJECT_DIR$/vendor/spatie/nova-translatable" />
+      <path value="$PROJECT_DIR$/vendor/spatie/laravel-translatable" />
+      <path value="$PROJECT_DIR$/vendor/asm89/stack-cors_compare" />
+      <path value="$PROJECT_DIR$/vendor/joedixon/nova-translation" />
+      <path value="$PROJECT_DIR$/vendor/joedixon/laravel-translation" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7" />

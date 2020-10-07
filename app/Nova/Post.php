@@ -12,6 +12,7 @@ use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Fields\Text;
+use Spatie\NovaTranslatable\Translatable;
 
 class Post extends Resource
 {
@@ -48,12 +49,15 @@ class Post extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Text::make('Title')
-                ->sortable()
-                ->rules('required', 'max:255'),
-            Trix::make('Body')
-                ->sortable()
-                ->rules('required'),
+            Translatable::make([
+                Text::make('Title')
+                    ->sortable()
+                    ->rules('required', 'max:255'),
+                Trix::make('Body')
+                    ->sortable()
+                    ->rules('required'),
+                Text::make('Introimage Alt'),
+            ]),
             Image::make('Introimage')->disk('public'),
             DateTime::make('Publish At')->hideFromIndex(),
             DateTime::make('Publish Until')->hideFromIndex(),

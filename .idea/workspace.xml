@@ -2,8 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f86be012-5364-473d-a5f7-a7b8c0c0f2c5" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/laravel_demo_jetstream.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/laravel_demo_jetstream.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Event.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Event.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Post.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Quote.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Quote.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Testimonial.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Testimonial.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Nova/Event.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Nova/Event.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Nova/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Nova/Post.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Nova/Quote.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Nova/Quote.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Nova/Testimonial.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Nova/Testimonial.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,6 +169,11 @@
       <path value="$PROJECT_DIR$/vendor/optimistdigital/nova-menu-builder" />
       <path value="$PROJECT_DIR$/vendor/optimistdigital/nova-tailwind" />
       <path value="$PROJECT_DIR$/vendor/spatie/laravel-sluggable" />
+      <path value="$PROJECT_DIR$/vendor/spatie/nova-translatable" />
+      <path value="$PROJECT_DIR$/vendor/spatie/laravel-translatable" />
+      <path value="$PROJECT_DIR$/vendor/asm89/stack-cors_compare" />
+      <path value="$PROJECT_DIR$/vendor/joedixon/nova-translation" />
+      <path value="$PROJECT_DIR$/vendor/joedixon/laravel-translation" />
     </include_path>
   </component>
   <component name="ProjectId" id="1iHOx9CGzAxJTY4BeCExXJdst2V" />
@@ -201,7 +218,8 @@
       <workItem from="1601648238546" duration="19000" />
       <workItem from="1601648286690" duration="4453000" />
       <workItem from="1601909164498" duration="9178000" />
-      <workItem from="1601990179016" duration="7080000" />
+      <workItem from="1601990179016" duration="8444000" />
+      <workItem from="1602070747554" duration="2329000" />
     </task>
     <servers />
   </component>
@@ -209,10 +227,11 @@
     <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1640" y="-1085" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1601991199802">
+    <state x="1640" y="-1085" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1602073159269">
       <screen x="696" y="-1417" width="2560" height="1417" />
     </state>
     <state x="531" y="213" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.811/-220.-1177.1920.1177@0.23.1440.811" timestamp="1601969363373" />
+    <state x="1640" y="-1085" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.812/-1224.-1177.1920.1177/696.-1417.2560.1417@696.-1417.2560.1417" timestamp="1602073159269" />
     <state x="488" y="-901" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.821/-220.-1177.1920.1177@-220.-1177.1920.1177" timestamp="1601648307583" />
     <state x="1640" y="-1085" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.877/-1224.-1177.1920.1105/696.-1417.2560.1417@696.-1417.2560.1417" timestamp="1601991199802" />
     <state x="259" y="-1024" key="SettingsEditor" timestamp="1601561310727">
@@ -232,11 +251,13 @@
     <state x="421" y="171" width="598" height="490" key="find.popup/0.23.1440.816@0.23.1440.816" timestamp="1601570351591" />
     <state x="421" y="172" width="622" height="494" key="find.popup/0.23.1440.821@0.23.1440.821" timestamp="1601656919489" />
     <state x="1444" y="-1160" width="1108" height="857" key="find.popup/0.23.1440.877/-1224.-1177.1920.1105/696.-1417.2560.1417@696.-1417.2560.1417" timestamp="1601994351036" />
-    <state x="1542" y="-1071" width="1193" height="816" key="search.everywhere.popup" timestamp="1601991884076">
+    <state x="1543" y="-1071" width="1194" height="817" key="search.everywhere.popup" timestamp="1602072450211">
       <screen x="696" y="-1417" width="2560" height="1417" />
     </state>
     <state x="476" y="221" width="671" height="467" key="search.everywhere.popup/0.23.1440.811/-220.-1177.1920.1177@0.23.1440.811" timestamp="1601969940815" />
     <state x="476" y="221" width="671" height="467" key="search.everywhere.popup/0.23.1440.811@0.23.1440.811" timestamp="1601964831123" />
+    <state x="-589" y="-890" width="895" height="678" key="search.everywhere.popup/0.23.1440.812/-1224.-1177.1920.1177/696.-1417.2560.1417@-1224.-1177.1920.1177" timestamp="1602056291057" />
+    <state x="1543" y="-1071" width="1194" height="817" key="search.everywhere.popup/0.23.1440.812/-1224.-1177.1920.1177/696.-1417.2560.1417@696.-1417.2560.1417" timestamp="1602072450211" />
     <state x="415" y="-889" width="670" height="676" key="search.everywhere.popup/0.23.1440.816/-220.-1177.1920.1177@-220.-1177.1920.1177" timestamp="1601562022484" />
     <state x="476" y="223" width="670" height="469" key="search.everywhere.popup/0.23.1440.816@0.23.1440.816" timestamp="1601570516597" />
     <state x="415" y="-889" width="894" height="677" key="search.everywhere.popup/0.23.1440.821/-220.-1177.1920.1177@-220.-1177.1920.1177" timestamp="1601648243740" />
