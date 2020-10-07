@@ -3,27 +3,29 @@
 namespace App\Nova;
 
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Trix;
+use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class Testimonial extends Resource
+class Event extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = \App\Models\Testimonial::class;
+    public static $model = \App\Models\Event::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
      * @var string
      */
-    public static $title = 'author';
+    public static $title = 'title';
 
     /**
      * The columns that should be searched.
@@ -31,7 +33,7 @@ class Testimonial extends Resource
      * @var array
      */
     public static $search = [
-        'id', 'author', 'profession',
+        'id','title',
     ];
 
     /**
@@ -44,17 +46,20 @@ class Testimonial extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Text::make('Author')
+            Text::make('Title')
                 ->sortable()
                 ->rules('required', 'max:255'),
-            Text::make('Profession')
-                ->sortable(),
             Trix::make('Description')
                 ->sortable()
                 ->rules('required'),
-            Image::make('Photo')
-                ->disk('public')
-                ->maxWidth(500),
+            Image::make('Image')->disk('public'),
+            BelongsTo::make('Event Category', 'category'),
+            BelongsTo::make('Event Venue', 'venue'),
+            //BelongsTo::make('Repeat Type', 'repeat_type'),
+            Text::make('Contact Email'),
+            Text::make('Website Event Link'),
+            Text::make('Facebook Event Link'),
+            Boolean::make('Status'),
         ];
     }
 
