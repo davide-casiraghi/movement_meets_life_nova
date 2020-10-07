@@ -36,7 +36,7 @@ class PostCategory extends Model
     /**
      * Returns the posts are assigned to this category.
      */
-    public function post(){
+    public function post(){         // 1-to-many (one category can have one or more posts)
         return $this->hasMany(Post::class, 'category_id');  //  select * from post where category_id
     }
 

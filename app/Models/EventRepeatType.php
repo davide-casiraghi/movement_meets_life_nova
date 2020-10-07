@@ -19,7 +19,7 @@ class EventRepeatType extends Model
     /**
      * Returns the events that have this repeat type.
      */
-    public function events(){
+    public function events(){                       // 1-to-many (one repeat type can have one or more events)
         return $this->hasMany(Event::class);  //  select * from events where event_repeat_type_id
     }
 }

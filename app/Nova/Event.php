@@ -4,6 +4,7 @@ namespace App\Nova;
 
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\HasOne;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\Text;
@@ -58,6 +59,7 @@ class Event extends Resource
             Image::make('Image')->disk('public'),
             BelongsTo::make('Event Category', 'category'),
             BelongsTo::make('Event Venue', 'venue'),
+            //BelongsTo::make('Event Venue', 'venue', EventVenue::class)->inline()->requireChild(),
             //BelongsTo::make('Repeat Type', 'repeat_type'),
             Text::make('Contact Email'),
             Text::make('Website Event Link'),

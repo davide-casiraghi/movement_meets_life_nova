@@ -42,20 +42,20 @@ class Event extends Model
      * Returns the category of the event.
      */
     public function category() {
-        return $this->belongsTo(EventCategory::class);
+        return $this->belongsTo(EventCategory::class); // 1-to-1 (one event can have just one category)
     }
 
     /**
      * Returns the venue of the event.
      */
     public function venue() {
-        return $this->belongsTo(EventVenue::class);
+        return $this->belongsTo(EventVenue::class); // 1-to-1 (one event can have just one venue)
     }
 
     /**
      * Get the repeat type of the event.
      */
     public function repeat_type() {
-        return $this->belongsTo(EventRepeatType::class);
+        return $this->belongsTo(EventRepeatType::class); // 1-to-1 (one event can have just one repeat type)
     }
 }

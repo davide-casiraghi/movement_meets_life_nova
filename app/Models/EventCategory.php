@@ -32,7 +32,7 @@ class EventCategory extends Model
     /**
      * Returns the events that are in this category.
      */
-    public function events(){
+    public function events(){                       // 1-to-many (one category can have one or more events)
         return $this->hasMany(Event::class);  //  select * from events where event_category_id
     }
 

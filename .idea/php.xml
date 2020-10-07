@@ -145,6 +145,7 @@
       <path value="$PROJECT_DIR$/vendor/asm89/stack-cors_compare" />
       <path value="$PROJECT_DIR$/vendor/joedixon/nova-translation" />
       <path value="$PROJECT_DIR$/vendor/joedixon/laravel-translation" />
+      <path value="$PROJECT_DIR$/vendor/kirschbaum-development/nova-inline-relationship" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7" />

@@ -32,7 +32,7 @@ class EventVenue extends Model
     /**
      * Returns the events that are assigned to this venue.
      */
-    public function events(){
+    public function events(){                   // 1-to-many (one venue can have one or more events)
         return $this->hasMany(Event::class);  //  select * from events where event_venue_id
     }
 }
