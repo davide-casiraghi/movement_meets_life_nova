@@ -29,6 +29,16 @@ class Event extends Model
     public $translatable = ['description'];
 
     /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array
+     */
+    protected $dates = [
+        'date_start',
+        'date_end',
+    ];
+
+    /**
      * Generates a unique slug.
      */
     public function getSlugOptions() : SlugOptions
