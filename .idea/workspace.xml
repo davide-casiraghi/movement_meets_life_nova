@@ -2,11 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f86be012-5364-473d-a5f7-a7b8c0c0f2c5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/laravel-tinker-plugin.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/EventRepeatType.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Nova/Event.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Nova/Event.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_06_064525_create_events_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_06_064525_create_events_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_06_070344_create_event_repeat_types_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/EventCategory.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/EventCategory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/EventVenue.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/EventVenue.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Post.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,7 +21,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration">
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="Remote PHP 7.4">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/bacon/bacon-qr-code" />
       <path value="$PROJECT_DIR$/vendor/facade/ignition-contracts" />
@@ -177,6 +178,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -186,7 +188,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
+    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
   </component>
   <component name="RunManager">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -213,7 +215,7 @@
       <workItem from="1601990179016" duration="8444000" />
       <workItem from="1602070747554" duration="4451000" />
       <workItem from="1602077548875" duration="63000" />
-      <workItem from="1602142661576" duration="1399000" />
+      <workItem from="1602142661576" duration="5865000" />
     </task>
     <servers />
   </component>
@@ -221,22 +223,27 @@
     <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1640" y="-1085" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1602073159269">
+    <state x="1414" y="-1210" key="#CLI_Interpreters" timestamp="1602144592269">
+      <screen x="696" y="-1417" width="2560" height="1417" />
+    </state>
+    <state x="1414" y="-1210" key="#CLI_Interpreters/0.23.1440.877/-1224.-1177.1920.1105/696.-1417.2560.1417@696.-1417.2560.1417" timestamp="1602144592269" />
+    <state x="1640" y="-1085" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1602148102218">
       <screen x="696" y="-1417" width="2560" height="1417" />
     </state>
     <state x="531" y="213" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.811/-220.-1177.1920.1177@0.23.1440.811" timestamp="1601969363373" />
-    <state x="1640" y="-1085" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.812/-1224.-1177.1920.1177/696.-1417.2560.1417@696.-1417.2560.1417" timestamp="1602073159269" />
+    <state x="1640" y="-1085" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.812/-1224.-1177.1920.1177/696.-1417.2560.1417@696.-1417.2560.1417" timestamp="1602145664778" />
     <state x="488" y="-901" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.821/-220.-1177.1920.1177@-220.-1177.1920.1177" timestamp="1601648307583" />
-    <state x="1640" y="-1085" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.877/-1224.-1177.1920.1105/696.-1417.2560.1417@696.-1417.2560.1417" timestamp="1601991199802" />
-    <state x="259" y="-1024" key="SettingsEditor" timestamp="1601561310727">
-      <screen x="-220" y="-1177" width="1920" height="1177" />
+    <state x="1640" y="-1085" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.877/-1224.-1177.1920.1105/696.-1417.2560.1417@696.-1417.2560.1417" timestamp="1602148102218" />
+    <state x="1335" y="-1233" key="SettingsEditor" timestamp="1602144594672">
+      <screen x="696" y="-1417" width="2560" height="1417" />
     </state>
     <state x="259" y="-1024" key="SettingsEditor/0.23.1440.816/-220.-1177.1920.1177@-220.-1177.1920.1177" timestamp="1601561310727" />
+    <state x="1335" y="-1233" key="SettingsEditor/0.23.1440.877/-1224.-1177.1920.1105/696.-1417.2560.1417@696.-1417.2560.1417" timestamp="1602144594672" />
     <state x="317" y="-1058" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1601648303881">
       <screen x="-220" y="-1177" width="1920" height="1177" />
     </state>
     <state x="317" y="-1058" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.23.1440.821/-220.-1177.1920.1177@-220.-1177.1920.1177" timestamp="1601648303881" />
-    <state x="1444" y="-1160" width="1108" height="857" key="find.popup" timestamp="1601994351036">
+    <state x="1444" y="-1160" width="1108" height="857" key="find.popup" timestamp="1602148735038">
       <screen x="696" y="-1417" width="2560" height="1417" />
     </state>
     <state x="421" y="170" width="623" height="490" key="find.popup/0.23.1440.811/-220.-1177.1920.1177@0.23.1440.811" timestamp="1601966716914" />
@@ -244,7 +251,7 @@
     <state x="421" y="170" width="623" height="491" key="find.popup/0.23.1440.812/-220.-1177.1920.1177@0.23.1440.812" timestamp="1601969851563" />
     <state x="421" y="171" width="598" height="490" key="find.popup/0.23.1440.816@0.23.1440.816" timestamp="1601570351591" />
     <state x="421" y="172" width="622" height="494" key="find.popup/0.23.1440.821@0.23.1440.821" timestamp="1601656919489" />
-    <state x="1444" y="-1160" width="1108" height="857" key="find.popup/0.23.1440.877/-1224.-1177.1920.1105/696.-1417.2560.1417@696.-1417.2560.1417" timestamp="1601994351036" />
+    <state x="1444" y="-1160" width="1108" height="857" key="find.popup/0.23.1440.877/-1224.-1177.1920.1105/696.-1417.2560.1417@696.-1417.2560.1417" timestamp="1602148735038" />
     <state x="1543" y="-1071" width="1194" height="817" key="search.everywhere.popup" timestamp="1602072450211">
       <screen x="696" y="-1417" width="2560" height="1417" />
     </state>
