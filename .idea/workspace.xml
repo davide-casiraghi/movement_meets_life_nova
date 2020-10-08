@@ -2,17 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f86be012-5364-473d-a5f7-a7b8c0c0f2c5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/laravel_demo_jetstream.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/laravel_demo_jetstream.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Event.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Event.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/EventCategory.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/EventCategory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/EventRepeatType.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/EventRepeatType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/EventVenue.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/EventVenue.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/PostCategory.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/PostCategory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/EventRepeatType.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Nova/Event.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Nova/Event.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_06_064525_create_events_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_06_064525_create_events_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_06_070344_create_event_repeat_types_table.php" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -217,7 +211,9 @@
       <workItem from="1601648286690" duration="4453000" />
       <workItem from="1601909164498" duration="9178000" />
       <workItem from="1601990179016" duration="8444000" />
-      <workItem from="1602070747554" duration="4372000" />
+      <workItem from="1602070747554" duration="4451000" />
+      <workItem from="1602077548875" duration="63000" />
+      <workItem from="1602142661576" duration="1399000" />
     </task>
     <servers />
   </component>

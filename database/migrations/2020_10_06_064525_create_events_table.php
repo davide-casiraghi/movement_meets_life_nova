@@ -18,7 +18,6 @@ class CreateEventsTable extends Migration
 
             $table->foreignId('event_category_id')->constrained();
             $table->foreignId('event_venue_id')->constrained();
-            $table->foreignId('event_repeat_type_id')->constrained();  //it deletes the referencing rows in the child table when the referenced row is deleted in the parent table which has a primary key.
             $table->foreignId('user_id')->constrained();
 
             $table->string('title');
@@ -30,12 +29,8 @@ class CreateEventsTable extends Migration
             $table->string('facebook_event_link')->nullable();
             $table->string('status')->nullable();
 
-            $table->integer('repeat_type');
-            $table->dateTime('repeat_until')->nullable();
-            $table->string('repeat_weekly_on')->nullable();
-            $table->string('repeat_monthly_on')->nullable();
-            $table->string('on_monthly_kind')->nullable();
-            $table->text('multiple_dates')->nullable();
+            $table->dateTime('date_start');
+            $table->dateTime('date_end');
 
             $table->string('slug');
 
