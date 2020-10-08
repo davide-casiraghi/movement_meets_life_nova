@@ -2,6 +2,8 @@
 
 namespace App\Nova;
 
+use Ebess\AdvancedNovaMediaLibrary\Fields\Files;
+use Ebess\AdvancedNovaMediaLibrary\Fields\Images;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\BelongsToMany;
@@ -9,6 +11,7 @@ use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Image;
+use Laravel\Nova\Fields\Markdown;
 use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Http\Requests\NovaRequest;
@@ -68,6 +71,12 @@ class Post extends Resource
             BelongsTo::make('User'),
             BelongsTo::make('Post Category'),
             BelongsToMany::make('Tags'),
+            Images::make('Gallery')
+                ->customPropertiesFields([
+                    Boolean::make('Active'),
+                    Markdown::make('Description'),
+                ])
+                ->croppable(false),
         ];
     }
 

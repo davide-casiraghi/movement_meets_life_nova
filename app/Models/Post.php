@@ -5,15 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;  //used for Gallery field
+use Spatie\MediaLibrary\HasMedia; //used for Gallery field
+use Spatie\MediaLibrary\InteractsWithMedia; //used for Gallery field
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 use Spatie\Translatable\HasTranslations;
 
-class Post extends Model
+class Post extends Model implements HasMedia
 {
     use HasFactory;
     use HasSlug;
     use HasTranslations;
+    use InteractsWithMedia;
 
     /**
      * The attributes that are mass assignable.
@@ -84,6 +88,23 @@ class Post extends Model
      */
     public function tags(){
         return $this->belongsToMany(Tag::class);
+    }
+
+    /**
+     * Add Image gallery support using:
+     * https://spatie.be/docs/laravel-medialibrary/v8/introduction
+     * https://github.com/ebess/advanced-nova-media-library
+     */
+    public function registerMediaConversions(Media $media = null): void
+    {
+        $this->addMediaConversion('thumb')
+            ->width(300)
+            ->height(300);
+    }
+
+    public function registerMediaCollections(): void
+    {
+        $this->addMediaCollection('collection_name')->singleFile();
     }
 
 
