@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f86be012-5364-473d-a5f7-a7b8c0c0f2c5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/laravel-tinker-plugin.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/EventCategory.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/EventCategory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/EventVenue.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/EventVenue.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Post.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -215,7 +210,7 @@
       <workItem from="1601990179016" duration="8444000" />
       <workItem from="1602070747554" duration="4451000" />
       <workItem from="1602077548875" duration="63000" />
-      <workItem from="1602142661576" duration="5865000" />
+      <workItem from="1602142661576" duration="7114000" />
     </task>
     <servers />
   </component>
