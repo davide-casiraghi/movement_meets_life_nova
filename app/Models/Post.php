@@ -73,10 +73,17 @@ class Post extends Model
     }
 
     /**
-     * Returns the roles for the user.
+     * Returns the categories for the post.
      */
     public function post_category() {
         return $this->belongsTo(PostCategory::class, 'category_id');
+    }
+
+    /**
+     * Returns the tags for the post.
+     */
+    public function tags(){
+        return $this->belongsToMany(Tag::class);
     }
 
 

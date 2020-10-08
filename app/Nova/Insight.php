@@ -3,33 +3,24 @@
 namespace App\Nova;
 
 use Illuminate\Http\Request;
-use Laravel\Nova\Fields\BelongsTo;
-use Laravel\Nova\Fields\BelongsToMany;
-use Laravel\Nova\Fields\Boolean;
-use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Fields\Image;
-use Laravel\Nova\Fields\Textarea;
-use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Http\Requests\NovaRequest;
-use Laravel\Nova\Fields\Text;
-use Spatie\NovaTranslatable\Translatable;
 
-class Post extends Resource
+class Insight extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = \App\Models\Post::class;
+    public static $model = \App\Models\Insight::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
      * @var string
      */
-    public static $title = 'title';
+    public static $title = 'insight';
 
     /**
      * The columns that should be searched.
@@ -37,7 +28,7 @@ class Post extends Resource
      * @var array
      */
     public static $search = [
-        'id', 'title',
+        'id','insight',
     ];
 
     /**
@@ -50,24 +41,6 @@ class Post extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Translatable::make([
-                Text::make('Title')
-                    ->sortable()
-                    ->rules('required', 'max:255'),
-                Trix::make('Body')
-                    ->rules('required'),
-                Text::make('Introimage Alt'),
-            ]),
-            Image::make('Introimage')->disk('public'),
-            DateTime::make('Publish At')->hideFromIndex(),
-            DateTime::make('Publish Until')->hideFromIndex(),
-            Boolean::make('Is Published'),
-            Boolean::make('Featured'),
-            Textarea::make('Before Content')->rows(3),
-            Textarea::make('After Content')->rows(3),
-            BelongsTo::make('User'),
-            BelongsTo::make('Post Category'),
-            BelongsToMany::make('Tags'),
         ];
     }
 

@@ -15,8 +15,8 @@ class CreateInsightsTable extends Migration
     {
         Schema::create('insights', function (Blueprint $table) {
             $table->id();
-            $table->text('insight');
-            $table->string('term')->nullable();
+            $table->string('title')->nullable();
+            $table->text('description');
             $table->boolean('is_published')->default(false);
 
             $table->unsignedBigInteger('post_id')->nullable();
@@ -25,6 +25,8 @@ class CreateInsightsTable extends Migration
             $table->boolean('is_posted_on_twitter')->default(false);
             $table->datetime('published_on_facebook_on')->nullable();
             $table->datetime('published_on_twitter_on')->nullable();
+
+            $table->string('slug');
 
             $table->timestamps();
         });
