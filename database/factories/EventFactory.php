@@ -30,6 +30,7 @@ class EventFactory extends Factory
             'contact_email' => $this->faker->email,
             'website_event_link' => $this->faker->url,
             'facebook_event_link' => $this->faker->url,
+            'image' => 'placeholders/placeholder-768x768.png',
 
             'status' => $this->faker->numberBetween($min = 0, $max = 1),
             'date_start' => $start,
