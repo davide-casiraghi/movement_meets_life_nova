@@ -2,21 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f86be012-5364-473d-a5f7-a7b8c0c0f2c5" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/laravel-tinker-plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/laravel-tinker-plugin.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/laravel_demo_jetstream.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/laravel_demo_jetstream.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Glossary.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Glossary.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Post.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Nova/Event.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Nova/Event.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Nova/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Nova/Post.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Nova/PostCategory.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Nova/PostCategory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_02_134921_create_posts_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_02_134921_create_posts_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_08_092250_create_glossaries_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_08_092250_create_glossaries_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/GlossaryFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/GlossaryFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/InsightFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/InsightFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/PostFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/PostFactory.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" doNotAsk="true">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
@@ -233,7 +232,11 @@
       <workItem from="1602077548875" duration="63000" />
       <workItem from="1602142661576" duration="8522000" />
       <workItem from="1602160023005" duration="1762000" />
-      <workItem from="1602163906146" duration="4319000" />
+      <workItem from="1602163906146" duration="5173000" />
+      <workItem from="1602236729469" duration="17000" />
+      <workItem from="1602239479870" duration="18000" />
+      <workItem from="1602246853336" duration="27000" />
+      <workItem from="1602247273888" duration="1301000" />
     </task>
     <servers />
   </component>

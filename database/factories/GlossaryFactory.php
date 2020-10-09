@@ -22,7 +22,9 @@ class GlossaryFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'term' => $this->faker->word,
+            'definition' => $this->faker->sentence($nbWords = 2, $variableNbWords = true),
+            'body' => $this->faker->paragraph($nbSentences = 2, $variableNbSentences = true),
         ];
     }
 }
