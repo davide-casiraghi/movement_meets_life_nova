@@ -19,6 +19,7 @@ class CreatePostsTable extends Migration
             $table->foreign('category_id')->references('id')->on('post_categories');
             $table->string('title');
             $table->integer('created_by')->nullable();
+            $table->text('intro_text');
             $table->text('body');
             $table->string('status')->default('2');
             $table->boolean('featured')->default(0);

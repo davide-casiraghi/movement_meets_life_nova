@@ -2,37 +2,29 @@
 
 namespace App\Nova;
 
-use Ebess\AdvancedNovaMediaLibrary\Fields\Files;
-use Ebess\AdvancedNovaMediaLibrary\Fields\Images;
 use Illuminate\Http\Request;
-use Laravel\Nova\Fields\BelongsTo;
-use Laravel\Nova\Fields\BelongsToMany;
-use Laravel\Nova\Fields\Boolean;
-use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Image;
-use Laravel\Nova\Fields\Markdown;
-use Laravel\Nova\Fields\Textarea;
+use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Http\Requests\NovaRequest;
-use Laravel\Nova\Fields\Text;
 use Spatie\NovaTranslatable\Translatable;
 
-class Post extends Resource
+class Glossary extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = \App\Models\Post::class;
+    public static $model = \App\Models\Glossary::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
      * @var string
      */
-    public static $title = 'title';
+    public static $title = 'term';
 
     /**
      * The columns that should be searched.
@@ -40,7 +32,7 @@ class Post extends Resource
      * @var array
      */
     public static $search = [
-        'id', 'title',
+        'id', 'term', 'definition',
     ];
 
     /**
@@ -54,31 +46,16 @@ class Post extends Resource
         return [
             ID::make(__('ID'), 'id')->sortable(),
             Translatable::make([
-                Text::make('Title')
+                Text::make('Term')
                     ->sortable()
                     ->rules('required', 'max:255'),
-                Trix::make('Intro Text'),
-                Trix::make('Body')
+                Text::make('Definition')
+                    ->sortable()
                     ->rules('required'),
-                Text::make('Introimage Alt')->hideFromIndex(),
+                Trix::make('Body')
+                    ->sortable()
+                    ->rules('required'),
             ]),
-            Image::make('Introimage')->disk('public')->hideFromIndex(),
-            DateTime::make('Publish At')->hideFromIndex(),
-            DateTime::make('Publish Until')->hideFromIndex(),
-            Boolean::make('Is Published'),
-            Boolean::make('Featured'),
-            Textarea::make('Before Content')->rows(3),
-            Textarea::make('After Content')->rows(3),
-            BelongsTo::make('User')->hideFromIndex(),
-            BelongsTo::make('Post Category'),
-            BelongsToMany::make('Tags'),
-            Images::make('Gallery')
-                ->customPropertiesFields([
-                    Boolean::make('Active'),
-                    Markdown::make('Description'),
-                ])
-                ->croppable(false)
-                ->hideFromIndex(),
         ];
     }
 

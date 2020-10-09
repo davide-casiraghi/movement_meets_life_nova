@@ -17,6 +17,7 @@ class CreateGlossariesTable extends Migration
             $table->id();
             $table->string('term')->nullable();
             $table->text('definition');
+            $table->text('body');
             $table->string('slug');
             $table->timestamps();
         });

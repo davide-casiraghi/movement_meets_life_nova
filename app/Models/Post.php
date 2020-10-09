@@ -20,20 +20,18 @@ class Post extends Model implements HasMedia
     use InteractsWithMedia;
 
     /**
-     * The attributes that are mass assignable.
+     * The attributes that aren't mass assignable.
      *
      * @var array
      */
-    protected $fillable = [
-        'title', 'body', 'created_by', 'slug', 'category_id', 'meta_description', 'meta_keywords', 'seo_title', 'image', 'status', 'featured', 'introimage', 'introimage_alt', 'before_content', 'after_content', 'extra_field_1', 'extra_field_2', 'extra_field_3', 'extra_field_trans_1', 'extra_field_trans_2',
-    ];
+    protected $guarded = [];
 
     /**
      * The attributes that are translatable.
      *
      * @var array
      */
-    public $translatable = ['title', 'body', 'introimage_alt'];
+    public $translatable = ['title','intro_text', 'body', 'introimage_alt'];
 
     /**
      * The "booted" method of the model.

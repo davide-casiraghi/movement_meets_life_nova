@@ -48,7 +48,8 @@ class PostCategory extends Resource
                 ->rules('required', 'max:255'),
             Text::make('Slug')
                 ->sortable()
-                ->rules('required', 'max:255'),
+                ->rules('required', 'max:255')
+                ->hideFromIndex(),
             Trix::make('Description'),
         ];
     }

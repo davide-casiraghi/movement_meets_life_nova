@@ -48,7 +48,7 @@ class Event extends Resource
     public function fields(Request $request)
     {
         return [
-            ID::make(__('ID'), 'id')->sortable(),
+            ID::make(__('ID'), 'id')->hideFromIndex()->sortable(),
             Text::make('Title')
                 ->sortable()
                 ->rules('required', 'max:255'),
@@ -57,21 +57,21 @@ class Event extends Resource
                     ->sortable()
                     ->rules('required'),
             ]),
-            Image::make('Image')->disk('public'),
+            Image::make('Image')->disk('public')->hideFromIndex(),
             BelongsTo::make('Event Category', 'category'),
-            BelongsTo::make('Event Venue', 'venue')->searchable(), // https://nova.laravel.com/docs/1.0/resources/relationships.html#searchable-relations
+            BelongsTo::make('Event Venue', 'venue')->hideFromIndex()->searchable(), // https://nova.laravel.com/docs/1.0/resources/relationships.html#searchable-relations
             //BelongsTo::make('Event Venue', 'venue', EventVenue::class)->inline()->requireChild(),
 
             DateTime::make('Date Start')
                 ->rules('required', 'date', 'before_or_equal:date_end')  //, 'after_or_equal:now'
                 ->format('DD-MM-YYYY hh:mm')->pickerFormat('d-m-Y')->pickerDisplayFormat('d-m-Y  h:m'),
-            DateTime::make('Date End')
+            DateTime::make('Date End')->hideFromIndex()
                 ->rules('required', 'date', 'after_or_equal:date_end')
                 ->format('DD-MM-YYYY hh:mm')->pickerFormat('d-m-Y')->pickerDisplayFormat('d-m-Y h:m'),
 
-            Text::make('Contact Email'),
-            Text::make('Website Event Link'),
-            Text::make('Facebook Event Link'),
+            Text::make('Contact Email')->hideFromIndex(),
+            Text::make('Website Event Link')->hideFromIndex(),
+            Text::make('Facebook Event Link')->hideFromIndex(),
             Boolean::make('Status'),
         ];
     }
