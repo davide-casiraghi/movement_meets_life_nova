@@ -43,9 +43,24 @@ class InsightFactory extends Factory
             $published = 1;
         }
 
+
+       /* $title = [
+            'en' => $this->faker->sentence($nbWords = 7, $variableNbWords = true),
+            'it' => $this->faker->sentence($nbWords = 7, $variableNbWords = true),
+        ];
+
+        $title = json_encode($title);*/
+
+
         return [
-            'title' => $this->faker->sentence($nbWords = 7, $variableNbWords = true),
-            'description' => $this->faker->paragraph($nbSentences = 2, $variableNbSentences = true),
+            'title' => [
+                'en' => $this->faker->sentence($nbWords = 7, $variableNbWords = true),
+                'it' => $this->faker->sentence($nbWords = 7, $variableNbWords = true),
+            ],
+            'description' => [
+                'en' => $this->faker->paragraph($nbSentences = 2, $variableNbSentences = true),
+                'it' => $this->faker->paragraph($nbSentences = 2, $variableNbSentences = true),
+            ],
             'is_published' => $published,
             'is_posted_on_facebook' => $is_posted_on_facebook,
             'published_on_facebook_on' => $published_on_facebook_on,

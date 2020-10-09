@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f86be012-5364-473d-a5f7-a7b8c0c0f2c5" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/laravel-tinker-plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/laravel-tinker-plugin.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Event.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Event.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Insight.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Insight.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Nova/Insight.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Nova/Insight.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/InsightFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/InsightFactory.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -233,7 +234,8 @@
       <workItem from="1602236729469" duration="17000" />
       <workItem from="1602239479870" duration="18000" />
       <workItem from="1602246853336" duration="27000" />
-      <workItem from="1602247273888" duration="4263000" />
+      <workItem from="1602247273888" duration="5283000" />
+      <workItem from="1602252951151" duration="1365000" />
     </task>
     <servers />
   </component>
@@ -263,9 +265,10 @@
       <screen x="-220" y="-1177" width="1920" height="1177" />
     </state>
     <state x="317" y="-1058" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.23.1440.821/-220.-1177.1920.1177@-220.-1177.1920.1177" timestamp="1601648303881" />
-    <state x="1444" y="-1160" width="1108" height="857" key="find.popup" timestamp="1602148735038">
+    <state x="1444" y="-1160" width="1108" height="857" key="find.popup" timestamp="1602254003882">
       <screen x="696" y="-1417" width="2560" height="1417" />
     </state>
+    <state x="1444" y="-1160" width="1108" height="857" key="find.popup/0.23.1440.808/-1224.-1177.1920.1177/696.-1417.2560.1417@696.-1417.2560.1417" timestamp="1602254003882" />
     <state x="421" y="170" width="623" height="490" key="find.popup/0.23.1440.811/-220.-1177.1920.1177@0.23.1440.811" timestamp="1601966716914" />
     <state x="1444" y="-1160" width="1106" height="853" key="find.popup/0.23.1440.811/696.-1417.2560.1417/-1224.-1177.1920.1177@696.-1417.2560.1417" timestamp="1601911354853" />
     <state x="421" y="170" width="623" height="491" key="find.popup/0.23.1440.812/-220.-1177.1920.1177@0.23.1440.812" timestamp="1601969851563" />

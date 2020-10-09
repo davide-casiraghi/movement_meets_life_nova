@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="laravelTinkerProject">
-    <option name="lastCode" value="&lt;?php&#10;//Tinker away!&#10;use App\Models\Event;&#10;use App\Models\EventCategory;&#10;use App\Models\Insight;&#10;use App\Models\Inspiration;&#10;use App\Models\Post;&#10;use App\Models\PostCategory;&#10;&#10;&#10;Post::factory()-&gt;count(4)-&gt;create();" />
+    <option name="lastCode" value="&lt;?php&#10;//Tinker away!&#10;use App\Models\Event;&#10;use App\Models\EventCategory;&#10;use App\Models\Insight;&#10;use App\Models\Inspiration;&#10;use App\Models\Post;&#10;use App\Models\PostCategory;&#10;&#10;&#10;Insight::factory()-&gt;count(4)-&gt;create();" />
   </component>
 </project>
