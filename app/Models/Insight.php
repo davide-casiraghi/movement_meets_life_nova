@@ -6,11 +6,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
+use Spatie\Translatable\HasTranslations;
 
 class Insight extends Model
 {
     use HasFactory;
     use HasSlug;
+    use HasTranslations;
 
     /**
      * The attributes that aren't mass assignable.
@@ -18,6 +20,24 @@ class Insight extends Model
      * @var array
      */
     protected $guarded = [];
+
+    /**
+     * The attributes that are translatable.
+     *
+     * @var array
+     */
+    public $translatable = ['title', 'description'];
+
+
+    /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array
+     */
+    protected $dates = [
+        'published_on_facebook_on',
+        'published_on_twitter_on',
+    ];
 
 
     /**
@@ -28,5 +48,12 @@ class Insight extends Model
         return SlugOptions::create()
             ->generateSlugsFrom('title')
             ->saveSlugsTo('slug');
+    }
+
+    /**
+     * Returns the tags for the post.
+     */
+    public function tags(){
+        return $this->belongsToMany(Tag::class);
     }
 }

@@ -3,8 +3,14 @@
 namespace App\Nova;
 
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\BelongsToMany;
+use Laravel\Nova\Fields\Boolean;
+use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use Spatie\NovaTranslatable\Translatable;
 
 class Insight extends Resource
 {
@@ -41,6 +47,25 @@ class Insight extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
+            Translatable::make([
+                Text::make('Title')
+                    ->sortable()
+                    ->rules('required', 'max:255'),
+                Trix::make('Description')
+                    ->rules('required'),
+            ]),
+            Boolean::make('Is Published'),
+            Boolean::make('Is Posted On Facebook'),
+            DateTime::make('Published On Facebook On')
+                ->hideFromIndex()
+                ->readonly()
+                ->format('DD-MM-YYYY hh:mm'),
+            Boolean::make('Is Posted On Twitter'),
+            DateTime::make('Published On Twitter On')
+                ->hideFromIndex()
+                ->readonly()
+                ->format('DD-MM-YYYY hh:mm'),
+            BelongsToMany::make('Tags'),
         ];
     }
 
