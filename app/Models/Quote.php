@@ -12,13 +12,11 @@ class Quote extends Model
     use HasTranslations;
 
     /**
-     * The attributes that are mass assignable.
+     * The attributes that aren't mass assignable.
      *
      * @var array
      */
-    protected $fillable = [
-        'author', 'description',
-    ];
+    protected $guarded = [];
 
     /**
      * The attributes that are translatable.

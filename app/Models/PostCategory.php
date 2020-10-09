@@ -14,13 +14,11 @@ class PostCategory extends Model
     use HasSlug;
 
     /**
-     * The attributes that are mass assignable.
+     * The attributes that aren't mass assignable.
      *
      * @var array
      */
-    protected $fillable = [
-        'name', 'slug', 'description',
-    ];
+    protected $guarded = [];
 
     // https://stackoverflow.com/questions/48264084/how-to-get-unique-slug-to-same-post-title-for-other-time-too
     /**

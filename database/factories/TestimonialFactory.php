@@ -23,8 +23,14 @@ class TestimonialFactory extends Factory
     {
         return [
             'author' => $this->faker->name($gender = null|'male'|'female'),
-            'profession' => $this->faker->sentence($nbWords = 2, $variableNbWords = true),
-            'description' => $this->faker->paragraph($nbSentences = 2, $variableNbSentences = true),
+            'profession' => [
+                'en' => $this->faker->sentence($nbWords = 2, $variableNbWords = true),
+                'it' => $this->faker->sentence($nbWords = 2, $variableNbWords = true),
+            ],
+            'description' => [
+                'en' => $this->faker->sentence($nbWords = 2, $variableNbWords = true),
+                'it' => $this->faker->sentence($nbWords = 2, $variableNbWords = true),
+            ],
             'photo' => 'placeholders/placeholder-150x150.png',
         ];
     }

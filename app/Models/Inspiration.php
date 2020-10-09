@@ -15,4 +15,11 @@ class Inspiration extends Model
      * @var array
      */
     protected $guarded = [];
+
+    /**
+     * The attributes that aren't mass assignable.
+     *
+     * @var array
+     */
+    protected $guarded = [];
 }

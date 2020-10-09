@@ -2,11 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f86be012-5364-473d-a5f7-a7b8c0c0f2c5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/laravel-tinker-plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/laravel-tinker-plugin.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/InsightFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/InsightFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Inspiration.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Inspiration.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/PostCategory.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/PostCategory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Quote.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Quote.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/EventFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/EventFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/GlossaryFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/GlossaryFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/PostFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/PostFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/TestimonialFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/TestimonialFactory.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -235,7 +238,8 @@
       <workItem from="1602239479870" duration="18000" />
       <workItem from="1602246853336" duration="27000" />
       <workItem from="1602247273888" duration="5283000" />
-      <workItem from="1602252951151" duration="1365000" />
+      <workItem from="1602252951151" duration="1526000" />
+      <workItem from="1602254778722" duration="320000" />
     </task>
     <servers />
   </component>

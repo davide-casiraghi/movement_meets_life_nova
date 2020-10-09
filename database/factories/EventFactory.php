@@ -26,7 +26,10 @@ class EventFactory extends Factory
 
         return [
             'title' => $this->faker->sentence($nbWords = 2, $variableNbWords = true),
-            'description' => $this->faker->text($maxNbChars = 200),
+            'description' => [
+                'en' => $this->faker->text($maxNbChars = 200),
+                'it' => $this->faker->text($maxNbChars = 200),
+            ],
             'contact_email' => $this->faker->email,
             'website_event_link' => $this->faker->url,
             'facebook_event_link' => $this->faker->url,
