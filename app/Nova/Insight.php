@@ -3,6 +3,7 @@
 namespace App\Nova;
 
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\DateTime;
@@ -54,6 +55,8 @@ class Insight extends Resource
                 Trix::make('Description')
                     ->rules('required'),
             ]),
+            BelongsTo::make('Post')->searchable(),
+
             Boolean::make('Is Published'),
             Boolean::make('Is Posted On Facebook'),
             DateTime::make('Published On Facebook On')

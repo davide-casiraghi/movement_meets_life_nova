@@ -56,4 +56,12 @@ class Insight extends Model
     public function tags(){
         return $this->belongsToMany(Tag::class);
     }
+
+    /**
+     * Returns the post of the event.
+     */
+    public function post() {
+        return $this->belongsTo(Post::class); // 1-to-1 (one event can have just one category)
+    }
+
 }

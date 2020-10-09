@@ -65,7 +65,7 @@ class Event extends Model
     /**
      * Get the repeat type of the event.
      */
-    public function repeat_type() {
+    /*public function repeat_type() {
         return $this->belongsTo(EventRepeatType::class); // 1-to-1 (one event can have just one repeat type)
-    }
+    }*/
 }
