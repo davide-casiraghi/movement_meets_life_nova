@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Event;
+use App\Services\GlobalServices;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class EventFactory extends Factory
@@ -35,7 +36,7 @@ class EventFactory extends Factory
             'facebook_event_link' => $this->faker->url,
             'image' => 'placeholders/placeholder-768x768.png',
 
-            'status' => $this->faker->numberBetween($min = 0, $max = 1),
+            'is_published' => GlobalServices::getRandomWeightedElement(['1'=>85, '0'=>15 ]),
             'date_start' => $start,
             'date_end' => $end,
 

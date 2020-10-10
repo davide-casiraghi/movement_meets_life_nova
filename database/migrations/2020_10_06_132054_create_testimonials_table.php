@@ -20,6 +20,7 @@ class CreateTestimonialsTable extends Migration
             $table->text('description')->nullable();
             $table->string('photo')->nullable();
 
+            $table->boolean('is_published')->default(false);
             $table->string('slug');
             $table->timestamps();
         });

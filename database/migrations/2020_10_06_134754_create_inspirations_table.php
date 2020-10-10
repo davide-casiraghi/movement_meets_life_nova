@@ -17,6 +17,9 @@ class CreateInspirationsTable extends Migration
             $table->id();
             $table->string('author')->nullable();
             $table->text('description');
+
+            $table->boolean('is_published')->default(false);
+            $table->string('slug');
             $table->timestamps();
         });
     }

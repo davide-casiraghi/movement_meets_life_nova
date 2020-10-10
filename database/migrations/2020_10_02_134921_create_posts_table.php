@@ -21,12 +21,15 @@ class CreatePostsTable extends Migration
             $table->integer('created_by')->nullable();
             $table->text('intro_text');
             $table->text('body');
-            $table->string('status')->default('2');
             $table->boolean('featured')->default(0);
             $table->text('before_content')->nullable();
             $table->text('after_content')->nullable();
             $table->string('introimage')->nullable();
             $table->string('introimage_alt')->nullable();
+
+            $table->datetime('publish_at')->nullable();
+            $table->datetime('publish_until')->nullable();
+            $table->boolean('is_published')->default(false);
             $table->string('slug');
             $table->timestamps();
         });

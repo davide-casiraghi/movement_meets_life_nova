@@ -36,7 +36,7 @@ class Testimonial extends Model
     public function getSlugOptions() : SlugOptions
     {
         return SlugOptions::create()
-            ->generateSlugsFrom('title')
+            ->generateSlugsFrom('author')
             ->saveSlugsTo('slug');
     }
 

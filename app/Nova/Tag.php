@@ -7,6 +7,7 @@ use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use Spatie\NovaTranslatable\Translatable;
 
 class Tag extends Resource
 {
@@ -43,7 +44,9 @@ class Tag extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Text::make('Tag')->sortable(),
+            Translatable::make([
+                Text::make('Tag')->sortable(),
+            ]),
             BelongsToMany::make('Posts'),
         ];
     }

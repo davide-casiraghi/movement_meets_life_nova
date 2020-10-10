@@ -4,11 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Sluggable\HasSlug;
+use Spatie\Sluggable\SlugOptions;
 use Spatie\Translatable\HasTranslations;
 
 class Quote extends Model
 {
     use HasFactory;
+    use HasSlug;
     use HasTranslations;
 
     /**
@@ -24,6 +27,16 @@ class Quote extends Model
      * @var array
      */
     public $translatable = ['description'];
+
+    /**
+     * Generates a unique slug.
+     */
+    public function getSlugOptions() : SlugOptions
+    {
+        return SlugOptions::create()
+            ->generateSlugsFrom('description')
+            ->saveSlugsTo('slug');
+    }
 
 
 }

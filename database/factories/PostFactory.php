@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Post;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Services\GlobalServices;
 
 class PostFactory extends Factory
 {
@@ -34,7 +35,7 @@ class PostFactory extends Factory
                 'en' => $this->faker->text($maxNbChars = 200),
                 'it' => $this->faker->text($maxNbChars = 200),
             ],
-            'status' => $this->faker->numberBetween($min = 0, $max = 1),
+            'is_published' => GlobalServices::getRandomWeightedElement(['1'=>85, '0'=>15 ]),
             'featured' => $this->faker->numberBetween($min = 0, $max = 1),
             'category_id' => $this->faker->numberBetween($min = 1, $max = 3),
             'created_by' => 1, //Auth user has a problem here
@@ -42,3 +43,6 @@ class PostFactory extends Factory
         ];
     }
 }
+
+
+

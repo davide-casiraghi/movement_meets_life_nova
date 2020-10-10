@@ -21,7 +21,6 @@ class InspirationFactory extends Factory
      */
     public function definition()
     {
-        //$this->faker->addProvider(new \Faker\Provider\it_IT\Text($this->faker));
         return [
             'author' => $this->faker->name($gender = null|'male'|'female'),
             'description' => $this->faker->paragraph($nbSentences = 2, $variableNbSentences = true),

@@ -72,7 +72,7 @@ class Event extends Resource
             Text::make('Contact Email')->hideFromIndex(),
             Text::make('Website Event Link')->hideFromIndex(),
             Text::make('Facebook Event Link')->hideFromIndex(),
-            Boolean::make('Status'),
+            Boolean::make('Is Published'),
         ];
     }
 

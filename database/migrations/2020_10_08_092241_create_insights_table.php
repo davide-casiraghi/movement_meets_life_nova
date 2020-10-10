@@ -17,7 +17,6 @@ class CreateInsightsTable extends Migration
             $table->id();
             $table->string('title')->nullable();
             $table->text('description');
-            $table->boolean('is_published')->default(false);
 
             $table->unsignedBigInteger('post_id')->nullable();
 
@@ -26,8 +25,8 @@ class CreateInsightsTable extends Migration
             $table->datetime('published_on_facebook_on')->nullable();
             $table->datetime('published_on_twitter_on')->nullable();
 
+            $table->boolean('is_published')->default(false);
             $table->string('slug');
-
             $table->timestamps();
         });
     }
