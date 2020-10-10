@@ -15,10 +15,12 @@ class CreateInsightsTable extends Migration
     {
         Schema::create('insights', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('post_id')->nullable();
+
             $table->string('title')->nullable();
             $table->text('description');
-
-            $table->unsignedBigInteger('post_id')->nullable();
+            $table->string('introimage')->nullable();
+            $table->string('introimage_alt')->nullable();
 
             $table->boolean('is_posted_on_facebook')->default(false);
             $table->boolean('is_posted_on_twitter')->default(false);

@@ -10,6 +10,7 @@ use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Trix;
+use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Spatie\NovaTranslatable\Translatable;
 
@@ -54,8 +55,10 @@ class Insight extends Resource
                     ->rules('required', 'max:255'),
                 Trix::make('Description')
                     ->rules('required'),
+                Text::make('Introimage Alt')->hideFromIndex(),
             ]),
             BelongsTo::make('Post')->searchable(),
+            Image::make('Introimage')->disk('public')->hideFromIndex(),
 
             Boolean::make('Is Published'),
             Boolean::make('Is Posted On Facebook'),

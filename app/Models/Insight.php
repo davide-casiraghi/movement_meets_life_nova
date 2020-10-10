@@ -26,7 +26,7 @@ class Insight extends Model
      *
      * @var array
      */
-    public $translatable = ['title', 'description'];
+    public $translatable = ['title', 'description', 'introimage_alt'];
 
 
     /**
@@ -51,17 +51,17 @@ class Insight extends Model
     }
 
     /**
-     * Returns the tags for the post.
+     * Returns the tags associated to the insight.
      */
     public function tags(){
         return $this->belongsToMany(Tag::class);
     }
 
     /**
-     * Returns the post of the event.
+     * Returns the post of the insight. (optional)
      */
     public function post() {
-        return $this->belongsTo(Post::class); // 1-to-1 (one event can have just one category)
+        return $this->hasOne(Post::class); // 1-to-1 (one event can have just one category)
     }
 
 }

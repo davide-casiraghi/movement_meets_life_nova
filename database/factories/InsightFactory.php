@@ -47,11 +47,16 @@ class InsightFactory extends Factory
                 'en' => $this->faker->paragraph($nbSentences = 2, $variableNbSentences = true),
                 'it' => $this->faker->paragraph($nbSentences = 2, $variableNbSentences = true),
             ],
+            'introimage_alt' => [
+                'en' => $this->faker->sentence($nbWords = 2, $variableNbWords = true),
+                'it' => $this->faker->sentence($nbWords = 2, $variableNbWords = true),
+            ],
             'is_published' => GlobalServices::getRandomWeightedElement(['1'=>85, '0'=>15 ]),
             'is_posted_on_facebook' => $is_posted_on_facebook,
             'published_on_facebook_on' => $published_on_facebook_on,
             'is_posted_on_twitter' => $is_posted_on_twitter,
             'published_on_twitter_on' => $published_on_twitter_on,
+            'introimage' => 'placeholders/placeholder-768x768.png',
         ];
     }
 }

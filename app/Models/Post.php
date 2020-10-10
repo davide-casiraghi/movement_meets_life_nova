@@ -75,14 +75,21 @@ class Post extends Model implements HasMedia
     }
 
     /**
-     * Returns the categories for the post.
+     * Returns the categories of the post.
      */
     public function post_category() {
         return $this->belongsTo(PostCategory::class, 'category_id');
     }
 
     /**
-     * Returns the tags for the post.
+     * Returns the insight of the post. (optional)
+     */
+    public function insight() {
+        return $this->belongsTo(Insight::class);
+    }
+
+    /**
+     * Returns the tags associated to the post.
      */
     public function tags(){
         return $this->belongsToMany(Tag::class);

@@ -17,6 +17,9 @@ class CreatePostsTable extends Migration
             $table->increments('id');
             $table->integer('category_id')->unsigned();
             $table->foreign('category_id')->references('id')->on('post_categories');
+
+            $table->unsignedBigInteger('insight_id')->nullable();
+
             $table->string('title');
             $table->integer('created_by')->nullable();
             $table->text('intro_text');

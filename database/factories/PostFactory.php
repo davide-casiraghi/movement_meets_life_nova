@@ -35,6 +35,10 @@ class PostFactory extends Factory
                 'en' => $this->faker->text($maxNbChars = 200),
                 'it' => $this->faker->text($maxNbChars = 200),
             ],
+            'introimage_alt' => [
+                'en' => $this->faker->sentence($nbWords = 2, $variableNbWords = true),
+                'it' => $this->faker->sentence($nbWords = 2, $variableNbWords = true),
+            ],
             'is_published' => GlobalServices::getRandomWeightedElement(['1'=>85, '0'=>15 ]),
             'featured' => $this->faker->numberBetween($min = 0, $max = 1),
             'category_id' => $this->faker->numberBetween($min = 1, $max = 3),

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{--<!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
@@ -39,4 +39,58 @@
 
         @livewireScripts
     </body>
+</html>--}}
+
+
+@php ($barsBackground = '#B5A575')
+
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="{{$barsBackground}}"/> {{-- Theming the browser's address bar to match your brand's colors provides a more immersive user experience.--}}
+    <meta name="description" content="@hasSection('description')@yield('description')@else @lang('homepage-serach.find_information')@endif">
+
+    {{-- CSRF Token --}}
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    {{-- CSS --}}
+    <link href="{{ asset('css/vendor.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @yield('css')
+
+    {{-- JS that need to stay in the head--}}
+    @yield('javascript-head')
+
+    {{--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">--}}
+</head>
+
+<body class="light-gray-bg">
+    @livewire('navigation-dropdown')
+
+    <div class="container max-w-md mt-5">
+        @yield('content')
+    </div>
+
+    {{-- JS --}}
+    <script src="{{ asset('js/manifest.js') }}" ></script>
+    <script src="{{ asset('js/vendor.js') }}" ></script>
+    <script src="{{ asset('js/app.js') }}" ></script>
+
+    @yield('javascript')
+
+    <script>
+        $(document).ready(function(){
+            @yield('javascript-document-ready')
+        });
+    </script>
+
+    @stack('modals')
+    @livewireScripts
+</body>
+
 </html>
