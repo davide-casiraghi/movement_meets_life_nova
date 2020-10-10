@@ -1,61 +1,106 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
 
-## About Laravel
+## About the Movement Meets Life project
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+The project is developed using Laravel 8 PHP framework. 
+  
+The dev environment it's a Laravel Homestead virtual machine. (Vagrant)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
-
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[OP.GG](https://op.gg)**
 
 ## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Development workflow
+- The **master** branch represent the production environment.  
+- The **dev** brench represent the developent environment.  
 
-## Code of Conduct
+- To start a new feature, checkout a new git branch called **feature/*** from **dev**.
+- To create a fix, checkout a new git branch called **fix/*** from **dev**.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-## Security Vulnerabilities
+### Setup the dev environment 
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Clone this repo into a local folder:   
+```git clone git@github.com:davide-casiraghi/movement_meets_life_nova
+.git```
 
-## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Copy & customize your .env config:   
+```copy .env.example .env```    
+```nano .env```
+
+Config the .env like this:
+```
+DB_CONNECTION=mysql
+DB_HOST=192.168.10.10
+DB_PORT=3306
+DB_DATABASE=homestead
+DB_USERNAME=homestead
+DB_PASSWORD=secret
+```
+
+To start the virtual machine:    
+```vagrant up```
+
+Install vendor files:   
+```composer install```   
+
+Generate a unique app key by the following command:    
+```php artisan key:generate ```  
+The key will be added to your .env file:
+```APP_KEY=```
+
+Run the db migrations:    
+```php artisan migrate```   
+
+Clean the cache:  
+```php artisan cache:clear```
+
+Open the hosts file on your machine in your text editor and add this entry.  
+
+ ```192.168.10.10 laravel_jetstream.test```
+
+Install all npm modules:   
+  ```npm install```
+  
+Create the file storage symbolic link from public/storage to storage/app/public
+ 
+  ```php artisan storage:link```
+
+Access the local website at:   
+[https://laravel_jetstream.test/](https://laravel_jetstream.test/)
+
+
+#### Access to the staging server with Mac + Chrome
+
+In case of access to the staging server with this configuration, the following error is returned because of the untrusted certificate.    
+
+```"Your connection is not private"```    
+
+To bypass this error you can try typing “badidea” or “thisisunsafe” directly in chrome on the same page.    
+
+(tested on Version 81.0.4044.138 - MacOs Catalina 14/5/2020)
+
+
+### Access to the virtual machine database
+
+You can access to the homestead database using **MySQLWorkbench** or **Sequel Ace**
+(Sequel Ace is the "sequel" to longtime macOS tool Sequel Pro.)
+
+I suggest to use **Sequel Ace** instead of **Sequel Pro** since **Sequel Pro** may have problems connecting to the Homestead database.
+
+Connect using SSH and this parameters:
+
+```
+MySQL host: 127.0.0.1
+Database user: homestead
+Database password: secret
+Database: homestead
+
+SSH host: 192.168.33.10 (unless you changed it in Vagrantfile)
+SSH user: vagrant
+SSH password: vagrant
+```
+
+### Staging server
+
+TBD

@@ -2,28 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f86be012-5364-473d-a5f7-a7b8c0c0f2c5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/laravel-tinker-plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/laravel-tinker-plugin.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Inspiration.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Inspiration.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Quote.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Quote.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Tag.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Tag.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Testimonial.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Testimonial.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Nova/Event.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Nova/Event.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Nova/Tag.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Nova/Tag.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/EventFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/EventFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/InsightFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/InsightFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/InspirationFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/InspirationFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/PostFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/PostFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/TagFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/TagFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_02_134921_create_posts_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_02_134921_create_posts_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_02_160829_add_more_fields.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_06_064525_create_events_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_06_064525_create_events_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_06_132054_create_testimonials_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_06_132054_create_testimonials_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_06_132112_create_quotes_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_06_132112_create_quotes_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_06_134754_create_inspirations_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_06_134754_create_inspirations_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_08_092241_create_insights_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_08_092241_create_insights_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_08_092250_create_glossaries_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_08_092250_create_glossaries_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_08_092306_create_tags_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_08_092306_create_tags_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -253,7 +233,7 @@
       <workItem from="1602246853336" duration="27000" />
       <workItem from="1602247273888" duration="5283000" />
       <workItem from="1602252951151" duration="1526000" />
-      <workItem from="1602254778722" duration="4757000" />
+      <workItem from="1602254778722" duration="5960000" />
     </task>
     <servers />
   </component>
