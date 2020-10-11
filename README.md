@@ -104,3 +104,67 @@ SSH password: vagrant
 ### Staging server
 
 TBD
+
+
+### Tinker Factories
+```
+<?php
+//Tinker away!
+use App\Models\Event;
+use App\Models\EventCategory;
+use App\Models\Glossary;
+use App\Models\Insight;
+use App\Models\Inspiration;
+use App\Models\Post;
+use App\Models\PostCategory;
+use App\Models\Quote;
+use App\Models\Role;
+use App\Models\Tag;
+use App\Models\Testimonial;
+use App\Models\EventVenue;
+use App\Models\Mantra;
+use App\Models\User;
+
+
+Role::factory()->create([
+    'name' => 'Administrator',
+]);
+Role::factory()->count(4)->create();
+
+User::factory()->create([
+    'name' => 'Davide',
+    'email' => 'davide.casiraghi@gmail.com',
+]);
+User::factory()->count(4)->create();
+
+Tag::factory()->count(4)->create();
+Insight::factory()->count(4)->create()->each(function($insight) {
+    $insight->tags()->sync(
+        Tag::all()->random(2)
+    );
+});
+
+PostCategory::factory()->count(4)->create();
+Post::factory()->count(4)->create()->each(function($post) {
+    $post->post_category()->associate(
+        PostCategory::all()->random(1)
+    );
+    $post->tags()->sync(
+        Tag::all()->random(2)
+    );
+    $post->insight()->sync(
+        Insight::all()->random(1)
+    );
+});
+Glossary::factory()->count(4)->create();
+
+EventVenue::factory()->count(4)->create();
+EventCategory::factory()->count(4)->create();
+Event::factory()->count(4)->create();
+
+Testimonial::factory()->count(4)->create();
+Quote::factory()->count(4)->create();
+
+Inspiration::factory()->count(4)->create();
+Mantra::factory()->count(4)->create();
+```
