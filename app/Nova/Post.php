@@ -81,11 +81,7 @@ class Post extends Resource
                 ->hideFromIndex(),
             Multiselect::make('Tags', 'tags')  //BelongsToMany::make('Tags'),
             ->belongsToMany(Tag::class),
-            /*Multiselect::make('Insights', 'insights')  //BelongsToMany::make('Insights'),
-            ->belongsToMany(Insight::class),*/
-            //BelongsToMany::make('Insights'),
-
-            Multiselect::make('Insights', 'insights')  //BelongsToMany::make('Tags'),
+            Multiselect::make('Insights', 'insights')  //BelongsToMany::make('Insights'),
             ->belongsToMany(Insight::class),
         ];
     }
