@@ -2,5 +2,6 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1 class="text-4xl font-bold text-red-500">Hello word!</h1>
+    <h1 class="text-4xl font-bold text-red-500 text-center">Hello word!</h1>
+    <img src="http://lorempixel.com/g/800/600/" alt="">
 @endsection

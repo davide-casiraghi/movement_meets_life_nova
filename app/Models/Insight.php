@@ -58,10 +58,10 @@ class Insight extends Model
     }
 
     /**
-     * Returns the post of the insight. (optional)
+     * Returns the posts related to the insight. (optional)
      */
-    public function post() {
-        return $this->hasOne(Post::class); // 1-to-1 (one event can have just one category)
+    public function posts() {
+        return $this->belongsToMany(Post::class); // Many to many
     }
 
 }

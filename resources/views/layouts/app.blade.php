@@ -69,10 +69,10 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">--}}
 </head>
 
-<body class="light-gray-bg">
+<body class="bg-gray-100">
     @livewire('navigation-dropdown')
 
-    <div class="container max-w-md mt-5">
+    <div class="max-w-md mx-auto py-6 sm:max-w-xl sm:max-w-2xl">
         @yield('content')
     </div>
 

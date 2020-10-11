@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PostCategoryController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ContactUsFormController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,3 +31,9 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 Route::resource('posts', PostController::class);
 Route::resource('categories', PostCategoryController::class);
+
+
+// Contact form
+Route::get('/contact', [ContactUsFormController::class, 'index']);
+Route::post('/contact', [ContactUsFormController::class, 'ContactUsForm'])->name('contact.store');
+

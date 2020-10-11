@@ -7,6 +7,7 @@ use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use OptimistDigital\MultiselectField\Multiselect;
 use Spatie\NovaTranslatable\Translatable;
 
 class Tag extends Resource
@@ -47,7 +48,8 @@ class Tag extends Resource
             Translatable::make([
                 Text::make('Tag')->sortable(),
             ]),
-            BelongsToMany::make('Posts'),
+            Multiselect::make('Posts', 'posts')   //BelongsToMany::make('Posts'),
+                ->belongsToMany(Post::class),
         ];
     }
 

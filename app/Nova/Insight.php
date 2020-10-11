@@ -12,6 +12,7 @@ use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use OptimistDigital\MultiselectField\Multiselect;
 use Spatie\NovaTranslatable\Translatable;
 
 class Insight extends Resource
@@ -57,9 +58,7 @@ class Insight extends Resource
                     ->rules('required'),
                 Text::make('Introimage Alt')->hideFromIndex(),
             ]),
-            BelongsTo::make('Post')->searchable(),
             Image::make('Introimage')->disk('public')->hideFromIndex(),
-
             Boolean::make('Is Published'),
             Boolean::make('Is Posted On Facebook'),
             DateTime::make('Published On Facebook On')
@@ -71,7 +70,10 @@ class Insight extends Resource
                 ->hideFromIndex()
                 ->readonly()
                 ->format('DD-MM-YYYY hh:mm'),
-            BelongsToMany::make('Tags'),
+            Multiselect::make('Tags', 'tags')  //BelongsToMany::make('Tags')->searchable(),
+            ->belongsToMany(Tag::class),
+            Multiselect::make('Posts', 'posts')  //BelongsToMany::make('Post')->searchable(),
+            ->belongsToMany(Post::class),
         ];
     }
 

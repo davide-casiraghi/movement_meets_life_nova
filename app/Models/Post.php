@@ -82,17 +82,17 @@ class Post extends Model implements HasMedia
     }
 
     /**
-     * Returns the insight of the post. (optional)
+     * Returns the insights related to the the post. (optional)
      */
-    public function insight() {
-        return $this->belongsTo(Insight::class);
+    public function insights(){
+        return $this->belongsToMany(Insight::class); //Many to Many
     }
 
     /**
      * Returns the tags associated to the post.
      */
     public function tags(){
-        return $this->belongsToMany(Tag::class);
+        return $this->belongsToMany(Tag::class); //Many to Many
     }
 
     /**

@@ -16,6 +16,7 @@ use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Fields\Text;
+use OptimistDigital\MultiselectField\Multiselect;
 use Spatie\NovaTranslatable\Translatable;
 
 class Post extends Resource
@@ -71,7 +72,6 @@ class Post extends Resource
             Textarea::make('After Content')->rows(3),
             BelongsTo::make('User')->hideFromIndex(),
             BelongsTo::make('Post Category'),
-            BelongsToMany::make('Tags'),
             Images::make('Gallery')
                 ->customPropertiesFields([
                     Boolean::make('Active'),
@@ -79,6 +79,14 @@ class Post extends Resource
                 ])
                 ->croppable(false)
                 ->hideFromIndex(),
+            Multiselect::make('Tags', 'tags')  //BelongsToMany::make('Tags'),
+            ->belongsToMany(Tag::class),
+            /*Multiselect::make('Insights', 'insights')  //BelongsToMany::make('Insights'),
+            ->belongsToMany(Insight::class),*/
+            //BelongsToMany::make('Insights'),
+
+            Multiselect::make('Insights', 'insights')  //BelongsToMany::make('Tags'),
+            ->belongsToMany(Insight::class),
         ];
     }
 

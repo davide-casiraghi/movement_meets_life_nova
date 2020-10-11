@@ -15,7 +15,7 @@ class CreateInsightsTable extends Migration
     {
         Schema::create('insights', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('post_id')->nullable();
+            //$table->foreignId('post_id')->nullable()->constrained();
 
             $table->string('title')->nullable();
             $table->text('description');
