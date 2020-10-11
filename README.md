@@ -152,7 +152,7 @@ Post::factory()->count(4)->create()->each(function($post) {
     $post->tags()->sync(
         Tag::all()->random(2)
     );
-    $post->insight()->sync(
+    $post->insights()->sync(
         Insight::all()->random(1)
     );
 });
