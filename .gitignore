@@ -33,3 +33,6 @@ Vagrantfile
 # Nova administration dashboard, excluding the Nova Resources
 nova
 !/app/nova/
+
+# Project configurations for all Jetbrains IDES (PHPStorm, WebStorm)
+/.idea
