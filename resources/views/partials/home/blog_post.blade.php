@@ -9,7 +9,7 @@
                 @foreach($post->tags()->get() as $tag)
                 <a href="#" class="hover:underline">
                     {{--{{$post->post_category->name}}--}}
-                    #{{$tag->tag}}  
+                    #{{$tag->tag}}
                 </a>
                 @endforeach
             </p>
