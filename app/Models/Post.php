@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Services\Post\CalculateReadingTime;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
@@ -93,6 +94,13 @@ class Post extends Model implements HasMedia
      */
     public function tags(){
         return $this->belongsToMany(Tag::class); //Many to Many
+    }
+
+    /**
+     * Returns the reading time of the post.
+     */
+    public function reading_time(){
+        return CalculateReadingTime::post_estimated_reading_time($this->body, 200);
     }
 
     /**
