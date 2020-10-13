@@ -25,7 +25,7 @@ Clone this repo into a local folder:
 
 
 Copy & customize your .env config:   
-```copy .env.example .env```    
+```cp .env.example .env```    
 ```nano .env```
 
 Config the .env like this:
@@ -37,6 +37,10 @@ DB_DATABASE=homestead
 DB_USERNAME=homestead
 DB_PASSWORD=secret
 ```
+
+Initialize the current directory to be a Vagrant environment by creating an initial Vagrantfile.
+```vagrant init laravel/homestead```
+
 
 To start the virtual machine:    
 ```vagrant up```

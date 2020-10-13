@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f86be012-5364-473d-a5f7-a7b8c0c0f2c5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/laravel-tinker-plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/laravel-tinker-plugin.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -197,11 +201,11 @@
     <property name="settings.editor.selected.configurable" value="diff.base" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app/Nova" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources/views" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/Nova" />
     </key>
   </component>
   <component name="RunManager">
@@ -248,7 +252,22 @@
       <workItem from="1602347759888" duration="110000" />
       <workItem from="1602347898395" duration="5529000" />
       <workItem from="1602425112387" duration="846000" />
-      <workItem from="1602486320132" duration="44000" />
+      <workItem from="1602486320132" duration="365000" />
+      <workItem from="1602487513211" duration="21000" />
+      <workItem from="1602498017808" duration="188000" />
+      <workItem from="1602498862757" duration="1000" />
+      <workItem from="1602498999030" duration="15000" />
+      <workItem from="1602499038931" duration="23000" />
+      <workItem from="1602499791467" duration="45000" />
+      <workItem from="1602499906842" duration="60000" />
+      <workItem from="1602500017582" duration="13000" />
+      <workItem from="1602501913260" duration="25000" />
+      <workItem from="1602503727762" duration="31000" />
+      <workItem from="1602506524820" duration="39000" />
+      <workItem from="1602506909838" duration="58000" />
+      <workItem from="1602509847376" duration="7000" />
+      <workItem from="1602512498064" duration="110000" />
+      <workItem from="1602520425293" duration="3295000" />
     </task>
     <servers />
   </component>
@@ -295,8 +314,8 @@
     <state x="421" y="171" width="598" height="490" key="find.popup/0.23.1440.816@0.23.1440.816" timestamp="1601570351591" />
     <state x="421" y="172" width="622" height="494" key="find.popup/0.23.1440.821@0.23.1440.821" timestamp="1601656919489" />
     <state x="1444" y="-1160" width="1108" height="857" key="find.popup/0.23.1440.877/-1224.-1177.1920.1105/696.-1417.2560.1417@696.-1417.2560.1417" timestamp="1602148735038" />
-    <state x="-589" y="-907" width="896" height="638" key="search.everywhere.popup" timestamp="1602163913336">
-      <screen x="-1224" y="-1177" width="1920" height="1105" />
+    <state x="476" y="224" width="672" height="475" key="search.everywhere.popup" timestamp="1602562147237">
+      <screen x="0" y="23" width="1440" height="821" />
     </state>
     <state x="476" y="221" width="671" height="467" key="search.everywhere.popup/0.23.1440.811/-220.-1177.1920.1177@0.23.1440.811" timestamp="1601969940815" />
     <state x="476" y="221" width="671" height="467" key="search.everywhere.popup/0.23.1440.811@0.23.1440.811" timestamp="1601964831123" />
@@ -305,6 +324,7 @@
     <state x="415" y="-889" width="670" height="676" key="search.everywhere.popup/0.23.1440.816/-220.-1177.1920.1177@-220.-1177.1920.1177" timestamp="1601562022484" />
     <state x="476" y="223" width="670" height="469" key="search.everywhere.popup/0.23.1440.816@0.23.1440.816" timestamp="1601570516597" />
     <state x="415" y="-889" width="894" height="677" key="search.everywhere.popup/0.23.1440.821/-220.-1177.1920.1177@-220.-1177.1920.1177" timestamp="1601648243740" />
+    <state x="476" y="224" width="672" height="475" key="search.everywhere.popup/0.23.1440.821@0.23.1440.821" timestamp="1602562147237" />
     <state x="415" y="-889" width="894" height="677" key="search.everywhere.popup/0.23.1440.822/-220.-1177.1920.1177@-220.-1177.1920.1177" timestamp="1601643955110" />
     <state x="-589" y="-907" width="896" height="638" key="search.everywhere.popup/0.23.1440.877/-1224.-1177.1920.1105/696.-1417.2560.1417@-1224.-1177.1920.1105" timestamp="1602163913336" />
     <state x="1542" y="-1071" width="1193" height="816" key="search.everywhere.popup/0.23.1440.877/-1224.-1177.1920.1105/696.-1417.2560.1417@696.-1417.2560.1417" timestamp="1601991884076" />
