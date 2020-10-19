@@ -1,4 +1,5 @@
 const mix = require('laravel-mix');
+const tailwindcss = require('tailwindcss');
 
 /*
  |--------------------------------------------------------------------------
@@ -12,11 +13,18 @@ const mix = require('laravel-mix');
  */
 
 // Compile SCSS and JS
-mix.js('resources/js/app.js', 'public/js')
+/*mix.js('resources/js/app.js', 'public/js')
     .postCss('resources/css/app.css', 'public/css', [
         require('postcss-import'),
         require('tailwindcss'),
-    ]);
+    ]);*/
+mix.js('resources/js/app.js', 'public/js')
+    .sass('resources/sass/app.scss', 'public/css')
+        .options({
+            processCssUrls: false,
+            postCss: [ tailwindcss('./tailwind.config.js') ],
+        });
+
 
 
 // Sync browser any time something change in compiled css, js or views
@@ -24,5 +32,12 @@ mix.browserSync({
     proxy: 'laravel_jetstream.test',
     host: 'laravel_jetstream.test',
     notify: false,
-    files: ['./public/css/*.css', './**/*.htm', './public/js/*.js'], //target the compiled files
+    files: [
+        './app/**/*',
+        './routes/**/*',
+        './public/css/*.css',
+        './public/js/*.js',
+        './resources/views/**/*.blade.php',
+        './resources/lang/**/*',
+    ],
 })

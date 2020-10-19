@@ -16,7 +16,7 @@
 
     <div class="md:grid md:grid-cols-3 md:gap-6">
         <div class="md:col-span-1">
-            <h3 class="text-lg font-medium leading-6 text-gray-900">Profile</h3>
+            <h3 class="text-lg font-medium leading-6 text-gray-900">Your experience</h3>
             <p class="mt-1 text-sm leading-5 text-gray-500">
                 This information will be displayed publicly so be careful what you share.
             </p>
@@ -26,7 +26,7 @@
 
                 <div class="mt-6">
                     <label for="about" class="block text-sm leading-5 font-medium text-gray-700">
-                        About
+                        Your feedback
                     </label>
                     <div class="rounded-md shadow-sm">
                         <textarea id="about" rows="3" class="form-textarea mt-1 block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" placeholder="you@example.com"></textarea>
@@ -46,7 +46,7 @@
         <div class="md:col-span-1">
             <h3 class="text-lg font-medium leading-6 text-gray-900">Personal Information</h3>
             <p class="mt-1 text-sm leading-5 text-gray-500">
-                Use a permanent address where you can receive mail.
+                This information will be displayed publicly so be careful what you share.
             </p>
         </div>
         <div class="mt-5 md:mt-0 md:col-span-2">
@@ -103,16 +103,7 @@
                 <fieldset>
                     <legend class="text-base leading-6 font-medium text-gray-900">Please confirm below to allow to me to publish</legend>
                     <div class="mt-4">
-                        <div class="flex items-start">
-                            <div class="flex items-center h-5">
-                                <input id="comments" type="checkbox" class="form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out">
-                            </div>
-                            <div class="ml-3 text-sm leading-5">
-                                <label for="comments" class="font-medium text-gray-700">Feedback agreement</label>
-                                <p class="text-gray-500">I agree to publish my feedback on the testimonial section of this website.</p>
-                            </div>
-                        </div>
-                        <div class="mt-4">
+                        <div class="mb-4">
                             <div class="flex items-start">
                                 <div class="flex items-center h-5">
                                     <input id="candidates" type="checkbox" class="form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out">
@@ -121,6 +112,15 @@
                                     <label for="candidates" class="font-medium text-gray-700">Personal data agreement</label>
                                     <p class="text-gray-500">I agree to publish my name, surname and profession and photo.</p>
                                 </div>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex items-center h-5">
+                                <input id="comments" type="checkbox" class="form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out">
+                            </div>
+                            <div class="ml-3 text-sm leading-5">
+                                <label for="comments" class="font-medium text-gray-700">Feedback agreement</label>
+                                <p class="text-gray-500">I agree to publish my feedback on the testimonial section of this website.</p>
                             </div>
                         </div>
                     </div>

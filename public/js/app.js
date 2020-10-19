@@ -19323,17 +19323,6 @@ module.exports = function(module) {
 
 /***/ }),
 
-/***/ "./resources/css/app.css":
-/*!*******************************!*\
-  !*** ./resources/css/app.css ***!
-  \*******************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
 /***/ "./resources/js/app.js":
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
@@ -19342,6 +19331,8 @@ module.exports = function(module) {
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+
+__webpack_require__(/*! ./video_embed */ "./resources/js/video_embed.js");
 
 /***/ }),
 
@@ -19377,15 +19368,61 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
+/***/ "./resources/js/video_embed.js":
+/*!*************************************!*\
+  !*** ./resources/js/video_embed.js ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// When scroll down change opacity of the title
+jQuery(window).scroll(function (event) {
+  var fromTop = jQuery(window).scrollTop();
+  var offSet = 1 - fromTop * 0.006; //console.log(offSet);
+
+  jQuery('.lifeVideo .container').css('opacity', offSet);
+}); // When resize the window scale the youtube video according with window width
+
+function resizeYoutubeVideoFrame(windowWidth) {
+  var windowWidth = jQuery(window).width(); // returns width of browser viewport
+
+  var videoHeight = windowWidth / 16 * 9;
+  jQuery('.lifeVideo.youtube .t-cover__carrier iframe').width(windowWidth);
+  jQuery('.lifeVideo.youtube .t-cover__carrier iframe').height(videoHeight);
+  jQuery('.lifeVideo.youtube').height(videoHeight); //alert("Window width: "+windowWidth);
+} // Resize video - on first page loading
+
+
+var windowWidth = jQuery(window).width();
+resizeYoutubeVideoFrame(windowWidth); // Resize video - when the use resize the window
+
+jQuery(window).resize(function () {
+  var windowWidth = jQuery(window).width();
+  resizeYoutubeVideoFrame(windowWidth);
+});
+
+/***/ }),
+
+/***/ "./resources/sass/app.scss":
+/*!*********************************!*\
+  !*** ./resources/sass/app.scss ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ 0:
-/*!***********************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/css/app.css ***!
-  \***********************************************************/
+/*!*************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/sass/app.scss ***!
+  \*************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! /Users/davide/Projects/laravel_demo_jetstream/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/davide/Projects/laravel_demo_jetstream/resources/css/app.css */"./resources/css/app.css");
+module.exports = __webpack_require__(/*! /Users/davide/Projects/laravel_demo_jetstream/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
