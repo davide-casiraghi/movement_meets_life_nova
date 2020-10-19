@@ -29,3 +29,15 @@ jQuery(window).resize(function() {
     var windowWidth = jQuery(window).width();
     resizeYoutubeVideoFrame(windowWidth);
 });
+
+
+$(function () {
+    if (/Mobi/i.test(navigator.userAgent) || /Android/i.test(navigator.userAgent)) {
+        console.log( "mobile!" );
+        $(".lifeVideo.youtube").remove();
+    }
+    else{
+        console.log( "desktop!" );
+        $(".lifeVideo.local_vertical").remove();
+    }
+});
