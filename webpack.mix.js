@@ -25,6 +25,8 @@ mix.js('resources/js/app.js', 'public/js')
             postCss: [ tailwindcss('./tailwind.config.js') ],
         });
 
+// Copy the image files to the public folder - https://laracasts.com/discuss/channels/elixir/laravel-mix-image-workflow
+mix.copy( 'resources/images', 'public/images', false );
 
 
 // Sync browser any time something change in compiled css, js or views
