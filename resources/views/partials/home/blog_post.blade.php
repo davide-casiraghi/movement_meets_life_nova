@@ -13,7 +13,8 @@
                 </a>
                 @endforeach
             </p>
-            <a href="#" class="block">
+
+            <a href="{{ route('posts.show',$post->id) }}" class="block">
                 <h3 class="mt-2 text-xl leading-7 font-semibold text-gray-900">
                     {{$post->title}}
                 </h3>
