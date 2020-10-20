@@ -30,6 +30,9 @@ Homestead.yaml
 .vagrant
 Vagrantfile
 
+# Mac OS X System Configuration files
+.DS_Store
+
 # Nova administration dashboard, excluding the Nova Resources
 nova
 !/app/nova/
