@@ -31,5 +31,9 @@ class AppServiceProvider extends ServiceProvider
             $view->with('posts', Post::where('is_published', 1)->orderBy('created_at', 'desc')->take(3)->get());
         });
 
+        View::composer('posts.index', function($view){
+            $view->with('posts', Post::where('is_published', 1)->orderBy('created_at', 'desc')->paginate(6));
+        });
+
     }
 }
