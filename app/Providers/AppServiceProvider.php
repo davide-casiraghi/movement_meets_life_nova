@@ -2,12 +2,15 @@
 
 namespace App\Providers;
 
+use App\Http\View\Composer\QuoteComposer;
 use App\Models\Post;
+use App\Models\Quote;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
 
 class AppServiceProvider extends ServiceProvider
 {
+
     /**
      * Register any application services.
      *
@@ -34,6 +37,10 @@ class AppServiceProvider extends ServiceProvider
         View::composer('posts.index', function($view){
             $view->with('posts', Post::where('is_published', 1)->orderBy('created_at', 'desc')->paginate(6));
         });
+
+        View::composer(['partials.quote_of_the_day'], QuoteComposer::class);
+
+
 
     }
 }

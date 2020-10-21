@@ -10,7 +10,7 @@
     @include('partials.home.blog')
 
 
-
+    @include('partials.quote_of_the_day')
 
 
 @endsection
