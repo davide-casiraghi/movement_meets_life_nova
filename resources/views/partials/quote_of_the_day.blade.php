@@ -1,5 +1,6 @@
 <div class=" bg-gray-100 flex flex-col">
     <div class="relative py-3 max-w-xl mx-auto">
+        <h3 class="text-3xl text-center text-gray-700 font-bold">Quote of the day</h3>
         <div>
             <div class="text-3xl text-indigo-500 text-left leading-tight h-3">“</div>
             <div class="text-center text-xl italic text-gray-500">
