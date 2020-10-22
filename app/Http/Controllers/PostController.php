@@ -3,10 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Services\PostService;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
+    private $postService;
+
+    public function __construct(
+        PostService $postService
+    )
+    {
+        $this->postService = $postService;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -47,6 +57,8 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
+        $post['body'] = $this->postService->getPostBody($post);
+
         return view('posts.show', compact('post'));
     }
 

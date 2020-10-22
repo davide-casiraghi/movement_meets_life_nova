@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Services\Post;
+namespace App\Services\Helpers;
 
 /* Calculate the estimated reading time for a given piece of $content in minutes.
  *

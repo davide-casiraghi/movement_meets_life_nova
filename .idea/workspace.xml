@@ -2,8 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f86be012-5364-473d-a5f7-a7b8c0c0f2c5" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/laravel_demo_jetstream.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/laravel_demo_jetstream.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/quote_of_the_day.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/quote_of_the_day.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PostController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Post.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/Post/CalculateReadingTime.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/Helpers/CalculateReadingTime.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/Quote/GetRandomQuote.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,6 +180,12 @@
       <path value="$PROJECT_DIR$/vendor/spatie/image-optimizer" />
       <path value="$PROJECT_DIR$/vendor/intervention/image" />
       <path value="$PROJECT_DIR$/vendor/optimistdigital/nova-multiselect-field" />
+      <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-ide-helper" />
+      <path value="$PROJECT_DIR$/vendor/barryvdh/reflection-docblock" />
+      <path value="$PROJECT_DIR$/vendor/seld/phar-utils" />
+      <path value="$PROJECT_DIR$/vendor/seld/jsonlint" />
+      <path value="$PROJECT_DIR$/vendor/justinrainbow/json-schema" />
+      <path value="$PROJECT_DIR$/vendor/symfony/filesystem" />
     </include_path>
   </component>
   <component name="ProjectId" id="1iHOx9CGzAxJTY4BeCExXJdst2V" />
@@ -197,13 +210,13 @@
     <property name="settings.editor.selected.configurable" value="diff.base" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/resources/views" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/Services/Quote" />
       <recent name="$PROJECT_DIR$/resources/views" />
       <recent name="$PROJECT_DIR$/app/Nova" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views" />
     </key>
   </component>
   <component name="RunManager">
@@ -297,7 +310,14 @@
       <workItem from="1603294087802" duration="869000" />
       <workItem from="1603295052048" duration="422000" />
       <workItem from="1603295630465" duration="19000" />
-      <workItem from="1603295666857" duration="2496000" />
+      <workItem from="1603295666857" duration="2717000" />
+      <workItem from="1603350376921" duration="89000" />
+      <workItem from="1603350491502" duration="488000" />
+      <workItem from="1603351053374" duration="473000" />
+      <workItem from="1603381049097" duration="1022000" />
+      <workItem from="1603382155123" duration="57000" />
+      <workItem from="1603382226525" duration="59000" />
+      <workItem from="1603382299517" duration="26000" />
     </task>
     <servers />
   </component>
@@ -309,7 +329,7 @@
       <screen x="696" y="-1417" width="2560" height="1417" />
     </state>
     <state x="1414" y="-1210" key="#CLI_Interpreters/0.23.1440.877/-1224.-1177.1920.1105/696.-1417.2560.1417@696.-1417.2560.1417" timestamp="1602144592269" />
-    <state x="2148" y="50" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1603304461342">
+    <state x="2148" y="50" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1603382234035">
       <screen x="1440" y="-226" width="1920" height="1177" />
     </state>
     <state x="2148" y="281" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.900/1440.0.1920.1200@1440.0.1920.1200" timestamp="1602317882191" />
@@ -317,15 +337,15 @@
     <state x="531" y="213" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.811/-220.-1177.1920.1177@0.23.1440.811" timestamp="1601969363373" />
     <state x="2148" y="299" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.811/1440.23.1920.1177@1440.23.1920.1177" timestamp="1602315306552" />
     <state x="1640" y="-1085" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.812/-1224.-1177.1920.1177/696.-1417.2560.1417@696.-1417.2560.1417" timestamp="1602145664778" />
-    <state x="2148" y="50" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.812/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1603304461342" />
+    <state x="2148" y="50" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.812/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1603382234035" />
     <state x="2148" y="299" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.812/1440.23.1920.1177@1440.23.1920.1177" timestamp="1602416466806" />
     <state x="-516" y="-901" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.812/696.-1417.2560.1417/-1224.-1177.1920.1177@-1224.-1177.1920.1177" timestamp="1602228791608" />
     <state x="488" y="-901" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.821/-220.-1177.1920.1177@-220.-1177.1920.1177" timestamp="1601648307583" />
     <state x="1640" y="-1085" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.877/-1224.-1177.1920.1105/696.-1417.2560.1417@696.-1417.2560.1417" timestamp="1602151539560" />
-    <state x="2011" y="-21" key="NewPhpClassDialog" timestamp="1603304411003">
+    <state x="2011" y="-21" key="NewPhpClassDialog" timestamp="1603381718336">
       <screen x="1440" y="-226" width="1920" height="1177" />
     </state>
-    <state x="2011" y="-21" key="NewPhpClassDialog/0.23.1440.812/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1603304411003" />
+    <state x="2011" y="-21" key="NewPhpClassDialog/0.23.1440.812/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1603381718336" />
     <state x="428" y="166" key="NewPhpClassDialog/0.23.1440.822@0.23.1440.822" timestamp="1602563837548" />
     <state x="1919" y="176" key="SettingsEditor" timestamp="1602343760271">
       <screen x="1440" y="23" width="1920" height="1177" />
