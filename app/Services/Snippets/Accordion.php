@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\Contents;
+namespace App\Services\Snippets;
 
 /*
     This class show a responsive accordion with a title that open when [+] button is clicked.
@@ -15,9 +15,8 @@ class Accordion {
      *
      * @return iterable
      */
-    public function substituteAccordionSnippets($postBody)
+    public function snippetsToHTML($postBody)
     {
-
         // Load the accordion template
         $sliderTemplate = "<div class='accordion'>";
         $sliderTemplate .= '<h3>{SLIDER_TITLE}</h3>';
@@ -38,7 +37,6 @@ class Accordion {
                 $postBody
             );
         }
-
         return $postBody;
     }
 }

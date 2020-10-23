@@ -30218,6 +30218,8 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 __webpack_require__(/*! ./video_embed */ "./resources/js/video_embed.js");
 
+__webpack_require__(/*! ./gallery_mansonry */ "./resources/js/gallery_mansonry.js");
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -30250,6 +30252,25 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/gallery_mansonry.js":
+/*!******************************************!*\
+  !*** ./resources/js/gallery_mansonry.js ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+jQuery(document).ready(function () {
+  // https://www.npmjs.com/package/justifiedGallery
+  // http://miromannino.github.io/Justified-Gallery/
+  // Options: http://miromannino.github.io/Justified-Gallery/options-and-events/
+  $(".lifeGallery").justifiedGallery({
+    rowHeight: 180,
+    margins: 10
+  });
+});
 
 /***/ }),
 
