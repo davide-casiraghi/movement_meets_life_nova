@@ -37,7 +37,7 @@ class Accordion {
                         $sliderTemplate .= "<label for='panel-".$this->count."' class='relative block bg-black text-white p-4 shadow border-b border-grey'>".$matches[1]."</label>";
                         $sliderTemplate .= "<div class='accordion__content overflow-hidden bg-grey-lighter'>";
                             //$sliderTemplate .= "<h2 class='accordion__header pt-4 pl-4'>Header</h2>";
-                            $sliderTemplate .= "<p class='accordion__body p-4' id='panel".$this->count."'>".$matches[2]."</p>";
+                            $sliderTemplate .= "<div class='accordion__body p-4' id='panel".$this->count."'>".$matches[2]."</div>";
                         $sliderTemplate .= "</div>";
                     $sliderTemplate .= "</div>";
 

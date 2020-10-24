@@ -30309,7 +30309,11 @@ $(document).ready(function () {
 
       if (jQuery(this).children('.ui-accordion-content').children(':first-child').is('br')) {
         jQuery(this).children('.ui-accordion-content').children('br:first-child').remove();
-      }
+      } // Remove the first and last br inside the slide
+
+
+      jQuery(this).find('br').first().remove();
+      jQuery(this).find('br').last().remove();
     });
   }
 });
