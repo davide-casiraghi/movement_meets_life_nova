@@ -9,27 +9,15 @@ namespace App\Services\Snippets;
 */
 
 class Accordion {
-
+    private $count = 1;
     /**
      * Substitute accordion snippets with the related HTML
      *
-     * @return iterable
+     * @return string
      */
     public function snippetsToHTML($postBody)
     {
-        $count = 0;
-
-        // Load the accordion template
-        $sliderTemplate = "<div class='w-full'>";
-        $sliderTemplate .= "<input type='checkbox' name='panel' id='panel-1' class='hidden'>";
-            $sliderTemplate .= "<label for='panel-1' class='relative block bg-black text-white p-4 shadow border-b border-grey'>{SLIDER_TITLE}</label>";
-            $sliderTemplate .= "<div class='accordion__content overflow-hidden bg-grey-lighter'>";
-                $sliderTemplate .= "<h2 class='accordion__header pt-4 pl-4'>Header</h2>";
-                $sliderTemplate .= "<p class='accordion__body p-4' id='panel1'>{SLIDER_CONTENT}</p>";
-            $sliderTemplate .= "</div>";
-        $sliderTemplate .= "</div>";
-
-        // Do the replacement if needed
+        // If the post body contains any accordion
         if (substr_count($postBody, '{slide') > 0) {
 
             /*
@@ -40,25 +28,73 @@ class Accordion {
                 $postBody = '<div class="textHasAccordion accordion">'.$postBody.'</div>';
             }
 
-            $regex = "#(?:<p>)?\{slide[r]?=([^}]+)\}(?:</p>)?(.*?)(?:<p>)?\{/slide[r]?\}(?:</p>)?#s";
+            $pattern = '#(?:<p>)?\{slide[r]?=([^}]+)\}(?:</p>)?(.*?)(?:<p>)?\{/slide[r]?\}(?:</p>)?#s';
+            $ret = preg_replace_callback(
+                $pattern,
+                function($matches){
+                    $sliderTemplate = "<div class='w-full'>";
+                    $sliderTemplate .= "<input type='checkbox' name='panel' id='panel-".$this->count."' class='hidden'>";
+                    $sliderTemplate .= "<label for='panel-".$this->count."' class='relative block bg-black text-white p-4 shadow border-b border-grey'>".$matches[1]."</label>";
+                    $sliderTemplate .= "<div class='accordion__content overflow-hidden bg-grey-lighter'>";
+                    $sliderTemplate .= "<h2 class='accordion__header pt-4 pl-4'>Header</h2>";
+                    $sliderTemplate .= "<p class='accordion__body p-4' id='panel".$this->count."'>".$matches[2]."</p>";
+                    $sliderTemplate .= "</div>";
+                    $sliderTemplate .= "</div>";
 
-            $postBody = preg_replace(
-                $regex,
-                str_replace(
-                    ['{SLIDER_TITLE}', '{SLIDER_CONTENT}'],
-                    ['$1', '$2', '$3'],
-                    $sliderTemplate,
-                ),
-                $postBody
-            );
+                    $this->count++;
+
+                    return $sliderTemplate;
+                },
+                $postBody);
         }
-        return $postBody;
+        return $ret;
     }
-
-
-
-    function rep_count($matches) {
-        global $count;
-        return 'test' . $count++;
-    }
+    
 }
+
+
+
+
+
+/*
+ *  ACCORDION EXAMPLE
+ *
+ *
+
+<div class="accordion flex flex-col items-center justify-center h-screen">
+  <!--  Panel 1  -->
+  <div class="w-1/2">
+    <input type="checkbox" name="panel" id="panel-1" class="hidden">
+    <label for="panel-1" class="relative block bg-black text-white p-4 shadow border-b border-grey">Panel 1</label>
+    <div class="accordion__content overflow-hidden bg-grey-lighter">
+      <h2 class="accordion__header pt-4 pl-4">Header</h2>
+      <p class="accordion__body p-4" id="panel1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto possimus at a cum saepe molestias modi illo facere ducimus voluptatibus praesentium deleniti fugiat ab error quia sit perspiciatis velit necessitatibus.Lorem ipsum dolor sit amet, consectetur
+        adipisicing elit. Lorem ipsum dolor sit amet.</p>
+    </div>
+  </div>
+  <!-- Panel 2 -->
+  <div class="w-1/2">
+    <input type="checkbox" name="panel" id="panel-2" class="hidden">
+    <label for="panel-2" class="relative block bg-black text-white p-4 shadow border-b border-grey">Panel 2</label>
+    <div class="accordion__content overflow-hidden bg-grey-lighter">
+      <h2 class="accordion__header pt-4 pl-4">Header</h2>
+      <p class="accordion__body p-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto possimus at a cum saepe molestias modi illo facere ducimus voluptatibus praesentium deleniti fugiat ab error quia sit perspiciatis velit necessitatibus.Lorem ipsum dolor sit amet, consectetur
+        adipisicing elit. Lorem ipsum dolor sit amet.</p>
+    </div>
+  </div>
+  <!--  Panel 3  -->
+  <div class="w-1/2">
+    <input type="checkbox" name="panel" id="panel-3" class="hidden">
+    <label for="panel-3" class="relative block bg-black text-white p-4 shadow border-b border-grey">Panel 3</label>
+    <div class="accordion__content overflow-hidden bg-grey-lighter">
+      <h2 class="accordion__header pt-4 pl-4">Header</h2>
+      <p class="accordion__body p-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto possimus at a cum saepe molestias modi illo facere ducimus voluptatibus praesentium deleniti fugiat ab error quia sit perspiciatis velit necessitatibus.Lorem ipsum dolor sit amet, consectetur
+        adipisicing elit. Lorem ipsum dolor sit amet.</p>
+    </div>
+  </div>
+</div>
+
+
+
+ *
+ */
