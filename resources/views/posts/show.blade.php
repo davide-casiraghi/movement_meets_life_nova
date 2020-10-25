@@ -5,8 +5,8 @@
 
 
     @if($post->hasMedia('introimage'))
-        <div class="bg-fixed" style="background-image: url('{{$post->getMedia('introimage')[0]->getUrl()}}');">
-            <div class="container mx-auto px-6 py-20 max-w-prose absolute z-10">
+        <div class="bg-fixed relative" style="background-image: url('{{$post->getMedia('introimage')[0]->getUrl()}}');">
+            <div class="container mx-auto px-6 py-40 max-w-prose relative z-10">
                 <h2 class="text-4xl font-bold mb-2 text-white">
                     {{ $post->title }}
                 </h2>
@@ -15,7 +15,7 @@
                 </h3>
             </div>
 
-            <div class="opacity-25 bg-black flex items-center h-64 flex-wrap">.opacity-75</div>
+            <div class="opacity-25 bg-black flex items-center h-full w-full flex-wrap z-0 top-0 right-0 absolute">.opacity-75</div>
 
          {{--   <div class="expanded fixed inset-0 bg-black bg-opacity-50 w-full h-full flex items-start justify-center pt-12 z-10">
                 <input type="text" class="border-r border-gray">

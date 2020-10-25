@@ -72,7 +72,7 @@
 <body class="bg-gray-100">
     @livewire('navigation-dropdown')
 
-    <div class="relative container max-w-7xl mx-auto">
+    <div class="relative mx-auto"> {{--classes removed: container max-w-7xl--}}
         @yield('content')
     </div>
 
