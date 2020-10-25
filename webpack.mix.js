@@ -18,16 +18,31 @@ const tailwindcss = require('tailwindcss');
         require('postcss-import'),
         require('tailwindcss'),
     ]);*/
-mix.js('resources/js/app.js', 'public/js')
+
+/*mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css')
         .options({
             processCssUrls: false,
             postCss: [ tailwindcss('./tailwind.config.js') ],
-        });
+        });*/
 
-// Copy the image files to the public folder - https://laracasts.com/discuss/channels/elixir/laravel-mix-image-workflow
+mix.sass('resources/sass/app.scss', 'public/css')
+    .options({
+        processCssUrls: false,
+        postCss: [ tailwindcss('./tailwind.config.js') ],
+    });
+
+// Vendor extraction - https://laravel.com/docs/8.x/mix#vendor-extraction
+mix.js('resources/js/app.js', 'public/js')
+    .extract([
+        'jquery',
+        'justifiedGallery',
+        '@fancyapps/fancybox',
+    ]);
+
+// Copy the image and font files to the public folder - https://laracasts.com/discuss/channels/elixir/laravel-mix-image-workflow
 mix.copy( 'resources/images', 'public/images', false );
-
+mix.copy( 'resources/webfonts', 'public/webfonts', false );
 
 // Sync browser any time something change in compiled css, js or views
 mix.browserSync({
