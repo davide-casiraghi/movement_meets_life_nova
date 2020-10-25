@@ -2,7 +2,6 @@
 
 namespace App\Nova;
 
-use Ebess\AdvancedNovaMediaLibrary\Fields\Files;
 use Ebess\AdvancedNovaMediaLibrary\Fields\Images;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
@@ -63,7 +62,8 @@ class Post extends Resource
                     ->rules('required'),
                 Text::make('Introimage Alt')->hideFromIndex(),
             ]),
-            Image::make('Introimage')->disk('public')->hideFromIndex(),
+            Images::make('Introimage', 'introimage')
+                ->hideFromIndex(),
             DateTime::make('Publish At')->hideFromIndex(),
             DateTime::make('Publish Until')->hideFromIndex(),
             Boolean::make('Is Published'),
@@ -72,10 +72,12 @@ class Post extends Resource
             Textarea::make('After Content')->rows(3),
             BelongsTo::make('User')->hideFromIndex(),
             BelongsTo::make('Post Category'),
-            Images::make('Gallery')
+            Images::make('Gallery', 'gallery')
+                ->conversionOnIndexView('thumb') // conversion used to display the image
                 ->customPropertiesFields([
-                    Boolean::make('Active'),
                     Markdown::make('Description'),
+                    Text::make('Youtube Url'),
+                    Text::make('Vimeo Url'),
                 ])
                 ->croppable(false)
                 ->hideFromIndex(),

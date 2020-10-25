@@ -17,6 +17,8 @@ class Accordion {
      */
     public function snippetsToHTML($postBody)
     {
+        $ret = $postBody;
+
         // If the post body contains any accordion
         if (substr_count($postBody, '{slide') > 0) {
 
@@ -49,7 +51,6 @@ class Accordion {
         }
         return $ret;
     }
-
 }
 
 

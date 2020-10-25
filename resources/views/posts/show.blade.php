@@ -13,6 +13,20 @@
         <div class="prose text-gray-500">
             {!! $post->body !!}
         </div>
+
+        <div>
+            @foreach($post->getMedia('gallery') as $image)
+                <img src="{{$image->getUrl('thumb')}}" alt="">
+                <br>
+                @if($image->hasCustomProperty('description'))
+                    {{$image->getCustomProperty('description')}}
+                @endif
+
+            @endforeach
+        </div>
+
+
+
     </div>
 
 @endsection

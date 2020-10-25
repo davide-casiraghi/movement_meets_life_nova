@@ -30265,14 +30265,18 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports) {
 
+/*
+    https://www.npmjs.com/package/justifiedGallery
+    http://miromannino.github.io/Justified-Gallery/
+    Options: http://miromannino.github.io/Justified-Gallery/options-and-events/
+ */
 jQuery(document).ready(function () {
-  // https://www.npmjs.com/package/justifiedGallery
-  // http://miromannino.github.io/Justified-Gallery/
-  // Options: http://miromannino.github.io/Justified-Gallery/options-and-events/
-  $(".lifeGallery").justifiedGallery({
-    rowHeight: 180,
-    margins: 10
-  });
+  if ($('.lifeGallery').length > 0) {
+    $(".lifeGallery").justifiedGallery({
+      rowHeight: 180,
+      margins: 10
+    });
+  }
 });
 
 /***/ }),
