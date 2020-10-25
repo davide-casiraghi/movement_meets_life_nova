@@ -7,7 +7,7 @@
 
 jQuery(document).ready(function(){
 
-    if($('.lifeGallery').length >0 ){
+    if($('.lifeGallery').length > 0 ){
         $(".lifeGallery").justifiedGallery({
             rowHeight: 180,
             margins: 10,

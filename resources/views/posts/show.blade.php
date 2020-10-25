@@ -14,21 +14,36 @@
             {!! $post->body !!}
         </div>
 
-        <div>
-            @foreach($post->getMedia('gallery') as $image)
-                <img src="{{$image->getUrl('thumb')}}" alt="">
-                <br>
-                @if($image->hasCustomProperty('description'))
-                    {{$image->getCustomProperty('description')}}
-                @endif
 
-            @endforeach
-        </div>
+
+        @if($post->hasMedia('gallery'))
+            <div class='lifeGallery'>
+                @foreach($post->getMedia('gallery') as $image)
+                <div class='item'>
+                    {{--{#<a href='{{image.path}}' data-fancybox='images' data-caption='<b>{{image.title}}</b><br>{{image.description}}'>#}--}}
+
+
+                        <a href='{{$image->getUrl()}}' data-fancybox='images' data-caption='{{$image->getCustomProperty('description')}}<br>{{$image->getCustomProperty('credits')}}'>
+                            <img src='{{$image->getUrl('thumb')}}' alt='{{$image->getCustomProperty('description')}}' />
+                            @if($image->hasCustomProperty('Youtube Url'))
+                            <i class='far fa-play-circle' style="position: absolute;top: calc(50% - 25px);left: calc(50% - 25px); color: hsla(0,0%,100%,.8);font-size: 50px;"></i>
+                                HA UN VIDEO YOUTUBE!!!
+                            @endif
+
+                        </a>
+                        @if($image->hasCustomProperty('description'))
+                        <div class="jg-caption">
+                            {{$image->getCustomProperty('description')}}
+                        </div>
+                        @endif
+                </div>
+                @endforeach
+            </div>
+        @endif
 
 
 
     </div>
-
 @endsection
 
 

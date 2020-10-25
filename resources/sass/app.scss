@@ -2,9 +2,15 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-@import 'video_embed';
 
+// Vendors
+// -------------------------------------------------------------------------------- //
+@import "vendors/+import.vendors";
 
 // Snippets
 // -------------------------------------------------------------------------------- //
 @import "snippets/+import.snippets";
+
+// Customs
+// -------------------------------------------------------------------------------- //
+@import 'video_embed';

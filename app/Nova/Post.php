@@ -76,6 +76,7 @@ class Post extends Resource
                 ->conversionOnIndexView('thumb') // conversion used to display the image
                 ->customPropertiesFields([
                     Markdown::make('Description'),
+                    Text::make('Credits'),
                     Text::make('Youtube Url'),
                     Text::make('Vimeo Url'),
                 ])

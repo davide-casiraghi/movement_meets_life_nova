@@ -25,6 +25,8 @@
         "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
+        "@fancyapps/fancybox": "^3.5.7",
+        "@fortawesome/fontawesome-free": "^5.15.1",
         "jquery": "^3.5.1",
         "justifiedGallery": "^3.8.1"
     }
