@@ -10,15 +10,16 @@
                 <h2 class="text-4xl font-bold mb-2 text-white">
                     {{ $post->title }}
                 </h2>
-                <h3 class="text-2xl mb-8 text-gray-200">
+                <h3 class="text-2xl mb-8 text-white">
                     {!! $post->intro_text !!}
                 </h3>
-                <div class="row">
-                    <div class="col">
-                        <div class="text-base text-gray-200">{{ $post->created_at->format('M j, Y') }}</div>
-                    </div>
-                    <div class="col">
-                        <div class="text-base text-gray-200 float-right">Reading time: {{ $post->reading_time() }}</div>
+
+                <div class="grid grid-flow-col auto-cols-max md:auto-cols-min">
+                    <div class="text-base text-white">{{ $post->created_at->format('M j, Y') }}</div>
+                    <div class="text-base text-white">
+                        <div class="float-right">
+                            Reading time: {{ $post->reading_time() }}
+                        </div>
                     </div>
                 </div>
 
