@@ -18,6 +18,7 @@ class Post extends Model implements HasMedia
     use HasFactory;
     use HasSlug;
     use HasTranslations;
+
     use InteractsWithMedia;
 
     /**
@@ -117,7 +118,8 @@ class Post extends Model implements HasMedia
 
     public function registerMediaCollections(): void
     {
-        $this->addMediaCollection('collection_name')->singleFile();
+        $this->addMediaCollection('introimage')->singleFile();
+        $this->addMediaCollection('gallery');
     }
 
 

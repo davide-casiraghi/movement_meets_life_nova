@@ -59,6 +59,8 @@ class PostController extends Controller
     {
         $post['body'] = $this->postService->getPostBody($post);
 
+         //dd($post->getMedia('gallery'));
+
         return view('posts.show', compact('post'));
     }
 
