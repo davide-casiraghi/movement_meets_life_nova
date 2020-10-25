@@ -72,7 +72,13 @@
 <body class="bg-gray-100">
     @livewire('navigation-dropdown')
 
-    <div class="relative mx-auto"> {{--classes removed: container max-w-7xl--}}
+    @hasSection('jumbotron')
+        <div class="relative mx-auto">
+            @yield('jumbotron')
+        </div>
+    @endif
+
+    <div class="relative mx-auto container max-w-7xl">
         @yield('content')
     </div>
 

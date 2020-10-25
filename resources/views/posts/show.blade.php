@@ -1,9 +1,7 @@
 
 @extends('layouts.app')
 
-@section('content')
-
-
+@section('jumbotron')
     @if($post->hasMedia('introimage'))
         <div class="bg-fixed relative" style="background-image: url('{{$post->getMedia('introimage')[0]->getUrl()}}');">
             <div class="container mx-auto px-6 py-40 max-w-prose relative z-10">
@@ -28,10 +26,11 @@
         </div>
         {{--https://www.digitalocean.com/community/tutorials/build-a-beautiful-landing-page-with-tailwind-css--}}
     @endif
+@endsection
 
+@section('content')
 
     <div class="text-lg max-w-prose mx-auto mb-6 mt-6">
-
         @if(!$post->hasMedia('introimage'))
             <h2 class="mt-2 mb-8 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10">{{ $post->title }}</h2>
             <h3 class="text-lg leading-7 text-gray-500 mb-5">{!! $post->intro_text !!}</h3>
@@ -70,8 +69,6 @@
                 @endforeach
             </div>
         @endif
-
-
 
     </div>
 @endsection
