@@ -4,7 +4,12 @@
 @section('content')
     <div class="text-lg max-w-prose mx-auto mb-6 mt-6">
 
-        <img src="/storage/{{$post->introimage}}" alt="{{$post->introimage_alt}}">
+        {{--<img src="/storage/{{$post->introimage}}" alt="{{$post->introimage_alt}}">--}}
+
+        @if($post->hasMedia('introimage'))
+            <img src="{{$post->getMedia('introimage')[0]->getUrl()}}" alt="">
+        @endif
+
         <h2 class="mt-2 mb-8 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10">{{ $post->title }}</h2>
 
         <h3 class="text-lg leading-7 text-gray-500 mb-5">{!! $post->intro_text !!}</h3>
