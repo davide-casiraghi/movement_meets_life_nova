@@ -13,6 +13,18 @@
                 <h3 class="text-2xl mb-8 text-gray-200">
                     {!! $post->intro_text !!}
                 </h3>
+                <div class="row">
+                    <div class="col">
+                        <div class="text-base text-gray-200">{{ $post->created_at->format('M j, Y') }}</div>
+                    </div>
+                    <div class="col">
+                        <div class="text-base text-gray-200 float-right">Reading time: {{ $post->reading_time() }}</div>
+                    </div>
+                </div>
+
+
+
+
             </div>
 
             <div class="opacity-25 bg-black flex items-center h-full w-full flex-wrap z-0 top-0 right-0 absolute">.opacity-75</div>

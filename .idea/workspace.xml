@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f86be012-5364-473d-a5f7-a7b8c0c0f2c5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/posts/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/posts/show.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -329,7 +328,7 @@
       <workItem from="1603636867826" duration="4000" />
       <workItem from="1603636884581" duration="91000" />
       <workItem from="1603636986781" duration="365000" />
-      <workItem from="1603637488546" duration="4475000" />
+      <workItem from="1603637488546" duration="5012000" />
     </task>
     <servers />
   </component>
@@ -374,7 +373,7 @@
       <screen x="-220" y="-1177" width="1920" height="1177" />
     </state>
     <state x="317" y="-1058" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.23.1440.821/-220.-1177.1920.1177@-220.-1177.1920.1177" timestamp="1601648303881" />
-    <state x="2001" y="-25" width="831" height="670" key="find.popup" timestamp="1603637498079">
+    <state x="2001" y="-25" width="831" height="670" key="find.popup" timestamp="1603645292743">
       <screen x="1440" y="-226" width="1920" height="1105" />
     </state>
     <state x="2001" y="218" width="831" height="726" key="find.popup/0.0.1440.900/1440.0.1920.1200@1440.0.1920.1200" timestamp="1602316388123" />
@@ -388,9 +387,9 @@
     <state x="421" y="171" width="598" height="490" key="find.popup/0.23.1440.816@0.23.1440.816" timestamp="1601570351591" />
     <state x="421" y="172" width="622" height="494" key="find.popup/0.23.1440.821@0.23.1440.821" timestamp="1601656919489" />
     <state x="1444" y="-1160" width="1108" height="857" key="find.popup/0.23.1440.877/-1224.-1177.1920.1105/696.-1417.2560.1417@696.-1417.2560.1417" timestamp="1602148735038" />
-    <state x="2001" y="-25" width="831" height="670" key="find.popup/0.23.1440.877/1440.-226.1920.1105@1440.-226.1920.1105" timestamp="1603637498079" />
-    <state x="2075" y="62" width="896" height="681" key="search.everywhere.popup" timestamp="1603567464445">
-      <screen x="1440" y="-226" width="1920" height="1177" />
+    <state x="2001" y="-25" width="831" height="670" key="find.popup/0.23.1440.877/1440.-226.1920.1105@1440.-226.1920.1105" timestamp="1603645292743" />
+    <state x="2075" y="44" width="896" height="640" key="search.everywhere.popup" timestamp="1603644996707">
+      <screen x="1440" y="-226" width="1920" height="1105" />
     </state>
     <state x="476" y="221" width="671" height="467" key="search.everywhere.popup/0.23.1440.811/-220.-1177.1920.1177@0.23.1440.811" timestamp="1601969940815" />
     <state x="2075" y="62" width="896" height="681" key="search.everywhere.popup/0.23.1440.811/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1603567464445" />
@@ -405,6 +404,7 @@
     <state x="415" y="-889" width="894" height="677" key="search.everywhere.popup/0.23.1440.822/-220.-1177.1920.1177@-220.-1177.1920.1177" timestamp="1601643955110" />
     <state x="-589" y="-907" width="896" height="638" key="search.everywhere.popup/0.23.1440.877/-1224.-1177.1920.1105/696.-1417.2560.1417@-1224.-1177.1920.1105" timestamp="1602163913336" />
     <state x="1542" y="-1071" width="1193" height="816" key="search.everywhere.popup/0.23.1440.877/-1224.-1177.1920.1105/696.-1417.2560.1417@696.-1417.2560.1417" timestamp="1601991884076" />
+    <state x="2075" y="44" width="896" height="640" key="search.everywhere.popup/0.23.1440.877/1440.-226.1920.1105@1440.-226.1920.1105" timestamp="1603644996707" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
