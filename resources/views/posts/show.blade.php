@@ -2,24 +2,39 @@
 @extends('layouts.app')
 
 @section('content')
+
+
+    @if($post->hasMedia('introimage'))
+        <div class="bg-fixed" style="background-image: url('{{$post->getMedia('introimage')[0]->getUrl()}}');">
+            <div class="container mx-auto px-6 py-20 max-w-prose absolute z-10">
+                <h2 class="text-4xl font-bold mb-2 text-white">
+                    {{ $post->title }}
+                </h2>
+                <h3 class="text-2xl mb-8 text-gray-200">
+                    {!! $post->intro_text !!}
+                </h3>
+            </div>
+
+            <div class="opacity-25 bg-black flex items-center h-64 flex-wrap">.opacity-75</div>
+
+         {{--   <div class="expanded fixed inset-0 bg-black bg-opacity-50 w-full h-full flex items-start justify-center pt-12 z-10">
+                <input type="text" class="border-r border-gray">
+            </div>--}}
+        </div>
+        {{--https://www.digitalocean.com/community/tutorials/build-a-beautiful-landing-page-with-tailwind-css--}}
+    @endif
+
+
     <div class="text-lg max-w-prose mx-auto mb-6 mt-6">
 
-        {{--<img src="/storage/{{$post->introimage}}" alt="{{$post->introimage_alt}}">--}}
-
-        @if($post->hasMedia('introimage'))
-            <img src="{{$post->getMedia('introimage')[0]->getUrl()}}" alt="">
+        @if(!$post->hasMedia('introimage'))
+            <h2 class="mt-2 mb-8 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10">{{ $post->title }}</h2>
+            <h3 class="text-lg leading-7 text-gray-500 mb-5">{!! $post->intro_text !!}</h3>
         @endif
-
-        <h2 class="mt-2 mb-8 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10">{{ $post->title }}</h2>
-
-        <h3 class="text-lg leading-7 text-gray-500 mb-5">{!! $post->intro_text !!}</h3>
-
 
         <div class="prose text-gray-500">
             {!! $post->body !!}
         </div>
-
-
 
         @if($post->hasMedia('gallery'))
             <div class='lifeGallery'>
