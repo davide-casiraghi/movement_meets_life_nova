@@ -22,17 +22,9 @@
                         </div>
                     </div>
                 </div>
-
-
-
-
             </div>
 
-            <div class="opacity-25 bg-black flex items-center h-full w-full flex-wrap z-0 top-0 right-0 absolute">.opacity-75</div>
-
-         {{--   <div class="expanded fixed inset-0 bg-black bg-opacity-50 w-full h-full flex items-start justify-center pt-12 z-10">
-                <input type="text" class="border-r border-gray">
-            </div>--}}
+            <div class="opacity-25 bg-black flex items-center h-full w-full flex-wrap z-0 top-0 right-0 absolute"></div>
         </div>
         {{--https://www.digitalocean.com/community/tutorials/build-a-beautiful-landing-page-with-tailwind-css--}}
     @endif
