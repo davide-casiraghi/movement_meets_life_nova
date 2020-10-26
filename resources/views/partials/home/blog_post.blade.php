@@ -7,7 +7,7 @@
         <div class="flex-1">
             <p class="text-sm leading-5 font-medium text-indigo-600">
                 @foreach($post->tags()->get() as $tag)
-                <a href="#" class="hover:underline">
+                <a href="{{ route('tags.show',$tag->id) }}" class="hover:underline">
                     {{--{{$post->post_category->name}}--}}
                     #{{$tag->tag}}
                 </a>

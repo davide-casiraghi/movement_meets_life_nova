@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="f86be012-5364-473d-a5f7-a7b8c0c0f2c5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/home/blog_post.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/home/blog_post.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -328,7 +329,13 @@
       <workItem from="1603636867826" duration="4000" />
       <workItem from="1603636884581" duration="91000" />
       <workItem from="1603636986781" duration="365000" />
-      <workItem from="1603637488546" duration="5794000" />
+      <workItem from="1603637488546" duration="5913000" />
+      <workItem from="1603704009351" duration="237000" />
+      <workItem from="1603716977818" duration="32000" />
+      <workItem from="1603728800425" duration="279000" />
+      <workItem from="1603729096300" duration="36000" />
+      <workItem from="1603729164827" duration="105000" />
+      <workItem from="1603729303585" duration="1597000" />
     </task>
     <servers />
   </component>
@@ -373,8 +380,8 @@
       <screen x="-220" y="-1177" width="1920" height="1177" />
     </state>
     <state x="317" y="-1058" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.23.1440.821/-220.-1177.1920.1177@-220.-1177.1920.1177" timestamp="1601648303881" />
-    <state x="2001" y="-25" width="831" height="670" key="find.popup" timestamp="1603645292743">
-      <screen x="1440" y="-226" width="1920" height="1105" />
+    <state x="2001" y="-12" width="831" height="714" key="find.popup" timestamp="1603730677364">
+      <screen x="1440" y="-226" width="1920" height="1177" />
     </state>
     <state x="2001" y="218" width="831" height="726" key="find.popup/0.0.1440.900/1440.0.1920.1200@1440.0.1920.1200" timestamp="1602316388123" />
     <state x="1444" y="-1160" width="1108" height="857" key="find.popup/0.23.1440.808/-1224.-1177.1920.1177/696.-1417.2560.1417@696.-1417.2560.1417" timestamp="1602254003882" />
@@ -384,6 +391,7 @@
     <state x="421" y="170" width="623" height="491" key="find.popup/0.23.1440.812/-220.-1177.1920.1177@0.23.1440.812" timestamp="1601969851563" />
     <state x="2001" y="-12" width="831" height="713" key="find.popup/0.23.1440.812/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1603432360715" />
     <state x="2001" y="237" width="831" height="713" key="find.popup/0.23.1440.812/1440.23.1920.1177@1440.23.1920.1177" timestamp="1602417129297" />
+    <state x="2001" y="-12" width="831" height="714" key="find.popup/0.23.1440.814/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1603730677364" />
     <state x="421" y="171" width="598" height="490" key="find.popup/0.23.1440.816@0.23.1440.816" timestamp="1601570351591" />
     <state x="421" y="172" width="622" height="494" key="find.popup/0.23.1440.821@0.23.1440.821" timestamp="1601656919489" />
     <state x="1444" y="-1160" width="1108" height="857" key="find.popup/0.23.1440.877/-1224.-1177.1920.1105/696.-1417.2560.1417@696.-1417.2560.1417" timestamp="1602148735038" />
