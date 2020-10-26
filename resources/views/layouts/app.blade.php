@@ -70,7 +70,9 @@
 </head>
 
 <body class="bg-gray-100">
-    @livewire('navigation-dropdown')
+    {{--@livewire('navigation-dropdown')--}}
+
+    @include('navigation')
 
     @hasSection('jumbotron')
         <div class="relative mx-auto">
