@@ -20,7 +20,7 @@ class GlossaryService {
             $text = preg_replace_callback(
                 $pattern,
                 function($matches) use ($glossaryTerm){
-                    $glossaryTermTemplate = "<a href='/glossary/".$glossaryTerm->id."' class='text-red-700'>".$glossaryTerm->term."</a>";
+                    $glossaryTermTemplate = "<a href='/glossaryTerms/".$glossaryTerm->id."' class='text-red-700'>".$glossaryTerm->term."</a>";
                     return $glossaryTermTemplate;
                 },
                 $text);
