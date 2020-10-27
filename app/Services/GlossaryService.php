@@ -13,24 +13,18 @@ class GlossaryService {
      */
     public function markGlossaryTerms($text)
     {
-        //dump($text);
-        $glossaryTerms = Glossary::where('is_published', 1)->pluck('term');
-        //dump($glossaryTerms);
-        foreach ($glossaryTerms as $glossaryTerm){
-            $pattern = "/\b$glossaryTerm\b/";
-            //dump($pattern);
+        $glossaryTerms = Glossary::where('is_published', 1)->get();
+
+        foreach ($glossaryTerms as $id => $glossaryTerm){
+            $pattern = "/\b$glossaryTerm->term\b/";
             $text = preg_replace_callback(
                 $pattern,
                 function($matches) use ($glossaryTerm){
-                    $glossaryTermTemplate = "<a href='/#' class='text-red-700'>".$glossaryTerm."</a>";
+                    $glossaryTermTemplate = "<a href='/glossary/".$glossaryTerm->id."' class='text-red-700'>".$glossaryTerm->term."</a>";
                     return $glossaryTermTemplate;
                 },
                 $text);
-
-            //dd($text);
         }
-
-
         return $text;
     }
 }
