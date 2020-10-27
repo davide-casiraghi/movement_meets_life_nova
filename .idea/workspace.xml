@@ -3,9 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="f86be012-5364-473d-a5f7-a7b8c0c0f2c5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/navigation-dropdown.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/old-navigation-dropdown.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/PostService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/PostService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/Snippets/Accordion.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/Snippets/AccordionService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/Snippets/GalleryMasonry.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/Snippets/GalleryMasonryService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/GlossaryFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/GlossaryFactory.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -336,7 +337,7 @@
       <workItem from="1603728800425" duration="279000" />
       <workItem from="1603729096300" duration="36000" />
       <workItem from="1603729164827" duration="105000" />
-      <workItem from="1603729303585" duration="3970000" />
+      <workItem from="1603729303585" duration="7038000" />
     </task>
     <servers />
   </component>
@@ -352,7 +353,11 @@
       <screen x="1440" y="-226" width="1920" height="1177" />
     </state>
     <state x="2214" y="185" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1440.812/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1603431856264" />
-    <state x="2148" y="50" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1603382234035">
+    <state x="1440" y="-226" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1603777607103">
+      <screen x="1440" y="-226" width="1920" height="1177" />
+    </state>
+    <state x="1440" y="-226" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1440.814/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1603777607103" />
+    <state x="2148" y="50" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1603777819523">
       <screen x="1440" y="-226" width="1920" height="1177" />
     </state>
     <state x="2148" y="281" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.900/1440.0.1920.1200@1440.0.1920.1200" timestamp="1602317882191" />
@@ -363,12 +368,14 @@
     <state x="2148" y="50" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.812/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1603382234035" />
     <state x="2148" y="299" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.812/1440.23.1920.1177@1440.23.1920.1177" timestamp="1602416466806" />
     <state x="-516" y="-901" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.812/696.-1417.2560.1417/-1224.-1177.1920.1177@-1224.-1177.1920.1177" timestamp="1602228791608" />
+    <state x="2148" y="50" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.814/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1603777819523" />
     <state x="488" y="-901" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.821/-220.-1177.1920.1177@-220.-1177.1920.1177" timestamp="1601648307583" />
     <state x="1640" y="-1085" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.877/-1224.-1177.1920.1105/696.-1417.2560.1417@696.-1417.2560.1417" timestamp="1602151539560" />
-    <state x="2011" y="-21" key="NewPhpClassDialog" timestamp="1603431860718">
+    <state x="2011" y="-21" key="NewPhpClassDialog" timestamp="1603777164095">
       <screen x="1440" y="-226" width="1920" height="1177" />
     </state>
     <state x="2011" y="-21" key="NewPhpClassDialog/0.23.1440.812/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1603431860718" />
+    <state x="2011" y="-21" key="NewPhpClassDialog/0.23.1440.814/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1603777164095" />
     <state x="428" y="166" key="NewPhpClassDialog/0.23.1440.822@0.23.1440.822" timestamp="1602563837548" />
     <state x="1919" y="176" key="SettingsEditor" timestamp="1602343760271">
       <screen x="1440" y="23" width="1920" height="1177" />
@@ -382,7 +389,7 @@
     </state>
     <state x="1977" y="-107" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.23.1440.814/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1603736147593" />
     <state x="317" y="-1058" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.23.1440.821/-220.-1177.1920.1177@-220.-1177.1920.1177" timestamp="1601648303881" />
-    <state x="2001" y="-12" width="831" height="714" key="find.popup" timestamp="1603730677364">
+    <state x="2001" y="-12" width="831" height="714" key="find.popup" timestamp="1603777995321">
       <screen x="1440" y="-226" width="1920" height="1177" />
     </state>
     <state x="2001" y="218" width="831" height="726" key="find.popup/0.0.1440.900/1440.0.1920.1200@1440.0.1920.1200" timestamp="1602316388123" />
@@ -393,7 +400,7 @@
     <state x="421" y="170" width="623" height="491" key="find.popup/0.23.1440.812/-220.-1177.1920.1177@0.23.1440.812" timestamp="1601969851563" />
     <state x="2001" y="-12" width="831" height="713" key="find.popup/0.23.1440.812/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1603432360715" />
     <state x="2001" y="237" width="831" height="713" key="find.popup/0.23.1440.812/1440.23.1920.1177@1440.23.1920.1177" timestamp="1602417129297" />
-    <state x="2001" y="-12" width="831" height="714" key="find.popup/0.23.1440.814/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1603730677364" />
+    <state x="2001" y="-12" width="831" height="714" key="find.popup/0.23.1440.814/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1603777995321" />
     <state x="421" y="171" width="598" height="490" key="find.popup/0.23.1440.816@0.23.1440.816" timestamp="1601570351591" />
     <state x="421" y="172" width="622" height="494" key="find.popup/0.23.1440.821@0.23.1440.821" timestamp="1601656919489" />
     <state x="1444" y="-1160" width="1108" height="857" key="find.popup/0.23.1440.877/-1224.-1177.1920.1105/696.-1417.2560.1417@696.-1417.2560.1417" timestamp="1602148735038" />

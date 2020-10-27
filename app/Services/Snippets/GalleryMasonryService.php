@@ -18,7 +18,7 @@ namespace App\Services\Snippets;
         // Options: http://miromannino.github.io/Justified-Gallery/options-and-events/
 */
 
-class GalleryMasonry {
+class GalleryMasonryService {
 
     /**
      *  Substitute gallery snippets with the related HTML

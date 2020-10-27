@@ -8,7 +8,7 @@ namespace App\Services\Snippets;
     {slider=HOW to add contents to this website? - Create account} lorem ipsum {/slider}
 */
 
-class Accordion {
+class AccordionService {
     private $count = 1;
     /**
      * Substitute accordion snippets with the related HTML
