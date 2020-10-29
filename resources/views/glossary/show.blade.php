@@ -2,8 +2,26 @@
 
 @section('javascript-document-ready')
     @parent
-    Tipped.create('#demo-html', {
-        inline: 'thayer-tooltip-content',
+
+    $('.has-glossary-term').each(function (i) {
+        var termId = "glossary-term-"+i;
+        var definitionId = "glossary-definition-"+i;
+
+        Tipped.create(termId, { //id of the element on which display the tooltip on hover
+            inline: definitionId, //id of the content of the tooltip
+            skin: 'light',
+            radius: false,
+            padding: false,
+            position: 'topleft',
+            size: 'large'
+        });
+
+    });
+
+
+
+    Tipped.create('#demo-html', { //id of the element  on which display the tooltip on hover
+        inline: 'thayer-tooltip-content', //id of the content of the tooltip
             skin: 'light',
             radius: false,
             padding: false,

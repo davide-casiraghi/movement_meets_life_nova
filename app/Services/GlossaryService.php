@@ -14,10 +14,13 @@ class GlossaryService {
     public function markGlossaryTerms($text)
     {
         $glossaryTerms = Glossary::where('is_published', 1)->get();
+        $count = 1;
 
         foreach ($glossaryTerms as $id => $glossaryTerm){
-            $text = $this->replaceGlossaryTerm($glossaryTerm, $text);
-            $text = $this->attachTermDescription($glossaryTerm, $text);
+            $text = $this->replaceGlossaryTerm($glossaryTerm, $text, $count);
+            $text = $this->attachTermDescription($glossaryTerm, $text, $count);
+
+            $count++;
         }
 
         return $text;
@@ -26,14 +29,17 @@ class GlossaryService {
     /**
      * Replace glossary term
      *
+     * @param \App\Models\Glossary $glossaryTerm
+     * @param string $text
+     *
      * @return string
      */
-    private function replaceGlossaryTerm(Glossary $glossaryTerm, string $text) {
+    private function replaceGlossaryTerm(Glossary $glossaryTerm, string $text, int $count) {
         $pattern = "/\b$glossaryTerm->term\b/";
         $text = preg_replace_callback(
             $pattern,
-            function($matches) use ($glossaryTerm){
-                $glossaryTermTemplate = "<a href='/glossaryTerms/".$glossaryTerm->id."' class='text-red-700'>".$glossaryTerm->term."</a>";
+            function($matches) use ($glossaryTerm, $count){
+                $glossaryTermTemplate = "<a href='/glossaryTerms/".$glossaryTerm->id."' class='text-red-700 has-glossary-term' id='glossary-term-".$count."'>".$glossaryTerm->term."</a>";
                 return $glossaryTermTemplate;
             },
             $text);
@@ -44,10 +50,13 @@ class GlossaryService {
     /**
      * Attach the term tooltip content to the end of the text
      *
+     * @param \App\Models\Glossary $glossaryTerm
+     * @param string $text
+     *
      * @return string
      */
-    private function attachTermDescription(Glossary $glossaryTerm, string $text){
-        $termTooltipContent = "<div class='tooltip-painter' id='thayer-tooltip-content' style='display:none'>
+    private function attachTermDescription(Glossary $glossaryTerm, string $text, int $count){
+        $termTooltipContent = "<div class='tooltip-painter' id='glossary-definition-".$count."' style='display:none'>
                             <div class='photo'>
                                 <img src='https://source.unsplash.com/random' alt=''/>
                             </div>
