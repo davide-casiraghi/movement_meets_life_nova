@@ -4,7 +4,7 @@
     <list default="true" id="f86be012-5364-473d-a5f7-a7b8c0c0f2c5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Services/GlossaryService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/GlossaryService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/glossary/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/glossary/show.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -336,7 +336,11 @@
       <workItem from="1603728800425" duration="279000" />
       <workItem from="1603729096300" duration="36000" />
       <workItem from="1603729164827" duration="105000" />
-      <workItem from="1603729303585" duration="8469000" />
+      <workItem from="1603729303585" duration="8825000" />
+      <workItem from="1603886331122" duration="53000" />
+      <workItem from="1603915147600" duration="428000" />
+      <workItem from="1603915620060" duration="716000" />
+      <workItem from="1603916383414" duration="1367000" />
     </task>
     <servers />
   </component>
@@ -388,13 +392,13 @@
     </state>
     <state x="1977" y="-107" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.23.1440.814/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1603736147593" />
     <state x="317" y="-1058" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.23.1440.821/-220.-1177.1920.1177@-220.-1177.1920.1177" timestamp="1601648303881" />
-    <state x="2001" y="-12" width="831" height="714" key="find.popup" timestamp="1603777995321">
+    <state x="2001" y="-12" width="831" height="713" key="find.popup" timestamp="1603915602441">
       <screen x="1440" y="-226" width="1920" height="1177" />
     </state>
     <state x="2001" y="218" width="831" height="726" key="find.popup/0.0.1440.900/1440.0.1920.1200@1440.0.1920.1200" timestamp="1602316388123" />
     <state x="1444" y="-1160" width="1108" height="857" key="find.popup/0.23.1440.808/-1224.-1177.1920.1177/696.-1417.2560.1417@696.-1417.2560.1417" timestamp="1602254003882" />
     <state x="421" y="170" width="623" height="490" key="find.popup/0.23.1440.811/-220.-1177.1920.1177@0.23.1440.811" timestamp="1601966716914" />
-    <state x="2001" y="-12" width="831" height="713" key="find.popup/0.23.1440.811/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1603612742677" />
+    <state x="2001" y="-12" width="831" height="713" key="find.popup/0.23.1440.811/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1603915602441" />
     <state x="1444" y="-1160" width="1106" height="853" key="find.popup/0.23.1440.811/696.-1417.2560.1417/-1224.-1177.1920.1177@696.-1417.2560.1417" timestamp="1601911354853" />
     <state x="421" y="170" width="623" height="491" key="find.popup/0.23.1440.812/-220.-1177.1920.1177@0.23.1440.812" timestamp="1601969851563" />
     <state x="2001" y="-12" width="831" height="713" key="find.popup/0.23.1440.812/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1603432360715" />
