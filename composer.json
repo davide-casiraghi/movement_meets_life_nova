@@ -9,6 +9,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.3",
+        "ext-gd": "*",
         "ext-json": "*",
         "ebess/advanced-nova-media-library": "^3.3",
         "fideloper/proxy": "^4.2",
@@ -25,10 +26,10 @@
         "optimistdigital/nova-menu-builder": "^4.0",
         "optimistdigital/nova-multiselect-field": "^1.10",
         "spatie/laravel-medialibrary": "^8.0.0",
+        "spatie/laravel-model-status": "^1.10",
         "spatie/laravel-sluggable": "^2.5",
         "spatie/laravel-translatable": "^4.5",
-        "spatie/nova-translatable": "^3.0",
-      "ext-gd": "*"
+        "spatie/nova-translatable": "^3.0"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.8",

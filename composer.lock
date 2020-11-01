@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dc0f85e8ebff8af40ae00ac1b0c5d45c",
+    "content-hash": "ad74184c7e9ddc2cbfad550b8599b0b7",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -4477,6 +4477,73 @@
                 }
             ],
             "time": "2020-10-05T21:54:57+00:00"
+        },
+        {
+            "name": "spatie/laravel-model-status",
+            "version": "1.10.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-model-status.git",
+                "reference": "176a6812ca6f2f0d49d6edfdf5ac7794f67b0edb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-model-status/zipball/176a6812ca6f2f0d49d6edfdf5ac7794f67b0edb",
+                "reference": "176a6812ca6f2f0d49d6edfdf5ac7794f67b0edb",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5.8.0|^6.0|^7.0|^8.0",
+                "php": "^7.2"
+            },
+            "require-dev": {
+                "orchestra/testbench": "~3.8.0|^4.0|^5.0|^6.0",
+                "phpunit/phpunit": "^8.0|^9.0|^9.3"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Spatie\\ModelStatus\\ModelStatusServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\ModelStatus\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Thomas Verhelst",
+                    "email": "tvke91@gmail.com",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A package to enable assigning statuses to Eloquent Models",
+            "homepage": "https://github.com/spatie/laravel-model-status",
+            "keywords": [
+                "laravel-status",
+                "spatie"
+            ],
+            "funding": [
+                {
+                    "url": "https://spatie.be/open-source/support-us",
+                    "type": "custom"
+                }
+            ],
+            "time": "2020-09-09T09:15:04+00:00"
         },
         {
             "name": "spatie/laravel-sluggable",
@@ -10714,8 +10781,8 @@
     "prefer-lowest": false,
     "platform": {
         "php": "^7.3",
-        "ext-json": "*",
-        "ext-gd": "*"
+        "ext-gd": "*",
+        "ext-json": "*"
     },
     "platform-dev": [],
     "plugin-api-version": "1.1.0"

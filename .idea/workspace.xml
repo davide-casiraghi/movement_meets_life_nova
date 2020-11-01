@@ -2,8 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f86be012-5364-473d-a5f7-a7b8c0c0f2c5" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/laravel_demo_jetstream.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/laravel_demo_jetstream.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/GlossaryService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/GlossaryService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TestimonialController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TestimonialController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/TestimonialStoreRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/TestimonialStoreRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Testimonial.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Testimonial.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/TestimonialRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/TestimonialRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/TestimonialServices.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/TestimonialService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/TestimonialFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/TestimonialFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_06_132054_create_testimonials_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_06_132054_create_testimonials_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/messages.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/messages.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/testimonials/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/testimonials/create.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,6 +192,7 @@
       <path value="$PROJECT_DIR$/vendor/justinrainbow/json-schema" />
       <path value="$PROJECT_DIR$/vendor/symfony/filesystem" />
       <path value="$PROJECT_DIR$/vendor/react/promise" />
+      <path value="$PROJECT_DIR$/vendor/spatie/laravel-model-status" />
     </include_path>
   </component>
   <component name="ProjectId" id="1iHOx9CGzAxJTY4BeCExXJdst2V" />
@@ -204,14 +217,15 @@
     <property name="settings.editor.selected.configurable" value="diff.base" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/resources/views" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources/views/glossary" />
       <recent name="$PROJECT_DIR$/app/Services/Quote" />
       <recent name="$PROJECT_DIR$/resources/views" />
       <recent name="$PROJECT_DIR$/app/Nova" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views/testimonials" />
+      <recent name="$PROJECT_DIR$/resources/views" />
     </key>
   </component>
   <component name="RunManager">
@@ -342,7 +356,31 @@
       <workItem from="1603916383414" duration="3296000" />
       <workItem from="1603962916157" duration="13000" />
       <workItem from="1603984462996" duration="71000" />
-      <workItem from="1604214550818" duration="2001000" />
+      <workItem from="1604214550818" duration="2259000" />
+      <workItem from="1604241886333" duration="1595000" />
+      <workItem from="1604244870721" duration="32000" />
+      <workItem from="1604244921345" duration="104000" />
+      <workItem from="1604245056469" duration="291000" />
+      <workItem from="1604245378205" duration="124000" />
+      <workItem from="1604245513094" duration="117000" />
+      <workItem from="1604245642564" duration="35000" />
+      <workItem from="1604245705860" duration="139000" />
+      <workItem from="1604245873948" duration="434000" />
+      <workItem from="1604250940341" duration="260000" />
+      <workItem from="1604251751023" duration="33000" />
+      <workItem from="1604251807901" duration="109000" />
+      <workItem from="1604251919812" duration="18000" />
+      <workItem from="1604251941209" duration="1540000" />
+      <workItem from="1604255308528" duration="12000" />
+      <workItem from="1604255340231" duration="342000" />
+      <workItem from="1604255699818" duration="1122000" />
+      <workItem from="1604257139213" duration="62000" />
+      <workItem from="1604257287634" duration="714000" />
+      <workItem from="1604258047944" duration="185000" />
+      <workItem from="1604258323114" duration="183000" />
+      <workItem from="1604258635888" duration="464000" />
+      <workItem from="1604259143986" duration="215000" />
+      <workItem from="1604259398242" duration="100000" />
     </task>
     <servers />
   </component>
@@ -358,12 +396,13 @@
       <screen x="1440" y="-226" width="1920" height="1177" />
     </state>
     <state x="2214" y="185" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1440.812/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1603431856264" />
-    <state x="1440" y="-226" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1603777607103">
-      <screen x="1440" y="-226" width="1920" height="1177" />
+    <state x="0" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1604259164473">
+      <screen x="0" y="23" width="1440" height="812" />
     </state>
+    <state x="0" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1440.812@0.23.1440.812" timestamp="1604259164473" />
     <state x="1440" y="-226" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1440.814/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1603777607103" />
-    <state x="2148" y="50" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1603777819523">
-      <screen x="1440" y="-226" width="1920" height="1177" />
+    <state x="531" y="213" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1604259401477">
+      <screen x="0" y="23" width="1440" height="812" />
     </state>
     <state x="2148" y="281" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.900/1440.0.1920.1200@1440.0.1920.1200" timestamp="1602317882191" />
     <state x="1640" y="-1085" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.811/-1224.-1177.1920.1177/696.-1417.2560.1417@696.-1417.2560.1417" timestamp="1602249782541" />
@@ -373,13 +412,15 @@
     <state x="2148" y="50" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.812/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1603382234035" />
     <state x="2148" y="299" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.812/1440.23.1920.1177@1440.23.1920.1177" timestamp="1602416466806" />
     <state x="-516" y="-901" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.812/696.-1417.2560.1417/-1224.-1177.1920.1177@-1224.-1177.1920.1177" timestamp="1602228791608" />
+    <state x="531" y="213" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.812@0.23.1440.812" timestamp="1604259401477" />
     <state x="2148" y="50" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.814/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1603777819523" />
     <state x="488" y="-901" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.821/-220.-1177.1920.1177@-220.-1177.1920.1177" timestamp="1601648307583" />
     <state x="1640" y="-1085" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.877/-1224.-1177.1920.1105/696.-1417.2560.1417@696.-1417.2560.1417" timestamp="1602151539560" />
-    <state x="2011" y="-21" key="NewPhpClassDialog" timestamp="1603777164095">
-      <screen x="1440" y="-226" width="1920" height="1177" />
+    <state x="428" y="164" key="NewPhpClassDialog" timestamp="1604245761144">
+      <screen x="0" y="23" width="1440" height="812" />
     </state>
     <state x="2011" y="-21" key="NewPhpClassDialog/0.23.1440.812/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1603431860718" />
+    <state x="428" y="164" key="NewPhpClassDialog/0.23.1440.812@0.23.1440.812" timestamp="1604245761144" />
     <state x="2011" y="-21" key="NewPhpClassDialog/0.23.1440.814/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1603777164095" />
     <state x="428" y="166" key="NewPhpClassDialog/0.23.1440.822@0.23.1440.822" timestamp="1602563837548" />
     <state x="1919" y="176" key="SettingsEditor" timestamp="1602343760271">
@@ -410,8 +451,8 @@
     <state x="421" y="172" width="622" height="494" key="find.popup/0.23.1440.821@0.23.1440.821" timestamp="1601656919489" />
     <state x="1444" y="-1160" width="1108" height="857" key="find.popup/0.23.1440.877/-1224.-1177.1920.1105/696.-1417.2560.1417@696.-1417.2560.1417" timestamp="1602148735038" />
     <state x="2001" y="-25" width="831" height="670" key="find.popup/0.23.1440.877/1440.-226.1920.1105@1440.-226.1920.1105" timestamp="1603645292743" />
-    <state x="2075" y="62" width="896" height="681" key="search.everywhere.popup" timestamp="1603952940039">
-      <screen x="1440" y="-226" width="1920" height="1177" />
+    <state x="476" y="222" width="672" height="470" key="search.everywhere.popup" timestamp="1604245781789">
+      <screen x="0" y="23" width="1440" height="812" />
     </state>
     <state x="476" y="221" width="671" height="467" key="search.everywhere.popup/0.23.1440.811/-220.-1177.1920.1177@0.23.1440.811" timestamp="1601969940815" />
     <state x="2075" y="62" width="896" height="681" key="search.everywhere.popup/0.23.1440.811/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1603567464445" />
@@ -419,6 +460,7 @@
     <state x="-589" y="-890" width="895" height="678" key="search.everywhere.popup/0.23.1440.812/-1224.-1177.1920.1177/696.-1417.2560.1417@-1224.-1177.1920.1177" timestamp="1602056291057" />
     <state x="1543" y="-1071" width="1194" height="817" key="search.everywhere.popup/0.23.1440.812/-1224.-1177.1920.1177/696.-1417.2560.1417@696.-1417.2560.1417" timestamp="1602072450211" />
     <state x="2075" y="62" width="896" height="681" key="search.everywhere.popup/0.23.1440.812/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1603952940039" />
+    <state x="476" y="222" width="672" height="470" key="search.everywhere.popup/0.23.1440.812@0.23.1440.812" timestamp="1604245781789" />
     <state x="415" y="-889" width="670" height="676" key="search.everywhere.popup/0.23.1440.816/-220.-1177.1920.1177@-220.-1177.1920.1177" timestamp="1601562022484" />
     <state x="476" y="223" width="670" height="469" key="search.everywhere.popup/0.23.1440.816@0.23.1440.816" timestamp="1601570516597" />
     <state x="415" y="-889" width="894" height="677" key="search.everywhere.popup/0.23.1440.821/-220.-1177.1920.1177@-220.-1177.1920.1177" timestamp="1601648243740" />

@@ -25,8 +25,8 @@ class TestimonialStoreRequest extends FormRequest
     {
         return [
             'feedback' => ['required', 'string'],
-            'name' => ['required', 'string', 'max:255'],
-            'surname' => ['required', 'string', 'max:255'],
+            'first_name' => ['required', 'string', 'max:255'],
+            'last_name' => ['required', 'string', 'max:255'],
             'profession' => ['required', 'string', 'max:255'],
             'photo' => 'mimes:jpg,jpeg,png|max:5120', // 5MB
             'personal_data_agreement' => ['required'],

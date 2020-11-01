@@ -15,12 +15,15 @@ class CreateTestimonialsTable extends Migration
     {
         Schema::create('testimonials', function (Blueprint $table) {
             $table->id();
-            $table->string('author')->nullable();
+            $table->string('first_name');
+            $table->string('last_name');
             $table->string('profession')->nullable();
-            $table->text('description')->nullable();
+            $table->text('feedback');
             $table->string('photo')->nullable();
 
-            $table->boolean('is_published')->default(false);
+            $table->boolean('personal_data_agreement');
+            $table->boolean('publish_agreement');
+
             $table->string('slug');
             $table->timestamps();
         });

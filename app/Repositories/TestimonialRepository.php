@@ -40,11 +40,11 @@ class TestimonialRepository {
         $testimonial = new Testimonial();
 
         $testimonial->feedback = $data['feedback'] ?? null;
-        $testimonial->name = $data['name'] ?? null;
-        $testimonial->surname = $data['surname'] ?? null;
+        $testimonial->first_name = $data['name'] ?? null;
+        $testimonial->last_name = $data['surname'] ?? null;
         $testimonial->profession = $data['profession'] ?? null;
-        $testimonial->send_as_sms =  ($data['publish_agreement'] == 'on') ? 1 : 0;
-        $testimonial->send_as_sms =  ($data['personal_data_agreement'] == 'on') ? 1 : 0;
+        $testimonial->publish_agreement =  ($data['publish_agreement'] == 'on') ? 1 : 0;
+        $testimonial->personal_data_agreement =  ($data['personal_data_agreement'] == 'on') ? 1 : 0;
         $testimonial->save();
 
         $testimonial->setStatus('pending');

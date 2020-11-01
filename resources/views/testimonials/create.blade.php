@@ -6,6 +6,7 @@
 
     <div class="flex justify-center">
         <form action="{{route('testimonials.store')}}" method="POST" class="max-w-3xl">
+            @csrf
             <div class="bg-white shadow px-4 py-5 sm:rounded-lg sm:p-6 mt-4">
 
                 <div class="text-center">
@@ -31,7 +32,7 @@
                             Your feedback
                         </label>
                         <div class="rounded-md shadow-sm">
-                            <textarea name="feedback" rows="3" class="form-textarea mt-1 block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" placeholder="you@example.com"></textarea>
+                            <textarea name="feedback" rows="3" class="form-textarea mt-1 block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" placeholder="you@example.com">{{ old('feedback') }}</textarea>
                         </div>
                         <p class="mt-2 text-sm text-gray-500">
                             Brief description of your experience.
@@ -52,17 +53,17 @@
                         <div class="grid grid-cols-6 gap-6">
                             <div class="col-span-6 sm:col-span-3">
                                 <label for="first_name" class="block text-sm font-medium leading-5 text-gray-700">First name</label>
-                                <input name="first_name" id="first_name" class="mt-1 form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                                <input name="first_name" value="{{ old('first_name') }}" id="first_name" class="mt-1 form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
                             </div>
 
                             <div class="col-span-6 sm:col-span-3">
                                 <label for="last_name" class="block text-sm font-medium leading-5 text-gray-700">Last name</label>
-                                <input name="last_name" id="last_name" class="mt-1 form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                                <input name="last_name" value="{{ old('last_name') }}" id="last_name" class="mt-1 form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
                             </div>
 
                             <div class="col-span-6 sm:col-span-3">
                                 <label for="profession" class="block text-sm font-medium leading-5 text-gray-700">Your profession</label>
-                                <input name="profession" id="profession" class="mt-1 form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                                <input name="profession" value="{{ old('profession') }}" id="profession" class="mt-1 form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
                             </div>
 
                             <div class="col-span-6 sm:col-span-3">
@@ -103,7 +104,7 @@
                                 <div class="mb-4">
                                     <div class="flex items-start">
                                         <div class="flex items-center h-5">
-                                            <input name="personal_data_agreement" type="checkbox" class="form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out">
+                                            <input name="personal_data_agreement" type="checkbox" class="form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out" @if(old('personal_data_agreement')) checked @endif>
                                         </div>
                                         <div class="ml-3 text-sm leading-5">
                                             <label for="candidates" class="font-medium text-gray-700">Personal data agreement</label>
@@ -113,7 +114,7 @@
                                 </div>
                                 <div class="flex items-start">
                                     <div class="flex items-center h-5">
-                                        <input name="publish_agreement" type="checkbox" class="form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out">
+                                        <input name="publish_agreement" type="checkbox" class="form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out" @if(old('publish_agreement')) checked @endif>
                                     </div>
                                     <div class="ml-3 text-sm leading-5">
                                         <label for="comments" class="font-medium text-gray-700">Feedback agreement</label>

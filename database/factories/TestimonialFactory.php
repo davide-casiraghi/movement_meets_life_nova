@@ -22,16 +22,23 @@ class TestimonialFactory extends Factory
     public function definition()
     {
         return [
-            'author' => $this->faker->name($gender = null|'male'|'female'),
+            'first_name' => $this->faker->firstName($gender = null|'male'|'female'),
+            'last_name' => $this->faker->lastName,
             'profession' => [
                 'en' => $this->faker->sentence($nbWords = 2, $variableNbWords = true),
                 'it' => $this->faker->sentence($nbWords = 2, $variableNbWords = true),
             ],
-            'description' => [
+            'feedback' => [
                 'en' => $this->faker->sentence($nbWords = 2, $variableNbWords = true),
                 'it' => $this->faker->sentence($nbWords = 2, $variableNbWords = true),
             ],
             'photo' => 'placeholders/placeholder-150x150.png',
+            'personal_data_agreement' => 1,
+            'publish_agreement' => 1,
+
+            'status' => $this->faker->randomElement(['pending', 'approved']),
+
+
         ];
     }
 }

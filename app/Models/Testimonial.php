@@ -4,15 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\ModelStatus\HasStatuses;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 use Spatie\Translatable\HasTranslations;
 
 class Testimonial extends Model
 {
-    use HasFactory;
-    use HasSlug;
-    use HasTranslations;
+    use HasFactory, HasSlug, HasTranslations, HasStatuses;
 
     /**
      * The attributes that are mass assignable.
@@ -20,7 +19,7 @@ class Testimonial extends Model
      * @var array
      */
     protected $fillable = [
-        'author', 'profession', 'description', 'photo',
+        'first_name', 'last_name', 'profession', 'feedback', 'photo', 'personal_data_agreement', 'publish_agreement',
     ];
 
     /**
@@ -28,7 +27,7 @@ class Testimonial extends Model
      *
      * @var array
      */
-    public $translatable = ['profession', 'description'];
+    public $translatable = ['profession', 'feedback'];
 
     /**
      * Generates a unique slug.

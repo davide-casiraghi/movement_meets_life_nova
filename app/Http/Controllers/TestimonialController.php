@@ -3,10 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\TestimonialStoreRequest;
+use App\Services\TestimonialService;
 use Illuminate\Http\Request;
 
 class TestimonialController extends Controller
 {
+    private $testimonialService;
+
+    public function __construct(TestimonialService $testimonialService) {
+        $this->testimonialService = $testimonialService;
+    }
 
     /**
      * Show the form for creating a new resource.
