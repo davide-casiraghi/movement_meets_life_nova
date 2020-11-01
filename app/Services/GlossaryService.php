@@ -58,7 +58,7 @@ class GlossaryService {
     private function attachTermDescription(Glossary $glossaryTerm, string $text, int $count){
         $termTooltipContent = "<div class='tooltip-painter' id='glossary-definition-".$count."' style='display:none'>";
             $termTooltipContent .= "<div class='photo'>";
-                $termTooltipContent .="<img src='https://source.unsplash.com/random' alt=''/>";
+                $termTooltipContent .="<img src='https://source.unsplash.com/random/300x200' alt=''/>";
             $termTooltipContent .="</div>";
         $termTooltipContent .= "<div class='content'>";
             $termTooltipContent .= "<div class='padder'>";
