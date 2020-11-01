@@ -1,0 +1,54 @@
+<?php
+
+
+namespace App\Repositories;
+
+
+use App\Models\Testimonial;
+
+class TestimonialRepository {
+
+    /**
+     * Get all Posts.
+     *
+     * @return iterable
+     */
+    public function getAll()
+    {
+        return Testimonial::all();
+    }
+
+    /**
+     * Get Testimonial by id
+     *
+     * @param $testimonialId
+     * @return Testimonial
+     */
+    public function getById($testimonialId)
+    {
+        return Testimonial::findOrFail($testimonialId);
+    }
+
+    /**
+     * Store Testimonial
+     *
+     * @param $data
+     * @return Testimonial
+     */
+    public function store($data)
+    {
+        $testimonial = new Testimonial();
+
+        $testimonial->feedback = $data['feedback'] ?? null;
+        $testimonial->name = $data['name'] ?? null;
+        $testimonial->surname = $data['surname'] ?? null;
+        $testimonial->profession = $data['profession'] ?? null;
+        $testimonial->send_as_sms =  ($data['publish_agreement'] == 'on') ? 1 : 0;
+        $testimonial->send_as_sms =  ($data['personal_data_agreement'] == 'on') ? 1 : 0;
+        $testimonial->save();
+
+        $testimonial->setStatus('pending');
+
+        return $testimonial->fresh();
+    }
+}
