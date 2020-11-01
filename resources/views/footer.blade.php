@@ -13,12 +13,12 @@
                         </h4>
                         <ul class="mt-4 space-y-4">
                             <li>
-                                <a href="#" class="text-base leading-6 text-gray-300 hover:text-white">
-                                    Send me a feedback
+                                <a href="/testimonial" class="text-base leading-6 text-gray-300 hover:text-white">
+                                    Be a testimonial
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="text-base leading-6 text-gray-300 hover:text-white">
+                                <a href="contact" class="text-base leading-6 text-gray-300 hover:text-white">
                                     Contact me
                                 </a>
                             </li>
