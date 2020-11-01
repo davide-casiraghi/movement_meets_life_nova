@@ -19249,7 +19249,8 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // VENDOR
 
 __webpack_require__(/*! justifiedGallery */ "./node_modules/justifiedGallery/dist/js/jquery.justifiedGallery.js");
 
-__webpack_require__(/*! @fancyapps/fancybox */ "./node_modules/@fancyapps/fancybox/dist/jquery.fancybox.js"); // CUSTOM
+__webpack_require__(/*! @fancyapps/fancybox */ "./node_modules/@fancyapps/fancybox/dist/jquery.fancybox.js"); //require("@staaky/tipped");
+// CUSTOM
 
 
 __webpack_require__(/*! ./video_embed */ "./resources/js/video_embed.js");
@@ -19270,6 +19271,7 @@ __webpack_require__(/*! ./snippets/accordion */ "./resources/js/snippets/accordi
 
 window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 window.$ = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+window.Tipped = __webpack_require__(/*! @staaky/tipped */ "./node_modules/@staaky/tipped/dist/js/tipped.js");
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
  * to our Laravel back-end. This library automatically handles sending the

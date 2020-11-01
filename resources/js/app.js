@@ -3,7 +3,7 @@ require('./bootstrap');
 // VENDORS
 require('justifiedGallery');
 require("@fancyapps/fancybox");
-
+//require("@staaky/tipped");
 
 
 // CUSTOM

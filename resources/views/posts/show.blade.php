@@ -1,8 +1,52 @@
-
 @extends('layouts.app')
+
+@section('javascript-document-ready')
+    @parent
+    alert('aaa');
+
+    Tipped.create('.api-example', {
+    //size: 'x-small',
+    //showOn: 'click'
+    inline: 'glossary-definition-33', //id of the content of the tooltip
+    skin: 'light',
+    radius: false,
+    padding: false,
+    position: 'topleft',
+    size: 'large'
+    });
+
+    var termId = "";
+    var definitionId = "";
+    $('.has-glossary-term').each(function (i) {
+        termId = "#glossary-term-"+i;
+        definitionId = "glossary-definition-"+i;
+        console.log(definitionId);
+        Tipped.create(termId, { //id of the element on which display the tooltip on hover
+            inline: definitionId, //id of the content of the tooltip
+            skin: 'light',
+            radius: false,
+            padding: false,
+            position: 'topleft',
+            size: 'large'
+        });
+
+    });
+
+
+
+    Tipped.create('#demo-html', { //id of the element  on which display the tooltip on hover
+    inline: 'thayer-tooltip-content', //id of the content of the tooltip
+    skin: 'light',
+    radius: false,
+    padding: false,
+    position: 'topleft',
+    size: 'large'
+    });
+@stop
 
 @section('jumbotron')
     @if($post->hasMedia('introimage'))
+
         <div class="bg-fixed relative" style="background-image: url('{{$post->getMedia('introimage')[0]->getUrl()}}');">
             <div class="container mx-auto px-6 py-40 max-w-prose relative z-10">
                 <h2 class="text-4xl font-bold mb-2 text-white">
@@ -70,6 +114,8 @@
             </div>
         @endif
 
+            {{-- test --}}
+            <span class='api-example' title="1">One</span>
     </div>
 @endsection
 

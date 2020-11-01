@@ -38,6 +38,7 @@ mix.js('resources/js/app.js', 'public/js')
         'jquery',
         'justifiedGallery',
         '@fancyapps/fancybox',
+        '@staaky/tipped',
     ]);
 
 // Copy the image and font files to the public folder - https://laracasts.com/discuss/channels/elixir/laravel-mix-image-workflow

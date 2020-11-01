@@ -56,26 +56,26 @@ class GlossaryService {
      * @return string
      */
     private function attachTermDescription(Glossary $glossaryTerm, string $text, int $count){
-        $termTooltipContent = "<div class='tooltip-painter' id='glossary-definition-".$count."' style='display:none'>
-                            <div class='photo'>
-                                <img src='https://source.unsplash.com/random' alt=''/>
-                            </div>
-                            <div class='content'>
-                                <div class='padder'>
-                                    <div class='title'>".$glossaryTerm->term."</div>
-                                        <div class='description' style='display:none'>Abbott Handerson Thayer (1849 - 1921) was an American artist, naturalist and teacher. 
-                                            As a painter of portraits, figures, animals and landscapes, he enjoyed a certain prominence during his lifetime, 
-                                            and his paintings are represented in the major American art collections. He is perhaps best known for his 'angel' 
-                                            paintings, some of which use his children as models.
-                                        </div>
-                                        <div class='description'>
-                                            ".$glossaryTerm->definition."
-                                            <br>
-                                            <a href='#'>Read more</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>";
+        $termTooltipContent = "<div class='tooltip-painter' id='glossary-definition-".$count."' style='display:none'>";
+            $termTooltipContent .= "<div class='photo'>";
+                $termTooltipContent .="<img src='https://source.unsplash.com/random' alt=''/>";
+            $termTooltipContent .="</div>";
+        $termTooltipContent .= "<div class='content'>";
+            $termTooltipContent .= "<div class='padder'>";
+                $termTooltipContent .= "<div class='title'>".$glossaryTerm->term."</div>";
+                    $termTooltipContent .= "<div class='description' style='display:none'>Abbott Handerson Thayer (1849 - 1921) was an American artist, naturalist and teacher.";
+                        $termTooltipContent .= "As a painter of portraits, figures, animals and landscapes, he enjoyed a certain prominence during his lifetime, ";
+                        $termTooltipContent .= "and his paintings are represented in the major American art collections. He is perhaps best known for his 'angel'";
+                        $termTooltipContent .= "paintings, some of which use his children as models.";
+                    $termTooltipContent .= "</div>";
+                    $termTooltipContent .= "<div class='description'>";
+                        $termTooltipContent .= $glossaryTerm->definition;
+                        $termTooltipContent .= "<br>";
+                        $termTooltipContent .= "<a href='#'>Read more</a>";
+                    $termTooltipContent .= "</div>";
+                $termTooltipContent .=  "</div>";
+            $termTooltipContent .=  "</div>";
+        $termTooltipContent .= "</div>";
 
         $ret = $text.$termTooltipContent;
         return $ret;
