@@ -54,13 +54,12 @@ class QuoteService {
         // By using the modulus operator we get a pseudo
         // random index position that is between zero and the
         // maximal value (ItemCount)
-        $RandomIndexPos = ($TimeBase % $ItemCount);
-
-        // Now return the random array element
-        return $QuotesArray[$RandomIndexPos];
+        if($ItemCount > 0){
+            $RandomIndexPos = ($TimeBase % $ItemCount);
+            // Now return the random array element
+            return $QuotesArray[$RandomIndexPos];
+        }
+        return null;
     }
-
-
-
 
 }
