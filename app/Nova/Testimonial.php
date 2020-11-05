@@ -3,12 +3,15 @@
 namespace App\Nova;
 
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Spatie\NovaTranslatable\Translatable;
+
+use App\Nova\Actions\SetStatus;
 
 class Testimonial extends Resource
 {
@@ -45,19 +48,29 @@ class Testimonial extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Text::make('Author')
+            Text::make('First Name')
+                ->sortable()
+                ->rules('required', 'max:255'),
+            Text::make('Last Name')
                 ->sortable()
                 ->rules('required', 'max:255'),
             Translatable::make([
                 Text::make('Profession')
                     ->sortable(),
-                Trix::make('Description')
+                Trix::make('Feedback')
                     ->sortable()
-                    ->rules('required'),
+                    ->rules('required')
+                    ->hideFromIndex(),
             ]),
             Image::make('Photo')
                 ->disk('public')
-                ->maxWidth(500),
+                ->maxWidth(500)
+                ->hideFromIndex(),
+            Boolean::make('Personal Data Agreement'),
+            Boolean::make('Publish Agreement'),
+
+            Text::make('Status', 'status')
+                ->exceptOnForms(),
         ];
     }
 
@@ -102,6 +115,8 @@ class Testimonial extends Resource
      */
     public function actions(Request $request)
     {
-        return [];
+        return [
+            new SetStatus,
+        ];
     }
 }

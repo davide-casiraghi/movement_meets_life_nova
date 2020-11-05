@@ -9,8 +9,8 @@ use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 use Spatie\Translatable\HasTranslations;
 
-class Testimonial extends Model
-{
+class Testimonial extends Model {
+
     use HasFactory, HasSlug, HasTranslations, HasStatuses;
 
     /**
@@ -19,7 +19,13 @@ class Testimonial extends Model
      * @var array
      */
     protected $fillable = [
-        'first_name', 'last_name', 'profession', 'feedback', 'photo', 'personal_data_agreement', 'publish_agreement',
+        'first_name',
+        'last_name',
+        'profession',
+        'feedback',
+        'photo',
+        'personal_data_agreement',
+        'publish_agreement',
     ];
 
     /**
@@ -32,15 +38,30 @@ class Testimonial extends Model
     /**
      * Generates a unique slug.
      */
-    public function getSlugOptions() : SlugOptions
-    {
+    public function getSlugOptions(): SlugOptions {
         return SlugOptions::create()
             ->generateSlugsFrom('author')
             ->saveSlugsTo('slug');
     }
 
+    /**
+     * Set default status value when a testimonial is created
+     */
+    public static function boot() {
+        parent::boot();
+
+        static::created(function (Testimonial $testimonial) {
+            $testimonial->setStatus('Published');
+        });
+    }
+
+    /**
+     * Create status accessor
+     */
+    public function getStatusNamesAttribute()
+    {
+        return $this->status();
+    }
+
+
 }
-
-
-
-
