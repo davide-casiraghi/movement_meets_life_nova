@@ -15,11 +15,7 @@ use Spatie\Translatable\HasTranslations;
 
 class Post extends Model implements HasMedia
 {
-    use HasFactory;
-    use HasSlug;
-    use HasTranslations;
-
-    use InteractsWithMedia;
+    use HasFactory, HasSlug, HasTranslations, InteractsWithMedia;
 
     /**
      * The attributes that aren't mass assignable.

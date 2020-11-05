@@ -1,10 +1,9 @@
 <?php
 
-
 namespace App\Services;
 
-
 use App\Http\Requests\TestimonialStoreRequest;
+use App\Models\Testimonial;
 use App\Repositories\TestimonialRepository;
 
 class TestimonialService {
