@@ -34,7 +34,7 @@ class TestimonialController extends Controller
     {
         $this->testimonialService->createTestimonial($request);
 
-        return redirect()->route('home')
+        return redirect()->route('testimonials.create')
             ->with('success', 'Thanks for your testimony!');
     }
 

@@ -42,10 +42,9 @@ class TestimonialService {
      */
     private function storeImages(Testimonial $testimonial, TestimonialStoreRequest $data):void {
         if($data->file('photo')) {
-            foreach ($data->file('photo') as $photo) {
-                if ($photo->isValid()) {
-                    $testimonial->addMedia($photo)->toMediaCollection('testimonials');
-                }
+            $photo = $data->file('photo');
+            if ($photo->isValid()) {
+                $testimonial->addMedia($photo)->toMediaCollection('testimonials');
             }
         }
     }
