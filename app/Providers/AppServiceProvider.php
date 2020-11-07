@@ -31,11 +31,11 @@ class AppServiceProvider extends ServiceProvider
         //View::share('posts', Post::orderBy('title')->get());
 
         View::composer('partials.home.blog', function($view){
-            $view->with('posts', Post::where('is_published', 1)->orderBy('created_at', 'desc')->take(3)->get());
+            $view->with('posts', Post::currentStatus('Published')->orderBy('created_at', 'desc')->take(3)->get());
         });
 
         View::composer('posts.index', function($view){
-            $view->with('posts', Post::where('is_published', 1)->orderBy('created_at', 'desc')->paginate(6));
+            $view->with('posts', Post::currentStatus('Published')->orderBy('created_at', 'desc')->paginate(6));
         });
 
         View::composer(['partials.quote_of_the_day'], QuoteComposer::class);

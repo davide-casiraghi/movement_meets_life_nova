@@ -13,7 +13,7 @@ class GlossaryService {
      */
     public function markGlossaryTerms($text)
     {
-        $glossaryTerms = Glossary::where('is_published', 1)->get();
+        $glossaryTerms = Glossary::currentStatus('Published')->get();
         $count = 1;
 
         foreach ($glossaryTerms as $id => $glossaryTerm){
