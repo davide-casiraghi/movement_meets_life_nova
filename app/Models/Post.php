@@ -9,13 +9,14 @@ use Illuminate\Support\Facades\Auth;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;  //used for Gallery field
 use Spatie\MediaLibrary\HasMedia; //used for Gallery field
 use Spatie\MediaLibrary\InteractsWithMedia; //used for Gallery field
+use Spatie\ModelStatus\HasStatuses;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 use Spatie\Translatable\HasTranslations;
 
 class Post extends Model implements HasMedia
 {
-    use HasFactory, HasSlug, HasTranslations, InteractsWithMedia;
+    use HasFactory, HasSlug, HasTranslations, HasStatuses, InteractsWithMedia;
 
     /**
      * The attributes that aren't mass assignable.
@@ -98,6 +99,25 @@ class Post extends Model implements HasMedia
      */
     public function reading_time(){
         return CalculateReadingTime::post_estimated_reading_time($this->body, 200);
+    }
+
+    /**
+     * Set default status value when a testimonial is created
+     */
+    public static function boot() {
+        parent::boot();
+
+        static::created(function (Post $testimonial) {
+            $testimonial->setStatus('Published');
+        });
+    }
+
+    /**
+     * Create status accessor
+     */
+    public function getStatusNamesAttribute()
+    {
+        return $this->status();
     }
 
     /**

@@ -19,7 +19,7 @@ class CreateGlossariesTable extends Migration
             $table->text('definition');
             $table->text('body');
 
-            $table->boolean('is_published')->default(false);
+            //$table->boolean('is_published')->default(false);
             $table->string('slug');
             $table->timestamps();
         });

@@ -27,7 +27,7 @@ class CreateInsightsTable extends Migration
             $table->datetime('published_on_facebook_on')->nullable();
             $table->datetime('published_on_twitter_on')->nullable();
 
-            $table->boolean('is_published')->default(false);
+            //$table->boolean('is_published')->default(false);
             $table->string('slug');
             $table->timestamps();
         });

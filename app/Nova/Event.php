@@ -2,6 +2,7 @@
 
 namespace App\Nova;
 
+use App\Nova\Actions\SetStatus;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\DateTime;
@@ -72,7 +73,8 @@ class Event extends Resource
             Text::make('Contact Email')->hideFromIndex(),
             Text::make('Website Event Link')->hideFromIndex(),
             Text::make('Facebook Event Link')->hideFromIndex(),
-            Boolean::make('Is Published'),
+            Text::make('Status', 'status')
+                ->exceptOnForms(),
         ];
     }
 
@@ -117,6 +119,8 @@ class Event extends Resource
      */
     public function actions(Request $request)
     {
-        return [];
+        return [
+            new SetStatus,
+        ];
     }
 }

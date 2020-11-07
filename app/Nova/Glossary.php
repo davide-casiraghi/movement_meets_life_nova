@@ -2,6 +2,7 @@
 
 namespace App\Nova;
 
+use App\Nova\Actions\SetStatus;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Image;
@@ -56,6 +57,8 @@ class Glossary extends Resource
                     ->sortable()
                     ->rules('required'),
             ]),
+            Text::make('Status', 'status')
+                ->exceptOnForms(),
         ];
     }
 
@@ -100,6 +103,8 @@ class Glossary extends Resource
      */
     public function actions(Request $request)
     {
-        return [];
+        return [
+            new SetStatus,
+        ];
     }
 }

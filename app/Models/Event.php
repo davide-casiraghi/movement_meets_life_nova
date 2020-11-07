@@ -4,15 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\ModelStatus\HasStatuses;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 use Spatie\Translatable\HasTranslations;
 
 class Event extends Model
 {
-    use HasFactory;
-    use HasSlug;
-    use HasTranslations;
+    use HasFactory, HasSlug, HasTranslations, HasStatuses;
 
     /**
      * The attributes that aren't mass assignable.
@@ -68,4 +67,23 @@ class Event extends Model
     /*public function repeat_type() {
         return $this->belongsTo(EventRepeatType::class); // 1-to-1 (one event can have just one repeat type)
     }*/
+
+    /**
+     * Set default status value when a event is created
+     */
+    public static function boot() {
+        parent::boot();
+
+        static::created(function (Event $event) {
+            $event->setStatus('Published');
+        });
+    }
+
+    /**
+     * Create status accessor
+     */
+    public function getStatusNamesAttribute()
+    {
+        return $this->status();
+    }
 }

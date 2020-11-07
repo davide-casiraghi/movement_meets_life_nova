@@ -2,6 +2,7 @@
 
 namespace App\Nova;
 
+use App\Nova\Actions\SetStatus;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\BelongsToMany;
@@ -59,7 +60,6 @@ class Insight extends Resource
                 Text::make('Introimage Alt')->hideFromIndex(),
             ]),
             Image::make('Introimage')->disk('public')->hideFromIndex(),
-            Boolean::make('Is Published'),
             Boolean::make('Is Posted On Facebook'),
             DateTime::make('Published On Facebook On')
                 ->hideFromIndex()
@@ -74,6 +74,8 @@ class Insight extends Resource
             ->belongsToMany(Tag::class),
             Multiselect::make('Posts', 'posts')  //BelongsToMany::make('Post')->searchable(),
             ->belongsToMany(Post::class),
+            Text::make('Status', 'status')
+                ->exceptOnForms(),
         ];
     }
 
@@ -118,6 +120,8 @@ class Insight extends Resource
      */
     public function actions(Request $request)
     {
-        return [];
+        return [
+            new SetStatus,
+        ];
     }
 }

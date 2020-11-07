@@ -2,6 +2,7 @@
 
 namespace App\Nova;
 
+use App\Nova\Actions\SetStatus;
 use Ebess\AdvancedNovaMediaLibrary\Fields\Images;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
@@ -66,7 +67,6 @@ class Post extends Resource
                 ->hideFromIndex(),
             DateTime::make('Publish At')->hideFromIndex(),
             DateTime::make('Publish Until')->hideFromIndex(),
-            Boolean::make('Is Published'),
             Boolean::make('Featured'),
             Textarea::make('Before Content')->rows(3),
             Textarea::make('After Content')->rows(3),
@@ -86,6 +86,8 @@ class Post extends Resource
             ->belongsToMany(Tag::class),
             Multiselect::make('Insights', 'insights')  //BelongsToMany::make('Insights'),
             ->belongsToMany(Insight::class),
+            Text::make('Status', 'status')
+                ->exceptOnForms(),
         ];
     }
 
@@ -130,6 +132,8 @@ class Post extends Resource
      */
     public function actions(Request $request)
     {
-        return [];
+        return [
+            new SetStatus,
+        ];
     }
 }

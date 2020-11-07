@@ -2,6 +2,7 @@
 
 namespace App\Nova;
 
+use App\Nova\Actions\SetStatus;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
@@ -51,6 +52,8 @@ class Quote extends Resource
             ]),
             Text::make('Author')
                 ->sortable(),
+            Text::make('Status', 'status')
+                ->exceptOnForms(),
         ];
     }
 
@@ -95,6 +98,8 @@ class Quote extends Resource
      */
     public function actions(Request $request)
     {
-        return [];
+        return [
+            new SetStatus,
+        ];
     }
 }

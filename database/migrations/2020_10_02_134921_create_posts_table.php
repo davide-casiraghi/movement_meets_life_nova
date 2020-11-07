@@ -31,7 +31,7 @@ class CreatePostsTable extends Migration
 
             $table->datetime('publish_at')->nullable();
             $table->datetime('publish_until')->nullable();
-            $table->boolean('is_published')->default(false);
+            //$table->boolean('is_published')->default(false);
             $table->string('slug');
             $table->timestamps();
         });

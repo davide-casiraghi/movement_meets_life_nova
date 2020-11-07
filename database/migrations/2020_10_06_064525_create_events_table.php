@@ -33,7 +33,7 @@ class CreateEventsTable extends Migration
             $table->dateTime('date_end');
 
             $table->string('slug');
-            $table->string('is_published');
+            //$table->string('is_published');
             $table->timestamps();
         });
     }
