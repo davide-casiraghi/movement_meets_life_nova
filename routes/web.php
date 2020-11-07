@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GetATreatmentController;
 use App\Http\Controllers\GlossaryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostCategoryController;
@@ -43,3 +44,8 @@ Route::name('testimonials.')->group(function () {
     Route::get('/testimonial', [TestimonialController::class, 'create'])->name('create');
     Route::post('/testimonial', [TestimonialController::class, 'store'])->name('store');
 });
+
+// Get a treatment form
+Route::get('/getATreatment', [GetATreatmentController::class, 'show']);
+Route::post('/getATreatment', [GetATreatmentController::class, 'store'])->name('contact.store');
+

@@ -23,8 +23,8 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="text-base leading-6 text-gray-300 hover:text-white">
-                                    Book a ILM bodywork
+                                <a href="/getATreatment" class="text-base leading-6 text-gray-300 hover:text-white">
+                                    Get a treatment
                                 </a>
                             </li>
                         </ul>

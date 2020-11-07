@@ -10,7 +10,7 @@ class ContactUsFormController extends Controller {
 
     // Show Contact Form
     public function index(Request $request) {
-        return view('contact');
+        return view('forms.contact');
     }
 
     // Store Contact Form data
