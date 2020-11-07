@@ -30,7 +30,7 @@ class AppServiceProvider extends ServiceProvider
     {
         //View::share('posts', Post::orderBy('title')->get());
 
-        View::composer('partials.home.blog', function($view){
+        View::composer('partials.pages.home.blog.block', function($view){
             $view->with('posts', Post::currentStatus('Published')->orderBy('created_at', 'desc')->take(3)->get());
         });
 

@@ -2,7 +2,7 @@
 @extends('layouts.app')
 
 @section('jumbotron')
-    {{--@include('partials.home.video_embed')--}}
+    {{--@include('partials.pages.home.video_embed')--}}
 
 @endsection
 
@@ -10,7 +10,7 @@
 
     @include('partials.pages.home.ilm')
 
-    @include('partials.home.blog')
+    @include('partials.pages.home.blog.block')
     @include('partials.quote_of_the_day')
 
 @endsection
