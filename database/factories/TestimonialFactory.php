@@ -36,7 +36,7 @@ class TestimonialFactory extends Factory
             'personal_data_agreement' => 1,
             'publish_agreement' => 1,
 
-            'status' => $this->faker->randomElement(['pending', 'approved']),
+            //'status' => $this->faker->randomElement(['pending', 'approved']),
 
 
         ];

@@ -35,7 +35,7 @@ class GlossaryFactory extends Factory
                 'en' => $this->faker->paragraph($nbSentences = 2, $variableNbSentences = true),
                 'it' => $this->faker->paragraph($nbSentences = 2, $variableNbSentences = true),
             ],
-            'is_published' => GlobalServices::getRandomWeightedElement(['1'=>85, '0'=>15 ]),
+            //'is_published' => GlobalServices::getRandomWeightedElement(['1'=>85, '0'=>15 ]),
         ];
     }
 }

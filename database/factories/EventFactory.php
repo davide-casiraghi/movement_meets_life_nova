@@ -36,7 +36,7 @@ class EventFactory extends Factory
             'facebook_event_link' => $this->faker->url,
             'image' => 'placeholders/placeholder-768x768.png',
 
-            'is_published' => GlobalServices::getRandomWeightedElement(['1'=>85, '0'=>15 ]),
+            //'is_published' => GlobalServices::getRandomWeightedElement(['1'=>85, '0'=>15 ]),
             'date_start' => $start,
             'date_end' => $end,
 
