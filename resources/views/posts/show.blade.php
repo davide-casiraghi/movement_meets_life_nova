@@ -130,7 +130,7 @@
                            {{$comment->name}}
                        </div>
                        <div class="block text-xs mt-1">
-                           {{$comment->body}}
+                           {!! $comment->body !!}
                        </div>
                    </div>
                 @endforeach
