@@ -67,6 +67,11 @@
                             </div>
 
                             <div class="col-span-6 sm:col-span-3">
+                                <label for="country" class="block text-sm font-medium leading-5 text-gray-700">Your country</label>
+                                <input name="country" value="{{ old('country') }}" id="country" class="mt-1 form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                            </div>
+
+                            <div class="col-span-6 sm:col-span-3">
                                 <label class="block text-sm leading-5 font-medium text-gray-700">
                                     Photo
                                 </label>

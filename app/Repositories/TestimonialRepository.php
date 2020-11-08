@@ -41,6 +41,7 @@ class TestimonialRepository {
         $testimonial->first_name = $data['first_name'] ?? null;
         $testimonial->last_name = $data['last_name'] ?? null;
         $testimonial->profession = $data['profession'] ?? null;
+        $testimonial->country = $data['country'] ?? null;
         $testimonial->publish_agreement =  ($data['publish_agreement'] == 'on') ? 1 : 0;
         $testimonial->personal_data_agreement =  ($data['personal_data_agreement'] == 'on') ? 1 : 0;
         $testimonial->save();

@@ -18,6 +18,7 @@ class CreateTestimonialsTable extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->string('profession')->nullable();
+            $table->string('country')->nullable();
             $table->text('feedback');
             $table->string('photo')->nullable();
 
