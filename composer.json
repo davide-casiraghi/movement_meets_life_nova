@@ -25,6 +25,7 @@
         "livewire/livewire": "^2.0",
         "optimistdigital/nova-menu-builder": "^4.0",
         "optimistdigital/nova-multiselect-field": "^1.10",
+        "spatie/laravel-honeypot": "^3.0",
         "spatie/laravel-medialibrary": "^8.0.0",
         "spatie/laravel-model-status": "^1.10",
         "spatie/laravel-sluggable": "^2.5",

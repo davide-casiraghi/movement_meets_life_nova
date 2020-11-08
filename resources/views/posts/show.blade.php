@@ -139,6 +139,7 @@
             {{-- Post a Comment --}}
             <form method="POST" action="{{ route('postComments.store') }}" >
                 @csrf
+                @honeypot
 
                 <h3 class="my-4 mt-4">Add a comment</h3>
 

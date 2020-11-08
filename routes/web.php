@@ -11,6 +11,7 @@ use App\Http\Controllers\BeATestimonialFormController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\TestimonialController;
 use Illuminate\Support\Facades\Route;
+use Spatie\Honeypot\ProtectAgainstSpam;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,7 +37,7 @@ Route::resource('categories', PostCategoryController::class);
 
 // Post Comments
 Route::name('postComments.')->group(function () {
-    Route::post('/postComment', [PostCommentController::class, 'store'])->name('store');
+    Route::post('/postComment', [PostCommentController::class, 'store'])->name('store')->middleware(ProtectAgainstSpam::class);;
 });
 
 
