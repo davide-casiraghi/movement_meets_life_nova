@@ -21,6 +21,7 @@ class CommentService {
     {
         $comment = new Comment;
         $comment->body = $data['body'];
+        $comment->name = $data['name'];
         $comment->email = $data['email'];
 
         $entity->comments()->save($comment);
