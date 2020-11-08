@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Http\Requests\CommentStoreRequest;
 use Illuminate\Http\Request;
 use App\Models\Contact;
 use Mail;
@@ -14,22 +15,9 @@ class ContactUsFormController extends Controller {
     }
 
     // Store Contact Form data
-    public function store(Request $request) {
+    public function store(CommentStoreRequest $request) {
 
-        // Form validation
-        $validator = Validator::make($request->all(), [
-            'name' => 'required',
-            'email' => 'required|email',
-            'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
-            'subject'=>'required',
-            'message' => 'required'
-        ]);
 
-        if ($validator->fails()) {
-            return back()
-                ->withErrors($validator)
-                ->withInput();
-        }
 
         //  Store data in database
         Contact::create($request->all());

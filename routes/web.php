@@ -4,6 +4,7 @@ use App\Http\Controllers\GetATreatmentController;
 use App\Http\Controllers\GlossaryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostCategoryController;
+use App\Http\Controllers\PostCommentController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ContactUsFormController;
 use App\Http\Controllers\BeATestimonialFormController;
@@ -29,8 +30,15 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
+// Posts
 Route::resource('posts', PostController::class);
 Route::resource('categories', PostCategoryController::class);
+
+// Post Comments
+Route::name('postComments.')->group(function () {
+    Route::post('/postComment', [PostCommentController::class, 'store'])->name('store');
+});
+
 
 Route::get('tag/{tagId}',[ TagController::class, 'show'])->name('tags.show');
 Route::get('glossaryTerms/{glossaryTermId}',[ GlossaryController::class, 'show'])->name('glossary.show');

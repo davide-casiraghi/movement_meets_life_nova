@@ -2,7 +2,6 @@
 
 @section('javascript-document-ready')
     @parent
-    alert('aaa');
 
     Tipped.create('.api-example', {
     //size: 'x-small',
@@ -74,6 +73,9 @@
 
 @section('content')
 
+    @include('partials.messages')
+
+
     <div class="text-lg max-w-prose mx-auto mb-6 mt-6">
         @if(!$post->hasMedia('introimage'))
             <h2 class="mt-2 mb-8 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10">{{ $post->title }}</h2>
@@ -116,6 +118,33 @@
 
             {{-- test --}}
             <span class='api-example' title="1">One</span>
+
+            <form method="POST" action="{{ route('postComments.store') }}" >
+                @csrf
+
+                <input type="hidden" name="post_id" value="{{ $post->id }}">
+
+                <div class="rounded-md shadow-sm">
+                    <label for="comment_body" class="block text-sm font-medium leading-5 text-gray-700">Your comment</label>
+                    <textarea name='body' id="comment_body" rows="3" class="form-textarea mt-1 block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5">{{ old('body') }}</textarea>
+                </div>
+
+                <div class="col-span-6 sm:col-span-3">
+                    <label for="comment_email" class="block text-sm font-medium leading-5 text-gray-700">Your email</label>
+                    <input name='email' value="{{ old('email') }}" id="comment_email" class="mt-1 form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5" placeholder="you@example.com">
+                </div>
+
+                <div class="mt-8 border-t border-gray-200 pt-5">
+                    <div class="flex justify-end">
+                        <span class="ml-3 inline-flex rounded-md shadow-sm">
+                            <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out">
+                                Save
+                            </button>
+                        </span>
+                    </div>
+                </div>
+
+            </form>
     </div>
 @endsection
 

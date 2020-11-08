@@ -30,10 +30,9 @@
                             Main complaint
                         </label>
                         <div class="rounded-md shadow-sm">
-                            <textarea id="about" rows="3" class="form-textarea mt-1 block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" placeholder="you@example.com"></textarea>
+                            <textarea id="about" rows="3" class="form-textarea mt-1 block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" placeholder="Brief description of the complaint."></textarea>
                         </div>
                         <p class="mt-2 text-sm text-gray-500">
-                            Brief description of the complaint. <br>
                             Please specify the physical locations if the problem is focused in specific spots.
                         </p>
                     </div>
@@ -83,7 +82,7 @@
                             Secondary complaint
                         </label>
                         <div class="rounded-md shadow-sm">
-                            <textarea id="about" rows="3" class="form-textarea mt-1 block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" placeholder="you@example.com"></textarea>
+                            <textarea id="about" rows="3" class="form-textarea mt-1 block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" placeholder="Brief description of the complaint."></textarea>
                         </div>
                         <p class="mt-2 text-sm text-gray-500">
                             Brief description of the secondary complaint.

@@ -3,8 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="f86be012-5364-473d-a5f7-a7b8c0c0f2c5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TestimonialController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TestimonialController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/testimonials/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/testimonials/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ContactUsFormController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ContactUsFormController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Post.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/forms/getATreatment.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/forms/getATreatment.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/posts/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/posts/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -203,15 +206,18 @@
     <property name="settings.editor.selected.configurable" value="diff.base" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views/forms" />
+      <recent name="$PROJECT_DIR$/resources/views/partials/pages/home" />
+      <recent name="$PROJECT_DIR$/resources/views/partials/pages/home/blog" />
+      <recent name="$PROJECT_DIR$/resources/views/testimonials" />
+      <recent name="$PROJECT_DIR$/resources/views" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources/views/glossary" />
       <recent name="$PROJECT_DIR$/app/Services/Quote" />
       <recent name="$PROJECT_DIR$/resources/views" />
       <recent name="$PROJECT_DIR$/app/Nova" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/resources/views/testimonials" />
-      <recent name="$PROJECT_DIR$/resources/views" />
     </key>
   </component>
   <component name="RunManager">
@@ -375,6 +381,18 @@
       <workItem from="1604681169638" duration="50000" />
       <workItem from="1604681244063" duration="1537000" />
       <workItem from="1604682923110" duration="18000" />
+      <workItem from="1604682962549" duration="11188000" />
+      <workItem from="1604802203862" duration="14000" />
+      <workItem from="1604802234721" duration="374000" />
+      <workItem from="1604802641776" duration="39000" />
+      <workItem from="1604802714807" duration="407000" />
+      <workItem from="1604803283870" duration="681000" />
+      <workItem from="1604819310682" duration="171000" />
+      <workItem from="1604819524526" duration="7000" />
+      <workItem from="1604819548848" duration="163000" />
+      <workItem from="1604819740382" duration="925000" />
+      <workItem from="1604822460320" duration="65000" />
+      <workItem from="1604822545757" duration="224000" />
     </task>
     <servers />
   </component>
@@ -390,12 +408,13 @@
       <screen x="1440" y="-226" width="1920" height="1177" />
     </state>
     <state x="2214" y="185" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1440.812/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1603431856264" />
-    <state x="0" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1604259164473">
-      <screen x="0" y="23" width="1440" height="812" />
+    <state x="0" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1604819446952">
+      <screen x="0" y="23" width="1440" height="816" />
     </state>
     <state x="0" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1440.812@0.23.1440.812" timestamp="1604259164473" />
     <state x="1440" y="-226" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1440.814/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1603777607103" />
-    <state x="531" y="214" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1604558544076">
+    <state x="0" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1440.816@0.23.1440.816" timestamp="1604819446952" />
+    <state x="531" y="214" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1604819553140">
       <screen x="0" y="23" width="1440" height="816" />
     </state>
     <state x="2148" y="281" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.900/1440.0.1920.1200@1440.0.1920.1200" timestamp="1602317882191" />
@@ -409,14 +428,21 @@
     <state x="531" y="213" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.812@0.23.1440.812" timestamp="1604259401477" />
     <state x="2148" y="50" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.814/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1603777819523" />
     <state x="531" y="214" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.816/1440.-226.1920.1177@0.23.1440.816" timestamp="1604558544076" />
+    <state x="531" y="214" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.816@0.23.1440.816" timestamp="1604819553140" />
     <state x="488" y="-901" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.821/-220.-1177.1920.1177@-220.-1177.1920.1177" timestamp="1601648307583" />
+    <state x="531" y="215" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.821@0.23.1440.821" timestamp="1604720598884" />
     <state x="1640" y="-1085" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.877/-1224.-1177.1920.1105/696.-1417.2560.1417@696.-1417.2560.1417" timestamp="1602151539560" />
-    <state x="428" y="164" key="NewPhpClassDialog" timestamp="1604245761144">
-      <screen x="0" y="23" width="1440" height="812" />
+    <state x="473" y="232" key="#com.jetbrains.php.refactoring.extract.interface.PhpExtractInterfaceDialog#" timestamp="1604802772618">
+      <screen x="0" y="23" width="1440" height="816" />
+    </state>
+    <state x="473" y="232" key="#com.jetbrains.php.refactoring.extract.interface.PhpExtractInterfaceDialog#/0.23.1440.816@0.23.1440.816" timestamp="1604802772618" />
+    <state x="428" y="165" key="NewPhpClassDialog" timestamp="1604802663049">
+      <screen x="0" y="23" width="1440" height="816" />
     </state>
     <state x="2011" y="-21" key="NewPhpClassDialog/0.23.1440.812/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1603431860718" />
     <state x="428" y="164" key="NewPhpClassDialog/0.23.1440.812@0.23.1440.812" timestamp="1604245761144" />
     <state x="2011" y="-21" key="NewPhpClassDialog/0.23.1440.814/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1603777164095" />
+    <state x="428" y="165" key="NewPhpClassDialog/0.23.1440.816@0.23.1440.816" timestamp="1604802663049" />
     <state x="428" y="166" key="NewPhpClassDialog/0.23.1440.822@0.23.1440.822" timestamp="1602563837548" />
     <state x="1919" y="176" key="SettingsEditor" timestamp="1602343760271">
       <screen x="1440" y="23" width="1920" height="1177" />
@@ -430,7 +456,7 @@
     </state>
     <state x="1977" y="-107" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.23.1440.814/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1603736147593" />
     <state x="317" y="-1058" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.23.1440.821/-220.-1177.1920.1177@-220.-1177.1920.1177" timestamp="1601648303881" />
-    <state x="421" y="171" width="598" height="518" key="find.popup" timestamp="1604555057890">
+    <state x="421" y="171" width="866" height="527" key="find.popup" timestamp="1604803402728">
       <screen x="0" y="23" width="1440" height="816" />
     </state>
     <state x="2001" y="218" width="831" height="726" key="find.popup/0.0.1440.900/1440.0.1920.1200@1440.0.1920.1200" timestamp="1602316388123" />
@@ -442,7 +468,7 @@
     <state x="2001" y="-12" width="831" height="713" key="find.popup/0.23.1440.812/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1603953577333" />
     <state x="2001" y="237" width="831" height="713" key="find.popup/0.23.1440.812/1440.23.1920.1177@1440.23.1920.1177" timestamp="1602417129297" />
     <state x="2001" y="-12" width="831" height="714" key="find.popup/0.23.1440.814/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1603777995321" />
-    <state x="421" y="171" width="598" height="518" key="find.popup/0.23.1440.816@0.23.1440.816" timestamp="1604555057890" />
+    <state x="421" y="171" width="866" height="527" key="find.popup/0.23.1440.816@0.23.1440.816" timestamp="1604803402728" />
     <state x="421" y="172" width="622" height="494" key="find.popup/0.23.1440.821@0.23.1440.821" timestamp="1601656919489" />
     <state x="1444" y="-1160" width="1108" height="857" key="find.popup/0.23.1440.877/-1224.-1177.1920.1105/696.-1417.2560.1417@696.-1417.2560.1417" timestamp="1602148735038" />
     <state x="2001" y="-25" width="831" height="670" key="find.popup/0.23.1440.877/1440.-226.1920.1105@1440.-226.1920.1105" timestamp="1603645292743" />
