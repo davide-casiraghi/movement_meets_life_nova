@@ -161,6 +161,7 @@
       <path value="$PROJECT_DIR$/vendor/symfony/filesystem" />
       <path value="$PROJECT_DIR$/vendor/react/promise" />
       <path value="$PROJECT_DIR$/vendor/spatie/laravel-model-status" />
+      <path value="$PROJECT_DIR$/vendor/spatie/laravel-honeypot" />
     </include_path>
   </component>
   <component name="PhpInterpreters">

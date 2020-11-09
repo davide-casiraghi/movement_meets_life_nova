@@ -58,3 +58,14 @@ Route::name('testimonials.')->group(function () {
 Route::get('/getATreatment', [GetATreatmentController::class, 'show']);
 Route::post('/getATreatment', [GetATreatmentController::class, 'store'])->name('contact.store');
 
+
+// Pages
+//Route::get('/aboutMe', return view('pages.aboutMe'));
+//return view('posts.index');
+
+Route::get('/aboutMe', function () {
+    return view('pages.aboutMe');
+});
+
+
+

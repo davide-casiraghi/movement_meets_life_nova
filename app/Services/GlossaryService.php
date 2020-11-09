@@ -60,7 +60,7 @@ class GlossaryService {
             $termTooltipContent .= "<div class='photo'>";
                 $termTooltipContent .="<img src='https://source.unsplash.com/random/300x200' alt=''/>";
             $termTooltipContent .="</div>";
-        $termTooltipContent .= "<div class='content'>";
+        $termTooltipContent .= "<div class='content p-2'>";
             $termTooltipContent .= "<div class='padder'>";
                 $termTooltipContent .= "<div class='title'>".$glossaryTerm->term."</div>";
                     $termTooltipContent .= "<div class='description' style='display:none'>Abbott Handerson Thayer (1849 - 1921) was an American artist, naturalist and teacher.";

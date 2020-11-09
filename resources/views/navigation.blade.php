@@ -5,7 +5,7 @@
                 <a href="/">MML</a>
             </div>--}}
             <div class="font-medium z-10 block text-center sm:text-left font-semibold">
-                <a href="/#buy" class="pr-8">About me</a>
+                <a href="/aboutMe" class="pr-8">About me</a>
             </div>
             <div class="font-medium z-10 block text-center sm:text-right font-semibold">
                 <a href="/#features" class="pr-8">Treatments</a>
