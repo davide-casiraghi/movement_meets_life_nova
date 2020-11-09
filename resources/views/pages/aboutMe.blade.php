@@ -9,8 +9,43 @@
         <p class="mb-3">
             <b>Davide Casiraghi</b> (BSc) in Computer Science, Senior IT Web Developer, Contact Improvisation dance teacher, Ilan Lev method practitioner, based in Slovenia.<br>
             In Slovenia, he is co-creator with Nayeli Spela Peterlin of <b>Moave - Psychology in movement - www.moave.si.</b><br>
+
+        </p>
+
+        <h3 class="text-gray-900 text-2xl mb-4">Web development</h3>
+
+        <p class="mb-3">
+           I work at Agiledrop as a PHP backend developer with Laravel and Drupal.<br>
+            I'm an active member of Stackoverflow. PROFILE LINK
+        </p>
+        <div class="accordion flex flex-col items-center justify-center mt-4">
+            <!--  Panel 1  -->
+            <div class="w-full">
+                <input type="checkbox" name="panel" id="panel-1" class="hidden">
+                <label for="panel-1" class="relative block bg-black text-white p-4 shadow border-b border-grey">
+                    My Dev stack
+                </label>
+                <div class="accordion__content overflow-hidden bg-grey-lighter">
+                    <p class="accordion__body p-4" id="panel1">
+                        I'm a senior web developer, with more than ten years of experience.<br>
+                        Currently, I am exploring Drupal 8, Laravel 8, Tailwind CSS, PhpUnit, Flutter.<br><br>
+
+                        My two other big passions that nourish my creativity are dancing and cooking.<br><br>
+
+                        Education: Bachelor of Science (Informatics)<br>
+
+                        Degree
+                        2006 (BSc) in Computer Science - Università Degli Studi di Milano Bicocca, Milano Italia (www.unimib.it)
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <h3 class="text-gray-900 text-2xl my-4">Movement</h3>
+        <p>
             He is currently giving Contact Improvisation regular classes and Ilan Lev method bodyworks in Ljubljana.<br>
         </p>
+
         <p class="mb-3">
             Member of the <b>Round Robin Project</b> that has the aim to create tools for global networking of the worldwide Contact Improvisation community. He is web designer, developer and technical manager of the <b>Contact Improvisation Global Calendar (CIGG)</b> - www.ciglobalcalendar.net <br>
             Previously from 2010 to 2018 webmaster of the <b>Contact Improvisation Italian website</b> - www.contactimprov.it (now closed)
@@ -20,17 +55,15 @@
         </p>
 
 
-
-
         <div class="accordion flex flex-col items-center justify-center mt-4">
-            <!--  Panel 1  -->
+            <!--  Panel 2  -->
             <div class="w-full">
-                <input type="checkbox" name="panel" id="panel-1" class="hidden">
-                <label for="panel-1" class="relative block bg-black text-white p-4 shadow border-b border-grey">
+                <input type="checkbox" name="panel" id="panel-2" class="hidden">
+                <label for="panel-2" class="relative block bg-black text-white p-4 shadow border-b border-grey">
                     Where does my path of movement awareness start?
                 </label>
                 <div class="accordion__content overflow-hidden bg-grey-lighter">
-                    <p class="accordion__body p-4" id="panel1">
+                    <p class="accordion__body p-4" id="panel2">
                         I'm a twin brother, when somebody asks me when did I start to practice Contact Improvisation, I could answer, from day 0 of my life.<br>
                         For the most of people life start as a solo, in a space that our mother hold for us.<br>
                         There I was floating in a warm liquid and I was relating with another person, my brother Alessio.<br>
@@ -44,14 +77,14 @@
                 </div>
             </div>
 
-            <!--  Panel 2  -->
+            <!--  Panel 3  -->
             <div class="w-full">
-                <input type="checkbox" name="panel" id="panel-2" class="hidden">
-                <label for="panel-2" class="relative block bg-black text-white p-4 shadow border-b border-grey">
+                <input type="checkbox" name="panel" id="panel-3" class="hidden">
+                <label for="panel-3" class="relative block bg-black text-white p-4 shadow border-b border-grey">
                     What are my practices to cultivate my self connection?
                 </label>
                 <div class="accordion__content overflow-hidden bg-grey-lighter">
-                    <p class="accordion__body p-4" id="panel2">
+                    <p class="accordion__body p-4" id="panel3">
                         At the moment I have a daily routine of yoga or ILM movement class. <br>
                         Almost daily rollerblading.<br>
                         Sometimes running or swimming.<br>
@@ -60,10 +93,10 @@
                 </div>
             </div>
 
-            <!--  Panel 3  -->
+            <!--  Panel 4  -->
             <div class="w-full">
-                <input type="checkbox" name="panel" id="panel-3" class="hidden">
-                <label for="panel-3" class="relative block bg-black text-white p-4 shadow border-b border-grey">
+                <input type="checkbox" name="panel" id="panel-4" class="hidden">
+                <label for="panel-4" class="relative block bg-black text-white p-4 shadow border-b border-grey">
                     What is the movement for me?
                 </label>
                 <div class="accordion__content overflow-hidden bg-grey-lighter">
@@ -77,28 +110,33 @@
                 </div>
             </div>
 
-            <!--  Panel 4  -->
+            <!--  Panel 5  -->
             <div class="w-full">
-                <input type="checkbox" name="panel" id="panel-4" class="hidden">
-                <label for="panel-4" class="relative block bg-black text-white p-4 shadow border-b border-grey">
-                    Degree
+                <input type="checkbox" name="panel" id="panel-5" class="hidden">
+                <label for="panel-5" class="relative block bg-black text-white p-4 shadow border-b border-grey">
+                    Studies
                 </label>
                 <div class="accordion__content overflow-hidden bg-grey-lighter">
-                    <p class="accordion__body p-4" id="panel4">
+                    <p class="accordion__body p-4" id="panel5">
                     <ul>
-                        <li>
-                            2006 (BSc) in Computer Science - Università Degli Studi di Milano Bicocca, Milano Italia (www.unimib.it)
+                        <li class="pb-2">
+                            <h4 class="text-xl font-bold mb-1">Dance Studies</h4>
+                            Workshops about CI <br>
+                            Marco Zontini ('10, '11), Roberto Lun (’10, ’11, ’12, ‘13), Nita Little ('13, '14, '15, '16), Javier Curia ('10), Vera de Propris ('13), Bernd Knappe ('12, '12, '13), Thomas Kampe ('12, ’13), Daniel Lepkoff (’14), Itay Iatuv (’14, '15), Yaniv Mintzer (‘16, '19), Joerg Hassman (’16), Adrian Russi (’16), Kirstie Sympson (’11), Ester Momblance (’10), Katri Luukkonen(’11), Scott Wells(’11), Alicia Grayson(’11), Ray Chung ('12, '13), Nancy Stark Smith (’14), Martin Keogh (’15, ’16), Benno Voorham (’13), Ezster Gal (’14), Patricia Kuypers (’15), Alyssa Lynes (’14), Eckard Muller (’13), Frey Faust (’14), Angelica Dony (’16, ’17), Leonardo Lambruschini (’16), Jess Curtis(’17), Simone Magnani (’14), Anatolliy Layaskallo ('11), Tim O’Donnell (’10), Riccardo Meneghini (’15), Claus Springborg (’14), Nuria Urcelay Martinez ('18), Asaf Bachrach ('19), Romain Bigé ('19), Leilani Weiss ('20), Ramon Roig ('20), Charley Morrissey ('20)<br>
+                            Other dance workshops <br>
+                            Yumiko, Claude coldy
                         </li>
-                        <li>
+                        <li class="pb-2">
+                            <h4 class="text-xl font-bold mb-1">Yoga</h4>
                             2016 - RYT200 Yoga Alliance Certification @ Hari Om - Cascina Bellaria (www.hari-om.it)
                         </li>
-                        <li>
+                        <li class="pb-2">
+                            <h4 class="text-xl font-bold mb-1">Free Diving</h4>
                             2015 - 2016 Freediving certification FIPSAS PAp1 - Monofin Freediving certification FIPSAS PApm (www.fipsas.it)
                         </li>
-                        <li>
-                            2017-2019 - Ilan Lev Method bodywork certification
-                        </li>
-                        <li>
+                        <li class="pb-2">
+                            <h4 class="text-xl font-bold mb-1">Ilan Lev Method</h4>
+                            2017-2019 - Ilan Lev Method bodywork certification <br>
                             2019 - Ilan Lev Method movement classes facilitator certification (www.ilanlev.org)
                         </li>
                     </ul>

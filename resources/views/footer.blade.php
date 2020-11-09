@@ -9,12 +9,18 @@
                 <div class="md:grid md:grid-cols-2 md:gap-8">
                     <div>
                         <h4 class="text-sm leading-5 font-semibold text-gray-400 tracking-wider uppercase">
-                            Solutions
+                            Get in touch
                         </h4>
                         <ul class="mt-4 space-y-4">
                             <li>
+                                <a href="/getATreatment" class="text-base leading-6 text-gray-300 hover:text-white">
+                                    Get a treatment
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/testimonial" class="text-base leading-6 text-gray-300 hover:text-white">
-                                    Be a testimonial
+                                    {{--Be a testimonial--}}
+                                    Treatment feedback
                                 </a>
                             </li>
                             <li>
@@ -22,11 +28,7 @@
                                     Contact me
                                 </a>
                             </li>
-                            <li>
-                                <a href="/getATreatment" class="text-base leading-6 text-gray-300 hover:text-white">
-                                    Get a treatment
-                                </a>
-                            </li>
+
                         </ul>
                     </div>
                     <div class="mt-12 md:mt-0">
