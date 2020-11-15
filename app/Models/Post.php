@@ -66,7 +66,7 @@ class Post extends Model implements HasMedia
     }
 
     /**
-     * Returns the user that owns the post.
+     * Returns the author of the post.
      */
     public function user()
     {
@@ -105,8 +105,8 @@ class Post extends Model implements HasMedia
     /**
      * Returns the reading time of the post.
      */
-    public function reading_time(){
-        return CalculateReadingTime::post_estimated_reading_time($this->body, 200);
+    public function reading_time(string $format = null){
+        return CalculateReadingTime::post_estimated_reading_time($this->body, 200, $format);
     }
 
     /**

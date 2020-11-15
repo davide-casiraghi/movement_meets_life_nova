@@ -55,14 +55,8 @@
                     {!! $post->intro_text !!}
                 </h3>
 
-                <div class="grid grid-flow-col auto-cols-max md:auto-cols-min">
-                    <div class="text-base text-white">{{ $post->created_at->format('M j, Y') }}</div>
-                    <div class="text-base text-white">
-                        <div class="float-right">
-                            Reading time: {{ $post->reading_time() }}
-                        </div>
-                    </div>
-                </div>
+                @include('partials.post.userDateAndReadingTime', ['textColor' => 'text-white'])
+
             </div>
 
             <div class="opacity-25 bg-black flex items-center h-full w-full flex-wrap z-0 top-0 right-0 absolute"></div>
@@ -75,10 +69,14 @@
 
     @include('partials.messages')
 
-
-    <div class="text-lg max-w-prose mx-auto mb-6 mt-6">
+    <div class="text-lg max-w-prose mx-auto mb-6 mt-8 sm:mt-32 px-10">
         @if(!$post->hasMedia('introimage'))
-            <h2 class="mt-2 mb-8 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10">{{ $post->title }}</h2>
+            <h2 class="mt-2 mb-8 text-3xl leading-8 font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-10">{{ $post->title }}</h2>
+
+            <div class="my-10">
+            @include('partials.post.userDateAndReadingTime', ['textColor' => 'text-gray-400'])
+            </div>
+        
             <h3 class="text-lg leading-7 text-gray-500 mb-5">{!! $post->intro_text !!}</h3>
         @endif
 
