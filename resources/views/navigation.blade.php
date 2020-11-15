@@ -8,9 +8,9 @@
                 <a href="/aboutMe" class="pr-8">About me</a>
             </div>
             <div class="font-medium z-10 block text-center sm:text-right font-semibold">
-                <a href="/#features" class="pr-8">Treatments</a>
-                <a href="/blog" class="pr-8">Events</a>
-                <a href="/download" class="pr-8">Blog</a>
+                <a href="/treatments" class="pr-8">Treatments</a>
+                <a href="/events" class="pr-8">Events</a>
+                <a href="/posts" class="pr-8">Blog</a>
             </div>
         </nav>
 
