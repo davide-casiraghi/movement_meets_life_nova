@@ -1,6 +1,6 @@
-<div class="bg-blue-800">
+<div class="">
     <div class="container max-w-7xl mx-auto relative px-8 md:px-16 header-image-sm sm:header-image xl:no-header-image">
-        <nav class="grid grid-cols-1 md:grid-cols-2 text-white pt-8 pb-6">  {{--flex justify-between--}}
+        <nav class="grid grid-cols-1 md:grid-cols-2 text-cyan-600 pt-8 pb-6">  {{--flex justify-between--}}
             {{--<div class="font-brand text-3xl">
                 <a href="/">MML</a>
             </div>--}}

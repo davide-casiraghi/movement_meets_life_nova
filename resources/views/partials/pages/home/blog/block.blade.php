@@ -24,7 +24,7 @@
         </div>
 
         <div class="text-center mt-6">
-            <a href="{{ route('posts.index') }}" class="font-medium rounded-md text-white px-4 py-2 bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150">All blog articles</a>
+            <a href="{{ route('posts.index') }}" class="font-medium rounded-md text-white px-4 py-2 bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:ring-indigo active:bg-indigo-700 transition ease-in-out duration-150">All blog articles</a>
         </div>
     </div>
 </div>

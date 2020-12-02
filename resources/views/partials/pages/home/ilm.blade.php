@@ -7,19 +7,19 @@
                 ILAN LEV METHOD
             </div>
             <h2 class="mt-1 text-4xl tracking-tight leading-10 font-brand text-gray-900 sm:leading-none sm:text-6xl lg:text-4xl xl:text-5xl">
-                A revolutionary form of <span class="text-indigo-600">hands-on bodywork</span> that addresses body aches, pains, and movement imbalances
+                A revolutionary form of <span class="text-cyan-600">hands-on bodywork</span> that addresses body aches, pains, and movement imbalances
             </h2>
             <p class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
                 Through bodywork we can get an external support to address this situations and to allow our body to find a new equilibrium and alignment free from tensions.
             </p>
             <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                 <div class="rounded-md shadow">
-                    <a href="#" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10">
+                    <a href="#" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-cyan-600 hover:bg-cyan-500 focus:outline-none focus:border-cyan-700 focus:ring-cyan transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10">
                         Get a treatment
                     </a>
                 </div>
                 <div class="mt-3 sm:mt-0 sm:ml-3">
-                    <a href="#" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-indigo-700 bg-indigo-100 hover:text-indigo-600 hover:bg-indigo-50 focus:outline-none focus:shadow-outline-indigo focus:border-indigo-300 transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10">
+                    <a href="#" class="w-full flex items-center justify-center px-8 py-3 border border-cyan-600 text-base leading-6 font-medium rounded-md text-cyan-700 bg-white hover:text-cyan-600 hover:bg-cyan-50 focus:outline-none focus:ring-cyan focus:border-cyan-300 transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10">
                         More info about ILM
                     </a>
                 </div>
@@ -38,10 +38,10 @@
 
             <!-- video -->
             <div class="relative mx-auto w-full rounded-lg shadow-lg lg:max-w-md">
-                <button type="button" class="relative block w-full rounded-lg overflow-hidden focus:outline-none focus:shadow-outline">
+                <button type="button" class="relative block w-full rounded-lg overflow-hidden focus:outline-none focus:ring">
                     <img class="w-full" src="https://images.unsplash.com/photo-1556740758-90de374c12ad?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Woman making a sale">
                     <div class="absolute inset-0 w-full h-full flex items-center justify-center">
-                        <svg class="h-20 w-20 text-indigo-500" fill="currentColor" viewBox="0 0 84 84">
+                        <svg class="h-20 w-20 text-cyan-500" fill="currentColor" viewBox="0 0 84 84">
                             <circle opacity="0.9" cx="42" cy="42" r="42" fill="white" />
                             <path d="M55.5039 40.3359L37.1094 28.0729C35.7803 27.1869 34 28.1396 34 29.737V54.263C34 55.8604 35.7803 56.8131 37.1094 55.9271L55.5038 43.6641C56.6913 42.8725 56.6913 41.1275 55.5039 40.3359Z" />
                         </svg>

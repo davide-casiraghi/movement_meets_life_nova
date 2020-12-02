@@ -100,7 +100,7 @@ Database user: homestead
 Database password: secret
 Database: homestead
 
-SSH host: 192.168.33.10 (unless you changed it in Vagrantfile)
+SSH host: 192.168.10.10 (unless you changed it in Vagrantfile)
 SSH user: vagrant
 SSH password: vagrant
 ```

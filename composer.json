@@ -30,7 +30,8 @@
         "spatie/laravel-model-status": "^1.10",
         "spatie/laravel-sluggable": "^2.5",
         "spatie/laravel-translatable": "^4.5",
-        "spatie/nova-translatable": "^3.0"
+        "spatie/nova-translatable": "^3.0",
+        "davide-casiraghi/datefrequency": "*"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.8",
@@ -81,6 +82,10 @@
         {
             "type": "path",
             "url": "./nova"
+        },
+        {
+            "type": "path",
+            "url": "./nova-components/Datefrequency"
         }
     ]
 }

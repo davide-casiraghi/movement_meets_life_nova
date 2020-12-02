@@ -3,6 +3,7 @@
 namespace App\Nova;
 
 use App\Nova\Actions\SetStatus;
+use DavideCasiraghi\Datefrequency\Datefrequency;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\DateTime;
@@ -75,6 +76,7 @@ class Event extends Resource
             Text::make('Facebook Event Link')->hideFromIndex(),
             Text::make('Status', 'status')
                 ->exceptOnForms(),
+            Datefrequency::make('Repetitions')->hideFromIndex(),
         ];
     }
 
