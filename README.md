@@ -20,8 +20,9 @@ The dev environment it's a Laravel Homestead virtual machine. (Vagrant)
 ### Setup the dev environment 
 
 Clone this repo into a local folder:   
-```git clone git@github.com:davide-casiraghi/movement_meets_life_nova
-.git```
+```
+git clone git@github.com:davide-casiraghi/movement_meets_life_nova.git
+```
 
 
 Copy & customize your .env config:   
