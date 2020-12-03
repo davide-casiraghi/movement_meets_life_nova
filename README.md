@@ -17,6 +17,28 @@ The dev environment it's a Laravel Homestead virtual machine. (Vagrant)
 - To create a fix, checkout a new git branch called **fix/*** from **dev**.
 
 
+### Access to the virtual machine database
+
+You can access to the homestead database using **MySQLWorkbench** or **Sequel Ace**
+(Sequel Ace is the "sequel" to longtime macOS tool Sequel Pro.)
+
+I suggest to use **Sequel Ace** instead of **Sequel Pro** since **Sequel Pro** may have problems connecting to the Homestead database.
+
+Connect using SSH and this parameters:
+
+```
+MySQL host: 127.0.0.1
+Database user: homestead
+Database password: secret
+Database: homestead
+
+SSH host: 192.168.10.10 (unless you changed it in Vagrantfile)
+SSH user: vagrant
+SSH password: vagrant
+```
+
+Then create the database **movement_meets_life**
+
 ### Setup the dev environment 
 
 Clone this repo into a local folder:   
@@ -24,27 +46,45 @@ Clone this repo into a local folder:
 git clone git@github.com:davide-casiraghi/movement_meets_life_nova.git
 ```
 
-
 Copy & customize your .env config:   
 ```cp .env.example .env```    
 ```nano .env```
+
 
 Config the .env like this:
 ```
 DB_CONNECTION=mysql
 DB_HOST=192.168.10.10
 DB_PORT=3306
-DB_DATABASE=homestead
+DB_DATABASE=movement_meets_life
 DB_USERNAME=homestead
 DB_PASSWORD=secret
 ```
 
-Initialize the current directory to be a Vagrant environment by creating an initial Vagrantfile.
-```vagrant init laravel/homestead```
 
+Add configuration to the Homestead.yaml file:
+```
+cd ~/Homestead  
+sudo nano Homestead.yaml  
+
+```
+And here add:
+```
+folders:
+    - map: .... absolute path of the local folder related to your git repo...
+      to: /home/vagrant/code/movement_meets_life_nova
+      
+sites:
+    - map: movement_meets_life_nova.local
+      to: /home/vagrant/code/movement_meets_life_nova/public
+      php: "7.4"
+```
 
 To start the virtual machine:    
-```vagrant up```
+```
+cd ~/Homestead  
+vagrant up
+```
 
 Install vendor files:   
 ```composer install```   
@@ -72,7 +112,7 @@ Create the file storage symbolic link from public/storage to storage/app/public
   ```php artisan storage:link```
 
 Access the local website at:   
-[https://lmovement_meets_life_nova.local/](https://movement_meets_life_nova.local/)
+[https://movement_meets_life_nova.local/](https://movement_meets_life_nova.local/)
 
 
 #### Access to the staging server with Mac + Chrome
@@ -85,26 +125,6 @@ To bypass this error you can try typing “badidea” or “thisisunsafe” dire
 
 (tested on Version 81.0.4044.138 - MacOs Catalina 14/5/2020)
 
-
-### Access to the virtual machine database
-
-You can access to the homestead database using **MySQLWorkbench** or **Sequel Ace**
-(Sequel Ace is the "sequel" to longtime macOS tool Sequel Pro.)
-
-I suggest to use **Sequel Ace** instead of **Sequel Pro** since **Sequel Pro** may have problems connecting to the Homestead database.
-
-Connect using SSH and this parameters:
-
-```
-MySQL host: 127.0.0.1
-Database user: homestead
-Database password: secret
-Database: homestead
-
-SSH host: 192.168.10.10 (unless you changed it in Vagrantfile)
-SSH user: vagrant
-SSH password: vagrant
-```
 
 ### Staging server
 
