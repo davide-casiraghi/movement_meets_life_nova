@@ -62,7 +62,7 @@ Clean the cache:
 
 Open the hosts file on your machine in your text editor and add this entry.  
 
- ```192.168.10.10 laravel_jetstream.test```
+ ```192.168.10.10 movement_meets_life_nova.local```
 
 Install all npm modules:   
   ```npm install```
@@ -72,7 +72,7 @@ Create the file storage symbolic link from public/storage to storage/app/public
   ```php artisan storage:link```
 
 Access the local website at:   
-[https://laravel_jetstream.test/](https://laravel_jetstream.test/)
+[https://lmovement_meets_life_nova.local/](https://movement_meets_life_nova.local/)
 
 
 #### Access to the staging server with Mac + Chrome
