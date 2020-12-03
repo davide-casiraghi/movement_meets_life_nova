@@ -47,8 +47,8 @@ mix.copy( 'resources/webfonts', 'public/webfonts', false );
 
 // Sync browser any time something change in compiled css, js or views
 mix.browserSync({
-    proxy: 'laravel_jetstream.test',
-    host: 'laravel_jetstream.test',
+    proxy: 'movement_meets_life_nova.local',
+    host: 'movement_meets_life_nova.local',
     notify: false,
     files: [
         './app/**/*',
