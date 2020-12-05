@@ -115,15 +115,9 @@ Access the local website at:
 [https://movement_meets_life_nova.local/](https://movement_meets_life_nova.local/)
 
 
-#### Access to the staging server with Mac + Chrome
-
-In case of access to the staging server with this configuration, the following error is returned because of the untrusted certificate.    
-
-```"Your connection is not private"```    
-
-To bypass this error you can try typing “badidea” or “thisisunsafe” directly in chrome on the same page.    
-
-(tested on Version 81.0.4044.138 - MacOs Catalina 14/5/2020)
+### Testing emails
+- Create an account on Mailtrap
+- Add the data to the .env file
 
 
 ### Staging server
