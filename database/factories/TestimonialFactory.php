@@ -22,7 +22,7 @@ class TestimonialFactory extends Factory
     public function definition()
     {
         return [
-            'first_name' => $this->faker->firstName($gender = null|'male'|'female'),
+            'first_name' => $this->faker->firstName($gender = 'male'|'female'),
             'last_name' => $this->faker->lastName,
             'profession' => [
                 'en' => $this->faker->sentence($nbWords = 2, $variableNbWords = true),
