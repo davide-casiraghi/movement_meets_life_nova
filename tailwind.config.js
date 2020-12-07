@@ -28,6 +28,7 @@ module.exports = {
             black: '#000',
             white: '#fff',
             transparent: 'transparent',
+            current: 'currentColor',
         }
         /*colors: { // Compatibility with old colors - https://tailwindcss.com/docs/upgrading-to-v2#configure-your-color-palette-explicitly
             transparent: 'transparent',

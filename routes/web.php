@@ -66,6 +66,3 @@ Route::post('/getATreatment', [GetATreatmentController::class, 'store'])->name('
 Route::get('/aboutMe', function () {
     return view('pages.aboutMe');
 });
-
-
-
