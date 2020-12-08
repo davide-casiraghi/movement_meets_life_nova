@@ -35,14 +35,14 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 //Route::resource('posts', PostController::class);
 
 Route::name('posts.')->group(function () {
-    Route::get('/posts', 'PostController@index')->name('index');
-    Route::get('/post/{id}', 'PostController@edit')->name('edit');
-    Route::put('/post/{id}', 'PostController@update')->name('update');
-    Route::get('/post', 'PostController@create')->name('create');
-    Route::post('/post', 'PostController@store')->name('store');
-    Route::delete('/post/{id}', 'PostController@destroy')->name('destroy');
+    Route::get('/posts', [PostController::class, 'index'])->name('index');
+    Route::get('/post/{id}', [PostController::class, 'edit'])->name('edit');
+    Route::put('/post/{id}', [PostController::class, 'update'])->name('update');
+    Route::get('/post', [PostController::class, 'create'])->name('create');
+    Route::post('/post', [PostController::class, 'store'])->name('store');
+    Route::delete('/post/{id}', [PostController::class, 'destroy'])->name('destroy');
 
-    Route::get('/posts', 'PostController@blog')->name('blog');
+    Route::get('/posts', [PostController::class, 'blog'])->name('blog');
 });
 
 
