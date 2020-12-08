@@ -33,6 +33,16 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 // Posts
 Route::resource('posts', PostController::class);
+
+Route::name('posts.')->group(function () {
+    Route::post('/index', [PostCommentController::class, 'store'])->name('store')->middleware(ProtectAgainstSpam::class);;
+
+    Route::post('/blog', [PostController::class, 'blog'])->name('blog.show');
+});
+
+
+
+
 Route::resource('categories', PostCategoryController::class);
 
 // Post Comments
