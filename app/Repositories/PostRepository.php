@@ -37,27 +37,23 @@ class PostRepository implements PostRepositoryInterface {
      * @param \App\Http\Requests\PostStoreRequest $data
      *
      * @return Post
-     * @throws \Spatie\ModelStatus\Exceptions\InvalidStatus
      */
     public function store(PostStoreRequest $data)
     {
         $post = new Post();
 
-        $post->name = $data['name'] ?? null;
-        $post->email = $data['email'] ?? null;
-        $post->phone = $data['phone'] ?? null;
-        $post->short_description = $data['short_description'] ?? null;
-        $post->long_description = $data['long_description'] ?? null;
+        $post->title = $data['title'] ?? null;
+        $post->category_id = $data['category_id'] ?? null;
+        $post->created_by = Auth::id();
+        $post->intro_text = $data['intro_text'] ?? null;
 
-        $post->send_as_sms =  ($data['send_as_sms'] == 'on') ? 1 : 0;
-        $post->send_as_email =  ($data['send_as_email'] == 'on') ? 1 : 0;
-        $post->show_on_website =  ($data['show_on_website'] == 'on') ? 1 : 0;
+        $post->body = $data['body'] ?? null;
+        $post->before_content = $data['before_content'] ?? null;
+        $post->after_content = $data['after_content'] ?? null;
 
-        $post->report_id = $data['report_id'] ?? null;
-        $post->region_id = $data['region_id'] ?? null;
-
-        $post->author_id = Auth::id();
-        $post->approver_id = $data['approver'] ?? null;
+        $post->featured = $data['featured'] ?? null;
+        $post->publish_at = $data['publish_at'] ?? null;
+        $post->publish_until = $data['publish_until'] ?? null;
 
         $post->save();
 
@@ -73,27 +69,22 @@ class PostRepository implements PostRepositoryInterface {
      * @param int $id
      *
      * @return Post
-     * @throws \Spatie\ModelStatus\Exceptions\InvalidStatus
      */
     public function update(PostStoreRequest $data, int $id)
     {
         $post = $this->getById($id);
 
-        $post->name = $data['name'] ?? null;
-        $post->email = $data['email'] ?? null;
-        $post->phone = $data['phone'] ?? null;
-        $post->short_description = $data['short_description'] ?? null;
-        $post->long_description = $data['long_description'] ?? null;
+        $post->title = $data['title'] ?? null;
+        $post->category_id = $data['category_id'] ?? null;
+        $post->intro_text = $data['intro_text'] ?? null;
 
-        $post->sent_on = $data['sent_on'] ?? null;
-        $post->send_as_sms =  ($data['send_as_sms'] == 'on') ? 1 : 0;
-        $post->send_as_email =  ($data['send_as_email'] == 'on') ? 1 : 0;
-        $post->show_on_website =  ($data['show_on_website'] == 'on') ? 1 : 0;
+        $post->body = $data['body'] ?? null;
+        $post->before_content = $data['before_content'] ?? null;
+        $post->after_content = $data['after_content'] ?? null;
 
-        $post->report_id = $data['report_id'] ?? null;
-        $post->region_id = $data['region_id'] ?? null;
-
-        $post->approver_id = $data['approver'] ?? null;
+        $post->featured = $data['featured'] ?? null;
+        $post->publish_at = $data['publish_at'] ?? null;
+        $post->publish_until = $data['publish_until'] ?? null;
 
         $post->update();
 
@@ -114,6 +105,4 @@ class PostRepository implements PostRepositoryInterface {
     {
         Post::destroy($id);
     }
-
-
 }
