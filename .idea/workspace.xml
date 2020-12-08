@@ -418,7 +418,8 @@
       <workItem from="1607066230715" duration="579000" />
       <workItem from="1607075520765" duration="36000" />
       <workItem from="1607075788718" duration="487000" />
-      <workItem from="1607400293488" duration="1550000" />
+      <workItem from="1607400293488" duration="1692000" />
+      <workItem from="1607426788702" duration="623000" />
     </task>
     <servers />
   </component>
@@ -486,8 +487,8 @@
     </state>
     <state x="1977" y="-107" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.23.1440.814/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1603736147593" />
     <state x="317" y="-1058" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.23.1440.821/-220.-1177.1920.1177@-220.-1177.1920.1177" timestamp="1601648303881" />
-    <state x="421" y="172" width="687" height="519" key="find.popup" timestamp="1607412207363">
-      <screen x="0" y="23" width="1440" height="822" />
+    <state x="2001" y="-13" width="916" height="744" key="find.popup" timestamp="1607426820940">
+      <screen x="1440" y="-226" width="1920" height="1177" />
     </state>
     <state x="2001" y="218" width="831" height="726" key="find.popup/0.0.1440.900/1440.0.1920.1200@1440.0.1920.1200" timestamp="1602316388123" />
     <state x="1444" y="-1160" width="1108" height="857" key="find.popup/0.23.1440.808/-1224.-1177.1920.1177/696.-1417.2560.1417@696.-1417.2560.1417" timestamp="1602254003882" />
@@ -500,6 +501,7 @@
     <state x="421" y="170" width="866" height="525" key="find.popup/0.23.1440.812@0.23.1440.812" timestamp="1605440194144" />
     <state x="2001" y="-12" width="831" height="714" key="find.popup/0.23.1440.814/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1606384898029" />
     <state x="421" y="171" width="866" height="528" key="find.popup/0.23.1440.816/1440.-226.1920.1177@0.23.1440.816" timestamp="1605803074351" />
+    <state x="2001" y="-13" width="916" height="744" key="find.popup/0.23.1440.816/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1607426820940" />
     <state x="421" y="171" width="866" height="527" key="find.popup/0.23.1440.816@0.23.1440.816" timestamp="1604832704780" />
     <state x="421" y="172" width="622" height="518" key="find.popup/0.23.1440.821@0.23.1440.821" timestamp="1606029685661" />
     <state x="421" y="172" width="687" height="519" key="find.popup/0.23.1440.822/1440.-226.1920.1177@0.23.1440.822" timestamp="1607412207363" />

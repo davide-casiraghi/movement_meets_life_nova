@@ -32,11 +32,11 @@ class PostRepository implements PostRepositoryInterface {
     }
 
     /**
-     * Store Alert
+     * Store Post
      *
      * @param \App\Http\Requests\PostStoreRequest $data
      *
-     * @return Alert
+     * @return Post
      * @throws \Spatie\ModelStatus\Exceptions\InvalidStatus
      */
     public function store(PostStoreRequest $data)
@@ -67,7 +67,7 @@ class PostRepository implements PostRepositoryInterface {
     }
 
     /**
-     * Update Alert
+     * Update Post
      *
      * @param \App\Http\Requests\PostStoreRequest $data
      * @param int $id

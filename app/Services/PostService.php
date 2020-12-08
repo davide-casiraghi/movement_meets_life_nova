@@ -2,6 +2,7 @@
 namespace App\Services;
 
 use App\Http\Requests\PostStoreRequest;
+use App\Models\Post;
 use App\Repositories\PostRepositoryInterface;
 use App\Services\Snippets\AccordionService;
 use App\Services\Snippets\GalleryMasonryService;
@@ -35,213 +36,98 @@ class PostService {
     }
 
     /**
-     * Create an alert
+     * Create a post
      *
      * @param \App\Http\Requests\PostStoreRequest $data
      *
      * @return \App\Models\Post
+     * @throws \Spatie\ModelStatus\Exceptions\InvalidStatus
      */
-    public function createAlert(PostStoreRequest $data)
+    public function createPost(PostStoreRequest $data)
     {
-        $alert = $this->alertRepository->store($data);
+        $post = $this->postRepository->store($data);
 
-        $alert->setStatus('pending');
+        $post->setStatus('pending');
 
-        $this->storeImages($alert, $data);
+        $this->storeImages($post, $data);
 
-        return $alert;
+        return $post;
     }
 
     /**
-     * Update the alert
+     * Update the Post
      *
      * @param \App\Http\Requests\PostStoreRequest $data
      * @param int $postId
      *
      * @return \App\Models\Post
      */
-    public function updateAlert(PostStoreRequest $data, int $postId)
+    public function updatePost(PostStoreRequest $data, int $postId)
     {
-        if (isset($data['save'])) {
-            $alert = $this->saveAlert($data, $postId);
-        }
+        $post = $this->postRepository->update($data, $postId);
 
-        if (isset($data['approve_and_send'])) {
-            $alert = $this->approveAndSendAlert($data, $postId);
-        }
+        $this->storeImages($post, $data);
 
-        $this->storeImages($alert, $data);
-
-        return $alert;
+        return $post;
     }
 
     /**
-     * Return the alert from the database
+     * Return the post from the database
      *
      * @param $postId
      *
-     * @return \App\Alert
+     * @return \App\Models\Post
      */
     public function getById(int $postId)
     {
-        return $this->alertRepository->getById($postId);
+        return $this->postRepository->getById($postId);
     }
 
     /**
-     * Get all the alerts.
+     * Get all the posts.
      *
      * @return iterable
      */
-    public function getAlerts()
+    public function getPosts()
     {
-        return $this->alertRepository->getAll(20);
+        return $this->postRepository->getAll(20);
     }
 
     /**
-     * Delete the alert from the database
+     * Delete the post from the database
      *
      * @param int $postId
      */
-    public function deleteAlert(int $postId): void
+    public function deletePost(int $postId): void
     {
-        $this->alertRepository->delete($postId);
+        $this->postRepository->delete($postId);
     }
 
     /**
-     * Approve ans send the alert
+     * Get the number of post created in the last 30 days.
      *
-     *  We update the approver since any admin can approve the alert,
-     *  not just the one selected as approver. So in this field there is the
-     *  user that effectively approved the alert.
-     *  That gets displayed as approver on the right bar of the alert edit view.
-     *
-     * @param \App\Http\Requests\AlertStoreRequest $data
-     * @param int $postId
-     *
-     * @return \App\Alert
-     * @throws \Spatie\ModelStatus\Exceptions\InvalidStatus
+     * @return int
      */
-    public function approveAndSendAlert(AlertStoreRequest $data, int $postId): Alert
+    public function getNumberPostsCreatedLastThirtyDays()
     {
-        $alert = $this->alertRepository->getById($postId);
-
-        // Set the approver as the final person that approved the alert
-        $data['approver'] = Auth::id();
-
-        $data['sent_on'] = date("Y-m-d H:i:s");
-
-        $alert = $this->alertRepository->update($data, $postId);
-
-        $alert->setStatus('approved', Auth::id());
-
-        if(($data['send_as_sms'] == 'on') && (!$alert->hasEverHadStatus('sms_sent'))){
-
-            //$members = $this->memberService->getMembers();
-            $members = $this->memberService->getMembersByAlertRegion($alert->region_id);
-
-            $photos = $alert->getMedia('alert');
-            if($photos->isEmpty()){
-                SendSms::dispatch($alert, $members)->onQueue('default');
-            }
-            else{
-                SendMms::dispatch($alert, $members)->onQueue('default');
-            }
-
-            $alert->setStatus('sms_sent', Auth::id());
-        }
-
-        if(($data['send_as_email'] == 'on') && (!$alert->hasEverHadStatus('mail_sent'))){
-
-            $members = $this->memberService->getMembersByAlertRegion($alert->region_id);
-
-            SendMail::dispatch($alert, $members)->onQueue('default');
-
-            $alert->setStatus('mail_sent', Auth::id());
-        }
-
-        return $alert;
-    }
-
-    /**
-     *  Update the alert once the save button is clicked in the alert edit view
-     *
-     * @param \App\Http\Requests\AlertStoreRequest $data
-     * @param int $postId
-     *
-     * @return \App\Alert
-     * @throws \Spatie\ModelStatus\Exceptions\InvalidStatus
-     */
-    public function saveAlert(AlertStoreRequest $data, int $postId): Alert
-    {
-        $alert = $this->alertRepository->getById($postId);
-
-        if($alert->approver()->first()->id != $data['approver']){
-            $approver = $this->userRepository->getById($data['approver']);
-
-            // Send to the approver a mail notification
-            $approver->notify(new AdminChosenAsApproverNotification($approver, $alert));
-        }
-
-        $alert = $this->alertRepository->update($data, $postId);
-
-        return $alert;
-    }
-
-    /**
-     * Get all the admin that can approve an alert .
-     *
-     * @return iterable
-     */
-    public function getAllAlertApprovers()
-    {
-        return User::role(['Super Admin', 'Admin'])->get();
-    }
-
-    /**
-     * Get the total pending alerts number.
-     *
-     * @return iterable
-     */
-    public function getPendingAlertsNumber()
-    {
-        return Alert::currentStatus('pending')->count();
-    }
-
-    /**
-     * Get the number of alerts sent in the last 30 days.
-     *
-     * @return iterable
-     */
-    public function getNumberAlertsSentLastThirtyDays()
-    {
-        return Alert::whereDate('sent_on', '>', date('Y-m-d', strtotime('-30 days')))->count();
-    }
-
-    /**
-     * Get the number of the pending alerts assigned to the user.
-     *
-     * @return iterable
-     */
-    public function getAssignedPendingAlertsNumber()
-    {
-        return Auth::user()->alertsToApprove->count();
+        return Post::whereDate('created_at', '>', date('Y-m-d', strtotime('-30 days')))->count();
     }
 
     /**
      * Store the uploaded photos in the Spatie Media Library
      *
-     * @param \App\Alert $alert
-     * @param \App\Http\Requests\AlertStoreRequest $data
+     * @param \App\Models\Post $post
+     * @param \App\Http\Requests\PostStoreRequest $data
      *
      * @return void
      * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileDoesNotExist
      * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileIsTooBig
      */
-    private function storeImages(Alert $alert, AlertStoreRequest $data):void {
+    private function storeImages(Post $post, PostStoreRequest $data):void {
         if($data->file('photos')) {
             foreach ($data->file('photos') as $photo) {
                 if ($photo->isValid()) {
-                    $alert->addMedia($photo)->toMediaCollection('alert');
+                    $post->addMedia($photo)->toMediaCollection('post');
                 }
             }
         }
@@ -257,66 +143,12 @@ class PostService {
     public function getThumbsUrls(int $postId): array{
         $thumbUrls = [];
 
-        $alert = $this->getById($postId);
-        foreach($alert->getMedia('alert') as $photo){
+        $post = $this->getById($postId);
+        foreach($post->getMedia('post') as $photo){
             $thumbUrls[] = $photo->getUrl('thumb');
         }
 
         return $thumbUrls;
     }
 
-
-    /**
-     * Return the alert status history
-     *
-     * @param int $postId
-     *
-     * @return array
-     */
-    public function getAlertStatusHistory(int $postId): array{
-
-        $alert = $this->getById($postId);
-
-        $statusHistory = [];
-
-        foreach($alert->statuses->sortByDesc('created_at') as $key => $status){
-
-            $statusHistory[$key]['date'] = $status->created_at->format('d/m/Y');
-            $statusHistory[$key]['time'] = $status->created_at->format('H:i');
-
-            switch ($status) {
-                case 'pending':
-                    $statusHistory[$key]['label'] = 'added to website';
-                    $statusHistory[$key]['name'] = $alert->author->profile->name;
-                    $statusHistory[$key]['surname'] = $alert->author->profile->surname;
-                    break;
-                case 'approved':
-                    $statusHistory[$key]['label'] = 'approved';
-                    $statusHistory[$key]['name'] = $this->adminService->getById($status->reason)->profile->name;
-                    $statusHistory[$key]['surname'] = $this->adminService->getById($status->reason)->profile->surname;
-                    break;
-                case 'disapproved':
-                    $statusHistory[$key]['label'] = 'disapproved';
-                    $statusHistory[$key]['name'] = $this->adminService->getById($status->reason)->profile->name;
-                    $statusHistory[$key]['surname'] = $this->adminService->getById($status->reason)->profile->surname;
-                    break;
-                case 'updated':
-                    $statusHistory[$key]['label'] = 'updated';
-                    $statusHistory[$key]['name'] = $this->adminService->getById($status->reason)->profile->name;
-                    $statusHistory[$key]['surname'] = $this->adminService->getById($status->reason)->profile->surname;
-                    break;
-                case 'sms_sent':
-                    $statusHistory[$key]['label'] = 'sent via SMS';
-                    $statusHistory[$key]['name'] = $this->adminService->getById($status->reason)->profile->name;
-                    $statusHistory[$key]['surname'] = $this->adminService->getById($status->reason)->profile->surname;
-                    break;
-                case 'mail_sent':
-                    $statusHistory[$key]['label'] = 'sent via Email';
-                    $statusHistory[$key]['name'] = $this->adminService->getById($status->reason)->profile->name;
-                    $statusHistory[$key]['surname'] = $this->adminService->getById($status->reason)->profile->surname;
-                    break;
-            }
-        }
-        return $statusHistory;
-    }
 }
