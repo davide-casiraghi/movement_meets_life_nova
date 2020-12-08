@@ -3,6 +3,7 @@ namespace App\Services;
 
 use App\Http\Requests\PostStoreRequest;
 use App\Models\Post;
+use App\Repositories\PostRepository;
 use App\Repositories\PostRepositoryInterface;
 use App\Services\Snippets\AccordionService;
 use App\Services\Snippets\GalleryMasonryService;
@@ -14,7 +15,7 @@ class PostService {
     private $glossaryService;
 
     public function __construct(
-        PostRepositoryInterface $postRepository,
+        PostRepository $postRepository,
         AccordionService $accordionService,
         GalleryMasonryService $galleryService,
         GlossaryService $glossaryService
