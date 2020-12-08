@@ -41,8 +41,9 @@ Route::name('posts.')->group(function () {
     Route::get('/post', [PostController::class, 'create'])->name('create');
     Route::post('/post', [PostController::class, 'store'])->name('store');
     Route::delete('/post/{id}', [PostController::class, 'destroy'])->name('destroy');
+    Route::get('/post', [PostController::class, 'show'])->name('show');
 
-    Route::get('/posts', [PostController::class, 'blog'])->name('blog');
+    Route::get('/blog', [PostController::class, 'blog'])->name('blog');
 });
 
 

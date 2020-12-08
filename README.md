@@ -165,7 +165,7 @@ Insight::factory()->count(4)->create()->each(function($insight) {
 
 PostCategory::factory()->count(4)->create();
 Post::factory()->count(4)->create()->each(function($post) {
-    $post->post_category()->associate(
+    $post->category()->associate(
         PostCategory::all()->random(1)
     );
     $post->tags()->sync(

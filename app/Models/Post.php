@@ -76,7 +76,7 @@ class Post extends Model implements HasMedia
     /**
      * Returns the categories of the post.
      */
-    public function post_category() {
+    public function category() {
         return $this->belongsTo(PostCategory::class, 'category_id');
     }
 
