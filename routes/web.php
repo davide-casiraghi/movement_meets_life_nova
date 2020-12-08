@@ -32,12 +32,17 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 // Posts
-Route::resource('posts', PostController::class);
+//Route::resource('posts', PostController::class);
 
 Route::name('posts.')->group(function () {
-    Route::post('/index', [PostCommentController::class, 'store'])->name('store')->middleware(ProtectAgainstSpam::class);;
+    Route::get('/posts', 'PostController@index')->name('index');
+    Route::get('/post/{id}', 'PostController@edit')->name('edit');
+    Route::put('/post/{id}', 'PostController@update')->name('update');
+    Route::get('/post', 'PostController@create')->name('create');
+    Route::post('/post', 'PostController@store')->name('store');
+    Route::delete('/post/{id}', 'PostController@destroy')->name('destroy');
 
-    Route::post('/blog', [PostController::class, 'blog'])->name('blog.show');
+    Route::get('/posts', 'PostController@blog')->name('blog');
 });
 
 
