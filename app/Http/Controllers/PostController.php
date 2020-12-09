@@ -3,18 +3,22 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Services\PostCategoryService;
 use App\Services\PostService;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
     private $postService;
+    private $postCategoryService;
 
     public function __construct(
-        PostService $postService
+        PostService $postService,
+        PostCategoryService $postCategoryService
     )
     {
         $this->postService = $postService;
+        $this->postCategoryService = $postCategoryService;
     }
 
     /**
@@ -73,7 +77,11 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        return view('posts.edit', compact('post'));
+        $categories = $this->postCategoryService->getPostCategories();
+        return view('posts.edit', [
+            'post' => $post,
+            'categories' => $categories,
+        ]);
     }
 
     /**
