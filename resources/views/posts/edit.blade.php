@@ -18,7 +18,7 @@
     </div>
     <div class="mt-5 md:mt-0 md:col-span-2">
       <form class="space-y-6" action="#" method="POST">
-        
+          
         <div class="grid grid-cols-6 gap-6">
             <div class="col-span-6">
                 <label for="title" class="block text-sm font-medium text-gray-700">Title</label>

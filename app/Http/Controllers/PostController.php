@@ -75,8 +75,10 @@ class PostController extends Controller
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function edit(Post $post)
+    public function edit(int $postId)
     {
+        $post = $this->postService->getById($postId);
+
         $categories = $this->postCategoryService->getPostCategories();
         return view('posts.edit', [
             'post' => $post,
