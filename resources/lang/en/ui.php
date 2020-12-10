@@ -7,6 +7,9 @@ return [
         'post_id' => 'Post ID',
         'category' => 'Category',
         'select_category' => 'Select category',
+        'before_content' => 'Before content',
+        'after_content' => 'After content',
+        'body' => 'Body',
 
 
 

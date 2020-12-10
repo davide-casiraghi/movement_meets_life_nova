@@ -13,14 +13,17 @@
 <label for="{{ $name }}" class="block text-sm font-medium text-gray-700">
     {{ $title }}
     @if($required)
-        <span class="gray-5" data-toggle="tooltip" data-placement="top" title="@lang('views.required')">*</span>
+        <span class="text-gray-500" data-toggle="tooltip" data-placement="top" title="@lang('views.required')">*</span>
     @endif
 </label>
 <input type="text"
        name="{{ $name }}"
        id="{{ $name }}"
        autocomplete="{{ $name }}"
-       @if(!empty($placeholder)) placeholder="{{ $placeholder }}" aria-label="{{ $placeholder }}" @endif
+       @if(!empty($placeholder))
+           placeholder="{{ $placeholder }}"
+           aria-label="{{ $placeholder }}"
+       @endif
        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm rounded-md
               border-gray-300 @if ($errors->has($name)) border-red-500 @endif
                 @if($disabled) bg-gray-200 @endif"

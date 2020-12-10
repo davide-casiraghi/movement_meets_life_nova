@@ -66,48 +66,42 @@
                         'selected' => $post->category_id,
                         'required' => true,
                     ])
-                    {{--<label for="category" class="block text-sm font-medium text-gray-700">Category</label>
-                    <select id="category" name="category_id" autocomplete="category" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                        @foreach($categories as $category)
-                            <option value="{{$category->id}}" {{ old('category_id',$post->category_id) == $category->id ? 'selected' : ''}}>{{$category->name}}</option>
-                        @endforeach
-                    </select>--}}
                 </div>
 
                 <div class="col-span-6">
-                    <label for="about" class="block text-sm font-medium text-gray-700">
-                        Before the article content
-                    </label>
-                    <div class="mt-1">
-                        <textarea id="before_content" name="before_content" rows="3" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="you@example.com">{{$post->before_content}}</textarea>
-                    </div>
-                    <p class="mt-2 text-sm text-gray-500">
-                        Anything to show jumbo style before the content
-                    </p>
+                    @include('partials.forms.textarea', [
+                            'title' => __('ui.posts.before_content'),
+                            'name' => 'before_content',
+                            'placeholder' => '',
+                            'value' => $post->before_content,
+                            'required' => false,
+                            'disabled' => false,
+                            'extraDescription' => 'Anything to show jumbo style before the content',
+                        ])
                 </div>
 
                 <div class="col-span-6">
-                    <label for="about" class="block text-sm font-medium text-gray-700">
-                        Text
-                    </label>
-                    <div class="mt-1">
-                        <textarea id="body" name="body" rows="6" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="you@example.com">{{$post->body}}</textarea>
-                    </div>
-                    <p class="mt-2 text-sm text-gray-500">
-                        The post body
-                    </p>
+                    @include('partials.forms.textareaTinymce', [
+                           'title' => __('ui.posts.body'),
+                           'name' => 'body',
+                           'placeholder' => '',
+                           'value' => $post->body,
+                           'required' => false,
+                           'disabled' => false,
+                           'extraDescription' => 'Anything to show jumbo style after the content',
+                       ])
                 </div>
 
                 <div class="col-span-6">
-                    <label for="about" class="block text-sm font-medium text-gray-700">
-                        After the article content
-                    </label>
-                    <div class="mt-1">
-                        <textarea id="after_content" name="after_content" rows="3" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="you@example.com">{{$post->after_content}}</textarea>
-                    </div>
-                    <p class="mt-2 text-sm text-gray-500">
-                        Anything to show jumbo style after the content
-                    </p>
+                    @include('partials.forms.textarea', [
+                            'title' => __('ui.posts.after_content'),
+                            'name' => 'after_content',
+                            'placeholder' => '',
+                            'value' => $post->after_content,
+                            'required' => false,
+                            'disabled' => false,
+                            'extraDescription' => 'Anything to show jumbo style after the content',
+                        ])
                 </div>
 
                 <div class="col-span-6">
