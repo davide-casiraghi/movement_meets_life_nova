@@ -85,13 +85,13 @@ class PostService {
     }
 
     /**
-     * Get all the posts.
+     * Get all the Posts.
      *
      * @return iterable
      */
-    public function getPosts()
+    public function getPosts(int $recordsPerPage = null)
     {
-        return $this->postRepository->getAll(20);
+        return $this->postRepository->getAll($recordsPerPage);
     }
 
     /**

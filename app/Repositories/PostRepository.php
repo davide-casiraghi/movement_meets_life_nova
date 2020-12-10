@@ -13,10 +13,13 @@ class PostRepository implements PostRepositoryInterface {
     /**
      * Get all Posts.
      *
-     * @return iterable
+     * @return \App\Models\Post[]|\Illuminate\Contracts\Pagination\LengthAwarePaginator|\Illuminate\Database\Eloquent\Collection
      */
-    public function getAll()
+    public function getAll(int $recordsPerPage = null)
     {
+        if($recordsPerPage){
+            return Post::paginate($recordsPerPage);
+        }
         return Post::all();
     }
 

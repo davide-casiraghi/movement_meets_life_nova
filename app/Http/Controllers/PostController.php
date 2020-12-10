@@ -29,7 +29,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = $this->postService->getPosts();
+        $posts = $this->postService->getPosts(20);
 
         return view('posts.index', [
             'posts' => $posts,
@@ -125,6 +125,10 @@ class PostController extends Controller
      */
     public function blog()
     {
-        return view('posts.blog');
+        $posts = $this->postService->getPosts(20);
+
+        return view('posts.blog', [
+            'posts' => $posts,
+        ]);
     }
 }
