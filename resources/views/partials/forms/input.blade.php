@@ -16,27 +16,21 @@
         <span class="gray-5" data-toggle="tooltip" data-placement="top" title="@lang('views.required')">*</span>
     @endif
 </label>
-<input type="text" name="{{ $name }}" id="{{ $name }}" autocomplete="{{ $name }}"
+<input type="text"
+       name="{{ $name }}"
+       id="{{ $name }}"
+       autocomplete="{{ $name }}"
        @if(!empty($placeholder)) placeholder="{{ $placeholder }}" aria-label="{{ $placeholder }}" @endif
-       class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-       @if(!empty($value)) value="{{ $value }}" @endif
-       value="{{ $value }}"
-       @if ($errors->has($name)) border-red-500 @endif
+       class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm rounded-md
+              border-gray-300 @if ($errors->has($name)) border-red-500 @endif"
+       value="{{ $value ?? '' }}"
 >
-@if ($errors->has($name))
-    <span class="invalid-feedback red-5" role="alert">
-        <strong>{{ $errors->first($name) }}</strong>
-    </span>
-@endif
-
-@error($name) is-invalid @enderror
 
 @error($name)
-<span class="invalid-feedback" role="alert">
-    <strong>{{ $message }}</strong>
-</span>
+    <span class="invalid-feedback text-red-500" role="alert">
+        <strong>{{ $errors->first($name) }}</strong>
+    </span>
 @enderror
-
 
 {{--
 
