@@ -10,6 +10,9 @@ return [
         'before_content' => 'Before content',
         'after_content' => 'After content',
         'body' => 'Body',
+        'intro_image' => 'Intro image',
+
+
 
 
 

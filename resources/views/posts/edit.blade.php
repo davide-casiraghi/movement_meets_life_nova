@@ -8,7 +8,7 @@
 
 @section('content')
 
-<form class="space-y-6" method="POST" action="{{ route('posts.update',$post->id) }}">
+<form class="space-y-6" method="POST" action="{{ route('posts.update',$post->id) }}" enctype="multipart/form-data">
     <div class="bg-white shadow px-4 py-5 sm:rounded-lg sm:p-6">
       <div class="md:grid md:grid-cols-3 md:gap-6">
         <div class="md:col-span-1">
@@ -105,7 +105,18 @@
                 </div>
 
                 <div class="col-span-6">
-                  <label class="block text-sm font-medium text-gray-700">
+                    @include('partials.forms.uploadImage', [
+                              'title' => __('ui.posts.intro_image'),
+                              'name' => 'introimage',
+                              'folder' => 'posts_intro_images',
+                              'value' => $post->introimage,
+                              'required' => false,
+                          ])
+
+
+
+
+                  {{--  <label class="block text-sm font-medium text-gray-700">
                     Photo
                   </label>
                   <div class="mt-2 flex items-center space-x-5">
@@ -117,7 +128,7 @@
                     <button type="button" class="bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                       Change
                     </button>
-                  </div>
+                  </div>--}}
                 </div>
             </div>
         </div>

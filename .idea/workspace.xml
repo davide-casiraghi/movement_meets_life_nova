@@ -4,7 +4,7 @@
     <list default="true" id="f86be012-5364-473d-a5f7-a7b8c0c0f2c5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/lang/en/ui.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/ui.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/forms/select.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/forms/select.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/forms/uploadImage.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/forms/uploadImage.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/posts/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/posts/edit.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -195,7 +195,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/partials/forms" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -207,18 +207,19 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views/partials/forms" />
+      <recent name="$PROJECT_DIR$/resources/views/glossary" />
+      <recent name="$PROJECT_DIR$/app/Services/Quote" />
+      <recent name="$PROJECT_DIR$/resources/views" />
+      <recent name="$PROJECT_DIR$/app/Nova" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources/views/forms" />
       <recent name="$PROJECT_DIR$/resources/views/partials/pages/home" />
       <recent name="$PROJECT_DIR$/resources/views/partials/pages/home/blog" />
       <recent name="$PROJECT_DIR$/resources/views/testimonials" />
       <recent name="$PROJECT_DIR$/resources/views" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/resources/views/glossary" />
-      <recent name="$PROJECT_DIR$/app/Services/Quote" />
-      <recent name="$PROJECT_DIR$/resources/views" />
-      <recent name="$PROJECT_DIR$/app/Nova" />
     </key>
   </component>
   <component name="RunManager">
@@ -442,7 +443,7 @@
       <workItem from="1607614088815" duration="318000" />
       <workItem from="1607614468856" duration="200000" />
       <workItem from="1607614692983" duration="189000" />
-      <workItem from="1607615017255" duration="62000" />
+      <workItem from="1607615017255" duration="2756000" />
     </task>
     <servers />
   </component>
