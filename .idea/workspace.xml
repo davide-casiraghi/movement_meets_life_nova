@@ -3,6 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="f86be012-5364-473d-a5f7-a7b8c0c0f2c5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PostController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/PostRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/PostRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/posts/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/posts/edit.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -201,7 +204,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
+    <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -424,7 +427,15 @@
       <workItem from="1607527200021" duration="142000" />
       <workItem from="1607527376458" duration="491000" />
       <workItem from="1607584689313" duration="92000" />
-      <workItem from="1607584961090" duration="64000" />
+      <workItem from="1607584961090" duration="170000" />
+      <workItem from="1607590521198" duration="470000" />
+      <workItem from="1607591014349" duration="5000" />
+      <workItem from="1607591033072" duration="320000" />
+      <workItem from="1607591385167" duration="361000" />
+      <workItem from="1607591821346" duration="43000" />
+      <workItem from="1607591898874" duration="305000" />
+      <workItem from="1607592218498" duration="147000" />
+      <workItem from="1607592396078" duration="510000" />
     </task>
     <servers />
   </component>
@@ -448,7 +459,7 @@
     <state x="1440" y="-226" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1440.814/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1603777607103" />
     <state x="0" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1440.816@0.23.1440.816" timestamp="1604819446952" />
     <state x="0" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1440.822@0.23.1440.822" timestamp="1607402797585" />
-    <state x="2148" y="49" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1607527203208">
+    <state x="2148" y="50" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1607592401633">
       <screen x="1440" y="-226" width="1920" height="1177" />
     </state>
     <state x="2148" y="281" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.900/1440.0.1920.1200@1440.0.1920.1200" timestamp="1602317882191" />
@@ -460,7 +471,7 @@
     <state x="2148" y="299" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.812/1440.23.1920.1177@1440.23.1920.1177" timestamp="1602416466806" />
     <state x="-516" y="-901" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.812/696.-1417.2560.1417/-1224.-1177.1920.1177@-1224.-1177.1920.1177" timestamp="1602228791608" />
     <state x="531" y="213" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.812@0.23.1440.812" timestamp="1604259401477" />
-    <state x="2148" y="50" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.814/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1603777819523" />
+    <state x="2148" y="50" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.814/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1607592401633" />
     <state x="531" y="214" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.816/1440.-226.1920.1177@0.23.1440.816" timestamp="1604558544076" />
     <state x="2148" y="49" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.816/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1607527203208" />
     <state x="531" y="214" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.816@0.23.1440.816" timestamp="1604819553140" />
@@ -481,11 +492,12 @@
     <state x="2011" y="-21" key="NewPhpClassDialog/0.23.1440.814/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1603777164095" />
     <state x="428" y="165" key="NewPhpClassDialog/0.23.1440.816@0.23.1440.816" timestamp="1604802663049" />
     <state x="428" y="166" key="NewPhpClassDialog/0.23.1440.822@0.23.1440.822" timestamp="1602563837548" />
-    <state x="359" y="137" key="SettingsEditor" timestamp="1606723878220">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state x="1919" y="-73" key="SettingsEditor" timestamp="1607592567349">
+      <screen x="1440" y="-226" width="1920" height="1177" />
     </state>
     <state x="1919" y="156" key="SettingsEditor/0.0.1440.900/1440.0.1920.1200@1440.0.1920.1200" timestamp="1602316695473" />
     <state x="1919" y="176" key="SettingsEditor/0.23.1440.812/1440.23.1920.1177@1440.23.1920.1177" timestamp="1602343760271" />
+    <state x="1919" y="-73" key="SettingsEditor/0.23.1440.814/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1607592567349" />
     <state x="259" y="-1024" key="SettingsEditor/0.23.1440.816/-220.-1177.1920.1177@-220.-1177.1920.1177" timestamp="1601561310727" />
     <state x="1335" y="-1233" key="SettingsEditor/0.23.1440.877/-1224.-1177.1920.1105/696.-1417.2560.1417@696.-1417.2560.1417" timestamp="1602144594672" />
     <state x="359" y="137" key="SettingsEditor/0.23.1440.877/1440.-226.1920.1105@0.23.1440.877" timestamp="1606723878220" />
@@ -516,7 +528,7 @@
     <state x="421" y="172" width="687" height="519" key="find.popup/0.23.1440.822@0.23.1440.822" timestamp="1607402443389" />
     <state x="1444" y="-1160" width="1108" height="857" key="find.popup/0.23.1440.877/-1224.-1177.1920.1105/696.-1417.2560.1417@696.-1417.2560.1417" timestamp="1602148735038" />
     <state x="2001" y="-25" width="831" height="670" key="find.popup/0.23.1440.877/1440.-226.1920.1105@1440.-226.1920.1105" timestamp="1603645292743" />
-    <state x="2075" y="62" width="896" height="684" key="search.everywhere.popup" timestamp="1607442728829">
+    <state x="2075" y="62" width="896" height="684" key="search.everywhere.popup" timestamp="1607592790211">
       <screen x="1440" y="-226" width="1920" height="1177" />
     </state>
     <state x="476" y="221" width="671" height="467" key="search.everywhere.popup/0.23.1440.811/-220.-1177.1920.1177@0.23.1440.811" timestamp="1601969940815" />
@@ -526,7 +538,7 @@
     <state x="1543" y="-1071" width="1194" height="817" key="search.everywhere.popup/0.23.1440.812/-1224.-1177.1920.1177/696.-1417.2560.1417@696.-1417.2560.1417" timestamp="1602072450211" />
     <state x="2075" y="62" width="896" height="681" key="search.everywhere.popup/0.23.1440.812/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1603952940039" />
     <state x="476" y="222" width="672" height="470" key="search.everywhere.popup/0.23.1440.812@0.23.1440.812" timestamp="1605440262902" />
-    <state x="2075" y="62" width="896" height="684" key="search.everywhere.popup/0.23.1440.814/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1607442728829" />
+    <state x="2075" y="62" width="896" height="684" key="search.everywhere.popup/0.23.1440.814/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1607592790211" />
     <state x="415" y="-889" width="670" height="676" key="search.everywhere.popup/0.23.1440.816/-220.-1177.1920.1177@-220.-1177.1920.1177" timestamp="1601562022484" />
     <state x="476" y="223" width="672" height="473" key="search.everywhere.popup/0.23.1440.816/1440.-226.1920.1177@0.23.1440.816" timestamp="1605801959954" />
     <state x="476" y="223" width="670" height="469" key="search.everywhere.popup/0.23.1440.816@0.23.1440.816" timestamp="1604852839202" />

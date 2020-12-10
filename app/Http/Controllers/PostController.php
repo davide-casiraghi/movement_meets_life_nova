@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PostStoreRequest;
 use App\Models\Post;
 use App\Services\PostCategoryService;
 use App\Services\PostService;
@@ -28,7 +29,11 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('posts.index');
+        $posts = $this->postService->getPosts();
+
+        return view('posts.index', [
+            'posts' => $posts,
+        ]);
     }
 
     /**
@@ -89,13 +94,17 @@ class PostController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Post  $post
-     * @return \Illuminate\Http\Response
+     * @param \App\Http\Requests\PostStoreRequest $request
+     * @param int $postId
+     *
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, Post $post)
+    public function update(PostStoreRequest $request, int $postId)
     {
-        //
+        $this->postService->updatePost($request, $postId);
+
+        return redirect()->route('posts.index')
+            ->with('success','Post updated successfully');
     }
 
     /**
