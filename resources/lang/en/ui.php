@@ -4,6 +4,15 @@ return [
     'posts' => [
         'title' => 'Post title',
         'link_to_this_post' => 'Link to this post',
+        'post_id' => 'Post ID',
+        'category' => 'Category',
+        'select_category' => 'Select category',
+
+
+
+
+
+
     ],
 
 

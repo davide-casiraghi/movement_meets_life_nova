@@ -32,32 +32,46 @@
                             'value' => old('title', $post->title),
                             'required' => true,
                             'disabled' => false,
-                        ])
+                    ])
                 </div>
 
                 <div class="col-span-6 sm:col-span-4">
                     @include('partials.forms.input', [
-                                'title' => __('ui.posts.link_to_this_post'),
-                                'name' => 'post_link',
-                                'placeholder' => '',
-                                'value' => env('APP_URL').'post/'.$post->slug,
-                                'required' => false,
-                                'disabled' => true,
-                            ])
+                            'title' => __('ui.posts.link_to_this_post'),
+                            'name' => 'post_link',
+                            'placeholder' => '',
+                            'value' => env('APP_URL').'post/'.$post->slug,
+                            'required' => false,
+                            'disabled' => true,
+                        ])
                 </div>
 
                 <div class="col-span-6 sm:col-span-2">
-                    <label for="post_id" class="block text-sm font-medium text-gray-700">Post ID</label>
-                    <input type="text" name="post_id" id="post_id" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" value="{{$post->id}}">
+                    @include('partials.forms.input', [
+                            'title' => __('ui.posts.post_id'),
+                            'name' => 'post_id',
+                            'placeholder' => '',
+                            'value' => $post->id,
+                            'required' => false,
+                            'disabled' => true,
+                        ])
                 </div>
 
                 <div class="col-span-6">
-                    <label for="category" class="block text-sm font-medium text-gray-700">Category</label>
+                    @include('partials.forms.select', [
+                        'title' => __('ui.posts.category'),
+                        'name' => 'category_id',
+                        'placeholder' => __('ui.posts.select_category'),
+                        'records' => $categories,
+                        'selected' => $post->category_id,
+                        'required' => true,
+                    ])
+                    {{--<label for="category" class="block text-sm font-medium text-gray-700">Category</label>
                     <select id="category" name="category_id" autocomplete="category" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                         @foreach($categories as $category)
                             <option value="{{$category->id}}" {{ old('category_id',$post->category_id) == $category->id ? 'selected' : ''}}>{{$category->name}}</option>
                         @endforeach
-                    </select>
+                    </select>--}}
                 </div>
 
                 <div class="col-span-6">
