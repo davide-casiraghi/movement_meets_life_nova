@@ -18,7 +18,7 @@
     </div>
     <div class="mt-5 md:mt-0 md:col-span-2">
       <form class="space-y-6" action="#" method="POST">
-          
+
         <div class="grid grid-cols-6 gap-6">
             <div class="col-span-6">
                 <label for="title" class="block text-sm font-medium text-gray-700">Title</label>
@@ -27,12 +27,12 @@
             
             <div class="col-span-6 sm:col-span-4">
                 <label for="post_link" class="block text-sm font-medium text-gray-700">Link to this post</label>
-                <input type="text" name="post_link" id="post_link" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                <input type="text" name="post_link" id="post_link" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" value="{{env('APP_URL').'post/'.$post->slug}}">
             </div>
 
             <div class="col-span-6 sm:col-span-2">
                 <label for="post_id" class="block text-sm font-medium text-gray-700">Post ID</label>
-                <input type="text" name="post_id" id="post_id" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                <input type="text" name="post_id" id="post_id" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" value="{{$post->id}}">
             </div>
             
             <div class="col-span-6">
