@@ -25,22 +25,25 @@
 
             <div class="grid grid-cols-6 gap-6">
                 <div class="col-span-6">
-                    {{--<label for="title" class="block text-sm font-medium text-gray-700">Title</label>
-                    <input type="text" name="title" id="title" autocomplete="title" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" value="{{ old('title', $post->title) }}">
-    --}}
                     @include('partials.forms.input', [
                             'title' => __('ui.posts.title'),
                             'name' => 'title',
                             'placeholder' => 'Post title',
                             'value' => old('title', $post->title),
                             'required' => true,
+                            'disabled' => false,
                         ])
-
                 </div>
 
                 <div class="col-span-6 sm:col-span-4">
-                    <label for="post_link" class="block text-sm font-medium text-gray-700">Link to this post</label>
-                    <input type="text" name="post_link" id="post_link" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" value="{{env('APP_URL').'post/'.$post->slug}}">
+                    @include('partials.forms.input', [
+                                'title' => __('ui.posts.link_to_this_post'),
+                                'name' => 'post_link',
+                                'placeholder' => '',
+                                'value' => env('APP_URL').'post/'.$post->slug,
+                                'required' => false,
+                                'disabled' => true,
+                            ])
                 </div>
 
                 <div class="col-span-6 sm:col-span-2">
