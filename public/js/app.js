@@ -110435,7 +110435,10 @@ __webpack_require__(/*! tinymce/plugins/textcolor */ "./node_modules/tinymce/plu
 
 __webpack_require__(/*! tinymce/plugins/colorpicker */ "./node_modules/tinymce/plugins/colorpicker/index.js");
 
-__webpack_require__(/*! tinymce/plugins/textpattern */ "./node_modules/tinymce/plugins/textpattern/index.js"); // https://www.tiny.cloud/docs/get-started/basic-setup/
+__webpack_require__(/*! tinymce/plugins/textpattern */ "./node_modules/tinymce/plugins/textpattern/index.js");
+/**
+ * Configuration
+ **/
 
 
 var editor_config = {

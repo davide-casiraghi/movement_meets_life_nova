@@ -15,21 +15,18 @@ require('tinymce/plugins/preview');
 require('tinymce/plugins/hr');
 require('tinymce/plugins/anchor');
 require('tinymce/plugins/pagebreak');
-
 require('tinymce/plugins/searchreplace');
 require('tinymce/plugins/wordcount');
 require('tinymce/plugins/visualblocks');
 require('tinymce/plugins/visualchars');
 require('tinymce/plugins/code');
 require('tinymce/plugins/fullscreen');
-
 require('tinymce/plugins/insertdatetime');
 require('tinymce/plugins/media');
 require('tinymce/plugins/nonbreaking');
 require('tinymce/plugins/save');
 require('tinymce/plugins/table');
 require('tinymce/plugins/contextmenu');
-
 require('tinymce/plugins/directionality');
 require('tinymce/plugins/template');
 require('tinymce/plugins/paste');
@@ -38,7 +35,10 @@ require('tinymce/plugins/colorpicker');
 require('tinymce/plugins/textpattern');
 
 
-// https://www.tiny.cloud/docs/get-started/basic-setup/
+/**
+ * Configuration
+ **/
+
 var editor_config = {
     selector: '.textarea_tinymce',
 
