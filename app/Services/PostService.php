@@ -136,7 +136,7 @@ class PostService {
         if($data->file('introimage')) {
             $introimage = $data->file('introimage');
             if ($introimage->isValid()) {
-                $post->addMedia($introimage)->toMediaCollection('posts');
+                $post->addMedia($introimage)->toMediaCollection('post');
             }
         }
     }

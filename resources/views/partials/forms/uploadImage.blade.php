@@ -1,3 +1,5 @@
+{{$thumbnail}}
+
 <label class="block text-sm leading-5 font-medium text-gray-700">
     {{ $title }}
 </label>
@@ -13,7 +15,12 @@
             @else
             {{-- Show the Image that has been already stored --}}
             <div class="col-12 col-sm-4 col-md-4">
-                <img class="uploadedImage" style="width: 100%" src="/storage/images/{{$folder}}/{{$value}}" alt="">
+
+
+
+
+
+                <img class="uploadedImage" style="width: 100%" src="{{$thumbnail}}" alt="">
             </div>
 
             {{-- Show the image name to use in the edit view to not delete the image on update --}}
