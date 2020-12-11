@@ -32,8 +32,6 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 // Posts
-//Route::resource('posts', PostController::class);
-
 Route::name('posts.')->group(function () {
     Route::get('/posts', [PostController::class, 'index'])->name('index');
     Route::get('/posts/{id}/edit', [PostController::class, 'edit'])->name('edit');
@@ -46,10 +44,8 @@ Route::name('posts.')->group(function () {
     Route::get('/blog', [PostController::class, 'blog'])->name('blog');
 });
 
-
-
-
-Route::resource('categories', PostCategoryController::class);
+// Posts categories
+Route::resource('postCategories', PostCategoryController::class);
 
 // Post Comments
 Route::name('postComments.')->group(function () {

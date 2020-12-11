@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PostCategoryStoreRequest;
 use App\Http\Requests\PostStoreRequest;
 use App\Models\Post;
 use App\Services\PostCategoryService;
@@ -39,7 +40,7 @@ class PostController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\View
      */
     public function create()
     {
@@ -53,10 +54,12 @@ class PostController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \App\Http\Requests\PostStoreRequest $request
-     * @return \Illuminate\Http\Response
+     * @param \App\Http\Requests\PostCategoryStoreRequest $request
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Spatie\ModelStatus\Exceptions\InvalidStatus
      */
-    public function store(PostStoreRequest $request)
+    public function store(PostCategoryStoreRequest $request)
     {
         $this->postService->createPost($request);
 
@@ -85,7 +88,7 @@ class PostController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Post  $post
+     * @param int $postId
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
@@ -119,12 +122,16 @@ class PostController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Post  $post
-     * @return \Illuminate\Http\Response
+     * @param int $postId
+     *
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy(Post $post)
+    public function destroy(int $postId)
     {
-        //
+        $this->postService->deletePost($postId);
+
+        return redirect()->route('posts.index')
+            ->with('success','Post deleted successfully');
     }
     
     /**

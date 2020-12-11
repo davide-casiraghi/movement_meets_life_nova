@@ -37,7 +37,7 @@ class PostCategoryService {
      *
      * @return \App\Models\PostCategory
      */
-    public function updateGender(PostCategoryStoreRequest $data, int $postCategoryId)
+    public function updatePostCategory(PostCategoryStoreRequest $data, int $postCategoryId)
     {
         $postCategory = $this->postCategoryRepository->update($data, $postCategoryId);
 

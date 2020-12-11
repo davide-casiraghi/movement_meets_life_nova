@@ -2,11 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f86be012-5364-473d-a5f7-a7b8c0c0f2c5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/laravel-tinker-plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/laravel-tinker-plugin.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PostCategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PostCategoryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PostController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/PostCategoryService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/PostCategoryService.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/posts/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/posts/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/posts/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/posts/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/posts/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/posts/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -447,7 +449,7 @@
       <workItem from="1607615017255" duration="2977000" />
       <workItem from="1607661946451" duration="4106000" />
       <workItem from="1607686292675" duration="622000" />
-      <workItem from="1607698275213" duration="5716000" />
+      <workItem from="1607698275213" duration="6739000" />
     </task>
     <servers />
   </component>
@@ -472,7 +474,7 @@
     <state x="1440" y="-226" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1440.814/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1603777607103" />
     <state x="0" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1440.816@0.23.1440.816" timestamp="1604819446952" />
     <state x="0" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1440.822@0.23.1440.822" timestamp="1607402797585" />
-    <state x="2148" y="49" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1607671618270">
+    <state x="2148" y="49" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1607711853727">
       <screen x="1440" y="-226" width="1920" height="1177" />
     </state>
     <state x="2148" y="281" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.900/1440.0.1920.1200@1440.0.1920.1200" timestamp="1602317882191" />
@@ -491,6 +493,7 @@
     <state x="488" y="-901" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.821/-220.-1177.1920.1177@-220.-1177.1920.1177" timestamp="1601648307583" />
     <state x="2148" y="49" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.821/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1607671618270" />
     <state x="531" y="215" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.821@0.23.1440.821" timestamp="1604720598884" />
+    <state x="2148" y="49" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.822/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1607711853727" />
     <state x="1640" y="-1085" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.877/-1224.-1177.1920.1105/696.-1417.2560.1417@696.-1417.2560.1417" timestamp="1602151539560" />
     <state x="2071" y="76" key="#com.jetbrains.php.refactoring.extract.interface.PhpExtractInterfaceDialog#" timestamp="1607526936650">
       <screen x="1440" y="-226" width="1920" height="1177" />
@@ -545,7 +548,7 @@
     <state x="421" y="172" width="687" height="519" key="find.popup/0.23.1440.822@0.23.1440.822" timestamp="1607402443389" />
     <state x="1444" y="-1160" width="1108" height="857" key="find.popup/0.23.1440.877/-1224.-1177.1920.1105/696.-1417.2560.1417@696.-1417.2560.1417" timestamp="1602148735038" />
     <state x="2001" y="-25" width="831" height="670" key="find.popup/0.23.1440.877/1440.-226.1920.1105@1440.-226.1920.1105" timestamp="1603645292743" />
-    <state x="2075" y="62" width="896" height="684" key="search.everywhere.popup" timestamp="1607705067255">
+    <state x="2075" y="62" width="896" height="684" key="search.everywhere.popup" timestamp="1607711395791">
       <screen x="1440" y="-226" width="1920" height="1177" />
     </state>
     <state x="476" y="221" width="671" height="467" key="search.everywhere.popup/0.23.1440.811/-220.-1177.1920.1177@0.23.1440.811" timestamp="1601969940815" />
@@ -563,7 +566,7 @@
     <state x="2075" y="62" width="896" height="684" key="search.everywhere.popup/0.23.1440.821/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1607700606455" />
     <state x="476" y="224" width="672" height="475" key="search.everywhere.popup/0.23.1440.821@0.23.1440.821" timestamp="1602562147237" />
     <state x="415" y="-889" width="894" height="677" key="search.everywhere.popup/0.23.1440.822/-220.-1177.1920.1177@-220.-1177.1920.1177" timestamp="1601643955110" />
-    <state x="2075" y="62" width="896" height="684" key="search.everywhere.popup/0.23.1440.822/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1607705067255" />
+    <state x="2075" y="62" width="896" height="684" key="search.everywhere.popup/0.23.1440.822/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1607711395791" />
     <state x="476" y="224" width="672" height="477" key="search.everywhere.popup/0.23.1440.822@0.23.1440.822" timestamp="1606798364535" />
     <state x="-589" y="-907" width="896" height="638" key="search.everywhere.popup/0.23.1440.877/-1224.-1177.1920.1105/696.-1417.2560.1417@-1224.-1177.1920.1105" timestamp="1602163913336" />
     <state x="1542" y="-1071" width="1193" height="816" key="search.everywhere.popup/0.23.1440.877/-1224.-1177.1920.1105/696.-1417.2560.1417@696.-1417.2560.1417" timestamp="1601991884076" />
