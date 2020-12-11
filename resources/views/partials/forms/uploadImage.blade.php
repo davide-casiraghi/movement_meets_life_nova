@@ -44,8 +44,8 @@
             @else
             {{-- Show the Image that has been already stored --}}
             <div class="col-12 col-sm-4 col-md-4">
-                @if(!is_null($post->getMedia('post')->first()))
-                    <img class="uploadedImage" style="width: 100%" src="{{$post->getMedia('post')->first()->getUrl('thumb')}}" alt="">
+                @if(!is_null($post->getMedia($collection)->first()))
+                    <img class="uploadedImage" style="width: 100%" src="{{$post->getMedia($collection)->first()->getUrl('thumb')}}" alt="">
                 @endif
             </div>
 
