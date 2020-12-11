@@ -33,6 +33,6 @@
 </div>
 @if(!empty($extraDescription))
     <p class="mt-2 text-sm text-gray-500">
-        Anything to show jumbo style before the content
+        {{$extraDescription}}
     </p>
 @endif
