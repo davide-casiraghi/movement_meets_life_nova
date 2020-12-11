@@ -82,7 +82,7 @@
                               'name' => 'introimage',
                               'value' => '',
                               'required' => false,
-                              'collection' => 'post',
+                              'collection' => 'introimage',
                           ])
                 </div>
             </div>

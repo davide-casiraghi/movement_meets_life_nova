@@ -44,7 +44,8 @@
 @stop
 
 @section('jumbotron')
-    @if($post->hasMedia('introimage'))
+    {{$post->hasMedia('post')}}
+    @if($post->hasMedia('post'))
 
         <div class="bg-fixed relative" style="background-image: url('{{$post->getMedia('introimage')[0]->getUrl()}}');">
             <div class="container mx-auto px-6 py-40 max-w-prose relative z-10">
@@ -70,7 +71,7 @@
     @include('partials.messages')
 
     <div class="text-lg max-w-prose mx-auto mb-6 mt-8 sm:mt-32 px-10">
-        @if(!$post->hasMedia('introimage'))
+        @if(!$post->hasMedia('post'))
             <h2 class="mt-2 mb-8 text-3xl leading-8 font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-10">{{ $post->title }}</h2>
 
             <div class="my-10">
@@ -84,7 +85,7 @@
             {!! $post->body !!}
         </div>
 
-        @if($post->hasMedia('gallery'))
+        {{--@if($post->hasMedia('gallery'))
             <div class='lifeGallery'>
                 @foreach($post->getMedia('gallery') as $image)
 
@@ -112,7 +113,7 @@
                 </div>
                 @endforeach
             </div>
-        @endif
+        @endif--}}
 
             {{-- test --}}
             <span class='api-example' title="1">One</span>

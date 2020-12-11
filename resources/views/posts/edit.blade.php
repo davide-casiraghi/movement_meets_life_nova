@@ -111,7 +111,7 @@
                               'name' => 'introimage',
                               'value' => $post->introimage,
                               'required' => false,
-                              'collection' => 'post',
+                              'collection' => 'introimage',
                           ])
                 </div>
             </div>
