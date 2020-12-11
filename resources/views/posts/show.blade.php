@@ -44,9 +44,7 @@
 @stop
 
 @section('jumbotron')
-    {{$post->hasMedia('post')}}
-    @if($post->hasMedia('post'))
-
+    @if($post->hasMedia('introimage'))
         <div class="bg-fixed relative" style="background-image: url('{{$post->getMedia('introimage')[0]->getUrl()}}');">
             <div class="container mx-auto px-6 py-40 max-w-prose relative z-10">
                 <h2 class="text-4xl font-bold mb-2 text-white">
