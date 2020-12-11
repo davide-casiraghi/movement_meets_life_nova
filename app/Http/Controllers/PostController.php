@@ -67,12 +67,14 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Post  $post
+     * @param int $postId
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function show(Post $post)
+    public function show(int $postId)
     {
+        $post = $this->postService->getById($postId);
+
         $post['body'] = $this->postService->getPostBody($post);
 
          //dd($post->getMedia('gallery'));

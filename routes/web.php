@@ -36,12 +36,12 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 Route::name('posts.')->group(function () {
     Route::get('/posts', [PostController::class, 'index'])->name('index');
-    Route::get('/post/{id}', [PostController::class, 'edit'])->name('edit');
-    Route::put('/post/{id}', [PostController::class, 'update'])->name('update');
-    Route::get('/post', [PostController::class, 'create'])->name('create');
-    Route::post('/post', [PostController::class, 'store'])->name('store');
-    Route::delete('/post/{id}', [PostController::class, 'destroy'])->name('destroy');
-    Route::get('/post', [PostController::class, 'show'])->name('show');
+    Route::get('/posts/{id}/edit', [PostController::class, 'edit'])->name('edit');
+    Route::put('/posts/{id}', [PostController::class, 'update'])->name('update');
+    Route::get('/posts/create', [PostController::class, 'create'])->name('create');
+    Route::post('/posts', [PostController::class, 'store'])->name('store');
+    Route::delete('/posts/{id}', [PostController::class, 'destroy'])->name('destroy');
+    Route::get('/posts/{id}', [PostController::class, 'show'])->name('show');
 
     Route::get('/blog', [PostController::class, 'blog'])->name('blog');
 });

@@ -27,6 +27,9 @@ class PostService {
     }
 
     public function getPostBody($post){
+
+        //dd($post->getTranslation('body', 'en'));
+
         $postBody = $post->body;
 
         $postBody = $this->accordionService->snippetsToHTML($postBody);
