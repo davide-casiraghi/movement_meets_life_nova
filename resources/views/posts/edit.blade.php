@@ -108,7 +108,7 @@
                               'folder' => 'posts_intro_images',
                               'value' => $post->introimage,
                               'required' => false,
-                              'thumbnail' => $post->getMedia('post')->first()->getUrl('thumb'),
+                              'collection' => 'post',
                           ])
 
 

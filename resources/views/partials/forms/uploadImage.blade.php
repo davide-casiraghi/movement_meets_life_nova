@@ -1,4 +1,4 @@
-{{$thumbnail}}
+
 
 <label class="block text-sm leading-5 font-medium text-gray-700">
     {{ $title }}
@@ -15,12 +15,9 @@
             @else
             {{-- Show the Image that has been already stored --}}
             <div class="col-12 col-sm-4 col-md-4">
-
-
-
-
-
-                <img class="uploadedImage" style="width: 100%" src="{{$thumbnail}}" alt="">
+                @if(!is_null($post->getMedia('post')->first()))
+                    <img class="uploadedImage" style="width: 100%" src="{{$post->getMedia('post')->first()->getUrl('thumb')}}" alt="">
+                @endif
             </div>
 
             {{-- Show the image name to use in the edit view to not delete the image on update --}}
