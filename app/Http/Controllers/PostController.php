@@ -43,18 +43,25 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        $categories = $this->postCategoryService->getPostCategories();
+
+        return view('posts.create', [
+            'categories' => $categories,
+        ]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \App\Http\Requests\PostStoreRequest $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PostStoreRequest $request)
     {
-        //
+        $this->postService->createPost($request);
+
+        return redirect()->route('posts.index')
+            ->with('success','Post updated successfully');
     }
 
     /**

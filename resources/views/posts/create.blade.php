@@ -2,18 +2,17 @@
 
 @section('content')
 
-<form class="space-y-6" method="POST" action="{{ route('posts.update',$post->id) }}" enctype="multipart/form-data">
+<form class="space-y-6" method="POST" action="{{ route('posts.store') }}" enctype="multipart/form-data">
     <div class="bg-white shadow px-4 py-5 sm:rounded-lg sm:p-6">
       <div class="md:grid md:grid-cols-3 md:gap-6">
         <div class="md:col-span-1">
-          <h3 class="text-lg font-medium leading-6 text-gray-900">Edit post</h3>
+          <h3 class="text-lg font-medium leading-6 text-gray-900">Create post</h3>
           <p class="mt-1 text-sm text-gray-500">
-            {{--Edit the post data--}}
+            {{--Create a post--}}
           </p>
         </div>
         <div class="mt-5 md:mt-0 md:col-span-2">
             @csrf
-            @method('PUT')
 
             <div class="grid grid-cols-6 gap-6">
                 <div class="col-span-6">
@@ -21,32 +20,10 @@
                             'title' => __('ui.posts.title'),
                             'name' => 'title',
                             'placeholder' => 'Post title',
-                            'value' => old('title', $post->title),
+                            'value' => old('title'),
                             'required' => true,
                             'disabled' => false,
                     ])
-                </div>
-
-                <div class="col-span-6 sm:col-span-4">
-                    @include('partials.forms.input', [
-                            'title' => __('ui.posts.link_to_this_post'),
-                            'name' => 'post_link',
-                            'placeholder' => '',
-                            'value' => env('APP_URL').'post/'.$post->slug,
-                            'required' => false,
-                            'disabled' => true,
-                        ])
-                </div>
-
-                <div class="col-span-6 sm:col-span-2">
-                    @include('partials.forms.input', [
-                            'title' => __('ui.posts.post_id'),
-                            'name' => 'post_id',
-                            'placeholder' => '',
-                            'value' => $post->id,
-                            'required' => false,
-                            'disabled' => true,
-                        ])
                 </div>
 
                 <div class="col-span-6">
@@ -55,7 +32,7 @@
                         'name' => 'category_id',
                         'placeholder' => __('ui.posts.select_category'),
                         'records' => $categories,
-                        'selected' => $post->category_id,
+                        /*'selected' => $post->category_id,*/
                         'required' => true,
                     ])
                 </div>
@@ -65,7 +42,7 @@
                             'title' => __('ui.posts.before_content'),
                             'name' => 'before_content',
                             'placeholder' => '',
-                            'value' => old('before_content', $post->before_content),
+                            'value' =>  old('before_content'),
                             'required' => false,
                             'disabled' => false,
                             'style' => 'plain',
@@ -78,7 +55,7 @@
                            'title' => __('ui.posts.body'),
                            'name' => 'body',
                            'placeholder' => '',
-                           'value' => old('body', $post->body),
+                           'value' => old('body'),
                            'required' => false,
                            'disabled' => false,
                            'style' => 'tinymce',
@@ -91,7 +68,7 @@
                             'title' => __('ui.posts.after_content'),
                             'name' => 'after_content',
                             'placeholder' => '',
-                            'value' => old('after_content', $post->after_content),
+                            'value' => old('after_content'),
                             'required' => false,
                             'disabled' => false,
                             'style' => 'plain',
@@ -103,7 +80,7 @@
                     @include('partials.forms.uploadImage', [
                               'title' => __('ui.posts.intro_image'),
                               'name' => 'introimage',
-                              'value' => $post->introimage,
+                              'value' => '',
                               'required' => false,
                               'collection' => 'post',
                           ])
