@@ -1,11 +1,5 @@
 @extends('layouts.backend')
 
-
-@section('javascript')
-    @parent
-    @include('partials.helpers.tinyMceJavascript')
-@stop
-
 @section('content')
 
 <form class="space-y-6" method="POST" action="{{ route('posts.update',$post->id) }}" enctype="multipart/form-data">

@@ -3,6 +3,9 @@ require('./bootstrap');
 // VENDORS
 require('justifiedGallery');
 require("@fancyapps/fancybox");
+
+require('./vendors/tinymce');
+
 //require("@staaky/tipped");
 
 
