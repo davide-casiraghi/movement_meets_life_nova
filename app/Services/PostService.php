@@ -125,11 +125,18 @@ class PostService {
      * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileIsTooBig
      */
     private function storeImages(Post $post, PostStoreRequest $data):void {
-        if($data->file('photos')) {
+        /*if($data->file('photos')) {
             foreach ($data->file('photos') as $photo) {
                 if ($photo->isValid()) {
                     $post->addMedia($photo)->toMediaCollection('post');
                 }
+            }
+        }*/
+
+        if($data->file('introimage')) {
+            $introimage = $data->file('introimage');
+            if ($introimage->isValid()) {
+                $post->addMedia($introimage)->toMediaCollection('posts');
             }
         }
     }

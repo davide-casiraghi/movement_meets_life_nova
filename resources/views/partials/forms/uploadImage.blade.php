@@ -27,7 +27,7 @@
     <span class="ml-5 rounded-md shadow-sm">
         <label class="py-2 px-3 border border-gray-300 rounded-md text-xs leading-4 font-medium text-gray-700 hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:ring-blue active:bg-gray-50 active:text-gray-800 transition duration-150 ease-in-out">
             <span class="mt-2 text-base leading-normal">Select a file</span>
-            <input type='file' name="photo" class="hidden" />
+            <input type='file' name="{{$name}}" class="hidden" />
         </label>
         @if(!empty($value))
         <label class="ml-3 py-2 px-3 border border-gray-300 rounded-md text-xs leading-4 font-medium text-gray-700 hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:ring-blue active:bg-gray-50 active:text-gray-800 transition duration-150 ease-in-out">
