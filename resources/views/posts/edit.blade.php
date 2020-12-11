@@ -70,18 +70,20 @@
                             'value' => $post->before_content,
                             'required' => false,
                             'disabled' => false,
+                            'style' => 'plain',
                             'extraDescription' => 'Anything to show jumbo style before the content',
                         ])
                 </div>
 
                 <div class="col-span-6">
-                    @include('partials.forms.textareaTinymce', [
+                    @include('partials.forms.textarea', [
                            'title' => __('ui.posts.body'),
                            'name' => 'body',
                            'placeholder' => '',
                            'value' => $post->body,
                            'required' => false,
                            'disabled' => false,
+                           'style' => 'tinymce',
                            'extraDescription' => 'Anything to show jumbo style after the content',
                        ])
                 </div>
@@ -94,6 +96,7 @@
                             'value' => $post->after_content,
                             'required' => false,
                             'disabled' => false,
+                            'style' => 'plain',
                             'extraDescription' => 'Anything to show jumbo style after the content',
                         ])
                 </div>
