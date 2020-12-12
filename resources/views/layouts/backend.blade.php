@@ -26,7 +26,10 @@
 </head>
 
 <body class="bg-gray-100">
-    <div class="h-screen flex overflow-hidden bg-gray-100">
+    <div class="h-screen flex overflow-hidden bg-gray-100"
+         x-data="{ sidebarOpen: false }"
+         @keydown.window.escape="sidebarOpen = false"
+    >
       
       @include('partials.dashboard.mobileMenu')
       
