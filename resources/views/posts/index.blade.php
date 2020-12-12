@@ -16,7 +16,7 @@
    @include('partials.forms.button',[
         'title' => 'Post categories',
         'url' => route('postCategories.index'),
-        'color' => 'indigo',
+        'color' => 'yellow',
         'icon' => '',
         'size' => 1,
         'extraClasses' => 'mb-4',
