@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f86be012-5364-473d-a5f7-a7b8c0c0f2c5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/forms/button.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/forms/button.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/posts/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/posts/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/postCategories/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/postCategories/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/posts/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/posts/index.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -195,7 +194,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/posts" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/partials/postCategory" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -215,11 +214,11 @@
       <recent name="$PROJECT_DIR$/resources/views" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views/partials/postCategory" />
       <recent name="$PROJECT_DIR$/resources/views/posts" />
       <recent name="$PROJECT_DIR$/resources/views/partials/forms" />
       <recent name="$PROJECT_DIR$/resources/views/glossary" />
       <recent name="$PROJECT_DIR$/app/Services/Quote" />
-      <recent name="$PROJECT_DIR$/resources/views" />
     </key>
   </component>
   <component name="RunManager">
@@ -446,7 +445,7 @@
       <workItem from="1607615017255" duration="2977000" />
       <workItem from="1607661946451" duration="4106000" />
       <workItem from="1607686292675" duration="622000" />
-      <workItem from="1607698275213" duration="9777000" />
+      <workItem from="1607698275213" duration="10252000" />
     </task>
     <servers />
   </component>
