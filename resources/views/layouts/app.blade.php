@@ -67,6 +67,8 @@
 
     {{--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">--}}
+
+    @livewireStyles
 </head>
 
 <body class="bg-gray-100">
@@ -86,6 +88,9 @@
 
     @include('footer')
 
+    {{-- Load Livewire scripts before Alpine --}}
+    @livewireScripts
+
     {{-- JS --}}
     <script src="{{ asset('js/manifest.js') }}" ></script>
     <script src="{{ asset('js/vendor.js') }}" ></script>
@@ -100,7 +105,7 @@
     </script>
 
     @stack('modals')
-    @livewireScripts
+
 </body>
 
 </html>
