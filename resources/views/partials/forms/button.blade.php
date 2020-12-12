@@ -8,7 +8,7 @@
         - $icon: svg HTML of the hero icon or others. (Use double quotes for attributes ")
         - $size: 1-5
         - $kind: 'primary', 'secondary', 'white'
-
+        - $target: '_self', '_blank'
 --}}
 
 @switch($size)
@@ -51,7 +51,8 @@
 
 
 
-<a href="{{ $url }}" class="inline-flex items-center border font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 {{$kindClasses}} {{$sizeClasses}} {{$extraClasses}}">
+<a href="{{ $url }}" target="{{$target}}"
+   class="inline-flex items-center border font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 {{$kindClasses}} {{$sizeClasses}} {{$extraClasses}}">
     {!! $icon !!}
     <div class="inline-block">{{$title}}</div>
 </a>
