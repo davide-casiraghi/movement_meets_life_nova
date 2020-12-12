@@ -36,7 +36,7 @@ mix.sass('resources/sass/app.scss', 'public/css')
 mix.js('resources/js/app.js', 'public/js')
     .extract([
         'jquery',
-        //'alpinejs',
+        'alpinejs',
         'justifiedGallery',
         '@fancyapps/fancybox',
         '@staaky/tipped',
