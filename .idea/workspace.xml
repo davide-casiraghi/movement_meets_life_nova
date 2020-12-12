@@ -3,10 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f86be012-5364-473d-a5f7-a7b8c0c0f2c5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/dashboard/topBar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/dashboard/topBar.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -447,7 +444,7 @@
       <workItem from="1607615017255" duration="2977000" />
       <workItem from="1607661946451" duration="4106000" />
       <workItem from="1607686292675" duration="622000" />
-      <workItem from="1607698275213" duration="10561000" />
+      <workItem from="1607698275213" duration="11267000" />
     </task>
     <servers />
   </component>
@@ -499,6 +496,22 @@
     <state x="2071" y="76" key="#com.jetbrains.php.refactoring.extract.interface.PhpExtractInterfaceDialog#/0.23.1440.816/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1607526936649" />
     <state x="473" y="232" key="#com.jetbrains.php.refactoring.extract.interface.PhpExtractInterfaceDialog#/0.23.1440.816@0.23.1440.816" timestamp="1604802772618" />
     <state x="473" y="234" key="#com.jetbrains.php.refactoring.extract.interface.PhpExtractInterfaceDialog#/0.23.1440.822@0.23.1440.822" timestamp="1607402866189" />
+    <state width="1278" height="202" key="GridCell.Tab.0.bottom" timestamp="1607761633303">
+      <screen x="0" y="23" width="1440" height="821" />
+    </state>
+    <state width="1278" height="202" key="GridCell.Tab.0.bottom/0.23.1440.821@0.23.1440.821" timestamp="1607761633303" />
+    <state width="1278" height="202" key="GridCell.Tab.0.center" timestamp="1607761633302">
+      <screen x="0" y="23" width="1440" height="821" />
+    </state>
+    <state width="1278" height="202" key="GridCell.Tab.0.center/0.23.1440.821@0.23.1440.821" timestamp="1607761633302" />
+    <state width="1278" height="202" key="GridCell.Tab.0.left" timestamp="1607761633302">
+      <screen x="0" y="23" width="1440" height="821" />
+    </state>
+    <state width="1278" height="202" key="GridCell.Tab.0.left/0.23.1440.821@0.23.1440.821" timestamp="1607761633302" />
+    <state width="1278" height="202" key="GridCell.Tab.0.right" timestamp="1607761633303">
+      <screen x="0" y="23" width="1440" height="821" />
+    </state>
+    <state width="1278" height="202" key="GridCell.Tab.0.right/0.23.1440.821@0.23.1440.821" timestamp="1607761633303" />
     <state x="428" y="165" key="NewPhpClassDialog" timestamp="1604802663049">
       <screen x="0" y="23" width="1440" height="816" />
     </state>
@@ -522,8 +535,8 @@
     </state>
     <state x="1977" y="-107" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.23.1440.814/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1603736147593" />
     <state x="317" y="-1058" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.23.1440.821/-220.-1177.1920.1177@-220.-1177.1920.1177" timestamp="1601648303881" />
-    <state x="421" y="172" width="687" height="519" key="find.popup" timestamp="1607761226147">
-      <screen x="0" y="23" width="1440" height="822" />
+    <state x="421" y="172" width="622" height="518" key="find.popup" timestamp="1607761462008">
+      <screen x="0" y="23" width="1440" height="821" />
     </state>
     <state x="2001" y="218" width="831" height="726" key="find.popup/0.0.1440.900/1440.0.1920.1200@1440.0.1920.1200" timestamp="1602316388123" />
     <state x="1444" y="-1160" width="1108" height="857" key="find.popup/0.23.1440.808/-1224.-1177.1920.1177/696.-1417.2560.1417@696.-1417.2560.1417" timestamp="1602254003882" />
@@ -540,7 +553,7 @@
     <state x="2001" y="-13" width="916" height="744" key="find.popup/0.23.1440.816/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1607612998246" />
     <state x="421" y="171" width="866" height="527" key="find.popup/0.23.1440.816@0.23.1440.816" timestamp="1604832704780" />
     <state x="2001" y="-12" width="831" height="714" key="find.popup/0.23.1440.821/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1607700338521" />
-    <state x="421" y="172" width="622" height="518" key="find.popup/0.23.1440.821@0.23.1440.821" timestamp="1606029685661" />
+    <state x="421" y="172" width="622" height="518" key="find.popup/0.23.1440.821@0.23.1440.821" timestamp="1607761462008" />
     <state x="421" y="172" width="687" height="519" key="find.popup/0.23.1440.822/1440.-226.1920.1177@0.23.1440.822" timestamp="1607412207363" />
     <state x="2001" y="-12" width="831" height="714" key="find.popup/0.23.1440.822/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1607703763503" />
     <state x="421" y="172" width="687" height="519" key="find.popup/0.23.1440.822@0.23.1440.822" timestamp="1607761226147" />
