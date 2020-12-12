@@ -1,6 +1,7 @@
 require('./bootstrap');
 
 // VENDORS
+require('alpinejs');
 require('justifiedGallery');
 require("@fancyapps/fancybox");
 
