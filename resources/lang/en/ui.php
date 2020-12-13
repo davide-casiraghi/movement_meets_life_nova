@@ -21,7 +21,7 @@ return [
         'definition' => 'Definition',
         'body' => 'Body',
     ],
-    'tag' => [
+    'tags' => [
         'tag' => 'Tag',
     ],
 

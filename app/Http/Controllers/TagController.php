@@ -2,18 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\TagStoreRequest;
 use App\Models\Tag;
+use App\Services\TagService;
 use Illuminate\Http\Request;
 
 class TagController extends Controller
 {
-    private $postCategoryService;
+    private $tagService;
 
     public function __construct(
-        PostCategoryService $postCategoryService
+        TagService $tagService
     )
     {
-        $this->postCategoryService = $postCategoryService;
+        $this->tagService = $tagService;
     }
 
 
@@ -34,10 +36,10 @@ class TagController extends Controller
      */
     public function index()
     {
-        $postCategories = $this->postCategoryService->getPostCategories();
+        $tags = $this->tagService->getTags();
 
-        return view('postCategories.index', [
-            'postCategories' => $postCategories,
+        return view('tags.index', [
+            'tags' => $tags,
         ]);
     }
 
@@ -48,68 +50,68 @@ class TagController extends Controller
      */
     public function create()
     {
-        return view('postCategories.create');
+        return view('tags.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param \App\Http\Requests\PostCategoryStoreRequest $request
+     * @param \App\Http\Requests\TagStoreRequest $request
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(PostCategoryStoreRequest $request)
+    public function store(TagStoreRequest $request)
     {
-        $this->postCategoryService->createPostCategory($request);
+        $this->tagService->createTag($request);
 
-        return redirect()->route('postCategories.index')
-            ->with('success','Post category created successfully');
+        return redirect()->route('tags.index')
+            ->with('success','Tag created successfully');
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param int $postCategoryId
+     * @param int $tagId
      *
      * @return \Illuminate\Contracts\View\View
      */
-    public function edit(int $postCategoryId)
+    public function edit(int $tagId)
     {
-        $postCategory = $this->postCategoryService->getById($postCategoryId);
+        $tag = $this->tagService->getById($tagId);
 
-        return view('postCategories.edit', [
-            'postCategory' => $postCategory,
+        return view('tags.edit', [
+            'tag' => $tag,
         ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param \App\Http\Requests\PostCategoryStoreRequest $request
-     * @param int $postCategoryId
+     * @param \App\Http\Requests\TagStoreRequest $request
+     * @param int $tagId
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(PostCategoryStoreRequest $request, int $postCategoryId)
+    public function update(TagStoreRequest $request, int $tagId)
     {
-        $this->postCategoryService->updatePostCategory($request, $postCategoryId);
+        $this->tagService->updateTag($request, $tagId);
 
-        return redirect()->route('postCategories.index')
-            ->with('success','Post category updated successfully');
+        return redirect()->route('tags.index')
+            ->with('success','Tag updated successfully');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param int $postCategoryId
+     * @param int $tagId
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy(int $postCategoryId)
+    public function destroy(int $tagId)
     {
-        $this->postCategoryService->deletePostCategory($postCategoryId);
+        $this->tagService->deleteTag($tagId);
 
-        return redirect()->route('postCategories.index')
-            ->with('success','Post category deleted successfully');
+        return redirect()->route('tags.index')
+            ->with('success','Tag deleted successfully');
     }
 }

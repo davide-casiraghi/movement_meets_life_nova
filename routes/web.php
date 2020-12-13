@@ -44,6 +44,17 @@ Route::name('posts.')->group(function () {
     Route::get('/blog', [PostController::class, 'blog'])->name('blog');
 });
 
+// Tags
+Route::name('tags.')->group(function () {
+    Route::get('/tags', [TagController::class, 'index'])->name('index');
+    Route::get('/tags/{id}/edit', [TagController::class, 'edit'])->name('edit');
+    Route::put('/tags/{id}', [TagController::class, 'update'])->name('update');
+    Route::get('/tags/create', [TagController::class, 'create'])->name('create');
+    Route::post('/tags', [TagController::class, 'store'])->name('store');
+    Route::delete('/tags/{id}', [TagController::class, 'destroy'])->name('destroy');
+    Route::get('/tags/{id}', [TagController::class, 'show'])->name('show');
+});
+
 // Posts categories
 Route::resource('postCategories', PostCategoryController::class);
 
@@ -53,7 +64,7 @@ Route::name('postComments.')->group(function () {
 });
 
 
-Route::get('tag/{tagId}',[ TagController::class, 'show'])->name('tags.show');
+//Route::get('tag/{tagId}',[ TagController::class, 'show'])->name('tags.show');
 Route::get('glossaryTerms/{glossaryTermId}',[ GlossaryController::class, 'show'])->name('glossary.show');
 
 // Contact form

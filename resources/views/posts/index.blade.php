@@ -14,7 +14,7 @@
     ])
 
    @include('partials.forms.button',[
-        'title' => 'Post categories',
+        'title' => 'Categories',
         'url' => route('postCategories.index'),
         'color' => 'yellow',
         'icon' => '',
@@ -23,6 +23,17 @@
         'kind' => 'white',
         'target' => '_self',
     ])
+
+    @include('partials.forms.button',[
+     'title' => 'Tags',
+     'url' => route('tags.index'),
+     'color' => 'yellow',
+     'icon' => '',
+     'size' => 1,
+     'extraClasses' => 'mb-4',
+     'kind' => 'white',
+     'target' => '_self',
+ ])
 
     {{-- Tailwind Component: https://tailwindui.com/components/application-ui/lists/stacked-lists--}}
     <div class="bg-white shadow overflow-hidden sm:rounded-md">
