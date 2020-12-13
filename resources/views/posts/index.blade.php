@@ -20,7 +20,7 @@
         'icon' => '',
         'size' => 1,
         'extraClasses' => 'mb-4',
-        'kind' => 'primary',
+        'kind' => 'white',
         'target' => '_self',
     ])
 

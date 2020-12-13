@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f86be012-5364-473d-a5f7-a7b8c0c0f2c5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PostCategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PostCategoryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TagController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TagController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/lang/en/ui.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/ui.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/postCategory/indexItem.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/postCategory/indexItem.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/postCategories/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/postCategories/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/posts/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/posts/index.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -197,7 +195,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/postCategories" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Repositories" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -210,11 +208,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/Repositories" />
       <recent name="$PROJECT_DIR$/resources/views/postCategories" />
       <recent name="$PROJECT_DIR$/resources/views/partials/postCategory" />
       <recent name="$PROJECT_DIR$/resources/views/posts" />
       <recent name="$PROJECT_DIR$/resources/views/partials/forms" />
-      <recent name="$PROJECT_DIR$/resources/views/glossary" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources/views/forms" />
@@ -449,7 +447,7 @@
       <workItem from="1607661946451" duration="4106000" />
       <workItem from="1607686292675" duration="622000" />
       <workItem from="1607698275213" duration="14241000" />
-      <workItem from="1607843094882" duration="622000" />
+      <workItem from="1607843094882" duration="2035000" />
     </task>
     <servers />
   </component>
@@ -474,8 +472,8 @@
     <state x="1440" y="-226" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1440.814/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1603777607103" />
     <state x="0" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1440.816@0.23.1440.816" timestamp="1604819446952" />
     <state x="0" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1440.822@0.23.1440.822" timestamp="1607402797585" />
-    <state x="2148" y="49" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1607711853727">
-      <screen x="1440" y="-226" width="1920" height="1177" />
+    <state x="531" y="215" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1607844163314">
+      <screen x="0" y="23" width="1440" height="821" />
     </state>
     <state x="2148" y="281" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.900/1440.0.1920.1200@1440.0.1920.1200" timestamp="1602317882191" />
     <state x="1640" y="-1085" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.811/-1224.-1177.1920.1177/696.-1417.2560.1417@696.-1417.2560.1417" timestamp="1602249782541" />
@@ -492,7 +490,7 @@
     <state x="531" y="214" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.816@0.23.1440.816" timestamp="1604819553140" />
     <state x="488" y="-901" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.821/-220.-1177.1920.1177@-220.-1177.1920.1177" timestamp="1601648307583" />
     <state x="2148" y="49" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.821/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1607671618270" />
-    <state x="531" y="215" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.821@0.23.1440.821" timestamp="1604720598884" />
+    <state x="531" y="215" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.821@0.23.1440.821" timestamp="1607844163314" />
     <state x="2148" y="49" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.822/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1607711853727" />
     <state x="1640" y="-1085" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.877/-1224.-1177.1920.1105/696.-1417.2560.1417@696.-1417.2560.1417" timestamp="1602151539560" />
     <state x="2071" y="76" key="#com.jetbrains.php.refactoring.extract.interface.PhpExtractInterfaceDialog#" timestamp="1607526936650">
@@ -540,7 +538,7 @@
     </state>
     <state x="1977" y="-107" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.23.1440.814/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1603736147593" />
     <state x="317" y="-1058" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.23.1440.821/-220.-1177.1920.1177@-220.-1177.1920.1177" timestamp="1601648303881" />
-    <state x="421" y="172" width="622" height="518" key="find.popup" timestamp="1607772056473">
+    <state x="421" y="172" width="622" height="518" key="find.popup" timestamp="1607844325007">
       <screen x="0" y="23" width="1440" height="821" />
     </state>
     <state x="2001" y="218" width="831" height="726" key="find.popup/0.0.1440.900/1440.0.1920.1200@1440.0.1920.1200" timestamp="1602316388123" />
@@ -558,7 +556,7 @@
     <state x="2001" y="-13" width="916" height="744" key="find.popup/0.23.1440.816/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1607612998246" />
     <state x="421" y="171" width="866" height="527" key="find.popup/0.23.1440.816@0.23.1440.816" timestamp="1604832704780" />
     <state x="2001" y="-12" width="831" height="714" key="find.popup/0.23.1440.821/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1607700338521" />
-    <state x="421" y="172" width="622" height="518" key="find.popup/0.23.1440.821@0.23.1440.821" timestamp="1607772056473" />
+    <state x="421" y="172" width="622" height="518" key="find.popup/0.23.1440.821@0.23.1440.821" timestamp="1607844325007" />
     <state x="421" y="172" width="687" height="519" key="find.popup/0.23.1440.822/1440.-226.1920.1177@0.23.1440.822" timestamp="1607412207363" />
     <state x="2001" y="-12" width="831" height="714" key="find.popup/0.23.1440.822/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1607703763503" />
     <state x="421" y="172" width="687" height="519" key="find.popup/0.23.1440.822@0.23.1440.822" timestamp="1607761226147" />

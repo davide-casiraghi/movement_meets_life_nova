@@ -16,6 +16,14 @@ return [
         'name' => 'Post category name',
         'description' => 'description',
     ],
+    'glossary' => [
+        'term' => 'Term',
+        'definition' => 'Definition',
+        'body' => 'Body',
+    ],
+    'tag' => [
+        'tag' => 'Tag',
+    ],
 
 
 
