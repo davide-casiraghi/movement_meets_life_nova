@@ -60,7 +60,7 @@ class GlossaryController extends Controller
      */
     public function store(GlossaryStoreRequest $request)
     {
-        $this->glossaryService->createTag($request);
+        $this->glossaryService->createGlossary($request);
 
         return redirect()->route('glossaries.index')
             ->with('success','Tag created successfully');
