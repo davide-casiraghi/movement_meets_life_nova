@@ -18,7 +18,6 @@ class TagController extends Controller
         $this->tagService = $tagService;
     }
 
-
     public function show($tagId){
         $tag = Tag::find($tagId);
         $posts = $tag->posts()->get();

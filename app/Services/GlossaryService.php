@@ -1,10 +1,83 @@
 <?php
+
 namespace App\Services;
 
+use App\Http\Requests\GlossaryStoreRequest;
 use App\Models\Glossary;
-
+use App\Repositories\GlossaryRepository;
 
 class GlossaryService {
+
+    private $glossaryRepository;
+
+    public function __construct(
+        GlossaryRepository $glossaryRepository
+    ) {
+        $this->glossaryRepository = $glossaryRepository;
+    }
+
+    /**
+     * Create a glossary term
+     *
+     * @param \App\Http\Requests\GlossaryStoreRequest $data
+     *
+     * @return \App\Models\Glossary
+     */
+    public function createGlossary(GlossaryStoreRequest $data)
+    {
+        $glossary = $this->glossaryRepository->store($data);
+
+        return $glossary;
+    }
+
+    /**
+     * Update the gender
+     *
+     * @param \App\Http\Requests\GlossaryStoreRequest $data
+     * @param int $glossaryId
+     *
+     * @return \App\Models\Glossary
+     */
+    public function updateGlossary(GlossaryStoreRequest $data, int $glossaryId)
+    {
+        $glossary = $this->glossaryRepository->update($data, $glossaryId);
+
+        return $glossary;
+    }
+
+    /**
+     * Return the gender from the database
+     *
+     * @param int $glossaryId
+     *
+     * @return \App\Models\Glossary
+     */
+    public function getById(int $glossaryId)
+    {
+        return $this->glossaryRepository->getById($glossaryId);
+    }
+
+    /**
+     * Get all the glossary terms
+     *
+     * @return iterable
+     */
+    public function getGlossaries()
+    {
+        return $this->glossaryRepository->getAll();
+    }
+
+    /**
+     * Delete the glossary terms from the database
+     *
+     * @param int $glossaryId
+     */
+    public function deleteGlossary(int $glossaryId): void
+    {
+        $this->glossaryRepository->delete($glossaryId);
+    }
+
+
 
     /**
      * Finds the matches of all the words of the glossary in the specified text

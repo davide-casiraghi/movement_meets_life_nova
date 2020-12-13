@@ -55,6 +55,17 @@ Route::name('tags.')->group(function () {
     Route::get('/tags/{id}', [TagController::class, 'show'])->name('show');
 });
 
+// Glossaries
+Route::name('glossaries.')->group(function () {
+    Route::get('/glossaries', [GlossaryController::class, 'index'])->name('index');
+    Route::get('/glossaries/{id}/edit', [GlossaryController::class, 'edit'])->name('edit');
+    Route::put('/glossaries/{id}', [GlossaryController::class, 'update'])->name('update');
+    Route::get('/glossaries/create', [GlossaryController::class, 'create'])->name('create');
+    Route::post('/glossaries', [GlossaryController::class, 'store'])->name('store');
+    Route::delete('/glossaries/{id}', [GlossaryController::class, 'destroy'])->name('destroy');
+    Route::get('/glossaries/{id}', [GlossaryController::class, 'show'])->name('show');
+});
+
 // Posts categories
 Route::resource('postCategories', PostCategoryController::class);
 
