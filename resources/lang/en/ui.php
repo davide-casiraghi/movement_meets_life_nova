@@ -11,15 +11,13 @@ return [
         'after_content' => 'After content',
         'body' => 'Body',
         'intro_image' => 'Intro image',
-
-
-
-
-
-
-
-
     ],
+    'postCategories' => [
+        'name' => 'Post category name',
+        'description' => 'description',
+    ],
+
+
 
 
 ];

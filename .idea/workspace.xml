@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f86be012-5364-473d-a5f7-a7b8c0c0f2c5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PostCategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PostCategoryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/ui.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/ui.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/postCategory/indexItem.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/postCategory/indexItem.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/postCategories/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/postCategories/index.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -192,7 +197,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/partials/postCategory" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/postCategories" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -204,19 +209,19 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views/postCategories" />
+      <recent name="$PROJECT_DIR$/resources/views/partials/postCategory" />
+      <recent name="$PROJECT_DIR$/resources/views/posts" />
+      <recent name="$PROJECT_DIR$/resources/views/partials/forms" />
+      <recent name="$PROJECT_DIR$/resources/views/glossary" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources/views/forms" />
       <recent name="$PROJECT_DIR$/resources/views/partials/pages/home" />
       <recent name="$PROJECT_DIR$/resources/views/partials/pages/home/blog" />
       <recent name="$PROJECT_DIR$/resources/views/testimonials" />
       <recent name="$PROJECT_DIR$/resources/views" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/resources/views/partials/postCategory" />
-      <recent name="$PROJECT_DIR$/resources/views/posts" />
-      <recent name="$PROJECT_DIR$/resources/views/partials/forms" />
-      <recent name="$PROJECT_DIR$/resources/views/glossary" />
-      <recent name="$PROJECT_DIR$/app/Services/Quote" />
     </key>
   </component>
   <component name="RunManager">
@@ -443,7 +448,8 @@
       <workItem from="1607615017255" duration="2977000" />
       <workItem from="1607661946451" duration="4106000" />
       <workItem from="1607686292675" duration="622000" />
-      <workItem from="1607698275213" duration="13654000" />
+      <workItem from="1607698275213" duration="14241000" />
+      <workItem from="1607843094882" duration="622000" />
     </task>
     <servers />
   </component>
@@ -495,22 +501,22 @@
     <state x="2071" y="76" key="#com.jetbrains.php.refactoring.extract.interface.PhpExtractInterfaceDialog#/0.23.1440.816/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1607526936649" />
     <state x="473" y="232" key="#com.jetbrains.php.refactoring.extract.interface.PhpExtractInterfaceDialog#/0.23.1440.816@0.23.1440.816" timestamp="1604802772618" />
     <state x="473" y="234" key="#com.jetbrains.php.refactoring.extract.interface.PhpExtractInterfaceDialog#/0.23.1440.822@0.23.1440.822" timestamp="1607402866189" />
-    <state width="1278" height="202" key="GridCell.Tab.0.bottom" timestamp="1607761633303">
+    <state width="1278" height="202" key="GridCell.Tab.0.bottom" timestamp="1607843030505">
       <screen x="0" y="23" width="1440" height="821" />
     </state>
-    <state width="1278" height="202" key="GridCell.Tab.0.bottom/0.23.1440.821@0.23.1440.821" timestamp="1607761633303" />
-    <state width="1278" height="202" key="GridCell.Tab.0.center" timestamp="1607761633302">
+    <state width="1278" height="202" key="GridCell.Tab.0.bottom/0.23.1440.821@0.23.1440.821" timestamp="1607843030505" />
+    <state width="1278" height="202" key="GridCell.Tab.0.center" timestamp="1607843030504">
       <screen x="0" y="23" width="1440" height="821" />
     </state>
-    <state width="1278" height="202" key="GridCell.Tab.0.center/0.23.1440.821@0.23.1440.821" timestamp="1607761633302" />
-    <state width="1278" height="202" key="GridCell.Tab.0.left" timestamp="1607761633302">
+    <state width="1278" height="202" key="GridCell.Tab.0.center/0.23.1440.821@0.23.1440.821" timestamp="1607843030504" />
+    <state width="1278" height="202" key="GridCell.Tab.0.left" timestamp="1607843030503">
       <screen x="0" y="23" width="1440" height="821" />
     </state>
-    <state width="1278" height="202" key="GridCell.Tab.0.left/0.23.1440.821@0.23.1440.821" timestamp="1607761633302" />
-    <state width="1278" height="202" key="GridCell.Tab.0.right" timestamp="1607761633303">
+    <state width="1278" height="202" key="GridCell.Tab.0.left/0.23.1440.821@0.23.1440.821" timestamp="1607843030503" />
+    <state width="1278" height="202" key="GridCell.Tab.0.right" timestamp="1607843030504">
       <screen x="0" y="23" width="1440" height="821" />
     </state>
-    <state width="1278" height="202" key="GridCell.Tab.0.right/0.23.1440.821@0.23.1440.821" timestamp="1607761633303" />
+    <state width="1278" height="202" key="GridCell.Tab.0.right/0.23.1440.821@0.23.1440.821" timestamp="1607843030504" />
     <state x="428" y="165" key="NewPhpClassDialog" timestamp="1604802663049">
       <screen x="0" y="23" width="1440" height="816" />
     </state>
@@ -558,8 +564,8 @@
     <state x="421" y="172" width="687" height="519" key="find.popup/0.23.1440.822@0.23.1440.822" timestamp="1607761226147" />
     <state x="1444" y="-1160" width="1108" height="857" key="find.popup/0.23.1440.877/-1224.-1177.1920.1105/696.-1417.2560.1417@696.-1417.2560.1417" timestamp="1602148735038" />
     <state x="2001" y="-25" width="831" height="670" key="find.popup/0.23.1440.877/1440.-226.1920.1105@1440.-226.1920.1105" timestamp="1603645292743" />
-    <state x="2075" y="62" width="896" height="684" key="search.everywhere.popup" timestamp="1607711395791">
-      <screen x="1440" y="-226" width="1920" height="1177" />
+    <state x="476" y="224" width="672" height="475" key="search.everywhere.popup" timestamp="1607843178864">
+      <screen x="0" y="23" width="1440" height="821" />
     </state>
     <state x="476" y="221" width="671" height="467" key="search.everywhere.popup/0.23.1440.811/-220.-1177.1920.1177@0.23.1440.811" timestamp="1601969940815" />
     <state x="2075" y="62" width="896" height="681" key="search.everywhere.popup/0.23.1440.811/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1603567464445" />
@@ -574,7 +580,7 @@
     <state x="476" y="223" width="670" height="469" key="search.everywhere.popup/0.23.1440.816@0.23.1440.816" timestamp="1604852839202" />
     <state x="415" y="-889" width="894" height="677" key="search.everywhere.popup/0.23.1440.821/-220.-1177.1920.1177@-220.-1177.1920.1177" timestamp="1601648243740" />
     <state x="2075" y="62" width="896" height="684" key="search.everywhere.popup/0.23.1440.821/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1607700606455" />
-    <state x="476" y="224" width="672" height="475" key="search.everywhere.popup/0.23.1440.821@0.23.1440.821" timestamp="1602562147237" />
+    <state x="476" y="224" width="672" height="475" key="search.everywhere.popup/0.23.1440.821@0.23.1440.821" timestamp="1607843178864" />
     <state x="415" y="-889" width="894" height="677" key="search.everywhere.popup/0.23.1440.822/-220.-1177.1920.1177@-220.-1177.1920.1177" timestamp="1601643955110" />
     <state x="2075" y="62" width="896" height="684" key="search.everywhere.popup/0.23.1440.822/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1607711395791" />
     <state x="476" y="224" width="672" height="477" key="search.everywhere.popup/0.23.1440.822@0.23.1440.822" timestamp="1606798364535" />

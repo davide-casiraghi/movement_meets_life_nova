@@ -22,10 +22,10 @@ class PostCategoryController extends Controller
      */
     public function index()
     {
-        $postsCategories = $this->postCategoryService->getPostCategories();
+        $postCategories = $this->postCategoryService->getPostCategories();
 
         return view('postCategories.index', [
-            'postsCategories' => $postsCategories,
+            'postCategories' => $postCategories,
         ]);
     }
 

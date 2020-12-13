@@ -16,9 +16,9 @@
     {{-- Tailwind Component: https://tailwindui.com/components/application-ui/lists/stacked-lists--}}
     <div class="bg-white shadow overflow-hidden sm:rounded-md">
         <ul class="divide-y divide-gray-200">
-            @foreach($postsCategories as $postsCategory)
+            @foreach($postCategories as $postCategory)
                 @include('partials.postCategory.indexItem', [
-                    'postsCategory' => $postsCategory
+                    'postCategory' => $postCategory
                 ])
             @endforeach
         </ul>
