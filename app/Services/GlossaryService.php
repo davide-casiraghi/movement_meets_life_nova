@@ -173,6 +173,14 @@ class GlossaryService {
                 $glossary->addMedia($introimage)->toMediaCollection('introimage');
             }
         }
+
+        if($data['introimage_delete'] == 'true'){
+            $mediaItems = $glossary->getMedia('introimage');
+            if(!is_null($mediaItems[0])){
+                $mediaItems[0]->delete();
+            }
+        }
+
     }
 
 }

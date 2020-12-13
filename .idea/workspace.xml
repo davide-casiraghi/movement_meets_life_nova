@@ -4,12 +4,9 @@
     <list default="true" id="f86be012-5364-473d-a5f7-a7b8c0c0f2c5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/GlossaryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/GlossaryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Glossary.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Glossary.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Services/GlossaryService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/GlossaryService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_08_092250_create_glossaries_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_08_092250_create_glossaries_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/en/ui.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/ui.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/glossary/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/glossaries/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/dashboard/desktopMenu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/dashboard/desktopMenu.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/PostService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/PostService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/glossaries/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/glossaries/edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/partials/forms/uploadImage.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/forms/uploadImage.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/posts/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/posts/edit.blade.php" afterDir="false" />
     </list>
@@ -454,7 +451,7 @@
       <workItem from="1607686292675" duration="622000" />
       <workItem from="1607698275213" duration="14241000" />
       <workItem from="1607843094882" duration="4816000" />
-      <workItem from="1607852355024" duration="2975000" />
+      <workItem from="1607852355024" duration="4785000" />
     </task>
     <servers />
   </component>

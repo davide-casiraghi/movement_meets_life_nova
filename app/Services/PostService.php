@@ -142,6 +142,15 @@ class PostService {
                 $post->addMedia($introimage)->toMediaCollection('introimage');
             }
         }
+
+        if($data['introimage_delete'] == 'true'){
+            $mediaItems = $post->getMedia('introimage');
+            if(!is_null($mediaItems[0])){
+                $mediaItems[0]->delete();
+            }
+        }
+
+
     }
 
     /**

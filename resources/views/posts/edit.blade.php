@@ -106,7 +106,7 @@
                     @include('partials.forms.uploadImage', [
                               'title' => __('ui.posts.intro_image'),
                               'name' => 'introimage',
-                              'value' => $post->introimage,
+                              //'value' => $post->introimage,
                               'required' => false,
                               'collection' => 'introimage',
                               'entity' => $post,

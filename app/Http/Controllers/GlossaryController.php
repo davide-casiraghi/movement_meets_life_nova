@@ -92,6 +92,8 @@ class GlossaryController extends Controller
      */
     public function update(GlossaryStoreRequest $request, int $glossaryId)
     {
+
+
         $this->glossaryService->updateGlossary($request, $glossaryId);
 
         return redirect()->route('glossaries.index')

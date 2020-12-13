@@ -23,7 +23,7 @@
 
     {{-- Delete an already uploaded image --}}
     $('.deleteImage').on('click',function(){
-        $("input[name='{{$name}}']").val("");
+        $("input[name='{{$name}}_delete']").val("true");
         $("img.uploadedImage").remove();
     })
 
@@ -49,8 +49,8 @@
 
             {{-- Show the image name to use in the edit view to not delete the image on update --}}
             @include('partials.forms.inputHidden', [
-                  'name' => $name,
-                  'value' => $value
+                  'name' => $name.'_delete',
+                  'value' => 'false'
             ])
 
         @endif
@@ -61,7 +61,7 @@
             <span class="mt-2 text-base leading-normal">Select a file</span>
             <input type='file' name="{{$name}}" class="hidden custom-file-input" />
         </label>
-        @if(!empty($value))
+        @if(!is_null($entity->getMedia($collection)->first()))
         <label class="deleteImage ml-3 py-2 px-3 border border-gray-300 rounded-md text-xs leading-4 font-medium text-gray-700 hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:ring-blue active:bg-gray-50 active:text-gray-800 transition duration-150 ease-in-out">
             <span class="mt-2 text-base leading-normal">
                 <i class="far fa-trash-alt"></i>

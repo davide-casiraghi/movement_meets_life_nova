@@ -60,7 +60,7 @@
                     @include('partials.forms.uploadImage', [
                               'title' => __('ui.glossaries.intro_image'),
                               'name' => 'introimage',
-                              'value' => $glossary->introimage,
+                              //'value' => $glossary->introimage,
                               'required' => false,
                               'collection' => 'introimage',
                               'entity' => $glossary,
