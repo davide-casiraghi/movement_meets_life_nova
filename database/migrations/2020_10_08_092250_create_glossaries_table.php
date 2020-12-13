@@ -18,6 +18,8 @@ class CreateGlossariesTable extends Migration
             $table->string('term')->nullable();
             $table->text('definition');
             $table->text('body');
+            $table->string('introimage')->nullable();
+            $table->string('introimage_alt')->nullable();
 
             //$table->boolean('is_published')->default(false);
             $table->string('slug');

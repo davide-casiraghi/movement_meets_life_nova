@@ -2,11 +2,11 @@
 
 @section('content')
 
-<form class="space-y-6" method="POST" action="{{ route('posts.update',$post->id) }}" enctype="multipart/form-data">
+<form class="space-y-6" method="POST" action="{{ route('glossaries.update',$glossary->id) }}" enctype="multipart/form-data">
     <div class="bg-white shadow px-4 py-5 sm:rounded-lg sm:p-6">
       <div class="md:grid md:grid-cols-3 md:gap-6">
         <div class="md:col-span-1">
-          <h3 class="text-lg font-medium leading-6 text-gray-900">Edit post</h3>
+          <h3 class="text-lg font-medium leading-6 text-gray-900">Edit glossary term</h3>
             {{--
               <p class="mt-1 text-sm text-gray-500">
                 Edit the post data
@@ -21,54 +21,21 @@
             <div class="grid grid-cols-6 gap-6">
                 <div class="col-span-6">
                     @include('partials.forms.input', [
-                            'title' => __('ui.posts.title'),
-                            'name' => 'title',
-                            'placeholder' => 'Post title',
-                            'value' => old('title', $post->title),
+                            'title' => __('ui.glossaries.term'),
+                            'name' => 'term',
+                            'placeholder' => 'Glossary term',
+                            'value' => old('term', $glossary->term),
                             'required' => true,
                             'disabled' => false,
                     ])
                 </div>
 
-                <div class="col-span-6 sm:col-span-4">
-                    @include('partials.forms.input', [
-                            'title' => __('ui.posts.link_to_this_post'),
-                            'name' => 'post_link',
-                            'placeholder' => '',
-                            'value' => env('APP_URL').'post/'.$post->slug,
-                            'required' => false,
-                            'disabled' => true,
-                        ])
-                </div>
-
-                <div class="col-span-6 sm:col-span-2">
-                    @include('partials.forms.input', [
-                            'title' => __('ui.posts.post_id'),
-                            'name' => 'post_id',
-                            'placeholder' => '',
-                            'value' => $post->id,
-                            'required' => false,
-                            'disabled' => true,
-                        ])
-                </div>
-
-                <div class="col-span-6">
-                    @include('partials.forms.select', [
-                        'title' => __('ui.posts.category'),
-                        'name' => 'category_id',
-                        'placeholder' => __('ui.posts.select_category'),
-                        'records' => $categories,
-                        'selected' => $post->category_id,
-                        'required' => true,
-                    ])
-                </div>
-
                 <div class="col-span-6">
                     @include('partials.forms.textarea', [
-                            'title' => __('ui.posts.before_content'),
-                            'name' => 'before_content',
+                            'title' => __('ui.glossaries.definition'),
+                            'name' => 'definition',
                             'placeholder' => '',
-                            'value' => old('before_content', $post->before_content),
+                            'value' => old('definition', $glossary->definition),
                             'required' => false,
                             'disabled' => false,
                             'style' => 'plain',
@@ -78,10 +45,10 @@
 
                 <div class="col-span-6">
                     @include('partials.forms.textarea', [
-                           'title' => __('ui.posts.body'),
+                           'title' => __('ui.glossaries.body'),
                            'name' => 'body',
                            'placeholder' => '',
-                           'value' => old('body', $post->body),
+                           'value' => old('body', $glossary->body),
                            'required' => false,
                            'disabled' => false,
                            'style' => 'tinymce',
@@ -90,26 +57,13 @@
                 </div>
 
                 <div class="col-span-6">
-                    @include('partials.forms.textarea', [
-                            'title' => __('ui.posts.after_content'),
-                            'name' => 'after_content',
-                            'placeholder' => '',
-                            'value' => old('after_content', $post->after_content),
-                            'required' => false,
-                            'disabled' => false,
-                            'style' => 'plain',
-                            'extraDescription' => 'Anything to show jumbo style after the content',
-                        ])
-                </div>
-
-                <div class="col-span-6">
                     @include('partials.forms.uploadImage', [
-                              'title' => __('ui.posts.intro_image'),
+                              'title' => __('ui.glossaries.intro_image'),
                               'name' => 'introimage',
-                              'value' => $post->introimage,
+                              'value' => $glossary->introimage,
                               'required' => false,
                               'collection' => 'introimage',
-                              'entity' => $post,
+                              'entity' => $glossary,
                           ])
                 </div>
             </div>
@@ -121,7 +75,7 @@
         <div class="col-span-3">
             @include('partials.forms.button',[
                 'title' => 'View',
-                'url' => route('posts.show',$post->id),
+                'url' => route('glossaries.show',$glossary->id),
                 'color' => 'indigo',
                 'icon' => '<svg class="flex-shrink-0 mr-1.5 h-5 w-5 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>',
                 'size' => 1,

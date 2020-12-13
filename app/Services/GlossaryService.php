@@ -27,6 +27,8 @@ class GlossaryService {
     {
         $glossary = $this->glossaryRepository->store($data);
 
+        $this->storeImages($glossary, $data);
+
         return $glossary;
     }
 
@@ -41,6 +43,8 @@ class GlossaryService {
     public function updateGlossary(GlossaryStoreRequest $data, int $glossaryId)
     {
         $glossary = $this->glossaryRepository->update($data, $glossaryId);
+
+        $this->storeImages($glossary, $data);
 
         return $glossary;
     }
@@ -76,8 +80,6 @@ class GlossaryService {
     {
         $this->glossaryRepository->delete($glossaryId);
     }
-
-
 
     /**
      * Finds the matches of all the words of the glossary in the specified text
@@ -152,6 +154,25 @@ class GlossaryService {
 
         $ret = $text.$termTooltipContent;
         return $ret;
+    }
+
+    /**
+     * Store the uploaded introimage in the Spatie Media Library
+     *
+     * @param \App\Models\Glossary $glossary
+     * @param \App\Http\Requests\GlossaryStoreRequest $data
+     *
+     * @return void
+     * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileDoesNotExist
+     * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileIsTooBig
+     */
+    private function storeImages(Glossary $glossary, GlossaryStoreRequest $data):void {
+        if($data->file('introimage')) {
+            $introimage = $data->file('introimage');
+            if ($introimage->isValid()) {
+                $glossary->addMedia($introimage)->toMediaCollection('introimage');
+            }
+        }
     }
 
 }

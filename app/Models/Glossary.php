@@ -4,14 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Spatie\ModelStatus\HasStatuses;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 use Spatie\Translatable\HasTranslations;
 
-class Glossary extends Model
+class Glossary extends Model implements HasMedia
 {
-    use HasFactory, HasSlug, HasTranslations, HasStatuses;
+    use HasFactory, HasSlug, HasTranslations, HasStatuses, InteractsWithMedia;
 
     /**
      * The attributes that aren't mass assignable.
@@ -55,5 +58,22 @@ class Glossary extends Model
     public function getStatusNamesAttribute()
     {
         return $this->status();
+    }
+
+    /**
+     * Add Image gallery support using:
+     * https://spatie.be/docs/laravel-medialibrary/v8/introduction
+     * https://github.com/ebess/advanced-nova-media-library
+     */
+    public function registerMediaConversions(Media $media = null): void
+    {
+        $this->addMediaConversion('thumb')
+            ->width(300)
+            ->height(300);
+    }
+
+    public function registerMediaCollections(): void
+    {
+        $this->addMediaCollection('introimage')->singleFile();
     }
 }

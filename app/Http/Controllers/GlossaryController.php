@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\GlossaryStoreRequest;
 use App\Models\Glossary;
 use App\Services\GlossaryService;
 use Illuminate\Http\Request;
@@ -33,10 +34,10 @@ class GlossaryController extends Controller
      */
     public function index()
     {
-        $tags = $this->glossaryService->getTags();
+        $glossaries = $this->glossaryService->getGlossaries();
 
         return view('glossaries.index', [
-            'tags' => $tags,
+            'glossaries' => $glossaries,
         ]);
     }
 
@@ -53,11 +54,11 @@ class GlossaryController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \App\Http\Requests\TagStoreRequest $request
+     * @param \App\Http\Requests\GlossaryStoreRequest $request
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(TagStoreRequest $request)
+    public function store(GlossaryStoreRequest $request)
     {
         $this->glossaryService->createTag($request);
 
@@ -68,30 +69,30 @@ class GlossaryController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param int $tagId
+     * @param int $glossaryId
      *
      * @return \Illuminate\Contracts\View\View
      */
-    public function edit(int $tagId)
+    public function edit(int $glossaryId)
     {
-        $tag = $this->glossaryService->getById($tagId);
+        $glossary = $this->glossaryService->getById($glossaryId);
 
         return view('glossaries.edit', [
-            'tag' => $tag,
+            'glossary' => $glossary,
         ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param \App\Http\Requests\TagStoreRequest $request
-     * @param int $tagId
+     * @param \App\Http\Requests\GlossaryStoreRequest $request
+     * @param int $glossaryId
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(TagStoreRequest $request, int $tagId)
+    public function update(GlossaryStoreRequest $request, int $glossaryId)
     {
-        $this->glossaryService->updateTag($request, $tagId);
+        $this->glossaryService->updateGlossary($request, $glossaryId);
 
         return redirect()->route('glossaries.index')
             ->with('success','Tag updated successfully');
@@ -100,13 +101,13 @@ class GlossaryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param int $tagId
+     * @param int $glossaryId
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy(int $tagId)
+    public function destroy(int $glossaryId)
     {
-        $this->glossaryService->deleteTag($tagId);
+        $this->glossaryService->deleteGlossary($glossaryId);
 
         return redirect()->route('glossaries.index')
             ->with('success','Tag deleted successfully');
