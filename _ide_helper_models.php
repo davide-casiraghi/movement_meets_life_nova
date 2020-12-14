@@ -33,7 +33,7 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Models\EventCategory $category
  * @property-read array $translations
- * @property-read \App\Models\EventVenue $venue
+ * @property-read \App\Models\Venue $venue
  * @method static \Illuminate\Database\Eloquent\Builder|Event newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Event newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Event query()
@@ -105,25 +105,25 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Event[] $events
  * @property-read int|null $events_count
- * @method static \Illuminate\Database\Eloquent\Builder|EventVenue newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|EventVenue newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|EventVenue query()
- * @method static \Illuminate\Database\Eloquent\Builder|EventVenue whereAddress($value)
- * @method static \Illuminate\Database\Eloquent\Builder|EventVenue whereCity($value)
- * @method static \Illuminate\Database\Eloquent\Builder|EventVenue whereCountry($value)
- * @method static \Illuminate\Database\Eloquent\Builder|EventVenue whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|EventVenue whereDescription($value)
- * @method static \Illuminate\Database\Eloquent\Builder|EventVenue whereExtraInfo($value)
- * @method static \Illuminate\Database\Eloquent\Builder|EventVenue whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|EventVenue whereImage($value)
- * @method static \Illuminate\Database\Eloquent\Builder|EventVenue whereLat($value)
- * @method static \Illuminate\Database\Eloquent\Builder|EventVenue whereLng($value)
- * @method static \Illuminate\Database\Eloquent\Builder|EventVenue whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|EventVenue whereSlug($value)
- * @method static \Illuminate\Database\Eloquent\Builder|EventVenue whereStateProvince($value)
- * @method static \Illuminate\Database\Eloquent\Builder|EventVenue whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|EventVenue whereWebsite($value)
- * @method static \Illuminate\Database\Eloquent\Builder|EventVenue whereZipCode($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Venue newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Venue newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Venue query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Venue whereAddress($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Venue whereCity($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Venue whereCountry($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Venue whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Venue whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Venue whereExtraInfo($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Venue whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Venue whereImage($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Venue whereLat($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Venue whereLng($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Venue whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Venue whereSlug($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Venue whereStateProvince($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Venue whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Venue whereWebsite($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Venue whereZipCode($value)
  */
 	class EventVenue extends \Eloquent {}
 }

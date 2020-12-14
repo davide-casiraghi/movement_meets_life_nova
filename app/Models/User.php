@@ -79,4 +79,25 @@ class User extends Authenticatable
     public function isAdmin() {
         return $this->roles()->where('name', 'Administrator')->exists();
     }
+
+    /**
+     * Returns the events crated by this user.
+     */
+    public function events(){
+        return $this->hasMany(Event::class);
+    }
+
+    /**
+     * Returns the events crated by this user.
+     */
+    public function organizers(){
+        return $this->hasMany(Organizer::class);
+    }
+
+    /**
+     * Returns the events crated by this user.
+     */
+    public function teachers(){
+        return $this->hasMany(Teacher::class);
+    }
 }

@@ -7,10 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
-class EventVenue extends Model
+class Teacher extends Model
 {
-    use HasFactory;
-    use HasSlug;
+    use HasFactory, HasSlug;
 
     /**
      * The attributes that aren't mass assignable.
@@ -18,6 +17,22 @@ class EventVenue extends Model
      * @var array
      */
     protected $guarded = [];
+
+    /**
+     * Return the user that created the teacher
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    /**
+     * Returns the events of the teacher.
+     */
+    public function events() {
+        return $this->hasMany(Teacher::class);
+    }
 
     /**
      * Generates a unique slug.
@@ -29,10 +44,5 @@ class EventVenue extends Model
             ->saveSlugsTo('slug');
     }
 
-    /**
-     * Returns the events that are assigned to this venue.
-     */
-    public function events(){                   // 1-to-many (one venue can have one or more events)
-        return $this->hasMany(Event::class);  //  select * from events where event_venue_id
-    }
+
 }

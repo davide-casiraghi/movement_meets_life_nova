@@ -15,7 +15,7 @@ class EventVenue extends Resource
      *
      * @var string
      */
-    public static $model = \App\Models\EventVenue::class;
+    public static $model = \App\Models\Venue::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.

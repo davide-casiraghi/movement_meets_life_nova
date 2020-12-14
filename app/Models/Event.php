@@ -48,6 +48,15 @@ class Event extends Model
     }
 
     /**
+     * Return the user that created the event
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    /**
      * Returns the category of the event.
      */
     public function category() {
@@ -58,8 +67,23 @@ class Event extends Model
      * Returns the venue of the event.
      */
     public function venue() {
-        return $this->belongsTo(EventVenue::class); // 1-to-1 (one event can have just one venue)
+        return $this->belongsTo(Venue::class); // 1-to-1 (one event can have just one venue)
     }
+
+    /**
+     * Returns the teachers of the event.
+     */
+    public function teachers() {
+        return $this->hasMany(Teacher::class);
+    }
+
+    /**
+     * Returns the organizers of the event.
+     */
+    public function organizers() {
+        return $this->hasMany(Organizer::class);
+    }
+
 
     /**
      * Get the repeat type of the event.
