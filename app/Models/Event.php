@@ -36,8 +36,7 @@ class Event extends Model implements HasMedia
      * @var array
      */
     protected $dates = [
-        'date_start',
-        'date_end',
+        'repeat_until',
     ];
 
     /**
@@ -63,7 +62,7 @@ class Event extends Model implements HasMedia
      * Returns the category of the event.
      */
     public function category() {
-        return $this->belongsTo(EventCategory::class); // 1-to-1 (one event can have just one category)
+        return $this->belongsTo(EventCategory::class,'event_category_id', 'id');
     }
 
     /**
@@ -85,6 +84,13 @@ class Event extends Model implements HasMedia
      */
     public function organizers() {
         return $this->hasMany(Organizer::class);
+    }
+
+    /**
+     * Returns the repetitions of the event.
+     */
+    public function repetitions() {
+        return $this->hasMany(EventRepetition::class);
     }
 
 

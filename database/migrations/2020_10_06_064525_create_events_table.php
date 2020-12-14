@@ -17,11 +17,8 @@ class CreateEventsTable extends Migration
             $table->id('id');
 
             $table->foreignId('event_category_id')->constrained();
-            $table->foreignId('event_venue_id')->constrained();
+            $table->foreignId('venue_id')->constrained();
             $table->foreignId('user_id')->constrained();
-
-            // todo - still to create the organizers entity
-            $table->integer('organized_by')->nullable();
 
             $table->string('title');
             $table->text('description');
