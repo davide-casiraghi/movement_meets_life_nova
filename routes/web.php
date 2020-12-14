@@ -9,6 +9,8 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\ContactUsFormController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\TestimonialController;
+use App\Models\Organizer;
+use App\Models\Teacher;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use Spatie\Honeypot\ProtectAgainstSpam;
@@ -71,6 +73,43 @@ Route::name('glossaries.')->group(function () {
     Route::delete('/glossaries/{id}', [GlossaryController::class, 'destroy'])->name('destroy');
     Route::get('/glossaries/{id}', [GlossaryController::class, 'show'])->name('show');
 });
+
+// Teachers
+Route::name('teachers.')->group(function () {
+    Route::get('/teachers', [Teacher::class, 'index'])->name('index');
+    Route::get('/teachers/{id}/edit', [Teacher::class, 'edit'])->name('edit');
+    Route::put('/teachers/{id}', [Teacher::class, 'update'])->name('update');
+    Route::get('/teachers/create', [Teacher::class, 'create'])->name('create');
+    Route::post('/teachers', [Teacher::class, 'store'])->name('store');
+    Route::delete('/teachers/{id}', [Teacher::class, 'destroy'])->name('destroy');
+    Route::get('/teachers/{id}', [Teacher::class, 'show'])->name('show');
+});
+
+// Organizers
+Route::name('organizers.')->group(function () {
+    Route::get('/organizers', [Organizer::class, 'index'])->name('index');
+    Route::get('/organizers/{id}/edit', [Organizer::class, 'edit'])->name('edit');
+    Route::put('/organizers/{id}', [Organizer::class, 'update'])->name('update');
+    Route::get('/organizers/create', [Organizer::class, 'create'])->name('create');
+    Route::post('/organizers', [Organizer::class, 'store'])->name('store');
+    Route::delete('/organizers/{id}', [Organizer::class, 'destroy'])->name('destroy');
+    Route::get('/organizers/{id}', [Organizer::class, 'show'])->name('show');
+});
+
+// Events
+Route::name('events.')->group(function () {
+    Route::get('/events', [Event::class, 'index'])->name('index');
+    Route::get('/events/{id}/edit', [Event::class, 'edit'])->name('edit');
+    Route::put('/events/{id}', [Event::class, 'update'])->name('update');
+    Route::get('/events/create', [Event::class, 'create'])->name('create');
+    Route::post('/events', [Event::class, 'store'])->name('store');
+    Route::delete('/events/{id}', [Event::class, 'destroy'])->name('destroy');
+    Route::get('/events/{id}', [Event::class, 'show'])->name('show');
+});
+
+
+
+
 
 // Posts categories
 Route::resource('postCategories', PostCategoryController::class);
