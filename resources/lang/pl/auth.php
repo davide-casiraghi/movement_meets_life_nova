@@ -13,8 +13,8 @@ return [
     |
     */
 
-    'failed' => 'These credentials do not match our records.',
-    'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
-    'successfully_registered' => 'You have successfully registered to the CI Global Calendar. You will get a confirmation email when your account will be approved by the administrator. Thank you for registering!',
-    'not_allowed_to_access' => 'You are not allowed to access to this resource',
+    'failed' => 'Dane uwierzytelniające nie są zgodne z naszymi danymi.',
+    'throttle' => 'Zbyt wiele prób logowania. Spróbuj ponownie za kilka sekund.',
+    'successfully_registered' => 'Pomyślnie zarejestrowałeś się w Globalnym Kalendarzu KI. Otrzymasz wiadomość e-mail z potwierdzeniem, gdy twoje konto zostanie zatwierdzone przez administratora. Dziękujemy za rejestrację!',
+    'not_allowed_to_access' => 'Nie masz dostępu do tego zasobu',
 ];

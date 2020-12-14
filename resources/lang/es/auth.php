@@ -13,8 +13,8 @@ return [
     |
     */
 
-    'failed' => 'These credentials do not match our records.',
-    'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
-    'successfully_registered' => 'You have successfully registered to the CI Global Calendar. You will get a confirmation email when your account will be approved by the administrator. Thank you for registering!',
-    'not_allowed_to_access' => 'You are not allowed to access to this resource',
+    'failed' => 'Las credenciales no son válidas.',
+    'throttle' => 'Demasiados intentos de acceder. Prueba nuevamente dentro de unos segundos.',
+    'successfully_registered' => 'Tu nombre se ha registrado exitosamente en el Calendario Globar de CI. Recibirás un mail de confirmación cuando tu cuenta sea aprobada por el administrador. ¡Gracias por registrarte!',
+    'not_allowed_to_access' => 'No tienes permiso para acceder a este recurso',
 ];
