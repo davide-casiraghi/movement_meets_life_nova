@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="f86be012-5364-473d-a5f7-a7b8c0c0f2c5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EventCategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EventCategoryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EventController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EventController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OrganizerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OrganizerController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TeacherController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TeacherController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -201,7 +203,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
+    <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -476,7 +478,7 @@
     <state x="1440" y="-226" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1440.816/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1607941487745" />
     <state x="0" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1440.816@0.23.1440.816" timestamp="1604819446952" />
     <state x="0" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1440.822@0.23.1440.822" timestamp="1607402797585" />
-    <state x="2148" y="49" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1607945013269">
+    <state x="2148" y="49" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1607949029436">
       <screen x="1440" y="-226" width="1920" height="1177" />
     </state>
     <state x="2148" y="281" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.900/1440.0.1920.1200@1440.0.1920.1200" timestamp="1602317882191" />
@@ -490,7 +492,7 @@
     <state x="531" y="213" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.812@0.23.1440.812" timestamp="1604259401477" />
     <state x="2148" y="50" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.814/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1607592401633" />
     <state x="531" y="214" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.816/1440.-226.1920.1177@0.23.1440.816" timestamp="1604558544076" />
-    <state x="2148" y="49" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.816/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1607945013269" />
+    <state x="2148" y="49" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.816/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1607949029436" />
     <state x="531" y="214" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.816@0.23.1440.816" timestamp="1604819553140" />
     <state x="488" y="-901" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.821/-220.-1177.1920.1177@-220.-1177.1920.1177" timestamp="1601648307583" />
     <state x="2148" y="49" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.821/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1607671618270" />
@@ -531,13 +533,14 @@
     <state x="2011" y="-21" key="NewPhpClassDialog/0.23.1440.814/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1603777164095" />
     <state x="428" y="165" key="NewPhpClassDialog/0.23.1440.816@0.23.1440.816" timestamp="1604802663049" />
     <state x="428" y="166" key="NewPhpClassDialog/0.23.1440.822@0.23.1440.822" timestamp="1602563837548" />
-    <state x="1919" y="-73" key="SettingsEditor" timestamp="1607710454629">
+    <state x="1919" y="-73" key="SettingsEditor" timestamp="1607948726312">
       <screen x="1440" y="-226" width="1920" height="1177" />
     </state>
     <state x="1919" y="156" key="SettingsEditor/0.0.1440.900/1440.0.1920.1200@1440.0.1920.1200" timestamp="1602316695473" />
     <state x="1919" y="176" key="SettingsEditor/0.23.1440.812/1440.23.1920.1177@1440.23.1920.1177" timestamp="1602343760271" />
     <state x="1919" y="-73" key="SettingsEditor/0.23.1440.814/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1607592567349" />
     <state x="259" y="-1024" key="SettingsEditor/0.23.1440.816/-220.-1177.1920.1177@-220.-1177.1920.1177" timestamp="1601561310727" />
+    <state x="1919" y="-73" key="SettingsEditor/0.23.1440.816/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1607948726312" />
     <state x="1919" y="-73" key="SettingsEditor/0.23.1440.821/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1607710454628" />
     <state x="1335" y="-1233" key="SettingsEditor/0.23.1440.877/-1224.-1177.1920.1105/696.-1417.2560.1417@696.-1417.2560.1417" timestamp="1602144594672" />
     <state x="359" y="137" key="SettingsEditor/0.23.1440.877/1440.-226.1920.1105@0.23.1440.877" timestamp="1606723878220" />
