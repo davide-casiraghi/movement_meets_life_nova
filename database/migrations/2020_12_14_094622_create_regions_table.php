@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEventCategoriesTable extends Migration
+class CreateRegionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class CreateEventCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('event_categories', function (Blueprint $table) {
+        Schema::create('regions', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('slug');
-            $table->text('description')->nullable();
+
+            $table->foreignId('country_id')->constrained();
+            $table->string('timezone');
+
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ class CreateEventCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('event_categories');
+        Schema::dropIfExists('regions');
     }
 }

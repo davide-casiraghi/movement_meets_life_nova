@@ -20,20 +20,24 @@ class CreateEventsTable extends Migration
             $table->foreignId('event_venue_id')->constrained();
             $table->foreignId('user_id')->constrained();
 
+            // todo - still to create the organizers entity
+            $table->integer('organized_by')->nullable();
+
             $table->string('title');
             $table->text('description');
-
-            $table->string('image')->nullable();
             $table->string('contact_email')->nullable();
             $table->string('website_event_link')->nullable();
             $table->string('facebook_event_link')->nullable();
-            $table->string('status')->nullable();
 
-            $table->dateTime('date_start');
-            $table->dateTime('date_end');
+            $table->integer('repeat_type');
+            $table->dateTime('repeat_until')->nullable();
+            $table->string('repeat_weekly_on')->nullable();
+            $table->string('repeat_monthly_on')->nullable();
+            $table->string('on_monthly_kind')->nullable();
+            $table->text('multiple_dates')->nullable();
 
             $table->string('slug');
-            //$table->string('is_published');
+
             $table->timestamps();
         });
     }

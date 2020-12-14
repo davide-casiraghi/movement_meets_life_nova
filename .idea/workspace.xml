@@ -3,8 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="f86be012-5364-473d-a5f7-a7b8c0c0f2c5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/dashboard/navigation/desktopMenu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/dashboard/navigation/desktopMenu.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/dashboard/navigation/mobileMenu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/dashboard/navigation/mobileMenu.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_06_063850_create_event_categories_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_06_063850_create_event_categories_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_06_064525_create_events_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_06_064525_create_events_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -194,7 +195,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/glossaries" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Repositories" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -207,11 +208,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/Repositories" />
       <recent name="$PROJECT_DIR$/resources/views/glossaries" />
       <recent name="$PROJECT_DIR$/resources/views/partials/glossary" />
       <recent name="$PROJECT_DIR$/resources/views/glossary" />
       <recent name="$PROJECT_DIR$/app/Http/Requests" />
-      <recent name="$PROJECT_DIR$/resources/views/tags" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources/views/partials/dashboard/navigation" />
@@ -450,7 +451,7 @@
       <workItem from="1607852355024" duration="5454000" />
       <workItem from="1607877621325" duration="590000" />
       <workItem from="1607933073153" duration="1300000" />
-      <workItem from="1607934616588" duration="3191000" />
+      <workItem from="1607934616588" duration="5993000" />
     </task>
     <servers />
   </component>
