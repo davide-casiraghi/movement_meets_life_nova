@@ -35,7 +35,7 @@ class Teacher extends Model implements HasMedia
      * Returns the events of the teacher.
      */
     public function events() {
-        return $this->hasMany(Teacher::class);
+        return $this->belongsToMany(Event::class);
     }
 
     /**

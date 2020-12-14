@@ -33,7 +33,7 @@ class Organizer extends Model
      * Returns the events of the organizer.
      */
     public function events() {
-        return $this->hasMany(Event::class);
+        return $this->belongsToMany(Event::class);
     }
 
     /**

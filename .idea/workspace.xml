@@ -4,7 +4,8 @@
     <list default="true" id="f86be012-5364-473d-a5f7-a7b8c0c0f2c5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Event.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Event.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_06_064525_create_events_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_06_064525_create_events_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Organizer.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Organizer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Teacher.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Teacher.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

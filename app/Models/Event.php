@@ -75,15 +75,15 @@ class Event extends Model implements HasMedia
     /**
      * Returns the teachers of the event.
      */
-    public function teachers() {
-        return $this->hasMany(Teacher::class);
+    public function teachers(){
+        return $this->belongsToMany(Teacher::class);
     }
 
     /**
      * Returns the organizers of the event.
      */
-    public function organizers() {
-        return $this->hasMany(Organizer::class);
+    public function organizers(){
+        return $this->belongsToMany(Organizer::class);
     }
 
     /**
