@@ -33,9 +33,9 @@
          @keydown.window.escape="sidebarOpen = false"
     >
       
-      @include('partials.dashboard.mobileMenu')
+      @include('partials.dashboard.navigation.mobileMenu')
       
-      @include('partials.dashboard.desktopMenu')
+      @include('partials.dashboard.navigation.desktopMenu')
 
       <div class="flex flex-col w-0 flex-1 overflow-hidden">
 

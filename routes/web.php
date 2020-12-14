@@ -7,10 +7,10 @@ use App\Http\Controllers\PostCategoryController;
 use App\Http\Controllers\PostCommentController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ContactUsFormController;
-use App\Http\Controllers\BeATestimonialFormController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\TestimonialController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DashboardController;
 use Spatie\Honeypot\ProtectAgainstSpam;
 
 /*
@@ -27,9 +27,15 @@ use Spatie\Honeypot\ProtectAgainstSpam;
 Route::get('/',[ HomeController::class, 'index'])->name('home');
 
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+
+Route::group(['middleware' => ['auth:sanctum', 'verified']], function() {
+
+    Route::name('dashboard.')->group(function () {
+        Route::get('/dashboard', [DashboardController::class, 'index'])->name('index');
+    });
+});
+
+
 
 // Posts
 Route::name('posts.')->group(function () {
