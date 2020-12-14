@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\EventCategoryService;
+use App\Services\EventService;
 use Illuminate\Http\Request;
 
 class EventController extends Controller
@@ -28,7 +30,7 @@ class EventController extends Controller
         $events = $this->eventService->getEvents(20);
 
         return view('events.index', [
-            'posts' => $events,
+            'events' => $events,
         ]);
     }
 
