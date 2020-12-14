@@ -5,7 +5,7 @@ namespace Database\Factories;
 use App\Models\Venue;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class EventVenueFactory extends Factory
+class VenueFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
