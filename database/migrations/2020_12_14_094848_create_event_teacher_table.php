@@ -19,7 +19,6 @@ class CreateEventTeacherTable extends Migration
             $table->foreignId('event_id')->constrained()->onDelete('cascade'); //When delete event delete all the relations in this table relations
             $table->foreignId('teacher_id')->constrained();
 
-
             $table->timestamps();
         });
     }

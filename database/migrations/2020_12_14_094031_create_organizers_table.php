@@ -15,13 +15,14 @@ class CreateOrganizersTable extends Migration
     {
         Schema::create('organizers', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained();
+            $table->foreignId('country_id')->constrained();
 
             $table->string('name');
-            $table->integer('created_by')->nullable();
+            $table->string('surname');
 
             $table->string('email');
             $table->text('description')->nullable();
-            $table->integer('country_id')->nullable();
 
             $table->string('website')->nullable();
             $table->string('facebook')->nullable();

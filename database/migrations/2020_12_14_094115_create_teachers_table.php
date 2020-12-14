@@ -15,17 +15,18 @@ class CreateTeachersTable extends Migration
     {
         Schema::create('teachers', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained();
+            $table->foreignId('country_id')->constrained();
 
             $table->string('name');
-            $table->integer('created_by')->nullable();
+            $table->string('surname');
 
             $table->text('bio')->nullable();
-            $table->integer('country_id')->nullable();
             $table->string('year_starting_practice')->nullable();
             $table->string('year_starting_teach')->nullable();
             $table->text('significant_teachers')->nullable();
 
-            $table->string('profile_picture')->nullable();
+            //$table->string('profile_picture')->nullable();
             $table->string('website')->nullable();
             $table->string('facebook')->nullable();
 

@@ -3,7 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="f86be012-5364-473d-a5f7-a7b8c0c0f2c5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_14_094031_create_organizers_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_12_14_094031_create_organizers_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_14_094115_create_teachers_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_12_14_094115_create_teachers_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_14_094848_create_event_teacher_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_12_14_094848_create_event_teacher_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/dashboard/navigation/desktopMenu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/dashboard/navigation/desktopMenu.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/dashboard/navigation/mobileMenu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/dashboard/navigation/mobileMenu.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -193,7 +197,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Repositories" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Services" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -206,11 +210,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/Services" />
       <recent name="$PROJECT_DIR$/app/Repositories" />
       <recent name="$PROJECT_DIR$/resources/views/glossaries" />
       <recent name="$PROJECT_DIR$/resources/views/partials/glossary" />
       <recent name="$PROJECT_DIR$/resources/views/glossary" />
-      <recent name="$PROJECT_DIR$/app/Http/Requests" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources/views/partials/dashboard/navigation" />
@@ -476,7 +480,7 @@
     <state x="1440" y="-226" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1440.816/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1607941487745" />
     <state x="0" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1440.816@0.23.1440.816" timestamp="1604819446952" />
     <state x="0" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1440.822@0.23.1440.822" timestamp="1607402797585" />
-    <state x="2148" y="49" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1607941810776">
+    <state x="2148" y="49" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1607942604261">
       <screen x="1440" y="-226" width="1920" height="1177" />
     </state>
     <state x="2148" y="281" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.900/1440.0.1920.1200@1440.0.1920.1200" timestamp="1602317882191" />
@@ -490,7 +494,7 @@
     <state x="531" y="213" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.812@0.23.1440.812" timestamp="1604259401477" />
     <state x="2148" y="50" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.814/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1607592401633" />
     <state x="531" y="214" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.816/1440.-226.1920.1177@0.23.1440.816" timestamp="1604558544076" />
-    <state x="2148" y="49" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.816/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1607941810776" />
+    <state x="2148" y="49" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.816/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1607942604261" />
     <state x="531" y="214" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.816@0.23.1440.816" timestamp="1604819553140" />
     <state x="488" y="-901" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.821/-220.-1177.1920.1177@-220.-1177.1920.1177" timestamp="1601648307583" />
     <state x="2148" y="49" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.821/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1607671618270" />
