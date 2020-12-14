@@ -132,6 +132,10 @@ class Post extends Model implements HasMedia
      * Add Image gallery support using:
      * https://spatie.be/docs/laravel-medialibrary/v8/introduction
      * https://github.com/ebess/advanced-nova-media-library
+     *
+     * @param \Spatie\MediaLibrary\MediaCollections\Models\Media|null $media
+     *
+     * @throws \Spatie\Image\Exceptions\InvalidManipulation
      */
     public function registerMediaConversions(Media $media = null): void
     {

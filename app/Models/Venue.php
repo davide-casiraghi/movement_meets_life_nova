@@ -4,13 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\ModelStatus\HasStatuses;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
 class Venue extends Model
 {
-    use HasFactory;
-    use HasSlug;
+    use HasFactory, HasSlug, HasStatuses;
 
     /**
      * The attributes that aren't mass assignable.
@@ -18,6 +18,13 @@ class Venue extends Model
      * @var array
      */
     protected $guarded = [];
+
+    /**
+     * Returns the events that are assigned to this venue.
+     */
+    public function events(){
+        return $this->hasMany(Event::class);
+    }
 
     /**
      * Generates a unique slug.
@@ -30,9 +37,13 @@ class Venue extends Model
     }
 
     /**
-     * Returns the events that are assigned to this venue.
+     * Set default status value when a organizer is created
      */
-    public function events(){
-        return $this->hasMany(Event::class);
+    public static function boot() {
+        parent::boot();
+
+        static::created(function (Organizer $event) {
+            $event->setStatus('Published');
+        });
     }
 }
