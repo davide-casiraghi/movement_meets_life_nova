@@ -30,7 +30,7 @@ class OrganizerFactory extends Factory
             'description' => $this->faker->paragraph,
             'phone' => $this->faker->e164PhoneNumber,
 
-            'country_id' => $this->faker->numberBetween($min = 1, $max = 253),
+            'country_id' => $this->faker->numberBetween($min = 1, $max = 250),
         ];
     }
 }

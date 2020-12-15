@@ -4,18 +4,10 @@
     <list default="true" id="f86be012-5364-473d-a5f7-a7b8c0c0f2c5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/laravel-tinker-plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/laravel-tinker-plugin.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Country.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Country.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Organizer.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Organizer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Teacher.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Teacher.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Venue.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Venue.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/factories/EventFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/EventFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/EventVenueFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/VenueFactory.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/factories/OrganizerFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/OrganizerFactory.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/factories/TeacherFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/TeacherFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_06_062919_create_venues_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_12_14_094358_create_venues_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_06_064525_create_events_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_12_14_094359_create_events_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_14_093350_create_event_repetitions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_12_14_094360_create_event_repetitions_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/CountriesTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/CountriesTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/VenueFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/VenueFactory.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -462,7 +454,7 @@
       <workItem from="1607877621325" duration="590000" />
       <workItem from="1607933073153" duration="1300000" />
       <workItem from="1607934616588" duration="5993000" />
-      <workItem from="1607999988001" duration="2875000" />
+      <workItem from="1607999988001" duration="3081000" />
     </task>
     <servers />
   </component>

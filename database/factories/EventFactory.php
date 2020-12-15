@@ -37,10 +37,11 @@ class EventFactory extends Factory
             //'image' => 'placeholders/placeholder-768x768.png',
 
 
-
-            'event_venue_id' => $this->faker->numberBetween($min = 1, $max = 3),
+            'venue_id' => $this->faker->numberBetween($min = 1, $max = 3),
             'event_category_id' => $this->faker->numberBetween($min = 1, $max = 3),
             'user_id' => 1,
+
+            'repeat_type' => 1,
             //'user_id' => $this->faker->numberBetween($min = 1, $max = 3),
         ];
     }
