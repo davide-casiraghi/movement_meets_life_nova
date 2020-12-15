@@ -19,7 +19,7 @@ class EventRepetition extends Model
     /**
      * Returns the event of the event repetition.
      */
-    public function events() {
+    public function event() {
         return $this->belongsTo(Event::class);
     }
 }
