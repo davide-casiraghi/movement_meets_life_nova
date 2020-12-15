@@ -34,6 +34,16 @@ class Country extends Model
     }
 
     /**
+     * Return the organizers based in this country
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function organizers()
+    {
+        return $this->hasMany(Organizer::class);
+    }
+
+    /**
      * Return the venues in this country
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
@@ -44,13 +54,13 @@ class Country extends Model
     }
 
     /**
-     * Return the teachers based in this country
+     * Return all the events in this country
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\HasManyThrough
      */
-    public function organizers()
+    public function events()
     {
-        return $this->hasMany(Organizer::class);
+        return $this->hasManyThrough('Event', 'Venue');
     }
 
 
