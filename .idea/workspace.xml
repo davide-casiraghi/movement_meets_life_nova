@@ -3,7 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="f86be012-5364-473d-a5f7-a7b8c0c0f2c5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Country.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Country.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/events/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/events/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/backend.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/backend.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/forms/button.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/forms/button.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -193,7 +196,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/eventCategories" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/partials/events" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -205,19 +208,19 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/resources/views/eventCategories" />
-      <recent name="$PROJECT_DIR$/resources/views/partials" />
-      <recent name="$PROJECT_DIR$/app/Services" />
-      <recent name="$PROJECT_DIR$/app/Repositories" />
-      <recent name="$PROJECT_DIR$/resources/views/glossaries" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources/views/partials/dashboard/navigation" />
       <recent name="$PROJECT_DIR$/resources/views/glossaries" />
       <recent name="$PROJECT_DIR$/resources/views/forms" />
       <recent name="$PROJECT_DIR$/resources/views/partials/pages/home" />
       <recent name="$PROJECT_DIR$/resources/views/partials/pages/home/blog" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views/partials/events" />
+      <recent name="$PROJECT_DIR$/resources/views/partials/organizers" />
+      <recent name="$PROJECT_DIR$/resources/views/partials/teachers" />
+      <recent name="$PROJECT_DIR$/resources/views/organizers" />
+      <recent name="$PROJECT_DIR$/resources/views/teachers" />
     </key>
   </component>
   <component name="RunManager">
@@ -450,7 +453,10 @@
       <workItem from="1607877621325" duration="590000" />
       <workItem from="1607933073153" duration="1300000" />
       <workItem from="1607934616588" duration="5993000" />
-      <workItem from="1607999988001" duration="3662000" />
+      <workItem from="1607999988001" duration="4051000" />
+      <workItem from="1608022456544" duration="256000" />
+      <workItem from="1608029263767" duration="48000" />
+      <workItem from="1608033167062" duration="645000" />
     </task>
     <servers />
   </component>

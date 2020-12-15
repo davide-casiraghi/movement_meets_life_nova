@@ -14,7 +14,7 @@
     ])
 
     @include('partials.forms.button',[
-         'title' => 'Categories',
+         'title' => 'Event Categories',
          'url' => route('eventCategories.index'),
          'color' => 'yellow',
          'icon' => '',
@@ -23,6 +23,28 @@
          'kind' => 'white',
          'target' => '_self',
      ])
+
+    @include('partials.forms.button',[
+     'title' => 'Teachers',
+     'url' => route('teachers.index'),
+     'color' => 'yellow',
+     'icon' => '',
+     'size' => 1,
+     'extraClasses' => 'mb-4',
+     'kind' => 'primary',
+     'target' => '_self',
+    ])
+
+    @include('partials.forms.button',[
+     'title' => 'Organizers',
+     'url' => route('organizers.index'),
+     'color' => 'yellow',
+     'icon' => '',
+     'size' => 1,
+     'extraClasses' => 'mb-4',
+     'kind' => 'primary',
+     'target' => '_self',
+    ])
 
     {{-- Tailwind Component: https://tailwindui.com/components/application-ui/lists/stacked-lists--}}
     <div class="bg-white shadow overflow-hidden sm:rounded-md">

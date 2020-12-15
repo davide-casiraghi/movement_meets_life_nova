@@ -9,6 +9,10 @@
         - $size: 1-5
         - $kind: 'primary', 'secondary', 'white'
         - $target: '_self', '_blank'
+
+        TODO - ADD ALSO THE OUTLINE BUTTON STYLE!!
+        https://tailwindcomponents.com/component/tailwind-css-buttons
+
 --}}
 
 @switch($size)
