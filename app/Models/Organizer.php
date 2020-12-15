@@ -37,6 +37,15 @@ class Organizer extends Model
     }
 
     /**
+     * Return the country of the user
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function country()
+    {
+        return $this->belongsTo(Country::class);
+    }
+
+    /**
      * Generates a unique slug.
      */
     public function getSlugOptions() : SlugOptions

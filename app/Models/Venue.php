@@ -27,6 +27,15 @@ class Venue extends Model
     }
 
     /**
+     * Return the country of the venue
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function country()
+    {
+        return $this->belongsTo(Country::class);
+    }
+
+    /**
      * Generates a unique slug.
      */
     public function getSlugOptions() : SlugOptions
@@ -37,12 +46,12 @@ class Venue extends Model
     }
 
     /**
-     * Set default status value when a organizer is created
+     * Set default status value when a venue is created
      */
     public static function boot() {
         parent::boot();
 
-        static::created(function (Organizer $event) {
+        static::created(function (Venue $event) {
             $event->setStatus('Published');
         });
     }

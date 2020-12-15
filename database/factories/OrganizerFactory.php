@@ -23,12 +23,14 @@ class OrganizerFactory extends Factory
     {
         return [
             'name' => $this->faker->name,
-            'surname' => $this->faker->surname,
+            'surname' => $this->faker->lastName,
             'website' => $this->faker->url,
             'user_id' => '1',
             'email' => $this->faker->unique()->safeEmail,
             'description' => $this->faker->paragraph,
             'phone' => $this->faker->e164PhoneNumber,
+
+            'country_id' => $this->faker->numberBetween($min = 1, $max = 253),
         ];
     }
 }

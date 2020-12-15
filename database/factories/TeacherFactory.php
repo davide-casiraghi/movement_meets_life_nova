@@ -26,7 +26,7 @@ class TeacherFactory extends Factory
 
         return [
             'name' => $this->faker->name,
-            'surname' => $this->faker->surname,
+            'surname' => $this->faker->lastName,
 
             'bio' => $this->faker->paragraph,
             'year_starting_practice' => $year_starting_practice,

@@ -15,6 +15,8 @@ class CreateVenuesTable extends Migration
     {
         Schema::create('venues', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('country_id')->constrained();
+
             $table->string('name');
             $table->string('slug')->unique();
             $table->text('description')->nullable();
@@ -24,7 +26,6 @@ class CreateVenuesTable extends Migration
             $table->string('address')->nullable();
             $table->string('city');
             $table->string('state_province')->nullable();
-            $table->string('country');
             $table->string('zip_code')->nullable();
             $table->float('lng', 9, 6)->nullable();
             $table->float('lat', 8, 6)->nullable();

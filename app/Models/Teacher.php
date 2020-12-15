@@ -32,6 +32,15 @@ class Teacher extends Model implements HasMedia
     }
 
     /**
+     * Return the country of the teacher
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function country()
+    {
+        return $this->belongsTo(Country::class);
+    }
+
+    /**
      * Returns the events of the teacher.
      */
     public function events() {

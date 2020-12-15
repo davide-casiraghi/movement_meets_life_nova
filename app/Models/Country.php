@@ -23,5 +23,35 @@ class Country extends Model
         return $this->belongsTo(Continent::class);
     }
 
+    /**
+     * Return the teachers based in this country
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function teachers()
+    {
+        return $this->hasMany(Teacher::class);
+    }
+
+    /**
+     * Return the venues in this country
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function venues()
+    {
+        return $this->hasMany(Venue::class);
+    }
+
+    /**
+     * Return the teachers based in this country
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function organizers()
+    {
+        return $this->hasMany(Organizer::class);
+    }
+
 
 }

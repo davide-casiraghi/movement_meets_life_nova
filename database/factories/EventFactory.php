@@ -34,10 +34,9 @@ class EventFactory extends Factory
             'contact_email' => $this->faker->email,
             'website_event_link' => $this->faker->url,
             'facebook_event_link' => $this->faker->url,
-            'image' => 'placeholders/placeholder-768x768.png',
+            //'image' => 'placeholders/placeholder-768x768.png',
 
-            'date_start' => $start,
-            'date_end' => $end,
+
 
             'event_venue_id' => $this->faker->numberBetween($min = 1, $max = 3),
             'event_category_id' => $this->faker->numberBetween($min = 1, $max = 3),

@@ -2,9 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f86be012-5364-473d-a5f7-a7b8c0c0f2c5" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/laravel-tinker-plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/laravel-tinker-plugin.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Country.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Country.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Organizer.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Organizer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Teacher.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Teacher.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Venue.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Venue.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/factories/EventFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/EventFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/EventVenueFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/EventVenueFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/EventVenueFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/VenueFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/OrganizerFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/OrganizerFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/TeacherFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/TeacherFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_06_062919_create_venues_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_12_14_094358_create_venues_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_06_064525_create_events_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_12_14_094359_create_events_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_14_093350_create_event_repetitions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_12_14_094360_create_event_repetitions_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/CountriesTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/CountriesTableSeeder.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -451,6 +462,7 @@
       <workItem from="1607877621325" duration="590000" />
       <workItem from="1607933073153" duration="1300000" />
       <workItem from="1607934616588" duration="5993000" />
+      <workItem from="1607999988001" duration="2875000" />
     </task>
     <servers />
   </component>
@@ -549,8 +561,8 @@
     <state x="1977" y="-107" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.23.1440.814/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1603736147593" />
     <state x="317" y="-1058" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.23.1440.821/-220.-1177.1920.1177@-220.-1177.1920.1177" timestamp="1601648303881" />
     <state x="403" y="53" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.23.1440.821@0.23.1440.821" timestamp="1607860194397" />
-    <state x="2001" y="-13" width="916" height="744" key="find.popup" timestamp="1607949631365">
-      <screen x="1440" y="-226" width="1920" height="1177" />
+    <state x="421" y="171" width="866" height="548" key="find.popup" timestamp="1608000406548">
+      <screen x="0" y="23" width="1440" height="816" />
     </state>
     <state x="2001" y="218" width="831" height="726" key="find.popup/0.0.1440.900/1440.0.1920.1200@1440.0.1920.1200" timestamp="1602316388123" />
     <state x="1444" y="-1160" width="1108" height="857" key="find.popup/0.23.1440.808/-1224.-1177.1920.1177/696.-1417.2560.1417@696.-1417.2560.1417" timestamp="1602254003882" />
@@ -564,8 +576,8 @@
     <state x="421" y="170" width="687" height="515" key="find.popup/0.23.1440.814/1440.-226.1920.1177@0.23.1440.814" timestamp="1607441966631" />
     <state x="2001" y="-12" width="831" height="714" key="find.popup/0.23.1440.814/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1607662333983" />
     <state x="421" y="171" width="866" height="528" key="find.popup/0.23.1440.816/1440.-226.1920.1177@0.23.1440.816" timestamp="1605803074351" />
-    <state x="2001" y="-13" width="916" height="744" key="find.popup/0.23.1440.816/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1607949631365" />
-    <state x="421" y="171" width="866" height="527" key="find.popup/0.23.1440.816@0.23.1440.816" timestamp="1604832704780" />
+    <state x="2001" y="-13" width="916" height="744" key="find.popup/0.23.1440.816/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1607950641182" />
+    <state x="421" y="171" width="866" height="548" key="find.popup/0.23.1440.816@0.23.1440.816" timestamp="1608000406548" />
     <state x="2001" y="-12" width="831" height="714" key="find.popup/0.23.1440.821/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1607700338521" />
     <state x="421" y="172" width="622" height="548" key="find.popup/0.23.1440.821@0.23.1440.821" timestamp="1607860299368" />
     <state x="421" y="172" width="687" height="519" key="find.popup/0.23.1440.822/1440.-226.1920.1177@0.23.1440.822" timestamp="1607412207363" />
@@ -573,8 +585,8 @@
     <state x="421" y="172" width="687" height="519" key="find.popup/0.23.1440.822@0.23.1440.822" timestamp="1607761226147" />
     <state x="1444" y="-1160" width="1108" height="857" key="find.popup/0.23.1440.877/-1224.-1177.1920.1105/696.-1417.2560.1417@696.-1417.2560.1417" timestamp="1602148735038" />
     <state x="2001" y="-25" width="831" height="670" key="find.popup/0.23.1440.877/1440.-226.1920.1105@1440.-226.1920.1105" timestamp="1603645292743" />
-    <state x="2075" y="62" width="896" height="684" key="search.everywhere.popup" timestamp="1607948011347">
-      <screen x="1440" y="-226" width="1920" height="1177" />
+    <state x="476" y="223" width="670" height="469" key="search.everywhere.popup" timestamp="1608002769732">
+      <screen x="0" y="23" width="1440" height="816" />
     </state>
     <state x="476" y="221" width="671" height="467" key="search.everywhere.popup/0.23.1440.811/-220.-1177.1920.1177@0.23.1440.811" timestamp="1601969940815" />
     <state x="2075" y="62" width="896" height="681" key="search.everywhere.popup/0.23.1440.811/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1603567464445" />
@@ -587,7 +599,7 @@
     <state x="415" y="-889" width="670" height="676" key="search.everywhere.popup/0.23.1440.816/-220.-1177.1920.1177@-220.-1177.1920.1177" timestamp="1601562022484" />
     <state x="476" y="223" width="672" height="473" key="search.everywhere.popup/0.23.1440.816/1440.-226.1920.1177@0.23.1440.816" timestamp="1605801959954" />
     <state x="2075" y="62" width="896" height="684" key="search.everywhere.popup/0.23.1440.816/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1607941940524" />
-    <state x="476" y="223" width="670" height="469" key="search.everywhere.popup/0.23.1440.816@0.23.1440.816" timestamp="1604852839202" />
+    <state x="476" y="223" width="670" height="469" key="search.everywhere.popup/0.23.1440.816@0.23.1440.816" timestamp="1608002769732" />
     <state x="415" y="-889" width="894" height="677" key="search.everywhere.popup/0.23.1440.821/-220.-1177.1920.1177@-220.-1177.1920.1177" timestamp="1601648243740" />
     <state x="2075" y="62" width="896" height="684" key="search.everywhere.popup/0.23.1440.821/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1607948011347" />
     <state x="476" y="224" width="672" height="475" key="search.everywhere.popup/0.23.1440.821@0.23.1440.821" timestamp="1607860302434" />
