@@ -11,8 +11,11 @@ class OrganizerRepository {
      *
      * @return iterable
      */
-    public function getAll()
+    public function getAll(int $recordsPerPage = null)
     {
+        if($recordsPerPage){
+            return Organizer::paginate($recordsPerPage);
+        }
         return Organizer::all();
     }
 

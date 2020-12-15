@@ -11,8 +11,11 @@ class TeacherRepository {
      *
      * @return iterable
      */
-    public function getAll()
+    public function getAll(int $recordsPerPage = null)
     {
+        if($recordsPerPage){
+            return Teacher::paginate($recordsPerPage);
+        }
         return Teacher::all();
     }
 
