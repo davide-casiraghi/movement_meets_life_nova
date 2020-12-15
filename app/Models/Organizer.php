@@ -86,4 +86,14 @@ class Organizer extends Model
     {
         $this->addMediaCollection('profile_picture')->singleFile();
     }
+
+    /**
+     * Get the organizer's full name.
+     *
+     * @return string
+     */
+    public function getFullNameAttribute()
+    {
+        return "{$this->name} {$this->surname}";
+    }
 }

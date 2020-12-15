@@ -85,5 +85,15 @@ class Teacher extends Model implements HasMedia
         $this->addMediaCollection('profile_picture')->singleFile();
     }
 
+    /**
+     * Get the teacher's full name.
+     *
+     * @return string
+     */
+    public function getFullNameAttribute()
+    {
+        return "{$this->name} {$this->surname}";
+    }
+
 
 }
