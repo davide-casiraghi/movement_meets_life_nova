@@ -1,5 +1,9 @@
 @extends('layouts.backend')
 
+@section('title')
+    @lang('teacher.edit_teacher')
+@endsection
+
 @section('content')
 
 <form class="space-y-6" method="POST" action="{{ route('teachers.update',$teacher->id) }}" enctype="multipart/form-data">

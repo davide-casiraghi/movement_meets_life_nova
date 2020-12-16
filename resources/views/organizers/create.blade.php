@@ -1,5 +1,9 @@
 @extends('layouts.backend')
 
+@section('title')
+    @lang('organizer.create_new_organizer')
+@endsection
+
 @section('content')
 
 <form class="space-y-6" method="POST" action="{{ route('organizers.store') }}" enctype="multipart/form-data">

@@ -1,5 +1,9 @@
 @extends('layouts.backend')
 
+@section('title')
+    @lang('organizer.edit_organizer')
+@endsection
+
 @section('content')
 
 <form class="space-y-6" method="POST" action="{{ route('organizers.update',$organizer->id) }}" enctype="multipart/form-data">

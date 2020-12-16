@@ -1,5 +1,9 @@
 @extends('layouts.backend')
 
+@section('title')
+    @lang('teacher.create_new_teacher')
+@endsection
+
 @section('content')
 
 <form class="space-y-6" method="POST" action="{{ route('teachers.store') }}" enctype="multipart/form-data">

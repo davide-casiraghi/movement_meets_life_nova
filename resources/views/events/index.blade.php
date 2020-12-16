@@ -1,5 +1,9 @@
 @extends('layouts.backend')
 
+@section('title')
+    @lang('event.events_management')
+@endsection
+
 @section('content')
 
     @include('partials.forms.button',[
