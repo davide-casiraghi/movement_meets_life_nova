@@ -155,7 +155,9 @@
                 {{-- Duration contents --}}
                 <div class="mt-5 md:mt-0 md:col-span-2">
                     <div class="grid grid-cols-6 gap-6">
+                        @include('partials.forms.inputDatePicker')
 
+                       {{-- @include('partials.forms.inputDatePicker')--}}
 
                     </div>
                 </div>
