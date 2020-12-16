@@ -4,14 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Spatie\ModelStatus\HasStatuses;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
-class Organizer extends Model
+class Organizer extends Model implements HasMedia
 {
-    use HasFactory, HasSlug, HasStatuses;
+    use HasFactory, HasSlug, HasStatuses, InteractsWithMedia;
 
     /**
      * The attributes that aren't mass assignable.

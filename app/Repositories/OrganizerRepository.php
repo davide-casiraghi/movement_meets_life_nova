@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\Organizer;
+use Illuminate\Support\Facades\Auth;
 
 class OrganizerRepository {
 
@@ -41,6 +42,7 @@ class OrganizerRepository {
     public function store($data)
     {
         $organizer = new Organizer();
+        $organizer->user_id = Auth::id();
 
         $organizer->name = $data['name'];
         $organizer->surname = $data['surname'];
