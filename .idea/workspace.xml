@@ -3,9 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="f86be012-5364-473d-a5f7-a7b8c0c0f2c5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Organizer.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Organizer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/OrganizerRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/OrganizerRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_14_094849_create_organizers_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_12_14_094849_create_organizers_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EventController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EventController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Venue.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Venue.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/EventRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/EventRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/VenueRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/VenueRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/EventCategoryService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/EventCategoryService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -195,7 +198,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/organizers" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Services" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -207,19 +210,19 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/Services" />
+      <recent name="$PROJECT_DIR$/resources/views/events" />
+      <recent name="$PROJECT_DIR$/resources/views/organizers" />
+      <recent name="$PROJECT_DIR$/app/Repositories" />
+      <recent name="$PROJECT_DIR$/resources/views/teachers" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources/views/partials/dashboard/navigation" />
       <recent name="$PROJECT_DIR$/resources/views/glossaries" />
       <recent name="$PROJECT_DIR$/resources/views/forms" />
       <recent name="$PROJECT_DIR$/resources/views/partials/pages/home" />
       <recent name="$PROJECT_DIR$/resources/views/partials/pages/home/blog" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/resources/views/organizers" />
-      <recent name="$PROJECT_DIR$/app/Services" />
-      <recent name="$PROJECT_DIR$/app/Repositories" />
-      <recent name="$PROJECT_DIR$/resources/views/teachers" />
-      <recent name="$PROJECT_DIR$/resources/views/partials/events" />
     </key>
   </component>
   <component name="RunManager">
@@ -459,7 +462,8 @@
       <workItem from="1608034237866" duration="6000" />
       <workItem from="1608046229401" duration="278000" />
       <workItem from="1608046721003" duration="2648000" />
-      <workItem from="1608112800034" duration="817000" />
+      <workItem from="1608112800034" duration="1037000" />
+      <workItem from="1608121512972" duration="3195000" />
     </task>
     <servers />
   </component>
@@ -486,7 +490,7 @@
     <state x="1440" y="-226" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1440.816/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1607941487745" />
     <state x="0" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1440.816@0.23.1440.816" timestamp="1604819446952" />
     <state x="0" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1440.822@0.23.1440.822" timestamp="1607402797585" />
-    <state x="2148" y="50" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1608113586409">
+    <state x="2148" y="50" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1608122240045">
       <screen x="1440" y="-226" width="1920" height="1177" />
     </state>
     <state x="2148" y="281" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.900/1440.0.1920.1200@1440.0.1920.1200" timestamp="1602317882191" />
@@ -498,7 +502,7 @@
     <state x="2148" y="299" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.812/1440.23.1920.1177@1440.23.1920.1177" timestamp="1602416466806" />
     <state x="-516" y="-901" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.812/696.-1417.2560.1417/-1224.-1177.1920.1177@-1224.-1177.1920.1177" timestamp="1602228791608" />
     <state x="531" y="213" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.812@0.23.1440.812" timestamp="1604259401477" />
-    <state x="2148" y="50" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.814/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1608113586409" />
+    <state x="2148" y="50" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.814/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1608122240045" />
     <state x="531" y="214" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.816/1440.-226.1920.1177@0.23.1440.816" timestamp="1604558544076" />
     <state x="2148" y="49" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.816/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1608046356699" />
     <state x="531" y="214" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.816@0.23.1440.816" timestamp="1604819553140" />
@@ -582,8 +586,8 @@
     <state x="421" y="172" width="687" height="519" key="find.popup/0.23.1440.822@0.23.1440.822" timestamp="1607761226147" />
     <state x="1444" y="-1160" width="1108" height="857" key="find.popup/0.23.1440.877/-1224.-1177.1920.1105/696.-1417.2560.1417@696.-1417.2560.1417" timestamp="1602148735038" />
     <state x="2001" y="-25" width="831" height="670" key="find.popup/0.23.1440.877/1440.-226.1920.1105@1440.-226.1920.1105" timestamp="1603645292743" />
-    <state x="476" y="223" width="670" height="469" key="search.everywhere.popup" timestamp="1608002769732">
-      <screen x="0" y="23" width="1440" height="816" />
+    <state x="2075" y="62" width="896" height="684" key="search.everywhere.popup" timestamp="1608122005742">
+      <screen x="1440" y="-226" width="1920" height="1177" />
     </state>
     <state x="476" y="221" width="671" height="467" key="search.everywhere.popup/0.23.1440.811/-220.-1177.1920.1177@0.23.1440.811" timestamp="1601969940815" />
     <state x="2075" y="62" width="896" height="681" key="search.everywhere.popup/0.23.1440.811/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1603567464445" />
@@ -592,7 +596,7 @@
     <state x="1543" y="-1071" width="1194" height="817" key="search.everywhere.popup/0.23.1440.812/-1224.-1177.1920.1177/696.-1417.2560.1417@696.-1417.2560.1417" timestamp="1602072450211" />
     <state x="2075" y="62" width="896" height="681" key="search.everywhere.popup/0.23.1440.812/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1603952940039" />
     <state x="476" y="222" width="672" height="470" key="search.everywhere.popup/0.23.1440.812@0.23.1440.812" timestamp="1605440262902" />
-    <state x="2075" y="62" width="896" height="684" key="search.everywhere.popup/0.23.1440.814/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1607933467288" />
+    <state x="2075" y="62" width="896" height="684" key="search.everywhere.popup/0.23.1440.814/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1608122005742" />
     <state x="415" y="-889" width="670" height="676" key="search.everywhere.popup/0.23.1440.816/-220.-1177.1920.1177@-220.-1177.1920.1177" timestamp="1601562022484" />
     <state x="476" y="223" width="672" height="473" key="search.everywhere.popup/0.23.1440.816/1440.-226.1920.1177@0.23.1440.816" timestamp="1605801959954" />
     <state x="2075" y="62" width="896" height="684" key="search.everywhere.popup/0.23.1440.816/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1607941940524" />

@@ -5,20 +5,32 @@ namespace App\Http\Controllers;
 use App\Http\Requests\EventStoreRequest;
 use App\Services\EventCategoryService;
 use App\Services\EventService;
+use App\Services\OrganizerService;
+use App\Services\TeacherService;
+use App\Services\VenueService;
 use Illuminate\Http\Request;
 
 class EventController extends Controller
 {
     private $eventService;
     private $eventCategoryService;
+    private $venueService;
+    private $teacherService;
+    private $organizerService;
 
     public function __construct(
         EventService $eventService,
-        EventCategoryService $eventCategoryService
+        EventCategoryService $eventCategoryService,
+        VenueService $venueService,
+        TeacherService $teacherService,
+        OrganizerService $organizerService
     )
     {
         $this->eventService = $eventService;
         $this->eventCategoryService = $eventCategoryService;
+        $this->venueService = $venueService;
+        $this->teacherService = $teacherService;
+        $this->organizerService = $organizerService;
     }
 
     /**
@@ -91,10 +103,16 @@ class EventController extends Controller
         $event = $this->eventService->getById($eventId);
 
         $eventCategories = $this->eventCategoryService->getEventCategories();
+        $venues = $this->venueService->getVenues();
+        $teachers = $this->teacherService->getTeachers();
+        $organizers = $this->organizerService->getOrganizers();
 
         return view('events.edit', [
             'event' => $event,
             'eventCategories' => $eventCategories,
+            'venues' => $venues,
+            'teachers' => $teachers,
+            'organizers' => $organizers,
         ]);
     }
 

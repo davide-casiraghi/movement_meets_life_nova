@@ -16,7 +16,7 @@ class EventCategoryService {
     }
 
     /**
-     * Create a gender
+     * Create a EventCategory
      *
      * @param \App\Http\Requests\EventCategoryStoreRequest $data
      *
@@ -30,7 +30,7 @@ class EventCategoryService {
     }
 
     /**
-     * Update the gender
+     * Update the EventCategory
      *
      * @param \App\Http\Requests\EventCategoryStoreRequest $data
      * @param int $eventCategoryId
@@ -45,7 +45,7 @@ class EventCategoryService {
     }
 
     /**
-     * Return the gender from the database
+     * Return the EventCategory from the database
      *
      * @param int $eventCategoryId
      *
@@ -57,7 +57,7 @@ class EventCategoryService {
     }
 
     /**
-     * Get all the genders
+     * Get all the EventCategories
      *
      * @return iterable
      */
@@ -67,7 +67,7 @@ class EventCategoryService {
     }
 
     /**
-     * Delete the gender from the database
+     * Delete the EventCategory from the database
      *
      * @param int $eventCategoryId
      */

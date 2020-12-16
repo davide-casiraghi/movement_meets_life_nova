@@ -45,9 +45,10 @@ class EventRepository {
     {
         $event = new Event();
 
+        $event->user_id = Auth::id();
+
         $event->title = $data['title'] ?? null;
         $event->category_id = $data['category_id'] ?? null;
-        $event->created_by = Auth::id();
         $event->intro_text = $data['intro_text'] ?? null;
 
         $event->body = $data['body'] ?? null;

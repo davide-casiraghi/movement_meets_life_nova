@@ -49,8 +49,8 @@ mix.copy('node_modules/tinymce/skins', 'public/js/skins');
 
 // Sync browser any time something change in compiled css, js or views
 mix.browserSync({
-    proxy: 'movement_meets_life_nova.local',
-    host: 'movement_meets_life_nova.local',
+    proxy: 'movement_meets_life.local',
+    host: 'movement_meets_life.local',
     notify: false,
     files: [
         './app/**/*',

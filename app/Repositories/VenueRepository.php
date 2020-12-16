@@ -13,8 +13,11 @@ class VenueRepository {
      *
      * @return iterable
      */
-    public function getAll()
+    public function getAll(int $recordsPerPage = null)
     {
+        if($recordsPerPage){
+            return Venue::paginate($recordsPerPage);
+        }
         return Venue::all();
     }
 
