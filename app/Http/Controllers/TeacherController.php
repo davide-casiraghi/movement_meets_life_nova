@@ -3,18 +3,22 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\TeacherStoreRequest;
+use App\Services\CountryService;
 use App\Services\TeacherService;
 use Illuminate\Http\Request;
 
 class TeacherController extends Controller
 {
     private $teacherService;
+    private $countryService;
 
     public function __construct(
-        TeacherService $teacherService
+        TeacherService $teacherService,
+        CountryService $countryService
     )
     {
         $this->teacherService = $teacherService;
+        $this->countryService = $countryService;
     }
 
     /**
@@ -38,7 +42,11 @@ class TeacherController extends Controller
      */
     public function create()
     {
-        return view('teachers.create');
+        $countries = $this->countryService->getCountries();
+
+        return view('teachers.create', [
+            'countries' => $countries,
+        ]);
     }
 
     /**
@@ -81,9 +89,11 @@ class TeacherController extends Controller
     public function edit(int $teacherId)
     {
         $teacher = $this->teacherService->getById($teacherId);
+        $countries = $this->countryService->getCountries();
 
         return view('teachers.edit', [
-            'teacher' => $teacher
+            'teacher' => $teacher,
+            'countries' => $countries,
         ]);
     }
 

@@ -3,10 +3,25 @@
   <component name="ChangeListManager">
     <list default="true" id="f86be012-5364-473d-a5f7-a7b8c0c0f2c5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Organizer.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Organizer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Teacher.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Teacher.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/organizers/indexItem.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/organizers/indexItem.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/teachers/indexItem.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/teachers/indexItem.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TeacherController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TeacherController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/TeacherRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/TeacherRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/de/general.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/de/general.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/de/views.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/de/views.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/general.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/general.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/views.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/views.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/es/general.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/es/general.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/es/views.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/es/views.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/fr/general.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/fr/general.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/fr/views.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/fr/views.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/it/general.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/it/general.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/it/views.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/it/views.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/pl/general.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/pl/general.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/pl/views.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/pl/views.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/pt/general.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/pt/general.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/pt/views.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/pt/views.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/ru/general.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ru/general.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/ru/views.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ru/views.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/forms/select.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/forms/select.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -196,7 +211,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/partials/events" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Services" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -208,19 +223,19 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/Services" />
+      <recent name="$PROJECT_DIR$/app/Repositories" />
+      <recent name="$PROJECT_DIR$/resources/views/teachers" />
+      <recent name="$PROJECT_DIR$/resources/views/partials/events" />
+      <recent name="$PROJECT_DIR$/resources/views/partials/organizers" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources/views/partials/dashboard/navigation" />
       <recent name="$PROJECT_DIR$/resources/views/glossaries" />
       <recent name="$PROJECT_DIR$/resources/views/forms" />
       <recent name="$PROJECT_DIR$/resources/views/partials/pages/home" />
       <recent name="$PROJECT_DIR$/resources/views/partials/pages/home/blog" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/resources/views/partials/events" />
-      <recent name="$PROJECT_DIR$/resources/views/partials/organizers" />
-      <recent name="$PROJECT_DIR$/resources/views/partials/teachers" />
-      <recent name="$PROJECT_DIR$/resources/views/organizers" />
-      <recent name="$PROJECT_DIR$/resources/views/teachers" />
     </key>
   </component>
   <component name="RunManager">
@@ -459,7 +474,7 @@
       <workItem from="1608033167062" duration="823000" />
       <workItem from="1608034237866" duration="6000" />
       <workItem from="1608046229401" duration="278000" />
-      <workItem from="1608046721003" duration="181000" />
+      <workItem from="1608046721003" duration="2537000" />
     </task>
     <servers />
   </component>

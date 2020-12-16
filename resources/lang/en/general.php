@@ -45,4 +45,5 @@ return [
     'message' => 'Message',
     'user_name' => 'User name',
     'surname' => 'Surname',
+    'website' => 'Website',
 ];

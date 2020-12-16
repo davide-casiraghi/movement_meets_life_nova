@@ -9,7 +9,7 @@
 --}}
 
 <label for="{{ $name }}" class="block text-sm font-medium text-gray-700">
-    Category
+    {{$title}}
     @if($required)
         <span class="text-gray-500" data-toggle="tooltip" data-placement="top" title="@lang('views.required')">*</span>
     @endif

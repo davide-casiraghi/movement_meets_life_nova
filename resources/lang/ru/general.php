@@ -43,4 +43,5 @@ return [
     'forgot_your_password' => 'Забыли ваш пароль?',
     'message' => 'Сообщение',
     'user_name' => 'Имя пользователя',
+    'website' => 'Сайт',
 ];

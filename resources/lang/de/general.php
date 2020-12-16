@@ -44,4 +44,5 @@ return [
     'message' => 'Nachricht',
     'user_name' => 'Benutzername',
     'surname' => 'Name',
+    'website' => 'Webseite des Events',
 ];

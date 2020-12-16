@@ -43,4 +43,5 @@ return [
     'forgot_your_password' => 'Mot de passe oublié?',
     'message' => 'Message',
     'user_name' => 'Nom d\'utilisateur',
+    'website' => 'Site web de l\'événement',
 ];

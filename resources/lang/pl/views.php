@@ -28,7 +28,6 @@ return [
     'max_until' => 'Od dzisiaj można ustawić maksymalnie jeden rok powtórzeń',
     'facebook_event' => 'Wydarzenie na Facebooku',
     'facebook_profile' => 'Profil na Facebooku',
-    'website' => 'Strona internetowa',
     'upload_profile_picture' => 'Prześlij zdjęcie profilowa',
     'event_url' => 'Wydarzenie URL',
     'translations' => 'Tłumaczenie',

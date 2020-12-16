@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\Teacher;
+use Illuminate\Support\Facades\Auth;
 
 class TeacherRepository {
 
@@ -42,6 +43,9 @@ class TeacherRepository {
     {
         $teacher = new Teacher();
 
+        $teacher->user_id = Auth::id();
+        $teacher->country_id = $data['country_id'];
+
         $teacher->name = $data['name'];
         $teacher->surname = $data['surname'];
 
@@ -68,6 +72,8 @@ class TeacherRepository {
     public function update($data, int $id)
     {
         $teacher = $this->getById($id);
+
+        $teacher->country_id = $data['country_id'];
 
         $teacher->name = $data['name'];
         $teacher->surname = $data['surname'];
