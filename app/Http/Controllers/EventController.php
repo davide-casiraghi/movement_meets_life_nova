@@ -126,6 +126,8 @@ class EventController extends Controller
      */
     public function update(EventStoreRequest $request, int $eventId)
     {
+        dd($request->all());
+
         $this->eventService->updateEvent($request, $eventId);
 
         return redirect()->route('events.index')

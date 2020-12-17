@@ -35,9 +35,11 @@
         "@tailwindcss/typography": "^0.2.0",
         "alpinejs": "^2.7.3",
         "autoprefixer": "^10.0.2",
+        "bootstrap-datepicker": "^1.9.0",
         "jquery": "^3.5.1",
         "justifiedGallery": "^3.8.1",
         "postcss": "^8.1.8",
         "tinymce": "^5.6.2"
-    }
+    },
+    "name": "movement_meets_life_nova"
 }

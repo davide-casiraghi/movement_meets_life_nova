@@ -154,12 +154,48 @@
 
                 {{-- Duration contents --}}
                 <div class="mt-5 md:mt-0 md:col-span-2">
+
+                    {{-- Start date --}}
                     <div class="grid grid-cols-6 gap-6">
-                        @include('partials.forms.inputDatePicker')
+                        <div class="col-span-3">
+                            {{--@include('partials.forms.inputDatePicker')--}}
 
-                       {{-- @include('partials.forms.inputDatePicker')--}}
-
+                            <div class="col-12 col-md-3 mb-2 mb-lg-0">
+                                @include('partials.forms.inputDatePicker',[
+                                    'class' => 'datepicker',
+                                    'label' => '',
+                                    'placeholder' => 'Created after',
+                                    'name' => 'startDate',
+                                    'value' => old('startDate', $dateTime['dateStart']),
+                                ])
+                            </div>
+                        </div>
+                        <div class="col-span-3">
+                            time picker
+                        </div>
                     </div>
+
+                    {{-- End date --}}
+                    <div class="grid grid-cols-6 gap-6">
+                        <div class="col-span-3">
+                            @include('partials.forms.inputDatePicker',[
+                                    'class' => 'datepicker',
+                                    'label' => '',
+                                    'placeholder' => 'Created after',
+                                    'name' => 'startDate',
+                                    'value' => old('startDate', $dateTime['dateEnd']),
+                                ])
+                        </div>
+                        <div class="col-span-3">
+                            time picker
+                        </div>
+                    </div>
+
+                    {{-- Repeat type --}}
+                    @include('partials.events.repeat-event')
+
+
+
                 </div>
 
 
