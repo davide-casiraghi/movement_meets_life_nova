@@ -146,4 +146,33 @@ class EventService {
         return $thumbUrls;
     }
 
+
+    /**
+     * Return an array with the event data related to:
+     * - date and time start
+     * - date and time end
+     * - repeat until
+     * - multiple dates
+     *
+     * @param $event
+     * @param $eventFirstRepetition
+     *
+     * @return array
+     */
+    public function getEventDateTimeParameters($event, $eventFirstRepetition)
+    {
+        $dateTime = [];
+        $dateTime['dateStart'] = (isset($eventFirstRepetition->start_repeat)) ? date('d/m/Y', strtotime($eventFirstRepetition->start_repeat)) : '';
+        $dateTime['dateEnd'] = (isset($eventFirstRepetition->end_repeat)) ? date('d/m/Y', strtotime($eventFirstRepetition->end_repeat)) : '';
+        $dateTime['timeStart'] = (isset($eventFirstRepetition->start_repeat)) ? date('g:i A', strtotime($eventFirstRepetition->start_repeat)) : '';
+        $dateTime['timeEnd'] = (isset($eventFirstRepetition->end_repeat)) ? date('g:i A', strtotime($eventFirstRepetition->end_repeat)) : '';
+        $dateTime['repeatUntil'] = date('d/m/Y', strtotime($event->repeat_until));
+        $dateTime['multipleDates'] = $event->multiple_dates;
+
+        return $dateTime;
+    }
+
+
+
+
 }

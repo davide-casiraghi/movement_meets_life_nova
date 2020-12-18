@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\EventStoreRequest;
 use App\Services\EventCategoryService;
+use App\Services\EventRepetitionService;
 use App\Services\EventService;
 use App\Services\OrganizerService;
 use App\Services\TeacherService;
@@ -17,13 +18,15 @@ class EventController extends Controller
     private $venueService;
     private $teacherService;
     private $organizerService;
+    private $eventRepetitionService;
 
     public function __construct(
         EventService $eventService,
         EventCategoryService $eventCategoryService,
         VenueService $venueService,
         TeacherService $teacherService,
-        OrganizerService $organizerService
+        OrganizerService $organizerService,
+        EventRepetitionService $eventRepetitionService
     )
     {
         $this->eventService = $eventService;
@@ -31,6 +34,7 @@ class EventController extends Controller
         $this->venueService = $venueService;
         $this->teacherService = $teacherService;
         $this->organizerService = $organizerService;
+        $this->eventRepetitionService = $eventRepetitionService;
     }
 
     /**
@@ -107,12 +111,25 @@ class EventController extends Controller
         $teachers = $this->teacherService->getTeachers();
         $organizers = $this->organizerService->getOrganizers();
 
+        $eventFirstRepetition = $this->eventRepetitionService->getFirstByEventId($event->id);
+        $eventDateTimeParameters = $this->eventService->getEventDateTimeParameters($event, $eventFirstRepetition);
+
+
+
+
+            /*DB::table('event_repetitions')
+            ->select('id', 'start_repeat', 'end_repeat')
+            ->where('event_id', '=', $event->id)
+            ->first();*/
+
         return view('events.edit', [
             'event' => $event,
             'eventCategories' => $eventCategories,
             'venues' => $venues,
             'teachers' => $teachers,
             'organizers' => $organizers,
+            'eventFirstRepetition' => $eventFirstRepetition,
+            'eventDateTimeParameters' => $eventDateTimeParameters,
         ]);
     }
 

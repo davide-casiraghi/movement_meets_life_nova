@@ -166,7 +166,7 @@
                                     'label' => '',
                                     'placeholder' => 'Created after',
                                     'name' => 'startDate',
-                                    'value' => old('startDate', $dateTime['dateStart']),
+                                    'value' => old('startDate', $eventDateTimeParameters['dateStart']),
                                 ])
                             </div>
                         </div>
@@ -183,7 +183,7 @@
                                     'label' => '',
                                     'placeholder' => 'Created after',
                                     'name' => 'startDate',
-                                    'value' => old('startDate', $dateTime['dateEnd']),
+                                    'value' => old('startDate', $eventDateTimeParameters['dateEnd']),
                                 ])
                         </div>
                         <div class="col-span-3">
