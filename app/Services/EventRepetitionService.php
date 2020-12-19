@@ -1,14 +1,10 @@
 <?php
 namespace App\Services;
 
-use App\Http\Requests\PostStoreRequest;
+use App\Http\Requests\EventRepetitionStoreRequest;
+use App\Http\Requests\EventStoreRequest;
 use App\Models\EventRepetition;
-use App\Models\Post;
 use App\Repositories\EventRepetitionRepository;
-use App\Repositories\PostRepository;
-use App\Repositories\PostRepositoryInterface;
-use App\Services\Snippets\AccordionService;
-use App\Services\Snippets\GalleryMasonryService;
 
 class EventRepetitionService {
     private $eventRepetitionRepository;
@@ -20,150 +16,70 @@ class EventRepetitionService {
         $this->eventRepetitionRepository = $eventRepetitionRepository;
     }
 
-    public function getPostBody($post){
-
-        //dd($post->getTranslation('body', 'en'));
-
-        $postBody = $post->body;
-
-        $postBody = $this->accordionService->snippetsToHTML($postBody);
-        $postBody = $this->galleryService->snippetsToHTML($postBody);
-        $postBody = $this->glossaryService->markGlossaryTerms($postBody);
-
-        return $postBody;
-    }
-
     /**
-     * Create a post
+     * Create a eventRepetition
      *
-     * @param \App\Http\Requests\PostStoreRequest $data
+     * @param \App\Http\Requests\EventRepetitionStoreRequest $data
      *
-     * @return \App\Models\Post
-     * @throws \Spatie\ModelStatus\Exceptions\InvalidStatus
+     * @return \App\Models\EventRepetition
      */
-    public function createPost(PostStoreRequest $data)
+    public function createEventRepetition(EventRepetitionStoreRequest $data)
     {
-        $post = $this->postRepository->store($data);
+        $eventRepetition = $this->eventRepetitionRepository->store($data);
 
-        $post->setStatus('pending');
-
-        $this->storeImages($post, $data);
-
-        return $post;
+        return $eventRepetition;
     }
 
     /**
-     * Update the Post
+     * Update the EventRepetition
      *
-     * @param \App\Http\Requests\PostStoreRequest $data
-     * @param int $postId
+     * @param \App\Http\Requests\EventStoreRequest $data
+     * @param int $eventRepetitionId
      *
-     * @return \App\Models\Post
+     * @return \App\Models\EventRepetition
      */
-    public function updatePost(PostStoreRequest $data, int $postId)
+    public function updateEventRepetition(EventStoreRequest $data, int $eventRepetitionId)
     {
-        $post = $this->postRepository->update($data, $postId);
+        $eventRepetition = $this->eventRepetitionRepository->update($data, $eventRepetitionId);
 
-        $this->storeImages($post, $data);
-
-        return $post;
+        return $eventRepetition;
     }
 
     /**
-     * Return the post from the database
+     * Return the eventRepetition from the database
      *
-     * @param $postId
+     * @param $eventRepetitionId
      *
-     * @return \App\Models\Post
+     * @return \App\Models\EventRepetition
      */
-    public function getById(int $postId)
+    public function getById(int $eventRepetitionId)
     {
-        return $this->postRepository->getById($postId);
+        return $this->eventRepetitionRepository->getById($eventRepetitionId);
     }
 
     /**
-     * Get all the Posts.
+     * Get all the EventRepetitions.
      *
      * @return iterable
      */
-    public function getPosts(int $recordsPerPage = null)
+    public function getEventRepetitions()
     {
-        return $this->postRepository->getAll($recordsPerPage);
+        return $this->eventRepetitionRepository->getAll();
     }
 
     /**
-     * Delete the post from the database
+     * Delete the eventRepetition from the database
      *
-     * @param int $postId
+     * @param int $eventRepetitionId
      */
-    public function deletePost(int $postId): void
+    public function deleteEventRepetition(int $eventRepetitionId): void
     {
-        $this->postRepository->delete($postId);
+        $this->eventRepetitionRepository->delete($eventRepetitionId);
     }
 
-    /**
-     * Get the number of post created in the last 30 days.
-     *
-     * @return int
-     */
-    public function getNumberPostsCreatedLastThirtyDays()
-    {
-        return Post::whereDate('created_at', '>', date('Y-m-d', strtotime('-30 days')))->count();
-    }
+   
 
-    /**
-     * Store the uploaded photos in the Spatie Media Library
-     *
-     * @param \App\Models\Post $post
-     * @param \App\Http\Requests\PostStoreRequest $data
-     *
-     * @return void
-     * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileDoesNotExist
-     * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileIsTooBig
-     */
-    private function storeImages(Post $post, PostStoreRequest $data):void {
-        /*if($data->file('photos')) {
-            foreach ($data->file('photos') as $photo) {
-                if ($photo->isValid()) {
-                    $post->addMedia($photo)->toMediaCollection('post');
-                }
-            }
-        }*/
-
-        if($data->file('introimage')) {
-            $introimage = $data->file('introimage');
-            if ($introimage->isValid()) {
-                $post->addMedia($introimage)->toMediaCollection('introimage');
-            }
-        }
-
-        if($data['introimage_delete'] == 'true'){
-            $mediaItems = $post->getMedia('introimage');
-            if(!is_null($mediaItems[0])){
-                $mediaItems[0]->delete();
-            }
-        }
-
-
-    }
-
-    /**
-     * Return an array with the thumb images ulrs
-     *
-     * @param int $postId
-     *
-     * @return array
-     */
-    public function getThumbsUrls(int $postId): array{
-        $thumbUrls = [];
-
-        $post = $this->getById($postId);
-        foreach($post->getMedia('post') as $photo){
-            $thumbUrls[] = $photo->getUrl('thumb');
-        }
-
-        return $thumbUrls;
-    }
+    
 
     /**
      * Get the event first repetition

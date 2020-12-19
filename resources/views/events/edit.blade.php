@@ -182,8 +182,8 @@
                                     'class' => 'datepicker',
                                     'label' => '',
                                     'placeholder' => 'Created after',
-                                    'name' => 'startDate',
-                                    'value' => old('startDate', $eventDateTimeParameters['dateEnd']),
+                                    'name' => 'endDate',
+                                    'value' => old('endDate', $eventDateTimeParameters['dateEnd']),
                                 ])
                         </div>
                         <div class="col-span-3">

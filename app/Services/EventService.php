@@ -45,6 +45,8 @@ class EventService {
     {
         $event = $this->eventRepository->update($data, $eventId);
 
+
+
         $this->storeImages($event, $data);
 
         return $event;
