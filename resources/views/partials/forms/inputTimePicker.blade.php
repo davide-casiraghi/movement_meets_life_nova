@@ -1,28 +1,41 @@
-<!-- component -->
-<div class="mt-2 p-5 w-40 bg-white rounded-lg shadow-xl">
-    <div class="flex">
-        <select name="hours" class="bg-transparent text-xl appearance-none outline-none">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-            <option value="11">10</option>
-            <option value="12">12</option>
-        </select>
-        <span class="text-xl mr-3">:</span>
-        <select name="minutes" class="bg-transparent text-xl appearance-none outline-none mr-4">
-            <option value="0">00</option>
-            <option value="30">30</option>
-        </select>
-        <select name="ampm" class="bg-transparent text-xl appearance-none outline-none">
-            <option value="am">AM</option>
-            <option value="pm">PM</option>
-        </select>
-    </div>
-</div>
+{{--
+    TimePicker form field.
+
+    Vanilla Javascript Timepicker
+    by Lance Jernigan
+    https://codepen.io/Lance-Jernigan/pen/jARLLO
+
+
+    The custom JS for this field is defined in:
+    resources/js/vendors/timepicker.js
+
+    PARAMETERS:
+        - $class: string - the class related to the js that activate the datepicker
+        - $label: optional label to show above the field
+        - $placeholder
+        - $name: input the field name
+        - $value: the value of the field
+        - $endDate: To set a limit to the selectable days eg. '+1y'
+
+--}}
+
+
+
+
+@if (!empty($label))
+    <label for="{{ $name }}" class="block text-sm font-medium text-gray-700 inline">{{$label}}</label>
+
+    @if($required)
+        <span class="simple-tooltip text-gray-500 inline" title="@lang('views.required')">*</span>
+    @endif
+@endif
+
+<input
+        type="text"
+        class="timepicker focus:ring-indigo-500 focus:border-indigo-500 block w-full pr-10 sm:text-sm border-gray-300 rounded-md"
+
+        name="{{ $name }}"
+        id="{{ $name }}"
+        @if(!empty($value)) value="{{ $value }}" @endif
+
+/>

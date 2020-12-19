@@ -3,20 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="f86be012-5364-473d-a5f7-a7b8c0c0f2c5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/eventCategories/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/eventCategories/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/eventCategories/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/eventCategories/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/glossaries/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/glossaries/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/glossaries/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/glossaries/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/organizers/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/organizers/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/organizers/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/organizers/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/postCategories/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/postCategories/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/postCategories/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/postCategories/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/posts/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/posts/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/posts/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/posts/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/tags/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/tags/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/tags/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/tags/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/teachers/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/teachers/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/teachers/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/teachers/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/vendors/_+import.vendors.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/vendors/_+import.vendors.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/events/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/events/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/forms/inputDatePicker.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/forms/inputDatePicker.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/forms/inputTimePicker.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/forms/inputTimePicker.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -219,11 +212,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/js/vendors" />
       <recent name="$PROJECT_DIR$/resources/views/partials/dashboard/navigation" />
       <recent name="$PROJECT_DIR$/resources/views/glossaries" />
       <recent name="$PROJECT_DIR$/resources/views/forms" />
       <recent name="$PROJECT_DIR$/resources/views/partials/pages/home" />
-      <recent name="$PROJECT_DIR$/resources/views/partials/pages/home/blog" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/Helpers" />
@@ -476,7 +469,7 @@
       <workItem from="1608218389071" duration="567000" />
       <workItem from="1608221051678" duration="18000" />
       <workItem from="1608231365536" duration="3226000" />
-      <workItem from="1608346460868" duration="11048000" />
+      <workItem from="1608346460868" duration="13066000" />
     </task>
     <servers />
   </component>
@@ -490,10 +483,11 @@
     <state x="1979" y="-54" key="#CLI_Interpreters/0.23.1440.821/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1607710451644" />
     <state x="1414" y="-1210" key="#CLI_Interpreters/0.23.1440.877/-1224.-1177.1920.1105/696.-1417.2560.1417@696.-1417.2560.1417" timestamp="1602144592269" />
     <state x="404" y="151" key="#CLI_Interpreters/0.23.1440.877/1440.-226.1920.1105@0.23.1440.877" timestamp="1606723877421" />
-    <state x="581" y="310" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1607850448888">
-      <screen x="0" y="23" width="1440" height="821" />
+    <state x="2215" y="185" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1608377449536">
+      <screen x="1440" y="-226" width="1920" height="1177" />
     </state>
     <state x="2214" y="185" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1440.812/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1603431856264" />
+    <state x="2215" y="185" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1440.821/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1608377449535" />
     <state x="581" y="310" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1440.821@0.23.1440.821" timestamp="1607850448888" />
     <state x="1440" y="-226" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1607941487745">
       <screen x="1440" y="-226" width="1920" height="1177" />

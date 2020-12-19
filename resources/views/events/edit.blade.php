@@ -172,7 +172,19 @@
                             </div>
                         </div>
                         <div class="col-span-3">
-                            time picker
+                            @include('partials.forms.inputTimePicker', [
+                                      'label' =>  __('event.time_start'),
+                                      'name' => 'time_start',
+                                      'placeholder' => __('event.select_time'),
+                                      'value' => $eventDateTimeParameters['timeStart'],
+                                      'required' => true,
+                                ])
+
+
+
+
+
+
                         </div>
                     </div>
 

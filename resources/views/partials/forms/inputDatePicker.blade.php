@@ -23,16 +23,11 @@
 @if (!empty($label))
     <label for="{{ $name }}" class="block text-sm font-medium text-gray-700 inline">{{$label}}</label>
 
+    {{-- Required (Tooltip) --}}
     @if($required)
         <span class="simple-tooltip text-gray-500 inline" title="@lang('views.required')">*</span>
     @endif
 @endif
-
-{{-- Tooltip --}}
-{{--@if(!empty($tooltipFontAwesomeClass) && !empty($tooltipText))
-    <i data-toggle="tooltip" data-placement="top" title="" class="{{$tooltipFontAwesomeClass}}" data-original-title="{{$tooltipText}}"></i>
-@endif--}}
-
 
 <div class="mt-1 relative rounded-md shadow-sm {{$class}}" data-date-format="dd-mm-yyyy">
     <input
