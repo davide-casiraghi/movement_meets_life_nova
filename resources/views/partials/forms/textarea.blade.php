@@ -8,12 +8,13 @@
         - $style: plain|tinymce
 --}}
 
-<label for="{{ $name }}" class="block text-sm font-medium text-gray-700">
-    {{ $title }}
+@if (!empty($label))
+    <label for="{{ $name }}" class="block text-sm font-medium text-gray-700 inline">{{$label}}</label>
+
     @if($required)
-        <span class="text-gray-500" data-toggle="tooltip" data-placement="top" title="@lang('views.required')">*</span>
+        <span class="simple-tooltip text-gray-500 inline" title="@lang('views.required')">*</span>
     @endif
-</label>
+@endif
 
 <div class="mt-1">
     <textarea

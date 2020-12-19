@@ -21,7 +21,11 @@
 --}}
 
 @if (!empty($label))
-    <label for="{{ $name }}" class="block text-sm font-medium text-gray-700">{{$label}}</label>
+    <label for="{{ $name }}" class="block text-sm font-medium text-gray-700 inline">{{$label}}</label>
+
+    @if($required)
+        <span class="simple-tooltip text-gray-500 inline" title="@lang('views.required')">*</span>
+    @endif
 @endif
 
 {{-- Tooltip --}}

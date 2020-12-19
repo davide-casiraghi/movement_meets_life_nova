@@ -112306,7 +112306,7 @@ __webpack_require__(/*! @fancyapps/fancybox */ "./node_modules/@fancyapps/fancyb
 
 __webpack_require__(/*! bootstrap-datepicker */ "./node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.js");
 
-__webpack_require__(/*! ./vendors/tinymce */ "./resources/js/vendors/tinymce.js"); //require("@staaky/tipped");
+__webpack_require__(/*! ./vendors/tinymce */ "./resources/js/vendors/tinymce.js"); //require("@staaky/tipped"); //imported in bootstrap.js
 // Custom js related to vedor packages
 
 
@@ -112314,7 +112314,9 @@ __webpack_require__(/*! ./video_embed */ "./resources/js/video_embed.js");
 
 __webpack_require__(/*! ./gallery_mansonry */ "./resources/js/gallery_mansonry.js");
 
-__webpack_require__(/*! ./vendors/bootstrap-datepicker */ "./resources/js/vendors/bootstrap-datepicker.js"); // Helpers
+__webpack_require__(/*! ./vendors/bootstrap-datepicker */ "./resources/js/vendors/bootstrap-datepicker.js");
+
+__webpack_require__(/*! ./vendors/staaky_tipped */ "./resources/js/vendors/staaky_tipped.js"); // Helpers
 
 
 __webpack_require__(/*! ./snippets/accordion */ "./resources/js/snippets/accordion.js");
@@ -112447,6 +112449,31 @@ $(document).ready(function () {
     multidate: true,
     multidateSeparator: ","
   });
+});
+
+/***/ }),
+
+/***/ "./resources/js/vendors/staaky_tipped.js":
+/*!***********************************************!*\
+  !*** ./resources/js/vendors/staaky_tipped.js ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/**
+ * We manage tooltips with
+ * https://www.tippedjs.com/documentation
+ *
+ * Imported in resources/js/bootstrap.js
+ **/
+$(document).ready(function () {
+  /**
+   * Simple tooltip
+   *
+   * Example:
+   * <span class="simple-tooltip" title="First tooltip">I have a tooltip</span>
+   **/
+  Tipped.create('.simple-tooltip');
 });
 
 /***/ }),

@@ -168,9 +168,9 @@
     <div id="onMultiple" class="onFrequency hidden">
         @include('partials.forms.inputDatePicker',[
                     'class' => 'datepickerMultiple',
+                    'name' => 'multiple_dates',
                     'label' =>  __('event.multiple_dates'),
                     'placeholder' => __('event.select_multiple_dates'),
-                    'name' => 'multiple_dates',
                     'value' => $eventDateTimeParameters['multipleDates'],
                     'endDate' => '+1y',
                     'tooltipFontAwesomeClass' => 'fa fa-info-circle',
@@ -179,8 +179,18 @@
                 ])
     </div>
 
-    <div class="hidden repeatUntilSelector">
-        dddd
+    <div class="hidden repeatUntilSelector mt-4">
+        @include('partials.forms.inputDatePicker', [
+                  'class' => 'datepicker',
+                  'label' => __('event.repeat_until'),
+                  'name' => 'repeat_until',
+                  'placeholder' => __('views.select_date'),
+                  'value' => $eventDateTimeParameters['repeatUntil'],
+                  'endDate' => '+1y',
+                  'tooltipFontAwesomeClass' => 'fa fa-info-circle',
+                  'tooltipText' => __('laravel-events-calendar::event.max_until'),
+                  'required' => true,
+            ])
     </div>
 
 

@@ -29,9 +29,17 @@
 
 @stop
 
-<label class="block text-sm leading-5 font-medium text-gray-700">
+{{--<label class="block text-sm leading-5 font-medium text-gray-700">
     {{ $title }}
-</label>
+</label>--}}
+@if (!empty($label))
+    <label for="{{ $name }}" class="block text-sm font-medium text-gray-700 inline">{{$label}}</label>
+
+    @if($required)
+        <span class="simple-tooltip text-gray-500 inline" title="@lang('views.required')">*</span>
+    @endif
+@endif
+
 <div class="mt-2 flex items-center">
     <span class="inline-block h-12 w-12 rounded-full overflow-hidden bg-gray-100">
 

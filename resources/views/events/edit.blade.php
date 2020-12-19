@@ -29,7 +29,7 @@
                     <div class="grid grid-cols-6 gap-6">
                         <div class="col-span-6">
                             @include('partials.forms.input', [
-                                    'title' => __('views.title'),
+                                    'label' => __('views.title'),
                                     'name' => 'title',
                                     'placeholder' => '',
                                     'value' => old('title', $event->title),
@@ -40,7 +40,7 @@
 
                         <div class="col-span-6">
                             @include('partials.forms.select', [
-                                'title' => __('event.category'),
+                                'label' => __('event.category'),
                                 'name' => 'event_category_id',
                                 'placeholder' => __('ui.events.select_category'),
                                 'records' => $eventCategories,
@@ -66,7 +66,7 @@
                     <div class="grid grid-cols-6 gap-6">
                         <div class="col-span-6">
                             @include('partials.forms.select', [
-                                'title' => __('ui.events.teacher'),
+                                'label' => __('general.teacher'),
                                 'name' => 'teacher_id',
                                 'placeholder' => __('ui.events.select_teacher'),
                                 'records' => $teachers,
@@ -77,7 +77,7 @@
 
                         <div class="col-span-6">
                             @include('partials.forms.select', [
-                                'title' => __('ui.events.organizer'),
+                                'label' => __('general.organizer'),
                                 'name' => 'organizer_id',
                                 'placeholder' => __('ui.events.select_organizer'),
                                 'records' => $organizers,
@@ -103,7 +103,7 @@
 
                         <div class="col-span-6">
                             @include('partials.forms.select', [
-                                'title' => __('general.venue'),
+                                'label' => __('general.venue'),
                                 'name' => 'venue_id',
                                 'placeholder' => __('ui.events.select_venue'),
                                 'records' => $venues,
@@ -129,7 +129,7 @@
 
                         <div class="col-span-6">
                             @include('partials.forms.textarea', [
-                                   'title' => __('general.description'),
+                                   'label' => __('general.description'),
                                    'name' => 'description',
                                    'placeholder' => '',
                                    'value' => old('description', $event->description),
@@ -163,10 +163,11 @@
                             <div class="col-12 col-md-3 mb-2 mb-lg-0">
                                 @include('partials.forms.inputDatePicker',[
                                     'class' => 'datepicker',
-                                    'label' => '',
-                                    'placeholder' => 'Created after',
+                                    'label' => __('event.date_start'),
+                                    'placeholder' => __('general.select_date'),
                                     'name' => 'startDate',
                                     'value' => old('startDate', $eventDateTimeParameters['dateStart']),
+                                    'required' => true,
                                 ])
                             </div>
                         </div>
@@ -180,10 +181,11 @@
                         <div class="col-span-3">
                             @include('partials.forms.inputDatePicker',[
                                     'class' => 'datepicker',
-                                    'label' => '',
-                                    'placeholder' => 'Created after',
+                                    'label' => __('event.date_end'),
+                                    'placeholder' => __('general.select_date'),
                                     'name' => 'endDate',
                                     'value' => old('endDate', $eventDateTimeParameters['dateEnd']),
+                                    'required' => true,
                                 ])
                         </div>
                         <div class="col-span-3">
@@ -213,7 +215,7 @@
                     <div class="grid grid-cols-6 gap-6">
                         <div class="col-span-6">
                             @include('partials.forms.input', [
-                                    'title' => __('event.email_for_more_info'),
+                                    'label' => __('event.email_for_more_info'),
                                     'name' => 'contact_email',
                                     'placeholder' => '',
                                     'value' => old('contact_email', $event->contact_email),
@@ -224,7 +226,7 @@
 
                         <div class="col-span-6">
                             @include('partials.forms.input', [
-                                    'title' => __('event.facebook_event'),
+                                    'label' => __('event.facebook_event'),
                                     'name' => 'facebook_event_link',
                                     'placeholder' => '',
                                     'value' => old('facebook_event_link', $event->facebook_event_link),
@@ -235,7 +237,7 @@
 
                         <div class="col-span-6">
                             @include('partials.forms.input', [
-                                    'title' => __('event.event_url'),
+                                    'label' => __('event.event_url'),
                                     'name' => 'website_event_link',
                                     'placeholder' => '',
                                     'value' => old('website_event_link', $event->website_event_link),
@@ -262,7 +264,7 @@
 
                         <div class="col-span-6">
                             @include('partials.forms.uploadImage', [
-                                      'title' => __('views.upload_profile_picture'),
+                                      'label' => __('views.upload_profile_picture'),
                                       'name' => 'profile_picture',
                                       'required' => FALSE,
                                       'collection' => 'profile_picture',

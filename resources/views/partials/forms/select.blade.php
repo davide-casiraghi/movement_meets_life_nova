@@ -8,12 +8,14 @@
         - $record: the content of the selected value
 --}}
 
-<label for="{{ $name }}" class="block text-sm font-medium text-gray-700">
-    {{$title}}
+@if (!empty($label))
+    <label for="{{ $name }}" class="block text-sm font-medium text-gray-700 inline">{{$label}}</label>
+
     @if($required)
-        <span class="text-gray-500" data-toggle="tooltip" data-placement="top" title="@lang('views.required')">*</span>
+        <span class="simple-tooltip text-gray-500 inline" title="@lang('views.required')">*</span>
     @endif
-</label>
+@endif
+
 <select id="{{ $name }}" name="{{ $name }}" autocomplete="{{ $name }}" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
     @if(!empty($emptyState)) <option value="">@if(!empty($emptyStateText)){{$emptyStateText}}@endif</option> @endif
     @foreach ($records as $value => $record)
