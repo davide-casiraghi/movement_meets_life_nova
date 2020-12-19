@@ -29,8 +29,6 @@ class OrganizerFactory extends Factory
             'email' => $this->faker->unique()->safeEmail,
             'description' => $this->faker->paragraph,
             'phone' => $this->faker->e164PhoneNumber,
-
-            'country_id' => $this->faker->numberBetween($min = 1, $max = 250),
         ];
     }
 }
