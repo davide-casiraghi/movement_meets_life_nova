@@ -2,14 +2,79 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f86be012-5364-473d-a5f7-a7b8c0c0f2c5" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/vendors/_+import.vendors.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/vendors/_+import.vendors.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/de/auth.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/de/donations.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/de/general.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/de/general.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/de/homepage-serach.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/de/menu.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/de/pagination.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/de/passwords.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/de/views.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/de/views.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/auth.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/donations.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/event.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/event.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/general.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/general.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/homepage-serach.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/menu.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/messages.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/messages.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/pagination.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/passwords.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/ui.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/validation.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/views.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/views.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/es/auth.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/es/donations.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/es/general.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/es/general.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/es/homepage-serach.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/es/menu.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/es/pagination.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/es/passwords.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/es/views.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/es/views.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/fr/auth.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/fr/donations.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/fr/general.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/fr/general.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/fr/homepage-serach.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/fr/menu.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/fr/pagination.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/fr/passwords.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/fr/views.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/fr/views.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/it/auth.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/it/donations.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/it/general.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/it/general.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/it/homepage-serach.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/it/menu.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/it/pagination.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/it/passwords.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/it/views.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/it/views.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/pl/auth.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/pl/donations.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/pl/general.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/pl/general.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/pl/homepage-serach.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/pl/menu.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/pl/pagination.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/pl/passwords.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/pl/views.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/pl/views.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/pt/auth.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/pt/donations.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/pt/general.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/pt/general.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/pt/homepage-serach.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/pt/menu.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/pt/pagination.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/pt/passwords.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/pt/views.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/pt/views.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/ru/auth.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/ru/donations.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/ru/general.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ru/general.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/ru/homepage-serach.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/ru/menu.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/ru/pagination.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/ru/passwords.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/ru/views.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ru/views.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/events/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/events/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/forms/inputDatePicker.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/forms/inputDatePicker.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/forms/inputTimePicker.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/forms/inputTimePicker.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/events/repeat-event.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/events/repeat-event.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/forms/select.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/forms/select.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -199,7 +264,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Helpers" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/lang/ru" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -219,11 +284,11 @@
       <recent name="$PROJECT_DIR$/resources/views/partials/pages/home" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app/Helpers" />
-      <recent name="$PROJECT_DIR$/app" />
-      <recent name="$PROJECT_DIR$/app/Repositories" />
-      <recent name="$PROJECT_DIR$/app/Services" />
-      <recent name="$PROJECT_DIR$/resources/js/vendors" />
+      <recent name="$PROJECT_DIR$/resources/lang/ru" />
+      <recent name="$PROJECT_DIR$/resources/lang/pt" />
+      <recent name="$PROJECT_DIR$/resources/lang/pl" />
+      <recent name="$PROJECT_DIR$/resources/lang/it" />
+      <recent name="$PROJECT_DIR$/resources/lang/fr" />
     </key>
   </component>
   <component name="RunManager">
@@ -469,7 +534,7 @@
       <workItem from="1608218389071" duration="567000" />
       <workItem from="1608221051678" duration="18000" />
       <workItem from="1608231365536" duration="3226000" />
-      <workItem from="1608346460868" duration="13066000" />
+      <workItem from="1608346460868" duration="14863000" />
     </task>
     <servers />
   </component>
@@ -570,7 +635,7 @@
     <state x="1977" y="-107" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.23.1440.814/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1603736147593" />
     <state x="317" y="-1058" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.23.1440.821/-220.-1177.1920.1177@-220.-1177.1920.1177" timestamp="1601648303881" />
     <state x="403" y="53" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.23.1440.821@0.23.1440.821" timestamp="1607860194397" />
-    <state x="2001" y="-12" width="831" height="714" key="find.popup" timestamp="1608374022017">
+    <state x="2001" y="-13" width="916" height="744" key="find.popup" timestamp="1608396355267">
       <screen x="1440" y="-226" width="1920" height="1177" />
     </state>
     <state x="2001" y="218" width="831" height="726" key="find.popup/0.0.1440.900/1440.0.1920.1200@1440.0.1920.1200" timestamp="1602316388123" />
@@ -585,7 +650,7 @@
     <state x="421" y="170" width="687" height="515" key="find.popup/0.23.1440.814/1440.-226.1920.1177@0.23.1440.814" timestamp="1607441966631" />
     <state x="2001" y="-12" width="831" height="714" key="find.popup/0.23.1440.814/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1607662333983" />
     <state x="421" y="171" width="866" height="528" key="find.popup/0.23.1440.816/1440.-226.1920.1177@0.23.1440.816" timestamp="1605803074351" />
-    <state x="2001" y="-13" width="916" height="744" key="find.popup/0.23.1440.816/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1608126634090" />
+    <state x="2001" y="-13" width="916" height="744" key="find.popup/0.23.1440.816/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1608396355267" />
     <state x="421" y="171" width="866" height="548" key="find.popup/0.23.1440.816@0.23.1440.816" timestamp="1608000406548" />
     <state x="2001" y="-12" width="831" height="714" key="find.popup/0.23.1440.821/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1608374022017" />
     <state x="421" y="172" width="622" height="548" key="find.popup/0.23.1440.821@0.23.1440.821" timestamp="1607860299368" />
@@ -594,7 +659,7 @@
     <state x="421" y="172" width="687" height="519" key="find.popup/0.23.1440.822@0.23.1440.822" timestamp="1607761226147" />
     <state x="1444" y="-1160" width="1108" height="857" key="find.popup/0.23.1440.877/-1224.-1177.1920.1105/696.-1417.2560.1417@696.-1417.2560.1417" timestamp="1602148735038" />
     <state x="2001" y="-25" width="831" height="670" key="find.popup/0.23.1440.877/1440.-226.1920.1105@1440.-226.1920.1105" timestamp="1603645292743" />
-    <state x="2075" y="62" width="896" height="684" key="search.everywhere.popup" timestamp="1608373098323">
+    <state x="2075" y="62" width="896" height="684" key="search.everywhere.popup" timestamp="1608396405866">
       <screen x="1440" y="-226" width="1920" height="1177" />
     </state>
     <state x="476" y="221" width="671" height="467" key="search.everywhere.popup/0.23.1440.811/-220.-1177.1920.1177@0.23.1440.811" timestamp="1601969940815" />
@@ -607,7 +672,7 @@
     <state x="2075" y="62" width="896" height="684" key="search.everywhere.popup/0.23.1440.814/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1608122005742" />
     <state x="415" y="-889" width="670" height="676" key="search.everywhere.popup/0.23.1440.816/-220.-1177.1920.1177@-220.-1177.1920.1177" timestamp="1601562022484" />
     <state x="476" y="223" width="672" height="473" key="search.everywhere.popup/0.23.1440.816/1440.-226.1920.1177@0.23.1440.816" timestamp="1605801959954" />
-    <state x="2075" y="62" width="896" height="684" key="search.everywhere.popup/0.23.1440.816/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1608271285952" />
+    <state x="2075" y="62" width="896" height="684" key="search.everywhere.popup/0.23.1440.816/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1608396405866" />
     <state x="476" y="223" width="670" height="469" key="search.everywhere.popup/0.23.1440.816@0.23.1440.816" timestamp="1608002769732" />
     <state x="415" y="-889" width="894" height="677" key="search.everywhere.popup/0.23.1440.821/-220.-1177.1920.1177@-220.-1177.1920.1177" timestamp="1601648243740" />
     <state x="2075" y="62" width="896" height="684" key="search.everywhere.popup/0.23.1440.821/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1608373098323" />

@@ -28,6 +28,7 @@ return [
     'max_until' => 'Es posible fijar como máximo un año de repetición a partir de hoy',
     'facebook_event' => 'Evento de Facebook',
     'facebook_profile' => 'Perfil de Facebook',
+    'website' => 'Sitio web',
     'upload_profile_picture' => 'Subir una foto de perfil',
     'event_url' => 'URL del evento',
     'translations' => 'Traducciones',

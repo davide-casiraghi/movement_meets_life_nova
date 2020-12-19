@@ -28,6 +28,7 @@ return [
     'max_until' => 'Es ist möglich, ab heute Wiederholungen für maximal ein Jahr einzustellen',
     'facebook_event' => 'Facebook Event',
     'facebook_profile' => 'Facebook Profil',
+    'website' => 'Webseite des Events',
     'upload_profile_picture' => 'Profilbild hochladen',
     'event_url' => 'Event URL',
     'translations' => 'Übersetzung',

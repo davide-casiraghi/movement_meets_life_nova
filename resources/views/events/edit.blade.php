@@ -66,9 +66,9 @@
                     <div class="grid grid-cols-6 gap-6">
                         <div class="col-span-6">
                             @include('partials.forms.select', [
-                                'label' => __('general.teacher'),
+                                'label' => __('general.teachers'),
                                 'name' => 'teacher_id',
-                                'placeholder' => __('ui.events.select_teacher'),
+                                'placeholder' => __('event.select_teachers'),
                                 'records' => $teachers,
                                 'selected' => $event->teacher_id,
                                 'required' => TRUE,
@@ -77,9 +77,9 @@
 
                         <div class="col-span-6">
                             @include('partials.forms.select', [
-                                'label' => __('general.organizer'),
+                                'label' => __('general.organizers'),
                                 'name' => 'organizer_id',
-                                'placeholder' => __('ui.events.select_organizer'),
+                                'placeholder' => __('event.select_organizers'),
                                 'records' => $organizers,
                                 'selected' => $event->organizer_id,
                                 'required' => TRUE,
@@ -179,12 +179,6 @@
                                       'value' => $eventDateTimeParameters['timeStart'],
                                       'required' => true,
                                 ])
-
-
-
-
-
-
                         </div>
                     </div>
 
@@ -201,18 +195,20 @@
                                 ])
                         </div>
                         <div class="col-span-3">
-                            time picker
+                            @include('partials.forms.inputTimePicker', [
+                                     'label' =>  __('event.time_end'),
+                                     'name' => 'time_end',
+                                     'placeholder' => __('event.select_time'),
+                                     'value' => $eventDateTimeParameters['timeEnd'],
+                                     'required' => true,
+                               ])
                         </div>
                     </div>
 
                     {{-- Repeat type --}}
                     @include('partials.events.repeat-event')
 
-
-
                 </div>
-
-
 
                 {{-- Links & Contacts --}}
                 <div class="md:col-span-1">

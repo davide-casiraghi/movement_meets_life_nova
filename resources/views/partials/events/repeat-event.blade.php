@@ -159,9 +159,24 @@
 
     {{-- Monthly --}}
     <div id="onMonthly" class="onFrequency hidden">
-        <label>@lang('event.monthly') *</label>
-        <select name="on_monthly_kind" id="on_monthly_kind" class="selectpicker" title="@lang('general.select_repeat_monthly_kind')">
-        </select>
+        {{--<label>@lang('event.monthly') *</label>
+        <select name="on_monthly_kind"
+                id="on_monthly_kind"
+                class="selectpicker"
+                title="@lang('general.select_repeat_monthly_kind')"
+                placeholder="Select start date first">
+        </select>--}}
+
+        @include('partials.forms.select', [
+                'label' => __('general.select_repeat_monthly_kind'),
+                'name' => 'on_monthly_kind',
+                'placeholder' => 'Select start date first',
+                'records' => '',
+                'selected' => '',
+                'required' => TRUE,
+            ])
+
+
         <input type="hidden" name="on_monthly_kind_value" @if(!empty($event->on_monthly_kind))  value="{{$event->on_monthly_kind}}" @endif/>
     </div>
 

@@ -28,6 +28,7 @@ return [
     'max_until' => 'Il est possible de fixer un maximum d\'un an de répétition à partir d\'aujourd\'hui.',
     'facebook_event' => 'Page Facebook de l\'événement',
     'facebook_profile' => 'Profil Facebook',
+    'website' => 'Site web de l\'événement',
     'upload_profile_picture' => 'Télécharger une photo de profil',
     'event_url' => 'Adresse url de l\'événement',
     'translations' => 'Traductions',

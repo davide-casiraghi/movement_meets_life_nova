@@ -48,5 +48,8 @@ return [
     'administrator_will_check' => 'The administrator will check soon the event.',
     'message_sent_to_organizers' => 'Message sent to the organizers',
     'message_sent_to_organizers_description' => 'Your message has been delivered to the emails of the organizers of this event.',
-    'past_event' => 'The event is finished',
+    'select_organizers' => 'Select organizers',
+    'select_teachers' => 'Select teachers',
+
+
 ];
