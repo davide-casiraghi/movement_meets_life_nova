@@ -166,4 +166,18 @@ class EventController extends Controller
     }
 
 
+    /**
+     * Return the HTML of the monthly select dropdown - inspired by - https://www.theindychannel.com/calendar
+     * - Used by the AJAX in the event repeat view -
+     * - The HTML contain a <select></select> with four <options></options>.
+     *
+     * @param  \Illuminate\Http\Request  $request  - Just the day
+     * @return string
+     */
+    public function calculateMonthlySelectOptions(Request $request)
+    {
+        return $this->eventService->getMonthlySelectOptions($request);
+    }
+
+
 }

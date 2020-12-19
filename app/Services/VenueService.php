@@ -1,6 +1,7 @@
 <?php
 namespace App\Services;
 
+use App\Helpers\Helper;
 use App\Http\Requests\VenueStoreRequest;
 use App\Models\Venue;
 use App\Repositories\VenueRepository;
@@ -135,6 +136,34 @@ class VenueService {
         }
 
         return $thumbUrls;
+    }
+
+    /**
+     * Return the GPS coordinates of the venue
+     * https://developer.mapquest.com/.
+     *
+     * @param  string $address
+     * @return array $ret
+     */
+    public static function getVenueGpsCoordinates(string $address)
+    {
+        $address = Helper::cleanString($address);
+        $key = 'Ad5KVnAISxX6aHyj6fAnHcKeh30n4W60';
+        $url = 'https://www.mapquestapi.com/geocoding/v1/address?key='.$key.'&location='.$address;
+        $response = @file_get_contents($url);
+
+        if (! $response) {
+            $url = 'http://open.mapquestapi.com/geocoding/v1/address?key='.$key.'&location='.$address;
+            $response = @file_get_contents($url);
+        }
+
+        $response = json_decode($response, true);
+
+        $ret = [];
+        $ret['lat'] = $response['results'][0]['locations'][0]['latLng']['lat'];
+        $ret['lng'] = $response['results'][0]['locations'][0]['latLng']['lng'];
+
+        return $ret;
     }
 
 }

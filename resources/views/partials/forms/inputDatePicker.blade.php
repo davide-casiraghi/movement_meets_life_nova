@@ -24,6 +24,12 @@
     <label for="{{ $name }}" class="block text-sm font-medium text-gray-700">{{$label}}</label>
 @endif
 
+{{-- Tooltip --}}
+{{--@if(!empty($tooltipFontAwesomeClass) && !empty($tooltipText))
+    <i data-toggle="tooltip" data-placement="top" title="" class="{{$tooltipFontAwesomeClass}}" data-original-title="{{$tooltipText}}"></i>
+@endif--}}
+
+
 <div class="mt-1 relative rounded-md shadow-sm {{$class}}" data-date-format="dd-mm-yyyy">
     <input
             name="{{ $name }}"

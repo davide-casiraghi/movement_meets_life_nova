@@ -109,6 +109,8 @@ Route::name('events.')->group(function () {
     Route::post('/events', [EventController::class, 'store'])->name('store');
     Route::delete('/events/{id}', [EventController::class, 'destroy'])->name('destroy');
     Route::get('/events/{id}', [EventController::class, 'show'])->name('show');
+
+    Route::get('/event/monthSelectOptions/', [EventController::class, 'calculateMonthlySelectOptions'])->name('monthSelectOptions');  // To populate the event repeat by month options
 });
 
 // Event categories

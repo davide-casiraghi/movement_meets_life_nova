@@ -4,14 +4,14 @@
     {{-- ON LOAD --}}
 
     {{-- SET the week days saved - when the edit view is open  --}}
-    {{--var weekDaysSelected = $('#repeat_weekly_on').val();
+    var weekDaysSelected = $('#repeat_weekly_on').val();
     if (weekDaysSelected){
         var weekDaysSelectedArray = weekDaysSelected.split(',');
         for (i = 0; i < weekDaysSelectedArray.length; ++i) {
             $('#onWeekly label#day_'+ weekDaysSelectedArray[i]).addClass('active');
             $('#onWeekly label#day_'+ weekDaysSelectedArray[i]+' input' ).attr('checked', true);
         }
-    }--}}
+    }
 
     {{-- SET the repeat values, show and hide the repeat options - when the edit view is open --}}
     setRepeatValues();
@@ -24,9 +24,10 @@
     });
 
     {{-- UPDATE monthly select options every time the start date is changed --}}
-    {{--$("input[name='startDate']").change(function(){
+    $("input[name='startDate']").change(function(){
+    //alert('aaa');
         updateMonthlySelectOptions();
-    });--}}
+    });
 
 
     {{-- FUNCTIONS --}}
@@ -84,7 +85,7 @@
     {{-- POPULATE the select "Monthly on" options - when the edit view is open --}}
     function updateMonthlySelectOptions(){
 
-        var montlyOnSelected = $("input[name='on_monthly_kind_value']").val();
+        var monthlyOnSelected = $("input[name='on_monthly_kind_value']").val();
 
         var request = $.ajax({
             url: "/event/monthSelectOptions",
@@ -94,7 +95,7 @@
             success: function( data ) {
                 $("#on_monthly_kind").html(data);
                 $("#on_monthly_kind").selectpicker('refresh');
-                $("#on_monthly_kind").selectpicker('val', montlyOnSelected);
+                $("#on_monthly_kind").selectpicker('val', monthlyOnSelected);
             }
         });
 
@@ -126,6 +127,8 @@
 </div>
 
 <div class="repeatDetails hidden mt-4">
+
+    {{-- Weekly --}}
     <div id="onWeekly" class="onFrequency hidden">
         <label>@lang('event.weekly_on')</label>
         <div class="btn-group btn-group-toggle" data-toggle="buttons">
@@ -154,6 +157,7 @@
         <input type="hidden" name="repeat_weekly_on" id="repeat_weekly_on" @if(!empty($event->repeat_weekly_on))  value="{{$event->repeat_weekly_on}}" @endif/>
     </div>
 
+    {{-- Monthly --}}
     <div id="onMonthly" class="onFrequency hidden">
         <label>@lang('event.monthly') *</label>
         <select name="on_monthly_kind" id="on_monthly_kind" class="selectpicker" title="@lang('general.select_repeat_monthly_kind')">
