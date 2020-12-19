@@ -3,12 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="f86be012-5364-473d-a5f7-a7b8c0c0f2c5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EventController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EventController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/EventRepetitionRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/EventRepetitionRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/EventRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/EventRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/EventRepetitionService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/EventRepetitionService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/EventService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/EventService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/events/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/events/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/vendors/bootstrap-datepicker.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/vendors/bootstrap-datepicker.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/events/repeat-event.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/events/repeat-event.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/forms/inputDatePicker.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/forms/inputDatePicker.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -468,7 +466,7 @@
       <workItem from="1608218389071" duration="567000" />
       <workItem from="1608221051678" duration="18000" />
       <workItem from="1608231365536" duration="3226000" />
-      <workItem from="1608346460868" duration="4021000" />
+      <workItem from="1608346460868" duration="6219000" />
     </task>
     <servers />
   </component>
@@ -568,8 +566,8 @@
     <state x="1977" y="-107" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.23.1440.814/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1603736147593" />
     <state x="317" y="-1058" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.23.1440.821/-220.-1177.1920.1177@-220.-1177.1920.1177" timestamp="1601648303881" />
     <state x="403" y="53" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.23.1440.821@0.23.1440.821" timestamp="1607860194397" />
-    <state x="2001" y="-12" width="831" height="714" key="find.popup" timestamp="1608204500454">
-      <screen x="1440" y="-226" width="1920" height="1177" />
+    <state x="421" y="172" width="687" height="519" key="find.popup" timestamp="1608369291314">
+      <screen x="0" y="23" width="1440" height="822" />
     </state>
     <state x="2001" y="218" width="831" height="726" key="find.popup/0.0.1440.900/1440.0.1920.1200@1440.0.1920.1200" timestamp="1602316388123" />
     <state x="1444" y="-1160" width="1108" height="857" key="find.popup/0.23.1440.808/-1224.-1177.1920.1177/696.-1417.2560.1417@696.-1417.2560.1417" timestamp="1602254003882" />
@@ -587,7 +585,7 @@
     <state x="421" y="171" width="866" height="548" key="find.popup/0.23.1440.816@0.23.1440.816" timestamp="1608000406548" />
     <state x="2001" y="-12" width="831" height="714" key="find.popup/0.23.1440.821/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1607700338521" />
     <state x="421" y="172" width="622" height="548" key="find.popup/0.23.1440.821@0.23.1440.821" timestamp="1607860299368" />
-    <state x="421" y="172" width="687" height="519" key="find.popup/0.23.1440.822/1440.-226.1920.1177@0.23.1440.822" timestamp="1607412207363" />
+    <state x="421" y="172" width="687" height="519" key="find.popup/0.23.1440.822/1440.-226.1920.1177@0.23.1440.822" timestamp="1608369291314" />
     <state x="2001" y="-12" width="831" height="714" key="find.popup/0.23.1440.822/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1608204500454" />
     <state x="421" y="172" width="687" height="519" key="find.popup/0.23.1440.822@0.23.1440.822" timestamp="1607761226147" />
     <state x="1444" y="-1160" width="1108" height="857" key="find.popup/0.23.1440.877/-1224.-1177.1920.1105/696.-1417.2560.1417@696.-1417.2560.1417" timestamp="1602148735038" />
