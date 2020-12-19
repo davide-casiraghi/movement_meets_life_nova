@@ -3,15 +3,20 @@
   <component name="ChangeListManager">
     <list default="true" id="f86be012-5364-473d-a5f7-a7b8c0c0f2c5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/events/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/events/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/events/repeat-event.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/events/repeat-event.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/forms/input.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/forms/input.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/forms/inputDatePicker.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/forms/inputDatePicker.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/forms/select.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/forms/select.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/forms/textarea.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/forms/textarea.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/forms/uploadImage.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/forms/uploadImage.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/eventCategories/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/eventCategories/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/eventCategories/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/eventCategories/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/glossaries/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/glossaries/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/glossaries/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/glossaries/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/organizers/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/organizers/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/organizers/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/organizers/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/postCategories/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/postCategories/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/postCategories/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/postCategories/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/posts/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/posts/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/posts/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/posts/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/tags/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/tags/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/tags/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/tags/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/teachers/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/teachers/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/teachers/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/teachers/edit.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -471,7 +476,7 @@
       <workItem from="1608218389071" duration="567000" />
       <workItem from="1608221051678" duration="18000" />
       <workItem from="1608231365536" duration="3226000" />
-      <workItem from="1608346460868" duration="10771000" />
+      <workItem from="1608346460868" duration="11048000" />
     </task>
     <servers />
   </component>

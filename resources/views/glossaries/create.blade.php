@@ -20,7 +20,7 @@
             <div class="grid grid-cols-6 gap-6">
                 <div class="col-span-6">
                     @include('partials.forms.input', [
-                            'title' => __('ui.glossaries.term'),
+                            'label' => __('ui.glossaries.term'),
                             'name' => 'term',
                             'placeholder' => 'Glossary term',
                             'value' => old('term'),
@@ -31,7 +31,7 @@
 
                 <div class="col-span-6">
                     @include('partials.forms.textarea', [
-                            'title' => __('ui.glossaries.definition'),
+                            'label' => __('ui.glossaries.definition'),
                             'name' => 'definition',
                             'placeholder' => '',
                             'value' => old('definition'),
@@ -44,7 +44,7 @@
 
                 <div class="col-span-6">
                     @include('partials.forms.textarea', [
-                           'title' => __('ui.glossaries.body'),
+                           'label' => __('ui.glossaries.body'),
                            'name' => 'body',
                            'placeholder' => '',
                            'value' => old('body'),
@@ -57,7 +57,7 @@
 
                 <div class="col-span-6">
                     @include('partials.forms.uploadImage', [
-                              'title' => __('ui.glossaries.intro_image'),
+                              'label' => __('ui.glossaries.intro_image'),
                               'name' => 'introimage',
                               //'value' => $glossary->introimage,
                               'required' => false,

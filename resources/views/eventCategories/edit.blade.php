@@ -21,7 +21,7 @@
             <div class="grid grid-cols-6 gap-6">
                 <div class="col-span-6">
                     @include('partials.forms.input', [
-                            'title' => __('ui.eventCategories.name'),
+                            'label' => __('ui.eventCategories.name'),
                             'name' => 'name',
                             'placeholder' => 'Event category name',
                             'value' => old('name', $eventCategory->name),
@@ -32,7 +32,7 @@
 
                 <div class="col-span-6">
                     @include('partials.forms.textarea', [
-                            'title' => __('ui.eventCategories.description'),
+                            'label' => __('ui.eventCategories.description'),
                             'name' => 'description',
                             'placeholder' => '',
                             'value' => old('description', $eventCategory->description),

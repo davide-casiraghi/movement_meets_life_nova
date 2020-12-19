@@ -25,7 +25,7 @@
             <div class="grid grid-cols-6 gap-6">
                 <div class="col-span-6">
                     @include('partials.forms.input', [
-                            'title' => __('general.name'),
+                            'label' => __('general.name'),
                             'name' => 'name',
                             'placeholder' => '',
                             'value' => old('name', $teacher->name),
@@ -36,7 +36,7 @@
 
                 <div class="col-span-6">
                     @include('partials.forms.input', [
-                            'title' => __('general.surname'),
+                            'label' => __('general.surname'),
                             'name' => 'surname',
                             'placeholder' => '',
                             'value' => old('surname', $teacher->surname),
@@ -47,7 +47,7 @@
 
                 <div class="col-span-6">
                     @include('partials.forms.select', [
-                        'title' => __('general.country'),
+                        'label' => __('general.country'),
                         'name' => 'country_id',
                         'placeholder' => '',
                         'records' => $countries,
@@ -58,7 +58,7 @@
 
                 <div class="col-span-6">
                     @include('partials.forms.textarea', [
-                           'title' => __('teacher.bio'),
+                           'label' => __('teacher.bio'),
                            'name' => 'bio',
                            'placeholder' => '',
                            'value' => old('bio', $teacher->bio),
@@ -71,7 +71,7 @@
 
                 <div class="col-span-6">
                     @include('partials.forms.input', [
-                            'title' => __('teacher.year_of_starting_to_practice'),
+                            'label' => __('teacher.year_of_starting_to_practice'),
                             'name' => 'year_starting_practice',
                             'placeholder' => '',
                             'value' => old('year_starting_practice', $teacher->year_starting_practice),
@@ -82,7 +82,7 @@
 
                 <div class="col-span-6">
                     @include('partials.forms.input', [
-                            'title' => __('teacher.year_of_starting_to_teach'),
+                            'label' => __('teacher.year_of_starting_to_teach'),
                             'name' => 'year_starting_teach',
                             'placeholder' => '',
                             'value' => old('year_starting_teach', $teacher->year_starting_teach),
@@ -93,7 +93,7 @@
 
                 <div class="col-span-6">
                     @include('partials.forms.textarea', [
-                            'title' => __('teacher.significant_teachers'),
+                            'label' => __('teacher.significant_teachers'),
                             'name' => 'significant_teachers',
                             'placeholder' => '',
                             'value' => old('significant_teachers', $teacher->significant_teachers),
@@ -106,7 +106,7 @@
 
                 <div class="col-span-6">
                     @include('partials.forms.input', [
-                            'title' => __('general.website'),
+                            'label' => __('general.website'),
                             'name' => 'website',
                             'placeholder' => '',
                             'value' => old('website', $teacher->website),
@@ -117,7 +117,7 @@
 
                 <div class="col-span-6">
                     @include('partials.forms.input', [
-                            'title' => __('teacher.facebook_profile'),
+                            'label' => __('teacher.facebook_profile'),
                             'name' => 'facebook',
                             'placeholder' => '',
                             'value' => old('facebook', $teacher->facebook),
@@ -128,7 +128,7 @@
 
                 <div class="col-span-6">
                     @include('partials.forms.uploadImage', [
-                              'title' => __('teacher.upload_profile_picture'),
+                              'label' => __('teacher.upload_profile_picture'),
                               'name' => 'profile_picture',
                               'required' => false,
                               'collection' => 'profile_picture',

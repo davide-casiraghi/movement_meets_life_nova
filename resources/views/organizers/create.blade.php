@@ -24,7 +24,7 @@
             <div class="grid grid-cols-6 gap-6">
                 <div class="col-span-6">
                     @include('partials.forms.input', [
-                            'title' => __('general.name'),
+                            'label' => __('general.name'),
                             'name' => 'name',
                             'placeholder' => '',
                             'value' => old('name'),
@@ -35,7 +35,7 @@
 
                 <div class="col-span-6">
                     @include('partials.forms.input', [
-                            'title' => __('general.surname'),
+                            'label' => __('general.surname'),
                             'name' => 'surname',
                             'placeholder' => '',
                             'value' => old('surname'),
@@ -46,7 +46,7 @@
 
                 <div class="col-span-6">
                     @include('partials.forms.input', [
-                            'title' => __('general.email_address'),
+                            'label' => __('general.email_address'),
                             'name' => 'email',
                             'placeholder' => '',
                             'value' => old('email'),
@@ -57,7 +57,7 @@
 
                 <div class="col-span-6">
                     @include('partials.forms.input', [
-                            'title' => __('general.phone'),
+                            'label' => __('general.phone'),
                             'name' => 'phone',
                             'placeholder' => '',
                             'value' => old('phone'),
@@ -68,7 +68,7 @@
 
                 <div class="col-span-6">
                     @include('partials.forms.input', [
-                            'title' => __('general.website'),
+                            'label' => __('general.website'),
                             'name' => 'website',
                             'placeholder' => '',
                             'value' => old('website'),
@@ -79,7 +79,7 @@
 
                 <div class="col-span-6">
                     @include('partials.forms.textarea', [
-                           'title' => __('general.description'),
+                           'label' => __('general.description'),
                            'name' => 'description',
                            'placeholder' => '',
                            'value' => old('description'),
@@ -92,7 +92,7 @@
 
                 <div class="col-span-6">
                     @include('partials.forms.uploadImage', [
-                              'title' => __('views.upload_profile_picture'),
+                              'label' => __('views.upload_profile_picture'),
                               'name' => 'profile_picture',
                               'required' => false,
                               'collection' => 'profile_picture',

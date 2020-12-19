@@ -17,7 +17,7 @@
             <div class="grid grid-cols-6 gap-6">
                 <div class="col-span-6">
                     @include('partials.forms.input', [
-                            'title' => __('ui.posts.title'),
+                            'label' => __('ui.posts.title'),
                             'name' => 'title',
                             'placeholder' => 'Post title',
                             'value' => old('title'),
@@ -28,7 +28,7 @@
 
                 <div class="col-span-6">
                     @include('partials.forms.select', [
-                        'title' => __('ui.posts.category'),
+                        'label' => __('ui.posts.category'),
                         'name' => 'category_id',
                         'placeholder' => __('ui.posts.select_category'),
                         'records' => $categories,
@@ -39,7 +39,7 @@
 
                 <div class="col-span-6">
                     @include('partials.forms.textarea', [
-                            'title' => __('ui.posts.before_content'),
+                            'label' => __('ui.posts.before_content'),
                             'name' => 'before_content',
                             'placeholder' => '',
                             'value' =>  old('before_content'),
@@ -52,7 +52,7 @@
 
                 <div class="col-span-6">
                     @include('partials.forms.textarea', [
-                           'title' => __('ui.posts.body'),
+                           'label' => __('ui.posts.body'),
                            'name' => 'body',
                            'placeholder' => '',
                            'value' => old('body'),
@@ -65,7 +65,7 @@
 
                 <div class="col-span-6">
                     @include('partials.forms.textarea', [
-                            'title' => __('ui.posts.after_content'),
+                            'label' => __('ui.posts.after_content'),
                             'name' => 'after_content',
                             'placeholder' => '',
                             'value' => old('after_content'),
@@ -78,7 +78,7 @@
 
                 <div class="col-span-6">
                     @include('partials.forms.uploadImage', [
-                              'title' => __('ui.posts.intro_image'),
+                              'label' => __('ui.posts.intro_image'),
                               'name' => 'introimage',
                               'value' => '',
                               'required' => false,
