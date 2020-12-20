@@ -8,8 +8,8 @@
     if (weekDaysSelected){
         var weekDaysSelectedArray = weekDaysSelected.split(',');
         for (i = 0; i < weekDaysSelectedArray.length; ++i) {
-            $('#onWeekly label#day_'+ weekDaysSelectedArray[i]).addClass('active');
-            $('#onWeekly label#day_'+ weekDaysSelectedArray[i]+' input' ).attr('checked', true);
+            //$('#onWeekly label input#day_'+ weekDaysSelectedArray[i]).addClass('active');
+            $('#onWeekly label input#day_'+ weekDaysSelectedArray[i] ).attr('checked', true);
         }
     }
 
@@ -137,8 +137,8 @@
             </label>--}}
             @include('partials.forms.checkbox', [
                 'label' => __('general.monday'),
-                'name' => 'repeat_weekly_on_day[]',
                 'id'  => 'day_1',
+                'name' => 'repeat_weekly_on_day[]',
                 'value' => 1,
                 'required' => false,
             ])

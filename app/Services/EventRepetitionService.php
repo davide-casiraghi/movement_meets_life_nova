@@ -36,13 +36,13 @@ class EventRepetitionService {
      * @param \App\Http\Requests\EventStoreRequest $data
      * @param int $eventRepetitionId
      *
-     * @return \App\Models\EventRepetition
+     * @return void
      */
-    public function updateEventRepetition(EventStoreRequest $data, int $eventRepetitionId)
+    public function updateEventRepetitions(EventStoreRequest $data, int $eventRepetitionId)
     {
-        $eventRepetition = $this->eventRepetitionRepository->update($data, $eventRepetitionId);
+        $this->eventRepetitionRepository->updateEventRepetitions($data, $eventRepetitionId);
 
-        return $eventRepetition;
+        //return $eventRepetition;
     }
 
     /**
