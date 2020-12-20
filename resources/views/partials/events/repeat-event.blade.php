@@ -131,28 +131,65 @@
     {{-- Weekly --}}
     <div id="onWeekly" class="onFrequency hidden">
         <label>@lang('event.weekly_on')</label>
-        <div class="btn-group btn-group-toggle" data-toggle="buttons">
-            <label class="btn btn-primary" id="day_1" >
-                <input type="checkbox" name="repeat_weekly_on_day[]" value="1" autocomplete="off"> M
-            </label>
-            <label class="btn btn-primary" id="day_2">
-                <input type="checkbox" name="repeat_weekly_on_day[]" value="2" autocomplete="off"> T
-            </label>
-            <label class="btn btn-primary" id="day_3">
-                <input type="checkbox" name="repeat_weekly_on_day[]" value="3" autocomplete="off"> W
-            </label>
-            <label class="btn btn-primary" id="day_4">
-                <input type="checkbox" name="repeat_weekly_on_day[]" value="4" autocomplete="off"> T
-            </label>
-            <label class="btn btn-primary" id="day_5">
-                <input type="checkbox" name="repeat_weekly_on_day[]" value="5" autocomplete="off"> F
-            </label>
-            <label class="btn btn-primary" id="day_6">
-                <input type="checkbox" name="repeat_weekly_on_day[]" value="6" autocomplete="off"> S
-            </label>
-            <label class="btn btn-primary" id="day_7">
-                <input type="checkbox" name="repeat_weekly_on_day[]" value="7" autocomplete="off"> S
-            </label>
+        <div class="relative flex flex-wrap items-start mt-2">
+            {{--<label class="btn btn-primary" id="day_1" >
+                <input type="checkbox" name="repeat_weekly_on_day[]" value="1" autocomplete="off"> @lang('general.monday')
+            </label>--}}
+            @include('partials.forms.checkbox', [
+                'label' => __('general.monday'),
+                'name' => 'repeat_weekly_on_day[]',
+                'id'  => 'day_1',
+                'value' => 1,
+                'required' => false,
+            ])
+
+            @include('partials.forms.checkbox', [
+                'label' => __('general.tuesday'),
+                'id'  => 'day_2',
+                'name' => 'repeat_weekly_on_day[]',
+                'value' => 2,
+                'required' => false,
+            ])
+
+            @include('partials.forms.checkbox', [
+                'label' => __('general.wednesday'),
+                'id'  => 'day_3',
+                'name' => 'repeat_weekly_on_day[]',
+                'value' => 3,
+                'required' => false,
+            ])
+
+            @include('partials.forms.checkbox', [
+                'label' => __('general.thursday'),
+                'id'  => 'day_4',
+                'name' => 'repeat_weekly_on_day[]',
+                'value' => 4,
+                'required' => false,
+            ])
+
+            @include('partials.forms.checkbox', [
+                'label' => __('general.friday'),
+                'id'  => 'day_5',
+                'name' => 'repeat_weekly_on_day[]',
+                'value' => 5,
+                'required' => false,
+            ])
+
+            @include('partials.forms.checkbox', [
+                'label' => __('general.saturday'),
+                'id'  => 'day_6',
+                'name' => 'repeat_weekly_on_day[]',
+                'value' => 6,
+                'required' => false,
+            ])
+
+            @include('partials.forms.checkbox', [
+                'label' => __('general.sunday'),
+                'id'  => 'day_7',
+                'name' => 'repeat_weekly_on_day[]',
+                'value' => 7,
+                'required' => false,
+            ])
         </div>
         <input type="hidden" name="repeat_weekly_on" id="repeat_weekly_on" @if(!empty($event->repeat_weekly_on))  value="{{$event->repeat_weekly_on}}" @endif/>
     </div>
