@@ -115,7 +115,9 @@ class EventController extends Controller
         $eventDateTimeParameters = $this->eventService->getEventDateTimeParameters($event, $eventFirstRepetition);
 
 
+        //dd(json_decode($event->repeat_weekly_on));
 
+        //dd(json_decode($event->repeat_weekly_on, true));
 
             /*DB::table('event_repetitions')
             ->select('id', 'start_repeat', 'end_repeat')

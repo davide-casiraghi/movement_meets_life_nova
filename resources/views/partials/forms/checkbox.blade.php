@@ -24,7 +24,8 @@ othewrise put all of them in the same if you want inline
            name="{{$name}}"
            type="checkbox"
            class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded @if ($errors->has($name)) border-red-500 @endif"
-           value="{{$value}}"
+           {{--value="{{$value}}"--}}
+            {{$checked}}
     >
     <span class="ml-2">
         {{$label}}

@@ -5,6 +5,7 @@ namespace App\Repositories;
 
 use App\Http\Requests\EventStoreRequest;
 use App\Models\Event;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -104,7 +105,7 @@ class EventRepository {
         $event->facebook_event_link = $data['facebook_event_link'] ?? null;
 
         $event->repeat_type = $data['repeat_type'] ?? null;
-        $event->repeat_until = $data['repeat_until'] ?? null;
+        $event->repeat_until = Carbon::createFromFormat('d/m/Y', $data['repeat_until']) ?? null;
         $event->repeat_weekly_on = $data['repeat_weekly_on'] ?? null;
         $event->repeat_monthly_on = $data['repeat_monthly_on'] ?? null;
         $event->on_monthly_kind = $data['on_monthly_kind'] ?? null;

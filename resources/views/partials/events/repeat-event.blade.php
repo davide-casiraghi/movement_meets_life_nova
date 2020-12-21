@@ -94,8 +94,8 @@
             },
             success: function( data ) {
                 $("#on_monthly_kind").html(data);
-                $("#on_monthly_kind").selectpicker('refresh');
-                $("#on_monthly_kind").selectpicker('val', monthlyOnSelected);
+                //$("#on_monthly_kind").selectpicker('refresh');
+                //$("#on_monthly_kind").selectpicker('val', monthlyOnSelected);
             }
         });
 
@@ -135,63 +135,87 @@
             {{--<label class="btn btn-primary" id="day_1" >
                 <input type="checkbox" name="repeat_weekly_on_day[]" value="1" autocomplete="off"> @lang('general.monday')
             </label>--}}
+
+            @php
+                $checked = (isset(json_decode($event->repeat_weekly_on, true)[1])) ? "checked" : "";
+            @endphp
+           {{-- {{json_decode($event->repeat_weekly_on, true)[1]}}--}}
             @include('partials.forms.checkbox', [
                 'label' => __('general.monday'),
                 'id'  => 'day_1',
-                'name' => 'repeat_weekly_on_day[]',
-                'value' => 1,
+                'name' => 'repeat_weekly_on[1]',
+                //'value' => 1,
+                'checked' => $checked,
                 'required' => false,
             ])
 
+            @php
+                $checked = (isset(json_decode($event->repeat_weekly_on, true)[2])) ? "checked" : "";
+            @endphp
             @include('partials.forms.checkbox', [
                 'label' => __('general.tuesday'),
                 'id'  => 'day_2',
-                'name' => 'repeat_weekly_on_day[]',
-                'value' => 2,
+                'name' => 'repeat_weekly_on[2]',
+                //'value' => 2,
                 'required' => false,
             ])
 
+            @php
+                $checked = (isset(json_decode($event->repeat_weekly_on, true)[3])) ? "checked" : "";
+            @endphp
             @include('partials.forms.checkbox', [
                 'label' => __('general.wednesday'),
                 'id'  => 'day_3',
-                'name' => 'repeat_weekly_on_day[]',
-                'value' => 3,
+                'name' => 'repeat_weekly_on[3]',
+                //'value' => 3,
                 'required' => false,
             ])
 
+            @php
+                $checked = (isset(json_decode($event->repeat_weekly_on, true)[4])) ? "checked" : "";
+            @endphp
             @include('partials.forms.checkbox', [
                 'label' => __('general.thursday'),
                 'id'  => 'day_4',
-                'name' => 'repeat_weekly_on_day[]',
-                'value' => 4,
+                'name' => 'repeat_weekly_on[4]',
+                //'value' => 4,
                 'required' => false,
             ])
 
+            @php
+                $checked = (isset(json_decode($event->repeat_weekly_on, true)[5])) ? "checked" : "";
+            @endphp
             @include('partials.forms.checkbox', [
                 'label' => __('general.friday'),
                 'id'  => 'day_5',
-                'name' => 'repeat_weekly_on_day[]',
-                'value' => 5,
+                'name' => 'repeat_weekly_on[5]',
+                //'value' => 5,
                 'required' => false,
             ])
 
+            @php
+                $checked = (isset(json_decode($event->repeat_weekly_on, true)[6])) ? "checked" : "";
+            @endphp
             @include('partials.forms.checkbox', [
                 'label' => __('general.saturday'),
                 'id'  => 'day_6',
-                'name' => 'repeat_weekly_on_day[]',
-                'value' => 6,
+                'name' => 'repeat_weekly_on[6]',
+                //'value' => 6,
                 'required' => false,
             ])
 
+            @php
+                $checked = (isset(json_decode($event->repeat_weekly_on, true)[7])) ? "checked" : "";
+            @endphp
             @include('partials.forms.checkbox', [
                 'label' => __('general.sunday'),
                 'id'  => 'day_7',
-                'name' => 'repeat_weekly_on_day[]',
-                'value' => 7,
+                'name' => 'repeat_weekly_on[7]',
+                //'value' => 7,
                 'required' => false,
             ])
         </div>
-        <input type="hidden" name="repeat_weekly_on" id="repeat_weekly_on" @if(!empty($event->repeat_weekly_on))  value="{{$event->repeat_weekly_on}}" @endif/>
+        {{--<input type="hidden" name="repeat_weekly_on" id="repeat_weekly_on" @if(!empty($event->repeat_weekly_on))  value="{{$event->repeat_weekly_on}}" @endif/>--}}
     </div>
 
     {{-- Monthly --}}

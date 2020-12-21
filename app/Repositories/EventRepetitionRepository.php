@@ -3,6 +3,7 @@
 
 namespace App\Repositories;
 
+use App\Helpers\DateHelpers;
 use App\Http\Requests\EventRepetitionStoreRequest;
 use App\Http\Requests\EventStoreRequest;
 use App\Models\EventRepetition;
@@ -115,7 +116,7 @@ class EventRepetitionRepository {
 
                 // Calculate repeat until day
                 $repeatUntilDate = implode('-', array_reverse(explode('/', $data['repeat_until'])));
-                self::saveWeeklyRepeatDates($eventId, $data['repeat_weekly_on_day'], $startDate, $repeatUntilDate, $timeStart, $timeEnd);
+                self::saveWeeklyRepeatDates($eventId, array_keys($data['repeat_weekly_on']), $startDate, $repeatUntilDate, $timeStart, $timeEnd);
 
                 break;
 
@@ -190,7 +191,7 @@ class EventRepetitionRepository {
         $period = CarbonPeriod::create($beginPeriod, $interval, $endPeriod);
         foreach ($period as $day) {  // Iterate for each day of the period
             foreach ($weekDays as $weekDayNumber) { // Iterate for every day of the week (1:Monday, 2:Tuesday, 3:Wednesday ...)
-                if (LaravelEventsCalendar::isWeekDay($day->format('Y-m-d'), $weekDayNumber)) {
+                if (DateHelpers::isWeekDay($day->format('Y-m-d'), $weekDayNumber)) {
                     self::store($eventId, $day->format('Y-m-d'), $day->format('Y-m-d'), $timeStart, $timeEnd);
                 }
             }
