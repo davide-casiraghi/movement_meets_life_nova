@@ -76,7 +76,7 @@
     {{-- Re-create the datepicker_end_date that has been destroyed in case of repetition --}}
     function recreateDateEnd(){
         var today = new Date();
-        $('#endDate input').datepicker({
+        $("input[name='endDate']").datepicker({
             format: 'dd/mm/yyyy',
             startDate: today
         });
