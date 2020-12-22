@@ -32,7 +32,7 @@
 
 <input
         type="text"
-        class="timepicker focus:ring-indigo-500 focus:border-indigo-500 block w-full pr-10 sm:text-sm border-gray-300 rounded-md"
+        class="timepicker focus:ring-indigo-500 focus:border-indigo-500 block w-full pr-10 sm:text-sm border-gray-300 rounded-md mt-2"
 
         name="{{ $name }}"
         id="{{ $name }}"

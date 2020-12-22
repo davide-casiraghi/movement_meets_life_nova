@@ -24,7 +24,10 @@ class EventStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title' => ['required', 'string', 'max:255'],
+            'event_category_id' => ['required'],
+            'venue_id' => ['required'],
+            'description' => ['required', 'string'],
         ];
     }
 }

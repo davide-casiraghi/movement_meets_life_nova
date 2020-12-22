@@ -42,7 +42,7 @@
                             @include('partials.forms.select', [
                                 'label' => __('event.category'),
                                 'name' => 'event_category_id',
-                                'placeholder' => __('ui.events.select_category'),
+                                'placeholder' => __('views.select_category'),
                                 'records' => $eventCategories,
                                 'selected' => $event->event_category_id,
                                 'required' => TRUE,
