@@ -272,10 +272,10 @@
 
                         <div class="col-span-6">
                             @include('partials.forms.uploadImage', [
-                                      'label' => __('views.upload_profile_picture'),
-                                      'name' => 'profile_picture',
+                                      'label' => __('event.upload_event_teaser_image'),
+                                      'name' => 'introimage',
                                       'required' => FALSE,
-                                      'collection' => 'profile_picture',
+                                      'collection' => 'introimage',
                                       'entity' => $event,
                                   ])
                         </div>
