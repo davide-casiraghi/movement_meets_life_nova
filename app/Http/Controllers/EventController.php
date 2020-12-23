@@ -59,9 +59,19 @@ class EventController extends Controller
     public function create()
     {
         $eventCategories = $this->eventCategoryService->getEventCategories();
+        $venues = $this->venueService->getVenues();
+        $teachers = $this->teacherService->getTeachers();
+        $organizers = $this->organizerService->getOrganizers();
+
+        $eventDateTimeParameters['multipleDates'] = null;
+        $eventDateTimeParameters['repeatUntil'] = null;
 
         return view('events.create', [
             'eventCategories' => $eventCategories,
+            'venues' => $venues,
+            'teachers' => $teachers,
+            'organizers' => $organizers,
+            'eventDateTimeParameters' => $eventDateTimeParameters,
         ]);
     }
 
@@ -113,16 +123,6 @@ class EventController extends Controller
 
         $eventFirstRepetition = $this->eventRepetitionService->getFirstByEventId($event->id);
         $eventDateTimeParameters = $this->eventService->getEventDateTimeParameters($event, $eventFirstRepetition);
-
-
-        //dd(json_decode($event->repeat_weekly_on));
-
-        //dd(json_decode($event->repeat_weekly_on, true));
-
-            /*DB::table('event_repetitions')
-            ->select('id', 'start_repeat', 'end_repeat')
-            ->where('event_id', '=', $event->id)
-            ->first();*/
 
         return view('events.edit', [
             'event' => $event,

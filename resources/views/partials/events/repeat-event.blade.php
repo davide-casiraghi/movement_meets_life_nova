@@ -138,7 +138,8 @@
             </label>--}}
 
             @php
-                $checked = (isset(json_decode($event->repeat_weekly_on, true)[1])) ? "checked" : "";
+                $repeatWeeklyOn = isset($event->repeat_weekly_on) ? json_decode($event->repeat_weekly_on, true) : null;
+                $checked = isset($repeatWeeklyOn[1]) ? "checked" : "";
             @endphp
            {{-- {{json_decode($event->repeat_weekly_on, true)[1]}}--}}
             @include('partials.forms.checkbox', [
@@ -151,7 +152,7 @@
             ])
 
             @php
-                $checked = (isset(json_decode($event->repeat_weekly_on, true)[2])) ? "checked" : "";
+                $checked = isset($repeatWeeklyOn[2]) ? "checked" : "";
             @endphp
             @include('partials.forms.checkbox', [
                 'label' => __('general.tuesday'),
@@ -162,7 +163,7 @@
             ])
 
             @php
-                $checked = (isset(json_decode($event->repeat_weekly_on, true)[3])) ? "checked" : "";
+                $checked = isset($repeatWeeklyOn[3]) ? "checked" : "";
             @endphp
             @include('partials.forms.checkbox', [
                 'label' => __('general.wednesday'),
@@ -173,7 +174,7 @@
             ])
 
             @php
-                $checked = (isset(json_decode($event->repeat_weekly_on, true)[4])) ? "checked" : "";
+                $checked = isset($repeatWeeklyOn[4]) ? "checked" : "";
             @endphp
             @include('partials.forms.checkbox', [
                 'label' => __('general.thursday'),
@@ -184,7 +185,7 @@
             ])
 
             @php
-                $checked = (isset(json_decode($event->repeat_weekly_on, true)[5])) ? "checked" : "";
+                $checked = isset($repeatWeeklyOn[5]) ? "checked" : "";
             @endphp
             @include('partials.forms.checkbox', [
                 'label' => __('general.friday'),
@@ -195,7 +196,7 @@
             ])
 
             @php
-                $checked = (isset(json_decode($event->repeat_weekly_on, true)[6])) ? "checked" : "";
+                $checked = isset($repeatWeeklyOn[6]) ? "checked" : "";
             @endphp
             @include('partials.forms.checkbox', [
                 'label' => __('general.saturday'),
@@ -206,7 +207,7 @@
             ])
 
             @php
-                $checked = (isset(json_decode($event->repeat_weekly_on, true)[7])) ? "checked" : "";
+                $checked = isset($repeatWeeklyOn[7]) ? "checked" : "";
             @endphp
             @include('partials.forms.checkbox', [
                 'label' => __('general.sunday'),
