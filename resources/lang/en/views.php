@@ -144,7 +144,7 @@ return [
     'select_one' => 'Select one',
     'select_one_or_more' => 'Select one or more',
     'select_one_or_more_people' => 'Select one or more people, if you are adding a new one the page will be reloaded.',
-    'select_venue' => 'Select the venue that will host the event, if you are adding a new one the page will be reloaded.',
+    'select_venue' => 'Select the venue that will host the event.',
     'created_successfully' => ' created successfully',
     'updated_successfully' => ' updated successfully',
     'deleted_successfully' => ' deleted successfully',

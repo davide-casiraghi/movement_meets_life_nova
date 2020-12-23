@@ -24,7 +24,7 @@ return [
     'repeat_until' => 'Répéter jusqu\'à',
     'please_use_repeat_until' => 'Si vous créez un événement répétitif, entrez d\'abord la date de début et de fin de la PREMIÈRE OCCURRENCE de l\'événement.',
     'contacts_and_links' => 'Contacts et liens',
-    'select_venue' => 'Sélectionnez le lieu qui accueillera l\'événement, si vous en ajoutez un nouveau, la page sera rechargée.',
+    'select_venue' => 'Sélectionnez le lieu qui accueillera l\'événement.',
     'people' => 'Personne',
     'select_one_or_more_people' => 'Sélectionnez une ou plusieurs personnes, si vous en ajoutez une nouvelle, la page sera rechargée.',
     'first_country_event_notice' => 'Veuillez noter que lorsqu\'il s\'agit du premier événement inséré pour votre pays, celà peut prendre jusqu\'à 15 minutes avant que votre pays apparaisse dans les filtres de recherche de la page d\'accueil. Sélectionnez d\'abord le/la professeur et le lieu svp. Si vous ne les trouvez pas dans la liste, créez-les d\'abord sur cette page.',

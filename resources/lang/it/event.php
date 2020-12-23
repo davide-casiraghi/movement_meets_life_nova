@@ -24,7 +24,7 @@ return [
     'repeat_until' => 'Ripeti fino al',
     'please_use_repeat_until' => 'Se stai creando un evento che si ripete nel tempo, prima entra la data di inizio e poi quella di fine della PRIMA RICORRENZA di tale evento.',
     'contacts_and_links' => 'Contatti e link',
-    'select_venue' => 'Seleziona lo spazio dove ospiterai il tuo evento, se ne aggiungi uno nuovo, la pagina verrà ricaricata.',
+    'select_venue' => 'Seleziona lo spazio dove ospiterai il tuo evento.',
     'people' => 'Persone',
     'select_one_or_more_people' => 'Seleziona una o più persone, se ne aggiungi una nuova, la pagina verrà ricaricata.',
     'first_country_event_notice' => 'Tieni presente che se questo è il primo evento inserito per il tuo Paese, possono essere necessari fino a 15 minuti prima che il tuo Paese venga visualizzato nei filtri di ricerca della home page. Seleziona prima l\'insegnante e il luogo, se non li trovi nell\'elenco, creali prima in questa pagina.',

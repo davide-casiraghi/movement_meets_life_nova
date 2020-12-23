@@ -24,7 +24,7 @@ return [
     'repeat_until' => 'Powtarza się do',
     'please_use_repeat_until' => 'Please notice, if you are creating a repetitive event, the start date and the end date should be the one of the first repetition and be the same.',
     'contacts_and_links' => 'Kontakty i linki',
-    'select_venue' => 'Wybierz miejsce, w którym odbędzie się wydarzenie, jeśli dodajesz nowe miejsce, strona zostanie ponownie załadowana.',
+    'select_venue' => 'Wybierz miejsce, w którym odbędzie się wydarzenie.',
     'people' => 'Ludzie',
     'select_one_or_more_people' => 'Wybierz jedną lub więcej osób, jeśli dodajesz nową osobę, strona zostanie ponownie załadowana.',
     'first_country_event_notice' => 'Pamiętaj, że jeśli jest to pierwsze wydarzenie w Twoim kraju, może minąć do 15 minut, zanim Twój kraj pojawi się na filtrach wyszukiwania na stronie głównej. Najpierw wybierz nauczyciela i miejsce, jeśli ich nie znajdziesz na liście, utwórz je najpierw na tej stronie.',

@@ -24,7 +24,7 @@ return [
     'repeat_until' => 'Repeat until',
     'please_use_repeat_until' => 'If you are creating a repetitive event, the start date and the end date should be the one of the first repetition and be the same.',
     'contacts_and_links' => 'Contacts and Links',
-    'select_venue' => 'Select the venue that will host the event, if you are adding a new one the page will be reloaded.',
+    'select_venue' => 'Select the venue that will host the event.',
     'people' => 'People',
     'select_one_or_more_people' => 'Select one or more people, if you are adding a new one the page will be reloaded.',
     'first_country_event_notice' => 'Please notice that if this is the first event inserted for your country it can take up to 15 minutes before your country appear in the homepage search filters.',

@@ -24,7 +24,7 @@ return [
     'repeat_until' => 'Repite hasta',
     'please_use_repeat_until' => 'Si estás creando un evento periódico, primer ingresa la fecha de comienzo y final de LA PRIMERA APARICIÓN del evento.',
     'contacts_and_links' => 'Contactos y enlaces',
-    'select_venue' => 'Selecciona el lugar donde se realizará el evento. La página se recargará si estas agregando uno nuevo.',
+    'select_venue' => 'Selecciona el lugar donde se realizará el evento.',
     'people' => 'Gente',
     'select_one_or_more_people' => 'Selecciona una o mas personas. La página se recargará si estas agregando una nueva.',
     'first_country_event_notice' => 'Tenga en cuenta que si este es el primer evento insertado en su país, puede tomar hasta 15 minutos antes de que su país aparezca en los filtros de búsqueda de la página de inicio. Por favor, seleccione primero el maestro y el lugar, si no los encuentra en la lista, créelos primero en esta página.',

@@ -24,7 +24,7 @@ return [
     'repeat_until' => 'Repetir até',
     'please_use_repeat_until' => 'Se você está criando um evento recorrente, primeiro insira a data de início e de fim da PRIMEIRA OCORRÊNCIA do evento.',
     'contacts_and_links' => 'Contatos e Links',
-    'select_venue' => 'Selecione o local que irá receber o evento; se você está adicionando um local novo, a página será atualizada.',
+    'select_venue' => 'Selecione o local que irá receber o evento.',
     'people' => 'Pessoas',
     'select_one_or_more_people' => 'Selecione uma ou mais pessoas; se você está adiciconando alguém novo, a página será atualizada.',
     'first_country_event_notice' => 'Tenha em mente que, se este for o primeiro evento inserido para o seu país, pode demorar até 15 minutos antes de seu país aparecer nos filtros de pesquisa da página inicial. Por favor, selecione primeiro o professor e o local; se você não encontrá-los na lista, crie-os primeiro ao final desta página.',

@@ -24,7 +24,7 @@ return [
     'repeat_until' => 'Wiederholen bis',
     'please_use_repeat_until' => 'Bei sich wiederholenden Events bitte zuerst das Start- und Endedatum der ersten Wiederholung eintragen.',
     'contacts_and_links' => 'Konakt / Links',
-    'select_venue' => 'Wähle den Veranstaltungsort. Wird ein neuer hinzugefügt, lädt sich die Seite neu.',
+    'select_venue' => 'Wähle den Veranstaltungsort.',
     'people' => 'Personen',
     'select_one_or_more_people' => 'Wähle eine oder mehrere Personen aus. Wird eine neue Person hinzugefügt, lädt sich die Seite neu.',
     'first_country_event_notice' => 'Wenn dies das erste Event ist, das für Dein Land eingefügt wurde, kann es bis zu 15 Minuten dauern, bis das Land in den Suchfilter der Startseite angezeigt wird. Bitte wähle zuerst den/die Lehrer*in und den Ort aus. Wenn Du sie nicht in der Liste findest, füge sie zuerst auf dieser Seite hinzu.',

@@ -54,6 +54,7 @@
                 $('#onMonthly').show();
                 $('.repeatUntilSelector').show();
                 forceSameDateStartEnd();
+                updateMonthlySelectOptions();
             break;
             case '4':  // Repeat Multiple
                 $('.repeatDetails').show();

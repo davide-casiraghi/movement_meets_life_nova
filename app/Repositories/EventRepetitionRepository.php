@@ -60,16 +60,18 @@ class EventRepetitionRepository {
      *
      * $dateStart and $dateEnd are in the format Y-m-d
      * $timeStart and $timeEnd are in the format H:i:s.
+     *
      * @param  int $eventId
      * @param  string $dateStart
      * @param  string $dateEnd
      * @param  string $timeStart
      * @param  string $timeEnd
-     * @return void
+     *
+     * @return \App\Models\EventRepetition
      */
     public static function store(int $eventId, string $dateStart, string $dateEnd, string $timeStart, string $timeEnd)
     {
-        $eventRepetition = new self();
+        $eventRepetition = new EventRepetition();
         $eventRepetition->event_id = $eventId;
 
         $eventRepetition->start_repeat = Carbon::createFromFormat('Y-m-d H:i', $dateStart.' '.$timeStart);

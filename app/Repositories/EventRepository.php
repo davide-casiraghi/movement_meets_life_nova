@@ -100,7 +100,6 @@ class EventRepository {
         $event->description = $data['description'] ?? null;
         $event->contact_email = $data['contact_email'] ?? null;
 
-
         $event->website_event_link = $data['website_event_link'] ?? null;
         $event->facebook_event_link = $data['facebook_event_link'] ?? null;
 
