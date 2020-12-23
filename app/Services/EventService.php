@@ -33,7 +33,7 @@ class EventService {
     {
         $event = $this->eventRepository->store($data);
 
-        $event->setStatus('pending');
+        $event->setStatus('published');
 
         $this->storeImages($event, $data);
 

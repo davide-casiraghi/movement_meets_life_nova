@@ -25,7 +25,7 @@ class OrganizerService {
     {
         $organizer = $this->organizerRepository->store($data);
 
-        $organizer->setStatus('pending');
+        $organizer->setStatus('published');
 
         $this->storeImages($organizer, $data);
 

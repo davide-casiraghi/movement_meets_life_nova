@@ -26,7 +26,7 @@ class TeacherService {
     {
         $teacher = $this->teacherRepository->store($data);
 
-        $teacher->setStatus('pending');
+        $teacher->setStatus('published');
 
         $this->storeImages($teacher, $data);
 

@@ -1,7 +1,7 @@
 @extends('layouts.backend')
 
 @section('title')
-    @lang('event.edit_event')
+    @lang('event.create_new_event')
 @endsection
 
 @section('content')
@@ -43,7 +43,7 @@
                                 'name' => 'event_category_id',
                                 'placeholder' => __('views.select_category'),
                                 'records' => $eventCategories,
-                                //'selected' => $event->event_category_id,
+                                'selected' => old('event_category_id'),
                                 'required' => TRUE,
                             ])
                         </div>
@@ -69,7 +69,7 @@
                                 'name' => 'teacher_id',
                                 'placeholder' => __('event.select_teachers'),
                                 'records' => $teachers,
-                                //'selected' => $event->teacher_id,
+                                'selected' => old('teacher_id'),
                                 'required' => TRUE,
                             ])
                         </div>
@@ -80,7 +80,7 @@
                                 'name' => 'organizer_id',
                                 'placeholder' => __('event.select_organizers'),
                                 'records' => $organizers,
-                                //'selected' => $event->organizer_id,
+                                'selected' => old('organizer_id'),
                                 'required' => TRUE,
                             ])
                         </div>
@@ -106,7 +106,7 @@
                                 'name' => 'venue_id',
                                 'placeholder' => __('ui.events.select_venue'),
                                 'records' => $venues,
-                                //'selected' => $event->venue_id,
+                                'selected' => old('venue_id'),
                                 'required' => TRUE,
                             ])
                         </div>

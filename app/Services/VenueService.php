@@ -27,7 +27,7 @@ class VenueService {
     {
         $venue = $this->venueRepository->store($data);
 
-        $venue->setStatus('pending');
+        $venue->setStatus('published');
 
         $this->storeImages($venue, $data);
 

@@ -51,7 +51,7 @@ class PostService {
     {
         $post = $this->postRepository->store($data);
 
-        $post->setStatus('pending');
+        $post->setStatus('published');
 
         $this->storeImages($post, $data);
 
