@@ -3,7 +3,9 @@
 namespace Database\Factories;
 
 use App\Models\Event;
+use App\Models\EventRepetition;
 use App\Services\GlobalServices;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class EventFactory extends Factory
@@ -44,5 +46,38 @@ class EventFactory extends Factory
             'repeat_type' => 1,
             //'user_id' => $this->faker->numberBetween($min = 1, $max = 3),
         ];
+    }
+
+    /**
+     * Configure the model factory.
+     *
+     * @return $this
+     */
+    public function configure()
+    {
+        return $this->afterMaking(function (Event $event) {
+
+            switch ($event->repeat_type) {
+                case 1:
+
+                    break;
+                case 2:
+                    $event->repeat_weekly_on = '{"1":"on","3":"on"}';
+                    $event->repeat_until = new Carbon('first day of December 2025');
+                    break;
+            }
+
+        })->afterCreating(function (Event $event) {
+            switch ($event->repeat_type) {
+                case 1:
+                    EventRepetition::factory()->create([
+                        'event_id' => $event->id,
+                    ]);
+                    break;
+                case 2:
+
+                    break;
+            }
+        });
     }
 }

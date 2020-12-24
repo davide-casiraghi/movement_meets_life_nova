@@ -131,18 +131,23 @@ TBD
 //Tinker away!
 use App\Models\Event;
 use App\Models\EventCategory;
+use App\Models\EventRepetition;
 use App\Models\Glossary;
 use App\Models\Insight;
 use App\Models\Inspiration;
+use App\Models\Organizer;
 use App\Models\Post;
 use App\Models\PostCategory;
 use App\Models\Quote;
 use App\Models\Role;
 use App\Models\Tag;
+use App\Models\Teacher;
 use App\Models\Testimonial;
-use App\Models\EventVenue;
 use App\Models\Mantra;
 use App\Models\User;
+use App\Models\Venue;
+use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Factories\Sequence;
 
 
 Role::factory()->create([
@@ -156,15 +161,15 @@ User::factory()->create([
 ]);
 User::factory()->count(4)->create();
 
-Tag::factory()->count(4)->create();
-Insight::factory()->count(4)->create()->each(function($insight) {
+Tag::factory()->count(20)->create();
+Insight::factory()->count(40)->create()->each(function($insight) {
     $insight->tags()->sync(
         Tag::all()->random(2)
     );
 });
 
-PostCategory::factory()->count(4)->create();
-Post::factory()->count(4)->create()->each(function($post) {
+PostCategory::factory()->count(10)->create();
+Post::factory()->count(40)->create()->each(function($post) {
     $post->category()->associate(
         PostCategory::all()->random(1)
     );
@@ -175,15 +180,33 @@ Post::factory()->count(4)->create()->each(function($post) {
         Insight::all()->random(1)
     );
 });
-Glossary::factory()->count(4)->create();
+Glossary::factory()->count(40)->create();
 
-EventVenue::factory()->count(4)->create();
-EventCategory::factory()->count(4)->create();
-Event::factory()->count(4)->create();
+Testimonial::factory()->count(40)->create();
+Quote::factory()->count(40)->create();
 
-Testimonial::factory()->count(4)->create();
-Quote::factory()->count(4)->create();
+Inspiration::factory()->count(40)->create();
+Mantra::factory()->count(40)->create();
 
-Inspiration::factory()->count(4)->create();
-Mantra::factory()->count(4)->create();
+Venue::factory()->count(40)->create();
+Organizer::factory()->count(40)->create();
+Teacher::factory()->count(40)->create();
+
+Event::factory()
+    ->count(40)
+    ->state(new Sequence(
+        ['repeat_type' => '1'],
+        ['repeat_type' => '2'],
+    ))
+    ->create()->each(function($event) {
+        $event->venue()->associate(
+            Venue::all()->random(1)
+        );
+        $event->organizers()->sync(
+            Organizer::all()->random(1)
+        );
+        $event->teachers()->sync(
+            Teacher::all()->random(1)
+        );
+});
 ```

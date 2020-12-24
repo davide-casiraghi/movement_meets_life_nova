@@ -104,7 +104,7 @@
                             @include('partials.forms.select', [
                                 'label' => __('general.venue'),
                                 'name' => 'venue_id',
-                                'placeholder' => __('ui.events.select_venue'),
+                                'placeholder' => __('event.select_venue'),
                                 'records' => $venues,
                                 'selected' => old('venue_id'),
                                 'required' => TRUE,
