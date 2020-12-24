@@ -10,6 +10,8 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 
 class EventFactory extends Factory
 {
+    private Carbon $randomDate1;
+
     /**
      * The name of the factory's corresponding model.
      *
@@ -64,6 +66,22 @@ class EventFactory extends Factory
                 case 2:
                     $event->repeat_weekly_on = '{"1":"on","3":"on"}';
                     $event->repeat_until = new Carbon('first day of December 2025');
+                    break;
+                case 3:
+                    $event->repeat_monthly_on = '';
+                    $event->on_monthly_kind = '';
+                    $event->repeat_until = new Carbon('first day of December 2025');
+                    break;
+                case 4:
+                    $this->randomDate1 = Carbon::today()->subDays(rand(0, 365));
+                    $this->randomDate2 = Carbon::today()->subDays(rand(0, 365));
+                    $this->randomDate3 = Carbon::today()->subDays(rand(0, 365));
+
+                    $randomDate1String = $this->randomDate1->isoFormat('D/M/Y');
+                    $randomDate2String = $this->randomDate1->isoFormat('D/M/Y');
+                    $randomDate3String = $this->randomDate1->isoFormat('D/M/Y');
+
+                    $event->multiple_dates = $randomDate1String.','.$randomDate2String.','.$randomDate3String;
                     break;
             }
 

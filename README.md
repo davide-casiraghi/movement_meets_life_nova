@@ -197,6 +197,8 @@ Event::factory()
     ->state(new Sequence(
         ['repeat_type' => '1'],
         ['repeat_type' => '2'],
+        ['repeat_type' => '3'],
+        ['repeat_type' => '4'],
     ))
     ->create()->each(function($event) {
         $event->venue()->associate(
