@@ -52,8 +52,6 @@ class EventService {
     {
         $event = $this->eventRepository->update($data, $eventId);
 
-
-
         $this->storeImages($event, $data);
 
         return $event;
@@ -251,7 +249,6 @@ class EventService {
 
         return $onMonthlyKindSelect;
     }
-
 
     /**
      * Return a string that describe repetition kind in the event show view.

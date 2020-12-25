@@ -4,6 +4,7 @@ namespace Tests\Unit\Services;
 
 use App\Http\Requests\EventStoreRequest;
 use App\Models\Event;
+use App\Models\EventRepetition;
 use App\Models\Organizer;
 use App\Models\Teacher;
 use App\Models\User;
@@ -145,6 +146,27 @@ class EventServiceTest extends TestCase{
 
         $this->assertEquals(2, $numberPendingMembers);
     }*/
+
+    public function it_should_return_event_date_time_parameters()
+    {
+        $event = $this->events[1];
+        $eventFirstRepetition = EventRepetition::first();
+
+        $eventDateTimeParameters = $this->eventService->getEventDateTimeParameters($event, $eventFirstRepetition);
+
+        $this->assertArrayHasKey('dateStart', $eventDateTimeParameters);
+        $this->assertArrayHasKey('dateEnd', $eventDateTimeParameters);
+        $this->assertArrayHasKey('timeStart', $eventDateTimeParameters);
+        $this->assertArrayHasKey('timeEnd', $eventDateTimeParameters);
+        $this->assertArrayHasKey('repeatUntil', $eventDateTimeParameters);
+        $this->assertArrayHasKey('multipleDates', $eventDateTimeParameters);
+    }
+
+
+
+
+
+
 
 
 }
