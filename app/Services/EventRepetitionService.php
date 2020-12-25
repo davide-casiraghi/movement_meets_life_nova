@@ -77,10 +77,6 @@ class EventRepetitionService {
         $this->eventRepetitionRepository->delete($eventRepetitionId);
     }
 
-   
-
-    
-
     /**
      * Get the event first repetition
      *

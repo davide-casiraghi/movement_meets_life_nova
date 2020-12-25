@@ -11,6 +11,8 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 class EventFactory extends Factory
 {
     private Carbon $randomDate1;
+    private Carbon $randomDate2;
+    private Carbon $randomDate3;
 
     /**
      * The name of the factory's corresponding model.
@@ -57,43 +59,67 @@ class EventFactory extends Factory
      */
     public function configure()
     {
+        // Before storing the event we set the event parameters for repetitions
         return $this->afterMaking(function (Event $event) {
 
             switch ($event->repeat_type) {
-                case 1:
-
+                case 1: // No repeat - one time event
                     break;
-                case 2:
+                case 2: // Weekly
                     $event->repeat_weekly_on = '{"1":"on","3":"on"}';
                     $event->repeat_until = new Carbon('first day of December 2025');
                     break;
-                case 3:
+                case 3: // Monthly
                     $event->repeat_monthly_on = '';
                     $event->on_monthly_kind = '';
                     $event->repeat_until = new Carbon('first day of December 2025');
                     break;
-                case 4:
+                case 4: // Multiple dates
                     $this->randomDate1 = Carbon::today()->subDays(rand(0, 365));
                     $this->randomDate2 = Carbon::today()->subDays(rand(0, 365));
                     $this->randomDate3 = Carbon::today()->subDays(rand(0, 365));
 
                     $randomDate1String = $this->randomDate1->isoFormat('D/M/Y');
-                    $randomDate2String = $this->randomDate1->isoFormat('D/M/Y');
-                    $randomDate3String = $this->randomDate1->isoFormat('D/M/Y');
+                    $randomDate2String = $this->randomDate2->isoFormat('D/M/Y');
+                    $randomDate3String = $this->randomDate3->isoFormat('D/M/Y');
 
                     $event->multiple_dates = $randomDate1String.','.$randomDate2String.','.$randomDate3String;
                     break;
             }
 
+        // After storing the event we create the repetitions
         })->afterCreating(function (Event $event) {
             switch ($event->repeat_type) {
-                case 1:
+                case 1: // No repeat - one time event
                     EventRepetition::factory()->create([
                         'event_id' => $event->id,
                     ]);
                     break;
-                case 2:
+                case 2: // Weekly
 
+                    break;
+                case 3: // Monthly
+
+                    break;
+                case 4: // Multiple dates
+                    EventRepetition::factory()->create([
+                        'event_id' => $event->id,
+                    ]);
+                    EventRepetition::factory()->create([
+                        'event_id' => $event->id,
+                        'start_repeat' => $this->randomDate1->hour(20)->minute(00),
+                        'end_repeat' => $this->randomDate1->hour(22)->minute(00),
+                    ]);
+                    EventRepetition::factory()->create([
+                        'event_id' => $event->id,
+                        'start_repeat' => $this->randomDate2->hour(20)->minute(00),
+                        'end_repeat' => $this->randomDate2->hour(22)->minute(00),
+                    ]);
+                    EventRepetition::factory()->create([
+                        'event_id' => $event->id,
+                        'start_repeat' => $this->randomDate3->hour(20)->minute(00),
+                        'end_repeat' => $this->randomDate3->hour(22)->minute(00),
+                    ]);
                     break;
             }
         });

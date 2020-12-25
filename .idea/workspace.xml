@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f86be012-5364-473d-a5f7-a7b8c0c0f2c5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/EventRepetitionService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/EventRepetitionService.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/factories/EventFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/EventFactory.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -470,7 +469,7 @@
       <workItem from="1608569301706" duration="5674000" />
       <workItem from="1608743592214" duration="7541000" />
       <workItem from="1608802763342" duration="34000" />
-      <workItem from="1608822313419" duration="1763000" />
+      <workItem from="1608822313419" duration="2937000" />
     </task>
     <servers />
   </component>
