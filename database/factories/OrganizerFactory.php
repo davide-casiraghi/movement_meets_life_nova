@@ -22,10 +22,10 @@ class OrganizerFactory extends Factory
     public function definition()
     {
         return [
+            'user_id' => 1,
             'name' => $this->faker->name,
             'surname' => $this->faker->lastName,
             'website' => $this->faker->url,
-            'user_id' => '1',
             'email' => $this->faker->unique()->safeEmail,
             'description' => $this->faker->paragraph,
             'phone' => $this->faker->e164PhoneNumber,

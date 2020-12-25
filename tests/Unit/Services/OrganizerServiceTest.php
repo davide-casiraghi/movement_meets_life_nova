@@ -40,10 +40,12 @@ class OrganizerServiceTest extends TestCase{
     /** @test */
     public function it_should_create_an_organizer()
     {
+        $user = $this->authenticateAsUser();
+
         $request = new OrganizerStoreRequest();
 
         $data = [
-            'user_id' => 1,
+            'user_id' => '1',
             'name' => 'test new name',
             'surname' => 'test surname',
             'email' => 'test@newemail.com',

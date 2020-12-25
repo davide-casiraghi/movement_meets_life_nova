@@ -2,31 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f86be012-5364-473d-a5f7-a7b8c0c0f2c5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/laravel_demo_jetstream.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/laravel_demo_jetstream.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/NovaServiceProvider.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_200000_add_two_factor_columns_to_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_200000_add_two_factor_columns_to_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nova-components/Datefrequency/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nova-components/Datefrequency/composer.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nova-components/Datefrequency/dist/css/field.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nova-components/Datefrequency/dist/js/field.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nova-components/Datefrequency/dist/mix-manifest.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nova-components/Datefrequency/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nova-components/Datefrequency/resources/js/components/DetailField.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nova-components/Datefrequency/resources/js/components/FormField.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nova-components/Datefrequency/resources/js/components/IndexField.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nova-components/Datefrequency/resources/js/field.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nova-components/Datefrequency/resources/sass/field.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nova-components/Datefrequency/src/Datefrequency.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nova-components/Datefrequency/src/FieldServiceProvider.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nova-components/Datefrequency/webpack.mix.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpunit.xml" beforeDir="false" afterPath="$PROJECT_DIR$/phpunit.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/ExampleTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/ExampleTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/OrganizerFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/OrganizerFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/TestCase.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/TestCase.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Services/OrganizerServiceTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Services/OrganizerServiceTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -482,7 +461,7 @@
       <workItem from="1608569301706" duration="5674000" />
       <workItem from="1608743592214" duration="7541000" />
       <workItem from="1608802763342" duration="34000" />
-      <workItem from="1608822313419" duration="7366000" />
+      <workItem from="1608822313419" duration="8003000" />
     </task>
     <servers />
   </component>
@@ -591,7 +570,7 @@
     <state x="1977" y="-107" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.23.1440.814/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1603736147593" />
     <state x="317" y="-1058" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.23.1440.821/-220.-1177.1920.1177@-220.-1177.1920.1177" timestamp="1601648303881" />
     <state x="403" y="53" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.23.1440.821@0.23.1440.821" timestamp="1607860194397" />
-    <state x="421" y="170" width="866" height="525" key="find.popup" timestamp="1608883776800">
+    <state x="421" y="170" width="866" height="525" key="find.popup" timestamp="1608883783742">
       <screen x="0" y="23" width="1440" height="811" />
     </state>
     <state x="2001" y="218" width="831" height="726" key="find.popup/0.0.1440.900/1440.0.1920.1200@1440.0.1920.1200" timestamp="1602316388123" />
@@ -600,7 +579,7 @@
     <state x="421" y="170" width="623" height="490" key="find.popup/0.23.1440.811/-220.-1177.1920.1177@0.23.1440.811" timestamp="1601966716914" />
     <state x="2001" y="-12" width="831" height="713" key="find.popup/0.23.1440.811/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1603915602441" />
     <state x="1444" y="-1160" width="1106" height="853" key="find.popup/0.23.1440.811/696.-1417.2560.1417/-1224.-1177.1920.1177@696.-1417.2560.1417" timestamp="1601911354853" />
-    <state x="421" y="170" width="866" height="525" key="find.popup/0.23.1440.811@0.23.1440.811" timestamp="1608883776800" />
+    <state x="421" y="170" width="866" height="525" key="find.popup/0.23.1440.811@0.23.1440.811" timestamp="1608883783742" />
     <state x="421" y="170" width="623" height="491" key="find.popup/0.23.1440.812/-220.-1177.1920.1177@0.23.1440.812" timestamp="1601969851563" />
     <state x="2001" y="-12" width="831" height="713" key="find.popup/0.23.1440.812/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1605173652519" />
     <state x="2001" y="237" width="831" height="713" key="find.popup/0.23.1440.812/1440.23.1920.1177@1440.23.1920.1177" timestamp="1602417129297" />
