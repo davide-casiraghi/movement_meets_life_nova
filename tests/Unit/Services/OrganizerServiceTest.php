@@ -9,6 +9,7 @@ use App\Services\OrganizerService;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
+use Illuminate\Database\Eloquent\Collection;
 
 class OrganizerServiceTest extends TestCase{
 
@@ -18,7 +19,7 @@ class OrganizerServiceTest extends TestCase{
     private OrganizerService $organizerService;
 
     private User $user1;
-    private Organizer $organizer1;
+    private Collection $organizers;
 
     /**
      * Populate test DB with dummy data.
@@ -40,7 +41,7 @@ class OrganizerServiceTest extends TestCase{
             'email' => 'admin@gmail.com',
         ]);
 
-        $this->organizer1 = Organizer::factory()->create();
+        $this->organizers = Organizer::factory()->count(3)->create();
     }
 
     /** @test */
@@ -82,8 +83,50 @@ class OrganizerServiceTest extends TestCase{
         ];
         $request->merge($data);
 
-        $this->organizerService->updateOrganizer($request, $this->organizer1->id);
+        $this->organizerService->updateOrganizer($request, $this->organizers[1]->id);
 
         $this->assertDatabaseHas('organizers', ['name' => 'name updated']);
     }
+
+    /** @test */
+    public function it_should_return_organizer_by_id()
+    {
+        $organizer = $this->organizerService->getById($this->organizers[1]->id);
+
+        $this->assertEquals($this->organizers[1]->id, $organizer->id);
+    }
+
+    /** @test */
+    public function it_should_return_all_organizers()
+    {
+        $organizers = $this->organizerService->getOrganizers(20);
+        $this->assertCount(3, $organizers);
+    }
+    
+    /** @test */
+    /*public function it_should_search_members_by_email()
+    {
+        $searchParameters = ['email' => 'info@aaa.com'];
+        $users = $this->memberService->getMembers(20, $searchParameters);
+        $this->assertCount(1, $users);
+    }*/
+
+
+    /** @test */
+    /*public function it_should_search_members_by_region()
+    {
+        $searchParameters = ['regionId' => 5];
+        $users = $this->memberService->getMembers(20, $searchParameters);
+        $this->assertCount(1, $users);
+    }*/
+
+    /** @test */
+    /*public function it_should_return_number_of_pending_members()
+    {
+        $numberPendingMembers = $this->memberService->countAllPendingMembers();
+
+        $this->assertEquals(2, $numberPendingMembers);
+    }*/
+
+
 }
