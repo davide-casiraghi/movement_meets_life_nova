@@ -62,7 +62,6 @@ class EventRepository {
         $event->repeat_type = $data['repeat_type'];
         $event->repeat_until = $data['repeat_until'];
         $event->repeat_weekly_on = $data['repeat_weekly_on'];
-        $event->repeat_monthly_on = $data['repeat_monthly_on'];
         $event->on_monthly_kind = $data['on_monthly_kind'];
         $event->multiple_dates = $data['multiple_dates'];
 
@@ -97,10 +96,9 @@ class EventRepository {
         $event->facebook_event_link = $data['facebook_event_link'];
 
         $event->repeat_type = $data['repeat_type'];
-        $event->repeat_until = isset($event->repeat_until) ? Carbon::createFromFormat('d/m/Y', $data['repeat_until']) : '';
+        $event->repeat_until = property_exists('repeat_type', $data) ? Carbon::createFromFormat('d/m/Y', $data['repeat_until']) : '';
 
         $event->repeat_weekly_on = $data['repeat_weekly_on'];
-        $event->repeat_monthly_on = $data['repeat_monthly_on'];
         $event->on_monthly_kind = $data['on_monthly_kind'];
         $event->multiple_dates = $data['multiple_dates'];
 

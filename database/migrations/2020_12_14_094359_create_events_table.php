@@ -29,7 +29,6 @@ class CreateEventsTable extends Migration
             $table->integer('repeat_type');
             $table->dateTime('repeat_until')->nullable();
             $table->string('repeat_weekly_on')->nullable();
-            $table->string('repeat_monthly_on')->nullable();
             $table->string('on_monthly_kind')->nullable();
             $table->text('multiple_dates')->nullable();
 

@@ -27,7 +27,9 @@ class EventServiceTest extends TestCase{
     private Collection $teachers;
     private Collection $organizers;
     private Collection $venues;
-    private Collection $events;
+    private Event $event1;
+    private Event $event2;
+    private Event $event3;
 
     /**
      * Populate test DB with dummy data.
@@ -53,7 +55,9 @@ class EventServiceTest extends TestCase{
         $this->organizers = Organizer::factory()->count(3)->create();
         $this->venues = Venue::factory()->count(3)->create();
 
-        $this->events = Event::factory()->count(3)->create();
+        $this->event1 = Event::factory()->create();
+        $this->event2 = Event::factory()->create();
+        $this->event3 = Event::factory()->create();
     }
 
     /** @test */
@@ -102,7 +106,7 @@ class EventServiceTest extends TestCase{
         ];
         $request->merge($data);
 
-        $this->eventService->updateEvent($request, $this->events[1]->id);
+        $this->eventService->updateEvent($request, $this->event1->id);
 
         $this->assertDatabaseHas('events', ['title' => 'test title updated']);
     }
@@ -110,9 +114,9 @@ class EventServiceTest extends TestCase{
     /** @test */
     public function it_should_return_event_by_id()
     {
-        $event = $this->eventService->getById($this->events[1]->id);
+        $event = $this->eventService->getById($this->event1->id);
 
-        $this->assertEquals($this->events[1]->id, $event->id);
+        $this->assertEquals($this->event1->id, $event->id);
     }
 
     /** @test */
@@ -149,7 +153,7 @@ class EventServiceTest extends TestCase{
 
     public function it_should_return_event_date_time_parameters()
     {
-        $event = $this->events[1];
+        $event = $this->event1;
         $eventFirstRepetition = EventRepetition::first();
 
         $eventDateTimeParameters = $this->eventService->getEventDateTimeParameters($event, $eventFirstRepetition);
@@ -161,6 +165,8 @@ class EventServiceTest extends TestCase{
         $this->assertArrayHasKey('repeatUntil', $eventDateTimeParameters);
         $this->assertArrayHasKey('multipleDates', $eventDateTimeParameters);
     }
+
+
 
 
 

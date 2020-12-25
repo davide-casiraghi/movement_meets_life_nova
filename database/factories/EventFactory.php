@@ -44,7 +44,8 @@ class EventFactory extends Factory
             'event_category_id' => $this->faker->numberBetween($min = 1, $max = 3),
             'user_id' => 1,
 
-            'repeat_type' => 1,
+            'repeat_type' => 1, // If not specified the event created is one time event
+
             //'user_id' => $this->faker->numberBetween($min = 1, $max = 3),
         ];
     }
@@ -67,8 +68,7 @@ class EventFactory extends Factory
                     $event->repeat_until = new Carbon('first day of December 2025');
                     break;
                 case 3: // Monthly
-                    $event->repeat_monthly_on = '';
-                    $event->on_monthly_kind = '';
+                    $event->on_monthly_kind = '1|4|1';
                     $event->repeat_until = new Carbon('first day of December 2025');
                     break;
                 case 4: // Multiple dates
