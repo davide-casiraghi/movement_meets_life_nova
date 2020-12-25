@@ -52,8 +52,7 @@ class EventServiceTest extends TestCase{
         $this->organizers = Organizer::factory()->count(3)->create();
         $this->venues = Venue::factory()->count(3)->create();
 
-        //$this->events = Event::factory()->count(3)->create();
-
+        $this->events = Event::factory()->count(3)->create();
     }
 
     /** @test */
@@ -85,25 +84,27 @@ class EventServiceTest extends TestCase{
     }
 
     /** @test */
-    /*public function it_should_update_an_event()
+    public function it_should_update_an_event()
     {
         $request = new EventStoreRequest();
 
         $data = [
-            'name' => 'name updated',
-            'surname' => 'test surname',
-            'email' => 'test@newemail.com',
-            'description' => 'test@newemail.com',
-            'website' => 'test@newemail.com',
-            'facebook' => 'test@newemail.com',
-            'phone' => 'test@newemail.com',
+            'title' => 'test title updated',
+            'description' => 'test description',
+            'contact_email' => 'test@newemail.com',
+            'website_event_link' => 'www.link.com',
+            'facebook_event_link' => 'www.facebookevent.com',
+            'venue_id' => 1,
+            'event_category_id' => 1,
+            'repeat_type' => 1,
+            'user_id' => 1,
         ];
         $request->merge($data);
 
         $this->eventService->updateEvent($request, $this->events[1]->id);
 
-        $this->assertDatabaseHas('events', ['name' => 'name updated']);
-    }*/
+        $this->assertDatabaseHas('events', ['title' => 'test title updated']);
+    }
 
     /** @test */
     /*public function it_should_return_event_by_id()
