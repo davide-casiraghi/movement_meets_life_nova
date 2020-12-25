@@ -2,9 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f86be012-5364-473d-a5f7-a7b8c0c0f2c5" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/laravel_demo_jetstream.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/laravel_demo_jetstream.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/EventRepetitionService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/EventRepetitionService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/EventFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/EventFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/NovaServiceProvider.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_200000_add_two_factor_columns_to_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_200000_add_two_factor_columns_to_users_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nova-components/Datefrequency/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nova-components/Datefrequency/composer.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nova-components/Datefrequency/dist/css/field.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nova-components/Datefrequency/dist/js/field.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nova-components/Datefrequency/dist/mix-manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nova-components/Datefrequency/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nova-components/Datefrequency/resources/js/components/DetailField.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nova-components/Datefrequency/resources/js/components/FormField.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nova-components/Datefrequency/resources/js/components/IndexField.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nova-components/Datefrequency/resources/js/field.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nova-components/Datefrequency/resources/sass/field.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nova-components/Datefrequency/src/Datefrequency.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nova-components/Datefrequency/src/FieldServiceProvider.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nova-components/Datefrequency/webpack.mix.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phpunit.xml" beforeDir="false" afterPath="$PROJECT_DIR$/phpunit.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/ExampleTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/ExampleTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,31 +160,14 @@
       <path value="$PROJECT_DIR$/vendor/symfony/yaml" />
       <path value="$PROJECT_DIR$/vendor/livewire/livewire" />
       <path value="$PROJECT_DIR$/vendor/laravel/sanctum" />
-      <path value="$PROJECT_DIR$/vendor/brick/money" />
-      <path value="$PROJECT_DIR$/vendor/moontoast/math" />
-      <path value="$PROJECT_DIR$/vendor/phpseclib/bcmath_compat" />
       <path value="$PROJECT_DIR$/vendor/doctrine/dbal" />
-      <path value="$PROJECT_DIR$/vendor/phpseclib/phpseclib" />
       <path value="$PROJECT_DIR$/vendor/doctrine/cache" />
       <path value="$PROJECT_DIR$/vendor/doctrine/event-manager" />
-      <path value="$PROJECT_DIR$/vendor/spatie/once" />
-      <path value="$PROJECT_DIR$/vendor/cakephp/chronos" />
       <path value="$PROJECT_DIR$/vendor/laravel/nova" />
-      <path value="$PROJECT_DIR$/vendor/laravel/ui" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-icu" />
-      <path value="$PROJECT_DIR$/vendor/symfony/intl" />
-      <path value="$PROJECT_DIR$/vendor/optimistdigital/nova-translations-loader" />
-      <path value="$PROJECT_DIR$/vendor/optimistdigital/nova-menu-builder" />
-      <path value="$PROJECT_DIR$/vendor/optimistdigital/nova-tailwind" />
       <path value="$PROJECT_DIR$/vendor/spatie/laravel-sluggable" />
-      <path value="$PROJECT_DIR$/vendor/spatie/nova-translatable" />
       <path value="$PROJECT_DIR$/vendor/spatie/laravel-translatable" />
       <path value="$PROJECT_DIR$/vendor/asm89/stack-cors_compare" />
-      <path value="$PROJECT_DIR$/vendor/joedixon/nova-translation" />
-      <path value="$PROJECT_DIR$/vendor/joedixon/laravel-translation" />
-      <path value="$PROJECT_DIR$/vendor/kirschbaum-development/nova-inline-relationship" />
       <path value="$PROJECT_DIR$/vendor/myclabs/php-enum" />
-      <path value="$PROJECT_DIR$/vendor/ebess/advanced-nova-media-library" />
       <path value="$PROJECT_DIR$/vendor/league/glide" />
       <path value="$PROJECT_DIR$/vendor/maennchen/zipstream-php" />
       <path value="$PROJECT_DIR$/vendor/spatie/image" />
@@ -170,7 +175,6 @@
       <path value="$PROJECT_DIR$/vendor/spatie/laravel-medialibrary" />
       <path value="$PROJECT_DIR$/vendor/spatie/image-optimizer" />
       <path value="$PROJECT_DIR$/vendor/intervention/image" />
-      <path value="$PROJECT_DIR$/vendor/optimistdigital/nova-multiselect-field" />
       <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-ide-helper" />
       <path value="$PROJECT_DIR$/vendor/barryvdh/reflection-docblock" />
       <path value="$PROJECT_DIR$/vendor/seld/phar-utils" />
@@ -194,7 +198,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/events" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/tests/Unit/Services" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -206,13 +210,6 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/resources/views/events" />
-      <recent name="$PROJECT_DIR$/resources/lang/ru" />
-      <recent name="$PROJECT_DIR$/resources/lang/pt" />
-      <recent name="$PROJECT_DIR$/resources/lang/pl" />
-      <recent name="$PROJECT_DIR$/resources/lang/it" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources/js/vendors" />
       <recent name="$PROJECT_DIR$/resources/views/partials/dashboard/navigation" />
@@ -220,12 +217,28 @@
       <recent name="$PROJECT_DIR$/resources/views/forms" />
       <recent name="$PROJECT_DIR$/resources/views/partials/pages/home" />
     </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/tests/Unit/Services" />
+      <recent name="$PROJECT_DIR$/resources/views/events" />
+      <recent name="$PROJECT_DIR$/resources/lang/ru" />
+      <recent name="$PROJECT_DIR$/resources/lang/pt" />
+      <recent name="$PROJECT_DIR$/resources/lang/pl" />
+    </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="PHPUnit.OrganizerServiceTest">
+    <configuration name="OrganizerServiceTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Unit\Services\OrganizerServiceTest" configuration_file="/home/vagrant/code/movement_meets_life/phpunit.xml" file="$PROJECT_DIR$/tests/Unit/Services/OrganizerServiceTest.php" scope="Class" />
+      <method v="2" />
+    </configuration>
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="PHPUnit.OrganizerServiceTest" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
@@ -469,7 +482,7 @@
       <workItem from="1608569301706" duration="5674000" />
       <workItem from="1608743592214" duration="7541000" />
       <workItem from="1608802763342" duration="34000" />
-      <workItem from="1608822313419" duration="2937000" />
+      <workItem from="1608822313419" duration="7366000" />
     </task>
     <servers />
   </component>
@@ -489,26 +502,28 @@
     <state x="2214" y="185" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1440.812/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1603431856264" />
     <state x="2215" y="185" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1440.821/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1608377449535" />
     <state x="581" y="310" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1440.821@0.23.1440.821" timestamp="1607850448888" />
-    <state x="1440" y="-226" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1607941487745">
-      <screen x="1440" y="-226" width="1920" height="1177" />
+    <state x="0" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1608876574875">
+      <screen x="0" y="23" width="1440" height="811" />
     </state>
+    <state x="0" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1440.811@0.23.1440.811" timestamp="1608876574875" />
     <state x="0" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1440.812@0.23.1440.812" timestamp="1604259164473" />
     <state x="1440" y="-226" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1440.814/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1603777607103" />
     <state x="1440" y="-226" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1440.816/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1607941487745" />
     <state x="0" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1440.816@0.23.1440.816" timestamp="1604819446952" />
     <state x="0" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1440.822@0.23.1440.822" timestamp="1607402797585" />
-    <state x="531" y="213" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1608844471147">
-      <screen x="0" y="23" width="1440" height="814" />
+    <state x="531" y="213" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1608876896406">
+      <screen x="0" y="23" width="1440" height="812" />
     </state>
     <state x="2148" y="281" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.900/1440.0.1920.1200@1440.0.1920.1200" timestamp="1602317882191" />
     <state x="1640" y="-1085" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.811/-1224.-1177.1920.1177/696.-1417.2560.1417@696.-1417.2560.1417" timestamp="1602249782541" />
     <state x="531" y="213" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.811/-220.-1177.1920.1177@0.23.1440.811" timestamp="1601969363373" />
     <state x="2148" y="299" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.811/1440.23.1920.1177@1440.23.1920.1177" timestamp="1602315306552" />
+    <state x="531" y="212" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.811@0.23.1440.811" timestamp="1608876682823" />
     <state x="1640" y="-1085" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.812/-1224.-1177.1920.1177/696.-1417.2560.1417@696.-1417.2560.1417" timestamp="1602145664778" />
     <state x="2148" y="50" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.812/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1603382234035" />
     <state x="2148" y="299" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.812/1440.23.1920.1177@1440.23.1920.1177" timestamp="1602416466806" />
     <state x="-516" y="-901" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.812/696.-1417.2560.1417/-1224.-1177.1920.1177@-1224.-1177.1920.1177" timestamp="1602228791608" />
-    <state x="531" y="213" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.812@0.23.1440.812" timestamp="1604259401477" />
+    <state x="531" y="213" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.812@0.23.1440.812" timestamp="1608876896406" />
     <state x="2148" y="50" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.814/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1608122240045" />
     <state x="531" y="213" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.814@0.23.1440.814" timestamp="1608844471147" />
     <state x="531" y="214" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.816/1440.-226.1920.1177@0.23.1440.816" timestamp="1604558544076" />
@@ -530,21 +545,25 @@
       <screen x="1440" y="-226" width="1920" height="1177" />
     </state>
     <state x="1951" y="-124" key="CommitChangelistDialog2/0.23.1440.816/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1607937455761" />
-    <state width="1278" height="202" key="GridCell.Tab.0.bottom" timestamp="1607843030505">
-      <screen x="0" y="23" width="1440" height="821" />
+    <state width="1398" height="345" key="GridCell.Tab.0.bottom" timestamp="1608882974096">
+      <screen x="0" y="23" width="1440" height="812" />
     </state>
+    <state width="1398" height="345" key="GridCell.Tab.0.bottom/0.23.1440.812@0.23.1440.812" timestamp="1608882974096" />
     <state width="1278" height="202" key="GridCell.Tab.0.bottom/0.23.1440.821@0.23.1440.821" timestamp="1607843030505" />
-    <state width="1278" height="202" key="GridCell.Tab.0.center" timestamp="1607843030504">
-      <screen x="0" y="23" width="1440" height="821" />
+    <state width="1398" height="345" key="GridCell.Tab.0.center" timestamp="1608882974095">
+      <screen x="0" y="23" width="1440" height="812" />
     </state>
+    <state width="1398" height="345" key="GridCell.Tab.0.center/0.23.1440.812@0.23.1440.812" timestamp="1608882974095" />
     <state width="1278" height="202" key="GridCell.Tab.0.center/0.23.1440.821@0.23.1440.821" timestamp="1607843030504" />
-    <state width="1278" height="202" key="GridCell.Tab.0.left" timestamp="1607843030503">
-      <screen x="0" y="23" width="1440" height="821" />
+    <state width="1398" height="345" key="GridCell.Tab.0.left" timestamp="1608882974095">
+      <screen x="0" y="23" width="1440" height="812" />
     </state>
+    <state width="1398" height="345" key="GridCell.Tab.0.left/0.23.1440.812@0.23.1440.812" timestamp="1608882974095" />
     <state width="1278" height="202" key="GridCell.Tab.0.left/0.23.1440.821@0.23.1440.821" timestamp="1607843030503" />
-    <state width="1278" height="202" key="GridCell.Tab.0.right" timestamp="1607843030504">
-      <screen x="0" y="23" width="1440" height="821" />
+    <state width="1398" height="345" key="GridCell.Tab.0.right" timestamp="1608882974096">
+      <screen x="0" y="23" width="1440" height="812" />
     </state>
+    <state width="1398" height="345" key="GridCell.Tab.0.right/0.23.1440.812@0.23.1440.812" timestamp="1608882974096" />
     <state width="1278" height="202" key="GridCell.Tab.0.right/0.23.1440.821@0.23.1440.821" timestamp="1607843030504" />
     <state x="428" y="165" key="NewPhpClassDialog" timestamp="1604802663049">
       <screen x="0" y="23" width="1440" height="816" />
@@ -572,18 +591,20 @@
     <state x="1977" y="-107" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.23.1440.814/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1603736147593" />
     <state x="317" y="-1058" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.23.1440.821/-220.-1177.1920.1177@-220.-1177.1920.1177" timestamp="1601648303881" />
     <state x="403" y="53" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.23.1440.821@0.23.1440.821" timestamp="1607860194397" />
-    <state x="2001" y="-12" width="831" height="714" key="find.popup" timestamp="1608802794945">
-      <screen x="1440" y="-226" width="1920" height="1177" />
+    <state x="421" y="170" width="866" height="525" key="find.popup" timestamp="1608883776800">
+      <screen x="0" y="23" width="1440" height="811" />
     </state>
     <state x="2001" y="218" width="831" height="726" key="find.popup/0.0.1440.900/1440.0.1920.1200@1440.0.1920.1200" timestamp="1602316388123" />
     <state x="1444" y="-1160" width="1108" height="857" key="find.popup/0.23.1440.808/-1224.-1177.1920.1177/696.-1417.2560.1417@696.-1417.2560.1417" timestamp="1602254003882" />
+    <state x="421" y="170" width="624" height="491" key="find.popup/0.23.1440.808@0.23.1440.808" timestamp="1608876124284" />
     <state x="421" y="170" width="623" height="490" key="find.popup/0.23.1440.811/-220.-1177.1920.1177@0.23.1440.811" timestamp="1601966716914" />
     <state x="2001" y="-12" width="831" height="713" key="find.popup/0.23.1440.811/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1603915602441" />
     <state x="1444" y="-1160" width="1106" height="853" key="find.popup/0.23.1440.811/696.-1417.2560.1417/-1224.-1177.1920.1177@696.-1417.2560.1417" timestamp="1601911354853" />
+    <state x="421" y="170" width="866" height="525" key="find.popup/0.23.1440.811@0.23.1440.811" timestamp="1608883776800" />
     <state x="421" y="170" width="623" height="491" key="find.popup/0.23.1440.812/-220.-1177.1920.1177@0.23.1440.812" timestamp="1601969851563" />
     <state x="2001" y="-12" width="831" height="713" key="find.popup/0.23.1440.812/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1605173652519" />
     <state x="2001" y="237" width="831" height="713" key="find.popup/0.23.1440.812/1440.23.1920.1177@1440.23.1920.1177" timestamp="1602417129297" />
-    <state x="421" y="170" width="866" height="525" key="find.popup/0.23.1440.812@0.23.1440.812" timestamp="1605440194144" />
+    <state x="421" y="170" width="866" height="525" key="find.popup/0.23.1440.812@0.23.1440.812" timestamp="1608882438900" />
     <state x="421" y="170" width="687" height="515" key="find.popup/0.23.1440.814/1440.-226.1920.1177@0.23.1440.814" timestamp="1607441966631" />
     <state x="2001" y="-12" width="831" height="714" key="find.popup/0.23.1440.814/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1608802794945" />
     <state x="421" y="170" width="687" height="515" key="find.popup/0.23.1440.814@0.23.1440.814" timestamp="1608621278161" />
@@ -597,16 +618,16 @@
     <state x="421" y="172" width="687" height="519" key="find.popup/0.23.1440.822@0.23.1440.822" timestamp="1607761226147" />
     <state x="1444" y="-1160" width="1108" height="857" key="find.popup/0.23.1440.877/-1224.-1177.1920.1105/696.-1417.2560.1417@696.-1417.2560.1417" timestamp="1602148735038" />
     <state x="2001" y="-25" width="831" height="670" key="find.popup/0.23.1440.877/1440.-226.1920.1105@1440.-226.1920.1105" timestamp="1603645292743" />
-    <state x="476" y="224" width="672" height="475" key="search.everywhere.popup" timestamp="1608781129656">
-      <screen x="0" y="23" width="1440" height="821" />
+    <state x="476" y="221" width="671" height="467" key="search.everywhere.popup" timestamp="1608883773787">
+      <screen x="0" y="23" width="1440" height="811" />
     </state>
     <state x="476" y="221" width="671" height="467" key="search.everywhere.popup/0.23.1440.811/-220.-1177.1920.1177@0.23.1440.811" timestamp="1601969940815" />
     <state x="2075" y="62" width="896" height="681" key="search.everywhere.popup/0.23.1440.811/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1603567464445" />
-    <state x="476" y="221" width="671" height="467" key="search.everywhere.popup/0.23.1440.811@0.23.1440.811" timestamp="1601964831123" />
+    <state x="476" y="221" width="671" height="467" key="search.everywhere.popup/0.23.1440.811@0.23.1440.811" timestamp="1608883773787" />
     <state x="-589" y="-890" width="895" height="678" key="search.everywhere.popup/0.23.1440.812/-1224.-1177.1920.1177/696.-1417.2560.1417@-1224.-1177.1920.1177" timestamp="1602056291057" />
     <state x="1543" y="-1071" width="1194" height="817" key="search.everywhere.popup/0.23.1440.812/-1224.-1177.1920.1177/696.-1417.2560.1417@696.-1417.2560.1417" timestamp="1602072450211" />
     <state x="2075" y="62" width="896" height="681" key="search.everywhere.popup/0.23.1440.812/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1603952940039" />
-    <state x="476" y="222" width="672" height="470" key="search.everywhere.popup/0.23.1440.812@0.23.1440.812" timestamp="1605440262902" />
+    <state x="476" y="222" width="672" height="470" key="search.everywhere.popup/0.23.1440.812@0.23.1440.812" timestamp="1608882826029" />
     <state x="2075" y="62" width="896" height="684" key="search.everywhere.popup/0.23.1440.814/1440.-226.1920.1177@1440.-226.1920.1177" timestamp="1608122005742" />
     <state x="415" y="-889" width="670" height="676" key="search.everywhere.popup/0.23.1440.816/-220.-1177.1920.1177@-220.-1177.1920.1177" timestamp="1601562022484" />
     <state x="476" y="223" width="672" height="473" key="search.everywhere.popup/0.23.1440.816/1440.-226.1920.1177@0.23.1440.816" timestamp="1605801959954" />
