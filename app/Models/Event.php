@@ -14,7 +14,7 @@ use Spatie\Translatable\HasTranslations;
 
 class Event extends Model implements HasMedia
 {
-    use HasFactory, HasSlug, HasTranslations, HasStatuses, InteractsWithMedia;
+    use HasFactory, HasSlug, HasStatuses, InteractsWithMedia;
 
     /**
      * The attributes that aren't mass assignable.
@@ -22,13 +22,6 @@ class Event extends Model implements HasMedia
      * @var array
      */
     protected $guarded = [];
-
-    /**
-     * The attributes that are translatable.
-     *
-     * @var array
-     */
-    public $translatable = ['description'];
 
     /**
      * The attributes that should be mutated to dates.

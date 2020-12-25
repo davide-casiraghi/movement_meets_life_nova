@@ -45,7 +45,7 @@ class TeacherServiceTest extends TestCase{
     }
 
     /** @test */
-    public function it_should_create_an_teacher()
+    public function it_should_create_a_teacher()
     {
         $user = $this->authenticateAsUser();
 
@@ -69,7 +69,7 @@ class TeacherServiceTest extends TestCase{
     }
 
     /** @test */
-    public function it_should_update_an_teacher()
+    public function it_should_update_a_teacher()
     {
         $request = new TeacherStoreRequest();
 
