@@ -107,19 +107,19 @@ class EventServiceTest extends TestCase{
     }
 
     /** @test */
-    /*public function it_should_return_event_by_id()
+    public function it_should_return_event_by_id()
     {
         $event = $this->eventService->getById($this->events[1]->id);
 
         $this->assertEquals($this->events[1]->id, $event->id);
-    }*/
+    }
 
     /** @test */
-   /* public function it_should_return_all_events()
+   public function it_should_return_all_events()
     {
         $events = $this->eventService->getEvents(20);
         $this->assertCount(3, $events);
-    }*/
+    }
 
     /** @test */
     /*public function it_should_search_members_by_email()
