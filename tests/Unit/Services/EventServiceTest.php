@@ -199,7 +199,7 @@ class EventServiceTest extends TestCase{
     }
 
     /** @test */
-    public function it_should_return_event_repetition_weekly_string_empty_for_weekly_repeat_event()
+    public function it_should_return_event_repetition_weekly_string_for_weekly_repeat_event()
     {
         $event = Event::factory()->create([
             'repeat_type' => 2,
@@ -215,6 +215,43 @@ class EventServiceTest extends TestCase{
 
         $this->assertEquals("The event happens every Monday and Wednesday until 16/12/2025", $repetitionTextString);
     }
+
+    /** @test */
+    public function it_should_return_event_repetition_monthly_string_for_monthly_repeat_event()
+    {
+        $event = Event::factory()->create([
+            'repeat_type' => 3,
+            'on_monthly_kind' => '1|4|1',
+            'repeat_until' => Carbon::createFromFormat('d/m/Y', "16/12/2025"),
+        ]);
+
+        $eventRepetition = EventRepetition::factory()->create([
+            'event_id' => $event->id,
+        ]);
+
+        $repetitionTextString = $this->eventService->getRepetitionTextString($event, $eventRepetition);
+
+        $this->assertEquals("The event happens the 4th Monday of the month until 16/12/2025", $repetitionTextString);
+    }
+
+    /** @test */
+    public function it_should_return_event_repetition_multiple_dates_string_for_multiple_dates_repeat_event()
+    {
+        $event = Event::factory()->create([
+            'repeat_type' => 4,
+            'multiple_dates' => '1/3/2020,15/5/2020,7/6/2020',
+        ]);
+
+        $eventRepetition = EventRepetition::factory()->create([
+            'event_id' => $event->id,
+            'start_repeat' => Carbon::createFromFormat('d/m/Y', "14/1/2020"),
+        ]);
+
+        $repetitionTextString = $this->eventService->getRepetitionTextString($event, $eventRepetition);
+
+        $this->assertEquals("The event happens on this dates: 14/01/2020, 1/3/2020, 15/5/2020, 7/6/2020", $repetitionTextString);
+    }
+
 
 
 
