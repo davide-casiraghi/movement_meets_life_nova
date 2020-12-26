@@ -28,6 +28,8 @@ class EventFactory extends Factory
     protected ?string $timeStart = null;
     protected ?string $timeEnd = null;
     protected ?string $repeatUntil = null;
+    protected ?string $onMonthlyKind = null;
+
 
    // private ?string $val = null;
 
@@ -76,6 +78,8 @@ class EventFactory extends Factory
         $this->timeEnd = '22:00:00';
         $this->repeatUntil = "1/1/2025";
 
+        $this->onMonthlyKind = '1|4|1';
+
         // Before storing the event we set the event parameters for repetitions
         return $this->afterMaking(function (Event $event) {
 
@@ -87,7 +91,7 @@ class EventFactory extends Factory
                     $event->repeat_until = new Carbon('first day of December 2025');
                     break;
                 case 3: // Monthly
-                    $event->on_monthly_kind = '1|4|1';
+                    $event->on_monthly_kind = $this->onMonthlyKind;
                     $event->repeat_until = new Carbon('first day of December 2025');
                     break;
                 case 4: // Multiple dates
@@ -110,7 +114,7 @@ class EventFactory extends Factory
                     EventRepetition::factory()->create([
                         'event_id' => $event->id,
                     ]);
-                    
+
                     break;
                 case 2: // Weekly
                     // Convert the start date in a format that can be used for strtotime
@@ -122,6 +126,14 @@ class EventFactory extends Factory
                     EventRepetitionRepository::saveWeeklyRepeatDates($event->id, array_keys(json_decode($event->repeat_weekly_on, true)), $dateStart, $repeatUntilDate, $this->timeStart, $this->timeEnd);
                     break;
                 case 3: // Monthly
+                    $startDate = implode('-', array_reverse(explode('/', $this->startDate)));
+                    $repeatUntilDate = implode('-', array_reverse(explode('/', $this->repeatUntil)));
+
+                    // Get the array with month repeat details
+                    $monthRepeatDatas = explode('|', $this->onMonthlyKind);
+                    //dump("pp_1");
+                    EventRepetitionRepository::saveMonthlyRepeatDates($event->id, $monthRepeatDatas, $startDate, $repeatUntilDate, $this->timeStart, $this->timeEnd);
+
 
                     break;
                 case 4: // Multiple dates
