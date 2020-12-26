@@ -28,7 +28,7 @@ class EventRepetitionFactory extends Factory {
         $date_end = $date_start->addDay();
 
         return [
-            'event_id' => rand(10, 100),
+            'event_id' => rand(1, 100),
             'start_repeat' => $date_start,
             'end_repeat' => $date_end,
         ];

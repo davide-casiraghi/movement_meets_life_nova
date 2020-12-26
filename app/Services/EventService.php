@@ -176,19 +176,19 @@ class EventService {
      * - Used by the AJAX in the event repeat view -
      * - The HTML contain a <select></select> with four <options></options>.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param string $date
      *
      * @return string
      */
-    public function getMonthlySelectOptions(Request $request)
+    public function getMonthlySelectOptions(string $date)
     {
         $monthlySelectOptions = [];
-        $date = implode('-', array_reverse(explode('/', $request->day)));  // Our YYYY-MM-DD date string
+        $date = implode('-', array_reverse(explode('/', $date)));  // Our YYYY-MM-DD date string
         $unixTimestamp = strtotime($date);  // Convert the date string into a unix timestamp.
         $dayOfWeekString = date('l', $unixTimestamp); // Monday | Tuesday | Wednesday | ..
 
         // Same day number - eg. "the 28th day of the month"
-        $dateArray = explode('/', $request->day);
+        $dateArray = explode('/', $date);
         $dayNumber = ltrim($dateArray[0], '0'); // remove the 0 in front of a day number eg. 02/10/2018
 
         $format = __('ordinalDays.the_'.($dayNumber).'_x_of_the_month');
@@ -270,6 +270,7 @@ class EventService {
 
                 // Get the name of the weekly day when the event repeat, if two days, return like "Thursday and Sunday"
                 $repetitonWeekdayNumbersArray = explode(',', $event->repeat_weekly_on);
+
                 $repetitonWeekdayNamesArray = [];
                 foreach ($repetitonWeekdayNumbersArray as $key => $repetitonWeekdayNumber) {
                     $repetitonWeekdayNamesArray[] = DateHelpers::decodeRepeatWeeklyOn($repetitonWeekdayNumber);

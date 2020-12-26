@@ -178,7 +178,9 @@ class EventController extends Controller
      */
     public function calculateMonthlySelectOptions(Request $request)
     {
-        return $this->eventService->getMonthlySelectOptions($request);
+        $date = $request['day'];
+
+        return $this->eventService->getMonthlySelectOptions($date);
     }
 
 

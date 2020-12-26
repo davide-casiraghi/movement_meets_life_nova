@@ -11,6 +11,7 @@ use App\Models\User;
 use App\Models\Venue;
 use App\Models\EventCategory;
 use App\Services\EventService;
+use Carbon\Carbon;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
@@ -151,6 +152,7 @@ class EventServiceTest extends TestCase{
         $this->assertEquals(2, $numberPendingMembers);
     }*/
 
+    /** @test */
     public function it_should_return_event_date_time_parameters()
     {
         $event = $this->event1;
@@ -164,6 +166,54 @@ class EventServiceTest extends TestCase{
         $this->assertArrayHasKey('timeEnd', $eventDateTimeParameters);
         $this->assertArrayHasKey('repeatUntil', $eventDateTimeParameters);
         $this->assertArrayHasKey('multipleDates', $eventDateTimeParameters);
+    }
+
+    /** @test */
+    public function it_should_return_event_monthly_select_options()
+    {
+        $date = '16/11/2020';
+        $options = $this->eventService->getMonthlySelectOptions($date);
+
+        $this->assertStringContainsString("<option value='0|2020-11-16'>ordinalDays.the_2020-11-16_x_of_the_month</option>", $options);
+        $this->assertStringContainsString("<option value='1|3|1'>the 3rd Monday of the month</option>", $options);
+        $this->assertStringContainsString("<option value='2|14'>the 15th to last day of the month</option>", $options);
+        $this->assertStringContainsString("<option value='3|2|1'>the 3rd to last Monday of the month</option>", $options);
+
+        $this->assertStringContainsString("<select name='on_monthly_kind' id='on_monthly_kind' class='selectpicker' title='Select start date first'><option value='0|2020-11-16'>ordinalDays.the_2020-11-16_x_of_the_month</option><option value='1|3|1'>the 3rd Monday of the month</option><option value='2|14'>the 15th to last day of the month</option><option value='3|2|1'>the 3rd to last Monday of the month</option></select>", $options);
+
+    }
+
+    /** @test */
+    public function it_should_return_event_repetition_string_empty_for_one_time_event()
+    {
+        $event = Event::factory()->create([
+            'repeat_type' => 1,
+        ]);
+        $eventRepetition = EventRepetition::factory()->create([
+            'event_id' => $event->id,
+        ]);
+
+        $repetitionTextString = $this->eventService->getRepetitionTextString($event, $eventRepetition);
+
+        $this->assertEquals("", $repetitionTextString);
+    }
+
+    /** @test */
+    public function it_should_return_event_repetition_weekly_string_empty_for_weekly_repeat_event()
+    {
+        $event = Event::factory()->create([
+            'repeat_type' => 2,
+            'repeat_weekly_on' => '1,3',
+            'repeat_until' => Carbon::createFromFormat('d/m/Y', "16/12/2025"),
+        ]);
+
+        $eventRepetition = EventRepetition::factory()->create([
+            'event_id' => $event->id,
+        ]);
+
+        $repetitionTextString = $this->eventService->getRepetitionTextString($event, $eventRepetition);
+
+        $this->assertEquals("The event happens every Monday and Wednesday until 16/12/2025", $repetitionTextString);
     }
 
 
