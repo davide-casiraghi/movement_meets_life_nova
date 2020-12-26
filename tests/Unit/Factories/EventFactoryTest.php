@@ -82,6 +82,8 @@ class EventFactoryTest extends TestCase{
             'repeat_weekly_on' => '{"1":"on","3":"on"}',
             'repeat_until' => '2025-12-01 00:00:00',
         ]);
+
+        //todo - check for the repetitions
     }
 
     /** @test */
@@ -98,6 +100,8 @@ class EventFactoryTest extends TestCase{
             'on_monthly_kind' => '1|4|1',
             'repeat_until' => '2025-12-01 00:00:00',
         ]);
+
+        //todo - check for the repetitions
     }
 
     /** @test */

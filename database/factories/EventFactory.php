@@ -4,8 +4,10 @@ namespace Database\Factories;
 
 use App\Models\Event;
 use App\Models\EventRepetition;
+use App\Repositories\EventRepetitionRepository;
 use App\Services\GlobalServices;
 use Carbon\Carbon;
+use Faker\Provider\DateTime;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class EventFactory extends Factory
@@ -21,6 +23,15 @@ class EventFactory extends Factory
      */
     protected $model = Event::class;
 
+    protected ?string $startDate = null;
+    protected ?string $endDate = null;
+    protected ?string $timeStart = null;
+    protected ?string $timeEnd = null;
+    protected ?string $repeatUntil = null;
+
+   // private ?string $val = null;
+
+
     /**
      * Define the model's default state.
      *
@@ -28,8 +39,7 @@ class EventFactory extends Factory
      */
     public function definition()
     {
-        $start = $this->faker->dateTimeThisYear($max = 'now', $timezone = null);
-        $end = $this->faker->dateTimeBetween($start, $start->format('Y-m-d H:i:s').' +2 days');
+
 
         return [
             'title' => $this->faker->sentence($nbWords = 2, $variableNbWords = true),
@@ -57,6 +67,15 @@ class EventFactory extends Factory
      */
     public function configure()
     {
+        $this->startDate = Carbon::today()->addDays(rand(0, 365))->isoFormat('D/M/Y');
+        $this->endDate = Carbon::createFromFormat('d/m/Y', $this->startDate)
+                                 ->addDays(2)->isoFormat('D/M/Y');
+            //$this->faker->dateTimeThisYear($max = 'now', $timezone = null)->format('d-m-Y');;
+        //$this->endDate = $this->faker->dateTimeBetween($this->startDate, $this->startDate->format('Y-m-d H:i:s').' +2 days')->format('d-m-Y');;
+        $this->timeStart = '20:00:00';
+        $this->timeEnd = '22:00:00';
+        $this->repeatUntil = "1/1/2025";
+
         // Before storing the event we set the event parameters for repetitions
         return $this->afterMaking(function (Event $event) {
 
@@ -91,9 +110,16 @@ class EventFactory extends Factory
                     EventRepetition::factory()->create([
                         'event_id' => $event->id,
                     ]);
+                    
                     break;
                 case 2: // Weekly
+                    // Convert the start date in a format that can be used for strtotime
+                    $dateStart = implode('-', array_reverse(explode('/', $this->startDate)));
 
+                    // Calculate repeat until day
+                    $repeatUntilDate = implode('-', array_reverse(explode('/', $this->repeatUntil)));
+
+                    EventRepetitionRepository::saveWeeklyRepeatDates($event->id, array_keys(json_decode($event->repeat_weekly_on, true)), $dateStart, $repeatUntilDate, $this->timeStart, $this->timeEnd);
                     break;
                 case 3: // Monthly
 

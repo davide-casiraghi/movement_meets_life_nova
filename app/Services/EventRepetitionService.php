@@ -33,13 +33,14 @@ class EventRepetitionService {
     /**
      * Update the EventRepetition
      *
-     * @param \App\Http\Requests\EventStoreRequest $data
+     * @param \App\Http\Requests\EventStoreRequest $request
      * @param int $eventRepetitionId
      *
      * @return void
      */
-    public function updateEventRepetitions(EventStoreRequest $data, int $eventRepetitionId)
+    public function updateEventRepetitions(EventStoreRequest $request, int $eventRepetitionId)
     {
+        $data = $request->all();
         $this->eventRepetitionRepository->updateEventRepetitions($data, $eventRepetitionId);
 
         //return $eventRepetition;

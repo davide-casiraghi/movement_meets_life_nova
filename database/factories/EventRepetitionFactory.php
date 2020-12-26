@@ -25,7 +25,7 @@ class EventRepetitionFactory extends Factory {
 
         $date_start_timestamp = rand(1895589603, 1924447203);
         $date_start = Carbon::parse($date_start_timestamp);
-        $date_end = $date_start->addDay()->toDateString();
+        $date_end = $date_start->addDay();
 
         return [
             'event_id' => rand(10, 100),

@@ -74,8 +74,8 @@ class EventRepetitionRepository {
         $eventRepetition = new EventRepetition();
         $eventRepetition->event_id = $eventId;
 
-        $eventRepetition->start_repeat = Carbon::createFromFormat('Y-m-d H:i', $dateStart.' '.$timeStart);
-        $eventRepetition->end_repeat = Carbon::createFromFormat('Y-m-d H:i', $dateEnd.' '.$timeEnd);
+        $eventRepetition->start_repeat = Carbon::createFromFormat('Y-m-d H:i:s', $dateStart.' '.$timeStart);
+        $eventRepetition->end_repeat = Carbon::createFromFormat('Y-m-d H:i:s', $dateEnd.' '.$timeEnd);
 
         $eventRepetition->save();
 
@@ -86,12 +86,12 @@ class EventRepetitionRepository {
     /**
      * To save event repetitions for create and update methods.
      *
-     * @param \App\Http\Requests\EventStoreRequest $data
+     * @param array $data
      * @param int $eventId
      *
      * @return void
      */
-    public function updateEventRepetitions(EventStoreRequest $data, int $eventId): void
+    public function updateEventRepetitions(array $data, int $eventId): void
     {
         self::deletePreviousRepetitions($eventId);
 
