@@ -9,14 +9,11 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
-    use HasApiTokens;
-    use HasFactory;
-    use HasProfilePhoto;
-    use Notifiable;
-    use TwoFactorAuthenticatable;
+    use HasApiTokens, HasFactory, HasRoles, HasProfilePhoto, Notifiable, TwoFactorAuthenticatable;
 
     /**
      * The attributes that are mass assignable.
@@ -67,17 +64,12 @@ class User extends Authenticatable
     }
 
     /**
-     * Get the roles for the user.
+     * Return true if the user is an administrator
+     *
+     * @return bool
      */
-    public function roles() {
-        return $this->belongsToMany(Role::class, 'role_user');
-    }
-
-    /**
-     * Check if the user is administrator
-     */
-    public function isAdmin() {
-        return $this->roles()->where('name', 'Administrator')->exists();
+    public function isAdmin(): bool{
+        return $this->hasRole(['Super Admin', 'Admin']);
     }
 
     /**
@@ -100,4 +92,6 @@ class User extends Authenticatable
     public function teachers(){
         return $this->hasMany(Teacher::class);
     }
+
+
 }

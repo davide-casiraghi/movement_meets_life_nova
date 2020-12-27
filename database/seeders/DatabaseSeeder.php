@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -16,5 +17,6 @@ class DatabaseSeeder extends Seeder
         $this->call(ContinentsTableSeeder::class);
         $this->call(CountriesTableSeeder::class);
         $this->call(EventCategoriesTableSeeder::class);
+        $this->call(RolesAndPermissionSeeder::class);
     }
 }

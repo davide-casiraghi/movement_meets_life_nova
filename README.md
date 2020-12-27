@@ -139,7 +139,6 @@ use App\Models\Organizer;
 use App\Models\Post;
 use App\Models\PostCategory;
 use App\Models\Quote;
-use App\Models\Role;
 use App\Models\Tag;
 use App\Models\Teacher;
 use App\Models\Testimonial;
@@ -150,15 +149,13 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\Sequence;
 
 
-Role::factory()->create([
-    'name' => 'Administrator',
-]);
-Role::factory()->count(4)->create();
-
-User::factory()->create([
-    'name' => 'Davide',
+$user = User::factory()->create([
+    'name' => 'admin',
     'email' => 'davide.casiraghi@gmail.com',
 ]);
+$user->assignRole('Super Admin');
+
+
 User::factory()->count(4)->create();
 
 Tag::factory()->count(20)->create();
