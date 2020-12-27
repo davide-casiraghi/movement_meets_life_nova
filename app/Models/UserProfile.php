@@ -1,14 +1,12 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Spatie\Searchable\Searchable;
-use Spatie\Searchable\SearchResult;
 use Stevebauman\Location\Facades\Location;
 
-class UserProfile extends Model implements Searchable
+class UserProfile extends Model
 {
     use SoftDeletes;
 
@@ -46,43 +44,13 @@ class UserProfile extends Model implements Searchable
      * Returns the region where the user is based
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function region()
+    public function country()
     {
-        return $this->belongsTo(Region::class);
+        return $this->belongsTo(Country::class);
     }
 
     /**
-     * Returns the work type of the user.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
-     */
-    public function workTypes()
-    {
-        return $this->belongsToMany(WorkType::class);
-    }
-
-    /**
-     * Returns the gender of the user.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
-     */
-    public function genders()
-    {
-        return $this->belongsToMany(Gender::class);
-    }
-
-    /**
-     * Return the regions for which the user want to receive the alerts
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
-     */
-    public function alertRegions()
-    {
-        return $this->belongsToMany(Region::class, 'alert_region_user_profile','user_profile_id', 'region_id');
-    }
-
-    /**
-     * Return the regions for which the user want to receive the alerts
+     * Return the user that has validated the user
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
@@ -133,20 +101,5 @@ class UserProfile extends Model implements Searchable
     {
         return "{$this->name} {$this->surname}";
     }
-
-    /**
-     * Method required by Spatie Laravel Searchable
-     *
-     */
-    public function getSearchResult(): SearchResult {
-        $url = route('members.edit', $this->id);
-
-        return new SearchResult(
-            $this,
-            $this->name." ".$this->surname,
-            $url
-        );
-    }
-
 
 }

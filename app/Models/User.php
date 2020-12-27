@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\UserProfile;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -61,6 +62,16 @@ class User extends Authenticatable
      */
     public function post(){
         return $this->hasMany(Post::class, 'created_by');  //  select * from post where created_by
+    }
+
+    /**
+     * Returns the the user profile
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function profile()
+    {
+        return $this->hasOne(UserProfile::class);
     }
 
     /**
