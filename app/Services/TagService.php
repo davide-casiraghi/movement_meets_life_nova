@@ -7,8 +7,13 @@ use App\Repositories\TagRepository;
 
 class TagService {
 
-    private $tagRepository;
+    private TagRepository $tagRepository;
 
+    /**
+     * TagService constructor.
+     *
+     * @param \App\Repositories\TagRepository $tagRepository
+     */
     public function __construct(
         TagRepository $tagRepository
     ) {

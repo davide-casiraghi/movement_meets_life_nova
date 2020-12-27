@@ -7,8 +7,13 @@ use App\Repositories\PostCategoryRepository;
 
 class PostCategoryService {
 
-    private $postCategoryRepository;
+    private PostCategoryRepository $postCategoryRepository;
 
+    /**
+     * PostCategoryService constructor.
+     *
+     * @param \App\Repositories\PostCategoryRepository $postCategoryRepository
+     */
     public function __construct(
         PostCategoryRepository $postCategoryRepository
     ) {

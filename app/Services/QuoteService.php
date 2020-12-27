@@ -14,7 +14,8 @@ class QuoteService {
      *
      * @return \App\Models\Quote
      */
-    public function getById($quoteId) {
+    public function getById($quoteId)
+    {
         return Quote::findById($quoteId);
     }
 
@@ -23,7 +24,8 @@ class QuoteService {
      *
      * @return iterable
      */
-    public function getAll() {
+    public function getAll()
+    {
         return $roles = Quote::all();
     }
 
@@ -32,7 +34,8 @@ class QuoteService {
      *
      * @return \App\Models\Quote
      */
-    public function getRandomQuote() {
+    public function getRandomQuote()
+    {
 
         // Use the day of the year to get a daily changing
         // quote changing (z = 0 till 365)
@@ -43,7 +46,8 @@ class QuoteService {
 
     }
 
-    function randomQuoteByInterval($TimeBase, $QuotesArray){
+    function randomQuoteByInterval($TimeBase, $QuotesArray)
+    {
 
         // Make sure it is a integer
         $TimeBase = intval($TimeBase);

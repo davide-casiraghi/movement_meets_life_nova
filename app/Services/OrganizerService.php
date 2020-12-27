@@ -6,8 +6,14 @@ use App\Models\Organizer;
 use App\Repositories\OrganizerRepository;
 
 class OrganizerService {
-    private $organizerRepository;
 
+    private OrganizerRepository $organizerRepository;
+
+    /**
+     * OrganizerService constructor.
+     *
+     * @param \App\Repositories\OrganizerRepository $organizerRepository
+     */
     public function __construct(
         OrganizerRepository $organizerRepository
     ) {
@@ -121,8 +127,6 @@ class OrganizerService {
                 $mediaItems[0]->delete();
             }
         }
-
-
     }
 
     /**
@@ -132,7 +136,8 @@ class OrganizerService {
      *
      * @return array
      */
-    public function getThumbsUrls(int $organizerId): array{
+    public function getThumbsUrls(int $organizerId): array
+    {
         $thumbUrls = [];
 
         $organizer = $this->getById($organizerId);

@@ -8,14 +8,19 @@ use App\Repositories\TestimonialRepository;
 
 class TestimonialService {
 
-    private $testimonialRepository;
+    private TestimonialRepository $testimonialRepository;
 
+    /**
+     * TestimonialService constructor.
+     *
+     * @param \App\Repositories\TestimonialRepository $testimonialRepository
+     */
     public function __construct(TestimonialRepository $testimonialRepository) {
         $this->testimonialRepository = $testimonialRepository;
     }
 
     /**
-     * Create an alert
+     * Create a Testimonial
      *
      * @param \App\Http\Requests\TestimonialStoreRequest $data
      *
@@ -40,7 +45,8 @@ class TestimonialService {
      * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileDoesNotExist
      * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileIsTooBig
      */
-    private function storeImages(Testimonial $testimonial, TestimonialStoreRequest $data):void {
+    private function storeImages(Testimonial $testimonial, TestimonialStoreRequest $data):void
+    {
         if($data->file('photo')) {
             $photo = $data->file('photo');
             if ($photo->isValid()) {

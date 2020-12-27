@@ -8,8 +8,13 @@ use App\Repositories\GlossaryRepository;
 
 class GlossaryService {
 
-    private $glossaryRepository;
+    private GlossaryRepository $glossaryRepository;
 
+    /**
+     * GlossaryService constructor.
+     *
+     * @param \App\Repositories\GlossaryRepository $glossaryRepository
+     */
     public function __construct(
         GlossaryRepository $glossaryRepository
     ) {
@@ -166,7 +171,8 @@ class GlossaryService {
      * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileDoesNotExist
      * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileIsTooBig
      */
-    private function storeImages(Glossary $glossary, GlossaryStoreRequest $data):void {
+    private function storeImages(Glossary $glossary, GlossaryStoreRequest $data):void
+    {
         if($data->file('introimage')) {
             $introimage = $data->file('introimage');
             if ($introimage->isValid()) {

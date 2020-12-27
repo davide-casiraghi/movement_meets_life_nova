@@ -6,8 +6,14 @@ use App\Models\Teacher;
 use App\Repositories\TeacherRepository;
 
 class TeacherService {
-    private $teacherRepository;
 
+    private TeacherRepository $teacherRepository;
+
+    /**
+     * TestimonialService constructor.
+     *
+     * @param \App\Repositories\TeacherRepository $teacherRepository
+     */
     public function __construct(
         TeacherRepository $teacherRepository
     ) {
@@ -122,8 +128,6 @@ class TeacherService {
                 $mediaItems[0]->delete();
             }
         }
-
-
     }
 
     /**
@@ -133,7 +137,8 @@ class TeacherService {
      *
      * @return array
      */
-    public function getThumbsUrls(int $teacherId): array{
+    public function getThumbsUrls(int $teacherId): array
+    {
         $thumbUrls = [];
 
         $teacher = $this->getById($teacherId);

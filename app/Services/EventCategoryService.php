@@ -7,8 +7,13 @@ use App\Repositories\EventCategoryRepository;
 
 class EventCategoryService {
 
-    private $eventCategoryRepository;
+    private EventCategoryRepository $eventCategoryRepository;
 
+    /**
+     * EventCategoryService constructor.
+     *
+     * @param \App\Repositories\EventCategoryRepository $eventCategoryRepository
+     */
     public function __construct(
         EventCategoryRepository $eventCategoryRepository
     ) {

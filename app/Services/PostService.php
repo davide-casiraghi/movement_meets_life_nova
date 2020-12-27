@@ -9,11 +9,19 @@ use App\Services\Snippets\AccordionService;
 use App\Services\Snippets\GalleryMasonryService;
 
 class PostService {
-    private $postRepository;
-    private $accordionService;
-    private $galleryService;
-    private $glossaryService;
+    private PostRepository $postRepository;
+    private AccordionService $accordionService;
+    private GalleryMasonryService $galleryService;
+    private GlossaryService $glossaryService;
 
+    /**
+     * PostService constructor.
+     *
+     * @param \App\Repositories\PostRepository $postRepository
+     * @param \App\Services\Snippets\AccordionService $accordionService
+     * @param \App\Services\Snippets\GalleryMasonryService $galleryService
+     * @param \App\Services\GlossaryService $glossaryService
+     */
     public function __construct(
         PostRepository $postRepository,
         AccordionService $accordionService,
@@ -26,8 +34,16 @@ class PostService {
         $this->glossaryService = $glossaryService;
     }
 
-    public function getPostBody($post){
-
+    /**
+     * Returns the post body adding support to transform snippets to html code
+     * eg. Accordion, Gallery, Glossary
+     *
+     * @param $post
+     *
+     * @return string
+     */
+    public function getPostBody($post): string
+    {
         //dd($post->getTranslation('body', 'en'));
 
         $postBody = $post->body;
@@ -127,7 +143,8 @@ class PostService {
      * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileDoesNotExist
      * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileIsTooBig
      */
-    private function storeImages(Post $post, PostStoreRequest $data):void {
+    private function storeImages(Post $post, PostStoreRequest $data):void
+    {
         /*if($data->file('photos')) {
             foreach ($data->file('photos') as $photo) {
                 if ($photo->isValid()) {
@@ -149,8 +166,6 @@ class PostService {
                 $mediaItems[0]->delete();
             }
         }
-
-
     }
 
     /**
@@ -160,7 +175,8 @@ class PostService {
      *
      * @return array
      */
-    public function getThumbsUrls(int $postId): array{
+    public function getThumbsUrls(int $postId): array
+    {
         $thumbUrls = [];
 
         $post = $this->getById($postId);

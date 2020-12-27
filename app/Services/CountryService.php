@@ -7,8 +7,13 @@ use App\Repositories\CountryRepository;
 
 class CountryService {
 
-    private $countryRepository;
+    private CountryRepository $countryRepository;
 
+    /**
+     * CountryService constructor.
+     *
+     * @param \App\Repositories\CountryRepository $countryRepository
+     */
     public function __construct(
         CountryRepository $countryRepository
     ) {

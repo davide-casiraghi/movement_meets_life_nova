@@ -7,8 +7,14 @@ use App\Models\Venue;
 use App\Repositories\VenueRepository;
 
 class VenueService {
-    private $venueRepository;
 
+    private VenueRepository $venueRepository;
+
+    /**
+     * VenueService constructor.
+     *
+     * @param \App\Repositories\VenueRepository $venueRepository
+     */
     public function __construct(
         VenueRepository $venueRepository
     ) {
@@ -66,6 +72,8 @@ class VenueService {
     /**
      * Get all the Venues.
      *
+     * @param int|null $recordsPerPage
+     *
      * @return iterable
      */
     public function getVenues(int $recordsPerPage = null)
@@ -101,7 +109,8 @@ class VenueService {
      *
      * @return void
      */
-    private function storeImages(Venue $venue, VenueStoreRequest $data):void {
+    private function storeImages(Venue $venue, VenueStoreRequest $data):void
+    {
 
         if($data->file('introimage')) {
             $introimage = $data->file('introimage');
@@ -116,18 +125,17 @@ class VenueService {
                 $mediaItems[0]->delete();
             }
         }
-
-
     }
 
     /**
-     * Return an array with the thumb images ulrs
+     * Return an array with the thumb images URLs
      *
      * @param int $venueId
      *
      * @return array
      */
-    public function getThumbsUrls(int $venueId): array{
+    public function getThumbsUrls(int $venueId): array
+    {
         $thumbUrls = [];
 
         $venue = $this->getById($venueId);

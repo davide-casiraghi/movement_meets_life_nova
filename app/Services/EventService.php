@@ -13,8 +13,14 @@ use Illuminate\Http\Request;
 use PHPUnit\TextUI\Help;
 
 class EventService {
-    private $eventRepository;
 
+    private EventRepository $eventRepository;
+
+    /**
+     * EventService constructor.
+     *
+     * @param \App\Repositories\EventRepository $eventRepository
+     */
     public function __construct(
         EventRepository $eventRepository
     ) {
@@ -109,7 +115,8 @@ class EventService {
      * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileDoesNotExist
      * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileIsTooBig
      */
-    private function storeImages(Event $event, EventStoreRequest $data):void {
+    private function storeImages(Event $event, EventStoreRequest $data):void
+    {
 
         if($data->file('introimage')) {
             $introimage = $data->file('introimage');
@@ -124,7 +131,6 @@ class EventService {
                 $mediaItems[0]->delete();
             }
         }
-
     }
 
     /**
@@ -134,7 +140,8 @@ class EventService {
      *
      * @return array
      */
-    public function getThumbsUrls(int $eventId): array{
+    public function getThumbsUrls(int $eventId): array
+    {
         $thumbUrls = [];
 
         $event = $this->getById($eventId);

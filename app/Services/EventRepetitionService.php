@@ -7,8 +7,14 @@ use App\Models\EventRepetition;
 use App\Repositories\EventRepetitionRepository;
 
 class EventRepetitionService {
-    private $eventRepetitionRepository;
 
+    private EventRepetitionRepository $eventRepetitionRepository;
+
+    /**
+     * EventRepetitionService constructor.
+     *
+     * @param \App\Repositories\EventRepetitionRepository $eventRepetitionRepository
+     */
     public function __construct(
         EventRepetitionRepository $eventRepetitionRepository
 
