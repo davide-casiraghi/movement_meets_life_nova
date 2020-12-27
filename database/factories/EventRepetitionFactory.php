@@ -3,7 +3,6 @@
 namespace Database\Factories;
 
 use App\Models\EventRepetition;
-use App\Services\GlobalServices;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Carbon\Carbon;
 

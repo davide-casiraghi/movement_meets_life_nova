@@ -3,7 +3,6 @@
 namespace Database\Factories;
 
 use App\Models\Glossary;
-use App\Services\GlobalServices;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class GlossaryFactory extends Factory
@@ -35,7 +34,7 @@ class GlossaryFactory extends Factory
                 'en' => $this->faker->paragraph($nbSentences = 2, $variableNbSentences = true),
                 'it' => $this->faker->paragraph($nbSentences = 2, $variableNbSentences = true),
             ],
-            //'is_published' => GlobalServices::getRandomWeightedElement(['1'=>85, '0'=>15 ]),
+
         ];
     }
 }

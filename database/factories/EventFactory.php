@@ -5,7 +5,6 @@ namespace Database\Factories;
 use App\Models\Event;
 use App\Models\EventRepetition;
 use App\Repositories\EventRepetitionRepository;
-use App\Services\GlobalServices;
 use Carbon\Carbon;
 use Faker\Provider\DateTime;
 use Illuminate\Database\Eloquent\Factories\Factory;
