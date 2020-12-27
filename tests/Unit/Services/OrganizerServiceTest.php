@@ -37,7 +37,6 @@ class OrganizerServiceTest extends TestCase{
         $this->organizerService = $this->app->make('App\Services\OrganizerService');
 
         $this->user1 = User::factory()->create([
-            'name' => 'Paolo',
             'email' => 'admin@gmail.com',
         ]);
 

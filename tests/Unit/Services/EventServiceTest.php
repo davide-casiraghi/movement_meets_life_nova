@@ -48,7 +48,6 @@ class EventServiceTest extends TestCase{
         $this->eventService = $this->app->make('App\Services\EventService');
 
         $this->user1 = User::factory()->create([
-            'name' => 'Paolo',
             'email' => 'admin@gmail.com',
         ]);
 

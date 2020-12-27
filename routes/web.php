@@ -41,6 +41,16 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function() {
     });
 });
 
+// Teams
+Route::name('teams.')->group(function () {
+    Route::get('/teams', 'TeamController@index')->name('index');
+    Route::get('/team/{id}', 'TeamController@edit')->name('edit');
+    Route::put('/team/{id}', 'TeamController@update')->name('update');
+    Route::get('/team', 'TeamController@create')->name('create');
+    Route::post('/team', 'TeamController@store')->name('store');
+    Route::delete('/team/{id}', 'TeamController@destroy')->name('destroy');
+});
+Route::post('/permissions', 'PermissionController@store')->name('permissions.store');
 
 
 // Posts

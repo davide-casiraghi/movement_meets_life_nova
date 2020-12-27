@@ -37,7 +37,6 @@ class TeacherServiceTest extends TestCase{
         $this->teacherService = $this->app->make('App\Services\TeacherService');
 
         $this->user1 = User::factory()->create([
-            'name' => 'Paolo',
             'email' => 'admin@gmail.com',
         ]);
 
