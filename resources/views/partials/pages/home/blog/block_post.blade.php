@@ -43,7 +43,7 @@
                   &middot;
                 </span>
                     <span>
-                  {{$post->reading_time('minutesAndSeconds')}} read
+                  {{$post->readingTime('minutesAndSeconds')}} read
                 </span>
                 </div>
             </div>

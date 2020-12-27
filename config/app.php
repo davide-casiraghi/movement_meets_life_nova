@@ -231,6 +231,7 @@ return [
 
         'Helper' => App\Helpers\Helper::class,
         'DateHelpers' => App\Helpers\DateHelpers::class,
+        'TextHelpers' => App\Helpers\TextHelpers::class,
     ],
 
 ];

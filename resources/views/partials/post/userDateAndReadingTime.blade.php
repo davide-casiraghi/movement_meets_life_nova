@@ -6,7 +6,7 @@
         <div class="float-right">
             {{ $post->created_at->format('M j, Y') }} |
             <div class="inline-block">
-                {{ $post->reading_time('minutes') }} min read
+                {{ $post->readingTime('minutes') }} min read
             </div>
         </div>
     </div>

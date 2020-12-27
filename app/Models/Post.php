@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Services\Helpers\CalculateReadingTime;
+use App\Helpers\TextHelpers;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
@@ -42,8 +42,6 @@ class Post extends Model implements HasMedia
         // The saving / saved events will fire when a model is created or updated.
         static::saving(function ($model) {
 
-            // Remove all malicious code (XSS) - http://htmlpurifier.org/  - https://github.com/mewebstudio/Purifier
-            //$model->body = clean($model->get('body'));  //package mews/purifier was causing errors with strange characters in the body.. I have uninstalled it
             $model->created_by = Auth::id();
 
             // todo - Remove this: it's to allow the factory to generate without a null value.
@@ -76,22 +74,25 @@ class Post extends Model implements HasMedia
     /**
      * Returns the categories of the post.
      */
-    public function category() {
+    public function category()
+    {
         return $this->belongsTo(PostCategory::class, 'category_id');
     }
 
     /**
-     * Returns the insights related to the the post. (optional)
+     * Returns the insights related to the the post.
      */
-    public function insights(){
-        return $this->belongsToMany(Insight::class); //Many to Many
+    public function insights()
+    {
+        return $this->belongsToMany(Insight::class);
     }
 
     /**
      * Returns the tags associated to the post.
      */
-    public function tags(){
-        return $this->belongsToMany(Tag::class); //Many to Many
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
     }
 
     /**
@@ -104,15 +105,21 @@ class Post extends Model implements HasMedia
 
     /**
      * Returns the reading time of the post.
+     *
+     * @param string|null $format
+     *
+     * @return string
      */
-    public function reading_time(string $format = null){
-        return CalculateReadingTime::post_estimated_reading_time($this->body, 200, $format);
+    public function readingTime(string $format = null): string
+    {
+        return TextHelpers::estimateReadingTime($this->body, 200, $format);
     }
 
     /**
      * Set default status value when a testimonial is created
      */
-    public static function boot() {
+    public static function boot()
+    {
         parent::boot();
 
         static::created(function (Post $testimonial) {

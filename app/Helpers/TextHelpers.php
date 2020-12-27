@@ -1,23 +1,27 @@
 <?php
 
+namespace App\Helpers;
 
-namespace App\Services\Helpers;
+class TextHelpers {
 
-/**
- * Calculate the estimated reading time for a given piece of $content in minutes.
- *
- * Average reading speed is between 230-280 words per minute,
- * so he using 200 here is keeping some limit to provide pessimistic reading time.
- * Most of people should read it faster.
- *
- * @param string $content Content to calculate read time for.
- * @param int $wpm Estimated words per minute of reader.
- *
- * @return string estimated read time eg. 1 minute, 30 seconds
- */
-class CalculateReadingTime {
-
-    public static function post_estimated_reading_time(string $content = '', int $wpm = 200, string $format = null) {
+    /**
+     * Return the estimated reading time for a given piece of $content in minutes.
+     *
+     * Average reading speed is between 230-280 words per minute,
+     * so he using 200 here is keeping some limit to provide pessimistic reading time.
+     * Most of people should read it faster.
+     *
+     * @param string $content Content to calculate read time for.
+     * @param int $wpm Estimated words per minute of reader.
+     *
+     * @return string estimated read time eg. 1 minute, 30 seconds
+     */
+    public static function estimateReadingTime(
+        string $content = '',
+        int $wpm = 200,
+        string $format = null
+    ): string
+    {
 
         $word_count = str_word_count(strip_tags($content));
 
@@ -47,4 +51,5 @@ class CalculateReadingTime {
 
         return "Please specify the time format";
     }
+
 }
