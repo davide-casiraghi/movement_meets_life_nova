@@ -252,8 +252,49 @@ class EventServiceTest extends TestCase{
         $this->assertEquals("The event happens on this dates: 14/01/2020, 1/3/2020, 15/5/2020, 7/6/2020", $repetitionTextString);
     }
 
+    /** @test */
+    public function it_should_return_report_misuse_reason_description()
+    {
+        $reportMisuseReasonDescription = $this->eventService->getReportMisuseReasonDescription(1);
 
+        $this->assertEquals("Not about Contact Improvisation", $reportMisuseReasonDescription);
+    }
 
+    /** @test */
+    public function it_should_return_on_mothly_kind_day_of_the_month_string()
+    {
+        $onMonthlyKindCode = '0|7';
+        $onMonthlyKind = $this->eventService->decodeOnMonthlyKind($onMonthlyKindCode);
+
+        $this->assertEquals("the 7th day of the month", $onMonthlyKind);
+    }
+
+    /** @test */
+    public function it_should_return_on_mothly_kind_weekday_of_the_month_from_month_beginning_string()
+    {
+        $onMonthlyKindCode = '1|2|4';
+        $onMonthlyKind = $this->eventService->decodeOnMonthlyKind($onMonthlyKindCode);
+
+        $this->assertEquals("the 2nd Thursday of the month", $onMonthlyKind);
+    }
+
+    /** @test */
+    public function it_should_return_on_mothly_kind_day_of_the_month_from_month_end_string()
+    {
+        $onMonthlyKindCode = '2|20';
+        $onMonthlyKind = $this->eventService->decodeOnMonthlyKind($onMonthlyKindCode);
+
+        $this->assertEquals("the 21st to last day of the month", $onMonthlyKind);
+    }
+
+    /** @test */
+    public function it_should_return_on_mothly_kind_weekday_of_the_month_from_month_end_string()
+    {
+        $onMonthlyKindCode = '3|3|4';
+        $onMonthlyKind = $this->eventService->decodeOnMonthlyKind($onMonthlyKindCode);
+
+        $this->assertEquals("the 4th to last Thursday of the month", $onMonthlyKind);
+    }
 
 
 
