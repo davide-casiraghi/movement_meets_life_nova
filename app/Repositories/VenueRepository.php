@@ -1,12 +1,10 @@
 <?php
 
-
 namespace App\Repositories;
 
 use App\Models\Venue;
 
-
-class VenueRepository {
+class VenueRepository implements VenueRepositoryInterface {
 
     /**
      * Get all EventCategories.

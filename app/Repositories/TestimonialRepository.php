@@ -4,7 +4,7 @@ namespace App\Repositories;
 
 use App\Models\Testimonial;
 
-class TestimonialRepository {
+class TestimonialRepository implements TestimonialRepositoryInterface {
 
     /**
      * Get all Posts.

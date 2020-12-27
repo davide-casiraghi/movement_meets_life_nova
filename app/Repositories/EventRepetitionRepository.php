@@ -13,7 +13,7 @@ use Carbon\CarbonPeriod;
 use Illuminate\Support\Facades\Auth;
 
 
-class EventRepetitionRepository {
+class EventRepetitionRepository implements EventRepetitionRepositoryInterface {
 
     /**
      * Get all EventRepetitions.

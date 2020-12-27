@@ -9,7 +9,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 
 
-class EventRepository {
+class EventRepository implements EventRepositoryInterface {
 
     /**
      * Get all Events.

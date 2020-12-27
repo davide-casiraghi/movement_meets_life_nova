@@ -5,7 +5,7 @@ namespace App\Repositories;
 use App\Models\Organizer;
 use Illuminate\Support\Facades\Auth;
 
-class OrganizerRepository {
+class OrganizerRepository implements OrganizerRepositoryInterface {
 
     /**
      * Get all Organizers.

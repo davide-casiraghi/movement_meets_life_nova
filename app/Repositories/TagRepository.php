@@ -1,12 +1,10 @@
 <?php
 
-
 namespace App\Repositories;
 
 use App\Models\Tag;
 
-
-class TagRepository {
+class TagRepository implements TagRepositoryInterface {
 
     /**
      * Get all Tags.

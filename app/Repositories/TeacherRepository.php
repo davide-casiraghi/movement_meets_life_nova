@@ -5,7 +5,7 @@ namespace App\Repositories;
 use App\Models\Teacher;
 use Illuminate\Support\Facades\Auth;
 
-class TeacherRepository {
+class TeacherRepository implements TeacherRepositoryInterface {
 
     /**
      * Get all Teachers.

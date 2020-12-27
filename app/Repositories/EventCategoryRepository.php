@@ -6,7 +6,7 @@ namespace App\Repositories;
 use App\Models\EventCategory;
 
 
-class EventCategoryRepository {
+class EventCategoryRepository implements EventCategoryRepositoryInterface {
 
     /**
      * Get all EventCategories.

@@ -4,7 +4,7 @@ namespace App\Repositories;
 
 use App\Models\Glossary;
 
-class GlossaryRepository {
+class GlossaryRepository implements GlossaryRepositoryInterface {
 
     /**
      * Get all Glossary terms.

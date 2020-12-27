@@ -4,7 +4,7 @@ namespace App\Repositories;
 
 use App\Models\Quote;
 
-class QuoteRepository {
+class QuoteRepository implements QuoteRepositoryInterface {
 
     /**
      * Get all Quote terms.

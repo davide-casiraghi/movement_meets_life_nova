@@ -5,7 +5,7 @@ namespace App\Repositories;
 use App\Http\Requests\PermissionStoreRequest;
 use Spatie\Permission\Models\Role;
 
-class PermissionRepository {
+class PermissionRepository implements PermissionRepositoryInterface {
 
     /**
      * Update all the permissions of the Teams (Spatie Roles)
