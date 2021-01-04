@@ -6,12 +6,14 @@ use App\Http\Controllers\GetATreatmentController;
 use App\Http\Controllers\GlossaryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrganizerController;
+use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\PostCategoryController;
 use App\Http\Controllers\PostCommentController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ContactUsFormController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\TeacherController;
+use App\Http\Controllers\TeamController;
 use App\Http\Controllers\TestimonialController;
 use App\Models\Organizer;
 use App\Models\Teacher;
@@ -33,101 +35,103 @@ use Spatie\Honeypot\ProtectAgainstSpam;
 Route::get('/',[ HomeController::class, 'index'])->name('home');
 
 
-
 Route::group(['middleware' => ['auth:sanctum', 'verified']], function() {
 
     Route::name('dashboard.')->group(function () {
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('index');
     });
+
+    // Teams
+    Route::name('teams.')->group(function () {
+        Route::get('/teams', [TeamController::class, 'index'])->name('index');
+        Route::get('/teams/{id}/edit', [TeamController::class, 'edit'])->name('edit');
+        Route::put('/teams/{id}', [TeamController::class, 'update'])->name('update');
+        Route::get('/teams/create', [TeamController::class, 'create'])->name('create');
+        Route::post('/teams', [TeamController::class, 'store'])->name('store');
+        Route::delete('/teams/{id}', [TeamController::class, 'destroy'])->name('destroy');
+    });
+    Route::post('/permissions', [PermissionController::class, 'store'])->name('permissions.store');
+
+    // Posts
+    Route::name('posts.')->group(function () {
+        Route::get('/posts', [PostController::class, 'index'])->name('index');
+        Route::get('/posts/{id}/edit', [PostController::class, 'edit'])->name('edit');
+        Route::put('/posts/{id}', [PostController::class, 'update'])->name('update');
+        Route::get('/posts/create', [PostController::class, 'create'])->name('create');
+        Route::post('/posts', [PostController::class, 'store'])->name('store');
+        Route::delete('/posts/{id}', [PostController::class, 'destroy'])->name('destroy');
+        Route::get('/posts/{id}', [PostController::class, 'show'])->name('show');
+
+        Route::get('/blog', [PostController::class, 'blog'])->name('blog');
+    });
+
+    // Tags
+    Route::name('tags.')->group(function () {
+        Route::get('/tags', [TagController::class, 'index'])->name('index');
+        Route::get('/tags/{id}/edit', [TagController::class, 'edit'])->name('edit');
+        Route::put('/tags/{id}', [TagController::class, 'update'])->name('update');
+        Route::get('/tags/create', [TagController::class, 'create'])->name('create');
+        Route::post('/tags', [TagController::class, 'store'])->name('store');
+        Route::delete('/tags/{id}', [TagController::class, 'destroy'])->name('destroy');
+        Route::get('/tags/{id}', [TagController::class, 'show'])->name('show');
+    });
+
+    // Glossaries
+    Route::name('glossaries.')->group(function () {
+        Route::get('/glossaries', [GlossaryController::class, 'index'])->name('index');
+        Route::get('/glossaries/{id}/edit', [GlossaryController::class, 'edit'])->name('edit');
+        Route::put('/glossaries/{id}', [GlossaryController::class, 'update'])->name('update');
+        Route::get('/glossaries/create', [GlossaryController::class, 'create'])->name('create');
+        Route::post('/glossaries', [GlossaryController::class, 'store'])->name('store');
+        Route::delete('/glossaries/{id}', [GlossaryController::class, 'destroy'])->name('destroy');
+        Route::get('/glossaries/{id}', [GlossaryController::class, 'show'])->name('show');
+    });
+
+    // Teachers
+    Route::name('teachers.')->group(function () {
+        Route::get('/teachers', [TeacherController::class, 'index'])->name('index');
+        Route::get('/teachers/{id}/edit', [TeacherController::class, 'edit'])->name('edit');
+        Route::put('/teachers/{id}', [TeacherController::class, 'update'])->name('update');
+        Route::get('/teachers/create', [TeacherController::class, 'create'])->name('create');
+        Route::post('/teachers', [TeacherController::class, 'store'])->name('store');
+        Route::delete('/teachers/{id}', [TeacherController::class, 'destroy'])->name('destroy');
+        Route::get('/teachers/{id}', [TeacherController::class, 'show'])->name('show');
+    });
+
+    // Organizers
+    Route::name('organizers.')->group(function () {
+        Route::get('/organizers', [OrganizerController::class, 'index'])->name('index');
+        Route::get('/organizers/{id}/edit', [OrganizerController::class, 'edit'])->name('edit');
+        Route::put('/organizers/{id}', [OrganizerController::class, 'update'])->name('update');
+        Route::get('/organizers/create', [OrganizerController::class, 'create'])->name('create');
+        Route::post('/organizers', [OrganizerController::class, 'store'])->name('store');
+        Route::delete('/organizers/{id}', [OrganizerController::class, 'destroy'])->name('destroy');
+        Route::get('/organizers/{id}', [OrganizerController::class, 'show'])->name('show');
+    });
+
+    // Events
+    Route::name('events.')->group(function () {
+        Route::get('/events', [EventController::class, 'index'])->name('index');
+        Route::get('/events/{id}/edit', [EventController::class, 'edit'])->name('edit');
+        Route::put('/events/{id}', [EventController::class, 'update'])->name('update');
+        Route::get('/events/create', [EventController::class, 'create'])->name('create');
+        Route::post('/events', [EventController::class, 'store'])->name('store');
+        Route::delete('/events/{id}', [EventController::class, 'destroy'])->name('destroy');
+        Route::get('/events/{id}', [EventController::class, 'show'])->name('show');
+
+        Route::get('/event/monthSelectOptions/', [EventController::class, 'calculateMonthlySelectOptions'])->name('monthSelectOptions');  // To populate the event repeat by month options
+    });
+
+    // Event categories
+    Route::resource('eventCategories', EventCategoryController::class);
+
+    // Posts categories
+    Route::resource('postCategories', PostCategoryController::class);
+
+
+
 });
 
-// Teams
-Route::name('teams.')->group(function () {
-    Route::get('/teams', 'TeamController@index')->name('index');
-    Route::get('/team/{id}', 'TeamController@edit')->name('edit');
-    Route::put('/team/{id}', 'TeamController@update')->name('update');
-    Route::get('/team', 'TeamController@create')->name('create');
-    Route::post('/team', 'TeamController@store')->name('store');
-    Route::delete('/team/{id}', 'TeamController@destroy')->name('destroy');
-});
-Route::post('/permissions', 'PermissionController@store')->name('permissions.store');
-
-
-// Posts
-Route::name('posts.')->group(function () {
-    Route::get('/posts', [PostController::class, 'index'])->name('index');
-    Route::get('/posts/{id}/edit', [PostController::class, 'edit'])->name('edit');
-    Route::put('/posts/{id}', [PostController::class, 'update'])->name('update');
-    Route::get('/posts/create', [PostController::class, 'create'])->name('create');
-    Route::post('/posts', [PostController::class, 'store'])->name('store');
-    Route::delete('/posts/{id}', [PostController::class, 'destroy'])->name('destroy');
-    Route::get('/posts/{id}', [PostController::class, 'show'])->name('show');
-
-    Route::get('/blog', [PostController::class, 'blog'])->name('blog');
-});
-
-// Tags
-Route::name('tags.')->group(function () {
-    Route::get('/tags', [TagController::class, 'index'])->name('index');
-    Route::get('/tags/{id}/edit', [TagController::class, 'edit'])->name('edit');
-    Route::put('/tags/{id}', [TagController::class, 'update'])->name('update');
-    Route::get('/tags/create', [TagController::class, 'create'])->name('create');
-    Route::post('/tags', [TagController::class, 'store'])->name('store');
-    Route::delete('/tags/{id}', [TagController::class, 'destroy'])->name('destroy');
-    Route::get('/tags/{id}', [TagController::class, 'show'])->name('show');
-});
-
-// Glossaries
-Route::name('glossaries.')->group(function () {
-    Route::get('/glossaries', [GlossaryController::class, 'index'])->name('index');
-    Route::get('/glossaries/{id}/edit', [GlossaryController::class, 'edit'])->name('edit');
-    Route::put('/glossaries/{id}', [GlossaryController::class, 'update'])->name('update');
-    Route::get('/glossaries/create', [GlossaryController::class, 'create'])->name('create');
-    Route::post('/glossaries', [GlossaryController::class, 'store'])->name('store');
-    Route::delete('/glossaries/{id}', [GlossaryController::class, 'destroy'])->name('destroy');
-    Route::get('/glossaries/{id}', [GlossaryController::class, 'show'])->name('show');
-});
-
-// Teachers
-Route::name('teachers.')->group(function () {
-    Route::get('/teachers', [TeacherController::class, 'index'])->name('index');
-    Route::get('/teachers/{id}/edit', [TeacherController::class, 'edit'])->name('edit');
-    Route::put('/teachers/{id}', [TeacherController::class, 'update'])->name('update');
-    Route::get('/teachers/create', [TeacherController::class, 'create'])->name('create');
-    Route::post('/teachers', [TeacherController::class, 'store'])->name('store');
-    Route::delete('/teachers/{id}', [TeacherController::class, 'destroy'])->name('destroy');
-    Route::get('/teachers/{id}', [TeacherController::class, 'show'])->name('show');
-});
-
-// Organizers
-Route::name('organizers.')->group(function () {
-    Route::get('/organizers', [OrganizerController::class, 'index'])->name('index');
-    Route::get('/organizers/{id}/edit', [OrganizerController::class, 'edit'])->name('edit');
-    Route::put('/organizers/{id}', [OrganizerController::class, 'update'])->name('update');
-    Route::get('/organizers/create', [OrganizerController::class, 'create'])->name('create');
-    Route::post('/organizers', [OrganizerController::class, 'store'])->name('store');
-    Route::delete('/organizers/{id}', [OrganizerController::class, 'destroy'])->name('destroy');
-    Route::get('/organizers/{id}', [OrganizerController::class, 'show'])->name('show');
-});
-
-// Events
-Route::name('events.')->group(function () {
-    Route::get('/events', [EventController::class, 'index'])->name('index');
-    Route::get('/events/{id}/edit', [EventController::class, 'edit'])->name('edit');
-    Route::put('/events/{id}', [EventController::class, 'update'])->name('update');
-    Route::get('/events/create', [EventController::class, 'create'])->name('create');
-    Route::post('/events', [EventController::class, 'store'])->name('store');
-    Route::delete('/events/{id}', [EventController::class, 'destroy'])->name('destroy');
-    Route::get('/events/{id}', [EventController::class, 'show'])->name('show');
-
-    Route::get('/event/monthSelectOptions/', [EventController::class, 'calculateMonthlySelectOptions'])->name('monthSelectOptions');  // To populate the event repeat by month options
-});
-
-// Event categories
-Route::resource('eventCategories', EventCategoryController::class);
-
-// Posts categories
-Route::resource('postCategories', PostCategoryController::class);
 
 // Post Comments
 Route::name('postComments.')->group(function () {

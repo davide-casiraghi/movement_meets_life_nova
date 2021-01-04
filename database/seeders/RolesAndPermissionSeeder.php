@@ -38,6 +38,7 @@ class RolesAndPermissionSeeder extends Seeder
         Permission::create(['name' => 'teams.edit']);
         Permission::create(['name' => 'teams.create']);
 
+
         // Permissions
         Permission::create(['name' => 'permissions.edit']);
 

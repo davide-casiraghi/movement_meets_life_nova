@@ -150,7 +150,6 @@ use Illuminate\Database\Eloquent\Factories\Sequence;
 
 
 $user = User::factory()->create([
-    'name' => 'admin',
     'email' => 'davide.casiraghi@gmail.com',
 ]);
 $user->assignRole('Super Admin');

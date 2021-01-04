@@ -4,6 +4,7 @@
         - $name: string - the select name attribute
         - $description: string - the description to show under the label
         - $value: the selected value
+        - $size: (small, medium, big)
 --}}
 
 
@@ -18,12 +19,25 @@ othewrise put all of them in the same if you want inline
 
 --}}
 
+@php
+    switch ($size) {
+    case 'small':
+        $sizeClass = 'h-4 w-4';
+        break;
+    case 'medium':
+        $sizeClass = 'h-6 w-6';
+        break;
+    case 'big':
+        $sizeClass = 'h-8 w-8';
+        break;
+}
+@endphp
 
 <label class="inline-flex items-center mr-6 mb-1">
-    <input id="{{$id}}"
+    <input id="{{$name}}"
            name="{{$name}}"
            type="checkbox"
-           class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded @if ($errors->has($name)) border-red-500 @endif"
+           class="focus:ring-indigo-500 {{$sizeClass}} text-indigo-600 border-gray-300 rounded @if ($errors->has($name)) border-red-500 @endif"
            {{--value="{{$value}}"--}}
             {{$checked}}
     >

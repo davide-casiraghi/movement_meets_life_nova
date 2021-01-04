@@ -148,6 +148,7 @@
                 'name' => 'repeat_weekly_on[1]',
                 //'value' => 1,
                 'checked' => $checked,
+                'size' => 'small',
                 'required' => false,
             ])
 
@@ -159,6 +160,7 @@
                 'id'  => 'day_2',
                 'name' => 'repeat_weekly_on[2]',
                 //'value' => 2,
+                'size' => 'small',
                 'required' => false,
             ])
 
@@ -170,6 +172,7 @@
                 'id'  => 'day_3',
                 'name' => 'repeat_weekly_on[3]',
                 //'value' => 3,
+                'size' => 'small',
                 'required' => false,
             ])
 
@@ -181,6 +184,7 @@
                 'id'  => 'day_4',
                 'name' => 'repeat_weekly_on[4]',
                 //'value' => 4,
+                'size' => 'small',
                 'required' => false,
             ])
 
@@ -192,6 +196,7 @@
                 'id'  => 'day_5',
                 'name' => 'repeat_weekly_on[5]',
                 //'value' => 5,
+                'size' => 'small',
                 'required' => false,
             ])
 
@@ -203,6 +208,7 @@
                 'id'  => 'day_6',
                 'name' => 'repeat_weekly_on[6]',
                 //'value' => 6,
+                'size' => 'small',
                 'required' => false,
             ])
 
@@ -214,6 +220,7 @@
                 'id'  => 'day_7',
                 'name' => 'repeat_weekly_on[7]',
                 //'value' => 7,
+                'size' => 'small',
                 'required' => false,
             ])
         </div>

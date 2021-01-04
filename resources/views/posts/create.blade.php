@@ -13,6 +13,7 @@
         </div>
         <div class="mt-5 md:mt-0 md:col-span-2">
             @csrf
+            @include('partials.messages')
 
             <div class="grid grid-cols-6 gap-6">
                 <div class="col-span-6">
