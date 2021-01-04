@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Http\Requests\PermissionStoreRequest;
+use Spatie\Permission\Guard;
 use Spatie\Permission\Models\Role;
 
 class PermissionRepository implements PermissionRepositoryInterface {
@@ -18,7 +19,7 @@ class PermissionRepository implements PermissionRepositoryInterface {
     {
         foreach ($data['permissions'] as $team => $permission){
             $teamName = str_replace('_', ' ', $team);
-            $role = Role::findByName($teamName);
+            $role = Role::findByName($teamName, 'web');
 
             //Detach all prior permissions and attach only the ones provided.
             $role->syncPermissions(array_keys($permission));
