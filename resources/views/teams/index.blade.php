@@ -49,17 +49,16 @@
                                 </div>
                             </div>
 
-
                             <table class="table-auto w-full">
                                 <thead>
                                     <tr>
-                                        <th class="w-2/8">{{ __('teams.rule_description') }}</th>
-                                        <th class="w-1/8">{{ __('teams.permission_properties.view') }}</th>
-                                        <th class="w-1/8">{{ __('teams.permission_properties.create') }}</th>
-                                        <th class="w-1/8">{{ __('teams.permission_properties.edit') }}</th>
-                                        <th class="w-1/8">{{ __('teams.permission_properties.delete') }}</th>
-                                        <th class="w-1/8">{{ __('teams.permission_properties.approve') }}</th>
-                                        <th class="w-1/8">{{ __('teams.permission_properties.allocated') }}</th>
+                                        <th class="w-2/8 pb-3">{{ __('teams.rule_description') }}</th>
+                                        <th class="w-1/8 text-center pb-3">{{ __('teams.permission_properties.view') }}</th>
+                                        <th class="w-1/8 text-center pb-3">{{ __('teams.permission_properties.create') }}</th>
+                                        <th class="w-1/8 text-center pb-3">{{ __('teams.permission_properties.edit') }}</th>
+                                        <th class="w-1/8 text-center pb-3">{{ __('teams.permission_properties.delete') }}</th>
+                                        <th class="w-1/8 text-center pb-3">{{ __('teams.permission_properties.approve') }}</th>
+                                        <th class="w-1/8 text-center pb-3">{{ __('teams.permission_properties.allocated') }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
