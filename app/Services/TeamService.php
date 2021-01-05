@@ -16,7 +16,7 @@ class TeamService {
      */
     public function createTeam($data)
     {
-        $team = Role::create(['name' => $data->name]);
+        $team = Role::create(['name' => $data->name, 'guard_name' => 'web']);
 
         return $team;
     }
