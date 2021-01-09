@@ -22,16 +22,14 @@ class RolesAndPermissionSeeder extends Seeder
 
         // CREATE PERMISSIONS
 
-
         // Members notes
         Permission::create(['name' => 'member_notes.create']);
 
-
-        // Admins
-        Permission::create(['name' => 'admins.view']);
-        Permission::create(['name' => 'admins.create']);
-        Permission::create(['name' => 'admins.edit']);
-        Permission::create(['name' => 'admins.delete']);
+        // Users
+        Permission::create(['name' => 'users.view']);
+        Permission::create(['name' => 'users.create']);
+        Permission::create(['name' => 'users.edit']);
+        Permission::create(['name' => 'users.delete']);
 
         // Teams
         Permission::create(['name' => 'teams.view']);
@@ -79,9 +77,6 @@ class RolesAndPermissionSeeder extends Seeder
         Permission::create(['name' => 'events.edit']);
         Permission::create(['name' => 'events.delete']);
         Permission::create(['name' => 'events.approve']);
-
-
-
 
 
         // CREATE ROLES

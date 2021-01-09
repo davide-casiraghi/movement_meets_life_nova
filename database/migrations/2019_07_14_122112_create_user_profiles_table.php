@@ -23,7 +23,6 @@ class CreateUserProfilesTable extends Migration
 
             $table->text('description')->nullable();
             $table->string('activation_code')->nullable();
-            $table->boolean('status')->default(0);
             $table->boolean('accept_terms')->default('0');
 
             $table->boolean('application_approved')->default(0);

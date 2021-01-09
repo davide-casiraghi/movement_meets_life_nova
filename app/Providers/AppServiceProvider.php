@@ -30,6 +30,8 @@ use App\Repositories\TagRepository;
 use App\Repositories\TagRepositoryInterface;
 use App\Repositories\TeacherRepository;
 use App\Repositories\TeacherRepositoryInterface;
+use App\Repositories\UserProfileRepository;
+use App\Repositories\UserProfileRepositoryInterface;
 use App\Repositories\UserRepository;
 use App\Repositories\UserRepositoryInterface;
 use App\Repositories\VenueRepository;
@@ -61,6 +63,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(TeacherRepositoryInterface::class, TeacherRepository::class);
         $this->app->bind(VenueRepositoryInterface::class, VenueRepository::class);
         $this->app->bind(UserRepositoryInterface::class, UserRepository::class);
+        $this->app->bind(UserProfileRepositoryInterface::class, UserProfileRepository::class);
     }
 
     /**

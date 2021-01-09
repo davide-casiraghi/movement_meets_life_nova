@@ -69,7 +69,7 @@ sudo nano Homestead.yaml
 
 ```
 And here add:
-```
+```yaml
 folders:
     - map: .... absolute path of the local folder related to your git repo...
       to: /home/vagrant/code/movement_meets_life_nova
@@ -126,9 +126,8 @@ TBD
 
 
 ### Tinker Factories
-```
+```php
 <?php
-//Tinker away!
 use App\Models\Event;
 use App\Models\EventCategory;
 use App\Models\EventRepetition;
@@ -144,18 +143,29 @@ use App\Models\Teacher;
 use App\Models\Testimonial;
 use App\Models\Mantra;
 use App\Models\User;
+use App\Models\UserProfile;
 use App\Models\Venue;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\Sequence;
 
-
 $user = User::factory()->create([
     'email' => 'davide.casiraghi@gmail.com',
 ]);
+$details = UserProfile::factory()->create([
+    'user_id' => $user->id,
+    'name' => 'Davide',
+    'surname' => 'Casiraghi',
+]);
+$user->profile()->save($details);
 $user->assignRole('Super Admin');
 
 
-User::factory()->count(4)->create();
+User::factory()->count(4)->create()->each(function($user) {
+    $details = UserProfile::factory()->create([
+        'user_id' => $user->id,
+    ]);
+});
+
 
 Tag::factory()->count(20)->create();
 Insight::factory()->count(40)->create()->each(function($insight) {
@@ -206,5 +216,5 @@ Event::factory()
         $event->teachers()->sync(
             Teacher::all()->random(1)
         );
-});
+    });
 ```

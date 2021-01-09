@@ -2,31 +2,23 @@
 
 namespace App\Repositories;
 
-use App\Http\Requests\AdminStoreRequest;
-use App\User;
+use App\Models\User;
 
-interface UserRepositoryInterface {
-
-    /**
-     * Get all the administrators.
-     *
-     * @param int|null $recordsPerPage
-     *
-     * @param array|null $searchParameters
-     *
-     * @return iterable|\Illuminate\Contracts\Pagination\LengthAwarePaginator
-     */
-    public function administrators(int $recordsPerPage = NULL, array $searchParameters = NULL);
+interface UserRepositoryInterface
+{
 
     /**
-     * Get all the members.
+     * Get all the users.
      *
      * @param int|null $recordsPerPage
      * @param array|null $searchParameters
      *
      * @return iterable|\Illuminate\Contracts\Pagination\LengthAwarePaginator
      */
-    public function members(int $recordsPerPage = NULL, array $searchParameters = NULL);
+    public function users(
+        int $recordsPerPage = null,
+        array $searchParameters = null
+    );
 
     /**
      * Get user by id
@@ -38,32 +30,23 @@ interface UserRepositoryInterface {
     public function getById(int $userId);
 
     /**
-     * Store Member
+     * Store User
      *
      * @param array $data
      *
      * @return User
      */
-    public function storeMember(array $data);
-
-    /**
-     * Store Admin
-     *
-     * @param \App\Http\Requests\AdminStoreRequest $data
-     *
-     * @return User
-     */
-    public function storeAdmin(AdminStoreRequest $data);
+    public function storeUser(array $data);
 
     /**
      * Update User
      *
-     * @param \App\Http\Requests\MemberStoreRequest|\App\Http\Requests\AdminStoreRequest $data
+     * @param array $data
      * @param int $userId
      *
      * @return User
      */
-    public function update($data, int $userId);
+    public function update(array $data, int $userId);
 
     /**
      * Delete User

@@ -3,9 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
 
-class AdminStoreRequest extends FormRequest
+class UserStoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,11 +24,7 @@ class AdminStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            //'username' => ['required', 'string', 'max:255'],
-            'name' => ['required', 'string', 'max:255'],
-            'surname' => ['required', 'string', 'max:255'],
-            'email' => ['required','string','email','max:255', Rule::unique('users')->ignore($this->id)],
-            'role' => ['required'],
+            //
         ];
     }
 }

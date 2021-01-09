@@ -15,6 +15,7 @@ use App\Http\Controllers\TagController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\TestimonialController;
+use App\Http\Controllers\UserController;
 use App\Models\Organizer;
 use App\Models\Teacher;
 use Illuminate\Support\Facades\Route;
@@ -39,6 +40,16 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function() {
 
     Route::name('dashboard.')->group(function () {
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('index');
+    });
+
+    // Users
+    Route::name('users.')->group(function () {
+        Route::get('/users', [UserController::class, 'index'])->name('index');
+        Route::get('/users/{id}/edit', [UserController::class, 'edit'])->name('edit');
+        Route::put('/users/{id}', [UserController::class, 'update'])->name('update');
+        Route::get('/users/create', [UserController::class, 'create'])->name('create');
+        Route::post('/users', [UserController::class, 'store'])->name('store');
+        Route::delete('/users/{id}', [UserController::class, 'destroy'])->name('destroy');
     });
 
     // Teams

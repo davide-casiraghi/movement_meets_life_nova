@@ -90,27 +90,20 @@ class TeamService {
     {
         return Role::orWhere(function ($query) {
             $query->where('name', 'not like', '%Super admin%')
-                ->where('name', 'not like', '%Admin%')
-                ->where('name', 'not like', '%Individual%')
-                ->where('name', 'not like', '%Organisation%')
-                ->where('name', 'not like', '%Venue%');
+                ->where('name', 'not like', '%Admin%');
         })->get();
     }
 
     /**
-     * Return all the roles that the members can see
+     * Return all the roles Admins and Teams
      *
-     * @param $userId
+     * @param null $userId
      *
-     * @return \Spatie\Permission\Models\Role[]
+     * @return \Illuminate\Support\Collection
      */
-    public function getAllMemberRoles($userId = null)
+    public function getAllUserRoles($userId = null)
     {
-        return Role::where(function ($query) {
-            $query->where('name', 'like', '%Individual%')
-                ->orWhere('name', 'like', '%Organisation%')
-                ->orWhere('name', 'like', '%Venue%');
-        })->get();
+        return Role::all()->pluck('name');
     }
 
 
