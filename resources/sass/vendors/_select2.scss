@@ -1,0 +1,6 @@
+@import "~select2/dist/css/select2.css";
+
+// Red frame for the required errors in from validations
+.is-invalid .select2-selection {
+  border-color: #dc3545 !important;
+}
