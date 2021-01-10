@@ -5,8 +5,10 @@ require('alpinejs');
 require('justifiedGallery');
 require("@fancyapps/fancybox");
 require('bootstrap-datepicker');
+require('select2');
 
 require('./vendors/tinymce');
+require('./vendors/select2');
 
 //require("@staaky/tipped"); //imported in bootstrap.js
 

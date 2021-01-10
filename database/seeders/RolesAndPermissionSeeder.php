@@ -89,6 +89,9 @@ class RolesAndPermissionSeeder extends Seeder
         $role = Role::create(['name' => 'Admin']);
         $role->givePermissionTo('teams.edit');
 
+        // All the user that register has this group automatically assigned
+        $role = Role::create(['name' => 'Registered']);
+
         // Team Roles
         $role = Role::create(['name' => 'Editor']);
         $role->givePermissionTo([
@@ -98,7 +101,7 @@ class RolesAndPermissionSeeder extends Seeder
             'posts.approve'
         ]);
 
-        $role = Role::create(['name' => 'Member']);
+        /*$role = Role::create(['name' => 'Member']);
         $role->givePermissionTo([
             'teachers.create',
             'teachers.edit',
@@ -108,7 +111,7 @@ class RolesAndPermissionSeeder extends Seeder
             'venues.edit',
             'events.create',
             'events.edit',
-        ]);
+        ]);*/
 
 
     }

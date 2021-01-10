@@ -92,6 +92,43 @@
                                ])
                         </div>
 
+
+                        <div class="col-span-6 @can('users.edit') inline @else hidden @endcan">
+                            <label for="role" class="block text-sm font-medium text-gray-700 inline">{{ __('user.user_level') }}</label>
+                            <select id="role" name="role" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                <option value="">Choose...</option>
+                                @foreach($userLevels as $userLevel)
+                                    <option value="{{$userLevel->name}}" {{ old('role',$user->getRoleNames()[0]) == $userLevel->name ? 'selected' : ''}}>{{ucwords($userLevel->name)}}</option>
+                                @endforeach
+                            </select>
+                            @error('role')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+
+                        <div class="col-span-6 @can('users.edit') inline @else hidden @endcan">
+                            <div class="team_block "> {{-- hidden --}}
+                                <label for="role" class="block text-sm font-medium text-gray-700 inline">{{ __('user.team_membership') }}</label>
+                                <select class="custom-select d-block w-full select2-multiple" id="team_membership" name="team_membership[]" multiple="multiple">
+                                    @foreach($allTeams as $team)
+                                        @if (old('team_membership'))
+                                            <option value="{{$team->id}}" {{ in_array($team->id, old("team_membership")) ? "selected":"" }}>{{ $team->name }}</option>
+                                        @else
+                                            <option value="{{$team->id}}" {{ $user->roles->contains($team->id) ? 'selected' : '' }}>{{ $team->name }}</option>
+                                        @endif
+                                    @endforeach
+                                </select>
+
+                                @error('role')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+
                         <div class="col-span-6">
                             @php
                                 $checked = isset($user->profile->accept_terms) ? "checked" : "";

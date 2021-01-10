@@ -164,6 +164,7 @@ User::factory()->count(4)->create()->each(function($user) {
     $details = UserProfile::factory()->create([
         'user_id' => $user->id,
     ]);
+    $user->assignRole('Registered');
 });
 
 

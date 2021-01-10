@@ -90,7 +90,8 @@ class TeamService {
     {
         return Role::orWhere(function ($query) {
             $query->where('name', 'not like', '%Super admin%')
-                ->where('name', 'not like', '%Admin%');
+                ->where('name', 'not like', '%Admin%')
+                ->where('name', 'not like', '%Registered%');
         })->get();
     }
 
