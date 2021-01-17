@@ -1,5 +1,26 @@
 @extends('layouts.backend')
 
+@section('javascript-document-ready')
+    @parent
+    {{-- Show Teams when Admin get loaded --}}
+    var selectedRole = $( "#role" ).val();
+
+    if ( selectedRole == 'Admin'){
+        $(".team_block").show();
+    }
+
+    {{-- Show Teams when Admin is selected --}}
+    $('#role').on('change', function() {
+        if ( this.value == 'Admin'){
+            $(".team_block").show();
+        }
+        else{
+            $(".team_block").hide();
+            $('#team_membership').val(null).trigger('change');
+        }
+    });
+@stop
+
 @section('title')
     @lang('user.edit_user')
 @endsection
@@ -109,7 +130,7 @@
                         </div>
 
                         <div class="col-span-6 @can('users.edit') inline @else hidden @endcan">
-                            <div class="team_block "> {{-- hidden --}}
+                            <div class="team_block hidden"> {{-- hidden --}}
                                 <label for="role" class="block text-sm font-medium text-gray-700 inline">{{ __('user.team_membership') }}</label>
                                 <select class="custom-select d-block w-full select2-multiple" id="team_membership" name="team_membership[]" multiple="multiple">
                                     @foreach($allTeams as $team)

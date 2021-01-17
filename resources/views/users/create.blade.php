@@ -4,7 +4,8 @@
     @parent
     {{-- Show Teams when Admin get loaded --}}
     var selectedRole = $( "#role" ).val();
-        if ( selectedRole == 'Admin'){
+
+    if ( selectedRole == 'Admin'){
         $(".team_block").show();
     }
 
@@ -18,8 +19,6 @@
             $('#team_membership').val(null).trigger('change');
         }
     });
-
-    $(".select2").css('width', '100%');
 @stop
 
 @section('title')
