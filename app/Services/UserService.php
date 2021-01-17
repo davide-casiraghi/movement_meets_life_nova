@@ -35,20 +35,22 @@ class UserService {
      *
      * @return User
      */
-    public function createUser(UserStoreRequest $data): User
+    public function createUser(array $data): User
     {
-        $user = $this->userRepository->storeMember($data);
+        $user = $this->userRepository->storeUser($data);
 
         // Assign an new empty user profile to the user
         $this->userProfileRepository->store([
             'user_id' => $user->id,
             'name' => $data['name'],
             'surname' => $data['surname'],
-            'phone' => $data['phone'],
+            'country_id' => $data['country_id'],
+            'description' => $data['description'],
+            'accept_terms' => ($data['accept_terms'] == 'on') ? 1 : 0,
         ]);
 
         // Teams membership
-        $roles = $data['team_membership'];
+        $roles = $data['team_membership'] ?? [];
 
         // User level
         $roles[] = $data['role'];

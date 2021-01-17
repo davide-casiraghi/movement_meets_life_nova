@@ -86,15 +86,6 @@ class UserRepository implements UserRepositoryInterface
         $user->email = $data['email'];
         $user->password = (array_key_exists('password', $data)) ? Hash::make($data['password']) : null;
 
-        $user->profile->name = $data['name'];
-        $user->profile->surname = $data['surname'];
-        $user->profile->description = $data['description'];
-
-
-        //$user->heard_about_us = $data['heard_about_us'];
-        //$user->over_age_limit =  ($data['over_age_limit'] == 'on') ? 1 : 0;
-        //$user->accept_terms = ($data['accept_terms'] == 'on') ? 1 : 0;
-
         $user->save();
 
         return $user->fresh();
@@ -116,9 +107,9 @@ class UserRepository implements UserRepositoryInterface
             $user->password = Hash::make($data['password']);
         }
 
-        $user->profile->name = $data['name'];
-        $user->profile->surname = $data['surname'];
-        $user->profile->description = $data['description'];
+        //$user->profile->name = $data['name'];
+        //$user->profile->surname = $data['surname'];
+        //$user->profile->description = $data['description'];
 
         //$user->heard_about_us = $data['heard_about_us'];
         //$user->over_age_limit =  ($data['over_age_limit'] == 'on') ? 1 : 0;

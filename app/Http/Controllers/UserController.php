@@ -86,10 +86,14 @@ class UserController extends Controller
 
         $countries = $this->countryService->getCountries();
         $roles = $this->teamService->getAllUserRoles();
+        $userLevels = $this->teamService->getAllAdminRoles();
+        $allTeams = $this->teamService->getAllTeamRoles();
 
         return view('users.create', [
             'countries' => $countries,
             'roles' => $roles,
+            'userLevels' => $userLevels,
+            'allTeams' => $allTeams,
         ]);
     }
 
@@ -104,13 +108,11 @@ class UserController extends Controller
     {
         $this->checkPermission('users.create');
 
-        $data = $request->all();
+        $user = $this->userService->createUser($request->all());
+        //$user->notify(new MemberResetPasswordNotification($user));
 
-        $user = $this->memberService->createMember($data);
-        $user->notify(new MemberResetPasswordNotification($user));
-
-        return redirect()->route('members.index')
-            ->with('success', 'Member created successfully');
+        return redirect()->route('users.index')
+            ->with('success', 'User created successfully');
     }
 
     /**
@@ -155,7 +157,7 @@ class UserController extends Controller
             $this->checkPermission('users.edit');
         }
 
-        $this->userService->updateMember($request, $userId);
+        $this->userService->updateUser($request, $userId);
 
         if(Auth::user()->hasPermissionTo('users.edit')){
             return redirect()->route('users.index')

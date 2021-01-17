@@ -63,7 +63,7 @@
                                     'name' => 'surname',
                                     'placeholder' => '',
                                     'value' => old('surname', $user->profile->surname),
-                                    'required' => false,
+                                    'required' => true,
                                     'disabled' => false,
                             ])
                         </div>
@@ -74,7 +74,7 @@
                                 'name' => 'country_id',
                                 'placeholder' => '',
                                 'records' => $countries,
-                                'selected' => $user->country_id,
+                                'selected' => $user->profile->country_id,
                                 'required' => true,
                             ])
                         </div>
@@ -139,6 +139,7 @@
                                 'name' => 'accept_terms',
                                 'size' => 'small',
                                 'required' => false,
+                                'checked' => $checked,
                             ])
                         </div>
                     </div>

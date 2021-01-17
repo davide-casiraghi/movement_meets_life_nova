@@ -1,5 +1,27 @@
 @extends('layouts.backend')
 
+@section('javascript-document-ready')
+    @parent
+    {{-- Show Teams when Admin get loaded --}}
+    var selectedRole = $( "#role" ).val();
+        if ( selectedRole == 'Admin'){
+        $(".team_block").show();
+    }
+
+    {{-- Show Teams when Admin is selected --}}
+    $('#role').on('change', function() {
+        if ( this.value == 'Admin'){
+            $(".team_block").show();
+        }
+        else{
+            $(".team_block").hide();
+            $('#team_membership').val(null).trigger('change');
+        }
+    });
+
+    $(".select2").css('width', '100%');
+@stop
+
 @section('title')
     @lang('user.create_new_user')
 @endsection
@@ -20,7 +42,6 @@
                 </div>
                 <div class="mt-5 md:mt-0 md:col-span-2">
                     @csrf
-                    @method('PUT')
 
                     <div class="grid grid-cols-6 gap-6">
 
@@ -92,9 +113,46 @@
                                ])
                         </div>
 
+
+                        <div class="col-span-6 @can('users.edit') inline @else hidden @endcan">
+                            <label for="role" class="block text-sm font-medium text-gray-700 inline">{{ __('user.user_level') }}</label>
+                            <select id="role" name="role" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                <option value="">Choose...</option>
+                                @foreach($userLevels as $userLevel)
+                                    <option value="{{$userLevel->name}}" {{ old('role') == $userLevel->name ? 'selected' : ''}}>{{ucwords($userLevel->name)}}</option>
+                                @endforeach
+                            </select>
+                            @error('role')
+                            <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+
+                        <div class="col-span-6 @can('users.edit') inline @else hidden @endcan">
+                            <div class="team_block hidden"> {{-- hidden --}}
+                                <label for="role" class="block text-sm font-medium text-gray-700 inline">{{ __('user.team_membership') }}</label>
+                                <select class="custom-select d-block w-full select2-multiple" id="team_membership" name="team_membership[]" multiple="multiple">
+                                    @foreach($allTeams as $team)
+                                        @if (old('team_membership'))
+                                            <option value="{{$team->id}}" {{ in_array($team->id, old("team_membership")) ? "selected":"" }}>{{ $team->name }}</option>
+                                        @else
+                                            <option value="{{$team->id}}">{{ $team->name }}</option>
+                                        @endif
+                                    @endforeach
+                                </select>
+
+                                @error('role')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+
                         <div class="col-span-6">
                             @php
-                                $checked = isset($user->profile->accept_terms) ? "checked" : "";
+                                $checked = old('accept_terms') ? "checked" : "";
                             @endphp
                             @include('partials.forms.checkbox', [
                                 'label' => __('user.accept_terms'),
@@ -102,6 +160,7 @@
                                 'name' => 'accept_terms',
                                 'size' => 'small',
                                 'required' => false,
+                                'checked' => $checked,
                             ])
                         </div>
                     </div>
