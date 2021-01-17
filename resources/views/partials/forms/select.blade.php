@@ -21,8 +21,8 @@
         <option value="" class="text-gray-500">{{$placeholder}}</option>
     @endif
     @if(!empty($records))
-        @foreach ($records as $value => $record)
-            <option value="{{$value}}" @if(!empty($selected)) {{  $selected == $value ? 'selected' : '' }}@endif>{{ $record->name }}</option>
+        @foreach ($records as $key => $record)
+            <option value="{{$record->id}}" @if(!empty($selected)) {{  $selected == $record->id ? 'selected' : '' }}@endif>{{ $record->name }}</option>
         @endforeach
     @endif
 </select>
