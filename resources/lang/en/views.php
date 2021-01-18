@@ -169,4 +169,8 @@ return [
     'required' => 'Required',
     'made_with_love' => '© 2019, made with %s by Round Robin Team',
     'tag' => 'Tag',
+    'text' => 'Text',
+    'link_to_this_post' => 'Link to this post',
+    'post_id' => 'Post ID',
+    'intro_image' => 'Intro Image',
 ];

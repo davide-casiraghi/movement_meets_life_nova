@@ -21,7 +21,7 @@
             <div class="grid grid-cols-6 gap-6">
                 <div class="col-span-6">
                     @include('partials.forms.input', [
-                            'label' => __('ui.posts.title'),
+                            'label' => __('views.title'),
                             'name' => 'title',
                             'placeholder' => 'Post title',
                             'value' => old('title', $post->title),
@@ -32,7 +32,7 @@
 
                 <div class="col-span-6 sm:col-span-4">
                     @include('partials.forms.input', [
-                            'label' => __('ui.posts.link_to_this_post'),
+                            'label' => __('views.link_to_this_post'),
                             'name' => 'post_link',
                             'placeholder' => '',
                             'value' => env('APP_URL').'post/'.$post->slug,
@@ -43,7 +43,7 @@
 
                 <div class="col-span-6 sm:col-span-2">
                     @include('partials.forms.input', [
-                            'label' => __('ui.posts.post_id'),
+                            'label' => __('views.post_id'),
                             'name' => 'post_id',
                             'placeholder' => '',
                             'value' => $post->id,
@@ -54,9 +54,9 @@
 
                 <div class="col-span-6">
                     @include('partials.forms.select', [
-                        'label' => __('ui.posts.category'),
+                        'label' => __('views.category'),
                         'name' => 'category_id',
-                        'placeholder' => __('ui.posts.select_category'),
+                        'placeholder' => __('views.select_category'),
                         'records' => $categories,
                         'selected' => $post->category_id,
                         'required' => true,
@@ -65,7 +65,7 @@
 
                 <div class="col-span-6">
                     @include('partials.forms.textarea', [
-                            'label' => __('ui.posts.before_content'),
+                            'label' => __('views.before_post_contents'),
                             'name' => 'before_content',
                             'placeholder' => '',
                             'value' => old('before_content', $post->before_content),
@@ -78,7 +78,7 @@
 
                 <div class="col-span-6">
                     @include('partials.forms.textarea', [
-                           'label' => __('ui.posts.body'),
+                           'label' => __('views.text'),
                            'name' => 'body',
                            'placeholder' => '',
                            'value' => old('body', $post->body),
@@ -91,7 +91,7 @@
 
                 <div class="col-span-6">
                     @include('partials.forms.textarea', [
-                            'label' => __('ui.posts.after_content'),
+                            'label' => __('views.after_post_contents'),
                             'name' => 'after_content',
                             'placeholder' => '',
                             'value' => old('after_content', $post->after_content),
@@ -104,7 +104,7 @@
 
                 <div class="col-span-6">
                     @include('partials.forms.uploadImage', [
-                              'label' => __('ui.posts.intro_image'),
+                              'label' => __('views.intro_image'),
                               'name' => 'introimage',
                               //'value' => $post->introimage,
                               'required' => false,
