@@ -1,5 +1,9 @@
 @extends('layouts.backend')
 
+@section('title')
+    @lang('views.tag_management')
+@endsection
+
 @section('content')
 
     @include('partials.forms.button',[

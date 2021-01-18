@@ -20,7 +20,7 @@
             <div class="grid grid-cols-6 gap-6">
                 <div class="col-span-6">
                     @include('partials.forms.input', [
-                            'label' => __('ui.tags.tag'),
+                            'label' => __('views.tag'),
                             'name' => 'tag',
                             'placeholder' => 'Tag name',
                             'value' => old('tag'),

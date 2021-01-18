@@ -109,6 +109,8 @@ return [
     'filter_by_country' => 'Filter by country',
     'filter_by_orientation' => 'Filter by orientation',
     'post_management' => 'Posts management',
+    'glossary_management' => 'Glossaries management',
+    'tag_management' => 'Tags management',
     'category_management' => 'Posts category management',
     'events_management' => 'Events management',
     'events_category_management' => 'Events category management',
@@ -123,7 +125,6 @@ return [
     'menus_management' => 'Menu management',
     'horizontal' => 'Horizontal',
     'vertical' => 'Vertical',
-    'add_new_event' => 'Add New event',
     'created_by' => 'Created by',
     'select_owner' => 'Select owner',
     'select_country' => 'Select country',
@@ -167,4 +168,5 @@ return [
     'choose' => 'Choose...',
     'required' => 'Required',
     'made_with_love' => '© 2019, made with %s by Round Robin Team',
+    'tag' => 'Tag',
 ];
