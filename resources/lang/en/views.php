@@ -173,4 +173,7 @@ return [
     'link_to_this_post' => 'Link to this post',
     'post_id' => 'Post ID',
     'intro_image' => 'Intro Image',
+    'term' => 'Term',
+    'definition' => 'Definition',
+    'body' => 'Body',
 ];
