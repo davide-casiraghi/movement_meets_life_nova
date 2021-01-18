@@ -58,7 +58,6 @@
                                         <th class="w-1/8 text-center pb-3">{{ __('teams.permission_properties.edit') }}</th>
                                         <th class="w-1/8 text-center pb-3">{{ __('teams.permission_properties.delete') }}</th>
                                         <th class="w-1/8 text-center pb-3">{{ __('teams.permission_properties.approve') }}</th>
-                                        <th class="w-1/8 text-center pb-3">{{ __('teams.permission_properties.allocated') }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -66,12 +65,11 @@
                                         <tr>
                                             @php ($teamName = str_replace(' ', '_', $team->name)) @endphp
 
-                                            <td>
+                                            <td class="py-1">
                                                 {{ucfirst(str_replace('_', ' ', $rule))}}
                                             </td>
                                             <td class="text-center">
                                                 @if(in_array('view', $properties))
-
                                                     @php
                                                         $checked = $team->hasPermissionTo($rule.".view") ? "checked" : "";
                                                     @endphp
@@ -82,8 +80,6 @@
                                                        'checked' => $checked,
                                                        'required' => false,
                                                    ])
-
-                                                    {{--<input type="checkbox" aria-label="Checkbox for following text input" class="medium-checkbox" name="{{"permissions[".$teamName."][".$rule.".view]"}}" @if($team->hasPermissionTo($rule.".view")) checked @endif>--}}
                                                 @endif
                                             </td>
                                             <td class="text-center">
@@ -99,14 +95,10 @@
                                                        'checked' => $checked,
                                                        'required' => false,
                                                    ])
-
-                                                    {{--<input type="checkbox" aria-label="Checkbox for following text input" class="medium-checkbox" name="{{"permissions[".$teamName."][".$rule.".create]"}}" @if($team->hasPermissionTo($rule.".create")) checked @endif>--}}
                                                 @endif
                                             </td>
                                             <td class="text-center">
                                                 @if(in_array('edit', $properties))
-                                                    {{--<input type="checkbox" aria-label="Checkbox for following text input" class="medium-checkbox" name="{{"permissions[".$teamName."][".$rule.".edit]"}}" @if($team->hasPermissionTo($rule.".edit")) checked @endif>--}}
-
                                                     @php
                                                         $checked = $team->hasPermissionTo($rule.".edit") ? "checked" : "";
                                                     @endphp
@@ -122,8 +114,6 @@
                                             </td>
                                             <td class="text-center">
                                                 @if(in_array('delete', $properties))
-                                                    {{-- <input type="checkbox" aria-label="Checkbox for following text input" class="medium-checkbox" name="{{"permissions[".$teamName."][".$rule.".delete]"}}" @if($team->hasPermissionTo($rule.".delete")) checked @endif>--}}
-
                                                     @php
                                                         $checked = $team->hasPermissionTo($rule.".delete") ? "checked" : "";
                                                     @endphp
@@ -139,8 +129,6 @@
                                             </td>
                                             <td class="text-center">
                                                 @if(in_array('approve', $properties))
-                                                    {{--<input type="checkbox" aria-label="Checkbox for following text input" class="medium-checkbox" name="{{"permissions[".$teamName."][".$rule.".approve]"}}" @if($team->hasPermissionTo($rule.".approve")) checked @endif>--}}
-
                                                     @php
                                                         $checked = $team->hasPermissionTo($rule.".approve") ? "checked" : "";
                                                     @endphp
