@@ -1,12 +1,14 @@
 <?php
 namespace App\Services;
 
+use App\Http\Requests\PostSearchRequest;
 use App\Http\Requests\PostStoreRequest;
 use App\Models\Post;
 use App\Repositories\PostRepository;
 use App\Repositories\PostRepositoryInterface;
 use App\Services\Snippets\AccordionService;
 use App\Services\Snippets\GalleryMasonryService;
+use Illuminate\Support\Collection;
 
 class PostService {
     private PostRepository $postRepository;
@@ -63,7 +65,7 @@ class PostService {
      * @return \App\Models\Post
      * @throws \Spatie\ModelStatus\Exceptions\InvalidStatus
      */
-    public function createPost(PostStoreRequest $data)
+    public function createPost(PostStoreRequest $data): Post
     {
         $post = $this->postRepository->store($data);
 
@@ -82,7 +84,7 @@ class PostService {
      *
      * @return \App\Models\Post
      */
-    public function updatePost(PostStoreRequest $data, int $postId)
+    public function updatePost(PostStoreRequest $data, int $postId): Post
     {
         $post = $this->postRepository->update($data, $postId);
 
@@ -98,7 +100,7 @@ class PostService {
      *
      * @return \App\Models\Post
      */
-    public function getById(int $postId)
+    public function getById(int $postId): Post
     {
         return $this->postRepository->getById($postId);
     }
@@ -106,11 +108,14 @@ class PostService {
     /**
      * Get all the Posts.
      *
-     * @return iterable
+     * @param int|null $recordsPerPage
+     * @param array|null $searchParameters
+     *
+     * @return \Illuminate\Database\Eloquent\Collection|\Illuminate\Contracts\Pagination\LengthAwarePaginator
      */
-    public function getPosts(int $recordsPerPage = null)
+    public function getPosts(int $recordsPerPage = null, array $searchParameters = null)
     {
-        return $this->postRepository->getAll($recordsPerPage);
+        return $this->postRepository->getAll($recordsPerPage, $searchParameters);
     }
 
     /**
@@ -128,7 +133,7 @@ class PostService {
      *
      * @return int
      */
-    public function getNumberPostsCreatedLastThirtyDays()
+    public function getNumberPostsCreatedLastThirtyDays(): int
     {
         return Post::whereDate('created_at', '>', date('Y-m-d', strtotime('-30 days')))->count();
     }
@@ -143,7 +148,7 @@ class PostService {
      * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileDoesNotExist
      * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileIsTooBig
      */
-    private function storeImages(Post $post, PostStoreRequest $data):void
+    private function storeImages(Post $post, PostStoreRequest $data): void
     {
         /*if($data->file('photos')) {
             foreach ($data->file('photos') as $photo) {
@@ -185,6 +190,25 @@ class PostService {
         }
 
         return $thumbUrls;
+    }
+
+    /**
+     * Get the report search parameters
+     *
+     * @param \App\Http\Requests\PostSearchRequest $request
+     *
+     * @return array
+     */
+    public function getSearchParameters(PostSearchRequest $request): array
+    {
+        $searchParameters = [];
+        $searchParameters['title'] = $request->title ?? null;
+        $searchParameters['categoryId'] = $request->categoryId ?? null;
+        $searchParameters['startDate'] = $request->startDate ?? null;
+        $searchParameters['endDate'] = $request->endDate ?? null;
+        //$searchParameters['status'] = $request->status ?? null;
+
+        return $searchParameters;
     }
 
 }

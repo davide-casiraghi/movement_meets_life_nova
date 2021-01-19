@@ -3,16 +3,22 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\PostCategoryStoreRequest;
+use App\Http\Requests\PostSearchRequest;
 use App\Http\Requests\PostStoreRequest;
 use App\Models\Post;
 use App\Services\PostCategoryService;
 use App\Services\PostService;
-use Illuminate\Http\Request;
+use App\Traits\CheckPermission;
+use Illuminate\Http\RedirectResponse;
+
+use Illuminate\View\View;
 
 class PostController extends Controller
 {
-    private $postService;
-    private $postCategoryService;
+    use CheckPermission;
+
+    private PostService $postService;
+    private PostCategoryService $postCategoryService;
 
     public function __construct(
         PostService $postService,
@@ -26,24 +32,34 @@ class PostController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @param \App\Http\Requests\PostSearchRequest $request
+     *
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\View\View
      */
-    public function index()
+    public function index(PostSearchRequest $request): View
     {
-        $posts = $this->postService->getPosts(20);
+        $this->checkPermission('posts.view');
+
+        $searchParameters = $this->postService->getSearchParameters($request);
+        $posts = $this->postService->getPosts(20, $searchParameters);
+        $categories = $this->postCategoryService->getPostCategories();
 
         return view('posts.index', [
             'posts' => $posts,
+            'categories' => $categories,
+            'searchParameters' => $searchParameters,
         ]);
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Contracts\View\View
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\View\View
      */
-    public function create()
+    public function create(): View
     {
+        $this->checkPermission('posts.create');
+
         $categories = $this->postCategoryService->getPostCategories();
 
         return view('posts.create', [
@@ -59,8 +75,10 @@ class PostController extends Controller
      * @return \Illuminate\Http\RedirectResponse
      * @throws \Spatie\ModelStatus\Exceptions\InvalidStatus
      */
-    public function store(PostCategoryStoreRequest $request)
+    public function store(PostCategoryStoreRequest $request): RedirectResponse
     {
+        $this->checkPermission('posts.create');
+
         $this->postService->createPost($request);
 
         return redirect()->route('posts.index')
@@ -72,7 +90,7 @@ class PostController extends Controller
      *
      * @param int $postId
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\View\View
      */
     public function show(int $postId)
     {
@@ -90,13 +108,15 @@ class PostController extends Controller
      *
      * @param int $postId
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\View\View
      */
     public function edit(int $postId)
     {
-        $post = $this->postService->getById($postId);
+        $this->checkPermission('posts.edit');
 
+        $post = $this->postService->getById($postId);
         $categories = $this->postCategoryService->getPostCategories();
+
         return view('posts.edit', [
             'post' => $post,
             'categories' => $categories,
@@ -111,8 +131,10 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(PostStoreRequest $request, int $postId)
+    public function update(PostStoreRequest $request, int $postId): RedirectResponse
     {
+        $this->checkPermission('posts.edit');
+
         $this->postService->updatePost($request, $postId);
 
         return redirect()->route('posts.index')
@@ -126,18 +148,18 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy(int $postId)
+    public function destroy(int $postId): RedirectResponse
     {
         $this->postService->deletePost($postId);
 
         return redirect()->route('posts.index')
             ->with('success','Post deleted successfully');
     }
-    
+
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\View\View
      */
     public function blog()
     {

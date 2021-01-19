@@ -4,6 +4,8 @@
 namespace App\Repositories;
 
 use App\Models\PostCategory;
+use App\Nova\Post;
+use Illuminate\Support\Collection;
 
 
 class PostCategoryRepository implements PostCategoryRepositoryInterface {
@@ -11,11 +13,11 @@ class PostCategoryRepository implements PostCategoryRepositoryInterface {
     /**
      * Get all PostCategories.
      *
-     * @return iterable
+     * @return Collection
      */
-    public function getAll()
+    public function getAll(): Collection
     {
-        return PostCategory::all();
+        return PostCategory::orderBy('name')->get();
     }
 
     /**
@@ -24,7 +26,7 @@ class PostCategoryRepository implements PostCategoryRepositoryInterface {
      * @param int $id
      * @return PostCategory
      */
-    public function getById(int $id)
+    public function getById(int $id): PostCategory
     {
         return PostCategory::findOrFail($id);
     }
@@ -35,7 +37,7 @@ class PostCategoryRepository implements PostCategoryRepositoryInterface {
      * @param $data
      * @return PostCategory
      */
-    public function store($data)
+    public function store($data): PostCategory
     {
         $postCategory = new PostCategory();
         $postCategory->name = $data['name'];
@@ -52,7 +54,7 @@ class PostCategoryRepository implements PostCategoryRepositoryInterface {
      * @param int $id
      * @return PostCategory
      */
-    public function update($data, int $id)
+    public function update($data, int $id): PostCategory
     {
         $postCategory = $this->getById($id);
         $postCategory->name = $data['name'];
@@ -68,7 +70,7 @@ class PostCategoryRepository implements PostCategoryRepositoryInterface {
      * @param int $id
      * @return void
      */
-    public function delete(int $id)
+    public function delete(int $id): void
     {
         PostCategory::destroy($id);
     }

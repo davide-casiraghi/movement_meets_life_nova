@@ -4,6 +4,7 @@
 namespace App\Repositories;
 
 use App\Models\EventCategory;
+use Illuminate\Support\Collection;
 
 
 class EventCategoryRepository implements EventCategoryRepositoryInterface {
@@ -11,11 +12,11 @@ class EventCategoryRepository implements EventCategoryRepositoryInterface {
     /**
      * Get all EventCategories.
      *
-     * @return iterable
+     * @return \Illuminate\Support\Collection
      */
-    public function getAll()
+    public function getAll(): Collection
     {
-        return EventCategory::all();
+        return EventCategory::orderBy('name')->get();
     }
 
     /**
@@ -24,7 +25,7 @@ class EventCategoryRepository implements EventCategoryRepositoryInterface {
      * @param int $id
      * @return EventCategory
      */
-    public function getById(int $id)
+    public function getById(int $id): EventCategory
     {
         return EventCategory::findOrFail($id);
     }
@@ -35,7 +36,7 @@ class EventCategoryRepository implements EventCategoryRepositoryInterface {
      * @param $data
      * @return EventCategory
      */
-    public function store($data)
+    public function store($data): EventCategory
     {
         $eventCategory = new EventCategory();
         $eventCategory->name = $data['name'];
@@ -53,7 +54,7 @@ class EventCategoryRepository implements EventCategoryRepositoryInterface {
      * @param int $id
      * @return EventCategory
      */
-    public function update($data, int $id)
+    public function update($data, int $id): EventCategory
     {
         $eventCategory = $this->getById($id);
         $eventCategory->name = $data['name'];
@@ -70,7 +71,7 @@ class EventCategoryRepository implements EventCategoryRepositoryInterface {
      * @param int $id
      * @return void
      */
-    public function delete(int $id)
+    public function delete(int $id): void
     {
         EventCategory::destroy($id);
     }

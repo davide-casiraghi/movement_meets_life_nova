@@ -5,6 +5,7 @@ namespace App\Repositories;
 
 use App\Http\Requests\PostStoreRequest;
 use App\Models\Post;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -13,14 +14,47 @@ class PostRepository implements PostRepositoryInterface {
     /**
      * Get all Posts.
      *
-     * @return \App\Models\Post[]|\Illuminate\Contracts\Pagination\LengthAwarePaginator|\Illuminate\Database\Eloquent\Collection
+     * @param int|null $recordsPerPage
+     * @param array|null $searchParameters
+     *
+     * @return \Illuminate\Support\Collection|\Illuminate\Contracts\Pagination\LengthAwarePaginator
      */
-    public function getAll(int $recordsPerPage = null)
+    public function getAll(int $recordsPerPage = null, array $searchParameters = null)
     {
-        if($recordsPerPage){
+        /*if($recordsPerPage){
             return Post::paginate($recordsPerPage);
         }
-        return Post::all();
+        return Post::all();*/
+
+        $query = Post::orderBy('created_at', 'desc');
+
+        if (!is_null($searchParameters)) {
+            if (!empty($searchParameters['title'])) {
+                $query->where('title', 'like', '%' . $searchParameters['title'] . '%');
+            }
+            if (!empty($searchParameters['categoryId'])) {
+                $query->where('category_id', $searchParameters['categoryId']);
+            }
+            if (!empty($searchParameters['startDate'])) {
+                $startDate = Carbon::createFromFormat('d/m/Y', $searchParameters['startDate']);
+                $query->where('created_at', '>=', $startDate);
+            }
+            if (!empty($searchParameters['endDate'])) {
+                $endDate = Carbon::createFromFormat('d/m/Y', $searchParameters['endDate']);
+                $query->where('created_at', '<=', $endDate);
+            }
+            if (!empty($searchParameters['status'])) {
+                $query->currentStatus($searchParameters['status']);
+            }
+        }
+
+        if ($recordsPerPage) {
+            return $query->paginate($recordsPerPage);
+        }
+
+        return $query->get();
+
+
     }
 
     /**

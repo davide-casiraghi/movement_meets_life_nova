@@ -4,6 +4,7 @@
 namespace App\Repositories;
 
 use App\Models\Country;
+use Illuminate\Support\Collection;
 
 
 class CountryRepository implements CountryRepositoryInterface {
@@ -11,11 +12,11 @@ class CountryRepository implements CountryRepositoryInterface {
     /**
      * Get all PostCategories.
      *
-     * @return iterable
+     * @return \Illuminate\Support\Collection
      */
-    public function getAll()
+    public function getAll(): Collection
     {
-        return Country::all();
+        return Country::orderBy('name')->get();
     }
 
     /**
@@ -35,7 +36,7 @@ class CountryRepository implements CountryRepositoryInterface {
      * @param $data
      * @return Country
      */
-    public function store($data)
+    public function store($data): Country
     {
         $country = new Country();
         $country->name = $data['name'];
@@ -54,7 +55,7 @@ class CountryRepository implements CountryRepositoryInterface {
      * @param int $id
      * @return Country
      */
-    public function update($data, int $id)
+    public function update($data, int $id): Country
     {
         $country = $this->getById($id);
         $country->name = $data['name'];
@@ -72,7 +73,7 @@ class CountryRepository implements CountryRepositoryInterface {
      * @param int $id
      * @return void
      */
-    public function delete(int $id)
+    public function delete(int $id): void
     {
         Country::destroy($id);
     }

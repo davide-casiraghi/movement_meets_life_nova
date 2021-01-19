@@ -4,14 +4,10 @@
 namespace App\Repositories;
 
 use App\Helpers\DateHelpers;
-use App\Http\Requests\EventRepetitionStoreRequest;
-use App\Http\Requests\EventStoreRequest;
 use App\Models\EventRepetition;
 use Carbon\Carbon;
 use Carbon\CarbonInterval;
 use Carbon\CarbonPeriod;
-use Illuminate\Support\Facades\Auth;
-
 
 class EventRepetitionRepository implements EventRepetitionRepositoryInterface {
 
@@ -31,7 +27,7 @@ class EventRepetitionRepository implements EventRepetitionRepositoryInterface {
      * @param $eventRepetitionId
      * @return EventRepetition
      */
-    public function getById($eventRepetitionId)
+    public function getById($eventRepetitionId): EventRepetition
     {
         return EventRepetition::findOrFail($eventRepetitionId);
     }
@@ -43,7 +39,7 @@ class EventRepetitionRepository implements EventRepetitionRepositoryInterface {
      *
      * @return EventRepetition
      */
-    public function getFirstByEventId($eventId)
+    public function getFirstByEventId($eventId): EventRepetition
     {
         return EventRepetition::select('id', 'start_repeat', 'end_repeat')
             ->where('event_id', '=', $eventId)
@@ -69,7 +65,7 @@ class EventRepetitionRepository implements EventRepetitionRepositoryInterface {
      *
      * @return \App\Models\EventRepetition
      */
-    public static function store(int $eventId, string $dateStart, string $dateEnd, string $timeStart, string $timeEnd)
+    public static function store(int $eventId, string $dateStart, string $dateEnd, string $timeStart, string $timeEnd): EventRepetition
     {
         $eventRepetition = new EventRepetition();
         $eventRepetition->event_id = $eventId;
@@ -165,7 +161,7 @@ class EventRepetitionRepository implements EventRepetitionRepositoryInterface {
      * @param int $eventId
      * @return void
      */
-    public static function deletePreviousRepetitions($eventId)
+    public static function deletePreviousRepetitions($eventId): void
     {
         EventRepetition::where('event_id', $eventId)->delete();
         //self::where('event_id', $eventId)->delete();
@@ -184,7 +180,7 @@ class EventRepetitionRepository implements EventRepetitionRepositoryInterface {
      * @param  string  $timeEnd
      * @return void
      */
-    public static function saveWeeklyRepeatDates(int $eventId, array $weekDays, string $startDate, string $repeatUntilDate, string $timeStart, string $timeEnd)
+    public static function saveWeeklyRepeatDates(int $eventId, array $weekDays, string $startDate, string $repeatUntilDate, string $timeStart, string $timeEnd): void
     {
         $beginPeriod = Carbon::createFromFormat('Y-m-d', $startDate);
         $endPeriod = Carbon::createFromFormat('Y-m-d', $repeatUntilDate);
@@ -216,7 +212,7 @@ class EventRepetitionRepository implements EventRepetitionRepositoryInterface {
      * @param  string  $timeEnd (H:i:s)
      * @return void
      */
-    public static function saveMonthlyRepeatDates(int $eventId, array $monthRepeatDatas, string $startDate, string $repeatUntilDate, string $timeStart, string $timeEnd)
+    public static function saveMonthlyRepeatDates(int $eventId, array $monthRepeatDatas, string $startDate, string $repeatUntilDate, string $timeStart, string $timeEnd): void
     {
         $month = Carbon::createFromFormat('Y-m-d', $startDate);
         $end = Carbon::createFromFormat('Y-m-d', $repeatUntilDate);
@@ -294,7 +290,7 @@ class EventRepetitionRepository implements EventRepetitionRepositoryInterface {
      * @param  string  $timeEnd
      * @return void
      */
-    public static function saveMultipleRepeatDates(int $eventId, array $singleDaysRepeatDatas, string $startDate, string $timeStart, string $timeEnd)
+    public static function saveMultipleRepeatDates(int $eventId, array $singleDaysRepeatDatas, string $startDate, string $timeStart, string $timeEnd): void
     {
         $day = Carbon::createFromFormat('Y-m-d', $startDate);
 
