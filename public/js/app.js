@@ -118602,7 +118602,7 @@ $(document).ready(function () {
     todayHighlight: true
   }); // Single selection -  Just for future dates
 
-  $('.datepicker.past input').datepicker({
+  $('.datepicker.future input').datepicker({
     format: 'dd/mm/yyyy',
     daysOfWeekHighlighted: "6,0",
     weekStart: 1,

@@ -20,14 +20,14 @@ $(document).ready(function() {
     });
 
     // Single selection -  Just for future dates
-    $('.datepicker.past input').datepicker({
+    $('.datepicker.future input').datepicker({
         format: 'dd/mm/yyyy',
         daysOfWeekHighlighted: "6,0",
         weekStart: 1,
         startDate: today,
         todayHighlight: true,
     });
-    
+
     // Multiple date selection
     $('.datepickerMultiple input').datepicker({
         format: 'dd/mm/yyyy',
