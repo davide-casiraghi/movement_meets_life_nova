@@ -100,7 +100,8 @@ class EventController extends Controller
     {
         $this->checkPermission('events.create');
 
-        $this->eventService->createEvent($request);
+        $event = $this->eventService->createEvent($request);
+        $this->eventRepetitionService->updateEventRepetitions($request, $event->id);
 
         return redirect()->route('events.index')
             ->with('success', 'Event updated successfully');

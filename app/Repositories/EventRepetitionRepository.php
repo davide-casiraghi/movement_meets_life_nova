@@ -9,7 +9,8 @@ use Carbon\Carbon;
 use Carbon\CarbonInterval;
 use Carbon\CarbonPeriod;
 
-class EventRepetitionRepository implements EventRepetitionRepositoryInterface {
+class EventRepetitionRepository implements EventRepetitionRepositoryInterface
+{
 
     /**
      * Get all EventRepetitions.
@@ -45,10 +46,10 @@ class EventRepetitionRepository implements EventRepetitionRepositoryInterface {
             ->where('event_id', '=', $eventId)
             ->first();
 
-       /* DB::table('event_repetitions')
-            ->select('id', 'start_repeat', 'end_repeat')
-            ->where('event_id', '=', $event->id)
-            ->first();*/
+        /* DB::table('event_repetitions')
+             ->select('id', 'start_repeat', 'end_repeat')
+             ->where('event_id', '=', $event->id)
+             ->first();*/
     }
 
     /**
@@ -70,8 +71,8 @@ class EventRepetitionRepository implements EventRepetitionRepositoryInterface {
         $eventRepetition = new EventRepetition();
         $eventRepetition->event_id = $eventId;
 
-        $eventRepetition->start_repeat = Carbon::createFromFormat('Y-m-d H:i:s', $dateStart.' '.$timeStart);
-        $eventRepetition->end_repeat = Carbon::createFromFormat('Y-m-d H:i:s', $dateEnd.' '.$timeEnd);
+        $eventRepetition->start_repeat = Carbon::createFromFormat('Y-m-d H:i:s', $dateStart . ' ' . $timeStart);
+        $eventRepetition->end_repeat = Carbon::createFromFormat('Y-m-d H:i:s', $dateEnd . ' ' . $timeEnd);
 
         $eventRepetition->save();
 
@@ -302,10 +303,4 @@ class EventRepetitionRepository implements EventRepetitionRepositoryInterface {
             self::store($eventId, $day->format('Y-m-d'), $day->format('Y-m-d'), $timeStart, $timeEnd);
         }
     }
-
-
-
-
-
-
 }

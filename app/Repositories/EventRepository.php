@@ -98,7 +98,6 @@ class EventRepository implements EventRepositoryInterface
         $event->description = $data['description'];
         $event->contact_email = $data['contact_email'];
 
-
         $event->website_event_link = $data['website_event_link'];
         $event->facebook_event_link = $data['facebook_event_link'];
 
@@ -122,7 +121,6 @@ class EventRepository implements EventRepositoryInterface
      * @param int $id
      *
      * @return Event
-     * @throws \Spatie\ModelStatus\Exceptions\InvalidStatus
      */
     public function update(EventStoreRequest $data, int $id)
     {

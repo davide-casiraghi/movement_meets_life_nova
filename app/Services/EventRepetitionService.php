@@ -6,8 +6,8 @@ use App\Http\Requests\EventStoreRequest;
 use App\Models\EventRepetition;
 use App\Repositories\EventRepetitionRepository;
 
-class EventRepetitionService {
-
+class EventRepetitionService
+{
     private EventRepetitionRepository $eventRepetitionRepository;
 
     /**
@@ -17,7 +17,6 @@ class EventRepetitionService {
      */
     public function __construct(
         EventRepetitionRepository $eventRepetitionRepository
-
     ) {
         $this->eventRepetitionRepository = $eventRepetitionRepository;
     }
@@ -29,7 +28,7 @@ class EventRepetitionService {
      *
      * @return \App\Models\EventRepetition
      */
-    public function createEventRepetition(EventRepetitionStoreRequest $data)
+    public function createEventRepetition(EventRepetitionStoreRequest $data): EventRepetition
     {
         $eventRepetition = $this->eventRepetitionRepository->store($data);
 
@@ -95,7 +94,4 @@ class EventRepetitionService {
     {
         return $this->eventRepetitionRepository->getFirstByEventId($eventId);
     }
-
-
-
 }
