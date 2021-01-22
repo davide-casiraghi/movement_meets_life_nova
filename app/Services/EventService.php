@@ -150,7 +150,7 @@ class EventService
     {
         $searchParameters = [];
         $searchParameters['title'] = $request->title ?? null;
-        $searchParameters['eventCategoryId'] = $request->categoryId ?? null;
+        $searchParameters['eventCategoryId'] = $request->eventCategoryId ?? null;
         $searchParameters['startDate'] = $request->startDate ?? null;
         $searchParameters['endDate'] = $request->endDate ?? null;
         $searchParameters['teacherId'] = $request->teacherId ?? null;

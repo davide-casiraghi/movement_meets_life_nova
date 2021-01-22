@@ -253,9 +253,22 @@
                                     'disabled' => FALSE,
                             ])
                         </div>
+
+                        <div class="col-span-6">
+                            @php
+                                $checked = ($event->isPublished()) ? "checked" : "";
+                            @endphp
+                            @include('partials.forms.checkbox', [
+                                'label' => __('views.published'),
+                                'id'  => 'status',
+                                'name' => 'status',
+                                'size' => 'small',
+                                'required' => false,
+                                'checked' => $checked,
+                            ])
+                        </div>
                     </div>
                 </div>
-
 
                 {{-- Event teaser image --}}
                 <div class="md:col-span-1">

@@ -225,5 +225,10 @@ Event::factory()
         $event->teachers()->sync(
             Teacher::all()->random(1)
         );
+        
+        $statuses = ['published','unpublished'];
+        $random_status = array_rand($statuses, 1);
+        $status = $statuses[$random_status];
+        $event->setStatus($status);
     });
 ```

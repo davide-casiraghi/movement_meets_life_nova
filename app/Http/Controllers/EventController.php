@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\EventSearchRequest;
 use App\Http\Requests\EventStoreRequest;
+use App\Models\Event;
 use App\Services\EventCategoryService;
 use App\Services\EventRepetitionService;
 use App\Services\EventService;
@@ -55,10 +56,14 @@ class EventController extends Controller
 
         $searchParameters = $this->eventService->getSearchParameters($request);
         $events = $this->eventService->getEvents(20);
+        $eventsCategories = $this->eventCategoryService->getEventCategories();
+        $statuses = Event::PUBLISHING_STATUS;
 
         return view('events.index', [
             'events' => $events,
+            'eventsCategories' => $eventsCategories,
             'searchParameters' => $searchParameters,
+            'statuses' => $statuses,
         ]);
     }
 

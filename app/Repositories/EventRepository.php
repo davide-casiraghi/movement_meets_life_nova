@@ -146,10 +146,10 @@ class EventRepository implements EventRepositoryInterface
 
         $event->update();
 
-        /*$status = ($data['status'] == 'on') ? 'published' : 'unpublished';
+        $status = (isset($data['status'])) ? 'published' : 'unpublished';
         if ($event->publishingStatus() != $status) {
             $event->setStatus($status);
-        }*/
+        }
 
         return $event;
     }
