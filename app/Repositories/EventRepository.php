@@ -81,11 +81,12 @@ class EventRepository implements EventRepositoryInterface
     /**
      * Store Event
      *
-     * @param \App\Http\Requests\EventStoreRequest $data
+     * @param array $data
      *
      * @return Event
+     * @throws \Spatie\ModelStatus\Exceptions\InvalidStatus
      */
-    public function store(EventStoreRequest $data)
+    public function store(array $data): Event
     {
         $event = new Event();
 
@@ -102,10 +103,10 @@ class EventRepository implements EventRepositoryInterface
         $event->facebook_event_link = $data['facebook_event_link'];
 
         $event->repeat_type = $data['repeat_type'];
-        $event->repeat_until = $data['repeat_until'];
-        $event->repeat_weekly_on = $data['repeat_weekly_on'];
-        $event->on_monthly_kind = $data['on_monthly_kind'];
-        $event->multiple_dates = $data['multiple_dates'];
+        $event->repeat_until = $data['repeat_until'] ?? null;
+        $event->repeat_weekly_on = $data['repeat_weekly_on'] ?? null;
+        $event->on_monthly_kind = $data['on_monthly_kind'] ?? null;
+        $event->multiple_dates = $data['multiple_dates'] ?? null;
 
         $event->save();
 
@@ -117,12 +118,12 @@ class EventRepository implements EventRepositoryInterface
     /**
      * Update Event
      *
-     * @param \App\Http\Requests\EventStoreRequest $data
+     * @param array $data
      * @param int $id
      *
      * @return Event
      */
-    public function update(EventStoreRequest $data, int $id)
+    public function update(array $data, int $id): Event
     {
         $event = $this->getById($id);
 
@@ -137,11 +138,11 @@ class EventRepository implements EventRepositoryInterface
         $event->facebook_event_link = $data['facebook_event_link'];
 
         $event->repeat_type = $data['repeat_type'];
-        $event->repeat_until = property_exists('repeat_type', $data) ? Carbon::createFromFormat('d/m/Y', $data['repeat_until']) : '';
+        $event->repeat_until = array_key_exists('repeat_type', $data) ? Carbon::createFromFormat('d/m/Y', $data['repeat_until']) : '';
 
-        $event->repeat_weekly_on = $data['repeat_weekly_on'];
-        $event->on_monthly_kind = $data['on_monthly_kind'];
-        $event->multiple_dates = $data['multiple_dates'];
+        $event->repeat_weekly_on = $data['repeat_weekly_on'] ?? null;
+        $event->on_monthly_kind = $data['on_monthly_kind'] ?? null;
+        $event->multiple_dates = $data['multiple_dates'] ?? null;
 
         $event->update();
 

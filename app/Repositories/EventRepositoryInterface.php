@@ -2,17 +2,23 @@
 
 namespace App\Repositories;
 
-use App\Http\Requests\EventStoreRequest;
 use App\Models\Event;
 
-interface EventRepositoryInterface {
+interface EventRepositoryInterface
+{
 
     /**
      * Get all Events.
      *
+     * @param int|null $recordsPerPage
+     * @param array|null $searchParameters
+     *
      * @return \App\Models\Event[]|\Illuminate\Contracts\Pagination\LengthAwarePaginator|\Illuminate\Database\Eloquent\Collection
      */
-    public function getAll(int $recordsPerPage = NULL);
+    public function getAll(
+        int $recordsPerPage = null,
+        array $searchParameters = null
+    );
 
     /**
      * Get Event by id
@@ -26,22 +32,22 @@ interface EventRepositoryInterface {
     /**
      * Store Event
      *
-     * @param \App\Http\Requests\EventStoreRequest $data
-     *
-     * @return Event
-     */
-    public function store(EventStoreRequest $data);
-
-    /**
-     * Update Event
-     *
-     * @param \App\Http\Requests\EventStoreRequest $data
-     * @param int $id
+     * @param array $data
      *
      * @return Event
      * @throws \Spatie\ModelStatus\Exceptions\InvalidStatus
      */
-    public function update(EventStoreRequest $data, int $id);
+    public function store(array $data): Event;
+
+    /**
+     * Update Event
+     *
+     * @param array $data
+     * @param int $id
+     *
+     * @return Event
+     */
+    public function update(array $data, int $id): Event;
 
     /**
      * Delete Event

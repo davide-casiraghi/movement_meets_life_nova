@@ -17,33 +17,37 @@ use PHPUnit\TextUI\Help;
 class EventService
 {
     private EventRepository $eventRepository;
+    private EventRepetitionService $eventRepetitionService;
 
     /**
      * EventService constructor.
      *
      * @param \App\Repositories\EventRepository $eventRepository
+     * @param \App\Services\EventRepetitionService $eventRepetitionService
      */
     public function __construct(
-        EventRepository $eventRepository
+        EventRepository $eventRepository,
+        EventRepetitionService $eventRepetitionService
     ) {
         $this->eventRepository = $eventRepository;
+        $this->eventRepetitionService = $eventRepetitionService;
     }
 
     /**
      * Create a event
      *
-     * @param \App\Http\Requests\EventStoreRequest $data
+     * @param array $data
      *
      * @return \App\Models\Event
+     * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileDoesNotExist
+     * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileIsTooBig
      * @throws \Spatie\ModelStatus\Exceptions\InvalidStatus
      */
-    public function createEvent(EventStoreRequest $data)
+    public function createEvent(array $data): Event
     {
         $event = $this->eventRepository->store($data);
 
         $event->setStatus('published');
-
-        $this->storeImages($event, $data);
 
         return $event;
     }
@@ -51,17 +55,17 @@ class EventService
     /**
      * Update the Event
      *
-     * @param \App\Http\Requests\EventStoreRequest $data
+     * @param array $data
      * @param int $eventId
      *
      * @return \App\Models\Event
+     * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileDoesNotExist
+     * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileIsTooBig
      */
 
-    public function updateEvent(EventStoreRequest $data, int $eventId)
+    public function updateEvent(array $data, int $eventId)
     {
         $event = $this->eventRepository->update($data, $eventId);
-
-        $this->storeImages($event, $data);
 
         return $event;
     }
@@ -118,7 +122,7 @@ class EventService
      * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileDoesNotExist
      * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileIsTooBig
      */
-    private function storeImages(Event $event, EventStoreRequest $data): void
+    public function storeImages(Event $event, EventStoreRequest $data): void
     {
         if ($data->file('introimage')) {
             $introimage = $data->file('introimage');

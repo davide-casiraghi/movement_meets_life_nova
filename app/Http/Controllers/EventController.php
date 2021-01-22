@@ -100,8 +100,10 @@ class EventController extends Controller
     {
         $this->checkPermission('events.create');
 
-        $event = $this->eventService->createEvent($request);
+        $event = $this->eventService->createEvent($request->all());
         $this->eventRepetitionService->updateEventRepetitions($request, $event->id);
+
+        $this->eventService->storeImages($event, $request);
 
         return redirect()->route('events.index')
             ->with('success', 'Event updated successfully');
@@ -165,8 +167,10 @@ class EventController extends Controller
     {
         $this->checkPermission('posts.edit');
 
-        $this->eventService->updateEvent($request, $eventId);
+        $event = $this->eventService->updateEvent($request->all(), $eventId);
         $this->eventRepetitionService->updateEventRepetitions($request, $eventId);
+
+        $this->eventService->storeImages($event, $request);
 
         return redirect()->route('events.index')
             ->with('success', 'Event updated successfully');
