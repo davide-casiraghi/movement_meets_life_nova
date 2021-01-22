@@ -1,26 +1,20 @@
 @extends('layouts.backend')
 
 @section('title')
-    <div class="md:grid md:grid-cols-6 md:gap-6 mb-6">
-        <div class="md:col-span-3">
-            @lang('views.glossary_management')
-        </div>
+    @lang('views.glossary_management')
+@endsection
 
-        <div class="md:col-span-3">
-            <div class="float-right">
-                @include('partials.forms.button',[
-                   'title' => 'Add glossary',
-                   'url' => route('glossaries.create'),
-                   'color' => 'indigo',
-                   'icon' => '',
-                   'size' => 1,
-                   'extraClasses' => 'mb-4',
-                   'kind' => 'primary',
-                   'target' => '_self',
-               ])
-            </div>
-        </div>
-    </div>
+@section('buttons')
+    @include('partials.forms.button',[
+       'title' => 'Add glossary',
+       'url' => route('glossaries.create'),
+       'color' => 'indigo',
+       'icon' => '',
+       'size' => 1,
+       'extraClasses' => 'mb-4',
+       'kind' => 'primary',
+       'target' => '_self',
+   ])
 @endsection
 
 @section('content')

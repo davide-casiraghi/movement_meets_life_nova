@@ -1,60 +1,53 @@
 @extends('layouts.backend')
 
 @section('title')
-    <div class="md:grid md:grid-cols-6 md:gap-6 mb-6">
-        <div class="md:col-span-3">
-            @lang('event.events_management')
-        </div>
+    @lang('event.events_management')
+@endsection
 
-        <div class="md:col-span-3">
-            <div class="float-right">
-                @include('partials.forms.button',[
-                    'title' => 'Add event',
-                    'url' => route('events.create'),
-                    'color' => 'indigo',
-                    'icon' => '',
-                    'size' => 1,
-                    'extraClasses' => 'mb-4',
-                    'kind' => 'primary',
-                    'target' => '_self',
-                ])
+@section('buttons')
+    @include('partials.forms.button',[
+        'title' => 'Add event',
+        'url' => route('events.create'),
+        'color' => 'indigo',
+        'icon' => '',
+        'size' => 1,
+        'extraClasses' => 'mb-4',
+        'kind' => 'primary',
+        'target' => '_self',
+    ])
 
-                @include('partials.forms.button',[
-                     'title' => 'Event Categories',
-                     'url' => route('eventCategories.index'),
-                     'color' => 'yellow',
-                     'icon' => '',
-                     'size' => 1,
-                     'extraClasses' => 'mb-4',
-                     'kind' => 'white',
-                     'target' => '_self',
-                 ])
+    @include('partials.forms.button',[
+         'title' => 'Event Categories',
+         'url' => route('eventCategories.index'),
+         'color' => 'yellow',
+         'icon' => '',
+         'size' => 1,
+         'extraClasses' => 'mb-4',
+         'kind' => 'white',
+         'target' => '_self',
+     ])
 
-                @include('partials.forms.button',[
-                 'title' => 'Teachers',
-                 'url' => route('teachers.index'),
-                 'color' => 'yellow',
-                 'icon' => '',
-                 'size' => 1,
-                 'extraClasses' => 'mb-4',
-                 'kind' => 'primary',
-                 'target' => '_self',
-                ])
+    @include('partials.forms.button',[
+     'title' => 'Teachers',
+     'url' => route('teachers.index'),
+     'color' => 'yellow',
+     'icon' => '',
+     'size' => 1,
+     'extraClasses' => 'mb-4',
+     'kind' => 'primary',
+     'target' => '_self',
+    ])
 
-                @include('partials.forms.button',[
-                 'title' => 'Organizers',
-                 'url' => route('organizers.index'),
-                 'color' => 'yellow',
-                 'icon' => '',
-                 'size' => 1,
-                 'extraClasses' => 'mb-4',
-                 'kind' => 'primary',
-                 'target' => '_self',
-                ])
-            </div>
-        </div>
-    </div>
-
+    @include('partials.forms.button',[
+     'title' => 'Organizers',
+     'url' => route('organizers.index'),
+     'color' => 'yellow',
+     'icon' => '',
+     'size' => 1,
+     'extraClasses' => 'mb-4',
+     'kind' => 'primary',
+     'target' => '_self',
+    ])
 @endsection
 
 @section('content')

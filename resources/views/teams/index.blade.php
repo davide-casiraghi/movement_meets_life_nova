@@ -1,30 +1,24 @@
 @extends('layouts.backend')
 
 @section('title')
-    <div class="md:grid md:grid-cols-6 md:gap-6 mb-6">
-        <div class="md:col-span-3">
-            @lang('teams.team_management')
-        </div>
-
-        <div class="md:col-span-3">
-            <div class="float-right">
-                @include('partials.forms.button',[
-                   'title' => __('teams.create_team'),
-                   'url' => route('teams.create'),
-                   'color' => 'indigo',
-                   'icon' => '',
-                   'size' => 1,
-                   'extraClasses' => 'mb-4',
-                   'kind' => 'primary',
-                   'target' => '_self',
-               ])
-            </div>
-        </div>
-    </div>
+    @lang('teams.team_management')
 @endsection
 
 @section('subTitle')
     @lang('teams.team_management_description')
+@endsection
+
+@section('buttons')
+    @include('partials.forms.button',[
+       'title' => __('teams.create_team'),
+       'url' => route('teams.create'),
+       'color' => 'indigo',
+       'icon' => '',
+       'size' => 1,
+       'extraClasses' => 'mb-4',
+       'kind' => 'primary',
+       'target' => '_self',
+   ])
 @endsection
 
 @section('content')

@@ -35,11 +35,20 @@
         <main class="flex-1 relative overflow-y-auto focus:outline-none" tabindex="0">
             <div class="py-6">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
-                    <h1 class="text-2xl font-semibold text-gray-900">
-                        @yield('title')
-                    </h1>
-                    <div class="text-sm text-gray-500">
-                        @yield('subTitle')
+                    <div class="md:grid md:grid-cols-6 md:gap-6 mb-6">
+                        <div class="md:col-span-3">
+                            <h1 class="text-2xl font-semibold text-gray-900">
+                                @yield('title')
+                            </h1>
+                            <div class="text-sm text-gray-500">
+                                @yield('subTitle')
+                            </div>
+                        </div>
+                        <div class="md:col-span-3">
+                            <div class="float-right">
+                                @yield('buttons')
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 mt-4">
