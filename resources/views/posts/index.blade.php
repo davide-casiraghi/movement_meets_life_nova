@@ -50,9 +50,9 @@
 
     {{-- Search bar - Posts --}}
     <form id="searchPostsForm" method="get" action="#" class="mb-4">
-        <div class="md:grid md:grid-cols-6 md:gap-6">
+        <div class="md:grid md:grid-cols-6 md:gap-2">
             {{-- Title --}}
-            <div class="md:col-span-1">
+            <div class="md:col-span-2 lg:col-span-1">
                 @include('partials.forms.input', [
                                 'label' => __('views.title'),
                                 'name' => 'title',
@@ -64,7 +64,7 @@
             </div>
 
             {{-- Category --}}
-            <div class="md:col-span-1"> {{-- md:mt-0 --}}
+            <div class="md:col-span-2 lg:col-span-1"> 
                 @include('partials.forms.select', [
                             'label' => __('views.category'),
                             'name' => 'categoryId',
@@ -76,7 +76,7 @@
             </div>
 
             {{-- Creation date before --}}
-            <div class="md:col-span-1">
+            <div class="md:col-span-2 lg:col-span-1">
                 @include('partials.forms.inputDatePicker',[
                     'class' => 'datepicker past',
                     'label' => __('event.date_start'),
@@ -88,7 +88,7 @@
             </div>
 
             {{-- Creation date after --}}
-            <div class="md:col-span-1">
+            <div class="md:col-span-2 lg:col-span-1">
                 @include('partials.forms.inputDatePicker',[
                     'class' => 'datepicker past',
                     'label' => __('event.date_end'),
@@ -100,7 +100,7 @@
             </div>
 
             {{-- Status --}}
-            <div class="md:col-span-1"> {{-- md:mt-0 --}}
+            <div class="md:col-span-2 lg:col-span-1">
                 @include('partials.forms.select_status', [
                            'label' => __('views.status'),
                            'name' => 'status',
@@ -112,14 +112,14 @@
             </div>
 
             {{-- Search / Reset buttons --}}
-            <div class="md:col-span-1 flex items-end justify-end mt-4 md:mt-0"> {{-- md:mt-0 --}}
+            <div class="md:col-span-2 lg:col-span-1 flex items-end justify-end mt-4 md:mt-0 mb-2">
 
                     @include('partials.forms.button_submit',[
                              'title' => __('general.search'),
                              'color' => 'indigo',
                              'icon' => '',
                              'size' => 2,
-                             'extraClasses' => 'mb-4 mr-2',
+                             'extraClasses' => 'mr-2',
                              'kind' => 'primary',
                          ])
 
@@ -129,7 +129,7 @@
                          'color' => 'yellow',
                          'icon' => '',
                          'size' => 2,
-                         'extraClasses' => 'mb-4',
+                         'extraClasses' => '',
                          'kind' => 'white',
                          'target' => '_self',
                      ])

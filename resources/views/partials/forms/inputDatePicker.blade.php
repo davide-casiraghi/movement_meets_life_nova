@@ -29,7 +29,7 @@
     @endif
 @endif
 
-<div class="mt-1 relative rounded-md shadow-sm {{$class}}" data-date-format="dd-mm-yyyy">
+<div class="relative rounded-md shadow-sm {{$class}}" data-date-format="dd-mm-yyyy">
     <input
             name="{{ $name }}"
             id="{{ $name }}"
