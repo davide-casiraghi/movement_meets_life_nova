@@ -6,7 +6,7 @@
                     {{$post->title}}
                 </p>
                 <div class="ml-2 flex-shrink-0 flex">
-                    <p class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                    <p class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full @if($post->isPublished())bg-green-100 text-green-800 @else bg-red-100 text-red-800 @endif">
                         {{ucfirst($post->publishingStatus())}}
                     </p>
                 </div>

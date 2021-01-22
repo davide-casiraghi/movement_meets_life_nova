@@ -176,6 +176,9 @@ Insight::factory()->count(40)->create()->each(function($insight) {
 });
 
 PostCategory::factory()->count(10)->create();
+
+
+
 Post::factory()->count(40)->create()->each(function($post) {
     $post->category()->associate(
         PostCategory::all()->random(1)
@@ -186,6 +189,11 @@ Post::factory()->count(40)->create()->each(function($post) {
     $post->insights()->sync(
         Insight::all()->random(1)
     );
+    
+    $statuses = ['published','unpublished'];
+    $random_status = array_rand($statuses, 1);
+    $status = $statuses[$random_status];
+    $post->setStatus($status);
 });
 Glossary::factory()->count(40)->create();
 
