@@ -62,7 +62,7 @@ class EventController extends Controller
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\View\View
      */
-    public function create()
+    public function create(): View
     {
         $this->checkPermission('events.create');
 
@@ -108,7 +108,7 @@ class EventController extends Controller
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\View\View
      */
-    public function show(int $eventId)
+    public function show(int $eventId): View
     {
         $event = $this->eventService->getById($eventId);
 
@@ -122,7 +122,7 @@ class EventController extends Controller
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\View\View
      */
-    public function edit(int $eventId)
+    public function edit(int $eventId): View
     {
         $this->checkPermission('posts.edit');
 
