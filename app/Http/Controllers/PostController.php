@@ -43,11 +43,13 @@ class PostController extends Controller
         $searchParameters = $this->postService->getSearchParameters($request);
         $posts = $this->postService->getPosts(20, $searchParameters);
         $categories = $this->postCategoryService->getPostCategories();
+        $statuses = Post::PUBLISHING_STATUS;
 
         return view('posts.index', [
             'posts' => $posts,
             'categories' => $categories,
             'searchParameters' => $searchParameters,
+            'statuses' => $statuses,
         ]);
     }
 
@@ -70,12 +72,12 @@ class PostController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \App\Http\Requests\PostCategoryStoreRequest $request
+     * @param \App\Http\Requests\PostStoreRequest $request
      *
      * @return \Illuminate\Http\RedirectResponse
      * @throws \Spatie\ModelStatus\Exceptions\InvalidStatus
      */
-    public function store(PostCategoryStoreRequest $request): RedirectResponse
+    public function store(PostStoreRequest $request): RedirectResponse
     {
         $this->checkPermission('posts.create');
 

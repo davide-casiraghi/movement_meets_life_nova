@@ -69,8 +69,6 @@ class PostService {
     {
         $post = $this->postRepository->store($data);
 
-        $post->setStatus('published');
-
         $this->storeImages($post, $data);
 
         return $post;
@@ -206,7 +204,7 @@ class PostService {
         $searchParameters['categoryId'] = $request->categoryId ?? null;
         $searchParameters['startDate'] = $request->startDate ?? null;
         $searchParameters['endDate'] = $request->endDate ?? null;
-        //$searchParameters['status'] = $request->status ?? null;
+        $searchParameters['status'] = $request->status ?? null;
 
         return $searchParameters;
     }

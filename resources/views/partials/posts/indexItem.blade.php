@@ -7,7 +7,7 @@
                 </p>
                 <div class="ml-2 flex-shrink-0 flex">
                     <p class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                        {{$post->status()}}
+                        {{ucfirst($post->publishingStatus())}}
                     </p>
                 </div>
             </div>

@@ -32,6 +32,16 @@ class Post extends Model implements HasMedia
      */
     public $translatable = ['title','intro_text', 'body', 'introimage_alt'];
 
+
+    /**
+     * The possible values the publishing status can be.
+     */
+    const PUBLISHING_STATUS = [
+        'unpublished' => 'unpublished',
+        'published' => 'published',
+    ];
+
+
     /**
      * The "booted" method of the model.
      *
@@ -122,15 +132,19 @@ class Post extends Model implements HasMedia
     {
         parent::boot();
 
-        static::created(function (Post $testimonial) {
+
+        // todo -- moved to the post repo store method...
+        /*static::created(function (Post $testimonial) {
             $testimonial->setStatus('Published');
-        });
+        });*/
     }
 
     /**
      * Create status accessor
+     *
+     * @return string
      */
-    public function getStatusNamesAttribute()
+    public function getStatusNamesAttribute(): string
     {
         return $this->status();
     }
@@ -156,6 +170,28 @@ class Post extends Model implements HasMedia
         $this->addMediaCollection('introimage')->singleFile();
         $this->addMediaCollection('gallery');
     }
+
+    /**
+     * Return true if the post is published
+     *
+     * @return bool
+     */
+    public function isPublished(): bool
+    {
+        return $this->latestStatus('unpublished', 'published') == 'published';
+    }
+
+    /**
+     * Return the post Publishing Status
+     *
+     * @return string
+     */
+    public function publishingStatus(): string
+    {
+        return $this->latestStatus('unpublished', 'published');
+    }
+
+
 
 
 }

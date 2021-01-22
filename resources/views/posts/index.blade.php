@@ -41,7 +41,7 @@
 
     {{-- Search bar - Posts --}}
     <form id="searchPostsForm" method="get" action="#" class="mb-4">
-        <div class="md:grid md:grid-cols-6 md:gap-6 mb-6"> {{-- md:gap-6 --}}
+        <div class="md:grid md:grid-cols-6 md:gap-6 mb-6">
             {{-- Title --}}
             <div class="md:col-span-1">
                 @include('partials.forms.input', [
@@ -88,6 +88,20 @@
                     'required' => false,
                 ])
             </div>
+
+            {{-- Status --}}
+            <div class="md:col-span-1"> {{-- md:mt-0 --}}
+                @include('partials.forms.select_status', [
+                           'label' => __('views.status'),
+                           'name' => 'status',
+                           'placeholder' => __('views.select_status'),
+                           'records' => $statuses,
+                           'selected' =>  old('status', $searchParameters['status']),
+                           'required' => false,
+                       ])
+            </div>
+        </div>
+        <div class="md:grid md:grid-cols-6 md:gap-6 mb-6">
 
             {{-- Search / Reset buttons --}}
             <div class="md:col-span-1"> {{-- md:mt-0 --}}

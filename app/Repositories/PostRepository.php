@@ -94,7 +94,8 @@ class PostRepository implements PostRepositoryInterface {
 
         $post->save();
 
-        //$alert->setStatus(($data['send_as_sms'] == 'on') ? 'approved' : 'pending');
+        $post->setStatus('created', Auth::id());
+        $post->setStatus('published', Auth::id());
 
         return $post->fresh();
     }
@@ -127,6 +128,11 @@ class PostRepository implements PostRepositoryInterface {
 
         if($post->wasChanged()){
             $post->setStatus('updated', Auth::id());
+        }
+
+        $status = ($data['status'] == 'on') ? 'published' : 'unpublished';
+        if($post->publishingStatus() != $status){
+            $post->setStatus($status, Auth::id());
         }
 
         return $post;

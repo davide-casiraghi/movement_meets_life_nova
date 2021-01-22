@@ -1,12 +1,20 @@
 @extends('layouts.backend')
 
+@section('title')
+    @lang('views.edit_post')
+@endsection
+
 @section('content')
 
 <form class="space-y-6" method="POST" action="{{ route('posts.update',$post->id) }}" enctype="multipart/form-data">
+    @csrf
+    @method('PUT')
+
+    {{-- Post contents --}}
     <div class="bg-white shadow px-4 py-5 sm:rounded-lg sm:p-6">
       <div class="md:grid md:grid-cols-3 md:gap-6">
         <div class="md:col-span-1">
-          <h3 class="text-lg font-medium leading-6 text-gray-900">Edit post</h3>
+          <h3 class="text-lg font-medium leading-6 text-gray-900">Post contents</h3>
             {{--
               <p class="mt-1 text-sm text-gray-500">
                 Edit the post data
@@ -15,9 +23,6 @@
 
         </div>
         <div class="mt-5 md:mt-0 md:col-span-2">
-            @csrf
-            @method('PUT')
-
             <div class="grid grid-cols-6 gap-6">
                 <div class="col-span-6">
                     @include('partials.forms.input', [
@@ -28,28 +33,6 @@
                             'required' => true,
                             'disabled' => false,
                     ])
-                </div>
-
-                <div class="col-span-6 sm:col-span-4">
-                    @include('partials.forms.input', [
-                            'label' => __('views.link_to_this_post'),
-                            'name' => 'post_link',
-                            'placeholder' => '',
-                            'value' => env('APP_URL').'post/'.$post->slug,
-                            'required' => false,
-                            'disabled' => true,
-                        ])
-                </div>
-
-                <div class="col-span-6 sm:col-span-2">
-                    @include('partials.forms.input', [
-                            'label' => __('views.post_id'),
-                            'name' => 'post_id',
-                            'placeholder' => '',
-                            'value' => $post->id,
-                            'required' => false,
-                            'disabled' => true,
-                        ])
                 </div>
 
                 <div class="col-span-6">
@@ -112,9 +95,64 @@
                               'entity' => $post,
                           ])
                 </div>
+
+                <div class="col-span-6">
+                    @php
+                        $checked = ($post->isPublished()) ? "checked" : "";
+                    @endphp
+                    @include('partials.forms.checkbox', [
+                        'label' => __('views.published'),
+                        'id'  => 'status',
+                        'name' => 'status',
+                        'size' => 'small',
+                        'required' => false,
+                        'checked' => $checked,
+                    ])
+                </div>
             </div>
         </div>
       </div>
+    </div>
+
+    {{-- Utility --}}
+    <div class="bg-white shadow px-4 py-5 sm:rounded-lg sm:p-6">
+        <div class="md:grid md:grid-cols-3 md:gap-6">
+            <div class="md:col-span-1">
+                <h3 class="text-lg font-medium leading-6 text-gray-900">Utility</h3>
+                {{--
+                  <p class="mt-1 text-sm text-gray-500">
+                    Edit the post data
+                </p>
+              --}}
+
+            </div>
+            <div class="mt-5 md:mt-0 md:col-span-2">
+                <div class="grid grid-cols-6 gap-6">
+                    <div class="col-span-6 sm:col-span-4">
+                        @include('partials.forms.input', [
+                                'label' => __('views.link_to_this_post'),
+                                'name' => 'post_link',
+                                'placeholder' => '',
+                                'value' => env('APP_URL').'post/'.$post->slug,
+                                'required' => false,
+                                'disabled' => true,
+                            ])
+                    </div>
+
+                    <div class="col-span-6 sm:col-span-2">
+                        @include('partials.forms.input', [
+                                'label' => __('views.post_id'),
+                                'name' => 'post_id',
+                                'placeholder' => '',
+                                'value' => $post->id,
+                                'required' => false,
+                                'disabled' => true,
+                            ])
+                    </div>
+
+                </div>
+            </div>
+        </div>
     </div>
 
     <div class="grid grid-cols-6 gap-6">

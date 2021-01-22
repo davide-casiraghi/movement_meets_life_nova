@@ -5,6 +5,7 @@ return [
     'category' => 'Category',
     'select_category' => 'Select category',
     'status' => 'Status',
+    'select_status' => 'Select status',
     'enabled' => 'Enabled',
     'disabled' => 'Disabled',
     'user_group' => 'User group',

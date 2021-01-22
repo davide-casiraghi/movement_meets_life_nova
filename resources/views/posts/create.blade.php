@@ -3,6 +3,8 @@
 @section('content')
 
 <form class="space-y-6" method="POST" action="{{ route('posts.store') }}" enctype="multipart/form-data">
+    @csrf
+
     <div class="bg-white shadow px-4 py-5 sm:rounded-lg sm:p-6">
       <div class="md:grid md:grid-cols-3 md:gap-6">
         <div class="md:col-span-1">
@@ -12,7 +14,6 @@
           </p>
         </div>
         <div class="mt-5 md:mt-0 md:col-span-2">
-            @csrf
             @include('partials.messages')
 
             <div class="grid grid-cols-6 gap-6">
