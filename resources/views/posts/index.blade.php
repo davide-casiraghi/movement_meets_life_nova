@@ -1,43 +1,54 @@
 @extends('layouts.backend')
 
 @section('title')
-    @lang('views.post_management')
+
+    <div class="md:grid md:grid-cols-6 md:gap-6 mb-6">
+        <div class="md:col-span-3">
+            @lang('views.post_management')
+        </div>
+        <div class="md:col-span-3">
+            <div class="float-right">
+            @include('partials.forms.button',[
+                'title' => 'Add post',
+                'url' => route('posts.create'),
+                'color' => 'indigo',
+                'icon' => '',
+                'size' => 1,
+                'extraClasses' => 'mb-4',
+                'kind' => 'primary',
+                'target' => '_self',
+            ])
+
+            @include('partials.forms.button',[
+                 'title' => 'Categories',
+                 'url' => route('postCategories.index'),
+                 'color' => 'yellow',
+                 'icon' => '',
+                 'size' => 1,
+                 'extraClasses' => 'mb-4',
+                 'kind' => 'white',
+                 'target' => '_self',
+             ])
+
+            @include('partials.forms.button',[
+             'title' => 'Tags',
+             'url' => route('tags.index'),
+             'color' => 'yellow',
+             'icon' => '',
+             'size' => 1,
+             'extraClasses' => 'mb-4',
+             'kind' => 'white',
+             'target' => '_self',
+         ])
+            </div>
+        </div>
+    </div>
+
 @endsection
 
 @section('content')
 
-    @include('partials.forms.button',[
-        'title' => 'Add post',
-        'url' => route('posts.create'),
-        'color' => 'indigo',
-        'icon' => '',
-        'size' => 1,
-        'extraClasses' => 'mb-4',
-        'kind' => 'primary',
-        'target' => '_self',
-    ])
 
-   @include('partials.forms.button',[
-        'title' => 'Categories',
-        'url' => route('postCategories.index'),
-        'color' => 'yellow',
-        'icon' => '',
-        'size' => 1,
-        'extraClasses' => 'mb-4',
-        'kind' => 'white',
-        'target' => '_self',
-    ])
-
-    @include('partials.forms.button',[
-     'title' => 'Tags',
-     'url' => route('tags.index'),
-     'color' => 'yellow',
-     'icon' => '',
-     'size' => 1,
-     'extraClasses' => 'mb-4',
-     'kind' => 'white',
-     'target' => '_self',
- ])
 
     {{-- Search bar - Posts --}}
     <form id="searchPostsForm" method="get" action="#" class="mb-4">
