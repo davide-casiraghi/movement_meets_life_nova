@@ -52,7 +52,7 @@
     <form id="searchPostsForm" method="get" action="#" class="mb-4">
         <div class="md:grid md:grid-cols-6 md:gap-2">
             {{-- Title --}}
-            <div class="md:col-span-2 lg:col-span-1">
+            <div class="md:col-span-2 lg:col-span-1 mb-2 md:mb-0">
                 @include('partials.forms.input', [
                                 'label' => __('views.title'),
                                 'name' => 'title',
@@ -64,7 +64,7 @@
             </div>
 
             {{-- Category --}}
-            <div class="md:col-span-2 lg:col-span-1"> 
+            <div class="md:col-span-2 lg:col-span-1 mb-2 md:mb-0">
                 @include('partials.forms.select', [
                             'label' => __('views.category'),
                             'name' => 'categoryId',
@@ -76,7 +76,7 @@
             </div>
 
             {{-- Creation date before --}}
-            <div class="md:col-span-2 lg:col-span-1">
+            <div class="md:col-span-2 lg:col-span-1 mb-2 md:mb-0">
                 @include('partials.forms.inputDatePicker',[
                     'class' => 'datepicker past',
                     'label' => __('event.date_start'),
@@ -88,7 +88,7 @@
             </div>
 
             {{-- Creation date after --}}
-            <div class="md:col-span-2 lg:col-span-1">
+            <div class="md:col-span-2 lg:col-span-1 mb-2 md:mb-0">
                 @include('partials.forms.inputDatePicker',[
                     'class' => 'datepicker past',
                     'label' => __('event.date_end'),
@@ -100,7 +100,7 @@
             </div>
 
             {{-- Status --}}
-            <div class="md:col-span-2 lg:col-span-1">
+            <div class="md:col-span-2 lg:col-span-1 mb-2 md:mb-0">
                 @include('partials.forms.select_status', [
                            'label' => __('views.status'),
                            'name' => 'status',

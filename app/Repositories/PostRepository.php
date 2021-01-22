@@ -21,26 +21,31 @@ class PostRepository implements PostRepositoryInterface {
      */
     public function getAll(int $recordsPerPage = null, array $searchParameters = null)
     {
-        /*if($recordsPerPage){
-            return Post::paginate($recordsPerPage);
-        }
-        return Post::all();*/
-
         $query = Post::orderBy('created_at', 'desc');
 
         if (!is_null($searchParameters)) {
             if (!empty($searchParameters['title'])) {
-                $query->where('title', 'like', '%' . $searchParameters['title'] . '%');
+                $query->where(
+                    'title',
+                    'like',
+                    '%' . $searchParameters['title'] . '%'
+                );
             }
             if (!empty($searchParameters['categoryId'])) {
                 $query->where('category_id', $searchParameters['categoryId']);
             }
             if (!empty($searchParameters['startDate'])) {
-                $startDate = Carbon::createFromFormat('d/m/Y', $searchParameters['startDate']);
+                $startDate = Carbon::createFromFormat(
+                    'd/m/Y',
+                    $searchParameters['startDate']
+                );
                 $query->where('created_at', '>=', $startDate);
             }
             if (!empty($searchParameters['endDate'])) {
-                $endDate = Carbon::createFromFormat('d/m/Y', $searchParameters['endDate']);
+                $endDate = Carbon::createFromFormat(
+                    'd/m/Y',
+                    $searchParameters['endDate']
+                );
                 $query->where('created_at', '<=', $endDate);
             }
             if (!empty($searchParameters['status'])) {
@@ -49,11 +54,13 @@ class PostRepository implements PostRepositoryInterface {
         }
 
         if ($recordsPerPage) {
-            return $query->paginate($recordsPerPage);
+            $results = $query->paginate($recordsPerPage);
+        } else {
+            $results = $query->get();
         }
 
-        return $query->get();
 
+        return $results;
 
     }
 
@@ -94,7 +101,6 @@ class PostRepository implements PostRepositoryInterface {
 
         $post->save();
 
-        $post->setStatus('created', Auth::id());
         $post->setStatus('published', Auth::id());
 
         return $post->fresh();
@@ -126,13 +132,9 @@ class PostRepository implements PostRepositoryInterface {
 
         $post->update();
 
-        if($post->wasChanged()){
-            $post->setStatus('updated', Auth::id());
-        }
-
         $status = ($data['status'] == 'on') ? 'published' : 'unpublished';
         if($post->publishingStatus() != $status){
-            $post->setStatus($status, Auth::id());
+            $post->setStatus($status);
         }
 
         return $post;
