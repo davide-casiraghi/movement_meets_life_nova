@@ -191,7 +191,7 @@ class PostService {
     }
 
     /**
-     * Get the report search parameters
+     * Get the post search parameters
      *
      * @param \App\Http\Requests\PostSearchRequest $request
      *

@@ -1,8 +1,10 @@
 <?php
+
 namespace App\Services;
 
 use App\Helpers\DateHelpers;
 use App\Helpers\Helper;
+use App\Http\Requests\EventSearchRequest;
 use App\Http\Requests\EventStoreRequest;
 use App\Models\Event;
 use App\Models\EventRepetition;
@@ -12,8 +14,8 @@ use DateTime;
 use Illuminate\Http\Request;
 use PHPUnit\TextUI\Help;
 
-class EventService {
-
+class EventService
+{
     private EventRepository $eventRepository;
 
     /**
@@ -26,7 +28,7 @@ class EventService {
     ) {
         $this->eventRepository = $eventRepository;
     }
-    
+
     /**
      * Create a event
      *
@@ -54,6 +56,7 @@ class EventService {
      *
      * @return \App\Models\Event
      */
+
     public function updateEvent(EventStoreRequest $data, int $eventId)
     {
         $event = $this->eventRepository->update($data, $eventId);
@@ -115,22 +118,44 @@ class EventService {
      * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileDoesNotExist
      * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileIsTooBig
      */
-    private function storeImages(Event $event, EventStoreRequest $data):void
+    private function storeImages(Event $event, EventStoreRequest $data): void
     {
-
-        if($data->file('introimage')) {
+        if ($data->file('introimage')) {
             $introimage = $data->file('introimage');
             if ($introimage->isValid()) {
                 $event->addMedia($introimage)->toMediaCollection('introimage');
             }
         }
 
-        if($data['introimage_delete'] == 'true'){
+        if ($data['introimage_delete'] == 'true') {
             $mediaItems = $event->getMedia('introimage');
-            if(!is_null($mediaItems[0])){
+            if (!is_null($mediaItems[0])) {
                 $mediaItems[0]->delete();
             }
         }
+    }
+
+    /**
+     * Get the event search parameters
+     *
+     * @param \App\Http\Requests\EventSearchRequest $request
+     *
+     * @return array
+     */
+    public function getSearchParameters(EventSearchRequest $request): array
+    {
+        $searchParameters = [];
+        $searchParameters['title'] = $request->title ?? null;
+        $searchParameters['eventCategoryId'] = $request->categoryId ?? null;
+        $searchParameters['startDate'] = $request->startDate ?? null;
+        $searchParameters['endDate'] = $request->endDate ?? null;
+        $searchParameters['teacherId'] = $request->teacherId ?? null;
+        $searchParameters['organizerId'] = $request->organizerId ?? null;
+        $searchParameters['repetitionKindId'] = $request->repetitionKindId ?? null;
+        $searchParameters['venueId'] = $request->venueId ?? null;
+        $searchParameters['status'] = $request->status ?? null;
+
+        return $searchParameters;
     }
 
     /**
@@ -145,13 +170,12 @@ class EventService {
         $thumbUrls = [];
 
         $event = $this->getById($eventId);
-        foreach($event->getMedia('event') as $photo){
+        foreach ($event->getMedia('event') as $photo) {
             $thumbUrls[] = $photo->getUrl('thumb');
         }
 
         return $thumbUrls;
     }
-
 
     /**
      * Return an array with the event data related to:
@@ -187,7 +211,7 @@ class EventService {
      *
      * @return string
      */
-    public function getMonthlySelectOptions(string $date)
+    public function getMonthlySelectOptions(string $date): string
     {
         $monthlySelectOptions = [];
         $date = implode('-', array_reverse(explode('/', $date)));  // Our YYYY-MM-DD date string
@@ -198,11 +222,11 @@ class EventService {
         $dateArray = explode('/', $date);
         $dayNumber = ltrim($dateArray[0], '0'); // remove the 0 in front of a day number eg. 02/10/2018
 
-        $format = __('ordinalDays.the_'.($dayNumber).'_x_of_the_month');
+        $format = __('ordinalDays.the_' . ($dayNumber) . '_x_of_the_month');
         $repeatText = sprintf($format, 'day');
 
         array_push($monthlySelectOptions, [
-            'value' => '0|'.$dayNumber,
+            'value' => '0|' . $dayNumber,
             'text' => $repeatText,
         ]);
 

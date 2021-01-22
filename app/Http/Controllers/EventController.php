@@ -9,16 +9,21 @@ use App\Services\EventService;
 use App\Services\OrganizerService;
 use App\Services\TeacherService;
 use App\Services\VenueService;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use App\Traits\CheckPermission;
+use Illuminate\View\View;
 
 class EventController extends Controller
 {
-    private $eventService;
-    private $eventCategoryService;
-    private $venueService;
-    private $teacherService;
-    private $organizerService;
-    private $eventRepetitionService;
+    use CheckPermission;
+
+    private EventService $eventService;
+    private EventCategoryService $eventCategoryService;
+    private VenueService $venueService;
+    private TeacherService $teacherService;
+    private OrganizerService $organizerService;
+    private EventRepetitionService $eventRepetitionService;
 
     public function __construct(
         EventService $eventService,
@@ -27,8 +32,7 @@ class EventController extends Controller
         TeacherService $teacherService,
         OrganizerService $organizerService,
         EventRepetitionService $eventRepetitionService
-    )
-    {
+    ) {
         $this->eventService = $eventService;
         $this->eventCategoryService = $eventCategoryService;
         $this->venueService = $venueService;
@@ -40,10 +44,12 @@ class EventController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\View\View
      */
     public function index()
     {
+        $this->checkPermission('events.view');
+
         $events = $this->eventService->getEvents(20);
 
         return view('events.index', [
@@ -54,10 +60,12 @@ class EventController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Contracts\View\View
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\View\View
      */
     public function create()
     {
+        $this->checkPermission('events.create');
+
         $eventCategories = $this->eventCategoryService->getEventCategories();
         $venues = $this->venueService->getVenues();
         $teachers = $this->teacherService->getTeachers();
@@ -83,12 +91,14 @@ class EventController extends Controller
      * @return \Illuminate\Http\RedirectResponse
      * @throws \Spatie\ModelStatus\Exceptions\InvalidStatus
      */
-    public function store(EventStoreRequest $request)
+    public function store(EventStoreRequest $request): RedirectResponse
     {
+        $this->checkPermission('events.create');
+
         $this->eventService->createEvent($request);
 
         return redirect()->route('events.index')
-            ->with('success','Event updated successfully');
+            ->with('success', 'Event updated successfully');
     }
 
     /**
@@ -96,7 +106,7 @@ class EventController extends Controller
      *
      * @param int $eventId
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\View\View
      */
     public function show(int $eventId)
     {
@@ -110,10 +120,12 @@ class EventController extends Controller
      *
      * @param int $eventId
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\View\View
      */
     public function edit(int $eventId)
     {
+        $this->checkPermission('posts.edit');
+
         $event = $this->eventService->getById($eventId);
 
         $eventCategories = $this->eventCategoryService->getEventCategories();
@@ -143,13 +155,15 @@ class EventController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(EventStoreRequest $request, int $eventId)
+    public function update(EventStoreRequest $request, int $eventId): RedirectResponse
     {
+        $this->checkPermission('posts.edit');
+
         $this->eventService->updateEvent($request, $eventId);
         $this->eventRepetitionService->updateEventRepetitions($request, $eventId);
 
         return redirect()->route('events.index')
-            ->with('success','Event updated successfully');
+            ->with('success', 'Event updated successfully');
     }
 
     /**
@@ -159,12 +173,12 @@ class EventController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy(int $eventId)
+    public function destroy(int $eventId): RedirectResponse
     {
         $this->eventService->deleteEvent($eventId);
 
         return redirect()->route('events.index')
-            ->with('success','Event deleted successfully');
+            ->with('success', 'Event deleted successfully');
     }
 
 
@@ -176,12 +190,10 @@ class EventController extends Controller
      * @param  \Illuminate\Http\Request  $request  - Just the day
      * @return string
      */
-    public function calculateMonthlySelectOptions(Request $request)
+    public function calculateMonthlySelectOptions(Request $request): string
     {
         $date = $request['day'];
 
         return $this->eventService->getMonthlySelectOptions($date);
     }
-
-
 }

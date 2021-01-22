@@ -23,8 +23,7 @@ class PostController extends Controller
     public function __construct(
         PostService $postService,
         PostCategoryService $postCategoryService
-    )
-    {
+    ) {
         $this->postService = $postService;
         $this->postCategoryService = $postCategoryService;
     }

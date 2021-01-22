@@ -33,6 +33,14 @@ class Event extends Model implements HasMedia
     ];
 
     /**
+     * The possible values the publishing status can be.
+     */
+    const PUBLISHING_STATUS = [
+        'unpublished' => 'unpublished',
+        'published' => 'published',
+    ];
+
+    /**
      * Generates a unique slug.
      */
     public function getSlugOptions() : SlugOptions
@@ -132,5 +140,25 @@ class Event extends Model implements HasMedia
     public function registerMediaCollections(): void
     {
         $this->addMediaCollection('introimage')->singleFile();
+    }
+
+    /**
+     * Return true if the event is published
+     *
+     * @return bool
+     */
+    public function isPublished(): bool
+    {
+        return $this->latestStatus('unpublished', 'published') == 'published';
+    }
+
+    /**
+     * Return the event publishing status
+     *
+     * @return string
+     */
+    public function publishingStatus(): string
+    {
+        return $this->latestStatus('unpublished', 'published');
     }
 }

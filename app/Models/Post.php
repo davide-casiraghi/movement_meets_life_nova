@@ -32,7 +32,6 @@ class Post extends Model implements HasMedia
      */
     public $translatable = ['title','intro_text', 'body', 'introimage_alt'];
 
-
     /**
      * The possible values the publishing status can be.
      */
@@ -40,7 +39,6 @@ class Post extends Model implements HasMedia
         'unpublished' => 'unpublished',
         'published' => 'published',
     ];
-
 
     /**
      * The "booted" method of the model.
@@ -182,7 +180,7 @@ class Post extends Model implements HasMedia
     }
 
     /**
-     * Return the post Publishing Status
+     * Return the post publishing status
      *
      * @return string
      */
