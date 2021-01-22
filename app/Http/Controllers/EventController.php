@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\EventSearchRequest;
 use App\Http\Requests\EventStoreRequest;
 use App\Services\EventCategoryService;
 use App\Services\EventRepetitionService;
@@ -44,16 +45,20 @@ class EventController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param \App\Http\Requests\EventSearchRequest $request
+     *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\View\View
      */
-    public function index()
+    public function index(EventSearchRequest $request): View
     {
         $this->checkPermission('events.view');
 
+        $searchParameters = $this->eventService->getSearchParameters($request);
         $events = $this->eventService->getEvents(20);
 
         return view('events.index', [
             'events' => $events,
+            'searchParameters' => $searchParameters,
         ]);
     }
 
@@ -180,7 +185,6 @@ class EventController extends Controller
         return redirect()->route('events.index')
             ->with('success', 'Event deleted successfully');
     }
-
 
     /**
      * Return the HTML of the monthly select dropdown - inspired by - https://www.theindychannel.com/calendar

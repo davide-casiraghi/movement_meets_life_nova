@@ -8,20 +8,63 @@ use App\Models\Event;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 
-
-class EventRepository implements EventRepositoryInterface {
+class EventRepository implements EventRepositoryInterface
+{
 
     /**
      * Get all Events.
      *
+     * @param int|null $recordsPerPage
+     * @param array|null $searchParameters
+     *
      * @return \App\Models\Event[]|\Illuminate\Contracts\Pagination\LengthAwarePaginator|\Illuminate\Database\Eloquent\Collection
      */
-    public function getAll(int $recordsPerPage = null)
+    public function getAll(int $recordsPerPage = null, array $searchParameters = null)
     {
-        if($recordsPerPage){
+       /* if ($recordsPerPage) {
             return Event::paginate($recordsPerPage);
         }
-        return Event::all();
+        return Event::all();*/
+
+        $query = Event::orderBy('created_at', 'desc');
+
+        if (!is_null($searchParameters)) {
+            if (!empty($searchParameters['title'])) {
+                $query->where(
+                    'title',
+                    'like',
+                    '%' . $searchParameters['title'] . '%'
+                );
+            }
+            if (!empty($searchParameters['eventCategoryId'])) {
+                $query->where('event_category_id', $searchParameters['eventCategoryId']);
+            }
+            if (!empty($searchParameters['startDate'])) {
+                $startDate = Carbon::createFromFormat(
+                    'd/m/Y',
+                    $searchParameters['startDate']
+                );
+                $query->where('created_at', '>=', $startDate);
+            }
+            if (!empty($searchParameters['endDate'])) {
+                $endDate = Carbon::createFromFormat(
+                    'd/m/Y',
+                    $searchParameters['endDate']
+                );
+                $query->where('created_at', '<=', $endDate);
+            }
+            if (!empty($searchParameters['status'])) {
+                $query->currentStatus($searchParameters['status']);
+            }
+        }
+
+        if ($recordsPerPage) {
+            $results = $query->paginate($recordsPerPage);
+        } else {
+            $results = $query->get();
+        }
+
+        return $results;
     }
 
     /**
@@ -67,7 +110,7 @@ class EventRepository implements EventRepositoryInterface {
 
         $event->save();
 
-        //$alert->setStatus(($data['send_as_sms'] == 'on') ? 'approved' : 'pending');
+        $event->setStatus('published');
 
         return $event->fresh();
     }
@@ -104,9 +147,10 @@ class EventRepository implements EventRepositoryInterface {
 
         $event->update();
 
-        if($event->wasChanged()){
-            $event->setStatus('updated', Auth::id());
-        }
+        /*$status = ($data['status'] == 'on') ? 'published' : 'unpublished';
+        if ($event->publishingStatus() != $status) {
+            $event->setStatus($status);
+        }*/
 
         return $event;
     }

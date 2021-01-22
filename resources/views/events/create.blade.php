@@ -161,7 +161,7 @@
 
                             <div class="col-12 col-md-3 mb-2 mb-lg-0">
                                 @include('partials.forms.inputDatePicker',[
-                                    'class' => 'datepicker',
+                                    'class' => 'datepicker all',
                                     'label' => __('event.date_start'),
                                     'placeholder' => __('general.select_date'),
                                     'name' => 'startDate',
@@ -185,7 +185,7 @@
                     <div class="grid grid-cols-6 gap-6">
                         <div class="col-span-3">
                             @include('partials.forms.inputDatePicker',[
-                                    'class' => 'datepicker',
+                                    'class' => 'datepicker all',
                                     'label' => __('event.date_end'),
                                     'placeholder' => __('general.select_date'),
                                     'name' => 'endDate',

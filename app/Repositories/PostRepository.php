@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Repositories;
 
 use App\Http\Requests\PostStoreRequest;
@@ -8,8 +7,8 @@ use App\Models\Post;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 
-
-class PostRepository implements PostRepositoryInterface {
+class PostRepository implements PostRepositoryInterface
+{
 
     /**
      * Get all Posts.
@@ -59,9 +58,7 @@ class PostRepository implements PostRepositoryInterface {
             $results = $query->get();
         }
 
-
         return $results;
-
     }
 
     /**
@@ -101,7 +98,7 @@ class PostRepository implements PostRepositoryInterface {
 
         $post->save();
 
-        $post->setStatus('published', Auth::id());
+        $post->setStatus('published');
 
         return $post->fresh();
     }
@@ -113,6 +110,7 @@ class PostRepository implements PostRepositoryInterface {
      * @param int $id
      *
      * @return Post
+     * @throws \Spatie\ModelStatus\Exceptions\InvalidStatus
      */
     public function update(PostStoreRequest $data, int $id)
     {
@@ -133,7 +131,7 @@ class PostRepository implements PostRepositoryInterface {
         $post->update();
 
         $status = ($data['status'] == 'on') ? 'published' : 'unpublished';
-        if($post->publishingStatus() != $status){
+        if ($post->publishingStatus() != $status) {
             $post->setStatus($status);
         }
 
