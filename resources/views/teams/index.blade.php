@@ -1,7 +1,26 @@
 @extends('layouts.backend')
 
 @section('title')
-    @lang('teams.team_management')
+    <div class="md:grid md:grid-cols-6 md:gap-6 mb-6">
+        <div class="md:col-span-3">
+            @lang('teams.team_management')
+        </div>
+
+        <div class="md:col-span-3">
+            <div class="float-right">
+                @include('partials.forms.button',[
+                   'title' => __('teams.create_team'),
+                   'url' => route('teams.create'),
+                   'color' => 'indigo',
+                   'icon' => '',
+                   'size' => 1,
+                   'extraClasses' => 'mb-4',
+                   'kind' => 'primary',
+                   'target' => '_self',
+               ])
+            </div>
+        </div>
+    </div>
 @endsection
 
 @section('subTitle')
@@ -9,17 +28,6 @@
 @endsection
 
 @section('content')
-
-    @include('partials.forms.button',[
-        'title' => __('teams.create_team'),
-        'url' => route('teams.create'),
-        'color' => 'indigo',
-        'icon' => '',
-        'size' => 1,
-        'extraClasses' => 'mb-4',
-        'kind' => 'primary',
-        'target' => '_self',
-    ])
 
     <form method="POST" action="{{ route('permissions.store') }}">
         <div class="bg-white shadow px-4 py-5 sm:rounded-lg sm:p-6">
