@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\GlossarySearchRequest;
 use App\Http\Requests\GlossaryStoreRequest;
 use App\Models\Glossary;
 use App\Services\GlossaryService;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class GlossaryController extends Controller
 {
@@ -13,15 +15,15 @@ class GlossaryController extends Controller
 
     public function __construct(
         GlossaryService $glossaryService
-    )
-    {
+    ) {
         $this->glossaryService = $glossaryService;
     }
-    
-    public function show($glossaryTermId){
+
+    public function show($glossaryTermId)
+    {
         $glossaryTerm = Glossary::find($glossaryTermId);
 
-        return view('glossary.show',[
+        return view('glossary.show', [
             'glossaryTerm' => $glossaryTerm,
             //'posts' => $posts,
         ]);
@@ -30,14 +32,22 @@ class GlossaryController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Contracts\View\View
+     * @param \App\Http\Requests\GlossarySearchRequest $request
+     *
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\View\View
      */
-    public function index()
+    public function index(GlossarySearchRequest $request): View
     {
-        $glossaries = $this->glossaryService->getGlossaries();
+        ray($request->all());
+        $searchParameters = $this->glossaryService->getSearchParameters($request);
+        ray($searchParameters);
+        $glossaries = $this->glossaryService->getGlossaries(20, $searchParameters);
+        $statuses = Glossary::PUBLISHING_STATUS;
 
         return view('glossaries.index', [
             'glossaries' => $glossaries,
+            'searchParameters' => $searchParameters,
+            'statuses' => $statuses,
         ]);
     }
 
@@ -63,7 +73,7 @@ class GlossaryController extends Controller
         $this->glossaryService->createGlossary($request);
 
         return redirect()->route('glossaries.index')
-            ->with('success','Tag created successfully');
+            ->with('success', 'Tag created successfully');
     }
 
     /**
@@ -92,12 +102,10 @@ class GlossaryController extends Controller
      */
     public function update(GlossaryStoreRequest $request, int $glossaryId)
     {
-
-
         $this->glossaryService->updateGlossary($request, $glossaryId);
 
         return redirect()->route('glossaries.index')
-            ->with('success','Tag updated successfully');
+            ->with('success', 'Tag updated successfully');
     }
 
     /**
@@ -112,6 +120,6 @@ class GlossaryController extends Controller
         $this->glossaryService->deleteGlossary($glossaryId);
 
         return redirect()->route('glossaries.index')
-            ->with('success','Tag deleted successfully');
+            ->with('success', 'Tag deleted successfully');
     }
 }

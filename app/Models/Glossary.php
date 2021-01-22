@@ -30,6 +30,13 @@ class Glossary extends Model implements HasMedia
      */
     public $translatable = ['term','definition', 'body'];
 
+    /**
+     * The possible values the publishing status can be.
+     */
+    const PUBLISHING_STATUS = [
+        'unpublished' => 'unpublished',
+        'published' => 'published',
+    ];
 
     /**
      * Generates a unique slug.
@@ -55,10 +62,10 @@ class Glossary extends Model implements HasMedia
     /**
      * Create status accessor
      */
-    public function getStatusNamesAttribute()
+   /* public function getStatusNamesAttribute()
     {
         return $this->status();
-    }
+    }*/
 
     /**
      * Add Image gallery support using:
@@ -75,5 +82,25 @@ class Glossary extends Model implements HasMedia
     public function registerMediaCollections(): void
     {
         $this->addMediaCollection('introimage')->singleFile();
+    }
+
+    /**
+     * Return true if the post is published
+     *
+     * @return bool
+     */
+    public function isPublished(): bool
+    {
+        return $this->latestStatus('unpublished', 'published') == 'published';
+    }
+
+    /**
+     * Return the post publishing status
+     *
+     * @return string
+     */
+    public function publishingStatus(): string
+    {
+        return $this->latestStatus('unpublished', 'published');
     }
 }

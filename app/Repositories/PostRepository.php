@@ -130,7 +130,8 @@ class PostRepository implements PostRepositoryInterface
 
         $post->update();
 
-        $status = ($data['status'] == 'on') ? 'published' : 'unpublished';
+        //$status = ($data['status'] == 'on') ? 'published' : 'unpublished';
+        $status = (isset($data['status'])) ? 'published' : 'unpublished';
         if ($post->publishingStatus() != $status) {
             $post->setStatus($status);
         }

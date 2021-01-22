@@ -8,8 +8,8 @@ use App\Models\User;
 use App\Repositories\UserProfileRepositoryInterface;
 use App\Repositories\UserRepositoryInterface;
 
-class UserService {
-
+class UserService
+{
     private UserRepositoryInterface $userRepository;
     private UserProfileRepositoryInterface $userProfileRepository;
 
@@ -22,8 +22,7 @@ class UserService {
     public function __construct(
         UserRepositoryInterface $userRepository,
         UserProfileRepositoryInterface $userProfileRepository
-    )
-    {
+    ) {
         $this->userRepository = $userRepository;
         $this->userProfileRepository = $userProfileRepository;
     }
@@ -81,7 +80,7 @@ class UserService {
 
         // Teams membership
         // (Just if the role is admin, for super admins we don't need them)
-        if($data['role'] == "Admin"){
+        if ($data['role'] == "Admin") {
             $roles[] = $data['team_membership'];
         }
         $user->syncRoles($roles);
@@ -96,7 +95,8 @@ class UserService {
      *
      * @return User
      */
-    public function getById(int $userId): User {
+    public function getById(int $userId): User
+    {
         return $this->userRepository->getById($userId);
     }
 
@@ -140,5 +140,4 @@ class UserService {
 
         return $searchParameters;
     }
-
 }

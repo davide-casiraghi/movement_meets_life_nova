@@ -10,7 +10,8 @@ use App\Services\Snippets\AccordionService;
 use App\Services\Snippets\GalleryMasonryService;
 use Illuminate\Support\Collection;
 
-class PostService {
+class PostService
+{
     private PostRepository $postRepository;
     private AccordionService $accordionService;
     private GalleryMasonryService $galleryService;
@@ -156,16 +157,16 @@ class PostService {
             }
         }*/
 
-        if($data->file('introimage')) {
+        if ($data->file('introimage')) {
             $introimage = $data->file('introimage');
             if ($introimage->isValid()) {
                 $post->addMedia($introimage)->toMediaCollection('introimage');
             }
         }
 
-        if($data['introimage_delete'] == 'true'){
+        if ($data['introimage_delete'] == 'true') {
             $mediaItems = $post->getMedia('introimage');
-            if(!is_null($mediaItems[0])){
+            if (!is_null($mediaItems[0])) {
                 $mediaItems[0]->delete();
             }
         }
@@ -183,7 +184,7 @@ class PostService {
         $thumbUrls = [];
 
         $post = $this->getById($postId);
-        foreach($post->getMedia('post') as $photo){
+        foreach ($post->getMedia('post') as $photo) {
             $thumbUrls[] = $photo->getUrl('thumb');
         }
 
@@ -208,5 +209,4 @@ class PostService {
 
         return $searchParameters;
     }
-
 }
