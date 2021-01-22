@@ -55,7 +55,7 @@ class EventController extends Controller
         $this->checkPermission('events.view');
 
         $searchParameters = $this->eventService->getSearchParameters($request);
-        $events = $this->eventService->getEvents(20);
+        $events = $this->eventService->getEvents(20, $searchParameters);
         $eventsCategories = $this->eventCategoryService->getEventCategories();
         $statuses = Event::PUBLISHING_STATUS;
 

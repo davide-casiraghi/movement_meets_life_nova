@@ -21,11 +21,7 @@ class EventRepository implements EventRepositoryInterface
      */
     public function getAll(int $recordsPerPage = null, array $searchParameters = null)
     {
-       /* if ($recordsPerPage) {
-            return Event::paginate($recordsPerPage);
-        }
-        return Event::all();*/
-
+        ray('aaa');
         $query = Event::orderBy('created_at', 'desc');
 
         if (!is_null($searchParameters)) {

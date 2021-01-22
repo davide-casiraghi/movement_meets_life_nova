@@ -85,11 +85,14 @@ class EventService
     /**
      * Get all the Events.
      *
+     * @param int|null $recordsPerPage
+     * @param array|null $searchParameters
+     *
      * @return iterable
      */
-    public function getEvents(int $recordsPerPage = null)
+    public function getEvents(int $recordsPerPage = null, array $searchParameters = null)
     {
-        return $this->eventRepository->getAll($recordsPerPage);
+        return $this->eventRepository->getAll($recordsPerPage, $searchParameters);
     }
 
     /**
@@ -148,6 +151,7 @@ class EventService
      */
     public function getSearchParameters(EventSearchRequest $request): array
     {
+        //ray($request->all());
         $searchParameters = [];
         $searchParameters['title'] = $request->title ?? null;
         $searchParameters['eventCategoryId'] = $request->eventCategoryId ?? null;
