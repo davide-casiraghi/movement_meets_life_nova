@@ -24,6 +24,7 @@ use App\Services\UserService;
 use App\Traits\CheckPermission;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\View\View;
 use Maatwebsite\Excel\Facades\Excel;
 use Session;
 
@@ -59,7 +60,7 @@ class UserController extends Controller
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\View\View
      */
-    public function index(UserSearchRequest $request)
+    public function index(UserSearchRequest $request): View
     {
         $this->checkPermission('users.view');
 
@@ -83,7 +84,7 @@ class UserController extends Controller
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\View\View
      */
-    public function create()
+    public function create(): View
     {
         $this->checkPermission('users.create');
 
@@ -107,7 +108,7 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(UserStoreRequest $request)
+    public function store(UserStoreRequest $request): RedirectResponse
     {
         $this->checkPermission('users.create');
 
@@ -125,7 +126,7 @@ class UserController extends Controller
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\View\View
      */
-    public function edit(int $userId)
+    public function edit(int $userId): View
     {
         if (Auth::id() != $userId) {
             $this->checkPermission('users.edit');
@@ -150,9 +151,10 @@ class UserController extends Controller
      * Update the specified resource in storage.
      *
      * @param \App\Http\Requests\UserStoreRequest $request
-     * @param  int  $userId
+     * @param int $userId
      *
      * @return \Illuminate\Http\RedirectResponse
+     * @throws \Spatie\ModelStatus\Exceptions\InvalidStatus
      */
     public function update(UserStoreRequest $request, int $userId): RedirectResponse
     {
@@ -181,7 +183,7 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy(int $userId)
+    public function destroy(int $userId): RedirectResponse
     {
         $this->checkPermission('users.delete');
 
@@ -196,7 +198,7 @@ class UserController extends Controller
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\View\View
      */
-    public function pending()
+    public function pending(): View
     {
         return view('users.status.pending');
     }
@@ -206,7 +208,7 @@ class UserController extends Controller
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\View\View
      */
-    public function refused()
+    public function refused(): View
     {
         return view('users.status.refused');
     }
