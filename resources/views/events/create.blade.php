@@ -6,6 +6,8 @@
 
 @section('content')
 
+    @include('partials.messages')
+
     <form class="space-y-6" method="POST" action="{{ route('events.store') }}"
           enctype="multipart/form-data">
         @csrf
