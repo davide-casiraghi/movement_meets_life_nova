@@ -10,6 +10,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
+use Spatie\ModelStatus\HasStatuses;
 use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
@@ -20,6 +21,7 @@ class User extends Authenticatable
     use HasProfilePhoto;
     use Notifiable;
     use TwoFactorAuthenticatable;
+    use HasStatuses;
 
     /**
      * The attributes that are mass assignable.
@@ -49,7 +51,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $casts = [
+    protected array $casts = [
         'email_verified_at' => 'datetime',
     ];
 
@@ -63,9 +65,18 @@ class User extends Authenticatable
     ];
 
     /**
+     * The possible values the status can be.
+     */
+    const STATUS = [
+        'disabled' => 'disabled',
+        'enabled' => 'enabled',
+    ];
+
+    /**
      * Returns the posts written by this user.
      */
-    public function post(){
+    public function post()
+    {
         return $this->hasMany(Post::class, 'created_by');  //  select * from post where created_by
     }
 
@@ -84,30 +95,43 @@ class User extends Authenticatable
      *
      * @return bool
      */
-    public function isAdmin(): bool{
+    public function isAdmin(): bool
+    {
         return $this->hasRole(['Super Admin', 'Admin']);
     }
 
     /**
      * Returns the events crated by this user.
      */
-    public function events(){
+    public function events()
+    {
         return $this->hasMany(Event::class);
     }
 
     /**
      * Returns the events crated by this user.
      */
-    public function organizers(){
+    public function organizers()
+    {
         return $this->hasMany(Organizer::class);
     }
 
     /**
      * Returns the events crated by this user.
      */
-    public function teachers(){
+    public function teachers()
+    {
         return $this->hasMany(Teacher::class);
     }
 
+    /**
+     * Return true if the post is published
+     *
+     * @return bool
+     */
+    public function isEnabled(): bool
+    {
+        return $this->latestStatus('disabled', 'enabled') == 'enabled';
+    }
 
 }

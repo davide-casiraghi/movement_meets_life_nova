@@ -14,8 +14,11 @@ use Spatie\Translatable\HasTranslations;
 
 class Testimonial extends Model implements HasMedia
 {
-
-    use HasFactory, HasSlug, HasTranslations, HasStatuses, InteractsWithMedia;
+    use HasFactory;
+    use HasSlug;
+    use HasTranslations;
+    use HasStatuses;
+    use InteractsWithMedia;
 
     /**
      * The attributes that are mass assignable.
@@ -42,7 +45,8 @@ class Testimonial extends Model implements HasMedia
     /**
      * Generates a unique slug.
      */
-    public function getSlugOptions(): SlugOptions {
+    public function getSlugOptions(): SlugOptions
+    {
         return SlugOptions::create()
             ->generateSlugsFrom('author')
             ->saveSlugsTo('slug');
@@ -51,20 +55,13 @@ class Testimonial extends Model implements HasMedia
     /**
      * Set default status value when a testimonial is created
      */
-    public static function boot() {
+    public static function boot()
+    {
         parent::boot();
 
         static::created(function (Testimonial $testimonial) {
             $testimonial->setStatus('Pending');
         });
-    }
-
-    /**
-     * Create status accessor
-     */
-    public function getStatusNamesAttribute()
-    {
-        return $this->status();
     }
 
     /**
@@ -83,6 +80,4 @@ class Testimonial extends Model implements HasMedia
     {
         $this->addMediaCollection('photo')->singleFile();
     }
-
-
 }

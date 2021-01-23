@@ -23,40 +23,34 @@ class UserRepository implements UserRepositoryInterface
         $query = User::orderBy('email', 'asc');
         $query->with('profile');
 
-        if(!is_null($searchParameters)) {
-            /*if (!empty($searchParameters['username'])){
-                $query->where('username', 'like', '%'.$searchParameters['username'].'%');
-            }*/
-            if (!empty($searchParameters['email'])){
-                $query->where('email', 'like', '%'.$searchParameters['email'].'%');
-            }
-            if (!empty($searchParameters['phone'])){
-                $query->whereHas('profile', function($q) use ($searchParameters){
-                    $q->where('phone', 'like', '%'.$searchParameters['phone'].'%');
+        if (!is_null($searchParameters)) {
+            if (!empty($searchParameters['name'])) {
+                $query->whereHas('profile', function ($q) use ($searchParameters) {
+                    $q->where('name', 'like', '%' . $searchParameters['name'] . '%');
                 });
             }
-            if (!empty($searchParameters['regionId'])){
-                $query->whereHas('profile', function($q) use ($searchParameters){
-                    $q->where('region_id', $searchParameters['regionId']);
+            if (!empty($searchParameters['surname'])) {
+                $query->whereHas('profile', function ($q) use ($searchParameters) {
+                    $q->where('surname', 'like', '%' . $searchParameters['surname'] . '%');
                 });
             }
-            if (!empty($searchParameters['role'])){
+            if (!empty($searchParameters['email'])) {
+                $query->where('email', 'like', '%' . $searchParameters['email'] . '%');
+            }
+            if (!empty($searchParameters['countryId'])) {
+                $query->whereHas('profile', function ($q) use ($searchParameters) {
+                    $q->where('country_id', $searchParameters['countryId']);
+                });
+            }
+            if (!empty($searchParameters['role'])) {
                 $query->role($searchParameters['role']);
             }
-            if (!empty($searchParameters['startDate'])){
-                $startDate = Carbon::createFromFormat('d/m/Y', $searchParameters['startDate']);
-                $query->where('created_at', '>=', $startDate);
-            }
-            if (!empty($searchParameters['endDate'])){
-                $endDate = Carbon::createFromFormat('d/m/Y', $searchParameters['endDate']);
-                $query->where('created_at', '<=',$endDate);
-            }
-            if (!empty($searchParameters['team'])){
+            if (!empty($searchParameters['team'])) {
                 $query->role($searchParameters['team']);
             }
         }
 
-        if($recordsPerPage){
+        if ($recordsPerPage) {
             return $query->paginate($recordsPerPage);
         }
         return $query->get();
@@ -87,6 +81,8 @@ class UserRepository implements UserRepositoryInterface
         $user->password = (array_key_exists('password', $data)) ? Hash::make($data['password']) : null;
 
         $user->save();
+
+        $user->setStatus('published');
 
         return $user->fresh();
     }
@@ -130,6 +126,4 @@ class UserRepository implements UserRepositoryInterface
     {
         User::destroy($userId);
     }
-
-
 }

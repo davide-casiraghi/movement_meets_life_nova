@@ -14,7 +14,11 @@ use Spatie\Translatable\HasTranslations;
 
 class Glossary extends Model implements HasMedia
 {
-    use HasFactory, HasSlug, HasTranslations, HasStatuses, InteractsWithMedia;
+    use HasFactory;
+    use HasSlug;
+    use HasTranslations;
+    use HasStatuses;
+    use InteractsWithMedia;
 
     /**
      * The attributes that aren't mass assignable.
@@ -41,7 +45,7 @@ class Glossary extends Model implements HasMedia
     /**
      * Generates a unique slug.
      */
-    public function getSlugOptions() : SlugOptions
+    public function getSlugOptions(): SlugOptions
     {
         return SlugOptions::create()
             ->generateSlugsFrom('term')
@@ -51,7 +55,8 @@ class Glossary extends Model implements HasMedia
     /**
      * Set default status value when a glossary is created
      */
-    public static function boot() {
+    public static function boot()
+    {
         parent::boot();
 
         static::created(function (Glossary $glossary) {
@@ -60,17 +65,13 @@ class Glossary extends Model implements HasMedia
     }
 
     /**
-     * Create status accessor
-     */
-   /* public function getStatusNamesAttribute()
-    {
-        return $this->status();
-    }*/
-
-    /**
      * Add Image gallery support using:
      * https://spatie.be/docs/laravel-medialibrary/v8/introduction
      * https://github.com/ebess/advanced-nova-media-library
+     *
+     * @param \Spatie\MediaLibrary\MediaCollections\Models\Media|null $media
+     *
+     * @throws \Spatie\Image\Exceptions\InvalidManipulation
      */
     public function registerMediaConversions(Media $media = null): void
     {

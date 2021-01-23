@@ -11,7 +11,10 @@ use Spatie\Translatable\HasTranslations;
 
 class Quote extends Model
 {
-    use HasFactory, HasSlug, HasTranslations, HasStatuses;
+    use HasFactory;
+    use HasSlug;
+    use HasTranslations;
+    use HasStatuses;
 
     /**
      * The attributes that aren't mass assignable.
@@ -30,7 +33,7 @@ class Quote extends Model
     /**
      * Generates a unique slug.
      */
-    public function getSlugOptions() : SlugOptions
+    public function getSlugOptions(): SlugOptions
     {
         return SlugOptions::create()
             ->generateSlugsFrom('description')
@@ -40,20 +43,12 @@ class Quote extends Model
     /**
      * Set default status value when a quote is created
      */
-    public static function boot() {
+    public static function boot()
+    {
         parent::boot();
 
         static::created(function (Quote $quote) {
             $quote->setStatus('Published');
         });
     }
-
-    /**
-     * Create status accessor
-     */
-    public function getStatusNamesAttribute()
-    {
-        return $this->status();
-    }
-
 }

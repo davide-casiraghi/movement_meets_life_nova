@@ -8,6 +8,7 @@ use App\Http\Requests\MemberSearchRequest;
 use App\Http\Requests\MemberStoreRequest;
 use App\Http\Requests\UserSearchRequest;
 use App\Http\Requests\UserStoreRequest;
+use App\Models\User;
 use App\Notifications\MemberResetPasswordNotification;
 use App\Repositories\GenderRepositoryInterface;
 use App\Repositories\HeardAboutUsRepositoryInterface;
@@ -44,8 +45,7 @@ class UserController extends Controller
         UserService $userService,
         TeamService $teamService,
         CountryService $countryService
-    )
-    {
+    ) {
         $this->userService = $userService;
         $this->teamService = $teamService;
         $this->countryService = $countryService;
@@ -66,12 +66,14 @@ class UserController extends Controller
         $users = $this->userService->getUsers(20, $searchParameters);
         $roles = $this->teamService->getAllUserRoles();
         $countries = $this->countryService->getCountries();
+        $statuses = User::STATUS;
 
         return view('users.index', [
             'users' => $users,
             'roles' => $roles,
             'countries' => $countries,
-            'searchParameters' =>$searchParameters,
+            'searchParameters' => $searchParameters,
+            'statuses' => $statuses,
         ]);
     }
 
@@ -124,7 +126,7 @@ class UserController extends Controller
      */
     public function edit(int $userId)
     {
-        if (Auth::id() != $userId){
+        if (Auth::id() != $userId) {
             $this->checkPermission('users.edit');
         }
 
@@ -153,17 +155,17 @@ class UserController extends Controller
      */
     public function update(UserStoreRequest $request, int $userId)
     {
-        if (Auth::id() != $userId){
+        if (Auth::id() != $userId) {
             $this->checkPermission('users.edit');
         }
 
-        $this->userService->updateUser($request, $userId);
+        $this->userService->updateUser($request->all(), $userId);
 
-        if(Auth::user()->hasPermissionTo('users.edit')){
+        if (Auth::user()->hasPermissionTo('users.edit')) {
             return redirect()->route('users.index')
                 ->with('success', __('ui.users.admin_updated_member_profile'));
         }
-        if(Session::get('completeProfile')){
+        if (Session::get('completeProfile')) {
             return redirect()->back()
                 ->with('success', __('ui.users.first_time_updated_profile'));
         }
@@ -207,7 +209,4 @@ class UserController extends Controller
     {
         return view('users.status.refused');
     }
-
-
-
 }

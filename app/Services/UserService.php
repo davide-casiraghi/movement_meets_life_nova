@@ -30,7 +30,7 @@ class UserService
     /**
      * Create an user and the profile at the same time
      *
-     * @param \App\Http\Requests\UserStoreRequest $data
+     * @param array $data
      *
      * @return User
      */
@@ -62,16 +62,16 @@ class UserService
     /**
      * Update the user user and profile at the same time
      *
-     * @param \App\Http\Requests\UserStoreRequest $data
+     * @param array $data
      * @param int $userId
      *
      * @return User
      * @throws \Spatie\ModelStatus\Exceptions\InvalidStatus
      */
-    public function updateUser(UserStoreRequest $data, int $userId): User
+    public function updateUser(array $data, int $userId): User
     {
-        $user = $this->userRepository->update($data->all(), $userId);
-        $this->userProfileRepository->update($data->all(), $user->profile->id);
+        $user = $this->userRepository->update($data, $userId);
+        $this->userProfileRepository->update($data, $user->profile->id);
 
         $roles = [];
 
@@ -106,9 +106,9 @@ class UserService
      * @param int|null $recordsPerPage
      * @param array|null $searchParameters
      *
-     * @return iterable
+     * @return \Illuminate\Database\Eloquent\Collection|\Illuminate\Contracts\Pagination\LengthAwarePaginator
      */
-    public function getUsers(int $recordsPerPage = null, array $searchParameters = null): iterable
+    public function getUsers(int $recordsPerPage = null, array $searchParameters = null)
     {
         return $this->userRepository->users($recordsPerPage, $searchParameters);
     }
@@ -133,10 +133,13 @@ class UserService
     public function getSearchParameters(UserSearchRequest $request): array
     {
         $searchParameters = [];
-        $searchParameters['username'] = $request->username ?? null;
+        $searchParameters['name'] = $request->name ?? null;
+        $searchParameters['surname'] = $request->surname ?? null;
         $searchParameters['email'] = $request->email ?? null;
+        $searchParameters['countryId'] = $request->countryId ?? null;
         $searchParameters['userLevel'] = $request->userLevel ?? null;
         $searchParameters['team'] = $request->team ?? null;
+        $searchParameters['status'] = $request->status ?? null;
 
         return $searchParameters;
     }

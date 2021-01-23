@@ -16,7 +16,11 @@ use Spatie\Translatable\HasTranslations;
 
 class Post extends Model implements HasMedia
 {
-    use HasFactory, HasSlug, HasTranslations, HasStatuses, InteractsWithMedia;
+    use HasFactory;
+    use HasSlug;
+    use HasTranslations ;
+    use HasStatuses;
+    use InteractsWithMedia;
 
     /**
      * The attributes that aren't mass assignable.
@@ -49,11 +53,10 @@ class Post extends Model implements HasMedia
     {
         // The saving / saved events will fire when a model is created or updated.
         static::saving(function ($model) {
-
             $model->created_by = Auth::id();
 
             // todo - Remove this: it's to allow the factory to generate without a null value.
-            if (Auth::id() == null){
+            if (Auth::id() == null) {
                 $model->created_by = 1;
             }
         });
@@ -64,7 +67,7 @@ class Post extends Model implements HasMedia
     /**
      * Generates a unique slug.
      */
-    public function getSlugOptions() : SlugOptions
+    public function getSlugOptions(): SlugOptions
     {
         return SlugOptions::create()
             ->generateSlugsFrom('title')
@@ -138,16 +141,6 @@ class Post extends Model implements HasMedia
     }
 
     /**
-     * Create status accessor
-     *
-     * @return string
-     */
-    public function getStatusNamesAttribute(): string
-    {
-        return $this->status();
-    }
-
-    /**
      * Add Image gallery support using:
      * https://spatie.be/docs/laravel-medialibrary/v8/introduction
      * https://github.com/ebess/advanced-nova-media-library
@@ -188,8 +181,4 @@ class Post extends Model implements HasMedia
     {
         return $this->latestStatus('unpublished', 'published');
     }
-
-
-
-
 }

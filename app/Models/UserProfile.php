@@ -29,7 +29,7 @@ class UserProfile extends Model
      *
      * @var array
      */
-    protected $casts = [
+    protected array $casts = [
         'validated_on' => 'datetime',
     ];
 

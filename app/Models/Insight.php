@@ -11,7 +11,11 @@ use Spatie\Translatable\HasTranslations;
 
 class Insight extends Model
 {
-    use HasFactory, HasSlug, HasTranslations, HasStatuses;
+    use HasFactory;
+    use HasSlug;
+    use HasTranslations;
+    use HasStatuses;
+
     /**
      * The attributes that aren't mass assignable.
      *
@@ -51,7 +55,8 @@ class Insight extends Model
     /**
      * Set default status value when a insight is created
      */
-    public static function boot() {
+    public static function boot()
+    {
         parent::boot();
 
         static::created(function (Insight $insight) {
@@ -60,24 +65,18 @@ class Insight extends Model
     }
 
     /**
-     * Create status accessor
-     */
-    public function getStatusNamesAttribute()
-    {
-        return $this->status();
-    }
-
-    /**
      * Returns the tags associated to the insight.
      */
-    public function tags(){
+    public function tags()
+    {
         return $this->belongsToMany(Tag::class);
     }
 
     /**
      * Returns the posts related to the insight. (optional)
      */
-    public function posts() {
+    public function posts()
+    {
         return $this->belongsToMany(Post::class); // Many to many
     }
 

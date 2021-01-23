@@ -158,6 +158,7 @@ $details = UserProfile::factory()->create([
 ]);
 $user->profile()->save($details);
 $user->assignRole('Super Admin');
+$user->setStatus('enabled');
 
 
 User::factory()->count(4)->create()->each(function($user) {
@@ -165,6 +166,11 @@ User::factory()->count(4)->create()->each(function($user) {
         'user_id' => $user->id,
     ]);
     $user->assignRole('Registered');
+    
+    $statuses = ['enabled','disabled'];
+    $random_status = array_rand($statuses, 1);
+    $status = $statuses[$random_status];
+    $user->setStatus($status);
 });
 
 
@@ -176,9 +182,6 @@ Insight::factory()->count(40)->create()->each(function($insight) {
 });
 
 PostCategory::factory()->count(10)->create();
-
-
-
 Post::factory()->count(40)->create()->each(function($post) {
     $post->category()->associate(
         PostCategory::all()->random(1)

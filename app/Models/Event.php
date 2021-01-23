@@ -114,14 +114,6 @@ class Event extends Model implements HasMedia
     }
 
     /**
-     * Create status accessor
-     */
-    public function getStatusNamesAttribute()
-    {
-        return $this->status();
-    }
-
-    /**
      * Add Image gallery support using:
      * https://spatie.be/docs/laravel-medialibrary/v8/introduction
      * https://github.com/ebess/advanced-nova-media-library
