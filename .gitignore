@@ -39,3 +39,6 @@ nova
 
 # Project configurations for all Jetbrains IDES (PHPStorm, WebStorm)
 /.idea
+
+# Php Code Sniffer cache
+.php_cs.cache
