@@ -45,6 +45,7 @@
                             'records' => $categories,
                             'selected' => $post->category_id,
                             'required' => true,
+                            'extraClasses' => '',
                         ])
                     </div>
 

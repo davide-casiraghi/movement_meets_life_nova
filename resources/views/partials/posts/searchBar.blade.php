@@ -22,6 +22,7 @@
                         'records' => $categories,
                         'selected' =>  old('categoryId', $searchParameters['categoryId']),
                         'required' => false,
+                        'extraClasses' => '',
                     ])
         </div>
 

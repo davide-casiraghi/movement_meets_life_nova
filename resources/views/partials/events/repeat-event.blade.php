@@ -244,6 +244,7 @@
                 'records' => '',
                 'selected' => '',
                 'required' => TRUE,
+                'extraClasses' => '',
             ])
 
 

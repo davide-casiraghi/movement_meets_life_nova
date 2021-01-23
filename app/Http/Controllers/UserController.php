@@ -66,13 +66,15 @@ class UserController extends Controller
 
         $searchParameters = $this->userService->getSearchParameters($request);
         $users = $this->userService->getUsers(20, $searchParameters);
-        $roles = $this->teamService->getAllUserRoles();
+        $userLevels =  $this->teamService->getAllAdminRoles();
+        $teams = $this->teamService->getAllTeamRoles();
         $countries = $this->countryService->getCountries();
         $statuses = User::STATUS;
 
         return view('users.index', [
             'users' => $users,
-            'roles' => $roles,
+            'userLevels' => $userLevels,
+            'teams' => $teams,
             'countries' => $countries,
             'searchParameters' => $searchParameters,
             'statuses' => $statuses,

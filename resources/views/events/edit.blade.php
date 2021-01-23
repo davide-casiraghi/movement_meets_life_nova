@@ -48,6 +48,7 @@
                                 'records' => $eventCategories,
                                 'selected' => $event->event_category_id,
                                 'required' => TRUE,
+                                'extraClasses' => '',
                             ])
                         </div>
 
@@ -74,6 +75,7 @@
                                 'records' => $teachers,
                                 'selected' => $event->teacher_id,
                                 'required' => TRUE,
+                                'extraClasses' => '',
                             ])
                         </div>
 
@@ -85,6 +87,7 @@
                                 'records' => $organizers,
                                 'selected' => $event->organizer_id,
                                 'required' => TRUE,
+                                'extraClasses' => '',
                             ])
                         </div>
 
@@ -111,6 +114,7 @@
                                 'records' => $venues,
                                 'selected' => $event->venue_id,
                                 'required' => TRUE,
+                                'extraClasses' => '',
                             ])
                         </div>
 

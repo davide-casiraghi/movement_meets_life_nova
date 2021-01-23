@@ -37,17 +37,18 @@
                     ])
         </div>
 
-        {{-- Category --}}
-        {{--<div class="md:col-span-2 lg:col-span-1 mb-2 md:mb-0">
+        {{-- Country --}}
+        <div class="md:col-span-2 lg:col-span-1 mb-2 md:mb-0">
             @include('partials.forms.select', [
-                        'label' => __('views.category'),
-                        'name' => 'eventCategoryId',
-                        'placeholder' => __('views.select_category'),
-                        'records' => $eventsCategories,
-                        'selected' =>  old('eventCategoryId', $searchParameters['eventCategoryId']),
+                        'label' => __('views.country'),
+                        'name' => 'countryId',
+                        'placeholder' => __('views.select_country'),
+                        'records' => $countries,
+                        'selected' =>  old('countryId', $searchParameters['countryId']),
                         'required' => false,
+                        'extraClasses' => 'select2',
                     ])
-        </div>--}}
+        </div>
 
         {{-- Status --}}
         <div class="md:col-span-2 lg:col-span-1 mb-2 md:mb-0">

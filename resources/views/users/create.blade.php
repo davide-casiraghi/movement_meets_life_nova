@@ -96,6 +96,7 @@
                                 'records' => $countries,
                                 //'selected' => $user->country_id,
                                 'required' => true,
+                                'extraClasses' => '',
                             ])
                         </div>
 

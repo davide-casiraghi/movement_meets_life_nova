@@ -22,6 +22,7 @@
                         'records' => $eventsCategories,
                         'selected' =>  old('eventCategoryId', $searchParameters['eventCategoryId']),
                         'required' => false,
+                        'extraClasses' => '',
                     ])
         </div>
 
