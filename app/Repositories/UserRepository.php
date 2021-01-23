@@ -82,7 +82,7 @@ class UserRepository implements UserRepositoryInterface
 
         $user->save();
 
-        $user->setStatus('published');
+        $user->setStatus('enabled');
 
         return $user->fresh();
     }
@@ -112,6 +112,11 @@ class UserRepository implements UserRepositoryInterface
         //$user->accept_terms = ($data['accept_terms'] == 'on') ? 1 : 0;
 
         $user->update();
+
+        $status = (isset($data['status'])) ? 'enabled' : 'disabled';
+        if ($user->status() != $status) {
+            $user->setStatus($status);
+        }
 
         return $user;
     }

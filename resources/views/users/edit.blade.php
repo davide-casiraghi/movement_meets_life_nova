@@ -165,6 +165,22 @@
                                 'checked' => $checked,
                             ])
                         </div>
+
+                        <div class="col-span-6">
+                            @php
+                                $checked = ($user->isEnabled()) ? "checked" : "";
+                            @endphp
+                            @include('partials.forms.checkbox', [
+                                'label' => __('views.enabled'),
+                                'id'  => 'status',
+                                'name' => 'status',
+                                'size' => 'small',
+                                'required' => false,
+                                'checked' => $checked,
+                            ])
+                        </div>
+
+
                     </div>
                 </div>
             </div>
