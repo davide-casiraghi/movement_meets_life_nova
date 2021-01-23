@@ -22,6 +22,7 @@ use App\Services\TeamService;
 use App\Services\UserService;
 
 use App\Traits\CheckPermission;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use Maatwebsite\Excel\Facades\Excel;
 use Session;
@@ -153,7 +154,7 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(UserStoreRequest $request, int $userId)
+    public function update(UserStoreRequest $request, int $userId): RedirectResponse
     {
         if (Auth::id() != $userId) {
             $this->checkPermission('users.edit');
@@ -162,13 +163,16 @@ class UserController extends Controller
         $this->userService->updateUser($request->all(), $userId);
 
         if (Auth::user()->hasPermissionTo('users.edit')) {
+            ray('aa');
             return redirect()->route('users.index')
                 ->with('success', __('ui.users.admin_updated_member_profile'));
         }
         if (Session::get('completeProfile')) {
+            ray('bb');
             return redirect()->back()
                 ->with('success', __('ui.users.first_time_updated_profile'));
         }
+        ray('cc');
         return redirect()->back()
             ->with('success', __('ui.users.updated_profile'));
     }

@@ -155,6 +155,7 @@ $details = UserProfile::factory()->create([
     'user_id' => $user->id,
     'name' => 'Davide',
     'surname' => 'Casiraghi',
+    'country_id' => 214,
 ]);
 $user->profile()->save($details);
 $user->assignRole('Super Admin');
@@ -164,6 +165,7 @@ $user->setStatus('enabled');
 User::factory()->count(4)->create()->each(function($user) {
     $details = UserProfile::factory()->create([
         'user_id' => $user->id,
+        'country_id' => rand(1,240),
     ]);
     $user->assignRole('Registered');
     

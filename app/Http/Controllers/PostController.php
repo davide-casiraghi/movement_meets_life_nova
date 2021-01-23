@@ -83,7 +83,7 @@ class PostController extends Controller
         $this->postService->createPost($request);
 
         return redirect()->route('posts.index')
-            ->with('success','Post updated successfully');
+            ->with('success', 'Post updated successfully');
     }
 
     /**
@@ -99,7 +99,7 @@ class PostController extends Controller
 
         $post['body'] = $this->postService->getPostBody($post);
 
-         //dd($post->getMedia('gallery'));
+        //dd($post->getMedia('gallery'));
 
         return view('posts.show', compact('post'));
     }
@@ -139,7 +139,7 @@ class PostController extends Controller
         $this->postService->updatePost($request, $postId);
 
         return redirect()->route('posts.index')
-            ->with('success','Post updated successfully');
+            ->with('success', 'Post updated successfully');
     }
 
     /**
@@ -154,7 +154,7 @@ class PostController extends Controller
         $this->postService->deletePost($postId);
 
         return redirect()->route('posts.index')
-            ->with('success','Post deleted successfully');
+            ->with('success', 'Post deleted successfully');
     }
 
     /**

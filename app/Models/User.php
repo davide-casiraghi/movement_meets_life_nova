@@ -134,4 +134,21 @@ class User extends Authenticatable
         return $this->latestStatus('disabled', 'enabled') == 'enabled';
     }
 
+    /**
+     * Return the user level (Super Admin or Admin)
+     *
+     * @return string
+     */
+    public function level(): string
+    {
+        if ($this->hasRole(['Super Admin'])) {
+            return 'Super Admin';
+        }
+        if ($this->hasRole(['Admin'])) {
+            return 'Admin';
+        }
+
+        return '';
+    }
+
 }

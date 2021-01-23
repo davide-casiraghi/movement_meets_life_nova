@@ -64,21 +64,21 @@ class UserProfile extends Model
     /**
      * Get the location of the user
      *
-     * @return bool|\Stevebauman\Location\Position
+     * @return string
      */
-    public function getLocationAttribute(){
-
+    public function getLocationAttribute(): string
+    {
         if (empty($this->attributes['ip'])) {
             return "No IP saved";
         }
 
-        if (strpos($this->attributes['ip'], '192.168') === 0){
+        if (strpos($this->attributes['ip'], '192.168') === 0) {
             return "User was created in local environment";
         }
 
         $location = Location::get($this->attributes['ip']);
-        if($location){
-            return $location->cityName.", ".$location->regionName.", ".$location->countryName;
+        if ($location) {
+            return $location->cityName . ", " . $location->regionName . ", " . $location->countryName;
         }
 
         return "No IP saved";
@@ -87,9 +87,9 @@ class UserProfile extends Model
     /**
      * Return true if the member has filled the profile with all the required data
      *
-     * @return string
+     * @return bool
      */
-    public function completed()
+    public function completed(): bool
     {
         return $this->profile_completed_at != null;
     }
@@ -99,9 +99,8 @@ class UserProfile extends Model
      *
      * @return string
      */
-    public function getFullNameAttribute()
+    public function getFullNameAttribute(): string
     {
         return "{$this->name} {$this->surname}";
     }
-
 }
