@@ -24,7 +24,7 @@
               --}}
 
                 <div class="mt-4">
-                    @include('partials.forms.tabs',[
+                    @include('partials.forms.languageTabs',[
                         'countriesAvailableForTranslations' => $countriesAvailableForTranslations
                     ])
                 </div>
