@@ -106,7 +106,6 @@ class EventController extends Controller
         $this->checkPermission('events.create');
 
         $event = $this->eventService->createEvent($request->all());
-        $this->eventRepetitionService->updateEventRepetitions($request, $event->id);
 
         $this->eventService->storeImages($event, $request);
 
@@ -173,7 +172,6 @@ class EventController extends Controller
         $this->checkPermission('posts.edit');
 
         $event = $this->eventService->updateEvent($request->all(), $eventId);
-        $this->eventRepetitionService->updateEventRepetitions($request, $eventId);
 
         $this->eventService->storeImages($event, $request);
 

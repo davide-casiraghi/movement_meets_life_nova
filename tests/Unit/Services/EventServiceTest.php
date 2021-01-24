@@ -55,9 +55,9 @@ class EventServiceTest extends TestCase
         $this->organizers = Organizer::factory()->count(3)->create();
         $this->venues = Venue::factory()->count(3)->create();
 
-        $this->event1 = Event::factory()->create();
-        $this->event2 = Event::factory()->create();
-        $this->event3 = Event::factory()->create();
+        $this->event1 = Event::factory()->create()->setStatus('published');
+        $this->event2 = Event::factory()->create()->setStatus('published');
+        $this->event3 = Event::factory()->create()->setStatus('published');
     }
 
     /** @test */
@@ -75,6 +75,10 @@ class EventServiceTest extends TestCase
             'event_category_id' => 1,
             'repeat_type' => 1,
             'user_id' => 1,
+            'startDate' => '1/1/2020',
+            'endDate' => '3/1/2020',
+            'time_start' => '20:00',
+            'time_end' => '22:00',
         ];
 
         $this->eventService->createEvent($data);
@@ -95,6 +99,10 @@ class EventServiceTest extends TestCase
             'event_category_id' => 1,
             'repeat_type' => 1,
             'user_id' => 1,
+            'startDate' => '1/1/2020',
+            'endDate' => '3/1/2020',
+            'time_start' => '20:00',
+            'time_end' => '22:00',
         ];
 
         $this->eventService->updateEvent($data, $this->event1->id);

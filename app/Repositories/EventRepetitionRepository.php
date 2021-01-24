@@ -94,7 +94,7 @@ class EventRepetitionRepository implements EventRepetitionRepositoryInterface
 
         $timeStart = date('H:i', strtotime($data['time_start']));
         $timeEnd = date('H:i', strtotime($data['time_end']));
-        
+
         switch ($data['repeat_type']) {
             case '1':  // noRepeat
                 $eventRepetition = new EventRepetition();
@@ -103,8 +103,8 @@ class EventRepetitionRepository implements EventRepetitionRepositoryInterface
                 $dateStart = implode('-', array_reverse(explode('/', $data['startDate'])));
                 $dateEnd = implode('-', array_reverse(explode('/', $data['endDate'])));
 
-                $eventRepetition->start_repeat = $dateStart.' '.$timeStart;
-                $eventRepetition->end_repeat = $dateEnd.' '.$timeEnd;
+                $eventRepetition->start_repeat = $dateStart . ' ' . $timeStart;
+                $eventRepetition->end_repeat = $dateEnd . ' ' . $timeEnd;
                 $eventRepetition->save();
 
                 break;

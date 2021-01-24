@@ -39,13 +39,12 @@ class EventService
      * @param array $data
      *
      * @return \App\Models\Event
-     * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileDoesNotExist
-     * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileIsTooBig
      * @throws \Spatie\ModelStatus\Exceptions\InvalidStatus
      */
     public function createEvent(array $data): Event
     {
         $event = $this->eventRepository->store($data);
+        $this->eventRepetitionService->updateEventRepetitions($data, $event->id);
 
         $event->setStatus('published');
 
@@ -59,13 +58,12 @@ class EventService
      * @param int $eventId
      *
      * @return \App\Models\Event
-     * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileDoesNotExist
-     * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileIsTooBig
      */
 
     public function updateEvent(array $data, int $eventId)
     {
         $event = $this->eventRepository->update($data, $eventId);
+        $this->eventRepetitionService->updateEventRepetitions($data, $eventId);
 
         return $event;
     }

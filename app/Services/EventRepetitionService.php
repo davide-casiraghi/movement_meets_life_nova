@@ -38,14 +38,13 @@ class EventRepetitionService
     /**
      * Update the EventRepetition
      *
-     * @param \App\Http\Requests\EventStoreRequest $request
+     * @param array $data
      * @param int $eventRepetitionId
      *
      * @return void
      */
-    public function updateEventRepetitions(EventStoreRequest $request, int $eventRepetitionId)
+    public function updateEventRepetitions(array $data, int $eventRepetitionId)
     {
-        $data = $request->all();
         $this->eventRepetitionRepository->updateEventRepetitions($data, $eventRepetitionId);
 
         //return $eventRepetition;
@@ -54,7 +53,7 @@ class EventRepetitionService
     /**
      * Return the eventRepetition from the database
      *
-     * @param $eventRepetitionId
+     * @param int $eventRepetitionId
      *
      * @return \App\Models\EventRepetition
      */
@@ -86,11 +85,11 @@ class EventRepetitionService
     /**
      * Get the event first repetition
      *
-     * @param $eventId
+     * @param int $eventId
      *
      * @return EventRepetition
      */
-    public function getFirstByEventId($eventId)
+    public function getFirstByEventId(int $eventId)
     {
         return $this->eventRepetitionRepository->getFirstByEventId($eventId);
     }
