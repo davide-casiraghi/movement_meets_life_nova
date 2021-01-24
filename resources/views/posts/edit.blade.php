@@ -8,7 +8,7 @@
 
     @include('partials.messages')
 
-    <form class="space-y-6" method="POST" action="{{ route('posts.update',$post->id) }}" enctype="multipart/form-data">
+    <form class="space-y-6" method="POST" action="{{ route('posts.update',$post->id) }}" enctype="multipart/form-data" x-data="{translationActive: '{{Config::get('app.fallback_locale')}}'}">
         @csrf
         @method('PUT')
 
@@ -23,104 +23,130 @@
                 </p>
               --}}
 
+                {{-- Translations tabs - Buttons --}}
                 <div class="mt-4">
                     @include('partials.forms.languageTabs',[
                         'countriesAvailableForTranslations' => $countriesAvailableForTranslations
                     ])
                 </div>
 
-
             </div>
             <div class="mt-5 md:mt-0 md:col-span-2">
-                <div class="grid grid-cols-6 gap-6">
-                    <div class="col-span-6">
-                        @include('partials.forms.input', [
-                                'label' => __('views.title'),
-                                'name' => 'title',
-                                'placeholder' => 'Post title',
-                                'value' => old('title', $post->title),
+
+                {{-- Translations tabs - Default Contents --}}
+                <div class="translation en" x-show.transition.in="translationActive === '{{Config::get('app.fallback_locale')}}'">
+                    <div class="grid grid-cols-6 gap-6">
+                        <div class="col-span-6">
+                            @include('partials.forms.input', [
+                                    'label' => __('views.title'),
+                                    'name' => 'title',
+                                    'placeholder' => 'Post title',
+                                    'value' => old('title', $post->title),
+                                    'required' => true,
+                                    'disabled' => false,
+                            ])
+                        </div>
+
+                        <div class="col-span-6">
+                            @include('partials.forms.select', [
+                                'label' => __('views.category'),
+                                'name' => 'category_id',
+                                'placeholder' => __('views.select_category'),
+                                'records' => $categories,
+                                'selected' => $post->category_id,
                                 'required' => true,
-                                'disabled' => false,
-                        ])
-                    </div>
-
-                    <div class="col-span-6">
-                        @include('partials.forms.select', [
-                            'label' => __('views.category'),
-                            'name' => 'category_id',
-                            'placeholder' => __('views.select_category'),
-                            'records' => $categories,
-                            'selected' => $post->category_id,
-                            'required' => true,
-                            'extraClasses' => '',
-                        ])
-                    </div>
-
-                    <div class="col-span-6">
-                        @include('partials.forms.textarea', [
-                                'label' => __('views.before_post_contents'),
-                                'name' => 'before_content',
-                                'placeholder' => '',
-                                'value' => old('before_content', $post->before_content),
-                                'required' => false,
-                                'disabled' => false,
-                                'style' => 'plain',
-                                'extraDescription' => 'Anything to show jumbo style before the content',
+                                'extraClasses' => '',
                             ])
-                    </div>
+                        </div>
 
-                    <div class="col-span-6">
-                        @include('partials.forms.textarea', [
-                               'label' => __('views.text'),
-                               'name' => 'body',
-                               'placeholder' => '',
-                               'value' => old('body', $post->body),
-                               'required' => false,
-                               'disabled' => false,
-                               'style' => 'tinymce',
-                               'extraDescription' => 'Anything to show jumbo style after the content',
-                           ])
-                    </div>
+                        <div class="col-span-6">
+                            @include('partials.forms.textarea', [
+                                    'label' => __('views.before_post_contents'),
+                                    'name' => 'before_content',
+                                    'placeholder' => '',
+                                    'value' => old('before_content', $post->before_content),
+                                    'required' => false,
+                                    'disabled' => false,
+                                    'style' => 'plain',
+                                    'extraDescription' => 'Anything to show jumbo style before the content',
+                                ])
+                        </div>
 
-                    <div class="col-span-6">
-                        @include('partials.forms.textarea', [
-                                'label' => __('views.after_post_contents'),
-                                'name' => 'after_content',
-                                'placeholder' => '',
-                                'value' => old('after_content', $post->after_content),
+                        <div class="col-span-6">
+                            @include('partials.forms.textarea', [
+                                   'label' => __('views.text'),
+                                   'name' => 'body',
+                                   'placeholder' => '',
+                                   'value' => old('body', $post->body),
+                                   'required' => false,
+                                   'disabled' => false,
+                                   'style' => 'tinymce',
+                                   'extraDescription' => 'Anything to show jumbo style after the content',
+                               ])
+                        </div>
+
+                        <div class="col-span-6">
+                            @include('partials.forms.textarea', [
+                                    'label' => __('views.after_post_contents'),
+                                    'name' => 'after_content',
+                                    'placeholder' => '',
+                                    'value' => old('after_content', $post->after_content),
+                                    'required' => false,
+                                    'disabled' => false,
+                                    'style' => 'plain',
+                                    'extraDescription' => 'Anything to show jumbo style after the content',
+                                ])
+                        </div>
+
+                        <div class="col-span-6">
+                            @include('partials.forms.uploadImage', [
+                                      'label' => __('views.intro_image'),
+                                      'name' => 'introimage',
+                                      //'value' => $post->introimage,
+                                      'required' => false,
+                                      'collection' => 'introimage',
+                                      'entity' => $post,
+                                  ])
+                        </div>
+
+                        <div class="col-span-6">
+                            @php
+                                $checked = ($post->isPublished()) ? "checked" : "";
+                            @endphp
+                            @include('partials.forms.checkbox', [
+                                'label' => __('views.published'),
+                                'id'  => 'status',
+                                'name' => 'status',
+                                'size' => 'small',
                                 'required' => false,
-                                'disabled' => false,
-                                'style' => 'plain',
-                                'extraDescription' => 'Anything to show jumbo style after the content',
+                                'checked' => $checked,
                             ])
-                    </div>
-
-                    <div class="col-span-6">
-                        @include('partials.forms.uploadImage', [
-                                  'label' => __('views.intro_image'),
-                                  'name' => 'introimage',
-                                  //'value' => $post->introimage,
-                                  'required' => false,
-                                  'collection' => 'introimage',
-                                  'entity' => $post,
-                              ])
-                    </div>
-
-                    <div class="col-span-6">
-                        @php
-                            $checked = ($post->isPublished()) ? "checked" : "";
-                        @endphp
-                        @include('partials.forms.checkbox', [
-                            'label' => __('views.published'),
-                            'id'  => 'status',
-                            'name' => 'status',
-                            'size' => 'small',
-                            'required' => false,
-                            'checked' => $checked,
-                        ])
+                        </div>
                     </div>
                 </div>
+
+                {{-- Translations tabs - Contents translated other languages --}}
+                @foreach ($countriesAvailableForTranslations as $countryCode => $countryAvTrans)
+                    @if($countryCode != Config::get('app.fallback_locale'))
+                        <div class="translation {{$countryCode}}" x-show.transition.in="translationActive === '{{$countryCode}}'">
+                            <div class="grid grid-cols-6 gap-6">
+                                <div class="col-span-6">
+                                    @include('partials.forms.input', [
+                                            'label' => __('views.title'),
+                                            'name' => 'title_'.$countryCode,
+                                            'placeholder' => 'Post title',
+                                            'value' => old('title'.$countryCode),
+                                            'required' => true,
+                                            'disabled' => false,
+                                    ])
+                                </div>
+                            </div>
+                        </div>
+                    @endif
+                @endforeach
+
             </div>
+
           </div>
         </div>
 
