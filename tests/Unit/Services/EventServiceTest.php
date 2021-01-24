@@ -17,8 +17,8 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use Illuminate\Database\Eloquent\Collection;
 
-class EventServiceTest extends TestCase{
-
+class EventServiceTest extends TestCase
+{
     use WithFaker;
     use RefreshDatabase; // empty the test DB
 
@@ -65,11 +65,6 @@ class EventServiceTest extends TestCase{
     {
         $user = $this->authenticateAsUser();
 
-        $request = new EventStoreRequest();
-
-
-        //dump(EventCategory::all());
-
         $data = [
             'title' => 'test title',
             'description' => 'test description',
@@ -81,9 +76,8 @@ class EventServiceTest extends TestCase{
             'repeat_type' => 1,
             'user_id' => 1,
         ];
-        $request->merge($data);
 
-        $this->eventService->createEvent($request);
+        $this->eventService->createEvent($data);
 
         $this->assertDatabaseHas('events', ['title' => 'test title']);
     }
@@ -91,8 +85,6 @@ class EventServiceTest extends TestCase{
     /** @test */
     public function it_should_update_an_event()
     {
-        $request = new EventStoreRequest();
-
         $data = [
             'title' => 'test title updated',
             'description' => 'test description',
@@ -104,9 +96,8 @@ class EventServiceTest extends TestCase{
             'repeat_type' => 1,
             'user_id' => 1,
         ];
-        $request->merge($data);
 
-        $this->eventService->updateEvent($request, $this->event1->id);
+        $this->eventService->updateEvent($data, $this->event1->id);
 
         $this->assertDatabaseHas('events', ['title' => 'test title updated']);
     }

@@ -109,7 +109,7 @@
 
     <div class="mt-2 repeatController">
         <label class="inline-flex items-center">
-            <input type="radio" class="form-radio" name="repeat_type" value="1" @if(!empty($event->repeat_type)) {{ $event->repeat_type == 1 ? 'checked' : '' }}@endif>
+            <input type="radio" class="form-radio" name="repeat_type" value="1" @if(empty($event->repeat_type)) {{ 'checked' }} @else {{ $event->repeat_type == 1 ? 'checked' : '' }} @endif>
             <span class="ml-2">@lang('event.no_repeat')</span>
         </label>
         <label class="inline-flex items-center ml-6">
