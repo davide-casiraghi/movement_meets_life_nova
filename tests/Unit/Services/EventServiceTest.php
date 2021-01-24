@@ -169,6 +169,56 @@ class EventServiceTest extends TestCase
     }
 
     /** @test */
+    public function it_should_create_a_monthly_event()
+    {
+        $user = $this->authenticateAsUser();
+
+        $data = [
+            'title' => 'monthly event title',
+            'description' => 'test description',
+            'contact_email' => 'test@newemail.com',
+            'website_event_link' => 'www.link.com',
+            'facebook_event_link' => 'www.facebookevent.com',
+            'venue_id' => 1,
+            'event_category_id' => 1,
+            'repeat_type' => 3, // Monthly
+            'user_id' => 1,
+            'startDate' => '1/01/2021',
+            'endDate' => '1/01/2021',
+            'time_start' => '6:00 pm',
+            'time_end' => '8:00 pm',
+            "on_monthly_kind" => "1|1|5", // First Friday of the month
+            'repeat_until' => '20/3/2021',
+        ];
+
+        $event = $this->eventService->createEvent($data);
+
+       $this->assertDatabaseHas('events', [
+            'title' => 'monthly event title',
+            'on_monthly_kind' => '1|1|5',
+            'repeat_type' => '3',
+        ]);
+
+        $this->assertDatabaseHas('event_repetitions', [
+            'event_id' => $event->id,
+            'start_repeat' => '2021-01-01 18:00:00',
+            'end_repeat' => '2021-01-01 20:00:00',
+        ]);
+
+        $this->assertDatabaseHas('event_repetitions', [
+            'event_id' => $event->id,
+            'start_repeat' => '2021-02-05 18:00:00',
+            'end_repeat' => '2021-02-05 20:00:00',
+        ]);
+
+        $this->assertDatabaseHas('event_repetitions', [
+            'event_id' => $event->id,
+            'start_repeat' => '2021-03-05 18:00:00',
+            'end_repeat' => '2021-03-05 20:00:00',
+        ]);
+    }
+
+    /** @test */
     public function it_should_return_event_by_id()
     {
         $event = $this->eventService->getById($this->event1->id);
