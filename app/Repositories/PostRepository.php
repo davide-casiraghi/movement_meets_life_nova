@@ -6,6 +6,8 @@ use App\Http\Requests\PostStoreRequest;
 use App\Models\Post;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Config;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 class PostRepository implements PostRepositoryInterface
 {
@@ -64,10 +66,10 @@ class PostRepository implements PostRepositoryInterface
     /**
      * Get Post by id
      *
-     * @param $postId
+     * @param int $postId
      * @return Post
      */
-    public function getById($postId)
+    public function getById(int $postId): Post
     {
         return Post::findOrFail($postId);
     }
@@ -75,11 +77,12 @@ class PostRepository implements PostRepositoryInterface
     /**
      * Store Post
      *
-     * @param \App\Http\Requests\PostStoreRequest $data
+     * @param array $data
      *
      * @return Post
+     * @throws \Spatie\ModelStatus\Exceptions\InvalidStatus
      */
-    public function store(PostStoreRequest $data)
+    public function store(array $data): Post
     {
         $post = new Post();
 
@@ -96,6 +99,13 @@ class PostRepository implements PostRepositoryInterface
         $post->publish_at = $data['publish_at'] ?? null;
         $post->publish_until = $data['publish_until'] ?? null;
 
+        // Translations
+        foreach (LaravelLocalization::getSupportedLocales() as $countryCode => $countryAvTrans) {
+            if ($countryCode != Config::get('app.fallback_locale')) {
+                $post->setTranslation('title', $countryCode, $data['title_' . $countryCode] ?? null);
+            }
+        }
+
         $post->save();
 
         $post->setStatus('published');
@@ -106,13 +116,13 @@ class PostRepository implements PostRepositoryInterface
     /**
      * Update Post
      *
-     * @param \App\Http\Requests\PostStoreRequest $data
+     * @param array $data
      * @param int $id
      *
      * @return Post
      * @throws \Spatie\ModelStatus\Exceptions\InvalidStatus
      */
-    public function update(PostStoreRequest $data, int $id)
+    public function update(array $data, int $id): Post
     {
         $post = $this->getById($id);
 
@@ -127,6 +137,13 @@ class PostRepository implements PostRepositoryInterface
         $post->featured = $data['featured'] ?? 0;
         $post->publish_at = $data['publish_at'] ?? null;
         $post->publish_until = $data['publish_until'] ?? null;
+
+        // Translations
+        foreach (LaravelLocalization::getSupportedLocales() as $countryCode => $countryAvTrans) {
+            if ($countryCode != Config::get('app.fallback_locale')) {
+                $post->setTranslation('title', $countryCode, $data['title_' . $countryCode] ?? null);
+            }
+        }
 
         $post->update();
 
@@ -145,7 +162,7 @@ class PostRepository implements PostRepositoryInterface
      * @param int $id
      * @return void
      */
-    public function delete(int $id)
+    public function delete(int $id): void
     {
         Post::destroy($id);
     }

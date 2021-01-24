@@ -68,7 +68,7 @@ class PostService
      */
     public function createPost(PostStoreRequest $data): Post
     {
-        $post = $this->postRepository->store($data);
+        $post = $this->postRepository->store($data->all());
 
         $this->storeImages($post, $data);
 
@@ -85,7 +85,7 @@ class PostService
      */
     public function updatePost(PostStoreRequest $data, int $postId): Post
     {
-        $post = $this->postRepository->update($data, $postId);
+        $post = $this->postRepository->update($data->all(), $postId);
 
         $this->storeImages($post, $data);
 

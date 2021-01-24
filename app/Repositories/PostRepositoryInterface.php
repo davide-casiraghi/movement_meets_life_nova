@@ -2,47 +2,53 @@
 
 namespace App\Repositories;
 
-use App\Http\Requests\PostStoreRequest;
 use App\Models\Post;
 
-interface PostRepositoryInterface {
+interface PostRepositoryInterface
+{
 
     /**
      * Get all Posts.
      *
-     * @return iterable
+     * @param int|null $recordsPerPage
+     * @param array|null $searchParameters
+     *
+     * @return \Illuminate\Support\Collection|\Illuminate\Contracts\Pagination\LengthAwarePaginator
      */
-    public function getAll();
+    public function getAll(
+        int $recordsPerPage = null,
+        array $searchParameters = null
+    );
 
     /**
      * Get Post by id
      *
-     * @param $postId
+     * @param int $postId
      *
      * @return Post
      */
-    public function getById($postId);
+    public function getById(int $postId): Post;
 
     /**
-     * Store Alert
+     * Store Post
      *
-     * @param \App\Http\Requests\PostStoreRequest $data
+     * @param array $data
      *
-     * @return Alert
+     * @return Post
      * @throws \Spatie\ModelStatus\Exceptions\InvalidStatus
      */
-    public function store(PostStoreRequest $data);
+    public function store(array $data): Post;
 
     /**
-     * Update Alert
+     * Update Post
      *
-     * @param \App\Http\Requests\PostStoreRequest $data
+     * @param array $data
      * @param int $id
      *
      * @return Post
      * @throws \Spatie\ModelStatus\Exceptions\InvalidStatus
      */
-    public function update(PostStoreRequest $data, int $id);
+    public function update(array $data, int $id): Post;
 
     /**
      * Delete Post
@@ -51,6 +57,6 @@ interface PostRepositoryInterface {
      *
      * @return void
      */
-    public function delete(int $id);
+    public function delete(int $id): void;
 
 }
