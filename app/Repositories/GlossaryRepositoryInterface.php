@@ -4,14 +4,21 @@ namespace App\Repositories;
 
 use App\Models\Glossary;
 
-interface GlossaryRepositoryInterface {
+interface GlossaryRepositoryInterface
+{
 
     /**
      * Get all Glossary terms.
      *
-     * @return iterable
+     * @param int|null $recordsPerPage
+     * @param array|null $searchParameters
+     *
+     * @return \Illuminate\Support\Collection|\Illuminate\Contracts\Pagination\LengthAwarePaginator
      */
-    public function getAll();
+    public function getAll(
+        int $recordsPerPage = null,
+        array $searchParameters = null
+    );
 
     /**
      * Get Glossary term by id
@@ -20,26 +27,26 @@ interface GlossaryRepositoryInterface {
      *
      * @return Glossary
      */
-    public function getById(int $id);
+    public function getById(int $id): Glossary;
 
     /**
      * Store Glossary term
      *
-     * @param $data
+     * @param array $data
      *
      * @return Glossary
      */
-    public function store($data);
+    public function store(array $data): Glossary;
 
     /**
      * Update Glossary term
      *
-     * @param $data
+     * @param array $data
      * @param int $id
      *
      * @return Glossary
      */
-    public function update($data, int $id);
+    public function update(array $data, int $id): Glossary;
 
     /**
      * Delete Glossary term
@@ -48,6 +55,6 @@ interface GlossaryRepositoryInterface {
      *
      * @return void
      */
-    public function delete(int $id);
+    public function delete(int $id): void;
 
 }

@@ -4,14 +4,15 @@ namespace App\Repositories;
 
 use App\Models\Quote;
 
-class QuoteRepository implements QuoteRepositoryInterface {
+class QuoteRepository implements QuoteRepositoryInterface
+{
 
     /**
      * Get all Quote terms.
      *
      * @return iterable
      */
-    public function getAll()
+    public function getAll(): Quote
     {
         return Quote::all();
     }
@@ -22,7 +23,7 @@ class QuoteRepository implements QuoteRepositoryInterface {
      * @param int $id
      * @return Quote
      */
-    public function getById(int $id)
+    public function getById(int $id): Quote
     {
         return Quote::findOrFail($id);
     }
@@ -30,10 +31,10 @@ class QuoteRepository implements QuoteRepositoryInterface {
     /**
      * Store Quote term
      *
-     * @param $data
+     * @param array $data
      * @return Quote
      */
-    public function store($data)
+    public function store(array $data): Quote
     {
         $quote = new Quote();
         $quote->author = $data['author'];
@@ -47,11 +48,11 @@ class QuoteRepository implements QuoteRepositoryInterface {
     /**
      * Update Quote term
      *
-     * @param $data
+     * @param array $data
      * @param int $id
      * @return Quote
      */
-    public function update($data, int $id)
+    public function update(array $data, int $id): Quote
     {
         $quote = $this->getById($id);
         $quote->author = $data['author'];
@@ -68,7 +69,7 @@ class QuoteRepository implements QuoteRepositoryInterface {
      * @param int $id
      * @return void
      */
-    public function delete(int $id)
+    public function delete(int $id): void
     {
         Quote::destroy($id);
     }

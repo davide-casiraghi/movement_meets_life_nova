@@ -55,10 +55,10 @@ class GlossaryRepository implements GlossaryRepositoryInterface
     /**
      * Store Glossary term
      *
-     * @param $data
+     * @param array $data
      * @return Glossary
      */
-    public function store($data): Glossary
+    public function store(array $data): Glossary
     {
         $glossary = new Glossary();
         $glossary->term = $data['term'];
@@ -75,11 +75,11 @@ class GlossaryRepository implements GlossaryRepositoryInterface
     /**
      * Update Glossary term
      *
-     * @param $data
+     * @param array $data
      * @param int $id
      * @return Glossary
      */
-    public function update($data, int $id): Glossary
+    public function update(array $data, int $id): Glossary
     {
         $glossary = $this->getById($id);
         $glossary->term = $data['term'];

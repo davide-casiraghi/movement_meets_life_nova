@@ -4,14 +4,15 @@ namespace App\Repositories;
 
 use App\Models\Quote;
 
-interface QuoteRepositoryInterface {
+interface QuoteRepositoryInterface
+{
 
     /**
      * Get all Quote terms.
      *
      * @return iterable
      */
-    public function getAll();
+    public function getAll(): Quote;
 
     /**
      * Get Quote term by id
@@ -20,26 +21,26 @@ interface QuoteRepositoryInterface {
      *
      * @return Quote
      */
-    public function getById(int $id);
+    public function getById(int $id): Quote;
 
     /**
      * Store Quote term
      *
-     * @param $data
+     * @param array $data
      *
      * @return Quote
      */
-    public function store($data);
+    public function store(array $data): Quote;
 
     /**
      * Update Quote term
      *
-     * @param $data
+     * @param array $data
      * @param int $id
      *
      * @return Quote
      */
-    public function update($data, int $id);
+    public function update(array $data, int $id): Quote;
 
     /**
      * Delete Quote term
@@ -48,6 +49,6 @@ interface QuoteRepositoryInterface {
      *
      * @return void
      */
-    public function delete(int $id);
+    public function delete(int $id): void;
 
 }

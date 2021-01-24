@@ -33,7 +33,7 @@ class GlossaryService
     {
         $glossary = $this->glossaryRepository->store($data);
 
-        $this->storeImages($glossary, $data);
+        $this->storeImages($glossary, $data->all());
 
         return $glossary;
     }
@@ -48,7 +48,7 @@ class GlossaryService
      */
     public function updateGlossary(GlossaryStoreRequest $data, int $glossaryId)
     {
-        $glossary = $this->glossaryRepository->update($data, $glossaryId);
+        $glossary = $this->glossaryRepository->update($data->all(), $glossaryId);
 
         $this->storeImages($glossary, $data);
 
