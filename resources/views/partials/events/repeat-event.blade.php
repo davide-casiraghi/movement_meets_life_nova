@@ -267,7 +267,7 @@
 
     <div class="hidden repeatUntilSelector mt-4">
         @include('partials.forms.inputDatePicker', [
-                  'class' => 'datepicker',
+                  'class' => 'datepicker all',
                   'label' => __('event.repeat_until'),
                   'name' => 'repeat_until',
                   'placeholder' => __('views.select_date'),

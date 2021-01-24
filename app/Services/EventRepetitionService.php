@@ -24,16 +24,16 @@ class EventRepetitionService
     /**
      * Create a eventRepetition
      *
-     * @param \App\Http\Requests\EventRepetitionStoreRequest $data
+     * @param array $data
      *
      * @return \App\Models\EventRepetition
      */
-    public function createEventRepetition(EventRepetitionStoreRequest $data): EventRepetition
+    /*public function createEventRepetition(array $data): EventRepetition
     {
         $eventRepetition = $this->eventRepetitionRepository->store($data);
 
         return $eventRepetition;
-    }
+    }*/
 
     /**
      * Update the EventRepetition

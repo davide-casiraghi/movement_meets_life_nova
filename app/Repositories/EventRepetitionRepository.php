@@ -71,8 +71,8 @@ class EventRepetitionRepository implements EventRepetitionRepositoryInterface
         $eventRepetition = new EventRepetition();
         $eventRepetition->event_id = $eventId;
 
-        $eventRepetition->start_repeat = Carbon::createFromFormat('Y-m-d H:i:s', $dateStart . ' ' . $timeStart);
-        $eventRepetition->end_repeat = Carbon::createFromFormat('Y-m-d H:i:s', $dateEnd . ' ' . $timeEnd);
+        $eventRepetition->start_repeat = Carbon::createFromFormat('Y-m-d H:i', $dateStart . ' ' . $timeStart);
+        $eventRepetition->end_repeat = Carbon::createFromFormat('Y-m-d H:i', $dateEnd . ' ' . $timeEnd);
 
         $eventRepetition->save();
 

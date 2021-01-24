@@ -105,7 +105,9 @@ class EventRepository implements EventRepositoryInterface
             }
         }
         //$event->repeat_until = $data['repeat_until'] ?? null;
-        $event->repeat_weekly_on = $data['repeat_weekly_on'] ?? null;
+        if (array_key_exists('repeat_weekly_on', $data)) {
+            $event->repeat_weekly_on = implode(', ', array_keys($data['repeat_weekly_on']));
+        }
         $event->on_monthly_kind = $data['on_monthly_kind'] ?? null;
         $event->multiple_dates = $data['multiple_dates'] ?? null;
 
@@ -145,7 +147,9 @@ class EventRepository implements EventRepositoryInterface
             }
         }
 
-        $event->repeat_weekly_on = $data['repeat_weekly_on'] ?? null;
+        if (array_key_exists('repeat_weekly_on', $data)) {
+            $event->repeat_weekly_on = implode(', ', array_keys($data['repeat_weekly_on']));
+        }
         $event->on_monthly_kind = $data['on_monthly_kind'] ?? null;
         $event->multiple_dates = $data['multiple_dates'] ?? null;
 
