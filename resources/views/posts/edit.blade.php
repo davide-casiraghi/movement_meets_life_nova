@@ -130,15 +130,29 @@
                     @if($countryCode != Config::get('app.fallback_locale'))
                         <div class="translation {{$countryCode}}" x-show.transition.in="translationActive === '{{$countryCode}}'">
                             <div class="grid grid-cols-6 gap-6">
+
                                 <div class="col-span-6">
                                     @include('partials.forms.input', [
                                             'label' => __('views.title'),
                                             'name' => 'title_'.$countryCode,
                                             'placeholder' => 'Post title',
-                                            'value' => old('title'.$countryCode),
+                                            'value' => old('title'.$countryCode, $post->getTranslation('title', $countryCode)),
                                             'required' => true,
                                             'disabled' => false,
                                     ])
+                                </div>
+
+                                <div class="col-span-6">
+                                    @include('partials.forms.textarea', [
+                                           'label' => __('views.text'),
+                                           'name' => 'body_'.$countryCode,
+                                           'placeholder' => '',
+                                           'value' => old('body'.$countryCode, $post->getTranslation('body', $countryCode)), //, $post->body
+                                           'required' => false,
+                                           'disabled' => false,
+                                           'style' => 'tinymce',
+                                           'extraDescription' => 'Anything to show jumbo style after the content',
+                                       ])
                                 </div>
                             </div>
                         </div>
