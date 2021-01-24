@@ -99,17 +99,22 @@ class EventRepository implements EventRepositoryInterface
         $event->facebook_event_link = $data['facebook_event_link'];
 
         $event->repeat_type = $data['repeat_type'];
-        if (array_key_exists('repeat_type', $data)) {
-            if ($data['repeat_type'] != 1) {
+        switch ($data['repeat_type']) {
+            case 1:
                 $event->repeat_until = Carbon::createFromFormat('d/m/Y', $data['repeat_until']);
-            }
+                break;
+            case 2:
+                if (array_key_exists('repeat_weekly_on', $data)) {
+                    $event->repeat_weekly_on = implode(', ', array_keys($data['repeat_weekly_on']));
+                }
+                break;
+            case 3:
+                $event->on_monthly_kind = $data['on_monthly_kind'] ?? null;
+                break;
+            case 4:
+                $event->multiple_dates = $data['multiple_dates'] ?? null;
+                break;
         }
-        //$event->repeat_until = $data['repeat_until'] ?? null;
-        if (array_key_exists('repeat_weekly_on', $data)) {
-            $event->repeat_weekly_on = implode(', ', array_keys($data['repeat_weekly_on']));
-        }
-        $event->on_monthly_kind = $data['on_monthly_kind'] ?? null;
-        $event->multiple_dates = $data['multiple_dates'] ?? null;
 
         $event->save();
 
@@ -141,17 +146,22 @@ class EventRepository implements EventRepositoryInterface
         $event->facebook_event_link = $data['facebook_event_link'];
 
         $event->repeat_type = $data['repeat_type'];
-        if (array_key_exists('repeat_type', $data)) {
-            if ($data['repeat_type'] != 1) {
+        switch ($data['repeat_type']) {
+            case 1:
                 $event->repeat_until = Carbon::createFromFormat('d/m/Y', $data['repeat_until']);
-            }
+                break;
+            case 2:
+                if (array_key_exists('repeat_weekly_on', $data)) {
+                    $event->repeat_weekly_on = implode(', ', array_keys($data['repeat_weekly_on']));
+                }
+                break;
+            case 3:
+                $event->on_monthly_kind = $data['on_monthly_kind'] ?? null;
+                break;
+            case 4:
+                $event->multiple_dates = $data['multiple_dates'] ?? null;
+                break;
         }
-
-        if (array_key_exists('repeat_weekly_on', $data)) {
-            $event->repeat_weekly_on = implode(', ', array_keys($data['repeat_weekly_on']));
-        }
-        $event->on_monthly_kind = $data['on_monthly_kind'] ?? null;
-        $event->multiple_dates = $data['multiple_dates'] ?? null;
 
         $event->update();
 
