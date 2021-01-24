@@ -12,6 +12,7 @@ use App\Traits\CheckPermission;
 use Illuminate\Http\RedirectResponse;
 
 use Illuminate\View\View;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 class PostController extends Controller
 {
@@ -62,9 +63,11 @@ class PostController extends Controller
         $this->checkPermission('posts.create');
 
         $categories = $this->postCategoryService->getPostCategories();
+        $countriesAvailableForTranslations = LaravelLocalization::getSupportedLocales();
 
         return view('posts.create', [
             'categories' => $categories,
+            'countriesAvailableForTranslations' => $countriesAvailableForTranslations,
         ]);
     }
 
@@ -117,10 +120,12 @@ class PostController extends Controller
 
         $post = $this->postService->getById($postId);
         $categories = $this->postCategoryService->getPostCategories();
+        $countriesAvailableForTranslations = LaravelLocalization::getSupportedLocales();
 
         return view('posts.edit', [
             'post' => $post,
             'categories' => $categories,
+            'countriesAvailableForTranslations' => $countriesAvailableForTranslations,
         ]);
     }
 

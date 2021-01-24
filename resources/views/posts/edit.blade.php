@@ -23,6 +23,13 @@
                 </p>
               --}}
 
+                <div class="mt-4">
+                    @include('partials.forms.tabs',[
+                        'countriesAvailableForTranslations' => $countriesAvailableForTranslations
+                    ])
+                </div>
+
+
             </div>
             <div class="mt-5 md:mt-0 md:col-span-2">
                 <div class="grid grid-cols-6 gap-6">
