@@ -43,6 +43,7 @@ class EventService
      */
     public function createEvent(array $data): Event
     {
+        //dd($data);
         $event = $this->eventRepository->store($data);
         $this->eventRepetitionService->updateEventRepetitions($data, $event->id);
 

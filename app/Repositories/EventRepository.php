@@ -105,7 +105,7 @@ class EventRepository implements EventRepositoryInterface
                 break;
             case 2:
                 if (array_key_exists('repeat_weekly_on', $data)) {
-                    $event->repeat_weekly_on = implode(', ', array_keys($data['repeat_weekly_on']));
+                    $event->repeat_weekly_on = implode(',', array_keys($data['repeat_weekly_on']));
                 }
                 break;
             case 3:
@@ -152,7 +152,7 @@ class EventRepository implements EventRepositoryInterface
                 break;
             case 2:
                 if (array_key_exists('repeat_weekly_on', $data)) {
-                    $event->repeat_weekly_on = implode(', ', array_keys($data['repeat_weekly_on']));
+                    $event->repeat_weekly_on = implode(',', array_keys($data['repeat_weekly_on']));
                 }
                 break;
             case 3:

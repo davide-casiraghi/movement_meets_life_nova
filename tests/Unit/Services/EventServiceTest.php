@@ -111,6 +111,64 @@ class EventServiceTest extends TestCase
     }
 
     /** @test */
+    public function it_should_create_a_weekly_event()
+    {
+        $user = $this->authenticateAsUser();
+
+        $data = [
+            'title' => 'weekly event title',
+            'description' => 'test description',
+            'contact_email' => 'test@newemail.com',
+            'website_event_link' => 'www.link.com',
+            'facebook_event_link' => 'www.facebookevent.com',
+            'venue_id' => 1,
+            'event_category_id' => 1,
+            'repeat_type' => 2, // Weekly
+            'user_id' => 1,
+            'startDate' => '11/01/2021',
+            'endDate' => '11/01/2021',
+            'time_start' => '6:00 pm',
+            'time_end' => '8:00 pm',
+            "repeat_weekly_on" => [
+                2 => "on",
+                5 => "on",
+            ],
+            'repeat_until' => '20/01/2021',
+        ];
+
+        $event = $this->eventService->createEvent($data);
+
+        $this->assertDatabaseHas('events', [
+            'title' => 'weekly event title',
+            'repeat_weekly_on' => '2,5', // Tuesday, Friday
+        ]);
+
+        $this->assertDatabaseHas('event_repetitions', [
+            'event_id' => $event->id,
+            'start_repeat' => '2021-01-12 18:00:00',
+            'end_repeat' => '2021-01-12 20:00:00',
+        ]);
+
+        $this->assertDatabaseHas('event_repetitions', [
+            'event_id' => $event->id,
+            'start_repeat' => '2021-01-15 18:00:00',
+            'end_repeat' => '2021-01-15 20:00:00',
+        ]);
+
+        $this->assertDatabaseHas('event_repetitions', [
+            'event_id' => $event->id,
+            'start_repeat' => '2021-01-19 18:00:00',
+            'end_repeat' => '2021-01-19 20:00:00',
+        ]);
+
+        $this->assertDatabaseMissing('event_repetitions', [
+            'event_id' => $event->id,
+            'start_repeat' => '2021-01-22 18:00:00',
+            'end_repeat' => '2021-01-22 20:00:00',
+        ]);
+    }
+
+    /** @test */
     public function it_should_return_event_by_id()
     {
         $event = $this->eventService->getById($this->event1->id);
