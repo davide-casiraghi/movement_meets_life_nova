@@ -180,11 +180,24 @@
                         <div class="col-span-3">
                             @include('partials.forms.inputTimePicker', [
                                       'label' =>  __('event.time_start'),
+                                      'name' => 'timeStart',
+                                      'placeholder' => __('event.select_time'),
+                                      'value' => [
+                                            'hours' => old('timeStartHours', $eventDateTimeParameters['timeStartHours'] ?? null),
+                                            'minutes' => old('timeStartMinutes', $eventDateTimeParameters['timeStartMinutes'] ?? null),
+                                            'ampm' => old('timeStartAmpm', $eventDateTimeParameters['timeStartAmpm'] ?? null),
+                                            ],
+                                      'required' => true,
+                                ])
+
+
+                            {{--@include('partials.forms.inputTimePicker', [
+                                      'label' =>  __('event.time_start'),
                                       'name' => 'time_start',
                                       'placeholder' => __('event.select_time'),
                                       'value' => $eventDateTimeParameters['timeStart'],
                                       'required' => true,
-                                ])
+                                ])--}}
                         </div>
                     </div>
 
@@ -196,16 +209,20 @@
                                     'label' => __('event.date_end'),
                                     'placeholder' => __('general.select_date'),
                                     'name' => 'endDate',
-                                    'value' => old('endDate', $eventDateTimeParameters['dateEnd']),
+                                    'value' => old('startDate', $eventDateTimeParameters['dateEnd']),
                                     'required' => true,
                                 ])
                         </div>
                         <div class="col-span-3">
                             @include('partials.forms.inputTimePicker', [
                                      'label' =>  __('event.time_end'),
-                                     'name' => 'time_end',
+                                     'name' => 'timeEnd',
                                      'placeholder' => __('event.select_time'),
-                                     'value' => $eventDateTimeParameters['timeEnd'],
+                                     'value' => [
+                                            'hours' => old('timeEndHours', $eventDateTimeParameters['timeEndHours'] ?? null),
+                                            'minutes' => old('timeEndMinutes', $eventDateTimeParameters['timeEndMinutes'] ?? null),
+                                            'ampm' => old('timeEndAmpm', $eventDateTimeParameters['timeEndAmpm'] ?? null),
+                                            ],
                                      'required' => true,
                                ])
                         </div>

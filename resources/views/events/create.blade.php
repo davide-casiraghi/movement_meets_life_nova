@@ -179,9 +179,13 @@
                         <div class="col-span-3">
                             @include('partials.forms.inputTimePicker', [
                                       'label' =>  __('event.time_start'),
-                                      'name' => 'time_start',
+                                      'name' => 'timeStart',
                                       'placeholder' => __('event.select_time'),
-                                      'value' => old('time_start'),
+                                      'value' => [
+                                            'hours' => old('timeStartHours'),
+                                            'minutes' => old('timeStartMinutes'),
+                                            'ampm' => old('timeStartAmpm'),
+                                            ],
                                       'required' => true,
                                 ])
                         </div>
@@ -202,9 +206,13 @@
                         <div class="col-span-3">
                             @include('partials.forms.inputTimePicker', [
                                      'label' =>  __('event.time_end'),
-                                     'name' => 'time_end',
+                                     'name' => 'timeEnd',
                                      'placeholder' => __('event.select_time'),
-                                     'value' => old('time_end'),
+                                     'value' => [
+                                            'hours' => old('timeEndHours'),
+                                            'minutes' => old('timeEndMinutes'),
+                                            'ampm' => old('timeEndAmpm'),
+                                            ],
                                      'required' => true,
                                ])
                         </div>

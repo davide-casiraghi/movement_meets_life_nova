@@ -199,8 +199,19 @@ class EventService
         $dateTime = [];
         $dateTime['dateStart'] = (isset($eventFirstRepetition->start_repeat)) ? date('d/m/Y', strtotime($eventFirstRepetition->start_repeat)) : '';
         $dateTime['dateEnd'] = (isset($eventFirstRepetition->end_repeat)) ? date('d/m/Y', strtotime($eventFirstRepetition->end_repeat)) : '';
-        $dateTime['timeStart'] = (isset($eventFirstRepetition->start_repeat)) ? date('g:i A', strtotime($eventFirstRepetition->start_repeat)) : '';
-        $dateTime['timeEnd'] = (isset($eventFirstRepetition->end_repeat)) ? date('g:i A', strtotime($eventFirstRepetition->end_repeat)) : '';
+
+        //$dateTime['timeStart'] = (isset($eventFirstRepetition->start_repeat)) ? date('g:i A', strtotime($eventFirstRepetition->start_repeat)) : '';
+        //$dateTime['timeEnd'] = (isset($eventFirstRepetition->end_repeat)) ? date('g:i A', strtotime($eventFirstRepetition->end_repeat)) : '';
+
+        $dateTime['timeStartHours'] = (isset($eventFirstRepetition->start_repeat)) ? date('g', strtotime($eventFirstRepetition->start_repeat)) : '';
+        $dateTime['timeStartMinutes'] = (isset($eventFirstRepetition->start_repeat)) ? date('i', strtotime($eventFirstRepetition->start_repeat)) : '';
+        $dateTime['timeStartAmpm'] = (isset($eventFirstRepetition->start_repeat)) ? date('A', strtotime($eventFirstRepetition->start_repeat)) : '';
+        $dateTime['timeEndHours'] = (isset($eventFirstRepetition->end_repeat)) ? date('g', strtotime($eventFirstRepetition->end_repeat)) : '';
+        $dateTime['timeEndMinutes'] = (isset($eventFirstRepetition->end_repeat)) ? date('i', strtotime($eventFirstRepetition->end_repeat)) : '';
+        $dateTime['timeEndAmpm'] = (isset($eventFirstRepetition->end_repeat)) ? date('A', strtotime($eventFirstRepetition->end_repeat)) : '';
+
+
+
         $dateTime['repeatUntil'] = date('d/m/Y', strtotime($event->repeat_until));
         $dateTime['multipleDates'] = $event->multiple_dates;
 

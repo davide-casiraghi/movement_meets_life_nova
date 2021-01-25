@@ -96,8 +96,8 @@ class EventRepetitionRepository implements EventRepetitionRepositoryInterface
         /*$timeStart = date('H:i:s', strtotime($data['time_start']));
         $timeEnd = date('H:i:s', strtotime($data['time_end']));*/
 
-        $timeStart = date('H:i:s', strtotime($data['time_startHours'].':'.$data['time_startMinutes'].' '.$data['time_startAmpm']));
-        $timeEnd = date('H:i:s', strtotime($data['time_endHours'].':'.$data['time_endMinutes'].' '.$data['time_endAmpm']));
+        $timeStart = date('H:i:s', strtotime($data['timeStartHours'].':'.$data['timeStartMinutes'].' '.$data['timeStartAmpm']));
+        $timeEnd = date('H:i:s', strtotime($data['timeEndHours'].':'.$data['timeEndMinutes'].' '.$data['timeEndAmpm']));
 
         switch ($data['repeat_type']) {
             case '1':  // noRepeat
