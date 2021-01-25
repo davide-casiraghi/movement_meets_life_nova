@@ -127,7 +127,6 @@ class EventRepetitionRepository implements EventRepetitionRepositoryInterface
 
                 // Get the array with month repeat details
                 $monthRepeatDatas = explode('|', $data['on_monthly_kind']);
-                //dump("pp_1");
                 self::saveMonthlyRepeatDates($eventId, $monthRepeatDatas, $startDate, $repeatUntilDate, $timeStart, $timeEnd);
 
                 break;
@@ -220,15 +219,10 @@ class EventRepetitionRepository implements EventRepetitionRepositoryInterface
         $end = Carbon::createFromFormat('Y-m-d', $repeatUntilDate);
         $weekdayArray = [Carbon::MONDAY, Carbon::TUESDAY, Carbon::WEDNESDAY, Carbon::THURSDAY, Carbon::FRIDAY, Carbon::SATURDAY, Carbon::SUNDAY];
 
-        //$timeStart = $timeStart.":00";
-        //$timeEnd = $timeEnd.":00";
-
         switch ($monthRepeatDatas[0]) {
             case '0':  // Same day number - eg. "the 28th day of the month"
                 while ($month < $end) {
                     $day = $month;
-                    //dump("ee_3");
-                    //dump($timeStart);
                     self::store($eventId, $day->format('Y-m-d'), $day->format('Y-m-d'), $timeStart, $timeEnd);
                     $month = $month->addMonth();
                 }
@@ -240,8 +234,7 @@ class EventRepetitionRepository implements EventRepetitionRepositoryInterface
                 while ($month < $end) {
                     $month_number = (int) Carbon::parse($month)->isoFormat('M');
                     $year_number = (int) Carbon::parse($month)->isoFormat('YYYY');
-
-                    $day = Carbon::create($year_number, $month_number, 30, 0, 0, 0)->nthOfMonth($numberOfTheWeek, $weekday);  // eg. Carbon::create(2014, 5, 30, 0, 0, 0)->nthOfQuarter(2, Carbon::SATURDAY);
+                    $day = Carbon::create($year_number, $month_number, 1, 0, 0, 0)->nthOfMonth($numberOfTheWeek, $weekday);  // eg. Carbon::create(2014, 5, 30, 0, 0, 0)->nthOfQuarter(2, Carbon::SATURDAY);
 
                     self::store($eventId, $day->format('Y-m-d'), $day->format('Y-m-d'), $timeStart, $timeEnd);
 

@@ -145,8 +145,8 @@ class EventRepetitionRepositoryTest extends TestCase
     {
         $eventId = 3;
         $monthRepeatDatas = explode('|', '1|1|5'); // First Friday of the month
-        $startDate = '2020-06-5';
-        $repeatUntilDate = '2020-08-10';
+        $startDate = '2020-01-03';
+        $repeatUntilDate = '2020-03-20';
         $timeStart = '18:00:00';
         $timeEnd = '20:00:00';
 
@@ -154,26 +154,26 @@ class EventRepetitionRepositoryTest extends TestCase
 
         $this->assertDatabaseHas('event_repetitions', [
             'event_id' => $eventId,
-            'start_repeat' => '2020-06-05 18:00:00',
-            'end_repeat' => '2020-06-05 20:00:00',
+            'start_repeat' => '2020-01-03 18:00:00',
+            'end_repeat' => '2020-01-03 20:00:00',
         ]);
 
         $this->assertDatabaseHas('event_repetitions', [
             'event_id' => $eventId,
-            'start_repeat' => '2020-07-03 18:00:00',
-            'end_repeat' => '2020-07-03 20:00:00',
+            'start_repeat' => '2020-02-07 18:00:00',
+            'end_repeat' => '2020-02-07 20:00:00',
         ]);
 
         $this->assertDatabaseHas('event_repetitions', [
             'event_id' => $eventId,
-            'start_repeat' => '2020-08-07 18:00:00',
-            'end_repeat' => '2020-08-07 20:00:00',
+            'start_repeat' => '2020-03-06 18:00:00',
+            'end_repeat' => '2020-03-06 20:00:00',
         ]);
 
         $this->assertDatabaseMissing('event_repetitions', [
             'event_id' => $eventId,
-            'start_repeat' => '2020-09-04 18:00:00',
-            'end_repeat' => '2020-09-04 20:00:00',
+            'start_repeat' => '2020-04-03 18:00:00',
+            'end_repeat' => '2020-04-03 20:00:00',
         ]);
     }
 
