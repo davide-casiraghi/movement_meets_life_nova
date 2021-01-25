@@ -60,9 +60,57 @@ class EventRepetitionRepositoryTest extends TestCase
         $this->event3 = Event::factory()->create()->setStatus('published');
     }
 
+    /** @test */
+    public function it_should_save_weekly_repeat_dates()
+    {
+        $eventId = 2;
+        $weekDays = [2,5]; // Tuesday, Friday
+        $startDate = '2020-06-5';
+        $repeatUntilDate = '2020-07-1';
+        $timeStart = '18:00:00';
+        $timeEnd = '20:00:00';
+
+        $this->eventRepetitionRepository->saveWeeklyRepeatDates($eventId, $weekDays, $startDate, $repeatUntilDate, $timeStart, $timeEnd);
+
+        $this->assertDatabaseHas('event_repetitions', [
+            'event_id' => $eventId,
+            'start_repeat' => '2020-06-05 18:00:00',
+            'end_repeat' => '2020-06-05 20:00:00',
+        ]);
+
+        $this->assertDatabaseHas('event_repetitions', [
+            'event_id' => $eventId,
+            'start_repeat' => '2020-06-09 18:00:00',
+            'end_repeat' => '2020-06-09 20:00:00',
+        ]);
+
+        $this->assertDatabaseHas('event_repetitions', [
+            'event_id' => $eventId,
+            'start_repeat' => '2020-06-12 18:00:00',
+            'end_repeat' => '2020-06-12 20:00:00',
+        ]);
+
+        $this->assertDatabaseMissing('event_repetitions', [
+            'event_id' => $eventId,
+            'start_repeat' => '2020-06-10 18:00:00',
+            'end_repeat' => '2020-06-10 20:00:00',
+        ]);
+
+        $this->assertDatabaseMissing('event_repetitions', [
+            'event_id' => $eventId,
+            'start_repeat' => '2020-06-13 18:00:00',
+            'end_repeat' => '2020-06-13 20:00:00',
+        ]);
+
+        $this->assertDatabaseMissing('event_repetitions', [
+            'event_id' => $eventId,
+            'start_repeat' => '2020-07-10 18:00:00',
+            'end_repeat' => '2020-07-10 20:00:00',
+        ]);
+    }
 
     /** @test */
-    public function it_should_save_montly_repeat_dates()
+    public function it_should_save_montly_repeat_dates_same_weekday_of_month()
     {
         $eventId = 3;
         $monthRepeatDatas = explode('|', '1|1|5'); // First Friday of the month
@@ -97,4 +145,6 @@ class EventRepetitionRepositoryTest extends TestCase
             'end_repeat' => '2020-09-04 20:00:00',
         ]);
     }
+
+
 }
