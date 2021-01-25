@@ -149,7 +149,6 @@ class EventService
      */
     public function getSearchParameters(EventSearchRequest $request): array
     {
-        //ray($request->all());
         $searchParameters = [];
         $searchParameters['title'] = $request->title ?? null;
         $searchParameters['eventCategoryId'] = $request->eventCategoryId ?? null;
@@ -347,7 +346,6 @@ class EventService
 
         return $ret;
     }
-
 
     /**
      * Return a string that describe the report misuse reason.

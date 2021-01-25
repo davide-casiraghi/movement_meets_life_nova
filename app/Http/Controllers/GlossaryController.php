@@ -6,6 +6,7 @@ use App\Http\Requests\GlossarySearchRequest;
 use App\Http\Requests\GlossaryStoreRequest;
 use App\Models\Glossary;
 use App\Services\GlossaryService;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -19,7 +20,14 @@ class GlossaryController extends Controller
         $this->glossaryService = $glossaryService;
     }
 
-    public function show($glossaryTermId)
+    /**
+     * Show the resource.
+     *
+     * @param int $glossaryTermId
+     *
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\View\View
+     */
+    public function show(int $glossaryTermId): View
     {
         $glossaryTerm = Glossary::find($glossaryTermId);
 
@@ -38,9 +46,7 @@ class GlossaryController extends Controller
      */
     public function index(GlossarySearchRequest $request): View
     {
-        ray($request->all());
         $searchParameters = $this->glossaryService->getSearchParameters($request);
-        ray($searchParameters);
         $glossaries = $this->glossaryService->getGlossaries(20, $searchParameters);
         $statuses = Glossary::PUBLISHING_STATUS;
 
@@ -54,9 +60,9 @@ class GlossaryController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Contracts\View\View
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\View\View
      */
-    public function create()
+    public function create(): View
     {
         return view('glossaries.create');
     }
@@ -68,7 +74,7 @@ class GlossaryController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(GlossaryStoreRequest $request)
+    public function store(GlossaryStoreRequest $request): RedirectResponse
     {
         $this->glossaryService->createGlossary($request);
 
@@ -81,9 +87,9 @@ class GlossaryController extends Controller
      *
      * @param int $glossaryId
      *
-     * @return \Illuminate\Contracts\View\View
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\View\View
      */
-    public function edit(int $glossaryId)
+    public function edit(int $glossaryId): View
     {
         $glossary = $this->glossaryService->getById($glossaryId);
 
@@ -100,7 +106,7 @@ class GlossaryController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(GlossaryStoreRequest $request, int $glossaryId)
+    public function update(GlossaryStoreRequest $request, int $glossaryId): RedirectResponse
     {
         $this->glossaryService->updateGlossary($request, $glossaryId);
 
@@ -115,7 +121,7 @@ class GlossaryController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy(int $glossaryId)
+    public function destroy(int $glossaryId): RedirectResponse
     {
         $this->glossaryService->deleteGlossary($glossaryId);
 
