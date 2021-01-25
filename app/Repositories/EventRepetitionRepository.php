@@ -71,8 +71,8 @@ class EventRepetitionRepository implements EventRepetitionRepositoryInterface
         $eventRepetition = new EventRepetition();
         $eventRepetition->event_id = $eventId;
 
-        $eventRepetition->start_repeat = Carbon::createFromFormat('Y-m-d H:i', $dateStart . ' ' . $timeStart);
-        $eventRepetition->end_repeat = Carbon::createFromFormat('Y-m-d H:i', $dateEnd . ' ' . $timeEnd);
+        $eventRepetition->start_repeat = Carbon::createFromFormat('Y-m-d H:i:s', $dateStart . ' ' . $timeStart);
+        $eventRepetition->end_repeat = Carbon::createFromFormat('Y-m-d H:i:s', $dateEnd . ' ' . $timeEnd);
 
         $eventRepetition->save();
 
@@ -241,7 +241,7 @@ class EventRepetitionRepository implements EventRepetitionRepositoryInterface
                     $year_number = (int) Carbon::parse($month)->isoFormat('YYYY');
 
                     $day = Carbon::create($year_number, $month_number, 30, 0, 0, 0)->nthOfMonth($numberOfTheWeek, $weekday);  // eg. Carbon::create(2014, 5, 30, 0, 0, 0)->nthOfQuarter(2, Carbon::SATURDAY);
-                    //dump("ee_4");
+
                     self::store($eventId, $day->format('Y-m-d'), $day->format('Y-m-d'), $timeStart, $timeEnd);
 
                     $month = $month->addMonth();

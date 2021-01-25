@@ -19,7 +19,6 @@ use Illuminate\Database\Eloquent\Collection;
 
 class EventRepetitionRepositoryTest extends TestCase
 {
-
     use WithFaker;
     use RefreshDatabase; // empty the test DB
 
@@ -62,19 +61,40 @@ class EventRepetitionRepositoryTest extends TestCase
     }
 
 
-
     /** @test */
     public function it_should_save_montly_repeat_dates()
     {
         $eventId = 3;
-        $monthRepeatDatas = explode('|','1|1|5'); // First Friday of the month
-        $startDate = '2020-06-15';
-        $repeatUntilDate = '2020-08-15';
-        $timeStart = '20:00:00';
+        $monthRepeatDatas = explode('|', '1|1|5'); // First Friday of the month
+        $startDate = '2020-06-5';
+        $repeatUntilDate = '2020-08-10';
+        $timeStart = '18:00:00';
         $timeEnd = '20:00:00';
 
-        $onMonthlyKind = $this->eventRepetitionRepository->saveMonthlyRepeatDates($eventId, $monthRepeatDatas, $startDate, $repeatUntilDate, $timeStart, $timeEnd);
+        $this->eventRepetitionRepository->saveMonthlyRepeatDates($eventId, $monthRepeatDatas, $startDate, $repeatUntilDate, $timeStart, $timeEnd);
 
-        $this->assertEquals("the 4th to last Thursday of the month", $onMonthlyKind);
+        $this->assertDatabaseHas('event_repetitions', [
+            'event_id' => $eventId,
+            'start_repeat' => '2020-06-05 18:00:00',
+            'end_repeat' => '2020-06-05 20:00:00',
+        ]);
+
+        $this->assertDatabaseHas('event_repetitions', [
+            'event_id' => $eventId,
+            'start_repeat' => '2020-07-03 18:00:00',
+            'end_repeat' => '2020-07-03 20:00:00',
+        ]);
+
+        $this->assertDatabaseHas('event_repetitions', [
+            'event_id' => $eventId,
+            'start_repeat' => '2020-08-07 18:00:00',
+            'end_repeat' => '2020-08-07 20:00:00',
+        ]);
+
+        $this->assertDatabaseMissing('event_repetitions', [
+            'event_id' => $eventId,
+            'start_repeat' => '2020-09-04 18:00:00',
+            'end_repeat' => '2020-09-04 20:00:00',
+        ]);
     }
 }
