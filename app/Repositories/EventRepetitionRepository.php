@@ -70,7 +70,8 @@ class EventRepetitionRepository implements EventRepetitionRepositoryInterface
     {
         $eventRepetition = new EventRepetition();
         $eventRepetition->event_id = $eventId;
-
+        //dd($timeStart);
+        //dd($dateStart . ' ' . $timeStart);
         $eventRepetition->start_repeat = Carbon::createFromFormat('Y-m-d H:i:s', $dateStart . ' ' . $timeStart);
         $eventRepetition->end_repeat = Carbon::createFromFormat('Y-m-d H:i:s', $dateEnd . ' ' . $timeEnd);
 
@@ -92,8 +93,8 @@ class EventRepetitionRepository implements EventRepetitionRepositoryInterface
     {
         self::deletePreviousRepetitions($eventId);
 
-        $timeStart = date('H:i', strtotime($data['time_start']));
-        $timeEnd = date('H:i', strtotime($data['time_end']));
+        $timeStart = date('H:i:s', strtotime($data['time_start']));
+        $timeEnd = date('H:i:s', strtotime($data['time_end']));
 
         switch ($data['repeat_type']) {
             case '1':  // noRepeat

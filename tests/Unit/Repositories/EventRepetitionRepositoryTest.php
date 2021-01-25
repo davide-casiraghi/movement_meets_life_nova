@@ -110,6 +110,37 @@ class EventRepetitionRepositoryTest extends TestCase
     }
 
     /** @test */
+    public function it_should_save_montly_repeat_dates_same_day_number_of_month()
+    {
+        $eventId = 3;
+        $monthRepeatDatas = explode('|', '0|4'); // 4th day of the month
+        $startDate = '2020-06-4';
+        $repeatUntilDate = '2020-08-01';
+        $timeStart = '18:00:00';
+        $timeEnd = '20:00:00';
+
+        $this->eventRepetitionRepository->saveMonthlyRepeatDates($eventId, $monthRepeatDatas, $startDate, $repeatUntilDate, $timeStart, $timeEnd);
+
+        $this->assertDatabaseHas('event_repetitions', [
+            'event_id' => $eventId,
+            'start_repeat' => '2020-06-04 18:00:00',
+            'end_repeat' => '2020-06-04 20:00:00',
+        ]);
+
+        $this->assertDatabaseHas('event_repetitions', [
+            'event_id' => $eventId,
+            'start_repeat' => '2020-07-04 18:00:00',
+            'end_repeat' => '2020-07-04 20:00:00',
+        ]);
+
+        $this->assertDatabaseMissing('event_repetitions', [
+            'event_id' => $eventId,
+            'start_repeat' => '2020-08-04 18:00:00',
+            'end_repeat' => '2020-08-04 20:00:00',
+        ]);
+    }
+
+    /** @test */
     public function it_should_save_montly_repeat_dates_same_weekday_of_month()
     {
         $eventId = 3;
@@ -143,6 +174,62 @@ class EventRepetitionRepositoryTest extends TestCase
             'event_id' => $eventId,
             'start_repeat' => '2020-09-04 18:00:00',
             'end_repeat' => '2020-09-04 20:00:00',
+        ]);
+    }
+
+    /** @test */
+    public function it_should_save_montly_repeat_dates_same_day_of_month_from_end()
+    {
+        $eventId = 3;
+        $monthRepeatDatas = explode('|', '2|3'); // the 4rd to last day of the month
+        $startDate = '2020-06-27';
+        $repeatUntilDate = '2020-08-03';
+        $timeStart = '18:00:00';
+        $timeEnd = '20:00:00';
+
+        $this->eventRepetitionRepository->saveMonthlyRepeatDates($eventId, $monthRepeatDatas, $startDate, $repeatUntilDate, $timeStart, $timeEnd);
+
+        $this->assertDatabaseHas('event_repetitions', [
+            'event_id' => $eventId,
+            'start_repeat' => '2020-06-27 18:00:00',
+            'end_repeat' => '2020-06-27 20:00:00',
+        ]);
+
+        $this->assertDatabaseHas('event_repetitions', [
+            'event_id' => $eventId,
+            'start_repeat' => '2020-07-28 18:00:00',
+            'end_repeat' => '2020-07-28 20:00:00',
+        ]);
+
+        $this->assertDatabaseMissing('event_repetitions', [
+            'event_id' => $eventId,
+            'start_repeat' => '2020-08-28 18:00:00',
+            'end_repeat' => '2020-08-28 20:00:00',
+        ]);
+    }
+
+    /** @test */
+    public function it_should_save_montly_repeat_dates_same_weekday_of_month_from_end()
+    {
+        $eventId = 3;
+        $monthRepeatDatas = explode('|', '3|1|3'); // the 2nd to last Wednesday of the month
+        $startDate = '2020-06-27';
+        $repeatUntilDate = '2020-08-03';
+        $timeStart = '18:00:00';
+        $timeEnd = '20:00:00';
+
+        $this->eventRepetitionRepository->saveMonthlyRepeatDates($eventId, $monthRepeatDatas, $startDate, $repeatUntilDate, $timeStart, $timeEnd);
+
+        $this->assertDatabaseHas('event_repetitions', [
+            'event_id' => $eventId,
+            'start_repeat' => '2020-06-17 18:00:00',
+            'end_repeat' => '2020-06-17 20:00:00',
+        ]);
+
+        $this->assertDatabaseHas('event_repetitions', [
+            'event_id' => $eventId,
+            'start_repeat' => '2020-07-22 18:00:00',
+            'end_repeat' => '2020-07-22 20:00:00',
         ]);
     }
 

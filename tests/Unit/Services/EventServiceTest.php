@@ -185,8 +185,8 @@ class EventServiceTest extends TestCase
             'user_id' => 1,
             'startDate' => '1/01/2021',
             'endDate' => '1/01/2021',
-            'time_start' => '6:00 pm',
-            'time_end' => '8:00 pm',
+            'time_start' => '18:00:00',
+            'time_end' => '20:00:00',
             "on_monthly_kind" => "1|1|5", // First Friday of the month
             'repeat_until' => '20/3/2021',
         ];
