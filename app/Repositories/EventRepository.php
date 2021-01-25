@@ -69,7 +69,7 @@ class EventRepository implements EventRepositoryInterface
      * @param $eventId
      * @return Event
      */
-    public function getById($eventId)
+    public function getById($eventId): Event
     {
         return Event::findOrFail($eventId);
     }
@@ -179,7 +179,7 @@ class EventRepository implements EventRepositoryInterface
      * @param int $id
      * @return void
      */
-    public function delete(int $id)
+    public function delete(int $id): void
     {
         Event::destroy($id);
     }

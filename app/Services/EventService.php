@@ -60,7 +60,7 @@ class EventService
      * @return \App\Models\Event
      */
 
-    public function updateEvent(array $data, int $eventId)
+    public function updateEvent(array $data, int $eventId): Event
     {
         $event = $this->eventRepository->update($data, $eventId);
         $this->eventRepetitionService->updateEventRepetitions($data, $eventId);
@@ -75,7 +75,7 @@ class EventService
      *
      * @return \App\Models\Event
      */
-    public function getById(int $eventId)
+    public function getById(int $eventId): Event
     {
         return $this->eventRepository->getById($eventId);
     }
@@ -86,7 +86,7 @@ class EventService
      * @param int|null $recordsPerPage
      * @param array|null $searchParameters
      *
-     * @return iterable
+     * @return \Illuminate\Database\Eloquent\Collection|\Illuminate\Contracts\Pagination\LengthAwarePaginator
      */
     public function getEvents(int $recordsPerPage = null, array $searchParameters = null)
     {
@@ -108,7 +108,7 @@ class EventService
      *
      * @return int
      */
-    public function getNumberEventsCreatedLastThirtyDays()
+    public function getNumberEventsCreatedLastThirtyDays(): int
     {
         return Event::whereDate('created_at', '>', date('Y-m-d', strtotime('-30 days')))->count();
     }
@@ -195,7 +195,7 @@ class EventService
      *
      * @return array
      */
-    public function getEventDateTimeParameters($event, $eventFirstRepetition)
+    public function getEventDateTimeParameters($event, $eventFirstRepetition): array
     {
         $dateTime = [];
         $dateTime['dateStart'] = (isset($eventFirstRepetition->start_repeat)) ? date('d/m/Y', strtotime($eventFirstRepetition->start_repeat)) : '';
@@ -295,7 +295,7 @@ class EventService
      *
      * @return string $ret
      */
-    public static function getRepetitionTextString(Event $event, EventRepetition $firstRpDates)
+    public static function getRepetitionTextString(Event $event, EventRepetition $firstRpDates): string
     {
         $ret = '';
 
@@ -340,7 +340,7 @@ class EventService
                 });
 
                 $ret .= __('event.the_event_happens_on_this_dates');
-                $ret .= $dateStart.', ';
+                $ret .= $dateStart . ', ';
                 $ret .= Helper::getStringFromArraySeparatedByComma($singleDaysRepeatDatas);
                 break;
         }
@@ -355,7 +355,7 @@ class EventService
      * @param  int $reason
      * @return string $ret
      */
-    public static function getReportMisuseReasonDescription(int $reason)
+    public static function getReportMisuseReasonDescription(int $reason): string
     {
         $ret = '';
         switch ($reason) {
@@ -383,7 +383,7 @@ class EventService
      * @param  string $onMonthlyKindCode
      * @return string
      */
-    public static function decodeOnMonthlyKind(string $onMonthlyKindCode)
+    public static function decodeOnMonthlyKind(string $onMonthlyKindCode): string
     {
         $ret = '';
         $onMonthlyKindCodeArray = explode('|', $onMonthlyKindCode);
@@ -426,11 +426,4 @@ class EventService
 
         return $ret;
     }
-
-
-
-
-
-
-
 }
