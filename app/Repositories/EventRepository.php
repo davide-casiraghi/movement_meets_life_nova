@@ -100,18 +100,21 @@ class EventRepository implements EventRepositoryInterface
         $event->repeat_type = $data['repeat_type'];
         switch ($data['repeat_type']) {
             case 1: // No Repeat
-                //$event->repeat_until = Carbon::createFromFormat('d/m/Y', $data['repeat_until']);
+                $event->repeat_until = null;
                 break;
             case 2: // Weekly
                 if (array_key_exists('repeat_weekly_on', $data)) {
                     $event->repeat_weekly_on = implode(',', array_keys($data['repeat_weekly_on']));
                 }
+                $event->repeat_until = Carbon::createFromFormat('d/m/Y', $data['repeat_until']);
                 break;
             case 3: // Monthly
                 $event->on_monthly_kind = $data['on_monthly_kind'] ?? null;
+                $event->repeat_until = Carbon::createFromFormat('d/m/Y', $data['repeat_until']);
                 break;
             case 4: // Multiple days
                 $event->multiple_dates = $data['multiple_dates'] ?? null;
+                $event->repeat_until = null;
                 break;
         }
 
