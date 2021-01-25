@@ -223,9 +223,10 @@ class EventService
         $unixTimestamp = strtotime($date);  // Convert the date string into a unix timestamp.
         $dayOfWeekString = date('l', $unixTimestamp); // Monday | Tuesday | Wednesday | ..
 
-        // Same day number - eg. "the 28th day of the month"
-        $dateArray = explode('/', $date);
-        $dayNumber = ltrim($dateArray[0], '0'); // remove the 0 in front of a day number eg. 02/10/2018
+        // Add option: Same day number.
+        // eg. "the 28th day of the month"
+        $dateArray = explode('-', $date);
+        $dayNumber = ltrim($dateArray[2], '0'); // remove the 0 in front of a day number eg. 02/10/2018
 
         $format = __('ordinalDays.the_' . ($dayNumber) . '_x_of_the_month');
         $repeatText = sprintf($format, 'day');
@@ -235,19 +236,21 @@ class EventService
             'text' => $repeatText,
         ]);
 
-        // Same weekday/week of the month - eg. the "1st Monday" 1|1|1 (first week, monday)
+        // Add option: Same weekday/week of the month.
+        // eg. the "1st Monday" 1|1|1 (first week, monday)
         $dayOfWeekValue = date('N', $unixTimestamp); // 1 (for Monday) through 7 (for Sunday)
         $weekOfTheMonth = DateHelpers::weekdayNumberOfMonth($date, $dayOfWeekValue); // 1 | 2 | 3 | 4 | 5
 
-        $format = __('ordinalDays.the_'.($weekOfTheMonth).'_x_of_the_month');
+        $format = __('ordinalDays.the_' . ($weekOfTheMonth) . '_x_of_the_month');
         $repeatText = sprintf($format, $dayOfWeekString);
 
         array_push($monthlySelectOptions, [
-            'value' => '1|'.$weekOfTheMonth.'|'.$dayOfWeekValue,
+            'value' => '1|' . $weekOfTheMonth . '|' . $dayOfWeekValue,
             'text' => $repeatText,
         ]);
 
-        // Same day of the month (from the end) - the 3rd to last day (0 if last day, 1 if 2nd to last day, , 2 if 3rd to last day)
+        // Add option: Same day of the month (from the end).
+        // eg. "the 3rd to last day of the month" (0 if last day, 1 if 2nd to last day, , 2 if 3rd to last day)
         $dayOfMonthFromTheEnd = DateHelpers::dayOfMonthFromTheEnd($unixTimestamp); // 1 | 2 | 3 | 4 | 5
 
         $format = __('ordinalDays.the_'.($dayOfMonthFromTheEnd + 1).'_to_last_x_of_the_month');
@@ -258,7 +261,8 @@ class EventService
             'text' => $repeatText,
         ]);
 
-        // Same weekday/week of the month (from the end) - the last Friday - (0 if last Friday, 1 if the 2nd to last Friday, 2 if the 3nd to last Friday)
+        // Add option: Same weekday/week of the month (from the end).
+        // eg. the last Friday - (0 if last Friday, 1 if the 2nd to last Friday, 2 if the 3nd to last Friday)
         $weekOfMonthFromTheEnd = DateHelpers::weekOfMonthFromTheEnd($unixTimestamp); // 1 | 2 | 3 | 4 | 5
 
         if ($weekOfMonthFromTheEnd == 1) {
@@ -267,11 +271,11 @@ class EventService
             $weekValue = $weekOfMonthFromTheEnd - 1;
         }
 
-        $format = __('ordinalDays.the_'.($weekOfMonthFromTheEnd).'_to_last_x_of_the_month');
+        $format = __('ordinalDays.the_' . ($weekOfMonthFromTheEnd) . '_to_last_x_of_the_month');
         $repeatText = sprintf($format, $dayOfWeekString);
 
         array_push($monthlySelectOptions, [
-            'value' => '3|'.$weekValue.'|'.$dayOfWeekValue,
+            'value' => '3|' . $weekValue . '|' . $dayOfWeekValue,
             'text' => $repeatText,
         ]);
 

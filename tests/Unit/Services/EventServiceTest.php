@@ -280,12 +280,12 @@ class EventServiceTest extends TestCase
         $date = '16/11/2020';
         $options = $this->eventService->getMonthlySelectOptions($date);
 
-        $this->assertStringContainsString("<option value='0|2020-11-16'>ordinalDays.the_2020-11-16_x_of_the_month</option>", $options);
+        $this->assertStringContainsString("<option value='0|16'>the 16th day of the month</option>", $options);
         $this->assertStringContainsString("<option value='1|3|1'>the 3rd Monday of the month</option>", $options);
         $this->assertStringContainsString("<option value='2|14'>the 15th to last day of the month</option>", $options);
         $this->assertStringContainsString("<option value='3|2|1'>the 3rd to last Monday of the month</option>", $options);
 
-        $this->assertStringContainsString("<select name='on_monthly_kind' id='on_monthly_kind' class='selectpicker' title='Select start date first'><option value='0|2020-11-16'>ordinalDays.the_2020-11-16_x_of_the_month</option><option value='1|3|1'>the 3rd Monday of the month</option><option value='2|14'>the 15th to last day of the month</option><option value='3|2|1'>the 3rd to last Monday of the month</option></select>", $options);
+        $this->assertStringContainsString("<select name='on_monthly_kind' id='on_monthly_kind' class='selectpicker' title='Select start date first'><option value='0|16'>the 16th day of the month</option><option value='1|3|1'>the 3rd Monday of the month</option><option value='2|14'>the 15th to last day of the month</option><option value='3|2|1'>the 3rd to last Monday of the month</option></select>", $options);
 
     }
 
