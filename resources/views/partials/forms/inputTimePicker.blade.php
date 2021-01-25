@@ -61,8 +61,8 @@
         <span class="text-xl px-1 pt-1">:</span>
         <select name="{{$name}}Minutes" class="bg-transparent appearance-none outline-none border-none">
             <option value="">...</option>
-            <option value="0" {{  $value['minutes'] == '00' ? 'selected' : '' }}>00</option>
-            <option value="0" {{  $value['minutes'] == '15' ? 'selected' : '' }}>15</option>
+            <option value="00" {{  $value['minutes'] == '00' ? 'selected' : '' }}>00</option>
+            <option value="15" {{  $value['minutes'] == '15' ? 'selected' : '' }}>15</option>
             <option value="30" {{  $value['minutes'] == '30' ? 'selected' : '' }}>30</option>
             <option value="45" {{  $value['minutes'] == '45' ? 'selected' : '' }}>45</option>
         </select>
