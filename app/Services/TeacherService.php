@@ -29,7 +29,7 @@ class TeacherService
      * @return \App\Models\Teacher
      * @throws \Spatie\ModelStatus\Exceptions\InvalidStatus
      */
-    public function createTeacher(TeacherStoreRequest $data)
+    public function createTeacher(TeacherStoreRequest $data): Teacher
     {
         $teacher = $this->teacherRepository->store($data);
 
@@ -48,7 +48,7 @@ class TeacherService
      *
      * @return \App\Models\Teacher
      */
-    public function updateTeacher(TeacherStoreRequest $data, int $teacherId)
+    public function updateTeacher(TeacherStoreRequest $data, int $teacherId): Teacher
     {
         $teacher = $this->teacherRepository->update($data, $teacherId);
 
@@ -64,7 +64,7 @@ class TeacherService
      *
      * @return \App\Models\Teacher
      */
-    public function getById(int $teacherId)
+    public function getById(int $teacherId): Teacher
     {
         return $this->teacherRepository->getById($teacherId);
     }
