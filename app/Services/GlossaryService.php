@@ -97,7 +97,7 @@ class GlossaryService
      */
     public function markGlossaryTerms($text)
     {
-        $glossaryTerms = Glossary::currentStatus('Published')->get();
+        $glossaryTerms = Glossary::currentStatus('published')->get();
         $count = 1;
 
         foreach ($glossaryTerms as $id => $glossaryTerm) {
