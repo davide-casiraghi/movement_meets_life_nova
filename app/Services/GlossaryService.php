@@ -31,9 +31,9 @@ class GlossaryService
      */
     public function createGlossary(GlossaryStoreRequest $data)
     {
-        $glossary = $this->glossaryRepository->store($data);
+        $glossary = $this->glossaryRepository->store($data->all());
 
-        $this->storeImages($glossary, $data->all());
+        $this->storeImages($glossary, $data);
 
         return $glossary;
     }
