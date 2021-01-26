@@ -83,7 +83,7 @@ class VenueRepository implements VenueRepositoryInterface
         $venue->address = $data['address'];
         $venue->city = $data['city'];
         $venue->state_province = $data['state_province'];
-        $venue->country = $data['country'];
+        $venue->country_id = $data['country_id'];
         $venue->zip_code = $data['zip_code'];
         $venue->lng = $data['lng'];
         $venue->lng = $data['lng'];
@@ -112,7 +112,7 @@ class VenueRepository implements VenueRepositoryInterface
         $venue->address = $data['address'];
         $venue->city = $data['city'];
         $venue->state_province = $data['state_province'];
-        $venue->country = $data['country'];
+        $venue->country_id = $data['country_id'];
         $venue->zip_code = $data['zip_code'];
         $venue->lng = $data['lng'];
         $venue->lng = $data['lng'];
