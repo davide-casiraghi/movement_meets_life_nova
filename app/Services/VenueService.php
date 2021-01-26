@@ -2,12 +2,14 @@
 namespace App\Services;
 
 use App\Helpers\Helper;
+use App\Http\Requests\VenueSearchRequest;
 use App\Http\Requests\VenueStoreRequest;
 use App\Models\Venue;
 use App\Repositories\VenueRepository;
+use Illuminate\Support\Collection;
 
-class VenueService {
-
+class VenueService
+{
     private VenueRepository $venueRepository;
 
     /**
@@ -29,7 +31,7 @@ class VenueService {
      * @return \App\Models\Venue
      * @throws \Spatie\ModelStatus\Exceptions\InvalidStatus
      */
-    public function createVenue(VenueStoreRequest $data)
+    public function createVenue(VenueStoreRequest $data): Venue
     {
         $venue = $this->venueRepository->store($data);
 
@@ -48,7 +50,7 @@ class VenueService {
      *
      * @return \App\Models\Venue
      */
-    public function updateVenue(VenueStoreRequest $data, int $venueId)
+    public function updateVenue(VenueStoreRequest $data, int $venueId): Venue
     {
         $venue = $this->venueRepository->update($data, $venueId);
 
@@ -64,7 +66,7 @@ class VenueService {
      *
      * @return \App\Models\Venue
      */
-    public function getById(int $venueId)
+    public function getById(int $venueId): Venue
     {
         return $this->venueRepository->getById($venueId);
     }
@@ -73,12 +75,13 @@ class VenueService {
      * Get all the Venues.
      *
      * @param int|null $recordsPerPage
+     * @param array|null $searchParameters
      *
-     * @return iterable
+     * @return \Illuminate\Database\Eloquent\Collection|\Illuminate\Contracts\Pagination\LengthAwarePaginator
      */
-    public function getVenues(int $recordsPerPage = null)
+    public function getVenues(int $recordsPerPage = null, array $searchParameters = null)
     {
-        return $this->venueRepository->getAll($recordsPerPage);
+        return $this->venueRepository->getAll($recordsPerPage, $searchParameters);
     }
 
     /**
@@ -96,7 +99,7 @@ class VenueService {
      *
      * @return int
      */
-    public function getNumberVenuesCreatedLastThirtyDays()
+    public function getNumberVenuesCreatedLastThirtyDays(): int
     {
         return Venue::whereDate('created_at', '>', date('Y-m-d', strtotime('-30 days')))->count();
     }
@@ -109,19 +112,18 @@ class VenueService {
      *
      * @return void
      */
-    private function storeImages(Venue $venue, VenueStoreRequest $data):void
+    private function storeImages(Venue $venue, VenueStoreRequest $data): void
     {
-
-        if($data->file('introimage')) {
+        if ($data->file('introimage')) {
             $introimage = $data->file('introimage');
             if ($introimage->isValid()) {
                 $venue->addMedia($introimage)->toMediaCollection('introimage');
             }
         }
 
-        if($data['introimage_delete'] == 'true'){
+        if ($data['introimage_delete'] == 'true') {
             $mediaItems = $venue->getMedia('introimage');
-            if(!is_null($mediaItems[0])){
+            if (!is_null($mediaItems[0])) {
                 $mediaItems[0]->delete();
             }
         }
@@ -139,7 +141,7 @@ class VenueService {
         $thumbUrls = [];
 
         $venue = $this->getById($venueId);
-        foreach($venue->getMedia('venue') as $photo){
+        foreach ($venue->getMedia('venue') as $photo) {
             $thumbUrls[] = $photo->getUrl('thumb');
         }
 
@@ -153,15 +155,15 @@ class VenueService {
      * @param  string $address
      * @return array $ret
      */
-    public static function getVenueGpsCoordinates(string $address)
+    public static function getVenueGpsCoordinates(string $address): array
     {
         $address = Helper::cleanString($address);
         $key = 'Ad5KVnAISxX6aHyj6fAnHcKeh30n4W60';
-        $url = 'https://www.mapquestapi.com/geocoding/v1/address?key='.$key.'&location='.$address;
+        $url = 'https://www.mapquestapi.com/geocoding/v1/address?key=' . $key . '&location=' . $address;
         $response = @file_get_contents($url);
 
         if (! $response) {
-            $url = 'http://open.mapquestapi.com/geocoding/v1/address?key='.$key.'&location='.$address;
+            $url = 'http://open.mapquestapi.com/geocoding/v1/address?key=' . $key . '&location=' . $address;
             $response = @file_get_contents($url);
         }
 
@@ -174,4 +176,20 @@ class VenueService {
         return $ret;
     }
 
+    /**
+     * Get the event search parameters
+     *
+     * @param \App\Http\Requests\VenueSearchRequest $request
+     *
+     * @return array
+     */
+    public function getSearchParameters(VenueSearchRequest $request): array
+    {
+        $searchParameters = [];
+        $searchParameters['name'] = $request->name ?? null;
+        $searchParameters['city'] = $request->city ?? null;
+        $searchParameters['countryId'] = $request->countryId ?? null;
+
+        return $searchParameters;
+    }
 }

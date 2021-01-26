@@ -5,19 +5,57 @@ namespace App\Repositories;
 use App\Models\Organizer;
 use Illuminate\Support\Facades\Auth;
 
-class OrganizerRepository implements OrganizerRepositoryInterface {
+class OrganizerRepository implements OrganizerRepositoryInterface
+{
 
     /**
      * Get all Organizers.
      *
-     * @return iterable
+     * @param int|null $recordsPerPage
+     * @param array|null $searchParameters
+     *
+     * @return \App\Models\Organizer[]|\Illuminate\Contracts\Pagination\LengthAwarePaginator|\Illuminate\Database\Eloquent\Collection
      */
-    public function getAll(int $recordsPerPage = null)
+    public function getAll(int $recordsPerPage = null, array $searchParameters = null)
     {
-        if($recordsPerPage){
+        $query = Organizer::orderBy('created_at', 'desc');
+
+        if (!is_null($searchParameters)) {
+            if (!empty($searchParameters['name'])) {
+                $query->where(
+                    'name',
+                    'like',
+                    '%' . $searchParameters['name'] . '%'
+                );
+            }
+            if (!empty($searchParameters['surname'])) {
+                $query->where(
+                    'surname',
+                    'like',
+                    '%' . $searchParameters['surname'] . '%'
+                );
+            }
+            if (!empty($searchParameters['email'])) {
+                $query->where(
+                    'email',
+                    'like',
+                    '%' . $searchParameters['email'] . '%'
+                );
+            }
+        }
+
+        if ($recordsPerPage) {
+            $results = $query->paginate($recordsPerPage);
+        } else {
+            $results = $query->get();
+        }
+
+        return $results;
+
+        /*if ($recordsPerPage) {
             return Organizer::paginate($recordsPerPage);
         }
-        return Organizer::all();
+        return Organizer::all();*/
     }
 
     /**

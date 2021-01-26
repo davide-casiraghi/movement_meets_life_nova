@@ -48,6 +48,17 @@
      'kind' => 'primary',
      'target' => '_self',
     ])
+
+    @include('partials.forms.button',[
+     'title' => 'Venues',
+     'url' => route('venues.index'),
+     'color' => 'yellow',
+     'icon' => '',
+     'size' => 1,
+     'extraClasses' => 'mb-4',
+     'kind' => 'primary',
+     'target' => '_self',
+    ])
 @endsection
 
 @section('content')

@@ -1,12 +1,13 @@
 <?php
 namespace App\Services;
 
+use App\Http\Requests\OrganizerSearchRequest;
 use App\Http\Requests\OrganizerStoreRequest;
 use App\Models\Organizer;
 use App\Repositories\OrganizerRepository;
 
-class OrganizerService {
-
+class OrganizerService
+{
     private OrganizerRepository $organizerRepository;
 
     /**
@@ -27,7 +28,7 @@ class OrganizerService {
      *
      * @return \App\Models\Organizer
      */
-    public function createOrganizer(OrganizerStoreRequest $data)
+    public function createOrganizer(OrganizerStoreRequest $data): Organizer
     {
         $organizer = $this->organizerRepository->store($data);
 
@@ -46,7 +47,7 @@ class OrganizerService {
      *
      * @return \App\Models\Organizer
      */
-    public function updateOrganizer(OrganizerStoreRequest $data, int $organizerId)
+    public function updateOrganizer(OrganizerStoreRequest $data, int $organizerId): Organizer
     {
         $organizer = $this->organizerRepository->update($data, $organizerId);
 
@@ -62,7 +63,7 @@ class OrganizerService {
      *
      * @return \App\Models\Organizer
      */
-    public function getById(int $organizerId)
+    public function getById(int $organizerId): Organizer
     {
         return $this->organizerRepository->getById($organizerId);
     }
@@ -70,11 +71,14 @@ class OrganizerService {
     /**
      * Get all the Organizers.
      *
-     * @return iterable
+     * @param int|null $recordsPerPage
+     * @param array|null $searchParameters
+     *
+     * @return \Illuminate\Database\Eloquent\Collection|\Illuminate\Contracts\Pagination\LengthAwarePaginator
      */
-    public function getOrganizers(int $recordsPerPage = null)
+    public function getOrganizers(int $recordsPerPage = null, array $searchParameters = null)
     {
-        return $this->organizerRepository->getAll($recordsPerPage);
+        return $this->organizerRepository->getAll($recordsPerPage, $searchParameters);
     }
 
     /**
@@ -92,7 +96,7 @@ class OrganizerService {
      *
      * @return int
      */
-    public function getNumberOrganizersCreatedLastThirtyDays()
+    public function getNumberOrganizersCreatedLastThirtyDays(): int
     {
         return Organizer::whereDate('created_at', '>', date('Y-m-d', strtotime('-30 days')))->count();
     }
@@ -105,7 +109,8 @@ class OrganizerService {
      *
      * @return void
      */
-    private function storeImages(Organizer $organizer, OrganizerStoreRequest $data):void {
+    private function storeImages(Organizer $organizer, OrganizerStoreRequest $data): void
+    {
         /*if($data->file('photos')) {
             foreach ($data->file('photos') as $photo) {
                 if ($photo->isValid()) {
@@ -114,16 +119,16 @@ class OrganizerService {
             }
         }*/
 
-        if($data->file('introimage')) {
+        if ($data->file('introimage')) {
             $introimage = $data->file('introimage');
             if ($introimage->isValid()) {
                 $organizer->addMedia($introimage)->toMediaCollection('introimage');
             }
         }
 
-        if($data['introimage_delete'] == 'true'){
+        if ($data['introimage_delete'] == 'true') {
             $mediaItems = $organizer->getMedia('introimage');
-            if(!is_null($mediaItems[0])){
+            if (!is_null($mediaItems[0])) {
                 $mediaItems[0]->delete();
             }
         }
@@ -141,11 +146,27 @@ class OrganizerService {
         $thumbUrls = [];
 
         $organizer = $this->getById($organizerId);
-        foreach($organizer->getMedia('organizer') as $photo){
+        foreach ($organizer->getMedia('organizer') as $photo) {
             $thumbUrls[] = $photo->getUrl('thumb');
         }
 
         return $thumbUrls;
     }
 
+    /**
+     * Get the organizer search parameters
+     *
+     * @param \App\Http\Requests\OrganizerSearchRequest $request
+     *
+     * @return array
+     */
+    public function getSearchParameters(OrganizerSearchRequest $request): array
+    {
+        $searchParameters = [];
+        $searchParameters['name'] = $request->name ?? null;
+        $searchParameters['surname'] = $request->surname ?? null;
+        $searchParameters['email'] = $request->email ?? null;
+
+        return $searchParameters;
+    }
 }

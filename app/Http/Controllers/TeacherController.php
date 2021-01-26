@@ -2,21 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\TeacherSearchRequest;
 use App\Http\Requests\TeacherStoreRequest;
 use App\Services\CountryService;
 use App\Services\TeacherService;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class TeacherController extends Controller
 {
-    private $teacherService;
-    private $countryService;
+    private TeacherService $teacherService;
+    private CountryService $countryService;
 
     public function __construct(
         TeacherService $teacherService,
         CountryService $countryService
-    )
-    {
+    ) {
         $this->teacherService = $teacherService;
         $this->countryService = $countryService;
     }
@@ -24,11 +25,14 @@ class TeacherController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param \App\Http\Requests\TeacherSearchRequest $request
+     *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function index()
+    public function index(TeacherSearchRequest $request)
     {
-        $teachers = $this->teacherService->getTeachers(20);
+        $searchParameters = $this->teacherService->getSearchParameters($request);
+        $teachers = $this->teacherService->getTeachers(20, $searchParameters);
 
         return view('teachers.index', [
             'teachers' => $teachers,
@@ -57,12 +61,12 @@ class TeacherController extends Controller
      * @return \Illuminate\Http\RedirectResponse
      * @throws \Spatie\ModelStatus\Exceptions\InvalidStatus
      */
-    public function store(TeacherStoreRequest $request)
+    public function store(TeacherStoreRequest $request): RedirectResponse
     {
         $this->teacherService->createTeacher($request);
 
         return redirect()->route('teachers.index')
-            ->with('success','Teacher updated successfully');
+            ->with('success', 'Teacher updated successfully');
     }
 
     /**
@@ -105,12 +109,12 @@ class TeacherController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(TeacherStoreRequest $request, int $teacherId)
+    public function update(TeacherStoreRequest $request, int $teacherId): RedirectResponse
     {
         $this->teacherService->updateTeacher($request, $teacherId);
 
         return redirect()->route('teachers.index')
-            ->with('success','Teacher updated successfully');
+            ->with('success', 'Teacher updated successfully');
     }
 
     /**
@@ -120,11 +124,11 @@ class TeacherController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy(int $teacherId)
+    public function destroy(int $teacherId): RedirectResponse
     {
         $this->teacherService->deleteTeacher($teacherId);
 
         return redirect()->route('teachers.index')
-            ->with('success','Teacher deleted successfully');
+            ->with('success', 'Teacher deleted successfully');
     }
 }

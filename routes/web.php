@@ -16,6 +16,7 @@ use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\VenueController;
 use App\Models\Organizer;
 use App\Models\Teacher;
 use Illuminate\Support\Facades\Route;
@@ -118,6 +119,17 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function() {
         Route::post('/organizers', [OrganizerController::class, 'store'])->name('store');
         Route::delete('/organizers/{id}', [OrganizerController::class, 'destroy'])->name('destroy');
         Route::get('/organizers/{id}', [OrganizerController::class, 'show'])->name('show');
+    });
+
+    // Venues
+    Route::name('venues.')->group(function () {
+        Route::get('/venues', [VenueController::class, 'index'])->name('index');
+        Route::get('/venues/{id}/edit', [VenueController::class, 'edit'])->name('edit');
+        Route::put('/venues/{id}', [VenueController::class, 'update'])->name('update');
+        Route::get('/venues/create', [VenueController::class, 'create'])->name('create');
+        Route::post('/venues', [VenueController::class, 'store'])->name('store');
+        Route::delete('/venues/{id}', [VenueController::class, 'destroy'])->name('destroy');
+        Route::get('/venues/{id}', [VenueController::class, 'show'])->name('show');
     });
 
     // Events

@@ -1,12 +1,13 @@
 <?php
 namespace App\Services;
 
+use App\Http\Requests\TeacherSearchRequest;
 use App\Http\Requests\TeacherStoreRequest;
 use App\Models\Teacher;
 use App\Repositories\TeacherRepository;
 
-class TeacherService {
-
+class TeacherService
+{
     private TeacherRepository $teacherRepository;
 
     /**
@@ -71,11 +72,14 @@ class TeacherService {
     /**
      * Get all the Teachers.
      *
-     * @return iterable
+     * @param int|null $recordsPerPage
+     * @param array|null $searchParameters
+     *
+     * @return \Illuminate\Database\Eloquent\Collection|\Illuminate\Contracts\Pagination\LengthAwarePaginator
      */
-    public function getTeachers(int $recordsPerPage = null)
+    public function getTeachers(int $recordsPerPage = null, array $searchParameters = null)
     {
-        return $this->teacherRepository->getAll($recordsPerPage);
+        return $this->teacherRepository->getAll($recordsPerPage, $searchParameters);
     }
 
     /**
@@ -93,7 +97,7 @@ class TeacherService {
      *
      * @return int
      */
-    public function getNumberTeachersCreatedLastThirtyDays()
+    public function getNumberTeachersCreatedLastThirtyDays(): int
     {
         return Teacher::whereDate('created_at', '>', date('Y-m-d', strtotime('-30 days')))->count();
     }
@@ -106,7 +110,8 @@ class TeacherService {
      *
      * @return void
      */
-    private function storeImages(Teacher $teacher, TeacherStoreRequest $data):void {
+    private function storeImages(Teacher $teacher, TeacherStoreRequest $data): void
+    {
         /*if($data->file('photos')) {
             foreach ($data->file('photos') as $photo) {
                 if ($photo->isValid()) {
@@ -115,16 +120,16 @@ class TeacherService {
             }
         }*/
 
-        if($data->file('introimage')) {
+        if ($data->file('introimage')) {
             $introimage = $data->file('introimage');
             if ($introimage->isValid()) {
                 $teacher->addMedia($introimage)->toMediaCollection('introimage');
             }
         }
 
-        if($data['introimage_delete'] == 'true'){
+        if ($data['introimage_delete'] == 'true') {
             $mediaItems = $teacher->getMedia('introimage');
-            if(!is_null($mediaItems[0])){
+            if (!is_null($mediaItems[0])) {
                 $mediaItems[0]->delete();
             }
         }
@@ -142,11 +147,27 @@ class TeacherService {
         $thumbUrls = [];
 
         $teacher = $this->getById($teacherId);
-        foreach($teacher->getMedia('teacher') as $photo){
+        foreach ($teacher->getMedia('teacher') as $photo) {
             $thumbUrls[] = $photo->getUrl('thumb');
         }
 
         return $thumbUrls;
     }
 
+    /**
+     * Get the organizer search parameters
+     *
+     * @param \App\Http\Requests\TeacherSearchRequest $request
+     *
+     * @return array
+     */
+    public function getSearchParameters(TeacherSearchRequest $request): array
+    {
+        $searchParameters = [];
+        $searchParameters['name'] = $request->name ?? null;
+        $searchParameters['surname'] = $request->surname ?? null;
+        $searchParameters['countryId'] = $request->countryId ?? null;
+
+        return $searchParameters;
+    }
 }

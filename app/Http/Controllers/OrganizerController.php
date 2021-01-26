@@ -2,28 +2,32 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\OrganizerSearchRequest;
 use App\Http\Requests\OrganizerStoreRequest;
 use App\Services\OrganizerService;
+use Illuminate\Http\RedirectResponse;
 
 class OrganizerController extends Controller
 {
-    private $organizerService;
+    private OrganizerService $organizerService;
 
     public function __construct(
         OrganizerService $organizerService
-    )
-    {
+    ) {
         $this->organizerService = $organizerService;
     }
 
     /**
      * Display a listing of the resource.
      *
+     * @param \App\Http\Requests\OrganizerSearchRequest $request
+     *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function index()
+    public function index(OrganizerSearchRequest $request)
     {
-        $organizers = $this->organizerService->getOrganizers(20);
+        $searchParameters = $this->organizerService->getSearchParameters($request);
+        $organizers = $this->organizerService->getOrganizers(20, $searchParameters);
 
         return view('organizers.index', [
             'organizers' => $organizers,
@@ -47,12 +51,12 @@ class OrganizerController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(OrganizerStoreRequest $request)
+    public function store(OrganizerStoreRequest $request): RedirectResponse
     {
         $this->organizerService->createOrganizer($request);
 
         return redirect()->route('organizers.index')
-            ->with('success','Organizer updated successfully');
+            ->with('success', 'Organizer updated successfully');
     }
 
     /**
@@ -93,12 +97,12 @@ class OrganizerController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(OrganizerStoreRequest $request, int $organizerId)
+    public function update(OrganizerStoreRequest $request, int $organizerId): RedirectResponse
     {
         $this->organizerService->updateOrganizer($request, $organizerId);
 
         return redirect()->route('organizers.index')
-            ->with('success','Organizer updated successfully');
+            ->with('success', 'Organizer updated successfully');
     }
 
     /**
@@ -108,11 +112,11 @@ class OrganizerController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy(int $organizerId)
+    public function destroy(int $organizerId): RedirectResponse
     {
         $this->organizerService->deleteOrganizer($organizerId);
 
         return redirect()->route('organizers.index')
-            ->with('success','Organizer deleted successfully');
+            ->with('success', 'Organizer deleted successfully');
     }
 }

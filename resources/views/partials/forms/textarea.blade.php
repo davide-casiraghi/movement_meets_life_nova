@@ -1,5 +1,5 @@
 {{--
-    TEXTAREA without tinymce editor.
+    TEXTAREA with or without tinymce editor.
     PARAMETERS:
         - $title: string - the title to show
         - $name: string - the select name attribute

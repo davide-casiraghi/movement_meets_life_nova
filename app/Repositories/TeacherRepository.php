@@ -3,21 +3,57 @@
 namespace App\Repositories;
 
 use App\Models\Teacher;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 
-class TeacherRepository implements TeacherRepositoryInterface {
+class TeacherRepository implements TeacherRepositoryInterface
+{
 
     /**
      * Get all Teachers.
      *
-     * @return iterable
+     * @param int|null $recordsPerPage
+     * @param array|null $searchParameters
+     *
+     * @return \App\Models\Teacher[]|\Illuminate\Contracts\Pagination\LengthAwarePaginator|\Illuminate\Database\Eloquent\Collection
      */
-    public function getAll(int $recordsPerPage = null)
+    public function getAll(int $recordsPerPage = null, array $searchParameters = null)
     {
-        if($recordsPerPage){
+        $query = Teacher::orderBy('created_at', 'desc');
+
+        if (!is_null($searchParameters)) {
+            if (!empty($searchParameters['name'])) {
+                $query->where(
+                    'name',
+                    'like',
+                    '%' . $searchParameters['name'] . '%'
+                );
+            }
+            if (!empty($searchParameters['surname'])) {
+                $query->where(
+                    'surname',
+                    'like',
+                    '%' . $searchParameters['surname'] . '%'
+                );
+            }
+            if (!empty($searchParameters['countryId'])) {
+                $query->where('country_id', $searchParameters['countryId']);
+            }
+        }
+
+        if ($recordsPerPage) {
+            $results = $query->paginate($recordsPerPage);
+        } else {
+            $results = $query->get();
+        }
+
+        return $results;
+
+
+        /*if ($recordsPerPage) {
             return Teacher::paginate($recordsPerPage);
         }
-        return Teacher::all();
+        return Teacher::all();*/
     }
 
     /**

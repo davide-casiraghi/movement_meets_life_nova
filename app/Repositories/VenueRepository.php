@@ -4,19 +4,53 @@ namespace App\Repositories;
 
 use App\Models\Venue;
 
-class VenueRepository implements VenueRepositoryInterface {
+class VenueRepository implements VenueRepositoryInterface
+{
 
     /**
      * Get all EventCategories.
      *
-     * @return iterable
+     * @param int|null $recordsPerPage
+     * @param array|null $searchParameters
+     *
+     * @return \App\Models\Venue[]|\Illuminate\Contracts\Pagination\LengthAwarePaginator|\Illuminate\Database\Eloquent\Collection
      */
-    public function getAll(int $recordsPerPage = null)
+    public function getAll(int $recordsPerPage = null, array $searchParameters = null)
     {
-        if($recordsPerPage){
+        $query = Venue::orderBy('created_at', 'desc');
+
+        if (!is_null($searchParameters)) {
+            if (!empty($searchParameters['name'])) {
+                $query->where(
+                    'name',
+                    'like',
+                    '%' . $searchParameters['name'] . '%'
+                );
+            }
+            if (!empty($searchParameters['city'])) {
+                $query->where(
+                    'city',
+                    'like',
+                    '%' . $searchParameters['city'] . '%'
+                );
+            }
+            if (!empty($searchParameters['countryId'])) {
+                $query->where('country_id', $searchParameters['countryId']);
+            }
+        }
+
+        if ($recordsPerPage) {
+            $results = $query->paginate($recordsPerPage);
+        } else {
+            $results = $query->get();
+        }
+
+        return $results;
+
+        /*if($recordsPerPage){
             return Venue::paginate($recordsPerPage);
         }
-        return Venue::all();
+        return Venue::all();*/
     }
 
     /**
