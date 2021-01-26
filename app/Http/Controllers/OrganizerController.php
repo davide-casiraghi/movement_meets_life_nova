@@ -31,6 +31,7 @@ class OrganizerController extends Controller
 
         return view('organizers.index', [
             'organizers' => $organizers,
+            'searchParameters' => $searchParameters,
         ]);
     }
 

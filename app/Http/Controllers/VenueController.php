@@ -33,9 +33,12 @@ class VenueController extends Controller
     {
         $searchParameters = $this->venueService->getSearchParameters($request);
         $venues = $this->venueService->getVenues(20, $searchParameters);
+        $countries = $this->countryService->getCountries();
 
         return view('venues.index', [
             'venues' => $venues,
+            'searchParameters' => $searchParameters,
+            'countries' => $countries,
         ]);
     }
 

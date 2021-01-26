@@ -33,9 +33,12 @@ class TeacherController extends Controller
     {
         $searchParameters = $this->teacherService->getSearchParameters($request);
         $teachers = $this->teacherService->getTeachers(20, $searchParameters);
+        $countries = $this->countryService->getCountries();
 
         return view('teachers.index', [
             'teachers' => $teachers,
+            'searchParameters' => $searchParameters,
+            'countries' => $countries,
         ]);
     }
 

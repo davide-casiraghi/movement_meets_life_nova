@@ -17,6 +17,8 @@
         'target' => '_self',
     ])
 
+    @include('partials.teachers.searchBar')
+
     {{-- Tailwind Component: https://tailwindui.com/components/application-ui/lists/stacked-lists--}}
     <div class="bg-white shadow overflow-hidden sm:rounded-md">
         <ul class="divide-y divide-gray-200">
