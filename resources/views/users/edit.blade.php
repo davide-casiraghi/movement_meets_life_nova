@@ -99,7 +99,7 @@
                                 'records' => $countries,
                                 'selected' => $user->profile->country_id,
                                 'required' => true,
-                                'extraClasses' => '',
+                                'extraClasses' => 'select2',
                             ])
                         </div>
 

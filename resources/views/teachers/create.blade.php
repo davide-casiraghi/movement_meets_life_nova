@@ -54,7 +54,7 @@
                             'records' => $countries,
                             //'selected' => $teacher->country_id,
                             'required' => true,
-                            'extraClasses' => '',
+                            'extraClasses' => 'select2',
                         ])
                     </div>
 
