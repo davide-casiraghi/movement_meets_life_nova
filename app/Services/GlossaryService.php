@@ -29,7 +29,7 @@ class GlossaryService
      *
      * @return \App\Models\Glossary
      */
-    public function createGlossary(GlossaryStoreRequest $data)
+    public function createGlossary(GlossaryStoreRequest $data): Glossary
     {
         $glossary = $this->glossaryRepository->store($data->all());
 
@@ -46,7 +46,7 @@ class GlossaryService
      *
      * @return \App\Models\Glossary
      */
-    public function updateGlossary(GlossaryStoreRequest $data, int $glossaryId)
+    public function updateGlossary(GlossaryStoreRequest $data, int $glossaryId): Glossary
     {
         $glossary = $this->glossaryRepository->update($data->all(), $glossaryId);
 
@@ -62,7 +62,7 @@ class GlossaryService
      *
      * @return \App\Models\Glossary
      */
-    public function getById(int $glossaryId)
+    public function getById(int $glossaryId): Glossary
     {
         return $this->glossaryRepository->getById($glossaryId);
     }
@@ -70,7 +70,10 @@ class GlossaryService
     /**
      * Get all the glossary terms
      *
-     * @return iterable
+     * @param int|null $recordsPerPage
+     * @param array|null $searchParameters
+     *
+     * @return \Illuminate\Database\Eloquent\Collection|\Illuminate\Contracts\Pagination\LengthAwarePaginator
      */
     public function getGlossaries(int $recordsPerPage = null, array $searchParameters = null)
     {
