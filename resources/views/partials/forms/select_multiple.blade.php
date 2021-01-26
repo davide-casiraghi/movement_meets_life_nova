@@ -1,7 +1,5 @@
 {{--
-    Single select.
-
-    Add 'select2' to the $extraClasses parameter to turn to a select2.
+    Multiple select that uses select2
 
     PARAMETERS:
         - $title: string - the title to show
@@ -10,7 +8,7 @@
         - $tooltip: string - the content of the tooltip
         - $value: the selected value
         - $record: the content of the selected value
-        - $extraClasses: any extra class
+        - $selectionKind: singleSelect or multiSelect
 --}}
 
 @if (!empty($label))
@@ -21,13 +19,18 @@
     @endif
 @endif
 
-<select id="{{ $name }}" name="{{ $name }}" autocomplete="{{ $name }}" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm {{$extraClasses}}">
+<select id="{{ $name }}" name="{{ $name }}[]" {{--autocomplete="{{ $name }}"--}} class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm select2-multiple {{$extraClasses}}" multiple='multiple'>
     @if(!empty($placeholder))
         <option value="" class="text-gray-500">{{$placeholder}}</option>
     @endif
     @if(!empty($records))
         @foreach ($records as $key => $record)
-            <option value="{{$record->id}}" @if(!empty($selected)) {{  $selected == $record->id ? 'selected' : '' }}@endif>{{ $record->name }}</option>
+            @isset($selected)
+                <option value="{{$record->id}}" {{ in_array($record->id, $selected) ? "selected":"" }}>{{ $record->name }}</option>
+            @else
+                <option value="{{$record->id}}">{{ $record->name }}</option>
+            @endif
+
         @endforeach
     @endif
 </select>

@@ -120,6 +120,9 @@ class EventRepository implements EventRepositoryInterface
 
         $event->save();
 
+        $event->teachers()->sync($data['teacher_ids'] ?? null);
+        $event->organizers()->sync($data['organizer_ids'] ?? null);
+
         $event->setStatus('published');
 
         return $event->fresh();
@@ -166,6 +169,9 @@ class EventRepository implements EventRepositoryInterface
         }
 
         $event->update();
+
+        $event->teachers()->sync($data['teacher_ids'] ?? null);
+        $event->organizers()->sync($data['organizer_ids'] ?? null);
 
         $status = (isset($data['status'])) ? 'published' : 'unpublished';
         if ($event->publishingStatus() != $status) {

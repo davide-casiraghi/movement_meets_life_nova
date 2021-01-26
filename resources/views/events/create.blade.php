@@ -67,24 +67,24 @@
                 <div class="mt-5 md:mt-0 md:col-span-2">
                     <div class="grid grid-cols-6 gap-6">
                         <div class="col-span-6">
-                            @include('partials.forms.select', [
+                            @include('partials.forms.select_multiple', [
                                 'label' => __('general.teachers'),
-                                'name' => 'teacher_id',
+                                'name' => 'teacher_ids',
                                 'placeholder' => __('event.select_teachers'),
                                 'records' => $teachers,
-                                'selected' => old('teacher_id'),
+                                'selected' => old('teacher_ids'),
                                 'required' => TRUE,
                                 'extraClasses' => '',
                             ])
                         </div>
 
                         <div class="col-span-6">
-                            @include('partials.forms.select', [
+                            @include('partials.forms.select_multiple', [
                                 'label' => __('general.organizers'),
-                                'name' => 'organizer_id',
+                                'name' => 'organizer_ids',
                                 'placeholder' => __('event.select_organizers'),
                                 'records' => $organizers,
-                                'selected' => old('organizer_id'),
+                                'selected' => old('organizer_ids'),
                                 'required' => TRUE,
                                 'extraClasses' => '',
                             ])
@@ -113,7 +113,7 @@
                                 'records' => $venues,
                                 'selected' => old('venue_id'),
                                 'required' => TRUE,
-                                'extraClasses' => '',
+                                'extraClasses' => 'select2',
                             ])
                         </div>
 
