@@ -19,7 +19,7 @@ class TeacherRepository implements TeacherRepositoryInterface
      */
     public function getAll(int $recordsPerPage = null, array $searchParameters = null)
     {
-        $query = Teacher::orderBy('created_at', 'desc');
+        $query = Teacher::orderBy('name', 'desc');
 
         if (!is_null($searchParameters)) {
             if (!empty($searchParameters['name'])) {

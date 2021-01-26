@@ -18,7 +18,7 @@ class OrganizerRepository implements OrganizerRepositoryInterface
      */
     public function getAll(int $recordsPerPage = null, array $searchParameters = null)
     {
-        $query = Organizer::orderBy('created_at', 'desc');
+        $query = Organizer::orderBy('name', 'desc');
 
         if (!is_null($searchParameters)) {
             if (!empty($searchParameters['name'])) {

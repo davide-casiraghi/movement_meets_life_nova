@@ -17,7 +17,7 @@ class VenueRepository implements VenueRepositoryInterface
      */
     public function getAll(int $recordsPerPage = null, array $searchParameters = null)
     {
-        $query = Venue::orderBy('created_at', 'desc');
+        $query = Venue::orderBy('name', 'desc');
 
         if (!is_null($searchParameters)) {
             if (!empty($searchParameters['name'])) {
