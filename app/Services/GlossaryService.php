@@ -102,12 +102,35 @@ class GlossaryService
 
         foreach ($glossaryTerms as $id => $glossaryTerm) {
             $text = $this->replaceGlossaryTerm($glossaryTerm, $text, $count);
-            $text = $this->attachTermDescription($glossaryTerm, $text, $count);
+
+            if (self::termIsPresent($text, $glossaryTerm->term)) {
+                $text = $this->attachTermDescription($glossaryTerm, $text);
+            }
 
             $count++;
         }
 
+        // Check which terms are present and attach just them to the page!!!
+        //$text = $this->attachTermDescription($glossaryTerm, $text, $count);
+
+
         return $text;
+    }
+
+    /**
+     * Check if the term is present in the text
+     *
+     * @param $text
+     * @param $term
+     *
+     * @return bool
+     */
+    private function termIsPresent($text, $term): bool
+    {
+        if (strpos($text, $term) !== false) {
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -125,7 +148,7 @@ class GlossaryService
         $text = preg_replace_callback(
             $pattern,
             function ($matches) use ($glossaryTerm, $count) {
-                $glossaryTermTemplate = "<a href='/glossaryTerms/".$glossaryTerm->id."' class='text-red-700 has-glossary-term' id='glossary-term-".$count."'>".$glossaryTerm->term."</a>";
+                $glossaryTermTemplate = "<a href='/glossaryTerms/".$glossaryTerm->id."' class='text-red-700 has-glossary-term glossary-term-".$glossaryTerm->id."' data-definitionId='".$glossaryTerm->id."'>".$glossaryTerm->term."</a>";
                 return $glossaryTermTemplate;
             },
             $text
@@ -143,9 +166,9 @@ class GlossaryService
      *
      * @return string
      */
-    private function attachTermDescription(Glossary $glossaryTerm, string $text, int $count): string
+    private function attachTermDescription(Glossary $glossaryTerm, string $text): string
     {
-        $termTooltipContent = "<div class='tooltip-painter' id='glossary-definition-".$count."' style='display:none'>";
+        $termTooltipContent = "<div class='tooltip-painter' id='glossary-definition-".$glossaryTerm->id."' style='display:none'>";
         $termTooltipContent .= "<div class='photo'>";
         $termTooltipContent .="<img src='https://source.unsplash.com/random/300x200' alt=''/>";
         $termTooltipContent .="</div>";
