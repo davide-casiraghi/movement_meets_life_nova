@@ -93,9 +93,11 @@ class GlossaryService
     /**
      * Finds the matches of all the words of the glossary in the specified text
      *
+     * @param string $text
+     *
      * @return string
      */
-    public function markGlossaryTerms($text)
+    public function markGlossaryTerms(string $text): string
     {
         $glossaryTerms = Glossary::currentStatus('published')->get();
         $count = 1;
@@ -169,17 +171,19 @@ class GlossaryService
      */
     private function attachTermDescription(Glossary $glossaryTerm, string $text): string
     {
-        $termTooltipContent = "<div class='tooltip-painter' id='glossary-definition-".$glossaryTerm->id."' style='display:none'>";
+        $termTooltipContent = "<div class='tooltip-painter' id='glossary-definition-" . $glossaryTerm->id . "' style='display:none'>";
         $termTooltipContent .= "<div class='photo'>";
-        $termTooltipContent .="<img src='https://source.unsplash.com/random/300x200' alt=''/>";
-        $termTooltipContent .="</div>";
+        $termTooltipContent .= "<img src='https://source.unsplash.com/random/300x200' alt=''/>";
+        $termTooltipContent .= "</div>";
         $termTooltipContent .= "<div class='content p-2 overflow-auto'>";
         $termTooltipContent .= "<div class='padder'>";
-        $termTooltipContent .= "<div class='title'>".$glossaryTerm->term."</div>";
-        $termTooltipContent .= "<div class='description overflow-auto'>";
+        $termTooltipContent .= "<div class='title font-bold'>" . ucfirst($glossaryTerm->term) . "</div>";
+        $termTooltipContent .= "<div class='description w-72 py-2'>";
         $termTooltipContent .= $glossaryTerm->definition;
         $termTooltipContent .= "<br>";
-        $termTooltipContent .= "<a href='#'>Read more</a>";
+        $termTooltipContent .= "<div class='mt-2'>";
+        $termTooltipContent .= "<a href='{{route('glossary.show',$glossaryTerm->id)}}'>Read more</a>";  // route('glossary.show',$glossaryTerm->id)
+        $termTooltipContent .= "</div>";
         $termTooltipContent .= "</div>";
         $termTooltipContent .=  "</div>";
         $termTooltipContent .=  "</div>";
