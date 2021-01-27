@@ -172,15 +172,10 @@ class GlossaryService
         $termTooltipContent .= "<div class='photo'>";
         $termTooltipContent .="<img src='https://source.unsplash.com/random/300x200' alt=''/>";
         $termTooltipContent .="</div>";
-        $termTooltipContent .= "<div class='content p-2'>";
+        $termTooltipContent .= "<div class='content p-2 overflow-auto'>";
         $termTooltipContent .= "<div class='padder'>";
         $termTooltipContent .= "<div class='title'>".$glossaryTerm->term."</div>";
-        $termTooltipContent .= "<div class='description' style='display:none'>Abbott Handerson Thayer (1849 - 1921) was an American artist, naturalist and teacher.";
-        $termTooltipContent .= "As a painter of portraits, figures, animals and landscapes, he enjoyed a certain prominence during his lifetime, ";
-        $termTooltipContent .= "and his paintings are represented in the major American art collections. He is perhaps best known for his 'angel'";
-        $termTooltipContent .= "paintings, some of which use his children as models.";
-        $termTooltipContent .= "</div>";
-        $termTooltipContent .= "<div class='description'>";
+        $termTooltipContent .= "<div class='description overflow-auto'>";
         $termTooltipContent .= $glossaryTerm->definition;
         $termTooltipContent .= "<br>";
         $termTooltipContent .= "<a href='#'>Read more</a>";

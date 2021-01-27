@@ -18,6 +18,7 @@
     var definitionId = "";
     $('.has-glossary-term').each(function (i) {
         termClass = $(this);
+        //termClass = ".has-glossary-term";
 
         definition = $(this).attr("data-definitionId")
         definitionId = "glossary-definition-"+definition;
