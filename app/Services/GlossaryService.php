@@ -142,14 +142,15 @@ class GlossaryService
      *
      * @return string
      */
-    private function replaceGlossaryTerm(Glossary $glossaryTerm, string $text, int $count): string
+    private function replaceGlossaryTerm(Glossary $glossaryTerm, string $text, int &$count): string
     {
         $pattern = "/\b$glossaryTerm->term\b/";
         $text = preg_replace_callback(
             $pattern,
             function ($matches) use ($glossaryTerm, $count) {
-                $glossaryTermTemplate = "<a href='/glossaryTerms/".$glossaryTerm->id."' class='text-red-700 has-glossary-term glossary-term-".$glossaryTerm->id."' data-definitionId='".$glossaryTerm->id."'>".$glossaryTerm->term."</a>";
+                $glossaryTermTemplate = "<a href='/glossaryTerms/".$glossaryTerm->id."' class='text-red-700 has-glossary-term glossary-term-".$count."' data-termFoundId='".$count."' data-definitionId='".$glossaryTerm->id."'>".$glossaryTerm->term."</a>";
                 return $glossaryTermTemplate;
+                $count++;
             },
             $text
         );

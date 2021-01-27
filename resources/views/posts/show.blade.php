@@ -17,11 +17,17 @@
     var termId = "";
     var definitionId = "";
     $('.has-glossary-term').each(function (i) {
-        termClass = $(this);
+        //termClass = $(this);
         //termClass = ".has-glossary-term";
 
-        definition = $(this).attr("data-definitionId")
+        termFoundId = $(this).attr("data-termFoundId");
+        termClass = ".glossary-term-"+termFoundId;
+
+
+
+        definition = $(this).attr("data-definitionId");
         definitionId = "glossary-definition-"+definition;
+
         console.log(termClass);
         Tipped.create(termClass, { //id of the element on which display the tooltip on hover
             inline: definitionId, //id of the content of the tooltip
