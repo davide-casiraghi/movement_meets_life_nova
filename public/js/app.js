@@ -118670,7 +118670,39 @@ $(document).ready(function () {
    * Example:
    * <span class="simple-tooltip" title="First tooltip">I have a tooltip</span>
    **/
-  Tipped.create('.simple-tooltip');
+  //Tipped.create('.simple-tooltip');
+
+  /**
+   * Glossary Tooltip
+   *
+   **/
+  Tipped.create('.api-example', {
+    //size: 'x-small',
+    //showOn: 'click'
+    inline: 'glossary-definition-33',
+    //id of the content of the tooltip
+    skin: 'light',
+    radius: false,
+    padding: false,
+    position: 'topleft',
+    size: 'large'
+  });
+  $('.has-glossary-term').each(function (i) {
+    var termFoundId = $(this).attr("data-termFoundId");
+    var termClass = ".glossary-term-" + termFoundId;
+    var definition = $(this).attr("data-definitionId");
+    var definitionId = "glossary-definition-" + definition;
+    Tipped.create(termClass, {
+      //id of the element on which display the tooltip on hover
+      inline: definitionId,
+      //id of the content of the tooltip
+      skin: 'light',
+      radius: false,
+      padding: false,
+      position: 'topleft',
+      size: 'large'
+    });
+  });
 });
 
 /***/ }),

@@ -1,56 +1,9 @@
 @extends('layouts.app')
 
-@section('javascript-document-ready')
-    @parent
-
-    Tipped.create('.api-example', {
-    //size: 'x-small',
-    //showOn: 'click'
-    inline: 'glossary-definition-33', //id of the content of the tooltip
-    skin: 'light',
-    radius: false,
-    padding: false,
-    position: 'topleft',
-    size: 'large'
-    });
-
-    var termId = "";
-    var definitionId = "";
-    $('.has-glossary-term').each(function (i) {
-        //termClass = $(this);
-        //termClass = ".has-glossary-term";
-
-        termFoundId = $(this).attr("data-termFoundId");
-        termClass = ".glossary-term-"+termFoundId;
-
-
-
-        definition = $(this).attr("data-definitionId");
-        definitionId = "glossary-definition-"+definition;
-
-        console.log(termClass);
-        Tipped.create(termClass, { //id of the element on which display the tooltip on hover
-            inline: definitionId, //id of the content of the tooltip
-            skin: 'light',
-            radius: false,
-            padding: false,
-            position: 'topleft',
-            size: 'large'
-        });
-
-    });
-
-
-
-    Tipped.create('#demo-html', { //id of the element  on which display the tooltip on hover
-    inline: 'thayer-tooltip-content', //id of the content of the tooltip
-    skin: 'light',
-    radius: false,
-    padding: false,
-    position: 'topleft',
-    size: 'large'
-    });
-@stop
+{{--
+    Glossary tooltips loaded in:
+    resources/js/vendors/staaky_tipped.js
+--}}
 
 @section('jumbotron')
     @if($post->hasMedia('introimage'))
