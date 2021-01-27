@@ -182,7 +182,7 @@ class GlossaryService
         $termTooltipContent .= $glossaryTerm->definition;
         $termTooltipContent .= "<br>";
         $termTooltipContent .= "<div class='mt-2'>";
-        $termTooltipContent .= "<a href='{{route('glossary.show',$glossaryTerm->id)}}'>Read more</a>";  // route('glossary.show',$glossaryTerm->id)
+        $termTooltipContent .= "<a href='" . route('glossary.show',$glossaryTerm->id) . "'>Read more</a>";  // route('glossary.show',$glossaryTerm->id)
         $termTooltipContent .= "</div>";
         $termTooltipContent .= "</div>";
         $termTooltipContent .=  "</div>";
