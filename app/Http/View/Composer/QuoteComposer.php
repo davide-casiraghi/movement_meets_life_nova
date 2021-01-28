@@ -6,7 +6,7 @@ use App\Services\QuoteService;
 
 class QuoteComposer
 {
-    private $quoteService;
+    private QuoteService $quoteService;
 
     public function __construct(
         QuoteService $quoteService

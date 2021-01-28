@@ -11,6 +11,7 @@ use App\Http\Controllers\PostCategoryController;
 use App\Http\Controllers\PostCommentController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ContactUsFormController;
+use App\Http\Controllers\QuoteController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\TeamController;
@@ -34,11 +35,10 @@ use Spatie\Honeypot\ProtectAgainstSpam;
 |
 */
 
-Route::get('/',[ HomeController::class, 'index'])->name('home');
+Route::get('/', [ HomeController::class, 'index'])->name('home');
 
 
-Route::group(['middleware' => ['auth:sanctum', 'verified']], function() {
-
+Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
     Route::name('dashboard.')->group(function () {
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('index');
     });
@@ -151,19 +151,28 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function() {
     // Posts categories
     Route::resource('postCategories', PostCategoryController::class);
 
-
-
+    // Quotes
+    Route::name('quotes.')->group(function () {
+        Route::get('/quotes', [QuoteController::class, 'index'])->name('index');
+        Route::get('/quotes/{id}/edit', [QuoteController::class, 'edit'])->name('edit');
+        Route::put('/quotes/{id}', [QuoteController::class, 'update'])->name('update');
+        Route::get('/quotes/create', [QuoteController::class, 'create'])->name('create');
+        Route::post('/quotes', [QuoteController::class, 'store'])->name('store');
+        Route::delete('/quotes/{id}', [QuoteController::class, 'destroy'])->name('destroy');
+        Route::get('/quotes/{id}', [QuoteController::class, 'show'])->name('show');
+    });
 });
 
 
 // Post Comments
 Route::name('postComments.')->group(function () {
-    Route::post('/postComment', [PostCommentController::class, 'store'])->name('store')->middleware(ProtectAgainstSpam::class);;
+    Route::post('/postComment', [PostCommentController::class, 'store'])->name('store')->middleware(ProtectAgainstSpam::class);
+    ;
 });
 
 
 //Route::get('tag/{tagId}',[ TagController::class, 'show'])->name('tags.show');
-Route::get('glossaryTerms/{glossaryTermId}',[ GlossaryController::class, 'show'])->name('glossary.show');
+Route::get('glossaryTerms/{glossaryTermId}', [ GlossaryController::class, 'show'])->name('glossary.show');
 
 // Contact form
 Route::get('/contact', [ContactUsFormController::class, 'index']);

@@ -1,13 +1,11 @@
 <?php
 
-
 namespace App\Services;
 
 use App\Http\Requests\QuoteSearchRequest;
 use App\Models\Quote;
 use App\Repositories\QuoteRepository;
 use Carbon\Carbon;
-use Illuminate\Support\Collection;
 
 class QuoteService
 {
