@@ -41,14 +41,16 @@ class Tag extends Model
     /**
      * Returns the posts for a specific tag.
      */
-    public function posts(){
+    public function posts()
+    {
         return $this->belongsToMany(Post::class);
     }
 
     /**
      * Returns the insight for a specific tag.
      */
-    public function insights(){
+    public function insights()
+    {
         return $this->belongsToMany(Insight::class);
     }
 }
