@@ -3,6 +3,8 @@
 namespace App\Repositories;
 
 use App\Models\Glossary;
+use Illuminate\Support\Facades\Config;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 class GlossaryRepository implements GlossaryRepositoryInterface
 {
@@ -85,6 +87,15 @@ class GlossaryRepository implements GlossaryRepositoryInterface
         $glossary->term = $data['term'];
         $glossary->definition = $data['definition'];
         $glossary->body = $data['body'];
+
+        // Translations
+        foreach (LaravelLocalization::getSupportedLocales() as $countryCode => $countryAvTrans) {
+            if ($countryCode != Config::get('app.fallback_locale')) {
+                $glossary->setTranslation('term', $countryCode, $data['term_' . $countryCode] ?? null);
+                $glossary->setTranslation('definition', $countryCode, $data['definition_' . $countryCode] ?? null);
+                $glossary->setTranslation('body', $countryCode, $data['body_' . $countryCode] ?? null);
+            }
+        }
 
         $glossary->update();
 

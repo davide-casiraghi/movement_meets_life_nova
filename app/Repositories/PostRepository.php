@@ -100,12 +100,12 @@ class PostRepository implements PostRepositoryInterface
         $post->publish_until = $data['publish_until'] ?? null;
 
         // Translations
-        foreach (LaravelLocalization::getSupportedLocales() as $countryCode => $countryAvTrans) {
+        /*foreach (LaravelLocalization::getSupportedLocales() as $countryCode => $countryAvTrans) {
             if ($countryCode != Config::get('app.fallback_locale')) {
                 $post->setTranslation('title', $countryCode, $data['title_' . $countryCode] ?? null);
                 $post->setTranslation('body', $countryCode, $data['body_' . $countryCode] ?? null);
             }
-        }
+        }*/
 
         $post->save();
 

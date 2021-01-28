@@ -9,10 +9,11 @@ use App\Services\GlossaryService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 class GlossaryController extends Controller
 {
-    private $glossaryService;
+    private GlossaryService $glossaryService;
 
     public function __construct(
         GlossaryService $glossaryService
@@ -92,9 +93,11 @@ class GlossaryController extends Controller
     public function edit(int $glossaryId): View
     {
         $glossary = $this->glossaryService->getById($glossaryId);
+        $countriesAvailableForTranslations = LaravelLocalization::getSupportedLocales();
 
         return view('glossaries.edit', [
             'glossary' => $glossary,
+            'countriesAvailableForTranslations' => $countriesAvailableForTranslations,
         ]);
     }
 

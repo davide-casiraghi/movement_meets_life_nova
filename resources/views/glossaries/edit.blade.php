@@ -4,7 +4,7 @@
 
     @include('partials.messages')
 
-    <form class="space-y-6" method="POST" action="{{ route('glossaries.update',$glossary->id) }}" enctype="multipart/form-data">
+    <form class="space-y-6" method="POST" action="{{ route('glossaries.update',$glossary->id) }}" enctype="multipart/form-data" x-data="{translationActive: '{{Config::get('app.fallback_locale')}}'}">
         <div class="bg-white shadow px-4 py-5 sm:rounded-lg sm:p-6">
           <div class="md:grid md:grid-cols-3 md:gap-6">
             <div class="md:col-span-1">
@@ -15,74 +15,133 @@
                 </p>
               --}}
 
+                {{-- Translations tabs - Buttons --}}
+                <div class="mt-4">
+                    @include('partials.forms.languageTabs',[
+                        'countriesAvailableForTranslations' => $countriesAvailableForTranslations
+                    ])
+                </div>
+
             </div>
             <div class="mt-5 md:mt-0 md:col-span-2">
                 @csrf
                 @method('PUT')
 
-                <div class="grid grid-cols-6 gap-6">
-                    <div class="col-span-6">
-                        @include('partials.forms.input', [
-                                'label' => __('views.term'),
-                                'name' => 'term',
-                                'placeholder' => 'Glossary term',
-                                'value' => old('term', $glossary->term),
-                                'required' => true,
-                                'disabled' => false,
-                        ])
-                    </div>
-
-                    <div class="col-span-6">
-                        @include('partials.forms.textarea', [
-                                'label' => __('views.definition'),
-                                'name' => 'definition',
-                                'placeholder' => '',
-                                'value' => old('definition', $glossary->definition),
-                                'required' => false,
-                                'disabled' => false,
-                                'style' => 'plain',
-                                'extraDescription' => 'Anything to show jumbo style before the content',
+                {{-- Translations tabs - Default Contents --}}
+                <div class="translation en" x-show.transition.in="translationActive === '{{Config::get('app.fallback_locale')}}'">
+                    <div class="grid grid-cols-6 gap-6">
+                        <div class="col-span-6">
+                            @include('partials.forms.input', [
+                                    'label' => __('views.term'),
+                                    'name' => 'term',
+                                    'placeholder' => 'Glossary term',
+                                    'value' => old('term', $glossary->term),
+                                    'required' => true,
+                                    'disabled' => false,
                             ])
-                    </div>
+                        </div>
 
-                    <div class="col-span-6">
-                        @include('partials.forms.textarea', [
-                               'label' => __('views.body'),
-                               'name' => 'body',
-                               'placeholder' => '',
-                               'value' => old('body', $glossary->body),
-                               'required' => false,
-                               'disabled' => false,
-                               'style' => 'tinymce',
-                               'extraDescription' => 'Anything to show jumbo style after the content',
-                           ])
-                    </div>
+                        <div class="col-span-6">
+                            @include('partials.forms.textarea', [
+                                    'label' => __('views.definition'),
+                                    'name' => 'definition',
+                                    'placeholder' => '',
+                                    'value' => old('definition', $glossary->definition),
+                                    'required' => false,
+                                    'disabled' => false,
+                                    'style' => 'plain',
+                                    'extraDescription' => 'Anything to show jumbo style before the content',
+                                ])
+                        </div>
 
-                    <div class="col-span-6">
-                        @include('partials.forms.uploadImage', [
-                                  'label' => __('views.intro_image'),
-                                  'name' => 'introimage',
-                                  //'value' => $glossary->introimage,
-                                  'required' => false,
-                                  'collection' => 'introimage',
-                                  'entity' => $glossary,
-                              ])
-                    </div>
+                        <div class="col-span-6">
+                            @include('partials.forms.textarea', [
+                                   'label' => __('views.body'),
+                                   'name' => 'body',
+                                   'placeholder' => '',
+                                   'value' => old('body', $glossary->body),
+                                   'required' => false,
+                                   'disabled' => false,
+                                   'style' => 'tinymce',
+                                   'extraDescription' => 'Anything to show jumbo style after the content',
+                               ])
+                        </div>
 
-                    <div class="col-span-6">
-                        @php
-                            $checked = ($glossary->isPublished()) ? "checked" : "";
-                        @endphp
-                        @include('partials.forms.checkbox', [
-                            'label' => __('views.published'),
-                            'id'  => 'status',
-                            'name' => 'status',
-                            'size' => 'small',
-                            'required' => false,
-                            'checked' => $checked,
-                        ])
+                        <div class="col-span-6">
+                            @include('partials.forms.uploadImage', [
+                                      'label' => __('views.intro_image'),
+                                      'name' => 'introimage',
+                                      //'value' => $glossary->introimage,
+                                      'required' => false,
+                                      'collection' => 'introimage',
+                                      'entity' => $glossary,
+                                  ])
+                        </div>
+
+                        <div class="col-span-6">
+                            @php
+                                $checked = ($glossary->isPublished()) ? "checked" : "";
+                            @endphp
+                            @include('partials.forms.checkbox', [
+                                'label' => __('views.published'),
+                                'id'  => 'status',
+                                'name' => 'status',
+                                'size' => 'small',
+                                'required' => false,
+                                'checked' => $checked,
+                            ])
+                        </div>
                     </div>
                 </div>
+
+                {{-- Translations tabs - Contents translated other languages --}}
+                @foreach ($countriesAvailableForTranslations as $countryCode => $countryAvTrans)
+                    @if($countryCode != Config::get('app.fallback_locale'))
+                        <div class="translation {{$countryCode}}" x-show.transition.in="translationActive === '{{$countryCode}}'">
+                            <div class="grid grid-cols-6 gap-6">
+
+                                <div class="col-span-6">
+                                    @include('partials.forms.input', [
+                                            'label' => __('views.term'),
+                                            'name' => 'term_'.$countryCode,
+                                            'placeholder' => 'Glossary term',
+                                            'value' => old('term_'.$countryCode, $glossary->getTranslation('term', $countryCode)),
+                                            'required' => true,
+                                            'disabled' => false,
+                                    ])
+                                </div>
+
+                                <div class="col-span-6">
+                                    @include('partials.forms.textarea', [
+                                           'label' => __('views.definition'),
+                                           'name' => 'definition_'.$countryCode,
+                                           'placeholder' => '',
+                                           'value' => old('definition_'.$countryCode, $glossary->getTranslation('definition', $countryCode)), //, $post->body
+                                           'required' => false,
+                                           'disabled' => false,
+                                           'style' => 'plain',
+                                           'extraDescription' => 'Anything to show jumbo style after the content',
+                                       ])
+                                </div>
+
+                                <div class="col-span-6">
+                                    @include('partials.forms.textarea', [
+                                           'label' => __('views.body'),
+                                           'name' => 'body_'.$countryCode,
+                                           'placeholder' => '',
+                                           'value' => old('body_'.$countryCode, $glossary->getTranslation('body', $countryCode)), //, $post->body
+                                           'required' => false,
+                                           'disabled' => false,
+                                           'style' => 'tinymce',
+                                           'extraDescription' => 'Anything to show jumbo style after the content',
+                                       ])
+                                </div>
+                            </div>
+                        </div>
+                    @endif
+                @endforeach
+
+
             </div>
           </div>
         </div>

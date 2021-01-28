@@ -136,7 +136,7 @@
                                             'label' => __('views.title'),
                                             'name' => 'title_'.$countryCode,
                                             'placeholder' => 'Post title',
-                                            'value' => old('title'.$countryCode, $post->getTranslation('title', $countryCode)),
+                                            'value' => old('title_'.$countryCode, $post->getTranslation('title', $countryCode)),
                                             'required' => true,
                                             'disabled' => false,
                                     ])
@@ -147,7 +147,7 @@
                                            'label' => __('views.text'),
                                            'name' => 'body_'.$countryCode,
                                            'placeholder' => '',
-                                           'value' => old('body'.$countryCode, $post->getTranslation('body', $countryCode)), //, $post->body
+                                           'value' => old('body_'.$countryCode, $post->getTranslation('body', $countryCode)), //, $post->body
                                            'required' => false,
                                            'disabled' => false,
                                            'style' => 'tinymce',
