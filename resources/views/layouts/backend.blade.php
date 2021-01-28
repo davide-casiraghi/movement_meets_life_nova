@@ -44,7 +44,7 @@
                                 @yield('subTitle')
                             </div>
                         </div>
-                        <div class="md:col-span-3">
+                        <div class="md:col-span-3 mt-5 md:mt-0">
                             <div class="float-right">
                                 @yield('buttons')
                             </div>
