@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\TagSearchRequest;
 use App\Http\Requests\TagStoreRequest;
 use App\Models\Tag;
 use App\Services\TagService;
@@ -10,20 +11,27 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 class TagController extends Controller
 {
-    private $tagService;
+    private TagService $tagService;
 
     public function __construct(
         TagService $tagService
-    )
-    {
+    ) {
         $this->tagService = $tagService;
     }
 
-    public function show($tagId){
+    /**
+     * Display the resource.
+     *
+     * @param int $tagId
+     *
+     * @return \Illuminate\Contracts\View\View
+     */
+    public function show(int $tagId)
+    {
         $tag = Tag::find($tagId);
         $posts = $tag->posts()->get();
 
-        return view('tags.show',[
+        return view('tags.show', [
             'tag' => $tag,
             'posts' => $posts,
         ]);
@@ -32,14 +40,18 @@ class TagController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param \App\Http\Requests\TagSearchRequest $request
+     *
      * @return \Illuminate\Contracts\View\View
      */
-    public function index()
+    public function index(TagSearchRequest $request)
     {
-        $tags = $this->tagService->getTags();
+        $searchParameters = $this->tagService->getSearchParameters($request);
+        $tags = $this->tagService->getTags(20, $searchParameters);
 
         return view('tags.index', [
             'tags' => $tags,
+            'searchParameters' => $searchParameters,
         ]);
     }
 
@@ -65,7 +77,7 @@ class TagController extends Controller
         $this->tagService->createTag($request);
 
         return redirect()->route('tags.index')
-            ->with('success','Tag created successfully');
+            ->with('success', 'Tag created successfully');
     }
 
     /**
@@ -99,7 +111,7 @@ class TagController extends Controller
         $this->tagService->updateTag($request, $tagId);
 
         return redirect()->route('tags.index')
-            ->with('success','Tag updated successfully');
+            ->with('success', 'Tag updated successfully');
     }
 
     /**
@@ -114,6 +126,6 @@ class TagController extends Controller
         $this->tagService->deleteTag($tagId);
 
         return redirect()->route('tags.index')
-            ->with('success','Tag deleted successfully');
+            ->with('success', 'Tag deleted successfully');
     }
 }

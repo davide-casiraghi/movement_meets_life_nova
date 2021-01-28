@@ -10,9 +10,15 @@ interface QuoteRepositoryInterface
     /**
      * Get all Quote terms.
      *
+     * @param int|null $recordsPerPage
+     * @param array|null $searchParameters
+     *
      * @return iterable
      */
-    public function getAll(): Quote;
+    public function getAll(
+        int $recordsPerPage = null,
+        array $searchParameters = null
+    );
 
     /**
      * Get Quote term by id

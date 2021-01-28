@@ -10,11 +10,42 @@ class QuoteRepository implements QuoteRepositoryInterface
     /**
      * Get all Quote terms.
      *
-     * @return iterable
+     * @param int|null $recordsPerPage
+     * @param array|null $searchParameters
+     *
+     * @return \Illuminate\Support\Collection|\Illuminate\Contracts\Pagination\LengthAwarePaginator
      */
-    public function getAll(): Quote
+    public function getAll(int $recordsPerPage = null, array $searchParameters = null)
     {
-        return Quote::all();
+        $query = Quote::orderBy('created_at', 'desc');
+
+        if (!is_null($searchParameters)) {
+            if (!empty($searchParameters['author'])) {
+                $query->where(
+                    'author',
+                    'like',
+                    '%' . $searchParameters['author'] . '%'
+                );
+            }
+            if (!empty($searchParameters['description'])) {
+                $query->where(
+                    'description',
+                    'like',
+                    '%' . $searchParameters['description'] . '%'
+                );
+            }
+            if (!empty($searchParameters['status'])) {
+                $query->currentStatus($searchParameters['status']);
+            }
+        }
+
+        if ($recordsPerPage) {
+            $results = $query->paginate($recordsPerPage);
+        } else {
+            $results = $query->get();
+        }
+
+        return $results;
     }
 
     /**

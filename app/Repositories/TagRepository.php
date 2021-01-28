@@ -3,19 +3,42 @@
 namespace App\Repositories;
 
 use App\Models\Tag;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Config;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
-class TagRepository implements TagRepositoryInterface {
+class TagRepository implements TagRepositoryInterface
+{
 
     /**
      * Get all Tags.
      *
-     * @return \Illuminate\Database\Eloquent\Collection
+     * @param int|null $recordsPerPage
+     * @param array|null $searchParameters
+     *
+     * @return \Illuminate\Support\Collection|\Illuminate\Contracts\Pagination\LengthAwarePaginator
      */
-    public function getAll()
+    public function getAll(int $recordsPerPage = null, array $searchParameters = null)
     {
-        return Tag::all();
+        $query = Tag::orderBy('tag', 'asc');
+
+        if (!is_null($searchParameters)) {
+            if (!empty($searchParameters['tag'])) {
+                $query->where(
+                    'tag',
+                    'like',
+                    '%' . $searchParameters['tag'] . '%'
+                );
+            }
+        }
+
+        if ($recordsPerPage) {
+            $results = $query->paginate($recordsPerPage);
+        } else {
+            $results = $query->get();
+        }
+
+        return $results;
     }
 
     /**

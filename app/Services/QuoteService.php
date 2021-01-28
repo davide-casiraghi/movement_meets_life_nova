@@ -3,9 +3,26 @@
 
 namespace App\Services;
 
+use App\Http\Requests\QuoteSearchRequest;
 use App\Models\Quote;
+use App\Repositories\QuoteRepository;
+use Carbon\Carbon;
+use Illuminate\Support\Collection;
 
-class QuoteService {
+class QuoteService
+{
+    private QuoteRepository $quoteRepository;
+
+    /**
+     * QuoteService constructor.
+     *
+     * @param \App\Repositories\QuoteRepository $quoteRepository
+     */
+    public function __construct(
+        QuoteRepository $quoteRepository
+    ) {
+        $this->quoteRepository = $quoteRepository;
+    }
 
     /**
      * Return the team from the database
@@ -20,50 +37,69 @@ class QuoteService {
     }
 
     /**
-     * Get all teams.
+     * Get all the quotes
      *
-     * @return iterable
+     * @param int|null $recordsPerPage
+     * @param array|null $searchParameters
+     *
+     * @return \Illuminate\Database\Eloquent\Collection|\Illuminate\Contracts\Pagination\LengthAwarePaginator
      */
-    public function getAll()
+    public function getQuotes(int $recordsPerPage = null, array $searchParameters = null)
     {
-        return $roles = Quote::all();
+        return $this->quoteRepository->getAll($recordsPerPage, $searchParameters);
     }
 
     /**
-     * Return a random quote
+     * Delete the quote from the database
+     *
+     * @param int $quoteId
+     */
+    public function deleteQuote(int $quoteId): void
+    {
+        $this->quoteRepository->delete($quoteId);
+    }
+
+    /**
+     * Get the quote search parameters
+     *
+     * @param \App\Http\Requests\QuoteSearchRequest $request
+     *
+     * @return array
+     */
+    public function getSearchParameters(QuoteSearchRequest $request): array
+    {
+        $searchParameters = [];
+        $searchParameters['author'] = $request->author ?? null;
+        $searchParameters['description'] = $request->description ?? null;
+
+        return $searchParameters;
+    }
+
+    /**
+     *  Return a quote.
+     *  And set the quote to shown, so it will not be show it again in the
+     *  next days until all the others has been shown.
      *
      * @return \App\Models\Quote
      */
-    public function getRandomQuote()
+    public function getRandomQuote(): ?Quote
     {
+        $today = Carbon::today();
 
-        // Use the day of the year to get a daily changing
-        // quote changing (z = 0 till 365)
-        $DayOfTheYear = date('z');
+        $quote = Quote::where('shown', 0)
+            ->orWhere('shown_on', $today)
+            ->first();
 
-        $quotes = Quote::all();
-        return $this->randomQuoteByInterval($DayOfTheYear, $quotes);
+        $quote->shown = 1;
+        $quote->shown_on = $today;
+        $quote->save();
 
-    }
-
-    function randomQuoteByInterval($TimeBase, $QuotesArray)
-    {
-
-        // Make sure it is a integer
-        $TimeBase = intval($TimeBase);
-
-        // How many items are in the array?
-        $ItemCount = count($QuotesArray);
-
-        // By using the modulus operator we get a pseudo
-        // random index position that is between zero and the
-        // maximal value (ItemCount)
-        if($ItemCount > 0){
-            $RandomIndexPos = ($TimeBase % $ItemCount);
-            // Now return the random array element
-            return $QuotesArray[$RandomIndexPos];
+        // Reset the quotes shown when all the quotes has already been shown
+        if ($quote == null) {
+            Quote::update(['shown' => 0]);
+            $quote = Quote::where('shown', 0)->first();
         }
-        return null;
-    }
 
+        return $quote;
+    }
 }

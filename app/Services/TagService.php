@@ -2,11 +2,13 @@
 
 namespace App\Services;
 
+use App\Http\Requests\TagSearchRequest;
 use App\Http\Requests\TagStoreRequest;
+use App\Models\Tag;
 use App\Repositories\TagRepository;
 
-class TagService {
-
+class TagService
+{
     private TagRepository $tagRepository;
 
     /**
@@ -21,13 +23,13 @@ class TagService {
     }
 
     /**
-     * Create a gender
+     * Create a tag
      *
      * @param \App\Http\Requests\TagStoreRequest $data
      *
      * @return \App\Models\Tag
      */
-    public function createTag(TagStoreRequest $data)
+    public function createTag(TagStoreRequest $data): Tag
     {
         $tag = $this->tagRepository->store($data);
 
@@ -35,14 +37,14 @@ class TagService {
     }
 
     /**
-     * Update the gender
+     * Update the tag
      *
      * @param \App\Http\Requests\TagStoreRequest $data
      * @param int $tagId
      *
      * @return \App\Models\Tag
      */
-    public function updateTag(TagStoreRequest $data, int $tagId)
+    public function updateTag(TagStoreRequest $data, int $tagId): Tag
     {
         $tag = $this->tagRepository->update($data, $tagId);
 
@@ -50,29 +52,32 @@ class TagService {
     }
 
     /**
-     * Return the gender from the database
+     * Return the tag from the database
      *
      * @param int $tagId
      *
      * @return \App\Models\Tag
      */
-    public function getById(int $tagId)
+    public function getById(int $tagId): Tag
     {
         return $this->tagRepository->getById($tagId);
     }
 
     /**
-     * Get all the genders
+     * Get all the tags
      *
-     * @return iterable
+     * @param int|null $recordsPerPage
+     * @param array|null $searchParameters
+     *
+     * @return \Illuminate\Database\Eloquent\Collection|\Illuminate\Contracts\Pagination\LengthAwarePaginator
      */
-    public function getTags()
+    public function getTags(int $recordsPerPage = null, array $searchParameters = null)
     {
-        return $this->tagRepository->getAll();
+        return $this->tagRepository->getAll($recordsPerPage, $searchParameters);
     }
 
     /**
-     * Delete the gender from the database
+     * Delete the tag from the database
      *
      * @param int $tagId
      */
@@ -81,4 +86,18 @@ class TagService {
         $this->tagRepository->delete($tagId);
     }
 
+    /**
+     * Get the post search parameters
+     *
+     * @param \App\Http\Requests\TagSearchRequest $request
+     *
+     * @return array
+     */
+    public function getSearchParameters(TagSearchRequest $request): array
+    {
+        $searchParameters = [];
+        $searchParameters['tag'] = $request->tag ?? null;
+
+        return $searchParameters;
+    }
 }
