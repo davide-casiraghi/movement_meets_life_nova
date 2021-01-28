@@ -4,7 +4,8 @@ namespace App\Http\View\Composer;
 use Illuminate\View\View;
 use App\Services\QuoteService;
 
-class QuoteComposer {
+class QuoteComposer
+{
     private $quoteService;
 
     public function __construct(
@@ -21,6 +22,6 @@ class QuoteComposer {
      */
     public function compose(View $view)
     {
-        $view->with('quote', $this->quoteService->getRandomQuote());
+        $view->with('quote', $this->quoteService->getQuoteOfTheDay());
     }
 }

@@ -76,13 +76,13 @@ class QuoteService
     }
 
     /**
-     *  Return a quote.
+     *  Return the quote of the day.
      *  And set the quote to shown, so it will not be show it again in the
      *  next days until all the others has been shown.
      *
      * @return \App\Models\Quote
      */
-    public function getRandomQuote(): ?Quote
+    public function getQuoteOfTheDay(): ?Quote
     {
         $today = Carbon::today();
 
