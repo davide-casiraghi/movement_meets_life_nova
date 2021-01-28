@@ -6,6 +6,7 @@ use App\Http\Requests\TagStoreRequest;
 use App\Models\Tag;
 use App\Services\TagService;
 use Illuminate\Http\Request;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 class TagController extends Controller
 {
@@ -77,9 +78,11 @@ class TagController extends Controller
     public function edit(int $tagId)
     {
         $tag = $this->tagService->getById($tagId);
+        $countriesAvailableForTranslations = LaravelLocalization::getSupportedLocales();
 
         return view('tags.edit', [
             'tag' => $tag,
+            'countriesAvailableForTranslations' => $countriesAvailableForTranslations,
         ]);
     }
 

@@ -3,13 +3,15 @@
 namespace App\Repositories;
 
 use App\Models\Tag;
+use Illuminate\Support\Facades\Config;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 class TagRepository implements TagRepositoryInterface {
 
     /**
      * Get all Tags.
      *
-     * @return iterable
+     * @return \Illuminate\Database\Eloquent\Collection
      */
     public function getAll()
     {
@@ -22,7 +24,7 @@ class TagRepository implements TagRepositoryInterface {
      * @param int $id
      * @return Tag
      */
-    public function getById(int $id)
+    public function getById(int $id): Tag
     {
         return Tag::findOrFail($id);
     }
@@ -33,7 +35,7 @@ class TagRepository implements TagRepositoryInterface {
      * @param $data
      * @return Tag
      */
-    public function store($data)
+    public function store($data): Tag
     {
         $tag = new Tag();
         $tag->tag = $data['tag'];
@@ -50,10 +52,17 @@ class TagRepository implements TagRepositoryInterface {
      * @param int $id
      * @return Tag
      */
-    public function update($data, int $id)
+    public function update($data, int $id): Tag
     {
         $tag = $this->getById($id);
         $tag->tag = $data['tag'];
+
+        // Translations
+        foreach (LaravelLocalization::getSupportedLocales() as $countryCode => $countryAvTrans) {
+            if ($countryCode != Config::get('app.fallback_locale')) {
+                $tag->setTranslation('tag', $countryCode, $data['tag_' . $countryCode] ?? null);
+            }
+        }
 
         $tag->update();
 
@@ -66,7 +75,7 @@ class TagRepository implements TagRepositoryInterface {
      * @param int $id
      * @return void
      */
-    public function delete(int $id)
+    public function delete(int $id): void
     {
         Tag::destroy($id);
     }

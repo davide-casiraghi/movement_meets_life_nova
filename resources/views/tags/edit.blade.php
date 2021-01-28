@@ -3,7 +3,7 @@
 @section('content')
 
     @include('partials.messages')
-    <form class="space-y-6" method="POST" action="{{ route('tags.update',$tag->id) }}">
+    <form class="space-y-6" method="POST" action="{{ route('tags.update',$tag->id) }}" x-data="{translationActive: '{{Config::get('app.fallback_locale')}}'}">
         <div class="bg-white shadow px-4 py-5 sm:rounded-lg sm:p-6">
           <div class="md:grid md:grid-cols-3 md:gap-6">
             <div class="md:col-span-1">
@@ -14,24 +14,54 @@
                 </p>
               --}}
 
+                {{-- Translations tabs - Buttons --}}
+                <div class="mt-4">
+                    @include('partials.forms.languageTabs',[
+                        'countriesAvailableForTranslations' => $countriesAvailableForTranslations
+                    ])
+                </div>
+
             </div>
             <div class="mt-5 md:mt-0 md:col-span-2">
                 @csrf
                 @method('PUT')
 
-                <div class="grid grid-cols-6 gap-6">
-                    <div class="col-span-6">
-                        @include('partials.forms.input', [
-                                'label' => __('views.tag'),
-                                'name' => 'tag',
-                                'placeholder' => 'Tag name',
-                                'value' => old('tag', $tag->tag),
-                                'required' => true,
-                                'disabled' => false,
-                        ])
+                {{-- Translations tabs - Default Contents --}}
+                <div class="translation en" x-show.transition.in="translationActive === '{{Config::get('app.fallback_locale')}}'">
+                    <div class="grid grid-cols-6 gap-6">
+                        <div class="col-span-6">
+                            @include('partials.forms.input', [
+                                    'label' => __('views.tag'),
+                                    'name' => 'tag',
+                                    'placeholder' => 'Tag name',
+                                    'value' => old('tag', $tag->tag),
+                                    'required' => true,
+                                    'disabled' => false,
+                            ])
+                        </div>
                     </div>
-
                 </div>
+
+                {{-- Translations tabs - Contents translated other languages --}}
+                @foreach ($countriesAvailableForTranslations as $countryCode => $countryAvTrans)
+                    @if($countryCode != Config::get('app.fallback_locale'))
+                        <div class="translation {{$countryCode}}" x-show.transition.in="translationActive === '{{$countryCode}}'">
+                            <div class="grid grid-cols-6 gap-6">
+
+                                <div class="col-span-6">
+                                    @include('partials.forms.input', [
+                                            'label' => __('views.tag'),
+                                            'name' => 'tag_'.$countryCode,
+                                            'placeholder' => 'Tag name',
+                                            'value' => old('tag_'.$countryCode, $tag->getTranslation('tag', $countryCode)),
+                                            'required' => true,
+                                            'disabled' => false,
+                                    ])
+                                </div>
+                            </div>
+                        </div>
+                    @endif
+                @endforeach
             </div>
           </div>
         </div>
