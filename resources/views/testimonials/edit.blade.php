@@ -8,7 +8,7 @@
 
     @include('partials.messages')
 
-    <form class="space-y-6" method="POST" action="{{ route('testimonials.update',$testimonial->id) }}" enctype="multipart/form-data">
+    <form class="space-y-6" method="POST" action="{{ route('testimonials.update',$testimonial->id) }}" enctype="multipart/form-data" x-data="{translationActive: '{{Config::get('app.fallback_locale')}}'}">
         <div class="bg-white shadow px-4 py-5 sm:rounded-lg sm:p-6">
           <div class="md:grid md:grid-cols-3 md:gap-6">
             <div class="md:col-span-1">
@@ -19,126 +19,168 @@
                 </p>
               --}}
 
+                {{-- Translations tabs - Buttons --}}
+                <div class="mt-4">
+                    @include('partials.forms.languageTabs',[
+                        'countriesAvailableForTranslations' => $countriesAvailableForTranslations
+                    ])
+                </div>
+
             </div>
             <div class="mt-5 md:mt-0 md:col-span-2">
                 @csrf
                 @method('PUT')
 
-                <div class="grid grid-cols-6 gap-6">
-                    <div class="col-span-6">
-                        @include('partials.forms.input', [
-                                'label' => __('general.name'),
-                                'name' => 'name',
-                                'placeholder' => '',
-                                'value' => old('name', $testimonial->name),
-                                'required' => true,
-                                'disabled' => false,
-                        ])
-                    </div>
-
-                    <div class="col-span-6">
-                        @include('partials.forms.input', [
-                                'label' => __('general.surname'),
-                                'name' => 'surname',
-                                'placeholder' => '',
-                                'value' => old('surname', $testimonial->surname),
-                                'required' => false,
-                                'disabled' => false,
-                        ])
-                    </div>
-
-                    <div class="col-span-6">
-                        @include('partials.forms.select', [
-                            'label' => __('general.country'),
-                            'name' => 'country_id',
-                            'placeholder' => '',
-                            'records' => $countries,
-                            'selected' => $testimonial->country_id,
-                            'required' => true,
-                            'extraClasses' => 'select2',
-                        ])
-                    </div>
-
-                    <div class="col-span-6">
-                        @include('partials.forms.textarea', [
-                               'label' => __('testimonial.bio'),
-                               'name' => 'bio',
-                               'placeholder' => '',
-                               'value' => old('bio', $testimonial->bio),
-                               'required' => false,
-                               'disabled' => false,
-                               'style' => 'tinymce',
-                               'extraDescription' => 'Anything to show jumbo style after the content',
-                           ])
-                    </div>
-
-                    <div class="col-span-6">
-                        @include('partials.forms.input', [
-                                'label' => __('testimonial.year_of_starting_to_practice'),
-                                'name' => 'year_starting_practice',
-                                'placeholder' => '',
-                                'value' => old('year_starting_practice', $testimonial->year_starting_practice),
-                                'required' => false,
-                                'disabled' => false,
-                        ])
-                    </div>
-
-                    <div class="col-span-6">
-                        @include('partials.forms.input', [
-                                'label' => __('testimonial.year_of_starting_to_teach'),
-                                'name' => 'year_starting_teach',
-                                'placeholder' => '',
-                                'value' => old('year_starting_teach', $testimonial->year_starting_teach),
-                                'required' => false,
-                                'disabled' => false,
-                        ])
-                    </div>
-
-                    <div class="col-span-6">
-                        @include('partials.forms.textarea', [
-                                'label' => __('testimonial.significant_testimonials'),
-                                'name' => 'significant_testimonials',
-                                'placeholder' => '',
-                                'value' => old('significant_testimonials', $testimonial->significant_testimonials),
-                                'required' => false,
-                                'disabled' => false,
-                                'style' => 'plain',
-                                'extraDescription' => 'Anything to show jumbo style after the content',
+                {{-- Translations tabs - Default Contents --}}
+                <div class="translation en" x-show.transition.in="translationActive === '{{Config::get('app.fallback_locale')}}'">
+                    <div class="grid grid-cols-6 gap-6">
+                        <div class="col-span-6">
+                            @include('partials.forms.input', [
+                                    'label' => __('general.name'),
+                                    'name' => 'name',
+                                    'placeholder' => '',
+                                    'value' => old('name', $testimonial->name),
+                                    'required' => true,
+                                    'disabled' => false,
                             ])
-                    </div>
+                        </div>
 
-                    <div class="col-span-6">
-                        @include('partials.forms.input', [
-                                'label' => __('general.website'),
-                                'name' => 'website',
+                        <div class="col-span-6">
+                            @include('partials.forms.input', [
+                                    'label' => __('general.surname'),
+                                    'name' => 'surname',
+                                    'placeholder' => '',
+                                    'value' => old('surname', $testimonial->surname),
+                                    'required' => false,
+                                    'disabled' => false,
+                            ])
+                        </div>
+
+                        <div class="col-span-6">
+                            @include('partials.forms.select', [
+                                'label' => __('general.country'),
+                                'name' => 'country_id',
                                 'placeholder' => '',
-                                'value' => old('website', $testimonial->website),
-                                'required' => false,
-                                'disabled' => false,
-                        ])
-                    </div>
+                                'records' => $countries,
+                                'selected' => $testimonial->country_id,
+                                'required' => true,
+                                'extraClasses' => 'select2',
+                            ])
+                        </div>
 
-                    <div class="col-span-6">
-                        @include('partials.forms.input', [
-                                'label' => __('testimonial.facebook_profile'),
-                                'name' => 'facebook',
-                                'placeholder' => '',
-                                'value' => old('facebook', $testimonial->facebook),
-                                'required' => false,
-                                'disabled' => false,
-                        ])
-                    </div>
+                        <div class="col-span-6">
+                            @include('partials.forms.textarea', [
+                                   'label' => __('views.profession'),
+                                   'name' => 'profession',
+                                   'placeholder' => '',
+                                   'value' => old('profession', $testimonial->profession),
+                                   'required' => false,
+                                   'disabled' => false,
+                                   'style' => 'plain',
+                                   'extraDescription' => '',
+                               ])
+                        </div>
 
-                    <div class="col-span-6">
-                        @include('partials.forms.uploadImage', [
-                                  'label' => __('testimonial.upload_profile_picture'),
-                                  'name' => 'profile_picture',
-                                  'required' => false,
-                                  'collection' => 'profile_picture',
-                                  'entity' => $testimonial,
-                              ])
+                        <div class="col-span-6">
+                            @include('partials.forms.textarea', [
+                                   'label' => __('views.feedback'),
+                                   'name' => 'feedback',
+                                   'placeholder' => '',
+                                   'value' => old('feedback', $testimonial->feedback),
+                                   'required' => false,
+                                   'disabled' => false,
+                                   'style' => 'plain',
+                                   'extraDescription' => '',
+                               ])
+                        </div>
+
+                        <div class="col-span-6">
+                            @include('partials.forms.uploadImage', [
+                                      'label' => __('views.upload_profile_picture'),
+                                      'name' => 'profile_picture',
+                                      'required' => false,
+                                      'collection' => 'profile_picture',
+                                      'entity' => $testimonial,
+                                  ])
+                        </div>
+
+                        <div class="col-span-6">
+                            @php
+                                $checked = old('personal_data_agreement') ? "checked" : "";
+                            @endphp
+                            @include('partials.forms.checkbox', [
+                                'label' => __('views.personal_data_agreement'),
+                                'id'  => 'personal_data_agreement',
+                                'name' => 'personal_data_agreement',
+                                'size' => 'small',
+                                'required' => false,
+                                'checked' => $checked,
+                            ])
+                        </div>
+
+                        <div class="col-span-6">
+                            @php
+                                $checked = old('publish_agreement') ? "checked" : "";
+                            @endphp
+                            @include('partials.forms.checkbox', [
+                                'label' => __('views.publish_agreement'),
+                                'id'  => 'publish_agreement',
+                                'name' => 'publish_agreement',
+                                'size' => 'small',
+                                'required' => false,
+                                'checked' => $checked,
+                            ])
+                        </div>
+
+                        <div class="col-span-6">
+                            @php
+                                $checked = ($testimonial->isPublished()) ? "checked" : "";
+                            @endphp
+                            @include('partials.forms.checkbox', [
+                                'label' => __('views.published'),
+                                'id'  => 'status',
+                                'name' => 'status',
+                                'size' => 'small',
+                                'required' => false,
+                                'checked' => $checked,
+                            ])
+                        </div>
                     </div>
                 </div>
+
+                {{-- Translations tabs - Contents translated other languages --}}
+                @foreach ($countriesAvailableForTranslations as $countryCode => $countryAvTrans)
+                    @if($countryCode != Config::get('app.fallback_locale'))
+                        <div class="translation {{$countryCode}}" x-show.transition.in="translationActive === '{{$countryCode}}'">
+                            <div class="grid grid-cols-6 gap-6">
+
+                                <div class="col-span-6">
+                                    @include('partials.forms.input', [
+                                            'label' => __('views.profession'),
+                                            'name' => 'profession_'.$countryCode,
+                                            'placeholder' => 'profession',
+                                            'value' => old('profession_'.$countryCode, $testimonial->getTranslation('profession', $countryCode)),
+                                            'required' => true,
+                                            'disabled' => false,
+                                    ])
+                                </div>
+
+                                <div class="col-span-6">
+                                    @include('partials.forms.textarea', [
+                                           'label' => __('views.feedback'),
+                                           'name' => 'feedback_'.$countryCode,
+                                           'placeholder' => '',
+                                           'value' => old('feedback_'.$countryCode, $testimonial->getTranslation('feedback', $countryCode)),
+                                           'required' => false,
+                                           'disabled' => false,
+                                           'style' => 'plain',
+                                           'extraDescription' => '',
+                                       ])
+                                </div>
+                            </div>
+                        </div>
+                    @endif
+                @endforeach
             </div>
           </div>
         </div>

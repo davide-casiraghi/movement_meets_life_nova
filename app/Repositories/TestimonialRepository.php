@@ -126,6 +126,11 @@ class TestimonialRepository implements TestimonialRepositoryInterface
 
         $testimonial->update();
 
+        $status = (isset($data['status'])) ? 'published' : 'unpublished';
+        if ($testimonial->publishingStatus() != $status) {
+            $testimonial->setStatus($status);
+        }
+
         return $testimonial;
     }
 
