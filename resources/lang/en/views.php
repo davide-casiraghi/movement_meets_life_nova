@@ -112,6 +112,7 @@ return [
     'post_management' => 'Posts management',
     'glossary_management' => 'Glossaries management',
     'tag_management' => 'Tags management',
+    'quote_management' => 'Quotes management',
     'category_management' => 'Posts category management',
     'events_management' => 'Events management',
     'events_category_management' => 'Events category management',
@@ -177,4 +178,5 @@ return [
     'term' => 'Term',
     'definition' => 'Definition',
     'body' => 'Body',
+    'author' => 'Author',
 ];

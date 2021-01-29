@@ -25,13 +25,13 @@ class QuoteService
     /**
      * Return the team from the database
      *
-     * @param $quoteId
+     * @param int $quoteId
      *
      * @return \App\Models\Quote
      */
-    public function getById($quoteId)
+    public function getById(int $quoteId): Quote
     {
-        return Quote::findById($quoteId);
+        return $this->quoteRepository->getById($quoteId);
     }
 
     /**
@@ -45,6 +45,35 @@ class QuoteService
     public function getQuotes(int $recordsPerPage = null, array $searchParameters = null)
     {
         return $this->quoteRepository->getAll($recordsPerPage, $searchParameters);
+    }
+
+    /**
+     * Create a quote
+     *
+     * @param array $data
+     *
+     * @return \App\Models\Quote
+     */
+    public function createQuote(array $data): Quote
+    {
+        $quote = $this->quoteRepository->store($data);
+
+        return $quote;
+    }
+
+    /**
+     * Update the Quote
+     *
+     * @param array $data
+     * @param int $quoteId
+     *
+     * @return \App\Models\Quote
+     */
+    public function updateQuote(array $data, int $quoteId): Quote
+    {
+        $quote = $this->quoteRepository->update($data, $quoteId);
+
+        return $quote;
     }
 
     /**

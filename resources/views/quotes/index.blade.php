@@ -1,14 +1,14 @@
 @extends('layouts.backend')
 
 @section('title')
-    @lang('views.tag_management')
+    @lang('views.quote_management')
 @endsection
 
 @section('buttons')
 
     @include('partials.forms.button',[
-        'title' => 'Add tag',
-        'url' => route('tags.create'),
+        'title' => 'Add quote',
+        'url' => route('quotes.create'),
         'color' => 'indigo',
         'icon' => '',
         'size' => 1,
@@ -21,7 +21,7 @@
 
 @section('content')
 
-    {{--@include('partials.quotes.searchBar')--}}
+    @include('partials.quotes.searchBar')
 
     {{-- Tailwind Component: https://tailwindui.com/components/application-ui/lists/stacked-lists--}}
     <div class="bg-white shadow overflow-hidden sm:rounded-md">

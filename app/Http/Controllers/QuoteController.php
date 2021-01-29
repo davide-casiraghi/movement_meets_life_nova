@@ -43,7 +43,10 @@ class QuoteController extends Controller
      */
     public function create()
     {
-        return view('quotes.create');
+        $countriesAvailableForTranslations = LaravelLocalization::getSupportedLocales();
+        return view('quotes.create', [
+            'countriesAvailableForTranslations' => $countriesAvailableForTranslations,
+        ]);
     }
 
     /**
@@ -55,7 +58,7 @@ class QuoteController extends Controller
      */
     public function store(QuoteSearchRequest $request)
     {
-        $this->quoteService->createTag($request);
+        $quote = $this->quoteService->createQuote($request->all());
 
         return redirect()->route('quotes.index')
             ->with('success', 'Quote created successfully');
@@ -64,17 +67,17 @@ class QuoteController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param int $tagId
+     * @param int $quoteId
      *
      * @return \Illuminate\Contracts\View\View
      */
-    public function edit(int $tagId)
+    public function edit(int $quoteId)
     {
-        $tag = $this->quoteService->getById($tagId);
+        $quote = $this->quoteService->getById($quoteId);
         $countriesAvailableForTranslations = LaravelLocalization::getSupportedLocales();
 
         return view('quotes.edit', [
-            'tag' => $tag,
+            'quote' => $quote,
             'countriesAvailableForTranslations' => $countriesAvailableForTranslations,
         ]);
     }
@@ -83,13 +86,13 @@ class QuoteController extends Controller
      * Update the specified resource in storage.
      *
      * @param \App\Http\Requests\QuoteStoreRequest $request
-     * @param int $tagId
+     * @param int $quoteId
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(QuoteStoreRequest $request, int $tagId)
+    public function update(QuoteStoreRequest $request, int $quoteId)
     {
-        $this->quoteService->updateTag($request, $tagId);
+        $quote = $this->quoteService->updateQuote($request->all(), $quoteId);
 
         return redirect()->route('quotes.index')
             ->with('success', 'Quote updated successfully');
@@ -104,9 +107,9 @@ class QuoteController extends Controller
      */
     public function destroy(int $quoteId)
     {
-        $this->quoteService->deleteTag($quoteId);
+        $this->quoteService->deleteQuote($quoteId);
 
-        return redirect()->route('tags.index')
+        return redirect()->route('quotes.index')
             ->with('success', 'Quote deleted successfully');
     }
 

@@ -1,13 +1,25 @@
 {{-- Search bar - Posts --}}
 <form id="searchPostsForm" method="get" action="#" class="mb-4">
     <div class="md:grid md:grid-cols-6 md:gap-2">
-        {{-- Title --}}
-        <div class="md:col-span-4 mb-2 md:mb-0">
+        {{-- Author --}}
+        <div class="md:col-span-2 mb-2 md:mb-0">
             @include('partials.forms.input', [
-                            'label' => __('views.tag'),
-                            'name' => 'tag',
-                            'placeholder' => 'Tag',
-                            'value' => old('tag', $searchParameters['tag']),
+                            'label' => __('views.author'),
+                            'name' => 'author',
+                            'placeholder' => 'Author',
+                            'value' => old('author', $searchParameters['author']),
+                            'required' => false,
+                            'disabled' => false,
+                    ])
+        </div>
+
+        {{-- Description --}}
+        <div class="md:col-span-2 mb-2 md:mb-0">
+            @include('partials.forms.input', [
+                            'label' => __('general.description'),
+                            'name' => 'description',
+                            'placeholder' => 'Description',
+                            'value' => old('description', $searchParameters['description']),
                             'required' => false,
                             'disabled' => false,
                     ])
@@ -27,7 +39,7 @@
 
             @include('partials.forms.button',[
                  'title' => 'Reset',
-                 'url' => route('posts.index'),
+                 'url' => route('quotes.index'),
                  'color' => 'yellow',
                  'icon' => '',
                  'size' => 2,

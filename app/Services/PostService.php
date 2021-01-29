@@ -38,27 +38,6 @@ class PostService
     }
 
     /**
-     * Returns the post body adding support to transform snippets to html code
-     * eg. Accordion, Gallery, Glossary
-     *
-     * @param $post
-     *
-     * @return string
-     */
-    public function getPostBody($post): string
-    {
-        //dd($post->getTranslation('body', 'en'));
-
-        $postBody = $post->body;
-
-        $postBody = $this->accordionService->snippetsToHTML($postBody);
-        $postBody = $this->galleryService->snippetsToHTML($postBody);
-        $postBody = $this->glossaryService->markGlossaryTerms($postBody);
-
-        return $postBody;
-    }
-
-    /**
      * Create a post
      *
      * @param \App\Http\Requests\PostStoreRequest $data
@@ -125,6 +104,27 @@ class PostService
     public function deletePost(int $postId): void
     {
         $this->postRepository->delete($postId);
+    }
+
+    /**
+     * Returns the post body adding support to transform snippets to html code
+     * eg. Accordion, Gallery, Glossary
+     *
+     * @param $post
+     *
+     * @return string
+     */
+    public function getPostBody($post): string
+    {
+        //dd($post->getTranslation('body', 'en'));
+
+        $postBody = $post->body;
+
+        $postBody = $this->accordionService->snippetsToHTML($postBody);
+        $postBody = $this->galleryService->snippetsToHTML($postBody);
+        $postBody = $this->glossaryService->markGlossaryTerms($postBody);
+
+        return $postBody;
     }
 
     /**

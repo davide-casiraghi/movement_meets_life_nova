@@ -54,7 +54,7 @@
 
             @include('partials.forms.button',[
                  'title' => 'Reset',
-                 'url' => route('posts.index'),
+                 'url' => route('venues.index'),
                  'color' => 'yellow',
                  'icon' => '',
                  'size' => 2,

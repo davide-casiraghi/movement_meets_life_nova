@@ -3,6 +3,8 @@
 namespace App\Repositories;
 
 use App\Models\Quote;
+use Illuminate\Support\Facades\Config;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 class QuoteRepository implements QuoteRepositoryInterface
 {
@@ -71,6 +73,13 @@ class QuoteRepository implements QuoteRepositoryInterface
         $quote->author = $data['author'];
         $quote->description = $data['description'];
 
+        // Translations
+        foreach (LaravelLocalization::getSupportedLocales() as $countryCode => $countryAvTrans) {
+            if ($countryCode != Config::get('app.fallback_locale')) {
+                $quote->setTranslation('description', $countryCode, $data['description_' . $countryCode] ?? null);
+            }
+        }
+
         $quote->save();
 
         return $quote->fresh();
@@ -88,6 +97,13 @@ class QuoteRepository implements QuoteRepositoryInterface
         $quote = $this->getById($id);
         $quote->author = $data['author'];
         $quote->description = $data['description'];
+
+        // Translations
+        foreach (LaravelLocalization::getSupportedLocales() as $countryCode => $countryAvTrans) {
+            if ($countryCode != Config::get('app.fallback_locale')) {
+                $quote->setTranslation('description', $countryCode, $data['description_' . $countryCode] ?? null);
+            }
+        }
 
         $quote->update();
 
