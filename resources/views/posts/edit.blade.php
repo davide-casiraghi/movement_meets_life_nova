@@ -113,7 +113,7 @@
                             @include('partials.forms.select_multiple', [
                                 'label' => __('views.tags'),
                                 'name' => 'tag_ids',
-                                'placeholder' => __('event.select_teachers'),
+                                'placeholder' => __('views.select_tags'),
                                 'records' => $tags,
                                 'value_attribute_name' => 'tag',
                                 'selected' => $post->tags->modelKeys(),
