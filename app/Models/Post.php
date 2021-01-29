@@ -10,11 +10,13 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;  //used for Gallery field
 use Spatie\MediaLibrary\HasMedia; //used for Gallery field
 use Spatie\MediaLibrary\InteractsWithMedia; //used for Gallery field
 use Spatie\ModelStatus\HasStatuses;
+use Spatie\Searchable\Searchable;
+use Spatie\Searchable\SearchResult;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 use Spatie\Translatable\HasTranslations;
 
-class Post extends Model implements HasMedia
+class Post extends Model implements HasMedia, Searchable
 {
     use HasFactory;
     use HasSlug;
@@ -166,5 +168,19 @@ class Post extends Model implements HasMedia
     public function publishingStatus(): string
     {
         return $this->latestStatus('unpublished', 'published');
+    }
+
+    /**
+     * Method required by Spatie Laravel Searchable
+     */
+    public function getSearchResult(): SearchResult
+    {
+        $url = route('posts.edit', $this->id);
+
+        return new SearchResult(
+            $this,
+            $this->title,
+            $url
+        );
     }
 }

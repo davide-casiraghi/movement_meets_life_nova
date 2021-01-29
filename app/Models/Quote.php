@@ -5,11 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\ModelStatus\HasStatuses;
+use Spatie\Searchable\Searchable;
+use Spatie\Searchable\SearchResult;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 use Spatie\Translatable\HasTranslations;
 
-class Quote extends Model
+class Quote extends Model implements Searchable
 {
     use HasFactory;
     use HasSlug;
@@ -50,5 +52,19 @@ class Quote extends Model
         static::created(function (Quote $quote) {
             $quote->setStatus('Published');
         });
+    }
+
+    /**
+     * Method required by Spatie Laravel Searchable
+     */
+    public function getSearchResult(): SearchResult
+    {
+        $url = route('quotes.edit', $this->id);
+
+        return new SearchResult(
+            $this,
+            $this->author . " " . $this->description,
+            $url
+        );
     }
 }

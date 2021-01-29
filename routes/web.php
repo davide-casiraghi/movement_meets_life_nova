@@ -3,6 +3,7 @@
 use App\Http\Controllers\EventCategoryController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\GetATreatmentController;
+use App\Http\Controllers\GlobalSearchController;
 use App\Http\Controllers\GlossaryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrganizerController;
@@ -173,6 +174,7 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
         Route::get('/testimonials/{id}', [TestimonialController::class, 'show'])->name('show');
     });
 
+    Route::get('/search', [GlobalSearchController::class, 'index'])->name('globalSearch');
 });
 
 

@@ -8,11 +8,13 @@ use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Spatie\ModelStatus\HasStatuses;
+use Spatie\Searchable\Searchable;
+use Spatie\Searchable\SearchResult;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 use Spatie\Translatable\HasTranslations;
 
-class Glossary extends Model implements HasMedia
+class Glossary extends Model implements HasMedia, Searchable
 {
     use HasFactory;
     use HasSlug;
@@ -103,5 +105,19 @@ class Glossary extends Model implements HasMedia
     public function publishingStatus(): string
     {
         return $this->latestStatus('unpublished', 'published');
+    }
+
+    /**
+     * Method required by Spatie Laravel Searchable
+     */
+    public function getSearchResult(): SearchResult
+    {
+        $url = route('glossaries.edit', $this->id);
+
+        return new SearchResult(
+            $this,
+            $this->term,
+            $url
+        );
     }
 }
