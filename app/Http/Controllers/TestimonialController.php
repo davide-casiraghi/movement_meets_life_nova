@@ -59,7 +59,11 @@ class TestimonialController extends Controller
      */
     public function create(): View
     {
-        return view('testimonials.create');
+        $countries = $this->countryService->getCountries();
+
+        return view('testimonials.create', [
+            'countries' => $countries,
+        ]);
     }
 
     /**
@@ -75,8 +79,11 @@ class TestimonialController extends Controller
         $this->testimonialService->storeImages($testimonial, $request);
         $message = Auth::guest() ? 'Thanks for your testimony!' : 'Testimonial created successfully';
 
-        return redirect()->route('testimonials.create')
-            ->with('success', $message);
+        if (Auth::guest()) {
+            return redirect()->route('testimonials.create')->with('success', $message);
+        } else {
+            return redirect()->route('testimonials.index')->with('success', $message);
+        }
     }
 
     /**

@@ -86,6 +86,8 @@ return [
     'edit_background_image' => 'Edit background image',
     'edit_menu' => 'Edit menu',
     'edit_menu_item' => 'Edit menu item',
+    'edit_quote' => 'Edit quote',
+    'edit_testimonial' => 'Edit testimonial',
     'delete_event' => 'Delete event',
     'bio' => 'Bio',
     'year_of_starting_to_practice' => 'Year of starting to practice',

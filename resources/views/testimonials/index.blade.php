@@ -4,8 +4,7 @@
     @lang('views.testimonials_management')
 @endsection
 
-@section('content')
-
+@section('buttons')
     @include('partials.forms.button',[
         'title' => 'Add testimonial',
         'url' => route('testimonials.create'),
@@ -16,6 +15,9 @@
         'kind' => 'primary',
         'target' => '_self',
     ])
+@endsection
+
+@section('content')
 
     @include('partials.testimonials.searchBar')
 
