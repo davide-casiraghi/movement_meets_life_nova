@@ -9,29 +9,7 @@
         - $collection: string - collection of the image (spatie media library), defined in the entity model.
 --}}
 
-@section('javascript-document-ready')
-    @parent
-    {{-- When an image is chosen, replace the "Choose a file" label --}}
-    $('.custom-file-input').on('change',function(){
-        {{-- get the file name --}}
-            var filePath = $(this).val();
-            var fileName = filePath.replace(/^.*[\\\/]/, '')
 
-        {{-- replace the "Choose a file" label --}}
-            $('.selectedFile').html(fileName);
-    })
-
-    {{-- Delete an already uploaded image --}}
-    $('.deleteImage').on('click',function(){
-        $("input[name='{{$name}}_delete']").val("true");
-        $("img.uploadedImage").remove();
-    })
-
-@stop
-
-{{--<label class="block text-sm leading-5 font-medium text-gray-700">
-    {{ $title }}
-</label>--}}
 @if (!empty($label))
     <label for="{{ $name }}" class="block text-sm font-medium text-gray-700 inline">{{$label}}</label>
 

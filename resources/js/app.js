@@ -10,6 +10,8 @@ require('select2');
 require('./vendors/tinymce');
 require('./vendors/select2');
 
+require('./forms/uploadImage');
+
 //require("@staaky/tipped"); //imported in bootstrap.js
 
 
