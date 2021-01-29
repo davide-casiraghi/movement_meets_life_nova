@@ -26,8 +26,8 @@ class Testimonial extends Model implements HasMedia
      * @var array
      */
     protected $fillable = [
-        'first_name',
-        'last_name',
+        'name',
+        'surname',
         'profession',
         'feedback',
         'photo',
@@ -43,6 +43,23 @@ class Testimonial extends Model implements HasMedia
     public $translatable = ['profession', 'feedback'];
 
     /**
+     * The possible values the publishing status can be.
+     */
+    const PUBLISHING_STATUS = [
+        'unpublished' => 'unpublished',
+        'published' => 'published',
+    ];
+
+    /**
+     * Return the country of the teacher
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function country()
+    {
+        return $this->belongsTo(Country::class);
+    }
+
+    /**
      * Generates a unique slug.
      */
     public function getSlugOptions(): SlugOptions
@@ -50,18 +67,6 @@ class Testimonial extends Model implements HasMedia
         return SlugOptions::create()
             ->generateSlugsFrom('author')
             ->saveSlugsTo('slug');
-    }
-
-    /**
-     * Set default status value when a testimonial is created
-     */
-    public static function boot()
-    {
-        parent::boot();
-
-        static::created(function (Testimonial $testimonial) {
-            $testimonial->setStatus('Pending');
-        });
     }
 
     /**
@@ -80,4 +85,36 @@ class Testimonial extends Model implements HasMedia
     {
         $this->addMediaCollection('photo')->singleFile();
     }
+
+    /**
+     * Testimonial full_name accessor.
+     * $testimonial->full_name
+     *
+     * @return string
+     */
+    public function getFullNameAttribute()
+    {
+        return "{$this->name} {$this->surname}";
+    }
+
+    /**
+     * Return true if the post is published
+     *
+     * @return bool
+     */
+    public function isPublished(): bool
+    {
+        return $this->latestStatus('unpublished', 'published') == 'published';
+    }
+
+    /**
+     * Return the post publishing status
+     *
+     * @return string
+     */
+    public function publishingStatus(): string
+    {
+        return $this->latestStatus('unpublished', 'published');
+    }
+
 }

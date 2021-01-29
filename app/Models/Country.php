@@ -63,5 +63,15 @@ class Country extends Model
         return $this->hasManyThrough('Event', 'Venue');
     }
 
+    /**
+     * Return all the events in this country
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function testimonials()
+    {
+        return $this->hasMany(Testimonial::class);
+    }
+
 
 }

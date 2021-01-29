@@ -2,16 +2,54 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\TestimonialSearchRequest;
 use App\Http\Requests\TestimonialStoreRequest;
+use App\Models\Testimonial;
+use App\Services\CountryService;
 use App\Services\TestimonialService;
-use Illuminate\Http\Request;
+use App\Traits\CheckPermission;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\View\View;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 class TestimonialController extends Controller
 {
-    private $testimonialService;
+    use CheckPermission;
 
-    public function __construct(TestimonialService $testimonialService) {
+    private TestimonialService $testimonialService;
+    private CountryService $countryService;
+
+    public function __construct(
+        TestimonialService $testimonialService,
+        CountryService $countryService
+    ) {
         $this->testimonialService = $testimonialService;
+        $this->countryService = $countryService;
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @param \App\Http\Requests\TestimonialSearchRequest $request
+     *
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\View\View
+     */
+    public function index(TestimonialSearchRequest $request): View
+    {
+        $this->checkPermission('testimonials.view');
+
+        $searchParameters = $this->testimonialService->getSearchParameters($request);
+        $testimonials = $this->testimonialService->getTestimonials(20, $searchParameters);
+        $statuses = Testimonial::PUBLISHING_STATUS;
+        $countries = $this->countryService->getCountries();
+
+        return view('testimonials.index', [
+            'testimonials' => $testimonials,
+            'searchParameters' => $searchParameters,
+            'statuses' => $statuses,
+            'countries' => $countries,
+        ]);
     }
 
     /**
@@ -19,7 +57,8 @@ class TestimonialController extends Controller
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function create(Request $request) {
+    public function create(): View
+    {
         return view('testimonials.create');
     }
 
@@ -30,14 +69,69 @@ class TestimonialController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(TestimonialStoreRequest $request)
+    public function store(TestimonialStoreRequest $request): RedirectResponse
     {
-        $this->testimonialService->createTestimonial($request);
+        $testimonial = $this->testimonialService->createTestimonial($request->all());
+        $this->testimonialService->storeImages($testimonial, $request);
+        $message = Auth::guest() ? 'Thanks for your testimony!' : 'Testimonial created successfully';
 
         return redirect()->route('testimonials.create')
-            ->with('success', 'Thanks for your testimony!');
+            ->with('success', $message);
     }
 
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param int $testimonialId
+     *
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\View\View
+     */
+    public function edit(int $testimonialId)
+    {
+        $this->checkPermission('testimonials.edit');
 
+        $testimonial = $this->testimonialService->getById($testimonialId);
+        $countriesAvailableForTranslations = LaravelLocalization::getSupportedLocales();
+        $countries = $this->countryService->getCountries();
 
+        return view('testimonials.edit', [
+            'testimonial' => $testimonial,
+            'countriesAvailableForTranslations' => $countriesAvailableForTranslations,
+            'countries' => $countries,
+        ]);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param \App\Http\Requests\TestimonialStoreRequest $request
+     * @param int $testimonialId
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function update(TestimonialStoreRequest $request, int $testimonialId): RedirectResponse
+    {
+        $this->checkPermission('testimonials.edit');
+
+        $testimonial = $this->testimonialService->updateTestimonial($request, $testimonialId);
+        $this->testimonialService->storeImages($testimonial, $request);
+
+        return redirect()->route('testimonials.index')
+            ->with('success', 'Testimonial updated successfully');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param int $testimonialId
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function destroy(int $testimonialId): RedirectResponse
+    {
+        $this->testimonialService->deleteTestimonial($testimonialId);
+
+        return redirect()->route('testimonials.index')
+            ->with('success', 'Testimonial deleted successfully');
+    }
 }

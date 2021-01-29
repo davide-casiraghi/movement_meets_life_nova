@@ -161,6 +161,18 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
         Route::delete('/quotes/{id}', [QuoteController::class, 'destroy'])->name('destroy');
         Route::get('/quotes/{id}', [QuoteController::class, 'show'])->name('show');
     });
+
+    // Testimonials
+    Route::name('testimonials.')->group(function () {
+        Route::get('/testimonials', [TestimonialController::class, 'index'])->name('index');
+        Route::get('/testimonials/{id}/edit', [TestimonialController::class, 'edit'])->name('edit');
+        Route::put('/testimonials/{id}', [TestimonialController::class, 'update'])->name('update');
+        Route::get('/testimonials/create', [TestimonialController::class, 'create'])->name('create');
+        Route::post('/testimonials', [TestimonialController::class, 'store'])->name('store');
+        Route::delete('/testimonials/{id}', [TestimonialController::class, 'destroy'])->name('destroy');
+        Route::get('/testimonials/{id}', [TestimonialController::class, 'show'])->name('show');
+    });
+
 });
 
 
@@ -177,12 +189,6 @@ Route::get('glossaryTerms/{glossaryTermId}', [ GlossaryController::class, 'show'
 // Contact form
 Route::get('/contact', [ContactUsFormController::class, 'index']);
 Route::post('/contact', [ContactUsFormController::class, 'ContactUsForm'])->name('contact.store');
-
-// Be a testimonial form
-Route::name('testimonials.')->group(function () {
-    Route::get('/testimonial', [TestimonialController::class, 'create'])->name('create');
-    Route::post('/testimonial', [TestimonialController::class, 'store'])->name('store');
-});
 
 // Get a treatment form
 Route::get('/getATreatment', [GetATreatmentController::class, 'show']);

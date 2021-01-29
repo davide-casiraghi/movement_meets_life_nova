@@ -27,13 +27,12 @@ class TeacherFactory extends Factory
         return [
             'name' => $this->faker->name,
             'surname' => $this->faker->lastName,
-
             'bio' => $this->faker->paragraph,
             'year_starting_practice' => $year_starting_practice,
             'year_starting_teach' => $year_starting_teach,
             'significant_teachers' => $this->faker->paragraph,
             'website' => $this->faker->url,
-            'facebook' => 'https://www.facebook.com/'.$this->faker->word,
+            'facebook' => 'https://www.facebook.com/' . $this->faker->word,
             'user_id' => '1',
 
             'country_id' => $this->faker->numberBetween($min = 1, $max = 250),

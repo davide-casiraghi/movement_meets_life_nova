@@ -113,6 +113,7 @@ return [
     'glossary_management' => 'Glossaries management',
     'tag_management' => 'Tags management',
     'quote_management' => 'Quotes management',
+    'testimonials_management' => 'Testimonials management',
     'category_management' => 'Posts category management',
     'events_management' => 'Events management',
     'events_category_management' => 'Events category management',

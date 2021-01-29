@@ -95,7 +95,8 @@ class UserProfile extends Model
     }
 
     /**
-     * Get the user's full name.
+     * UserProfile full_name accessor.
+     * $user->profile->full_name
      *
      * @return string
      */

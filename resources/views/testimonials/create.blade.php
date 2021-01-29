@@ -52,13 +52,13 @@
                     <div class="mt-5 md:mt-0 md:col-span-2">
                         <div class="grid grid-cols-6 gap-6">
                             <div class="col-span-6 sm:col-span-3">
-                                <label for="first_name" class="block text-sm font-medium leading-5 text-gray-700">First name</label>
-                                <input name="first_name" value="{{ old('first_name') }}" id="first_name" class="mt-1 form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                                <label for="name" class="block text-sm font-medium leading-5 text-gray-700">First name</label>
+                                <input name="name" value="{{ old('name') }}" id="first_name" class="mt-1 form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
                             </div>
 
                             <div class="col-span-6 sm:col-span-3">
-                                <label for="last_name" class="block text-sm font-medium leading-5 text-gray-700">Last name</label>
-                                <input name="last_name" value="{{ old('last_name') }}" id="last_name" class="mt-1 form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                                <label for="surname" class="block text-sm font-medium leading-5 text-gray-700">Last name</label>
+                                <input name="surname" value="{{ old('surname') }}" id="last_name" class="mt-1 form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
                             </div>
 
                             <div class="col-span-6 sm:col-span-3">

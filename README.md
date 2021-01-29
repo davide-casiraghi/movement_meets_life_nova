@@ -201,14 +201,18 @@ Post::factory()->count(40)->create()->each(function($post) {
     $post->setStatus($status);
 });
 Glossary::factory()->count(40)->create()->each(function($glossary) {
-
     $statuses = ['published','unpublished'];
     $random_status = array_rand($statuses, 1);
     $status = $statuses[$random_status];
     $glossary->setStatus($status);
 });
 
-Testimonial::factory()->count(40)->create();
+Testimonial::factory()->count(40)->create()->each(function($testimonial) {
+    $statuses = ['published','unpublished'];
+    $random_status = array_rand($statuses, 1);
+    $status = $statuses[$random_status];
+    $testimonial->setStatus($status);
+});
 Quote::factory()->count(40)->create();
 
 Inspiration::factory()->count(40)->create();

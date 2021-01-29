@@ -6,8 +6,9 @@ use App\Http\Requests\TagSearchRequest;
 use App\Http\Requests\TagStoreRequest;
 use App\Models\Tag;
 use App\Services\TagService;
-use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+use Illuminate\View\View;
 
 class TagController extends Controller
 {
@@ -24,9 +25,9 @@ class TagController extends Controller
      *
      * @param int $tagId
      *
-     * @return \Illuminate\Contracts\View\View
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\View\View
      */
-    public function show(int $tagId)
+    public function show(int $tagId): View
     {
         $tag = Tag::find($tagId);
         $posts = $tag->posts()->get();
@@ -42,7 +43,7 @@ class TagController extends Controller
      *
      * @param \App\Http\Requests\TagSearchRequest $request
      *
-     * @return \Illuminate\Contracts\View\View
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\View\View
      */
     public function index(TagSearchRequest $request)
     {
@@ -58,7 +59,7 @@ class TagController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Contracts\View\View
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\View\View
      */
     public function create()
     {
@@ -72,7 +73,7 @@ class TagController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(TagStoreRequest $request)
+    public function store(TagStoreRequest $request): RedirectResponse
     {
         $this->tagService->createTag($request);
 
@@ -85,7 +86,7 @@ class TagController extends Controller
      *
      * @param int $tagId
      *
-     * @return \Illuminate\Contracts\View\View
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\View\View
      */
     public function edit(int $tagId)
     {
@@ -106,7 +107,7 @@ class TagController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(TagStoreRequest $request, int $tagId)
+    public function update(TagStoreRequest $request, int $tagId): RedirectResponse
     {
         $this->tagService->updateTag($request, $tagId);
 
@@ -121,7 +122,7 @@ class TagController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy(int $tagId)
+    public function destroy(int $tagId): RedirectResponse
     {
         $this->tagService->deleteTag($tagId);
 

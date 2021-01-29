@@ -127,20 +127,6 @@ class Post extends Model implements HasMedia
     }
 
     /**
-     * Set default status value when a testimonial is created
-     */
-    public static function boot()
-    {
-        parent::boot();
-
-
-        // todo -- moved to the post repo store method...
-        /*static::created(function (Post $testimonial) {
-            $testimonial->setStatus('Published');
-        });*/
-    }
-
-    /**
      * Add Image gallery support using:
      * https://spatie.be/docs/laravel-medialibrary/v8/introduction
      * https://github.com/ebess/advanced-nova-media-library

@@ -90,7 +90,8 @@ class Organizer extends Model implements HasMedia
     }
 
     /**
-     * Get the organizer's full name.
+     * Organizer full_name accessor.
+     * $organizer->full_name
      *
      * @return string
      */

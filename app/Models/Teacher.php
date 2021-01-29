@@ -13,7 +13,10 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class Teacher extends Model implements HasMedia
 {
-    use HasFactory, HasSlug, HasStatuses, InteractsWithMedia;
+    use HasFactory;
+    use HasSlug;
+    use HasStatuses;
+    use InteractsWithMedia;
 
     /**
      * The attributes that aren't mass assignable.
@@ -43,29 +46,19 @@ class Teacher extends Model implements HasMedia
     /**
      * Returns the events of the teacher.
      */
-    public function events() {
+    public function events()
+    {
         return $this->belongsToMany(Event::class);
     }
 
     /**
      * Generates a unique slug.
      */
-    public function getSlugOptions() : SlugOptions
+    public function getSlugOptions(): SlugOptions
     {
         return SlugOptions::create()
             ->generateSlugsFrom('name')
             ->saveSlugsTo('slug');
-    }
-
-    /**
-     * Set default status value when a teacher is created
-     */
-    public static function boot() {
-        parent::boot();
-
-        static::created(function (Teacher $event) {
-            $event->setStatus('Published');
-        });
     }
 
     /**
@@ -86,7 +79,8 @@ class Teacher extends Model implements HasMedia
     }
 
     /**
-     * Get the teacher's full name.
+     * Teacher full_name accessor.
+     * $teacher->full_name
      *
      * @return string
      */
@@ -94,6 +88,4 @@ class Teacher extends Model implements HasMedia
     {
         return "{$this->name} {$this->surname}";
     }
-
-
 }

@@ -3,17 +3,54 @@
 namespace App\Repositories;
 
 use App\Models\Testimonial;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Config;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
-class TestimonialRepository implements TestimonialRepositoryInterface {
-
+class TestimonialRepository implements TestimonialRepositoryInterface
+{
     /**
-     * Get all Posts.
+     * Get all Testimonials.
      *
-     * @return iterable
+     * @param int|null $recordsPerPage
+     * @param array|null $searchParameters
+     *
+     * @return \Illuminate\Support\Collection|\Illuminate\Contracts\Pagination\LengthAwarePaginator
      */
-    public function getAll()
+    public function getAll(int $recordsPerPage = null, array $searchParameters = null)
     {
-        return Testimonial::all();
+        $query = Testimonial::orderBy('created_at', 'desc');
+
+        if (!is_null($searchParameters)) {
+            if (!empty($searchParameters['name'])) {
+                $query->where(
+                    'name',
+                    'like',
+                    '%' . $searchParameters['name'] . '%'
+                );
+            }
+            if (!empty($searchParameters['surname'])) {
+                $query->where(
+                    'surname',
+                    'like',
+                    '%' . $searchParameters['surname'] . '%'
+                );
+            }
+            if (!empty($searchParameters['countryId'])) {
+                $query->where('country_id', $searchParameters['countryId']);
+            }
+            if (!empty($searchParameters['status'])) {
+                $query->currentStatus($searchParameters['status']);
+            }
+        }
+
+        if ($recordsPerPage) {
+            $results = $query->paginate($recordsPerPage);
+        } else {
+            $results = $query->get();
+        }
+
+        return $results;
     }
 
     /**
@@ -22,7 +59,7 @@ class TestimonialRepository implements TestimonialRepositoryInterface {
      * @param $testimonialId
      * @return Testimonial
      */
-    public function getById($testimonialId)
+    public function getById($testimonialId): Testimonial
     {
         return Testimonial::findOrFail($testimonialId);
     }
@@ -33,21 +70,73 @@ class TestimonialRepository implements TestimonialRepositoryInterface {
      * @param $data
      * @return Testimonial
      */
-    public function store($data)
+    public function store($data): Testimonial
     {
         $testimonial = new Testimonial();
 
         $testimonial->feedback = $data['feedback'] ?? null;
-        $testimonial->first_name = $data['first_name'] ?? null;
-        $testimonial->last_name = $data['last_name'] ?? null;
+        $testimonial->name = $data['name'] ?? null;
+        $testimonial->surname = $data['surname'] ?? null;
         $testimonial->profession = $data['profession'] ?? null;
-        $testimonial->country = $data['country'] ?? null;
+        $testimonial->country_id = $data['country_id'] ?? null;
         $testimonial->publish_agreement =  ($data['publish_agreement'] == 'on') ? 1 : 0;
         $testimonial->personal_data_agreement =  ($data['personal_data_agreement'] == 'on') ? 1 : 0;
+
+        // Translations
+        foreach (LaravelLocalization::getSupportedLocales() as $countryCode => $countryAvTrans) {
+            if ($countryCode != Config::get('app.fallback_locale')) {
+                $testimonial->setTranslation('feedback', $countryCode, $data['feedback_' . $countryCode] ?? null);
+                $testimonial->setTranslation('profession', $countryCode, $data['profession_' . $countryCode] ?? null);
+            }
+        }
+
         $testimonial->save();
 
-        $testimonial->setStatus('Pending');
+        // When created by a guest from frontend set to unpublished
+        $status = Auth::guest() ? 'unpublished' : 'published';
+        $testimonial->setStatus($status);
 
         return $testimonial->fresh();
+    }
+
+    /**
+     * Update Testimonial
+     *
+     * @param $data
+     * @param int $id
+     * @return Testimonial
+     */
+    public function update($data, int $id): Testimonial
+    {
+        $testimonial = $this->getById($id);
+
+        $testimonial->feedback = $data['feedback'] ?? null;
+        $testimonial->name = $data['name'] ?? null;
+        $testimonial->surname = $data['surname'] ?? null;
+        $testimonial->profession = $data['profession'] ?? null;
+        $testimonial->country_id = $data['country_id'] ?? null;
+
+        // Translations
+        foreach (LaravelLocalization::getSupportedLocales() as $countryCode => $countryAvTrans) {
+            if ($countryCode != Config::get('app.fallback_locale')) {
+                $testimonial->setTranslation('feedback', $countryCode, $data['feedback_' . $countryCode] ?? null);
+                $testimonial->setTranslation('profession', $countryCode, $data['profession_' . $countryCode] ?? null);
+            }
+        }
+
+        $testimonial->update();
+
+        return $testimonial;
+    }
+
+    /**
+     * Delete Testimonial
+     *
+     * @param int $id
+     * @return void
+     */
+    public function delete(int $id): void
+    {
+        Testimonial::destroy($id);
     }
 }
