@@ -118458,7 +118458,9 @@ __webpack_require__(/*! select2 */ "./node_modules/select2/dist/js/select2.js");
 
 __webpack_require__(/*! ./vendors/tinymce */ "./resources/js/vendors/tinymce.js");
 
-__webpack_require__(/*! ./vendors/select2 */ "./resources/js/vendors/select2.js"); //require("@staaky/tipped"); //imported in bootstrap.js
+__webpack_require__(/*! ./vendors/select2 */ "./resources/js/vendors/select2.js");
+
+__webpack_require__(/*! ./forms/uploadImage */ "./resources/js/forms/uploadImage.js"); //require("@staaky/tipped"); //imported in bootstrap.js
 // Custom js related to vendor packages
 
 
@@ -118508,6 +118510,31 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/forms/uploadImage.js":
+/*!*******************************************!*\
+  !*** ./resources/js/forms/uploadImage.js ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  // When an image is chosen, replace the "Choose a file" label
+  $('.custom-file-input').on('change', function () {
+    // Get the file name
+    var filePath = $(this).val();
+    var fileName = filePath.replace(/^.*[\\\/]/, ''); // Replace the "Choose a file" label
+
+    $('.selectedFile').html(fileName);
+  }); // Delete an already uploaded image
+
+  $('.deleteImage').on('click', function () {
+    $("input[name='{{$name}}_delete']").val("true");
+    $("img.uploadedImage").remove();
+  });
+});
 
 /***/ }),
 
