@@ -1,7 +1,12 @@
 {{--
+
     UPLOAD IMAGE
-    IMPORTANT: when use this add to the form enctype="multipart/form-data"
-                like: <form action="{{ route('events.store') }}" method="POST" enctype="multipart/form-data">
+
+    NOTICE:
+        - uses the js in /resources/js/forms/uploadImage.js
+    IMPORTANT:
+        - when use this add to the form enctype="multipart/form-data"
+          like: <form action="{{ route('events.store') }}" method="POST" enctype="multipart/form-data">
     PARAMETERS:
         - $title: string - the title to show
         - $name: string - the select name attribute
