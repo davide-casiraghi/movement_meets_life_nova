@@ -110,6 +110,29 @@
                         </div>
 
                         <div class="col-span-6">
+                            @include('partials.forms.uploadImageMultiple', [
+                                      'label' => __('views.images_for_galleries'),
+                                      'name' => 'galleries',
+                                      'required' => false,
+                                      'collection' => 'galleries',
+                                      'entity' => $post,
+                                  ])
+                        </div>
+
+                        {{--
+                        <h4 class="mb-3 mt-4">{{ __('ui.alerts.photos') }}</h4>
+                    <input type="file" class="form-control-file" name="photos[]" placeholder="photos" multiple>
+
+                    <div class="card-columns mt-4">
+                        @foreach($alert->getMedia('alert') as $photo)
+                            <div class="card">
+                                <img src="{{$photo->getUrl('thumb')}}" class="card-img-top" alt="">
+                            </div>
+                        @endforeach
+                    </div>
+                        --}}
+
+                        <div class="col-span-6">
                             @include('partials.forms.select_multiple', [
                                 'label' => __('views.tags'),
                                 'name' => 'tag_ids',

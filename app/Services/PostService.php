@@ -149,18 +149,18 @@ class PostService
      */
     private function storeImages(Post $post, PostStoreRequest $data): void
     {
-        /*if($data->file('photos')) {
-            foreach ($data->file('photos') as $photo) {
-                if ($photo->isValid()) {
-                    $post->addMedia($photo)->toMediaCollection('post');
-                }
-            }
-        }*/
-
         if ($data->file('introimage')) {
             $introimage = $data->file('introimage');
             if ($introimage->isValid()) {
                 $post->addMedia($introimage)->toMediaCollection('introimage');
+            }
+        }
+
+        if ($data->file('galleries')) {
+            foreach ($data->file('galleries') as $photo) {
+                if ($photo->isValid()) {
+                    $post->addMedia($photo)->toMediaCollection('galleries');
+                }
             }
         }
 

@@ -178,6 +178,7 @@ return [
     'link_to_this_post' => 'Link to this post',
     'post_id' => 'Post ID',
     'intro_image' => 'Intro Image',
+    'images_for_galleries' => 'Images for galleries',
     'term' => 'Term',
     'definition' => 'Definition',
     'body' => 'Body',
