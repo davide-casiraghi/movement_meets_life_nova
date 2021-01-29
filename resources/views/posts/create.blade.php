@@ -90,6 +90,19 @@
                                   'collection' => 'introimage',
                               ])
                     </div>
+
+                    <div class="col-span-6">
+                        @include('partials.forms.select_multiple', [
+                            'label' => __('views.tags'),
+                            'name' => 'tag_ids',
+                            'placeholder' => __('event.select_teachers'),
+                            'records' => $tags,
+                            'value_attribute_name' => 'tag',
+                            //'selected' => $post->tags->modelKeys(),
+                            'required' => TRUE,
+                            'extraClasses' => '',
+                        ])
+                    </div>
                 </div>
             </div>
           </div>

@@ -109,6 +109,7 @@ class PostRepository implements PostRepositoryInterface
 
         $post->save();
 
+        $post->tags()->sync($data['tag_ids'] ?? null);
         $post->setStatus('published');
 
         return $post->fresh();
@@ -148,6 +149,8 @@ class PostRepository implements PostRepositoryInterface
         }
 
         $post->update();
+
+        $post->tags()->sync($data['tag_ids'] ?? null);
 
         //$status = ($data['status'] == 'on') ? 'published' : 'unpublished';
         $status = (isset($data['status'])) ? 'published' : 'unpublished';

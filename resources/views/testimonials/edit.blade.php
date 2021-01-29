@@ -96,10 +96,10 @@
 
                         <div class="col-span-6">
                             @include('partials.forms.uploadImage', [
-                                      'label' => __('views.upload_profile_picture'),
-                                      'name' => 'profile_picture',
+                                      'label' => __('views.photo'),
+                                      'name' => 'photo',
                                       'required' => false,
-                                      'collection' => 'profile_picture',
+                                      'collection' => 'photo',
                                       'entity' => $testimonial,
                                   ])
                         </div>

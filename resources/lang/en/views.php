@@ -186,4 +186,6 @@ return [
     'feedback' => 'Feedback',
     'personal_data_agreement' => 'Personal data agreement',
     'publish_agreement' => 'Publish agreement',
+    'photo' => 'Photo',
+    'tags' => 'Tags',
 ];

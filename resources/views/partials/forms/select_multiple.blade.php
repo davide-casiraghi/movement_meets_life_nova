@@ -6,9 +6,10 @@
         - $name: string - the select name attribute
         - $placeholder: string - the text shown when nothing is selected
         - $tooltip: string - the content of the tooltip
-        - $value: the selected value
-        - $record: the content of the selected value
+        - $records: the records that populate the select
+        - $selected: the selected value
         - $selectionKind: singleSelect or multiSelect
+        - $value_attribute_name: the name of the value attribute (usually is 'name')
 --}}
 
 @if (!empty($label))
@@ -25,12 +26,13 @@
     @endif
     @if(!empty($records))
         @foreach ($records as $key => $record)
+            @php $value = $record->$value_attribute_name @endphp
+
             @isset($selected)
-                <option value="{{$record->id}}" {{ in_array($record->id, $selected) ? "selected":"" }}>{{ $record->name }}</option>
+                <option value="{{$record->id}}" {{ in_array($record->id, $selected) ? "selected":"" }}>{{$record->$value_attribute_name}}</option>
             @else
                 <option value="{{$record->id}}">{{ $record->name }}</option>
             @endif
-
         @endforeach
     @endif
 </select>
