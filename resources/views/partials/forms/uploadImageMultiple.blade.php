@@ -25,16 +25,16 @@
 
 <div class="mt-2 flex items-center">
 
-    <input type="file" class="form-control-file" name="{{$name}}[]" placeholder="{{$name}}" multiple>
-
-    <div class="card-columns mt-4">
+    <div class="flex flex-wrap space-x-4 mt-1 mb-4">
         @foreach($entity->getMedia($collection) as $image)
-            <div class="card">
-                <img src="{{$image->getUrl('thumb')}}" class="card-img-top" alt="">
+            <div class="w-44">
+                <img src="{{$image->getUrl('thumb')}}" class="" alt="">
             </div>
         @endforeach
     </div>
 
+</div>
+    <input type="file" class="form-control-file" name="{{$name}}[]" placeholder="{{$name}}" multiple>
 
     {{--<span class="inline-block h-12 w-12 rounded-full overflow-hidden bg-gray-100">
 
@@ -78,4 +78,3 @@
         @endisset
         <div class="selectedFile inline-block ml-3"></div>
     </span>--}}
-</div>
