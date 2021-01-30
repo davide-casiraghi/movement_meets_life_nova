@@ -70,15 +70,7 @@ class QuoteRepository implements QuoteRepositoryInterface
     public function store(array $data): Quote
     {
         $quote = new Quote();
-        $quote->author = $data['author'];
-        $quote->description = $data['description'];
-
-        // Translations
-        foreach (LaravelLocalization::getSupportedLocales() as $countryCode => $countryAvTrans) {
-            if ($countryCode != Config::get('app.fallback_locale')) {
-                $quote->setTranslation('description', $countryCode, $data['description_' . $countryCode] ?? null);
-            }
-        }
+        $quote = self::assignDataAttributes($quote, $data);
 
         $quote->save();
 
@@ -95,15 +87,7 @@ class QuoteRepository implements QuoteRepositoryInterface
     public function update(array $data, int $id): Quote
     {
         $quote = $this->getById($id);
-        $quote->author = $data['author'];
-        $quote->description = $data['description'];
-
-        // Translations
-        foreach (LaravelLocalization::getSupportedLocales() as $countryCode => $countryAvTrans) {
-            if ($countryCode != Config::get('app.fallback_locale')) {
-                $quote->setTranslation('description', $countryCode, $data['description_' . $countryCode] ?? null);
-            }
-        }
+        $quote = self::assignDataAttributes($quote, $data);
 
         $quote->update();
 
@@ -119,5 +103,28 @@ class QuoteRepository implements QuoteRepositoryInterface
     public function delete(int $id): void
     {
         Quote::destroy($id);
+    }
+
+    /**
+     * Assign the attributes of the data array to the object
+     *
+     * @param \App\Models\Quote $quote
+     * @param array $data
+     *
+     * @return \App\Models\Quote
+     */
+    public function assignDataAttributes(Quote $quote, array $data): Quote
+    {
+        $quote->author = $data['author'];
+        $quote->description = $data['description'];
+
+        // Translations
+        foreach (LaravelLocalization::getSupportedLocales() as $countryCode => $countryAvTrans) {
+            if ($countryCode != Config::get('app.fallback_locale')) {
+                $quote->setTranslation('description', $countryCode, $data['description_' . $countryCode] ?? null);
+            }
+        }
+
+        return $quote;
     }
 }
