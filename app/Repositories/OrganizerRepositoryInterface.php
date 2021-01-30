@@ -4,14 +4,21 @@ namespace App\Repositories;
 
 use App\Models\Organizer;
 
-interface OrganizerRepositoryInterface {
+interface OrganizerRepositoryInterface
+{
 
     /**
      * Get all Organizers.
      *
-     * @return iterable
+     * @param int|null $recordsPerPage
+     * @param array|null $searchParameters
+     *
+     * @return \App\Models\Organizer[]|\Illuminate\Contracts\Pagination\LengthAwarePaginator|\Illuminate\Database\Eloquent\Collection
      */
-    public function getAll(int $recordsPerPage = NULL);
+    public function getAll(
+        int $recordsPerPage = null,
+        array $searchParameters = null
+    );
 
     /**
      * Get Organizer by id
@@ -20,7 +27,7 @@ interface OrganizerRepositoryInterface {
      *
      * @return Organizer
      */
-    public function getById(int $id);
+    public function getById(int $id): Organizer;
 
     /**
      * Store Organizer
@@ -29,7 +36,7 @@ interface OrganizerRepositoryInterface {
      *
      * @return Organizer
      */
-    public function store($data);
+    public function store(array $data): Organizer;
 
     /**
      * Update Organizer
@@ -39,7 +46,7 @@ interface OrganizerRepositoryInterface {
      *
      * @return Organizer
      */
-    public function update($data, int $id);
+    public function update(array $data, int $id): Organizer;
 
     /**
      * Delete Organizer
@@ -48,6 +55,19 @@ interface OrganizerRepositoryInterface {
      *
      * @return void
      */
-    public function delete(int $id);
+    public function delete(int $id): void;
+
+    /**
+     * Assign the attributes of the data array to the object
+     *
+     * @param \App\Models\Organizer $organizer
+     * @param array $data
+     *
+     * @return \App\Models\Organizer
+     */
+    public function assignDataAttributes(
+        Organizer $organizer,
+        array $data
+    ): Organizer;
 
 }

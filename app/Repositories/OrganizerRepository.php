@@ -51,11 +51,6 @@ class OrganizerRepository implements OrganizerRepositoryInterface
         }
 
         return $results;
-
-        /*if ($recordsPerPage) {
-            return Organizer::paginate($recordsPerPage);
-        }
-        return Organizer::all();*/
     }
 
     /**
@@ -65,7 +60,7 @@ class OrganizerRepository implements OrganizerRepositoryInterface
      *
      * @return Organizer
      */
-    public function getById(int $id)
+    public function getById(int $id): Organizer
     {
         return Organizer::findOrFail($id);
     }
@@ -77,19 +72,11 @@ class OrganizerRepository implements OrganizerRepositoryInterface
      *
      * @return Organizer
      */
-    public function store($data)
+    public function store(array $data): Organizer
     {
         $organizer = new Organizer();
-        $organizer->user_id = Auth::id();
-
-        $organizer->name = $data['name'];
-        $organizer->surname = $data['surname'];
-
-        $organizer->email = $data['email'];
-        $organizer->description = $data['description'];
-        $organizer->website = $data['website'];
-        $organizer->facebook = $data['facebook'];
-        $organizer->phone = $data['phone'];
+        $organizer = self::assignDataAttributes($organizer, $data);
+        $organizer->user_id = Auth::id(); //Owner
 
         $organizer->save();
 
@@ -104,18 +91,10 @@ class OrganizerRepository implements OrganizerRepositoryInterface
      *
      * @return Organizer
      */
-    public function update($data, int $id)
+    public function update(array $data, int $id): Organizer
     {
         $organizer = $this->getById($id);
-
-        $organizer->name = $data['name'];
-        $organizer->surname = $data['surname'];
-
-        $organizer->email = $data['email'];
-        $organizer->description = $data['description'];
-        $organizer->website = $data['website'];
-        $organizer->facebook = $data['facebook'];
-        $organizer->phone = $data['phone'];
+        $organizer = self::assignDataAttributes($organizer, $data);
 
         $organizer->update();
 
@@ -128,8 +107,30 @@ class OrganizerRepository implements OrganizerRepositoryInterface
      * @param int $id
      * @return void
      */
-    public function delete(int $id)
+    public function delete(int $id): void
     {
         Organizer::destroy($id);
+    }
+
+    /**
+     * Assign the attributes of the data array to the object
+     *
+     * @param \App\Models\Organizer $organizer
+     * @param array $data
+     *
+     * @return \App\Models\Organizer
+     */
+    public function assignDataAttributes(Organizer $organizer, array $data): Organizer
+    {
+        $organizer->name = $data['name'];
+        $organizer->surname = $data['surname'] ?? null;
+
+        $organizer->email = $data['email'] ?? null;
+        $organizer->description = $data['description'] ?? null;
+        $organizer->website = $data['website'] ?? null;
+        $organizer->facebook = $data['facebook'] ?? null;
+        $organizer->phone = $data['phone'] ?? null;
+
+        return $organizer;
     }
 }

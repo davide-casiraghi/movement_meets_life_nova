@@ -30,7 +30,7 @@ class OrganizerService
      */
     public function createOrganizer(OrganizerStoreRequest $data): Organizer
     {
-        $organizer = $this->organizerRepository->store($data);
+        $organizer = $this->organizerRepository->store($data->all());
 
         $organizer->setStatus('published');
 
@@ -49,7 +49,7 @@ class OrganizerService
      */
     public function updateOrganizer(OrganizerStoreRequest $data, int $organizerId): Organizer
     {
-        $organizer = $this->organizerRepository->update($data, $organizerId);
+        $organizer = $this->organizerRepository->update($data->all(), $organizerId);
 
         $this->storeImages($organizer, $data);
 
