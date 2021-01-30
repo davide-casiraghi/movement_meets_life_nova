@@ -1,13 +1,12 @@
 <?php
 
-
 namespace App\Repositories;
 
 use App\Models\EventCategory;
 use Illuminate\Support\Collection;
 
-
-class EventCategoryRepository implements EventCategoryRepositoryInterface {
+class EventCategoryRepository implements EventCategoryRepositoryInterface
+{
 
     /**
      * Get all EventCategories.
@@ -33,14 +32,13 @@ class EventCategoryRepository implements EventCategoryRepositoryInterface {
     /**
      * Store EventCategory
      *
-     * @param $data
+     * @param array $data
      * @return EventCategory
      */
-    public function store($data): EventCategory
+    public function store(array $data): EventCategory
     {
         $eventCategory = new EventCategory();
-        $eventCategory->name = $data['name'];
-        $eventCategory->description = $data['description'];
+        $eventCategory = self::assignDataAttributes($eventCategory, $data);
 
         $eventCategory->save();
 
@@ -50,15 +48,14 @@ class EventCategoryRepository implements EventCategoryRepositoryInterface {
     /**
      * Update EventCategory
      *
-     * @param $data
+     * @param array $data
      * @param int $id
      * @return EventCategory
      */
-    public function update($data, int $id): EventCategory
+    public function update(array $data, int $id): EventCategory
     {
         $eventCategory = $this->getById($id);
-        $eventCategory->name = $data['name'];
-        $eventCategory->description = $data['description'];
+        $eventCategory = self::assignDataAttributes($eventCategory, $data);
 
         $eventCategory->update();
 
@@ -74,5 +71,21 @@ class EventCategoryRepository implements EventCategoryRepositoryInterface {
     public function delete(int $id): void
     {
         EventCategory::destroy($id);
+    }
+
+    /**
+     * Assign the attributes of the data array to the object
+     *
+     * @param \App\Models\EventCategory $eventCategory
+     * @param array $data
+     *
+     * @return \App\Models\EventCategory
+     */
+    public function assignDataAttributes(EventCategory $eventCategory, array $data): EventCategory
+    {
+        $eventCategory->name = $data['name'];
+        $eventCategory->description = $data['description'];
+
+        return $eventCategory;
     }
 }

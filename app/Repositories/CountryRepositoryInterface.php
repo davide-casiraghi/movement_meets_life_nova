@@ -3,15 +3,17 @@
 namespace App\Repositories;
 
 use App\Models\Country;
+use Illuminate\Support\Collection;
 
-interface CountryRepositoryInterface {
+interface CountryRepositoryInterface
+{
 
     /**
      * Get all PostCategories.
      *
-     * @return iterable
+     * @return \Illuminate\Support\Collection
      */
-    public function getAll();
+    public function getAll(): Collection;
 
     /**
      * Get Country by id
@@ -29,17 +31,17 @@ interface CountryRepositoryInterface {
      *
      * @return Country
      */
-    public function store($data);
+    public function store(array $data): Country;
 
     /**
      * Update Country
      *
-     * @param $data
+     * @param array $data
      * @param int $id
      *
      * @return Country
      */
-    public function update($data, int $id);
+    public function update(array $data, int $id): Country;
 
     /**
      * Delete Country
@@ -48,6 +50,19 @@ interface CountryRepositoryInterface {
      *
      * @return void
      */
-    public function delete(int $id);
+    public function delete(int $id): void;
+
+    /**
+     * Assign the attributes of the data array to the object
+     *
+     * @param \App\Models\Country $country
+     * @param array $data
+     *
+     * @return \App\Models\Country
+     */
+    public function assignDataAttributes(
+        Country $country,
+        array $data
+    ): Country;
 
 }

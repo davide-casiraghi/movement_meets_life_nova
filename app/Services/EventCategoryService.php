@@ -29,7 +29,7 @@ class EventCategoryService {
      */
     public function createEventCategory(EventCategoryStoreRequest $data)
     {
-        $eventCategory = $this->eventCategoryRepository->store($data);
+        $eventCategory = $this->eventCategoryRepository->store($data->all());
 
         return $eventCategory;
     }
@@ -44,7 +44,7 @@ class EventCategoryService {
      */
     public function updateEventCategory(EventCategoryStoreRequest $data, int $eventCategoryId)
     {
-        $eventCategory = $this->eventCategoryRepository->update($data, $eventCategoryId);
+        $eventCategory = $this->eventCategoryRepository->update($data->all(), $eventCategoryId);
 
         return $eventCategory;
     }
