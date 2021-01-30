@@ -126,7 +126,6 @@ class OrganizerRepository implements OrganizerRepositoryInterface
     {
         $organizer->name = $data['name'];
         $organizer->surname = $data['surname'] ?? null;
-
         $organizer->email = $data['email'] ?? null;
         $organizer->description = $data['description'] ?? null;
         $organizer->website = $data['website'] ?? null;
