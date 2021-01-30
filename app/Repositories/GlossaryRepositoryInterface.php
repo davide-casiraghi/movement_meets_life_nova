@@ -57,4 +57,17 @@ interface GlossaryRepositoryInterface
      */
     public function delete(int $id): void;
 
+    /**
+     * Assign the attributes of the data array to the object
+     *
+     * @param \App\Models\Glossary $glossary
+     * @param array $data
+     *
+     * @return \App\Models\Glossary
+     */
+    public function assignDataAttributes(
+        Glossary $glossary,
+        array $data
+    ): Glossary;
+
 }

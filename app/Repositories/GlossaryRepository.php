@@ -63,9 +63,7 @@ class GlossaryRepository implements GlossaryRepositoryInterface
     public function store(array $data): Glossary
     {
         $glossary = new Glossary();
-        $glossary->term = $data['term'];
-        $glossary->definition = $data['definition'];
-        $glossary->body = $data['body'];
+        $glossary = self::assignDataAttributes($glossary, $data);
 
         $glossary->save();
 
@@ -84,18 +82,7 @@ class GlossaryRepository implements GlossaryRepositoryInterface
     public function update(array $data, int $id): Glossary
     {
         $glossary = $this->getById($id);
-        $glossary->term = $data['term'];
-        $glossary->definition = $data['definition'];
-        $glossary->body = $data['body'];
-
-        // Translations
-        foreach (LaravelLocalization::getSupportedLocales() as $countryCode => $countryAvTrans) {
-            if ($countryCode != Config::get('app.fallback_locale')) {
-                $glossary->setTranslation('term', $countryCode, $data['term_' . $countryCode] ?? null);
-                $glossary->setTranslation('definition', $countryCode, $data['definition_' . $countryCode] ?? null);
-                $glossary->setTranslation('body', $countryCode, $data['body_' . $countryCode] ?? null);
-            }
-        }
+        $glossary = self::assignDataAttributes($glossary, $data);
 
         $glossary->update();
 
@@ -116,5 +103,31 @@ class GlossaryRepository implements GlossaryRepositoryInterface
     public function delete(int $id): void
     {
         Glossary::destroy($id);
+    }
+
+    /**
+     * Assign the attributes of the data array to the object
+     *
+     * @param \App\Models\Glossary $glossary
+     * @param array $data
+     *
+     * @return \App\Models\Glossary
+     */
+    public function assignDataAttributes(Glossary $glossary, array $data): Glossary
+    {
+        $glossary->term = $data['term'];
+        $glossary->definition = $data['definition'];
+        $glossary->body = $data['body'];
+
+        // Translations
+        foreach (LaravelLocalization::getSupportedLocales() as $countryCode => $countryAvTrans) {
+            if ($countryCode != Config::get('app.fallback_locale')) {
+                $glossary->setTranslation('term', $countryCode, $data['term_' . $countryCode] ?? null);
+                $glossary->setTranslation('definition', $countryCode, $data['definition_' . $countryCode] ?? null);
+                $glossary->setTranslation('body', $countryCode, $data['body_' . $countryCode] ?? null);
+            }
+        }
+
+        return $glossary;
     }
 }

@@ -65,7 +65,10 @@ class GlossaryController extends Controller
      */
     public function create(): View
     {
-        return view('glossaries.create');
+        $countriesAvailableForTranslations = LaravelLocalization::getSupportedLocales();
+        return view('glossaries.create', [
+            'countriesAvailableForTranslations' => $countriesAvailableForTranslations,
+        ]);
     }
 
     /**
