@@ -62,7 +62,7 @@ class UserRepository implements UserRepositoryInterface
      * @param int $userId
      * @return User
      */
-    public function getById(int $userId)
+    public function getById(int $userId): User
     {
         return User::findOrFail($userId);
     }
@@ -73,7 +73,7 @@ class UserRepository implements UserRepositoryInterface
      * @param array $data
      * @return User
      */
-    public function storeUser(array $data)
+    public function storeUser(array $data): User
     {
         $user = new User();
 
@@ -94,22 +94,14 @@ class UserRepository implements UserRepositoryInterface
      * @param int $userId
      * @return User
      */
-    public function update(array $data, int $userId)
+    public function update(array $data, int $userId): User
     {
         $user = $this->getById($userId);
-        //dd($user->heard_about_us);
+
         $user->email = $data['email'];
         if (array_key_exists('password', $data)) {
             $user->password = Hash::make($data['password']);
         }
-
-        //$user->profile->name = $data['name'];
-        //$user->profile->surname = $data['surname'];
-        //$user->profile->description = $data['description'];
-
-        //$user->heard_about_us = $data['heard_about_us'];
-        //$user->over_age_limit =  ($data['over_age_limit'] == 'on') ? 1 : 0;
-        //$user->accept_terms = ($data['accept_terms'] == 'on') ? 1 : 0;
 
         $user->update();
 
@@ -127,7 +119,7 @@ class UserRepository implements UserRepositoryInterface
      * @param int $userId
      * @return void
      */
-    public function delete(int $userId)
+    public function delete(int $userId): void
     {
         User::destroy($userId);
     }
