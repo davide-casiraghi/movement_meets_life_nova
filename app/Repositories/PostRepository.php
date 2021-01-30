@@ -85,27 +85,8 @@ class PostRepository implements PostRepositoryInterface
     public function store(array $data): Post
     {
         $post = new Post();
-
-        $post->title = $data['title'] ?? null;
-        $post->category_id = $data['category_id'] ?? null;
-        $post->created_by = Auth::id();
-        $post->intro_text = $data['intro_text'] ?? null;
-
-        $post->body = $data['body'] ?? null;
-        $post->before_content = $data['before_content'] ?? null;
-        $post->after_content = $data['after_content'] ?? null;
-
-        $post->featured = $data['featured'] ?? 0;
-        $post->publish_at = $data['publish_at'] ?? null;
-        $post->publish_until = $data['publish_until'] ?? null;
-
-        // Translations
-        /*foreach (LaravelLocalization::getSupportedLocales() as $countryCode => $countryAvTrans) {
-            if ($countryCode != Config::get('app.fallback_locale')) {
-                $post->setTranslation('title', $countryCode, $data['title_' . $countryCode] ?? null);
-                $post->setTranslation('body', $countryCode, $data['body_' . $countryCode] ?? null);
-            }
-        }*/
+        $post = self::assignDataAttributes($post, $data);
+        $post->created_by = Auth::id(); // Owner
 
         $post->save();
 
@@ -127,26 +108,7 @@ class PostRepository implements PostRepositoryInterface
     public function update(array $data, int $id): Post
     {
         $post = $this->getById($id);
-
-        $post->title = $data['title'] ?? null;
-        $post->category_id = $data['category_id'] ?? null;
-        $post->intro_text = $data['intro_text'] ?? null;
-
-        $post->body = $data['body'] ?? null;
-        $post->before_content = $data['before_content'] ?? null;
-        $post->after_content = $data['after_content'] ?? null;
-
-        $post->featured = $data['featured'] ?? 0;
-        $post->publish_at = $data['publish_at'] ?? null;
-        $post->publish_until = $data['publish_until'] ?? null;
-
-        // Translations
-        foreach (LaravelLocalization::getSupportedLocales() as $countryCode => $countryAvTrans) {
-            if ($countryCode != Config::get('app.fallback_locale')) {
-                $post->setTranslation('title', $countryCode, $data['title_' . $countryCode] ?? null);
-                $post->setTranslation('body', $countryCode, $data['body_' . $countryCode] ?? null);
-            }
-        }
+        $post = self::assignDataAttributes($post, $data);
 
         $post->update();
 
@@ -170,5 +132,38 @@ class PostRepository implements PostRepositoryInterface
     public function delete(int $id): void
     {
         Post::destroy($id);
+    }
+
+    /**
+     * Assign the attributes of the data array to the object
+     *
+     * @param \App\Models\Post $post
+     * @param array $data
+     *
+     * @return \App\Models\Post
+     */
+    public function assignDataAttributes(Post $post, array $data): Post
+    {
+        $post->title = $data['title'] ?? null;
+        $post->category_id = $data['category_id'] ?? null;
+        $post->intro_text = $data['intro_text'] ?? null;
+
+        $post->body = $data['body'] ?? null;
+        $post->before_content = $data['before_content'] ?? null;
+        $post->after_content = $data['after_content'] ?? null;
+
+        $post->featured = $data['featured'] ?? 0;
+        $post->publish_at = $data['publish_at'] ?? null;
+        $post->publish_until = $data['publish_until'] ?? null;
+
+        // Translations
+        foreach (LaravelLocalization::getSupportedLocales() as $countryCode => $countryAvTrans) {
+            if ($countryCode != Config::get('app.fallback_locale')) {
+                $post->setTranslation('title', $countryCode, $data['title_' . $countryCode] ?? null);
+                $post->setTranslation('body', $countryCode, $data['body_' . $countryCode] ?? null);
+            }
+        }
+
+        return $post;
     }
 }
