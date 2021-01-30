@@ -101,7 +101,7 @@ class VenueRepository implements VenueRepositoryInterface
      * @param int $id
      * @return void
      */
-    public function delete(int $id)
+    public function delete(int $id): void
     {
         Venue::destroy($id);
     }

@@ -36,14 +36,10 @@ class CountryRepository implements CountryRepositoryInterface
      * @param $data
      * @return Country
      */
-    public function store($data): Country
+    public function store(array $data): Country
     {
         $country = new Country();
         $country = self::assignDataAttributes($country, $data);
-
-        /*$country->name = $data['name'];
-        $country->code = $data['code'];
-        $country->continent_id = $data['continent_id'];*/
 
         $country->save();
 
@@ -53,17 +49,14 @@ class CountryRepository implements CountryRepositoryInterface
     /**
      * Update Country
      *
-     * @param $data
+     * @param array $data
      * @param int $id
      * @return Country
      */
-    public function update($data, int $id): Country
+    public function update(array $data, int $id): Country
     {
         $country = $this->getById($id);
         $country = self::assignDataAttributes($country, $data);
-        /*$country->name = $data['name'];
-        $country->code = $data['code'];
-        $country->continent_id = $data['continent_id'];*/
 
         $country->update();
 

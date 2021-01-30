@@ -3,10 +3,11 @@
 namespace App\Services;
 
 use App\Http\Requests\CountryStoreRequest;
+use App\Models\Country;
 use App\Repositories\CountryRepository;
 
-class CountryService {
-
+class CountryService
+{
     private CountryRepository $countryRepository;
 
     /**
@@ -21,50 +22,50 @@ class CountryService {
     }
 
     /**
-     * Create a gender
+     * Create a country
      *
      * @param \App\Http\Requests\CountryStoreRequest $data
      *
      * @return \App\Models\Country
      */
-    public function createCountry(CountryStoreRequest $data)
+    public function createCountry(CountryStoreRequest $data): Country
     {
-        $country = $this->countryRepository->store($data);
+        $country = $this->countryRepository->store($data->all());
 
         return $country;
     }
 
     /**
-     * Update the gender
+     * Update the country
      *
      * @param \App\Http\Requests\CountryStoreRequest $data
      * @param int $countryId
      *
      * @return \App\Models\Country
      */
-    public function updateCountry(CountryStoreRequest $data, int $countryId)
+    public function updateCountry(CountryStoreRequest $data, int $countryId): Country
     {
-        $country = $this->countryRepository->update($data, $countryId);
+        $country = $this->countryRepository->update($data->all(), $countryId);
 
         return $country;
     }
 
     /**
-     * Return the gender from the database
+     * Return the country from the database
      *
      * @param int $countryId
      *
      * @return \App\Models\Country
      */
-    public function getById(int $countryId)
+    public function getById(int $countryId): Country
     {
         return $this->countryRepository->getById($countryId);
     }
 
     /**
-     * Get all the genders
+     * Get all the countries
      *
-     * @return iterable
+     * @return \Illuminate\Support\Collection
      */
     public function getCountries()
     {
@@ -72,7 +73,7 @@ class CountryService {
     }
 
     /**
-     * Delete the gender from the database
+     * Delete the country from the database
      *
      * @param int $countryId
      */
@@ -80,5 +81,4 @@ class CountryService {
     {
         $this->countryRepository->delete($countryId);
     }
-
 }
