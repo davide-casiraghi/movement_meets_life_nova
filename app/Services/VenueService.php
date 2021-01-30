@@ -33,7 +33,7 @@ class VenueService
      */
     public function createVenue(VenueStoreRequest $data): Venue
     {
-        $venue = $this->venueRepository->store($data);
+        $venue = $this->venueRepository->store($data->all());
 
         $venue->setStatus('published');
 
@@ -52,7 +52,7 @@ class VenueService
      */
     public function updateVenue(VenueStoreRequest $data, int $venueId): Venue
     {
-        $venue = $this->venueRepository->update($data, $venueId);
+        $venue = $this->venueRepository->update($data->all(), $venueId);
 
         $this->storeImages($venue, $data);
 

@@ -6,8 +6,8 @@ namespace App\Repositories;
 use App\Models\Country;
 use Illuminate\Support\Collection;
 
-
-class CountryRepository implements CountryRepositoryInterface {
+class CountryRepository implements CountryRepositoryInterface
+{
 
     /**
      * Get all PostCategories.
@@ -39,9 +39,11 @@ class CountryRepository implements CountryRepositoryInterface {
     public function store($data): Country
     {
         $country = new Country();
-        $country->name = $data['name'];
+        $country = self::assignDataAttributes($country, $data);
+
+        /*$country->name = $data['name'];
         $country->code = $data['code'];
-        $country->continent_id = $data['continent_id'];
+        $country->continent_id = $data['continent_id'];*/
 
         $country->save();
 
@@ -58,9 +60,10 @@ class CountryRepository implements CountryRepositoryInterface {
     public function update($data, int $id): Country
     {
         $country = $this->getById($id);
-        $country->name = $data['name'];
+        $country = self::assignDataAttributes($country, $data);
+        /*$country->name = $data['name'];
         $country->code = $data['code'];
-        $country->continent_id = $data['continent_id'];
+        $country->continent_id = $data['continent_id'];*/
 
         $country->update();
 
@@ -76,5 +79,22 @@ class CountryRepository implements CountryRepositoryInterface {
     public function delete(int $id): void
     {
         Country::destroy($id);
+    }
+
+    /**
+     * Assign the attributes of the data array to the object
+     *
+     * @param \App\Models\Country $country
+     * @param array $data
+     *
+     * @return \App\Models\Country
+     */
+    public function assignDataAttributes(Country $country, array $data): Country
+    {
+        $country->name = $data['name'];
+        $country->code = $data['code'];
+        $country->continent_id = $data['continent_id'];
+
+        return $country;
     }
 }

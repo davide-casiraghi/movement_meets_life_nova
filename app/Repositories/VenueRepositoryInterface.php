@@ -4,14 +4,21 @@ namespace App\Repositories;
 
 use App\Models\Venue;
 
-interface VenueRepositoryInterface {
+interface VenueRepositoryInterface
+{
 
     /**
      * Get all EventCategories.
      *
-     * @return iterable
+     * @param int|null $recordsPerPage
+     * @param array|null $searchParameters
+     *
+     * @return \App\Models\Venue[]|\Illuminate\Contracts\Pagination\LengthAwarePaginator|\Illuminate\Database\Eloquent\Collection
      */
-    public function getAll(int $recordsPerPage = NULL);
+    public function getAll(
+        int $recordsPerPage = null,
+        array $searchParameters = null
+    );
 
     /**
      * Get Venue by id
@@ -20,26 +27,26 @@ interface VenueRepositoryInterface {
      *
      * @return Venue
      */
-    public function getById(int $id);
+    public function getById(int $id): Venue;
 
     /**
      * Store Venue
      *
-     * @param $data
+     * @param array $data
      *
      * @return Venue
      */
-    public function store($data);
+    public function store(array $data): Venue;
 
     /**
      * Update Venue
      *
-     * @param $data
+     * @param array $data
      * @param int $id
      *
      * @return Venue
      */
-    public function update($data, int $id);
+    public function update(array $data, int $id): Venue;
 
     /**
      * Delete Venue
@@ -49,5 +56,15 @@ interface VenueRepositoryInterface {
      * @return void
      */
     public function delete(int $id);
+
+    /**
+     * Assign the attributes of the data array to the object
+     *
+     * @param \App\Models\Venue $venue
+     * @param array $data
+     *
+     * @return \App\Models\Venue
+     */
+    public function assignDataAttributes(Venue $venue, array $data): Venue;
 
 }

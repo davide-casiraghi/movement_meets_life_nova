@@ -46,11 +46,6 @@ class VenueRepository implements VenueRepositoryInterface
         }
 
         return $results;
-
-        /*if($recordsPerPage){
-            return Venue::paginate($recordsPerPage);
-        }
-        return Venue::all();*/
     }
 
     /**
@@ -60,7 +55,7 @@ class VenueRepository implements VenueRepositoryInterface
      *
      * @return Venue
      */
-    public function getById(int $id)
+    public function getById(int $id): Venue
     {
         return Venue::findOrFail($id);
     }
@@ -68,25 +63,14 @@ class VenueRepository implements VenueRepositoryInterface
     /**
      * Store Venue
      *
-     * @param $data
+     * @param array $data
      *
      * @return Venue
      */
-    public function store($data)
+    public function store(array $data): Venue
     {
         $venue = new Venue();
-
-        $venue->name = $data['name'];
-        $venue->description = $data['description'];
-        $venue->website = $data['website'];
-        $venue->extra_info = $data['extra_info'];
-        $venue->address = $data['address'];
-        $venue->city = $data['city'];
-        $venue->state_province = $data['state_province'];
-        $venue->country_id = $data['country_id'];
-        $venue->zip_code = $data['zip_code'];
-        $venue->lng = $data['lng'];
-        $venue->lng = $data['lng'];
+        $venue = self::assignDataAttributes($venue, $data);
 
         $venue->save();
 
@@ -96,26 +80,15 @@ class VenueRepository implements VenueRepositoryInterface
     /**
      * Update Venue
      *
-     * @param $data
+     * @param array $data
      * @param int $id
      *
      * @return Venue
      */
-    public function update($data, int $id)
+    public function update(array $data, int $id): Venue
     {
         $venue = $this->getById($id);
-
-        $venue->name = $data['name'];
-        $venue->description = $data['description'];
-        $venue->website = $data['website'];
-        $venue->extra_info = $data['extra_info'];
-        $venue->address = $data['address'];
-        $venue->city = $data['city'];
-        $venue->state_province = $data['state_province'];
-        $venue->country_id = $data['country_id'];
-        $venue->zip_code = $data['zip_code'];
-        $venue->lng = $data['lng'];
-        $venue->lng = $data['lng'];
+        $venue = self::assignDataAttributes($venue, $data);
 
         $venue->update();
 
@@ -131,5 +104,30 @@ class VenueRepository implements VenueRepositoryInterface
     public function delete(int $id)
     {
         Venue::destroy($id);
+    }
+
+    /**
+     * Assign the attributes of the data array to the object
+     *
+     * @param \App\Models\Venue $venue
+     * @param array $data
+     *
+     * @return \App\Models\Venue
+     */
+    public function assignDataAttributes(Venue $venue, array $data): Venue
+    {
+        $venue->name = $data['name'];
+        $venue->description = $data['description'] ?? null;
+        $venue->website = $data['website'] ?? null;
+        $venue->extra_info = $data['extra_info'] ?? null;
+        $venue->address = $data['address'] ?? null;
+        $venue->city = $data['city'] ?? null;
+        $venue->state_province = $data['state_province'] ?? null;
+        $venue->country_id = $data['country_id'] ?? null;
+        $venue->zip_code = $data['zip_code'] ?? null;
+        $venue->lng = $data['lng'] ?? null;
+        $venue->lng = $data['lng'] ?? null;
+
+        return $venue;
     }
 }
