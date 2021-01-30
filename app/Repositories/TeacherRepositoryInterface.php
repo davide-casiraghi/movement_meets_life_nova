@@ -4,14 +4,21 @@ namespace App\Repositories;
 
 use App\Models\Teacher;
 
-interface TeacherRepositoryInterface {
+interface TeacherRepositoryInterface
+{
 
     /**
      * Get all Teachers.
      *
-     * @return iterable
+     * @param int|null $recordsPerPage
+     * @param array|null $searchParameters
+     *
+     * @return \App\Models\Teacher[]|\Illuminate\Contracts\Pagination\LengthAwarePaginator|\Illuminate\Database\Eloquent\Collection
      */
-    public function getAll(int $recordsPerPage = NULL);
+    public function getAll(
+        int $recordsPerPage = null,
+        array $searchParameters = null
+    );
 
     /**
      * Get Teacher by id
@@ -20,7 +27,7 @@ interface TeacherRepositoryInterface {
      *
      * @return Teacher
      */
-    public function getById(int $id);
+    public function getById(int $id): Teacher;
 
     /**
      * Store Teacher
@@ -29,7 +36,7 @@ interface TeacherRepositoryInterface {
      *
      * @return Teacher
      */
-    public function store($data);
+    public function store(array $data): Teacher;
 
     /**
      * Update Teacher
@@ -39,7 +46,7 @@ interface TeacherRepositoryInterface {
      *
      * @return Teacher
      */
-    public function update($data, int $id);
+    public function update(array $data, int $id): Teacher;
 
     /**
      * Delete Teacher
@@ -48,6 +55,19 @@ interface TeacherRepositoryInterface {
      *
      * @return void
      */
-    public function delete(int $id);
+    public function delete(int $id): void;
+
+    /**
+     * Assign the attributes of the data array to the object
+     *
+     * @param \App\Models\Teacher $teacher
+     * @param array $data
+     *
+     * @return \App\Models\Teacher
+     */
+    public function assignDataAttributes(
+        Teacher $teacher,
+        array $data
+    ): Teacher;
 
 }

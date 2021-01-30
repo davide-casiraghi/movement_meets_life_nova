@@ -48,12 +48,6 @@ class TeacherRepository implements TeacherRepositoryInterface
         }
 
         return $results;
-
-
-        /*if ($recordsPerPage) {
-            return Teacher::paginate($recordsPerPage);
-        }
-        return Teacher::all();*/
     }
 
     /**
@@ -63,7 +57,7 @@ class TeacherRepository implements TeacherRepositoryInterface
      *
      * @return Teacher
      */
-    public function getById(int $id)
+    public function getById(int $id): Teacher
     {
         return Teacher::findOrFail($id);
     }
@@ -75,22 +69,11 @@ class TeacherRepository implements TeacherRepositoryInterface
      *
      * @return Teacher
      */
-    public function store($data)
+    public function store(array $data): Teacher
     {
         $teacher = new Teacher();
-
-        $teacher->user_id = Auth::id();
-        $teacher->country_id = $data['country_id'];
-
-        $teacher->name = $data['name'];
-        $teacher->surname = $data['surname'];
-
-        $teacher->bio = $data['bio'];
-        $teacher->year_starting_practice = $data['year_starting_practice'];
-        $teacher->year_starting_teach = $data['year_starting_teach'];
-        $teacher->significant_teachers = $data['significant_teachers'];
-        $teacher->website = $data['website'];
-        $teacher->facebook = $data['facebook'];
+        $teacher = self::assignDataAttributes($teacher, $data);
+        $teacher->user_id = Auth::id(); // Owner
 
         $teacher->save();
 
@@ -105,21 +88,10 @@ class TeacherRepository implements TeacherRepositoryInterface
      *
      * @return Teacher
      */
-    public function update($data, int $id)
+    public function update(array $data, int $id): Teacher
     {
         $teacher = $this->getById($id);
-
-        $teacher->country_id = $data['country_id'];
-
-        $teacher->name = $data['name'];
-        $teacher->surname = $data['surname'];
-
-        $teacher->bio = $data['bio'];
-        $teacher->year_starting_practice = $data['year_starting_practice'];
-        $teacher->year_starting_teach = $data['year_starting_teach'];
-        $teacher->significant_teachers = $data['significant_teachers'];
-        $teacher->website = $data['website'];
-        $teacher->facebook = $data['facebook'];
+        $teacher = self::assignDataAttributes($teacher, $data);
 
         $teacher->update();
 
@@ -132,8 +104,31 @@ class TeacherRepository implements TeacherRepositoryInterface
      * @param int $id
      * @return void
      */
-    public function delete(int $id)
+    public function delete(int $id): void
     {
         Teacher::destroy($id);
+    }
+
+    /**
+     * Assign the attributes of the data array to the object
+     *
+     * @param \App\Models\Teacher $teacher
+     * @param array $data
+     *
+     * @return \App\Models\Teacher
+     */
+    public function assignDataAttributes(Teacher $teacher, array $data): Teacher
+    {
+        $teacher->country_id = $data['country_id'] ?? null;
+        $teacher->name = $data['name'];
+        $teacher->surname = $data['surname'] ?? null;
+        $teacher->bio = $data['bio'] ?? null;
+        $teacher->year_starting_practice = $data['year_starting_practice'] ?? null;
+        $teacher->year_starting_teach = $data['year_starting_teach'] ?? null;
+        $teacher->significant_teachers = $data['significant_teachers'] ?? null;
+        $teacher->website = $data['website'] ?? null;
+        $teacher->facebook = $data['facebook'] ?? null;
+
+        return $teacher;
     }
 }

@@ -31,7 +31,7 @@ class TeacherService
      */
     public function createTeacher(TeacherStoreRequest $data): Teacher
     {
-        $teacher = $this->teacherRepository->store($data);
+        $teacher = $this->teacherRepository->store($data->all());
 
         $teacher->setStatus('published');
 
@@ -50,7 +50,7 @@ class TeacherService
      */
     public function updateTeacher(TeacherStoreRequest $data, int $teacherId): Teacher
     {
-        $teacher = $this->teacherRepository->update($data, $teacherId);
+        $teacher = $this->teacherRepository->update($data->all(), $teacherId);
 
         $this->storeImages($teacher, $data);
 
