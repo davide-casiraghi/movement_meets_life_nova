@@ -8,7 +8,8 @@ use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Date;
 
-class UserProfileRepository implements UserProfileRepositoryInterface {
+class UserProfileRepository implements UserProfileRepositoryInterface
+{
 
     /**
      * Get user profile by id
@@ -31,13 +32,6 @@ class UserProfileRepository implements UserProfileRepositoryInterface {
     {
         $userProfile = new UserProfile();
 
-        $userProfile->user_id = $data['user_id'];
-        $userProfile->name = $data['name'];
-        $userProfile->surname = $data['surname'];
-        $userProfile->country_id = $data['country_id'];
-        $userProfile->description = $data['description'] ?? '';
-        $userProfile->accept_terms = ($data['accept_terms'] == 'on') ? 1 : 0;
-
         $userProfile->save();
 
         return $userProfile->fresh();
@@ -54,19 +48,9 @@ class UserProfileRepository implements UserProfileRepositoryInterface {
     public function update(array $data, int $userProfileId): UserProfile
     {
         $userProfile = $this->getById($userProfileId);
-        $userProfile->user_id = $userProfile->user->id;
-        $userProfile->name = $data['name'];
-        $userProfile->surname = $data['surname'];
-        $userProfile->country_id = $data['country_id'];
-        $userProfile->description = $data['description'] ?? '';
-        $userProfile->accept_terms = ($data['accept_terms'] == 'on') ? 1 : 0;
-
-        //$userProfile->region_id = $data['region_id'] ?? null;
-
-        //$userProfile->application_approved = (!empty($data['application_approved'])) ? 1 : 0;
+        $userProfile = self::assignDataAttributes($userProfile, $data);
 
         $userProfile->update();
-
         //$this->updateUserStatus($userProfile, $data['status'] ?? null);
 
         return $userProfile;
@@ -84,6 +68,26 @@ class UserProfileRepository implements UserProfileRepositoryInterface {
     }
 
     /**
+     * Assign the attributes of the data array to the object
+     *
+     * @param \App\Models\UserProfile $userProfile
+     * @param array $data
+     *
+     * @return \App\Models\UserProfile
+     */
+    public function assignDataAttributes(UserProfile $userProfile, array $data): UserProfile
+    {
+        $userProfile->user_id = $userProfile->user->id;
+        $userProfile->name = $data['name'];
+        $userProfile->surname = $data['surname'];
+        $userProfile->country_id = $data['country_id'];
+        $userProfile->description = $data['description'] ?? '';
+        $userProfile->accept_terms = ($data['accept_terms'] == 'on') ? 1 : 0;
+
+        return $userProfile;
+    }
+
+    /**
      * Update the user status
      *
      * @param UserProfile $userProfile
@@ -94,12 +98,12 @@ class UserProfileRepository implements UserProfileRepositoryInterface {
     public function updateUserStatus(UserProfile $userProfile, ?string $status): void
     {
         // If the status dropdown has been modified change the status according to that
-        if(isset($status) && $userProfile->user->status != $status) {
+        if (isset($status) && $userProfile->user->status != $status) {
             $userProfile->user->setStatus($status);
         }
 
         // Otherwise set the status to update if any field has been modified
-        elseif($userProfile->wasChanged()){
+        elseif ($userProfile->wasChanged()) {
             $userProfile->user->setStatus('updated', Auth::id());
         }
     }
@@ -114,8 +118,8 @@ class UserProfileRepository implements UserProfileRepositoryInterface {
      */
     public function updateUserPhoneVerifyAt(UserProfile $userProfile, Request $request): bool
     {
-        if(isset($request->phone_verification_code)){
-            if ($userProfile->phone_verification_code == $request->phone_verification_code){
+        if (isset($request->phone_verification_code)) {
+            if ($userProfile->phone_verification_code == $request->phone_verification_code) {
                 $userProfile->phone_verified_at = Carbon::now();
                 $userProfile->update();
                 return true;
@@ -123,5 +127,4 @@ class UserProfileRepository implements UserProfileRepositoryInterface {
         }
         return false;
     }
-
 }
