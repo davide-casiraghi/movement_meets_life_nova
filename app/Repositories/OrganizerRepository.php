@@ -76,7 +76,9 @@ class OrganizerRepository implements OrganizerRepositoryInterface
     {
         $organizer = new Organizer();
         $organizer = self::assignDataAttributes($organizer, $data);
-        $organizer->user_id = Auth::id(); //Owner
+
+        // Creator - Logged user id or 1 for factories
+        $organizer->user_id = !is_null(Auth::id()) ? Auth::id() : 1;
 
         $organizer->save();
 

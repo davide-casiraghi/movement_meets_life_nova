@@ -85,7 +85,9 @@ class EventRepository implements EventRepositoryInterface
     {
         $event = new Event();
 
-        $event->user_id = Auth::id();
+        // Creator - Logged user id or 1 for factories
+        $event->user_id = !is_null(Auth::id()) ? Auth::id() : 1;
+
         $event->event_category_id = $data['event_category_id'];
 
         $event->venue_id = $data['venue_id'];

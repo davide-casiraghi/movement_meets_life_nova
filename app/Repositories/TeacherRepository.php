@@ -73,7 +73,9 @@ class TeacherRepository implements TeacherRepositoryInterface
     {
         $teacher = new Teacher();
         $teacher = self::assignDataAttributes($teacher, $data);
-        $teacher->user_id = Auth::id(); // Owner
+
+        // Creator - Logged user id or 1 for factories
+        $teacher->user_id = !is_null(Auth::id()) ? Auth::id() : 1;
 
         $teacher->save();
 
