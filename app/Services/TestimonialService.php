@@ -49,13 +49,14 @@ class TestimonialService
     /**
      * Create a Testimonial
      *
-     * @param array $data
+     * @param \App\Http\Requests\TestimonialStoreRequest $request
      *
      * @return \App\Models\Testimonial
      */
-    public function createTestimonial(array $data): Testimonial
+    public function createTestimonial(TestimonialStoreRequest $request): Testimonial
     {
-        $testimonial = $this->testimonialRepository->store($data);
+        $testimonial = $this->testimonialRepository->store($request->all());
+        self::storeImages($testimonial, $request);
 
         return $testimonial;
     }
@@ -63,14 +64,15 @@ class TestimonialService
     /**
      * Update the Testimonial
      *
-     * @param array $data
+     * @param \App\Http\Requests\TestimonialStoreRequest $request
      * @param int $testimonialId
      *
      * @return \App\Models\Testimonial
      */
-    public function updateTestimonial(array $data, int $testimonialId): Testimonial
+    public function updateTestimonial(TestimonialStoreRequest $request, int $testimonialId): Testimonial
     {
-        $testimonial = $this->testimonialRepository->update($data, $testimonialId);
+        $testimonial = $this->testimonialRepository->update($request->all(), $testimonialId);
+        self::storeImages($testimonial, $request);
 
         return $testimonial;
     }

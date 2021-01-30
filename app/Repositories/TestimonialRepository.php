@@ -70,25 +70,10 @@ class TestimonialRepository implements TestimonialRepositoryInterface
      * @param $data
      * @return Testimonial
      */
-    public function store($data): Testimonial
+    public function store(array $data): Testimonial
     {
         $testimonial = new Testimonial();
-
-        $testimonial->feedback = $data['feedback'] ?? null;
-        $testimonial->name = $data['name'] ?? null;
-        $testimonial->surname = $data['surname'] ?? null;
-        $testimonial->profession = $data['profession'] ?? null;
-        $testimonial->country_id = $data['country_id'] ?? null;
-        $testimonial->publish_agreement =  ($data['publish_agreement'] == 'on') ? 1 : 0;
-        $testimonial->personal_data_agreement =  ($data['personal_data_agreement'] == 'on') ? 1 : 0;
-
-        // Translations
-        foreach (LaravelLocalization::getSupportedLocales() as $countryCode => $countryAvTrans) {
-            if ($countryCode != Config::get('app.fallback_locale')) {
-                $testimonial->setTranslation('feedback', $countryCode, $data['feedback_' . $countryCode] ?? null);
-                $testimonial->setTranslation('profession', $countryCode, $data['profession_' . $countryCode] ?? null);
-            }
-        }
+        $testimonial = self::assignDataAttributes($testimonial, $data);
 
         $testimonial->save();
 
@@ -102,27 +87,14 @@ class TestimonialRepository implements TestimonialRepositoryInterface
     /**
      * Update Testimonial
      *
-     * @param $data
+     * @param array $data
      * @param int $id
      * @return Testimonial
      */
-    public function update($data, int $id): Testimonial
+    public function update(array $data, int $id): Testimonial
     {
         $testimonial = $this->getById($id);
-
-        $testimonial->feedback = $data['feedback'] ?? null;
-        $testimonial->name = $data['name'] ?? null;
-        $testimonial->surname = $data['surname'] ?? null;
-        $testimonial->profession = $data['profession'] ?? null;
-        $testimonial->country_id = $data['country_id'] ?? null;
-
-        // Translations
-        foreach (LaravelLocalization::getSupportedLocales() as $countryCode => $countryAvTrans) {
-            if ($countryCode != Config::get('app.fallback_locale')) {
-                $testimonial->setTranslation('feedback', $countryCode, $data['feedback_' . $countryCode] ?? null);
-                $testimonial->setTranslation('profession', $countryCode, $data['profession_' . $countryCode] ?? null);
-            }
-        }
+        $testimonial = self::assignDataAttributes($testimonial, $data);
 
         $testimonial->update();
 
@@ -143,5 +115,38 @@ class TestimonialRepository implements TestimonialRepositoryInterface
     public function delete(int $id): void
     {
         Testimonial::destroy($id);
+    }
+
+    /**
+     * Assign the attributes of the data array to the object
+     *
+     * @param \App\Models\Testimonial $testimonial
+     * @param array $data
+     *
+     * @return \App\Models\Testimonial
+     */
+    public function assignDataAttributes(Testimonial $testimonial, array $data): Testimonial
+    {
+        $testimonial->feedback = $data['feedback'] ?? null;
+        $testimonial->name = $data['name'] ?? null;
+        $testimonial->surname = $data['surname'] ?? null;
+        $testimonial->profession = $data['profession'] ?? null;
+        $testimonial->country_id = $data['country_id'] ?? null;
+
+        $testimonial->publish_agreement =  isset($data['publish_agreement']) ? 1 : 0;
+        $testimonial->personal_data_agreement =  isset($data['personal_data_agreement']) ? 1 : 0;
+
+        //$testimonial->publish_agreement =  ($data['publish_agreement'] == 'on') ? 1 : 0;
+        //$testimonial->personal_data_agreement =  ($data['personal_data_agreement'] == 'on') ? 1 : 0;
+
+        // Translations
+        foreach (LaravelLocalization::getSupportedLocales() as $countryCode => $countryAvTrans) {
+            if ($countryCode != Config::get('app.fallback_locale')) {
+                $testimonial->setTranslation('feedback', $countryCode, $data['feedback_' . $countryCode] ?? null);
+                $testimonial->setTranslation('profession', $countryCode, $data['profession_' . $countryCode] ?? null);
+            }
+        }
+
+        return $testimonial;
     }
 }

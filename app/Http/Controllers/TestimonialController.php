@@ -75,8 +75,8 @@ class TestimonialController extends Controller
      */
     public function store(TestimonialStoreRequest $request): RedirectResponse
     {
-        $testimonial = $this->testimonialService->createTestimonial($request->all());
-        $this->testimonialService->storeImages($testimonial, $request);
+        $testimonial = $this->testimonialService->createTestimonial($request);
+
         $message = Auth::guest() ? 'Thanks for your testimony!' : 'Testimonial created successfully';
 
         if (Auth::guest()) {
@@ -121,7 +121,6 @@ class TestimonialController extends Controller
         $this->checkPermission('testimonials.edit');
 
         $testimonial = $this->testimonialService->updateTestimonial($request, $testimonialId);
-        $this->testimonialService->storeImages($testimonial, $request);
 
         return redirect()->route('testimonials.index')
             ->with('success', 'Testimonial updated successfully');

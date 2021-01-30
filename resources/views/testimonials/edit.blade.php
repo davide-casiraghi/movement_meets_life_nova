@@ -106,7 +106,7 @@
 
                         <div class="col-span-6">
                             @php
-                                $checked = old('personal_data_agreement') ? "checked" : "";
+                                $checked = old('personal_data_agreement', $testimonial->personal_data_agreement) ? "checked" : "";
                             @endphp
                             @include('partials.forms.checkbox', [
                                 'label' => __('views.personal_data_agreement'),
@@ -120,7 +120,7 @@
 
                         <div class="col-span-6">
                             @php
-                                $checked = old('publish_agreement') ? "checked" : "";
+                                $checked = old('publish_agreement', $testimonial->publish_agreement) ? "checked" : "";
                             @endphp
                             @include('partials.forms.checkbox', [
                                 'label' => __('views.publish_agreement'),
