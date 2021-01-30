@@ -16,11 +16,12 @@ class CreatePostsTable extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id('id');
             $table->foreignId('category_id')->constrained('post_categories');
+            $table->foreignId('user_id')->constrained();
+
             /*$table->integer('category_id')->unsigned();
             $table->foreign('category_id')->references('id')->on('post_categories');*/
 
             $table->string('title');
-            $table->integer('created_by')->nullable();
             $table->text('intro_text');
             $table->text('body');
             $table->boolean('featured')->default(0);

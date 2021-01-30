@@ -86,7 +86,9 @@ class PostRepository implements PostRepositoryInterface
     {
         $post = new Post();
         $post = self::assignDataAttributes($post, $data);
-        $post->created_by = Auth::id(); // Owner
+
+        // Owner - Logged user id or 1 for factories
+        $post->user_id = !is_null(Auth::id()) ? Auth::id() : 1;
 
         $post->save();
 

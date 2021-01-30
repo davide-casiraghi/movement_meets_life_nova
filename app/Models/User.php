@@ -78,7 +78,7 @@ class User extends Authenticatable
      */
     public function post()
     {
-        return $this->hasMany(Post::class, 'created_by');  //  select * from post where created_by
+        return $this->hasMany(Post::class);
     }
 
     /**

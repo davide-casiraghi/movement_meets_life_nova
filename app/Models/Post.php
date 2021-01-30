@@ -47,26 +47,6 @@ class Post extends Model implements HasMedia, Searchable
     ];
 
     /**
-     * The "booted" method of the model.
-     *
-     * @return void
-     */
-    protected static function booted()
-    {
-        // The saving / saved events will fire when a model is created or updated.
-        static::saving(function ($model) {
-            $model->created_by = Auth::id();
-
-            // todo - Remove this: it's to allow the factory to generate without a null value.
-            if (Auth::id() == null) {
-                $model->created_by = 1;
-            }
-        });
-    }
-
-    // https://stackoverflow.com/questions/48264084/how-to-get-unique-slug-to-same-post-title-for-other-time-too
-
-    /**
      * Generates a unique slug.
      */
     public function getSlugOptions(): SlugOptions
@@ -81,7 +61,7 @@ class Post extends Model implements HasMedia, Searchable
      */
     public function user()
     {
-        return $this->belongsTo(User::class, 'created_by');
+        return $this->belongsTo(User::class);
     }
 
     /**
