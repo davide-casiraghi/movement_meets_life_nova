@@ -53,18 +53,6 @@ class Insight extends Model
     }
 
     /**
-     * Set default status value when a insight is created
-     */
-    public static function boot()
-    {
-        parent::boot();
-
-        static::created(function (Insight $insight) {
-            $insight->setStatus('Published');
-        });
-    }
-
-    /**
      * Returns the tags associated to the insight.
      */
     public function tags()
