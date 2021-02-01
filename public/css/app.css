@@ -42661,13 +42661,14 @@ div[id^=tp_].timepicker__wrapper > div .timepicker__button__down > div {
 .accordion label:after {
   content: "+";
   position: absolute;
-  right: 1em;
-  color: #fff;
+  right: 0.75rem;
+  --tw-text-opacity: 1;
+  color: rgba(2, 132, 199, var(--tw-text-opacity));
 }
 
 .accordion input:checked + label:after {
   content: "-";
-  line-height: 0.8em;
+  line-height: 1.5rem;
 }
 
 .accordion .accordion__content {

@@ -10,13 +10,16 @@ namespace App\Services\Snippets;
 
 class AccordionService
 {
-    private $count = 1;
+    private int $count = 1;
+
     /**
      * Substitute accordion snippets with the related HTML
      *
+     * @param string $postBody
+     *
      * @return string
      */
-    public function snippetsToHTML($postBody): string
+    public function snippetsToHTML(string $postBody): string
     {
         $ret = $postBody;
 
@@ -36,7 +39,7 @@ class AccordionService
                 function ($matches) {
                     $sliderTemplate = "<div class='slide w-full'>";
                         $sliderTemplate .= "<input type='checkbox' name='panel' id='panel-".$this->count."' class='hidden'>";
-                        $sliderTemplate .= "<label for='panel-".$this->count."' class='relative block bg-black text-white p-4 shadow border-b border-grey'>".$matches[1]."</label>";
+                        $sliderTemplate .= "<label for='panel-".$this->count."' class='relative block border-t border-b border-solid border-gray-500 text-purple-600 p-4 shadow'>".$matches[1]."</label>";
                         $sliderTemplate .= "<div class='accordion__content overflow-hidden bg-grey-lighter'>";
                             //$sliderTemplate .= "<h2 class='accordion__header pt-4 pl-4'>Header</h2>";
                             $sliderTemplate .= "<div class='accordion__body p-4' id='panel".$this->count."'>".$matches[2]."</div>";
