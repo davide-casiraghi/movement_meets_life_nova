@@ -26,18 +26,17 @@ class VenueService
     /**
      * Create a venue
      *
-     * @param \App\Http\Requests\VenueStoreRequest $data
+     * @param \App\Http\Requests\VenueStoreRequest $request
      *
      * @return \App\Models\Venue
      * @throws \Spatie\ModelStatus\Exceptions\InvalidStatus
      */
-    public function createVenue(VenueStoreRequest $data): Venue
+    public function createVenue(VenueStoreRequest $request): Venue
     {
-        $venue = $this->venueRepository->store($data->all());
+        $venue = $this->venueRepository->store($request->all());
+        $this->storeImages($venue, $request);
 
         $venue->setStatus('published');
-
-        $this->storeImages($venue, $data);
 
         return $venue;
     }
@@ -45,16 +44,15 @@ class VenueService
     /**
      * Update the Venue
      *
-     * @param \App\Http\Requests\VenueStoreRequest $data
+     * @param \App\Http\Requests\VenueStoreRequest $request
      * @param int $venueId
      *
      * @return \App\Models\Venue
      */
-    public function updateVenue(VenueStoreRequest $data, int $venueId): Venue
+    public function updateVenue(VenueStoreRequest $request, int $venueId): Venue
     {
-        $venue = $this->venueRepository->update($data->all(), $venueId);
-
-        $this->storeImages($venue, $data);
+        $venue = $this->venueRepository->update($request->all(), $venueId);
+        $this->storeImages($venue, $request);
 
         return $venue;
     }
