@@ -65,6 +65,8 @@ var editor_config = {
     path_absolute : "/",
     relative_urls: false,
 
+    //forced_root_block : false, // force to add <br> instead of <p>
+
 // do not delete the commented lines of tinymce! .. this is a file browser that can be useful for articles
 
 /*file_browser_callback : function(field_name, url, type, win) {
