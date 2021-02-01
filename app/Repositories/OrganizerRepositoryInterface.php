@@ -32,7 +32,7 @@ interface OrganizerRepositoryInterface
     /**
      * Store Organizer
      *
-     * @param $data
+     * @param array $data
      *
      * @return Organizer
      */
@@ -41,7 +41,7 @@ interface OrganizerRepositoryInterface
     /**
      * Update Organizer
      *
-     * @param $data
+     * @param array $data
      * @param int $id
      *
      * @return Organizer

@@ -27,7 +27,7 @@ interface CountryRepositoryInterface
     /**
      * Store Country
      *
-     * @param $data
+     * @param array $data
      *
      * @return Country
      */

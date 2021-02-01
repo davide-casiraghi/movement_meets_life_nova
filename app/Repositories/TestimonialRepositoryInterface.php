@@ -23,16 +23,16 @@ interface TestimonialRepositoryInterface
     /**
      * Get Testimonial by id
      *
-     * @param $testimonialId
+     * @param int $testimonialId
      *
      * @return Testimonial
      */
-    public function getById($testimonialId): Testimonial;
+    public function getById(int $testimonialId): Testimonial;
 
     /**
      * Store Testimonial
      *
-     * @param $data
+     * @param array $data
      *
      * @return Testimonial
      */

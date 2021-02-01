@@ -68,7 +68,7 @@ class OrganizerRepository implements OrganizerRepositoryInterface
     /**
      * Store Organizer
      *
-     * @param $data
+     * @param array $data
      *
      * @return Organizer
      */
@@ -88,7 +88,7 @@ class OrganizerRepository implements OrganizerRepositoryInterface
     /**
      * Update Organizer
      *
-     * @param $data
+     * @param array $data
      * @param int $id
      *
      * @return Organizer

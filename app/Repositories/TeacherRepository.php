@@ -65,7 +65,7 @@ class TeacherRepository implements TeacherRepositoryInterface
     /**
      * Store Teacher
      *
-     * @param $data
+     * @param array $data
      *
      * @return Teacher
      */
@@ -85,7 +85,7 @@ class TeacherRepository implements TeacherRepositoryInterface
     /**
      * Update Teacher
      *
-     * @param $data
+     * @param array $data
      * @param int $id
      *
      * @return Teacher

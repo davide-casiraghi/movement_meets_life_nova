@@ -32,7 +32,7 @@ interface TeacherRepositoryInterface
     /**
      * Store Teacher
      *
-     * @param $data
+     * @param array $data
      *
      * @return Teacher
      */
@@ -41,7 +41,7 @@ interface TeacherRepositoryInterface
     /**
      * Update Teacher
      *
-     * @param $data
+     * @param array $data
      * @param int $id
      *
      * @return Teacher

@@ -33,7 +33,7 @@ class CountryRepository implements CountryRepositoryInterface
     /**
      * Store Country
      *
-     * @param $data
+     * @param array $data
      * @return Country
      */
     public function store(array $data): Country
