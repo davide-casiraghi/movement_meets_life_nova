@@ -35,12 +35,13 @@
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.8",
         "facade/ignition": "^2.3.6",
+        "friendsofphp/php-cs-fixer": "^2.1.16",
         "laravel/homestead": "^11.2",
         "mockery/mockery": "^1.3.1",
         "nunomaduro/collision": "^5.0",
+        "nunomaduro/larastan": "dev-master",
         "phpunit/phpunit": "^9.3",
-        "squizlabs/php_codesniffer": "^3.5",
-        "friendsofphp/php-cs-fixer": "^2.1.16"
+        "squizlabs/php_codesniffer": "^3.5"
     },
     "config": {
         "optimize-autoloader": true,
