@@ -1,12 +1,15 @@
 .accordion{
   label:after {
     content: '+';
-    @apply text-blue-600 absolute right-3;
+    @apply w-10 h-10 absolute right-3 top-2 right-1 opacity-100;
+    @apply rounded-full box-border border-solid border-2;
+    @apply text-2xl font-normal text-center;
+    @apply text-cyan-600 border-cyan-600;
   }
 
   input:checked + label:after {
     content: '-';
-    @apply leading-6;
+    @apply leading-6 pt-1;
   }
 
   .accordion__content{
