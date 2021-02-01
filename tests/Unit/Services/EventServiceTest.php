@@ -65,6 +65,7 @@ class EventServiceTest extends TestCase
     {
         $user = $this->authenticateAsUser();
 
+        $request = new EventStoreRequest();
         $data = [
             'title' => 'test title',
             'description' => 'test description',
@@ -84,8 +85,9 @@ class EventServiceTest extends TestCase
             'timeEndMinutes' => '00',
             'timeEndAmpm' => 'pm',
         ];
+        $request->merge($data);
 
-        $this->eventService->createEvent($data);
+        $this->eventService->createEvent($request);
 
         $this->assertDatabaseHas('events', ['title' => 'test title']);
     }
@@ -93,6 +95,7 @@ class EventServiceTest extends TestCase
     /** @test */
     public function it_should_update_an_event()
     {
+        $request = new EventStoreRequest();
         $data = [
             'title' => 'test title updated',
             'description' => 'test description',
@@ -112,8 +115,9 @@ class EventServiceTest extends TestCase
             'timeEndMinutes' => '00',
             'timeEndAmpm' => 'pm',
         ];
+        $request->merge($data);
 
-        $this->eventService->updateEvent($data, $this->event1->id);
+        $this->eventService->updateEvent($request, $this->event1->id);
 
         $this->assertDatabaseHas('events', ['title' => 'test title updated']);
     }
@@ -123,6 +127,7 @@ class EventServiceTest extends TestCase
     {
         $user = $this->authenticateAsUser();
 
+        $request = new EventStoreRequest();
         $data = [
             'title' => 'weekly event title',
             'description' => 'test description',
@@ -147,8 +152,9 @@ class EventServiceTest extends TestCase
             ],
             'repeat_until' => '20/01/2021',
         ];
+        $request->merge($data);
 
-        $event = $this->eventService->createEvent($data);
+        $event = $this->eventService->createEvent($request);
 
         $this->assertDatabaseHas('events', [
             'title' => 'weekly event title',
@@ -185,6 +191,7 @@ class EventServiceTest extends TestCase
     {
         $user = $this->authenticateAsUser();
 
+        $request = new EventStoreRequest();
         $data = [
             'title' => 'monthly event title',
             'description' => 'test description',
@@ -206,8 +213,9 @@ class EventServiceTest extends TestCase
             "on_monthly_kind" => "1|1|5", // First Friday of the month
             'repeat_until' => '20/3/2021',
         ];
+        $request->merge($data);
 
-        $event = $this->eventService->createEvent($data);
+        $event = $this->eventService->createEvent($request);
 
        $this->assertDatabaseHas('events', [
             'title' => 'monthly event title',
