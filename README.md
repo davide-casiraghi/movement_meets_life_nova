@@ -114,11 +114,26 @@ Create the file storage symbolic link from public/storage to storage/app/public
 Access the local website at:   
 [https://movement_meets_life_nova.local/](https://movement_meets_life_nova.local/)
 
+### Testing
+
+```php artisan test```
+
+To check the code coverage:
+1) Connect to the vagrant machine with `vagrant ssh`
+2) Enable Xdebug with `xon` (Homestead by default have Xdebug off)
+3) Generate the code coverage report: `./vendor/bin/phpunit --coverage-html=html`
+4) Disable Xdebug with `xoff`
+
+You can find now the code coverage in the /html directory.
 
 ### Testing emails
 - Create an account on Mailtrap
 - Add the data to the .env file
 
+## Code Static Analisys
+Code static Analysys is provided by PHPStan.
+Run using:
+```./vendor/bin/phpstan analyse```
 
 ### Staging server
 
