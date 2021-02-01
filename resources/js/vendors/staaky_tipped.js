@@ -15,13 +15,7 @@ $(document).ready(function () {
      **/
     //Tipped.create('.simple-tooltip');
 
-
-
-    /**
-     * Glossary Tooltip
-     *
-     **/
-    Tipped.create('.api-example', {
+    /*Tipped.create('.tooltip-example', {
         //size: 'x-small',
         //showOn: 'click'
         inline: 'glossary-definition-33', //id of the content of the tooltip
@@ -30,8 +24,12 @@ $(document).ready(function () {
         padding: false,
         position: 'topleft',
         size: 'large'
-    });
+    });*/
 
+    /**
+     * Glossary Tooltip
+     *
+     **/
     $('.has-glossary-term').each(function (i) {
 
         let termFoundId = $(this).attr("data-termFoundId");

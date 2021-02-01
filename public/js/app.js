@@ -118699,21 +118699,21 @@ $(document).ready(function () {
    **/
   //Tipped.create('.simple-tooltip');
 
+  /*Tipped.create('.tooltip-example', {
+      //size: 'x-small',
+      //showOn: 'click'
+      inline: 'glossary-definition-33', //id of the content of the tooltip
+      skin: 'light',
+      radius: false,
+      padding: false,
+      position: 'topleft',
+      size: 'large'
+  });*/
+
   /**
    * Glossary Tooltip
    *
    **/
-  Tipped.create('.api-example', {
-    //size: 'x-small',
-    //showOn: 'click'
-    inline: 'glossary-definition-33',
-    //id of the content of the tooltip
-    skin: 'light',
-    radius: false,
-    padding: false,
-    position: 'topleft',
-    size: 'large'
-  });
   $('.has-glossary-term').each(function (i) {
     var termFoundId = $(this).attr("data-termFoundId");
     var termClass = ".glossary-term-" + termFoundId;

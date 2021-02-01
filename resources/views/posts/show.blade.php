@@ -76,7 +76,7 @@
         @endif--}}
 
             {{-- test --}}
-            <span class='api-example' title="1">One</span>
+            {{--<span class='tooltip-example' title="1">One</span>--}}
 
 
             {{-- Show Comments --}}
