@@ -37,8 +37,17 @@ Vagrantfile
 nova
 !/app/nova/
 
+# PHPUnit Code Coverage
+/html
+
 # Project configurations for all Jetbrains IDES (PHPStorm, WebStorm)
 /.idea
+_ide_helper.php
+.phpstorm.meta.php
 
 # Php Code Sniffer cache
 .php_cs.cache
+
+# Local custom composer packages
+/packages
+
