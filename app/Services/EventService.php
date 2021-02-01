@@ -36,15 +36,19 @@ class EventService
     /**
      * Create a event
      *
-     * @param array $data
+     * @param \App\Http\Requests\EventStoreRequest $request
      *
      * @return \App\Models\Event
+     * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileDoesNotExist
+     * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileIsTooBig
      * @throws \Spatie\ModelStatus\Exceptions\InvalidStatus
      */
-    public function createEvent(array $data): Event
+    public function createEvent(EventStoreRequest $request): Event
     {
-        $event = $this->eventRepository->store($data);
-        $this->eventRepetitionService->updateEventRepetitions($data, $event->id);
+        $event = $this->eventRepository->store($request->all());
+        $this->storeImages($event, $request);
+
+        $this->eventRepetitionService->updateEventRepetitions($request->all(), $event->id);
 
         $event->setStatus('published');
 
@@ -54,16 +58,20 @@ class EventService
     /**
      * Update the Event
      *
-     * @param array $data
+     * @param \App\Http\Requests\EventStoreRequest $request
      * @param int $eventId
      *
      * @return \App\Models\Event
+     * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileDoesNotExist
+     * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileIsTooBig
      */
 
-    public function updateEvent(array $data, int $eventId): Event
+    public function updateEvent(EventStoreRequest $request, int $eventId): Event
     {
-        $event = $this->eventRepository->update($data, $eventId);
-        $this->eventRepetitionService->updateEventRepetitions($data, $eventId);
+        $event = $this->eventRepository->update($request->all(), $eventId);
+        $this->storeImages($event, $request);
+
+        $this->eventRepetitionService->updateEventRepetitions($request->all(), $eventId);
 
         return $event;
     }

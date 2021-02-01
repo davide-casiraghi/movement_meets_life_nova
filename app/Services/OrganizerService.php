@@ -28,13 +28,12 @@ class OrganizerService
      *
      * @return \App\Models\Organizer
      */
-    public function createOrganizer(OrganizerStoreRequest $data): Organizer
+    public function createOrganizer(OrganizerStoreRequest $request): Organizer
     {
-        $organizer = $this->organizerRepository->store($data->all());
+        $organizer = $this->organizerRepository->store($request->all());
+        $this->storeImages($organizer, $request);
 
         $organizer->setStatus('published');
-
-        $this->storeImages($organizer, $data);
 
         return $organizer;
     }
@@ -47,11 +46,10 @@ class OrganizerService
      *
      * @return \App\Models\Organizer
      */
-    public function updateOrganizer(OrganizerStoreRequest $data, int $organizerId): Organizer
+    public function updateOrganizer(OrganizerStoreRequest $request, int $organizerId): Organizer
     {
-        $organizer = $this->organizerRepository->update($data->all(), $organizerId);
-
-        $this->storeImages($organizer, $data);
+        $organizer = $this->organizerRepository->update($request->all(), $organizerId);
+        $this->storeImages($organizer, $request);
 
         return $organizer;
     }

@@ -24,18 +24,17 @@ class TeacherService
     /**
      * Create a teacher
      *
-     * @param \App\Http\Requests\TeacherStoreRequest $data
+     * @param \App\Http\Requests\TeacherStoreRequest $request
      *
      * @return \App\Models\Teacher
      * @throws \Spatie\ModelStatus\Exceptions\InvalidStatus
      */
-    public function createTeacher(TeacherStoreRequest $data): Teacher
+    public function createTeacher(TeacherStoreRequest $request): Teacher
     {
-        $teacher = $this->teacherRepository->store($data->all());
+        $teacher = $this->teacherRepository->store($request->all());
+        $this->storeImages($teacher, $request);
 
         $teacher->setStatus('published');
-
-        $this->storeImages($teacher, $data);
 
         return $teacher;
     }
@@ -43,16 +42,15 @@ class TeacherService
     /**
      * Update the Teacher
      *
-     * @param \App\Http\Requests\TeacherStoreRequest $data
+     * @param \App\Http\Requests\TeacherStoreRequest $request
      * @param int $teacherId
      *
      * @return \App\Models\Teacher
      */
-    public function updateTeacher(TeacherStoreRequest $data, int $teacherId): Teacher
+    public function updateTeacher(TeacherStoreRequest $request, int $teacherId): Teacher
     {
-        $teacher = $this->teacherRepository->update($data->all(), $teacherId);
-
-        $this->storeImages($teacher, $data);
+        $teacher = $this->teacherRepository->update($request->all(), $teacherId);
+        $this->storeImages($teacher, $request);
 
         return $teacher;
     }

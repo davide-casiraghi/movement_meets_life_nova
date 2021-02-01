@@ -105,9 +105,7 @@ class EventController extends Controller
     {
         $this->checkPermission('events.create');
 
-        $event = $this->eventService->createEvent($request->all());
-
-        $this->eventService->storeImages($event, $request);
+        $event = $this->eventService->createEvent($request);
 
         return redirect()->route('events.index')
             ->with('success', 'Event updated successfully');
@@ -171,9 +169,7 @@ class EventController extends Controller
     {
         $this->checkPermission('posts.edit');
 
-        $event = $this->eventService->updateEvent($request->all(), $eventId);
-
-        $this->eventService->storeImages($event, $request);
+        $event = $this->eventService->updateEvent($request, $eventId);
 
         return redirect()->route('events.index')
             ->with('success', 'Event updated successfully');
