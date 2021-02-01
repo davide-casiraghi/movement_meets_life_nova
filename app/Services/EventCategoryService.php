@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Http\Requests\EventCategoryStoreRequest;
 use App\Repositories\EventCategoryRepository;
+use Illuminate\Support\Collection;
 
 class EventCategoryService {
 
@@ -23,13 +24,13 @@ class EventCategoryService {
     /**
      * Create a EventCategory
      *
-     * @param \App\Http\Requests\EventCategoryStoreRequest $data
+     * @param \App\Http\Requests\EventCategoryStoreRequest $request
      *
      * @return \App\Models\EventCategory
      */
-    public function createEventCategory(EventCategoryStoreRequest $data)
+    public function createEventCategory(EventCategoryStoreRequest $request)
     {
-        $eventCategory = $this->eventCategoryRepository->store($data->all());
+        $eventCategory = $this->eventCategoryRepository->store($request->all());
 
         return $eventCategory;
     }
@@ -37,14 +38,14 @@ class EventCategoryService {
     /**
      * Update the EventCategory
      *
-     * @param \App\Http\Requests\EventCategoryStoreRequest $data
+     * @param \App\Http\Requests\EventCategoryStoreRequest $request
      * @param int $eventCategoryId
      *
      * @return \App\Models\EventCategory
      */
-    public function updateEventCategory(EventCategoryStoreRequest $data, int $eventCategoryId)
+    public function updateEventCategory(EventCategoryStoreRequest $request, int $eventCategoryId)
     {
-        $eventCategory = $this->eventCategoryRepository->update($data->all(), $eventCategoryId);
+        $eventCategory = $this->eventCategoryRepository->update($request->all(), $eventCategoryId);
 
         return $eventCategory;
     }
@@ -64,9 +65,9 @@ class EventCategoryService {
     /**
      * Get all the EventCategories
      *
-     * @return iterable
+     * @return Collection
      */
-    public function getEventCategories()
+    public function getEventCategories(): Collection
     {
         return $this->eventCategoryRepository->getAll();
     }

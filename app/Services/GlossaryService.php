@@ -25,15 +25,14 @@ class GlossaryService
     /**
      * Create a glossary term
      *
-     * @param \App\Http\Requests\GlossaryStoreRequest $data
+     * @param \App\Http\Requests\GlossaryStoreRequest $request
      *
      * @return \App\Models\Glossary
      */
-    public function createGlossary(GlossaryStoreRequest $data): Glossary
+    public function createGlossary(GlossaryStoreRequest $request): Glossary
     {
-        $glossary = $this->glossaryRepository->store($data->all());
-
-        $this->storeImages($glossary, $data);
+        $glossary = $this->glossaryRepository->store($request->all());
+        $this->storeImages($glossary, $request);
 
         return $glossary;
     }
@@ -41,16 +40,15 @@ class GlossaryService
     /**
      * Update the gender
      *
-     * @param \App\Http\Requests\GlossaryStoreRequest $data
+     * @param \App\Http\Requests\GlossaryStoreRequest $request
      * @param int $glossaryId
      *
      * @return \App\Models\Glossary
      */
-    public function updateGlossary(GlossaryStoreRequest $data, int $glossaryId): Glossary
+    public function updateGlossary(GlossaryStoreRequest $request, int $glossaryId): Glossary
     {
-        $glossary = $this->glossaryRepository->update($data->all(), $glossaryId);
-
-        $this->storeImages($glossary, $data);
+        $glossary = $this->glossaryRepository->update($request->all(), $glossaryId);
+        $this->storeImages($glossary, $request);
 
         return $glossary;
     }

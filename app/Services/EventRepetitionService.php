@@ -43,7 +43,7 @@ class EventRepetitionService
      *
      * @return void
      */
-    public function updateEventRepetitions(array $data, int $eventRepetitionId)
+    public function updateEventRepetitions(array $data, int $eventRepetitionId): void
     {
         $this->eventRepetitionRepository->updateEventRepetitions($data, $eventRepetitionId);
 
@@ -57,7 +57,7 @@ class EventRepetitionService
      *
      * @return \App\Models\EventRepetition
      */
-    public function getById(int $eventRepetitionId)
+    public function getById(int $eventRepetitionId): EventRepetition
     {
         return $this->eventRepetitionRepository->getById($eventRepetitionId);
     }

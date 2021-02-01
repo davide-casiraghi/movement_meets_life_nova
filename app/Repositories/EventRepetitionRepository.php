@@ -8,6 +8,7 @@ use App\Models\EventRepetition;
 use Carbon\Carbon;
 use Carbon\CarbonInterval;
 use Carbon\CarbonPeriod;
+use Illuminate\Support\Collection;
 
 class EventRepetitionRepository implements EventRepetitionRepositoryInterface
 {
@@ -15,9 +16,9 @@ class EventRepetitionRepository implements EventRepetitionRepositoryInterface
     /**
      * Get all EventRepetitions.
      *
-     * @return \App\Models\EventRepetition[]|\Illuminate\Contracts\Pagination\LengthAwarePaginator|\Illuminate\Database\Eloquent\Collection
+     * @return Collection
      */
-    public function getAll()
+    public function getAll(): Collection
     {
         return EventRepetition::all();
     }

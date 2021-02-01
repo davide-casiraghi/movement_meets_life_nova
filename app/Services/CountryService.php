@@ -5,6 +5,7 @@ namespace App\Services;
 use App\Http\Requests\CountryStoreRequest;
 use App\Models\Country;
 use App\Repositories\CountryRepository;
+use Illuminate\Support\Collection;
 
 class CountryService
 {
@@ -24,13 +25,13 @@ class CountryService
     /**
      * Create a country
      *
-     * @param \App\Http\Requests\CountryStoreRequest $data
+     * @param \App\Http\Requests\CountryStoreRequest $request
      *
      * @return \App\Models\Country
      */
-    public function createCountry(CountryStoreRequest $data): Country
+    public function createCountry(CountryStoreRequest $request): Country
     {
-        $country = $this->countryRepository->store($data->all());
+        $country = $this->countryRepository->store($request->all());
 
         return $country;
     }
@@ -38,14 +39,14 @@ class CountryService
     /**
      * Update the country
      *
-     * @param \App\Http\Requests\CountryStoreRequest $data
+     * @param \App\Http\Requests\CountryStoreRequest $request
      * @param int $countryId
      *
      * @return \App\Models\Country
      */
-    public function updateCountry(CountryStoreRequest $data, int $countryId): Country
+    public function updateCountry(CountryStoreRequest $request, int $countryId): Country
     {
-        $country = $this->countryRepository->update($data->all(), $countryId);
+        $country = $this->countryRepository->update($request->all(), $countryId);
 
         return $country;
     }
@@ -67,7 +68,7 @@ class CountryService
      *
      * @return \Illuminate\Support\Collection
      */
-    public function getCountries()
+    public function getCountries(): Collection
     {
         return $this->countryRepository->getAll();
     }

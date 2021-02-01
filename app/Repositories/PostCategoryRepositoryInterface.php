@@ -3,15 +3,17 @@
 namespace App\Repositories;
 
 use App\Models\PostCategory;
+use Illuminate\Support\Collection;
 
-interface PostCategoryRepositoryInterface {
+interface PostCategoryRepositoryInterface
+{
 
     /**
      * Get all PostCategories.
      *
-     * @return iterable
+     * @return Collection
      */
-    public function getAll();
+    public function getAll(): Collection;
 
     /**
      * Get PostCategory by id
@@ -20,26 +22,26 @@ interface PostCategoryRepositoryInterface {
      *
      * @return PostCategory
      */
-    public function getById(int $id);
+    public function getById(int $id): PostCategory;
 
     /**
      * Store PostCategory
      *
-     * @param $data
+     * @param array $data
      *
      * @return PostCategory
      */
-    public function store($data);
+    public function store(array $data): PostCategory;
 
     /**
      * Update PostCategory
      *
-     * @param $data
+     * @param array $data
      * @param int $id
      *
      * @return PostCategory
      */
-    public function update($data, int $id);
+    public function update(array $data, int $id): PostCategory;
 
     /**
      * Delete PostCategory
@@ -48,6 +50,6 @@ interface PostCategoryRepositoryInterface {
      *
      * @return void
      */
-    public function delete(int $id);
+    public function delete(int $id): void;
 
 }

@@ -24,9 +24,10 @@ class OrganizerService
     /**
      * Create a organizer
      *
-     * @param \App\Http\Requests\OrganizerStoreRequest $data
+     * @param \App\Http\Requests\OrganizerStoreRequest $request
      *
      * @return \App\Models\Organizer
+     * @throws \Spatie\ModelStatus\Exceptions\InvalidStatus
      */
     public function createOrganizer(OrganizerStoreRequest $request): Organizer
     {
@@ -41,7 +42,7 @@ class OrganizerService
     /**
      * Update the Organizer
      *
-     * @param \App\Http\Requests\OrganizerStoreRequest $data
+     * @param \App\Http\Requests\OrganizerStoreRequest $request
      * @param int $organizerId
      *
      * @return \App\Models\Organizer

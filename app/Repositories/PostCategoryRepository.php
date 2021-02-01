@@ -8,7 +8,8 @@ use App\Nova\Post;
 use Illuminate\Support\Collection;
 
 
-class PostCategoryRepository implements PostCategoryRepositoryInterface {
+class PostCategoryRepository implements PostCategoryRepositoryInterface
+{
 
     /**
      * Get all PostCategories.
@@ -34,10 +35,10 @@ class PostCategoryRepository implements PostCategoryRepositoryInterface {
     /**
      * Store PostCategory
      *
-     * @param $data
+     * @param array $data
      * @return PostCategory
      */
-    public function store($data): PostCategory
+    public function store(array $data): PostCategory
     {
         $postCategory = new PostCategory();
         $postCategory->name = $data['name'];
@@ -50,11 +51,11 @@ class PostCategoryRepository implements PostCategoryRepositoryInterface {
     /**
      * Update PostCategory
      *
-     * @param $data
+     * @param array $data
      * @param int $id
      * @return PostCategory
      */
-    public function update($data, int $id): PostCategory
+    public function update(array $data, int $id): PostCategory
     {
         $postCategory = $this->getById($id);
         $postCategory->name = $data['name'];

@@ -3,9 +3,12 @@
 namespace App\Services;
 
 use App\Http\Requests\PostCategoryStoreRequest;
+use App\Models\PostCategory;
 use App\Repositories\PostCategoryRepository;
+use Illuminate\Support\Collection;
 
-class PostCategoryService {
+class PostCategoryService
+{
 
     private PostCategoryRepository $postCategoryRepository;
 
@@ -21,58 +24,58 @@ class PostCategoryService {
     }
 
     /**
-     * Create a gender
+     * Create a PostCategory
      *
-     * @param \App\Http\Requests\PostCategoryStoreRequest $data
+     * @param \App\Http\Requests\PostCategoryStoreRequest $request
      *
      * @return \App\Models\PostCategory
      */
-    public function createPostCategory(PostCategoryStoreRequest $data)
+    public function createPostCategory(PostCategoryStoreRequest $request): PostCategory
     {
-        $postCategory = $this->postCategoryRepository->store($data);
+        $postCategory = $this->postCategoryRepository->store($request->all());
 
         return $postCategory;
     }
 
     /**
-     * Update the gender
+     * Update the PostCategory
      *
-     * @param \App\Http\Requests\PostCategoryStoreRequest $data
+     * @param \App\Http\Requests\PostCategoryStoreRequest $request
      * @param int $postCategoryId
      *
      * @return \App\Models\PostCategory
      */
-    public function updatePostCategory(PostCategoryStoreRequest $data, int $postCategoryId)
+    public function updatePostCategory(PostCategoryStoreRequest $request, int $postCategoryId): PostCategory
     {
-        $postCategory = $this->postCategoryRepository->update($data, $postCategoryId);
+        $postCategory = $this->postCategoryRepository->update($request->all(), $postCategoryId);
 
         return $postCategory;
     }
 
     /**
-     * Return the gender from the database
+     * Return the PostCategory from the database
      *
      * @param int $postCategoryId
      *
      * @return \App\Models\PostCategory
      */
-    public function getById(int $postCategoryId)
+    public function getById(int $postCategoryId): PostCategory
     {
         return $this->postCategoryRepository->getById($postCategoryId);
     }
 
     /**
-     * Get all the genders
+     * Get all the PostCategoriess
      *
-     * @return iterable
+     * @return Collection
      */
-    public function getPostCategories()
+    public function getPostCategories(): Collection
     {
         return $this->postCategoryRepository->getAll();
     }
 
     /**
-     * Delete the gender from the database
+     * Delete the PostCategory from the database
      *
      * @param int $postCategoryId
      */
