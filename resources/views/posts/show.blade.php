@@ -41,7 +41,7 @@
             <h3 class="text-lg leading-7 text-gray-500 mb-5">{!! $post->intro_text !!}</h3>
         @endif
 
-        <div class="prose text-gray-500">
+        <div class="prose text-gray-500 mb-10">
             {!! $post->body !!}
         </div>
 
