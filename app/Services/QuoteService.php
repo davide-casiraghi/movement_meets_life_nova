@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Http\Requests\QuoteSearchRequest;
+use App\Http\Requests\QuoteStoreRequest;
 use App\Models\Quote;
 use App\Repositories\QuoteRepository;
 use Carbon\Carbon;
@@ -50,13 +51,13 @@ class QuoteService
     /**
      * Create a quote
      *
-     * @param array $data
+     * @param \App\Http\Requests\QuoteStoreRequest $request
      *
      * @return \App\Models\Quote
      */
-    public function createQuote(array $data): Quote
+    public function createQuote(QuoteStoreRequest $request): Quote
     {
-        $quote = $this->quoteRepository->store($data);
+        $quote = $this->quoteRepository->store($request->all());
 
         return $quote;
     }
@@ -64,14 +65,14 @@ class QuoteService
     /**
      * Update the Quote
      *
-     * @param array $data
+     * @param \App\Http\Requests\QuoteStoreRequest $request
      * @param int $quoteId
      *
      * @return \App\Models\Quote
      */
-    public function updateQuote(array $data, int $quoteId): Quote
+    public function updateQuote(QuoteStoreRequest $request, int $quoteId): Quote
     {
-        $quote = $this->quoteRepository->update($data, $quoteId);
+        $quote = $this->quoteRepository->update($request->all(), $quoteId);
 
         return $quote;
     }

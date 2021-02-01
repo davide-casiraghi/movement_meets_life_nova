@@ -25,13 +25,13 @@ class TagService
     /**
      * Create a tag
      *
-     * @param \App\Http\Requests\TagStoreRequest $data
+     * @param \App\Http\Requests\TagStoreRequest $request
      *
      * @return \App\Models\Tag
      */
-    public function createTag(TagStoreRequest $data): Tag
+    public function createTag(TagStoreRequest $request): Tag
     {
-        $tag = $this->tagRepository->store($data);
+        $tag = $this->tagRepository->store($request->all());
 
         return $tag;
     }
@@ -39,14 +39,14 @@ class TagService
     /**
      * Update the tag
      *
-     * @param \App\Http\Requests\TagStoreRequest $data
+     * @param \App\Http\Requests\TagStoreRequest $request
      * @param int $tagId
      *
      * @return \App\Models\Tag
      */
-    public function updateTag(TagStoreRequest $data, int $tagId): Tag
+    public function updateTag(TagStoreRequest $request, int $tagId): Tag
     {
-        $tag = $this->tagRepository->update($data, $tagId);
+        $tag = $this->tagRepository->update($request->all(), $tagId);
 
         return $tag;
     }

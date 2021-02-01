@@ -40,16 +40,15 @@ class PostService
     /**
      * Create a post
      *
-     * @param \App\Http\Requests\PostStoreRequest $data
+     * @param \App\Http\Requests\PostStoreRequest $request
      *
      * @return \App\Models\Post
      * @throws \Spatie\ModelStatus\Exceptions\InvalidStatus
      */
-    public function createPost(PostStoreRequest $data): Post
+    public function createPost(PostStoreRequest $request): Post
     {
-        $post = $this->postRepository->store($data->all());
-
-        $this->storeImages($post, $data);
+        $post = $this->postRepository->store($request->all());
+        $this->storeImages($post, $request);
 
         return $post;
     }
@@ -57,16 +56,15 @@ class PostService
     /**
      * Update the Post
      *
-     * @param \App\Http\Requests\PostStoreRequest $data
+     * @param \App\Http\Requests\PostStoreRequest $request
      * @param int $postId
      *
      * @return \App\Models\Post
      */
-    public function updatePost(PostStoreRequest $data, int $postId): Post
+    public function updatePost(PostStoreRequest $request, int $postId): Post
     {
-        $post = $this->postRepository->update($data->all(), $postId);
-
-        $this->storeImages($post, $data);
+        $post = $this->postRepository->update($request->all(), $postId);
+        $this->storeImages($post, $request);
 
         return $post;
     }

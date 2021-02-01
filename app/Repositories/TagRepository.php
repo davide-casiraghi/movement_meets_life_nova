@@ -55,10 +55,10 @@ class TagRepository implements TagRepositoryInterface
     /**
      * Store Tag
      *
-     * @param $data
+     * @param array $data
      * @return Tag
      */
-    public function store($data): Tag
+    public function store(array $data): Tag
     {
         $tag = new Tag();
         $tag->tag = $data['tag'];
@@ -71,11 +71,11 @@ class TagRepository implements TagRepositoryInterface
     /**
      * Update Tag
      *
-     * @param $data
+     * @param array $data
      * @param int $id
      * @return Tag
      */
-    public function update($data, int $id): Tag
+    public function update(array $data, int $id): Tag
     {
         $tag = $this->getById($id);
         $tag->tag = $data['tag'];

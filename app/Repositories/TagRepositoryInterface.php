@@ -4,14 +4,21 @@ namespace App\Repositories;
 
 use App\Models\Tag;
 
-interface TagRepositoryInterface {
+interface TagRepositoryInterface
+{
 
     /**
      * Get all Tags.
      *
-     * @return iterable
+     * @param int|null $recordsPerPage
+     * @param array|null $searchParameters
+     *
+     * @return \Illuminate\Support\Collection|\Illuminate\Contracts\Pagination\LengthAwarePaginator
      */
-    public function getAll();
+    public function getAll(
+        int $recordsPerPage = null,
+        array $searchParameters = null
+    );
 
     /**
      * Get Tag by id
@@ -20,26 +27,26 @@ interface TagRepositoryInterface {
      *
      * @return Tag
      */
-    public function getById(int $id);
+    public function getById(int $id): Tag;
 
     /**
      * Store Tag
      *
-     * @param $data
+     * @param array $data
      *
      * @return Tag
      */
-    public function store($data);
+    public function store(array $data): Tag;
 
     /**
      * Update Tag
      *
-     * @param $data
+     * @param array $data
      * @param int $id
      *
      * @return Tag
      */
-    public function update($data, int $id);
+    public function update(array $data, int $id): Tag;
 
     /**
      * Delete Tag
@@ -48,6 +55,6 @@ interface TagRepositoryInterface {
      *
      * @return void
      */
-    public function delete(int $id);
+    public function delete(int $id): void;
 
 }
