@@ -28,7 +28,7 @@ class Insight extends Model
      *
      * @var array
      */
-    public $translatable = ['title', 'description', 'introimage_alt'];
+    public $translatable = ['title', 'body', 'introimage_alt'];
 
 
     /**
@@ -39,6 +39,7 @@ class Insight extends Model
     protected $dates = [
         'published_on_facebook_on',
         'published_on_twitter_on',
+        'published_on_instagram_on'
     ];
 
 
