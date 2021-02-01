@@ -8,32 +8,32 @@ namespace App\Services\Snippets;
     {slider=HOW to add contents to this website? - Create account} lorem ipsum {/slider}
 */
 
-class AccordionService {
+class AccordionService
+{
     private $count = 1;
     /**
      * Substitute accordion snippets with the related HTML
      *
      * @return string
      */
-    public function snippetsToHTML($postBody)
+    public function snippetsToHTML($postBody): string
     {
         $ret = $postBody;
 
         // If the post body contains any accordion
         if (substr_count($postBody, '{slide') > 0) {
-
             /*
              * If the post is not wrapped yet with 'textHasAccordion accordion', wrap it.
              (first accordion found in the page)
             */
             if (strpos($postBody, 'textHasAccordion') == false) {
-                $postBody = '<div class="textHasAccordion accordion">'.$postBody.'</div>';
+                $postBody = '<div class="textHasAccordion accordion">' . $postBody . '</div>';
             }
 
             $pattern = '#(?:<p>)?\{slide[r]?=([^}]+)\}(?:</p>)?(.*?)(?:<p>)?\{/slide[r]?\}(?:</p>)?#s';
             $ret = preg_replace_callback(
                 $pattern,
-                function($matches){
+                function ($matches) {
                     $sliderTemplate = "<div class='slide w-full'>";
                         $sliderTemplate .= "<input type='checkbox' name='panel' id='panel-".$this->count."' class='hidden'>";
                         $sliderTemplate .= "<label for='panel-".$this->count."' class='relative block bg-black text-white p-4 shadow border-b border-grey'>".$matches[1]."</label>";
@@ -47,7 +47,8 @@ class AccordionService {
 
                     return $sliderTemplate;
                 },
-                $postBody);
+                $postBody
+            );
         }
         return $ret;
     }
