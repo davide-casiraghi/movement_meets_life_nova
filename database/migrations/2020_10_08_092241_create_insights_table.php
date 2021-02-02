@@ -16,8 +16,8 @@ class CreateInsightsTable extends Migration
         Schema::create('insights', function (Blueprint $table) {
             $table->id();
 
-            $table->string('title')->nullable();
-            $table->text('body');
+            $table->string('title');
+            $table->text('body')->nullable();
             $table->string('introimage')->nullable();
             $table->string('introimage_alt')->nullable();
             $table->string('slug');
