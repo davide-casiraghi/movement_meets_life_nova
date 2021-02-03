@@ -1,6 +1,6 @@
 <div>
     <div class="flex flex-wrap space-x-4 mt-1 mb-4">
-        @foreach($model->getMedia('galleries') as $image)
+        @foreach($model->getMedia('images') as $image)
             <div class="w-44 relative">
                 <img src="{{$image->getUrl('thumb')}}" class="" alt="">
                 <button wire:click.prevent="edit({{$image->id}})" type="button" class="inline-flex items-center px-2.5 py-1.5 border border-gray-300 shadow-sm text-xs font-medium rounded text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 absolute top-1 right-1">
@@ -14,7 +14,6 @@
 
 
     {{-- MODAL --}}
-    <form wire:submit.prevent="save"></form>
     <div class="z-10 inset-0 overflow-y-auto @if($showModal) fixed @else hidden @endif">
         <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
             <!--
@@ -58,24 +57,25 @@
                         <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-headline">
                             Add image parameters
                         </h3>
+
+                        <div class="mt-2">
+                            <label for="image_description" class="block text-sm font-medium text-gray-700">Description</label>
+                            <div class="mt-1">
+                                <input type="text" wire:model="image_description" id="image_description" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="">
+                            </div>
+                        </div>
+
                         <div>
-                            <label for="title" class="block text-sm font-medium text-gray-700">Title</label>
+                            <label for="image_video_url" class="block text-sm font-medium text-gray-700">Title</label>
                             <div class="mt-1">
-                                <input type="text" wire:model="title" id="title" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="">
+                                <input type="text" wire:model="image_video_url" id="image_video_url" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="">
                             </div>
                         </div>
 
                         <div class="mt-2">
-                            <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
+                            <label for="image_gallery" class="block text-sm font-medium text-gray-700">Gallery</label>
                             <div class="mt-1">
-                                <input type="text" wire:model="description" id="description" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="">
-                            </div>
-                        </div>
-
-                        <div class="mt-2">
-                            <label for="gallery" class="block text-sm font-medium text-gray-700">Gallery</label>
-                            <div class="mt-1">
-                                <input type="text" wire:model="gallery" id="gallery" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="Name of the gallery to assign the image to">
+                                <input type="text" wire:model="image_gallery" id="image_gallery" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="Name of the gallery to assign the image to">
                             </div>
                         </div>
 

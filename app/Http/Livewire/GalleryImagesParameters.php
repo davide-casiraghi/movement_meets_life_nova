@@ -11,16 +11,16 @@ class GalleryImagesParameters extends Component
     public $model;
     public $image;
 
-    public $title;
-    public $description;
-    public $gallery; // The name of the gallery to assign the image to
+    public $image_description;
+    public $image_video_url;
+    public $image_gallery; // The name of the gallery to assign the image to
 
     public $showModal = false;
 
     protected $rules = [
-        'title' => 'string',
-        'description' => 'string',
-        'gallery' => 'string',
+        'image_description' => 'string',
+        'image_video_url' => 'string',
+        'image_gallery' => 'string',
     ];
 
     public function mount($model)
@@ -38,16 +38,16 @@ class GalleryImagesParameters extends Component
         $this->showModal = true;
         $this->image = Media::find($imageId);
 
-        $this->title = $this->image->getCustomProperty('title');
-        $this->description = $this->image->getCustomProperty('description');
-        $this->gallery = $this->image->getCustomProperty('gallery');
+        $this->image_description = $this->image->getCustomProperty('image_description');
+        $this->image_video_url = $this->image->getCustomProperty('image_video_url');
+        $this->image_gallery = $this->image->getCustomProperty('image_gallery');
     }
 
     public function save()
     {
-        $this->image->setCustomProperty('title', $this->title);
-        $this->image->setCustomProperty('description', $this->description);
-        $this->image->setCustomProperty('gallery', lcfirst($this->gallery));
+        $this->image->setCustomProperty('image_description', $this->image_description);
+        $this->image->setCustomProperty('image_video_url', $this->image_video_url);
+        $this->image->setCustomProperty('image_gallery', lcfirst($this->image_gallery));
         $this->image->save();
 
         $this->showModal = false;

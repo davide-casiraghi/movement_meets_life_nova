@@ -154,10 +154,10 @@ class PostService
             }
         }
 
-        if ($data->file('galleries')) {
-            foreach ($data->file('galleries') as $photo) {
+        if ($data->file('images')) {
+            foreach ($data->file('images') as $photo) {
                 if ($photo->isValid()) {
-                    $post->addMedia($photo)->toMediaCollection('galleries');
+                    $post->addMedia($photo)->toMediaCollection('images');
                 }
             }
         }

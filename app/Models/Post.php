@@ -127,7 +127,7 @@ class Post extends Model implements HasMedia, Searchable
     public function registerMediaCollections(): void
     {
         $this->addMediaCollection('introimage')->singleFile();
-        $this->addMediaCollection('galleries');
+        $this->addMediaCollection('images');
     }
 
     /**

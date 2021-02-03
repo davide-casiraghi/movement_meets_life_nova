@@ -112,9 +112,9 @@
                         <div class="col-span-6">
                             @include('partials.forms.uploadImageMultiple', [
                                       'label' => __('views.images_for_galleries'),
-                                      'name' => 'galleries',
+                                      'name' => 'images',
                                       'required' => false,
-                                      'collection' => 'galleries',
+                                      'collection' => 'images',
                                       'model' => $post,
                                   ])
                         </div>
