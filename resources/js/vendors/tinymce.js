@@ -65,7 +65,7 @@ var editor_config = {
     path_absolute : "/",
     relative_urls: false,
 
-    //forced_root_block : false, // force to add <br> instead of <p>
+    //forced_root_block : false, // force to add <br> instead of <p> - Better not to enable it - Warning: Not using p elements as the root block will impair the functionality of the editor. - https://www.tiny.cloud/docs/configure/content-filtering/#exampleusingforced_root_block
 
 // do not delete the commented lines of tinymce! .. this is a file browser that can be useful for articles
 
