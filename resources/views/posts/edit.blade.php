@@ -115,7 +115,7 @@
                                       'name' => 'galleries',
                                       'required' => false,
                                       'collection' => 'galleries',
-                                      'entity' => $post,
+                                      'model' => $post,
                                   ])
                         </div>
 
