@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\InsightSearchRequest;
+use App\Models\Insight;
 use App\Services\InsightService;
 use Illuminate\Http\Request;
 
@@ -26,10 +27,12 @@ class InsightController extends Controller
     public function index(InsightSearchRequest $request)
     {
         $searchParameters = $this->insightService->getSearchParameters($request);
-        $insights = $this->insightService->getInsights();
+        $insights = $this->insightService->getInsights(20, $searchParameters);
+        $statuses = Insight::PUBLISHING_STATUS;
         return view('insights.index', [
             'insights' => $insights,
             'searchParameters' => $searchParameters,
+            'statuses' => $statuses,
         ]);
     }
 
@@ -60,7 +63,7 @@ class InsightController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($insightId)
     {
         //
     }
@@ -68,10 +71,10 @@ class InsightController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $insightId
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($insightId)
     {
         //
     }
@@ -80,10 +83,10 @@ class InsightController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  int  $insightId
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $insightId)
     {
         //
     }
@@ -91,10 +94,10 @@ class InsightController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int  $insightId
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($insightId)
     {
         //
     }

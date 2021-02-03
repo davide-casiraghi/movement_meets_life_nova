@@ -179,6 +179,7 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
     Route::name('insights.')->group(function () {
         Route::get('/insights', [InsightController::class, 'index'])->name('index');
         Route::get('/insights/create', [InsightController::class, 'create'])->name('create');
+        Route::get('/insights/{id}/edit', [InsightController::class, 'edit'])->name('edit');
         // TODO ...
     });
 

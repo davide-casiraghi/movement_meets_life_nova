@@ -30,7 +30,6 @@ class Insight extends Model
      */
     public $translatable = ['title', 'body', 'introimage_alt'];
 
-
     /**
      * The attributes that should be mutated to dates.
      *
@@ -42,6 +41,13 @@ class Insight extends Model
         'published_on_instagram_on'
     ];
 
+    /**
+     * The possible values the publishing status can be.
+     */
+    const PUBLISHING_STATUS = [
+        'unpublished' => 'unpublished',
+        'published' => 'published',
+    ];
 
     /**
      * Generates a unique slug.
@@ -69,4 +75,23 @@ class Insight extends Model
         return $this->belongsToMany(Post::class); // Many to many
     }
 
+    /**
+     * Return true if the insight is published
+     *
+     * @return bool
+     */
+    public function isPublished(): bool
+    {
+        return $this->latestStatus('unpublished', 'published') == 'published';
+    }
+
+    /**
+     * Return the insight publishing status
+     *
+     * @return string
+     */
+    public function publishingStatus(): string
+    {
+        return $this->latestStatus('unpublished', 'published');
+    }
 }
