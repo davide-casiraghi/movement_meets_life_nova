@@ -4,12 +4,34 @@
 namespace App\Repositories;
 
 use App\Models\Insight;
+use Carbon\Carbon;
 
 class InsightRepository implements InsightRepositoryInterface
 {
-    public function getAll()
+    public function getAll(
+        int $recordsPerPage = null,
+        array $searchParameters = null
+    )
     {
-        return Insight::all();
+        $query = Insight::orderBy('created_at', 'desc');
+
+        if (!is_null($searchParameters)) {
+            if (!empty($searchParameters['title'])) {
+                $query->where(
+                    'title',
+                    'like',
+                    '%' . $searchParameters['title'] . '%'
+                );
+            }
+        }
+
+        if ($recordsPerPage) {
+            $results = $query->paginate($recordsPerPage);
+        } else {
+            $results = $query->get();
+        }
+
+        return $results;
     }
 
     public function getById($insightId)

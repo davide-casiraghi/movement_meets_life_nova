@@ -4,6 +4,7 @@
 namespace App\Services;
 
 
+use App\Http\Requests\InsightSearchRequest;
 use App\Http\Requests\InsightStoreRequest;
 use App\Repositories\InsightRepositoryInterface;
 
@@ -24,9 +25,9 @@ class InsightService
      *
      * @return mixed
      */
-    public function getInsights()
+    public function getInsights(int $recordsPerPage = null, array $searchParameters = null)
     {
-        return $this->insightRepository->getAll();
+        return $this->insightRepository->getAll($recordsPerPage, $searchParameters);
     }
 
     /**
@@ -71,5 +72,20 @@ class InsightService
     public function deleteInsight(int $insightId)
     {
         $this->insightRepository->delete($insightId);
+    }
+
+    /**
+     * Get the post search parameters
+     *
+     * @param \App\Http\Requests\PostSearchRequest $request
+     *
+     * @return array
+     */
+    public function getSearchParameters(InsightSearchRequest $request): array
+    {
+        $searchParameters = [];
+        $searchParameters['title'] = $request->title ?? null;
+
+        return $searchParameters;
     }
 }

@@ -96,6 +96,7 @@ return [
     'filter_by_category' => 'Filtra per categoria',
     'filter_by_country' => 'Filtra per nazione',
     'filter_by_orientation' => 'Filtra per orientamento',
+    'insight_management' => 'Gestione degli approfondimenti',
     'post_management' => 'Gestione degli articoli',
     'category_management' => 'Gestione categorie articoli',
     'events_management' => 'Gestione eventi',

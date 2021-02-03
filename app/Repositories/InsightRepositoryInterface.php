@@ -4,7 +4,10 @@ namespace App\Repositories;
 
 interface InsightRepositoryInterface
 {
-    public function getAll();
+    public function getAll(
+        int $recordsPerPage = null,
+        array $searchParameters = null
+    );
 
     public function getById($insightId);
 

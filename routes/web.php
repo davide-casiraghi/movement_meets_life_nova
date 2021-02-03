@@ -6,6 +6,7 @@ use App\Http\Controllers\GetATreatmentController;
 use App\Http\Controllers\GlobalSearchController;
 use App\Http\Controllers\GlossaryController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\InsightController;
 use App\Http\Controllers\OrganizerController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\PostCategoryController;
@@ -172,6 +173,13 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
         Route::post('/testimonials', [TestimonialController::class, 'store'])->name('store');
         Route::delete('/testimonials/{id}', [TestimonialController::class, 'destroy'])->name('destroy');
         Route::get('/testimonials/{id}', [TestimonialController::class, 'show'])->name('show');
+    });
+
+    // Insights
+    Route::name('insights.')->group(function () {
+        Route::get('/insights', [InsightController::class, 'index'])->name('index');
+        Route::get('/insights/create', [InsightController::class, 'create'])->name('create');
+        // TODO ...
     });
 
     Route::get('/search', [GlobalSearchController::class, 'index'])->name('globalSearch');

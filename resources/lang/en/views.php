@@ -111,6 +111,7 @@ return [
     'filter_by_category' => 'Filter by category',
     'filter_by_country' => 'Filter by country',
     'filter_by_orientation' => 'Filter by orientation',
+    'insight_management' => 'Insights management',
     'post_management' => 'Posts management',
     'glossary_management' => 'Glossaries management',
     'tag_management' => 'Tags management',

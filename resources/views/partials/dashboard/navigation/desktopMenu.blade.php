@@ -4,7 +4,9 @@
         <!-- Sidebar component, swap this element with another sidebar if you like -->
         <div class="flex flex-col h-0 flex-1">
             <div class="flex items-center h-16 flex-shrink-0 px-4 bg-gray-900">
-                <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg" alt="Workflow" />
+                <img class="h-8 w-auto"
+                     src="https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg"
+                     alt="Workflow"/>
             </div>
             <div class="flex-1 flex flex-col overflow-y-auto">
                 <nav class="flex-1 px-2 py-4 bg-gray-800 space-y-1">
@@ -71,6 +73,14 @@
                         'heroIconPath' => '<path fill-rule="evenodd" d="M18 3a1 1 0 00-1.447-.894L8.763 6H5a3 3 0 000 6h.28l1.771 5.316A1 1 0 008 18h1a1 1 0 001-1v-4.382l6.553 3.276A1 1 0 0018 15V3z" clip-rule="evenodd"></path>',
                         'label' => 'Testimonials',
                         'url' => route('testimonials.index'),
+                    ])
+
+                    @include('partials.dashboard.navigation.menuItem', [
+                        'active' => request()->routeIs('insights*'),
+                        'kind' => 'desktop',
+                        'heroIconPath' => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>',
+                        'label' => 'Insights',
+                        'url' => route('insights.index'),
                     ])
 
                 </nav>
