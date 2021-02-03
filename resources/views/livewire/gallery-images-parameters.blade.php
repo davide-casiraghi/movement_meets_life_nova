@@ -61,14 +61,21 @@
                         <div>
                             <label for="title" class="block text-sm font-medium text-gray-700">Title</label>
                             <div class="mt-1">
-                                <input type="text" wire:model="title" id="title" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="you@example.com">
+                                <input type="text" wire:model="title" id="title" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="">
                             </div>
                         </div>
 
                         <div class="mt-2">
                             <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
                             <div class="mt-1">
-                                <input type="text" wire:model="description" id="description" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="you@example.com">
+                                <input type="text" wire:model="description" id="description" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="">
+                            </div>
+                        </div>
+
+                        <div class="mt-2">
+                            <label for="gallery" class="block text-sm font-medium text-gray-700">Gallery</label>
+                            <div class="mt-1">
+                                <input type="text" wire:model="gallery" id="gallery" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="Name of the gallery to assign the image to">
                             </div>
                         </div>
 
