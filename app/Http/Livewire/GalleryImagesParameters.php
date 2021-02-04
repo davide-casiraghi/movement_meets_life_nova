@@ -15,8 +15,6 @@ class GalleryImagesParameters extends Component
     public $image_video_url;
     public $image_gallery; // The name of the gallery to assign the image to
 
-    public $galleries;
-
     public $showModal = false;
 
     protected $rules = [
@@ -32,9 +30,9 @@ class GalleryImagesParameters extends Component
 
     public function render()
     {
-        self::getGalleryNames();
+        $galleries = self::getGalleryNames();
 
-        return view('livewire.gallery-images-parameters');
+        return view('livewire.gallery-images-parameters', ['galleries' => $galleries]);
     }
 
     public function edit($imageId)
@@ -69,6 +67,8 @@ class GalleryImagesParameters extends Component
         foreach ($this->model->getMedia('images') as $image) {
             $galleries[$image->getCustomProperty('image_gallery')] = $image->getCustomProperty('image_gallery');
         }
-        $this->galleries = array_values($galleries);
+        $ret = array_values($galleries);
+
+        return $ret;
     }
 }
