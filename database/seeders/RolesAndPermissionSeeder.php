@@ -85,6 +85,8 @@ class RolesAndPermissionSeeder extends Seeder
         Permission::create(['name' => 'testimonials.delete']);
         Permission::create(['name' => 'testimonials.approve']);
 
+        // Insights
+        Permission::create(['name' => 'insights.create']);
 
         // CREATE ROLES
 

@@ -5,18 +5,30 @@ namespace App\Http\Controllers;
 use App\Http\Requests\InsightSearchRequest;
 use App\Models\Insight;
 use App\Services\InsightService;
+use App\Services\TagService;
+use App\Traits\CheckPermission;
 use Illuminate\Http\Request;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 class InsightController extends Controller
 {
-    private $insightService;
+    use CheckPermission;
+
+    private InsightService $insightService;
+    private TagService $tagService;
 
     /**
      * InsightController constructor.
+     * @param  InsightService  $insightService
+     * @param  TagService  $tagService
      */
-    public function __construct(InsightService $insightService)
+    public function __construct(
+        InsightService $insightService,
+        TagService $tagService
+    )
     {
         $this->insightService = $insightService;
+        $this->tagService = $tagService;
     }
 
     /**
@@ -43,7 +55,15 @@ class InsightController extends Controller
      */
     public function create()
     {
-        //
+        $this->checkPermission('insights.create');
+
+        $countriesAvailableForTranslations = LaravelLocalization::getSupportedLocales();
+        $tags = $this->tagService->getTags();
+
+        return view('insights.create', [
+            'countriesAvailableForTranslations' => $countriesAvailableForTranslations,
+            'tags' => $tags,
+        ]);
     }
 
     /**
