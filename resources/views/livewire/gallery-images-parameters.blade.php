@@ -1,20 +1,52 @@
 <div>
-    <div class="flex flex-wrap space-x-4 mt-1 mb-4">
+    <div class="mt-1 mb-4"> {{-- flex flex-wrap space-x-4 --}}
 
         @foreach($galleries as $gallery)
-            {{$gallery}} <br>
-        @endforeach
-
-        @foreach($model->getMedia('images') as $image)
-            <div class="w-44 relative">
-                <img src="{{$image->getUrl('thumb')}}" class="" alt="">
-                <button wire:click.prevent="edit({{$image->id}})" type="button" class="inline-flex items-center px-2.5 py-1.5 border border-gray-300 shadow-sm text-xs font-medium rounded text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 absolute top-1 right-1">
-                    Button text
-                </button>
+            <div>
+                <h3 class="mb-4 text-xl font-bold tracking-tighter text-center text-blue-800 lg:text-left lg:text-xl">{{$gallery}}</h3>
+                <div class="flex flex-wrap gap-4 mb-4">
+                    @foreach($model->getMedia('images') as $image)
+                        @if($image->getCustomProperty('image_gallery') == $gallery)
+                            <div class="w-44 relative">
+                                <img src="{{$image->getUrl('thumb')}}" class="" alt="">
+                                <button wire:click.prevent="edit({{$image->id}})" type="button" class="inline-flex items-center px-2.5 py-1.5 border border-gray-300 shadow-sm text-xs font-medium rounded text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 absolute top-1 right-1">
+                                    Properties
+                                </button>
+                            </div>
+                        @endif
+                    @endforeach
+                </div>
             </div>
         @endforeach
-    </div>
 
+
+        {{--No Gallery (images not assigned to a gallery) --}}
+        @php
+            $imagesWithNoGalleryPresent = false;
+        @endphp
+        @foreach($model->getMedia('images') as $image)
+            @if($image->getCustomProperty('image_gallery') == null)
+                @php
+                    $imagesWithNoGalleryPresent = true;
+                @endphp
+            @endif
+        @endforeach
+        @if($imagesWithNoGalleryPresent)
+            <h3 class="mb-4 text-xl font-bold tracking-tighter text-center text-blue-800 lg:text-left lg:text-xl">No Gallery</h3>
+            <div class="flex flex-wrap gap-4">
+                    @foreach($model->getMedia('images') as $image)
+                        @if($image->getCustomProperty('image_gallery') == null)
+                            <div class="w-44 relative">
+                                <img src="{{$image->getUrl('thumb')}}" class="" alt="">
+                                <button wire:click.prevent="edit({{$image->id}})" type="button" class="inline-flex items-center px-2.5 py-1.5 border border-gray-300 shadow-sm text-xs font-medium rounded text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 absolute top-1 right-1">
+                                    Properties
+                                </button>
+                            </div>
+                        @endif
+                    @endforeach
+            </div>
+        @endif
+    </div>
 
 
 
@@ -59,7 +91,7 @@
                 </div>
                 <div class=""> {{-- sm:flex sm:items-start --}}
                     <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
-                        <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-headline">
+                        <h3 class="text-lg leading-6 font-medium text-gray-900 mb-4" id="modal-headline">
                             Add image parameters
                         </h3>
 
@@ -71,14 +103,14 @@
                         </div>
 
                         <div>
-                            <label for="image_video_url" class="block text-sm font-medium text-gray-700">Title</label>
+                            <label for="image_video_url" class="block text-sm font-medium text-gray-700 mt-3">Title</label>
                             <div class="mt-1">
                                 <input type="text" wire:model="image_video_url" id="image_video_url" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="">
                             </div>
                         </div>
 
                         <div class="mt-2">
-                            <label for="image_gallery" class="block text-sm font-medium text-gray-700">Gallery</label>
+                            <label for="image_gallery" class="block text-sm font-medium text-gray-700 mt-3">Gallery</label>
                             <div class="mt-1">
                                 <input type="text" wire:model="image_gallery" id="image_gallery" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="Name of the gallery to assign the image to">
                             </div>

@@ -61,6 +61,12 @@ class GalleryImagesParameters extends Component
     }
 
 
+    /**
+     * Return the array with the gallery names.
+     * The gallery names are set as an image property.
+     *
+     * @return array
+     */
     public function getGalleryNames()
     {
         $galleries = [];
