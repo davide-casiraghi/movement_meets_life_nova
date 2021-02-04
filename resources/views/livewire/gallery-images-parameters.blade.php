@@ -3,7 +3,18 @@
 
         @foreach($galleries as $gallery)
             <div>
-                <h3 class="mb-4 text-xl font-bold tracking-tighter text-center text-blue-800 lg:text-left lg:text-xl">{{$gallery}}</h3>
+                <div class="md:grid md:grid-cols-6 md:gap-6">
+                    <div class="col-span-2">
+                        <h3 class="mb-4 text-xl font-bold tracking-tighter text-center text-blue-800 lg:text-left lg:text-xl">{{$gallery}}</h3>
+                    </div>
+                    <div class="col-span-4">
+                        <div class="select-all text-sm border border-gray-500 bg-gray-100 rounded p-1 overflow-x-hidden whitespace-nowrap">
+                            {# gallery src=[{{$gallery}}] width=[400] height=[300] #}
+                        </div>
+                    </div>
+                </div>
+
+
                 <div class="flex flex-wrap gap-4 mb-4">
                     @foreach($model->getMedia('images') as $image)
                         @if($image->getCustomProperty('image_gallery') == $gallery)
