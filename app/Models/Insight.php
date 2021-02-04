@@ -4,17 +4,22 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\ModelStatus\HasStatuses;
+use Spatie\Searchable\Searchable;
+use Spatie\Searchable\SearchResult;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 use Spatie\Translatable\HasTranslations;
 
-class Insight extends Model
+class Insight extends Model implements HasMedia, Searchable
 {
     use HasFactory;
     use HasSlug;
     use HasTranslations;
     use HasStatuses;
+    use InteractsWithMedia;
 
     /**
      * The attributes that aren't mass assignable.
@@ -93,5 +98,16 @@ class Insight extends Model
     public function publishingStatus(): string
     {
         return $this->latestStatus('unpublished', 'published');
+    }
+
+    public function getSearchResult(): SearchResult
+    {
+        $url = route('insights.edit', $this->id);
+
+        return new SearchResult(
+            $this,
+            $this->title,
+            $url
+        );
     }
 }
