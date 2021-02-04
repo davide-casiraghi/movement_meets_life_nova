@@ -1,5 +1,10 @@
 <div>
     <div class="flex flex-wrap space-x-4 mt-1 mb-4">
+
+        @foreach($galleries as $gallery)
+            {{$gallery}} <br>
+        @endforeach
+
         @foreach($model->getMedia('images') as $image)
             <div class="w-44 relative">
                 <img src="{{$image->getUrl('thumb')}}" class="" alt="">
