@@ -18,13 +18,16 @@ namespace App\Services\Snippets;
         // Options: http://miromannino.github.io/Justified-Gallery/options-and-events/
 */
 
-class GalleryMasonryService {
+class GalleryMasonryService
+{
 
     /**
      *  Substitute gallery snippets with the related HTML
-     *  @param array $file_name        the file name
-     *  @return array $ret             the extension
-     **/
+     *
+     * @param $postBody
+     *
+     * @return array $ret             the extension
+     */
     public function snippetsToHTML($postBody)
     {
         $storagePath = storage_path('app/public');
@@ -34,12 +37,10 @@ class GalleryMasonryService {
         $ptn = '/{# +gallery +(src|width|height)=\[(.*)\] +(src|width|height)=\[(.*)\] +(src|width|height)=\[(.*)\] +#}/';
 
         if (preg_match_all($ptn, $postBody, $matches)) {
-
             // Trasform the matches array in a way that can be used
             $matches = $this->turn_array($matches);
 
             foreach ($matches as $key => $single_gallery_matches) {
-
                 // Get plugin parameters array
                 $parameters = $this->getParameters($single_gallery_matches, $storagePath, $publicPath);
 
