@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\InsightSearchRequest;
+use App\Http\Requests\InsightStoreRequest;
 use App\Models\Insight;
 use App\Services\InsightService;
 use App\Services\TagService;
@@ -38,6 +39,8 @@ class InsightController extends Controller
      */
     public function index(InsightSearchRequest $request)
     {
+        $this->checkPermission('insights.view');
+
         $searchParameters = $this->insightService->getSearchParameters($request);
         $insights = $this->insightService->getInsights(20, $searchParameters);
         $statuses = Insight::PUBLISHING_STATUS;
@@ -72,9 +75,14 @@ class InsightController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(InsightStoreRequest $request)
     {
-        //
+        $this->checkPermission('insights.create');
+
+        $this->insightService->createInsight($request);
+
+        return redirect()->route('insights.index')
+            ->with('success', 'Insight updated successfully');
     }
 
     /**

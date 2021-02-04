@@ -72,6 +72,7 @@ return [
     'create_new_background_image' => 'Create new background image',
     'create_new_menu' => 'Create new menu',
     'create_new_menu_item' => 'Create new menu item',
+    'create_new_insight' => 'Create new insight',
     'edit_post' => 'Edit post',
     'edit_translation' => 'Edit translation',
     'edit_event' => 'Edit event',

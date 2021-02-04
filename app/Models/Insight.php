@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Spatie\ModelStatus\HasStatuses;
 use Spatie\Searchable\Searchable;
 use Spatie\Searchable\SearchResult;
@@ -78,6 +79,27 @@ class Insight extends Model implements HasMedia, Searchable
     public function posts()
     {
         return $this->belongsToMany(Post::class); // Many to many
+    }
+
+    /**
+     * Add Image gallery support using:
+     * https://spatie.be/docs/laravel-medialibrary/v8/introduction
+     * https://github.com/ebess/advanced-nova-media-library
+     *
+     * @param \Spatie\MediaLibrary\MediaCollections\Models\Media|null $media
+     *
+     * @throws \Spatie\Image\Exceptions\InvalidManipulation
+     */
+    public function registerMediaConversions(Media $media = null): void
+    {
+        $this->addMediaConversion('thumb')
+            ->width(300)
+            ->height(300);
+    }
+
+    public function registerMediaCollections(): void
+    {
+        $this->addMediaCollection('introimage')->singleFile();
     }
 
     /**

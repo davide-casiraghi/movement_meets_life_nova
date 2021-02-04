@@ -6,6 +6,7 @@ namespace App\Services;
 
 use App\Http\Requests\InsightSearchRequest;
 use App\Http\Requests\InsightStoreRequest;
+use App\Models\Insight;
 use App\Repositories\InsightRepositoryInterface;
 
 class InsightService
@@ -49,7 +50,10 @@ class InsightService
      */
     public function createInsight(InsightStoreRequest $request)
     {
-        return $this->insightRepository->store($request->all());
+        $insight = $this->insightRepository->store($request->all());
+        $this->storeImages($insight, $request);
+
+        return $insight;
     }
 
     /**
@@ -72,6 +76,33 @@ class InsightService
     public function deleteInsight(int $insightId)
     {
         $this->insightRepository->delete($insightId);
+    }
+
+    /**
+     * Store the uploaded photos in the Spatie Media Library
+     *
+     * @param \App\Models\Post $post
+     * @param \App\Http\Requests\PostStoreRequest $data
+     *
+     * @return void
+     * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileDoesNotExist
+     * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileIsTooBig
+     */
+    private function storeImages(Insight $insight, InsightStoreRequest $data): void
+    {
+        if ($data->file('introimage')) {
+            $introimage = $data->file('introimage');
+            if ($introimage->isValid()) {
+                $insight->addMedia($introimage)->toMediaCollection('introimage');
+            }
+        }
+
+        if ($data['introimage_delete'] == 'true') {
+            $mediaItems = $insight->getMedia('introimage');
+            if (!is_null($mediaItems[0])) {
+                $mediaItems[0]->delete();
+            }
+        }
     }
 
     /**

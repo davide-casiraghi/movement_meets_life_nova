@@ -61,6 +61,7 @@ return [
     'create_new_continent' => 'Crea un nuovo continente',
     'create_new_country' => 'Crea un nuovo stato',
     'create_new_background_image' => 'Crea un immagine di sfondo',
+    'create_new_insight' => 'Crea un nuovo approfondimento',
     'edit_post' => 'Modifica post',
     'edit_translation' => 'Modifica la traduzione',
     'edit_event' => 'Modifica l\'evento',

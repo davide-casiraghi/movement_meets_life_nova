@@ -1,7 +1,7 @@
 @extends('layouts.backend')
 
 @section('title')
-    @lang('views.create_post')
+    @lang('views.create_new_post')
 @endsection
 
 @section('content')
