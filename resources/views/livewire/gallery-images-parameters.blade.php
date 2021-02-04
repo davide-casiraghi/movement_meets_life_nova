@@ -9,7 +9,7 @@
                     </div>
                     <div class="col-span-4">
                         <div class="select-all text-sm border border-gray-500 bg-gray-100 rounded p-1 overflow-x-hidden whitespace-nowrap">
-                            {# gallery src=[{{$gallery}}] width=[400] height=[300] #}
+                            {# gallery name=[{{$gallery}}] hover_animate=[true] #}
                         </div>
                     </div>
                 </div>

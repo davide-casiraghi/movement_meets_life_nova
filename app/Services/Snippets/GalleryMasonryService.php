@@ -7,8 +7,7 @@ namespace App\Services\Snippets;
     This class show a Masonry (Pinterest like) responsive gallery.
 
     Example of snippet that evoke the plugin:
-    {# gallery src=[contact_improvisation/gallery_1] width=[400] height=[300] #}
-    {# gallery src=[1/background_homepage] width=[400] height=[300] #}
+    {# gallery name=[pere] hover_animate=[true] #}
 
     The snippet can be placed in any blog post.
 
@@ -34,9 +33,10 @@ class GalleryMasonryService
     {
         // Find snippet occurrences
         //$ptn = '/{# +gallery +(name|width)=\[(.*)\] +(name|width)=\[(.*)\] +(name|width)=\[(.*)\] +#}/';
-        $ptn = '/{# +gallery +(name|width)=\[(.*)\] +(name|width)=\[(.*)\] +#}/';
+        $ptn = '/{# +gallery +(name|hover_animate)=\[(.*)\] +(name|hover_animate)=\[(.*)\] +#}/';
 
         if (preg_match_all($ptn, $post->body, $matches)) {
+
             // Trasform the matches array in a way that can be used
             $matches = $this->turnArray($matches);
 
@@ -46,7 +46,7 @@ class GalleryMasonryService
                 if (self::postHasGallery($post, $parameters['gallery_name'])) {
                     $images = $this->createImagesArray($post, $parameters['gallery_name']);
 
-                    $galleryHtml = $this->prepareGalleryHtml($images);
+                    $galleryHtml = $this->prepareGalleryHtml($images, $parameters['hover_animate']);
                 } else {
                     $galleryHtml = "<div class='alert alert-warning' role='alert'>A gallery with this name not available for this element</div>";
                 }
@@ -56,6 +56,8 @@ class GalleryMasonryService
                 // Replace the TOKEN found in the article with the generatd gallery HTML
                 $postBody = str_replace($parameters['token'], $galleryHtml, $post->body);
             }
+        } else {
+            $postBody = $post->body;
         }
 
         return $postBody;
@@ -77,8 +79,9 @@ class GalleryMasonryService
         $ret['token'] = $matches[0];
 
         $ret['gallery_name'] = $matches[2];
-        $ret['thumbnail_width'] = $matches[4];
+        $ret['hover_animate'] = filter_var($matches[4], FILTER_VALIDATE_BOOLEAN);
 
+        //ray($ret);
         return $ret;
     }
 
@@ -167,12 +170,14 @@ class GalleryMasonryService
      *  Prepare the gallery HTML.
      *
      * @param array $images
+     * @param bool $hoverAnimate
+     *
      * @return string $ret
      */
-    public function prepareGalleryHtml(array $images): string
+    public function prepareGalleryHtml(array $images, bool $hoverAnimate): string
     {
         // Animate item on hover
-        $itemClass = 'transform transition hover:scale-110 motion-reduce:transform-none duration-500';
+        $itemClass = ($hoverAnimate) ? 'transform transition hover:scale-110 motion-reduce:transform-none duration-500' : '';
 
         // Create Grid—A—Licious grid (id=devices) and print images
         $ret = "<div class='lifeGallery'>";
