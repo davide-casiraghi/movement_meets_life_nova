@@ -161,6 +161,7 @@ class GalleryMasonryService
 
             $ret[$k]['description'] = $image->getCustomProperty('image_description');
             $ret[$k]['video_link'] = $image->getCustomProperty('image_video_url');
+            $ret[$k]['caption'] = $image->getCustomProperty('image_caption');
         }
 
         return $ret;
@@ -192,7 +193,9 @@ class GalleryMasonryService
             $ret .= "<img src='" . asset($image['thumb_path']) . "' />";
             $ret .= $videoPlayIcon;
             $ret .= '</a>';
-            $ret .= "<div class='jg-caption'>Never stop climbing</div>";
+            if ($image['caption']) {
+                $ret .= "<div class='jg-caption'>".$image['caption']."</div>";
+            }
             $ret .= '</div>';
         }
 
