@@ -172,7 +172,7 @@ class GalleryMasonryService
     public function prepareGalleryHtml(array $images): string
     {
         // Animate item on hover
-        $itemClass = 'animated';
+        $itemClass = 'transform transition hover:scale-110 motion-reduce:transform-none duration-500';
 
         // Create Grid—A—Licious grid (id=devices) and print images
         $ret = "<div class='lifeGallery'>";
@@ -180,13 +180,14 @@ class GalleryMasonryService
         foreach ($images as $k => $image) {
             // Get item link
             $imageLink = ($image['video_link'] == null) ? $image['file_path'] : $image['video_link'];
-            $videoPlayIcon = ($image['video_link'] == null) ? '' : "<i class='far fa-play-circle'></i>";
+            $videoPlayIcon = ($image['video_link'] == null) ? '' : "<i class='far fa-play-circle absolute text-6xl text-white inset-center opacity-80'></i>";
 
             $ret .= "<div class='item " . $itemClass . "'>";
             $ret .= "<a href='" . $imageLink . "' data-fancybox='images' data-caption='" . $image['description'] . "'>";
             $ret .= "<img src='" . asset($image['thumb_path']) . "' />";
             $ret .= $videoPlayIcon;
             $ret .= '</a>';
+            $ret .= "<div class='jg-caption'>Never stop climbing</div>";
             $ret .= '</div>';
         }
 
