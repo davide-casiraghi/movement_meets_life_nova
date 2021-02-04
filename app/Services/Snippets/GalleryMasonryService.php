@@ -242,7 +242,7 @@ class GalleryMasonryService
         $itemClass = 'animated';
 
         // Create Grid—A—Licious grid (id=devices) and print images
-        $ret = "<div class='gallery'>";
+        $ret = "<div class='lifeGallery'>";
 
         foreach ($images as $k => $image) {
             // Get item link
