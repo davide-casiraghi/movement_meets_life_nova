@@ -2,6 +2,7 @@
     <div class="mt-1 mb-4"> {{-- flex flex-wrap space-x-4 --}}
 
         @foreach($galleries as $gallery)
+            @if($gallery != null)
             <div>
                 <div class="md:grid md:grid-cols-6 md:gap-6">
                     <div class="col-span-2">
@@ -13,7 +14,6 @@
                         </div>
                     </div>
                 </div>
-
 
                 <div class="flex flex-wrap gap-4 mb-4">
                     @foreach($model->getMedia('images') as $image)
@@ -28,6 +28,7 @@
                     @endforeach
                 </div>
             </div>
+            @endif
         @endforeach
 
 
