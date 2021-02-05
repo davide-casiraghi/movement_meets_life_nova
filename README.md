@@ -196,6 +196,10 @@ Insight::factory()->count(40)->create()->each(function($insight) {
     $insight->tags()->sync(
         Tag::all()->random(2)
     );
+    $statuses = ['published','unpublished'];
+    $random_status = array_rand($statuses, 1);
+    $status = $statuses[$random_status];
+    $insight->setStatus($status);
 });
 
 PostCategory::factory()->count(10)->create();

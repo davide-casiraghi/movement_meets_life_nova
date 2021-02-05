@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\GlobalSearchRequest;
 use App\Models\Glossary;
+use App\Models\Insight;
 use App\Models\Post;
 use App\Models\Quote;
 use Illuminate\View\View;
@@ -27,6 +28,7 @@ class GlobalSearchController extends Controller
             ->registerModel(Post::class, ['title'])
             ->registerModel(Glossary::class, ['term', 'definition'])
             ->registerModel(Quote::class, ['author', 'description'])
+            ->registerModel(Insight::class, ['title', 'body'])
 
             ->search($query);
 

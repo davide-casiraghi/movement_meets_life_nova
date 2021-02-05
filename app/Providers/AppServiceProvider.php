@@ -16,6 +16,8 @@ use App\Repositories\EventRepository;
 use App\Repositories\EventRepositoryInterface;
 use App\Repositories\GlossaryRepository;
 use App\Repositories\GlossaryRepositoryInterface;
+use App\Repositories\InsightRepository;
+use App\Repositories\InsightRepositoryInterface;
 use App\Repositories\OrganizerRepository;
 use App\Repositories\OrganizerRepositoryInterface;
 use App\Repositories\PermissionRepository;
@@ -64,6 +66,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(VenueRepositoryInterface::class, VenueRepository::class);
         $this->app->bind(UserRepositoryInterface::class, UserRepository::class);
         $this->app->bind(UserProfileRepositoryInterface::class, UserProfileRepository::class);
+        $this->app->bind(InsightRepositoryInterface::class, InsightRepository::class);
     }
 
     /**
