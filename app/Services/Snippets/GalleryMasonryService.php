@@ -29,13 +29,13 @@ class GalleryMasonryService
      *
      * @return string
      */
-    public function snippetsToHTML(Post $post): string
+    public function snippetsToHTML(string $postBody, Post $post): string
     {
         // Find snippet occurrences
         //$ptn = '/{# +gallery +(name|width)=\[(.*)\] +(name|width)=\[(.*)\] +(name|width)=\[(.*)\] +#}/';
         $ptn = '/{# +gallery +(name|hover_animate)=\[(.*)\] +(name|hover_animate)=\[(.*)\] +#}/';
 
-        if (preg_match_all($ptn, $post->body, $matches)) {
+        if (preg_match_all($ptn, $postBody, $matches)) {
 
             // Trasform the matches array in a way that can be used
             $matches = $this->turnArray($matches);
@@ -54,10 +54,10 @@ class GalleryMasonryService
                 $galleryHtml .= "</div>";
 
                 // Replace the TOKEN found in the article with the generatd gallery HTML
-                $postBody = str_replace($parameters['token'], $galleryHtml, $post->body);
+                $postBody = str_replace($parameters['token'], $galleryHtml, $postBody);
             }
         } else {
-            $postBody = $post->body;
+            $postBody = $postBody;
         }
 
         return $postBody;

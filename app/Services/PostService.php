@@ -119,7 +119,7 @@ class PostService
         $postBody = $post->body;
 
         $postBody = $this->accordionService->snippetsToHTML($postBody);
-        $postBody = $this->galleryService->snippetsToHTML($post);
+        $postBody = $this->galleryService->snippetsToHTML($postBody, $post);
         $postBody = $this->glossaryService->markGlossaryTerms($postBody);
 
         return $postBody;
