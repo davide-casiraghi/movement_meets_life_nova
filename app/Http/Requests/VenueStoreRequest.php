@@ -24,7 +24,14 @@ class VenueStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => ['required', 'string', 'max:255'],
+            'description' => ['nullable', 'string'],
+            'country_id' => ['required', 'string'],
+            'city' => ['required', 'string', 'max:255'],
+            'address' => ['required', 'string'],
+            'zipcode' => ['nullable', 'string'],
+            'extra_info' => ['nullable', 'string'],
+            'website' => ['nullable', 'url'],
         ];
     }
 }

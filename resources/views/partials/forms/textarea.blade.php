@@ -31,6 +31,11 @@
                 aria-label="{{ $placeholder }}"
            @endif
     >{{ $value ?? '' }}</textarea>
+    @error($name)
+    <span class="invalid-feedback text-red-500" role="alert">
+        <strong>{{ $errors->first($name) }}</strong>
+    </span>
+    @enderror
 </div>
 @if(!empty($extraDescription))
     <p class="mt-2 text-sm text-gray-500">

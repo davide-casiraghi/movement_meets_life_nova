@@ -25,7 +25,7 @@ class TagStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'tag' => ['required', 'max:255', new LettersAndWhitespaces],
+            'tag' => ['required', 'max:255', new LettersAndWhitespaces()],
         ];
     }
 }

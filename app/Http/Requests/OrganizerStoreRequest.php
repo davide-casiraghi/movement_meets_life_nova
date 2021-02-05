@@ -24,7 +24,23 @@ class OrganizerStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => ['required', 'string', 'max:255'],
+            'surname' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'email'],
+            'description' => ['nullable', 'string'],
+            'website' => ['nullable', 'url'],
+        ];
+    }
+
+    /**
+     * Custom error messages
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            'website.url' => 'The website link is invalid. It should start with https://',
         ];
     }
 }

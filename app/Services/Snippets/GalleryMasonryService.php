@@ -192,11 +192,11 @@ class GalleryMasonryService
             $ret .= "<a href='" . $imageLink . "' data-fancybox='images' data-caption='" . $image['description'] . "'>";
             $ret .= "<img src='" . asset($image['thumb_path']) . "' />";
             $ret .= $videoPlayIcon;
-            $ret .= '</a>';
+            $ret .= "</a>";
             if ($image['caption']) {
-                $ret .= "<div class='jg-caption'>".$image['caption']."</div>";
+                $ret .= "<div class='jg-caption'>" . $image['caption'] . "</div>";
             }
-            $ret .= '</div>';
+            $ret .= "</div>";
         }
 
         $ret .= '</div>';
