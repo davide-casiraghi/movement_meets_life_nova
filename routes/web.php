@@ -183,7 +183,7 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
         Route::post('/insights', [InsightController::class, 'store'])->name('store');
         Route::put('/insights/{id}', [InsightController::class, 'update'])->name('update');
         Route::get('/insights/{id}', [InsightController::class, 'show'])->name('show');
-        // TODO ...
+        Route::delete('/insights/{id}', [InsightController::class, 'destroy'])->name('destroy');
     });
 
     Route::get('/search', [GlobalSearchController::class, 'index'])->name('globalSearch');

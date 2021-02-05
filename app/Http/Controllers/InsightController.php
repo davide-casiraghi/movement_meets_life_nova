@@ -147,6 +147,9 @@ class InsightController extends Controller
      */
     public function destroy($insightId)
     {
-        //
+        $this->insightService->deleteInsight($insightId);
+
+        return redirect()->route('insights.index')
+            ->with('success', 'Insight deleted successfully');
     }
 }
