@@ -88,6 +88,7 @@ class RolesAndPermissionSeeder extends Seeder
         // Insights
         Permission::create(['name' => 'insights.view']);
         Permission::create(['name' => 'insights.create']);
+        Permission::create(['name' => 'insights.edit']);
 
         // CREATE ROLES
 

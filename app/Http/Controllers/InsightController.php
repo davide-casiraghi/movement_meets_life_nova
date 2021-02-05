@@ -93,7 +93,11 @@ class InsightController extends Controller
      */
     public function show($insightId)
     {
-        //
+        $insight = $this->insightService->getInsightById($insightId);
+
+        $insight['body'] = $this->insightService->getInsightBody($insight);
+
+        return view('insights.show', compact('insight'));
     }
 
     /**
@@ -104,7 +108,17 @@ class InsightController extends Controller
      */
     public function edit($insightId)
     {
-        //
+        $this->checkPermission('insights.edit');
+
+        $insight = $this->insightService->getInsightById($insightId);
+        $countriesAvailableForTranslations = LaravelLocalization::getSupportedLocales();
+        $tags = $this->tagService->getTags();
+
+        return view('insights.edit', [
+            'insight' => $insight,
+            'countriesAvailableForTranslations' => $countriesAvailableForTranslations,
+            'tags' => $tags,
+        ]);
     }
 
     /**
@@ -114,9 +128,15 @@ class InsightController extends Controller
      * @param  int  $insightId
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $insightId)
+    public function update(InsightStoreRequest $request, $insightId)
     {
-        //
+        $this->checkPermission('insights.edit');
+
+        $this->insightService->updateInsight($request, $insightId);
+
+        return redirect()->route('insights.index')
+            ->with('success', 'Insight updated successfully');
+
     }
 
     /**

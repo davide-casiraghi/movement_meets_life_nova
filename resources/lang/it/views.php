@@ -74,6 +74,7 @@ return [
     'edit_continent' => 'Modifica continente',
     'edit_country' => 'Modifica stato',
     'edit_background_image' => 'Modifica l\'immagine di sfondo',
+    'edit_insight' => "Modifica l'approfondimento",
     'delete_event' => 'Cancella l\'evento',
     'bio' => 'Biografia',
     'year_of_starting_to_practice' => 'Anno d\'inizio della pratica',

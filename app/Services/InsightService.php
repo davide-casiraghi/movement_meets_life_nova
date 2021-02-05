@@ -119,4 +119,15 @@ class InsightService
 
         return $searchParameters;
     }
+
+    public function getInsightBody($insight)
+    {
+        $insightBody = $insight->body;
+
+//        $insightBody = $this->accordionService->snippetsToHTML($insightBody);
+//        $insightBody = $this->galleryService->snippetsToHTML($insightBody);
+//        $insightBody = $this->glossaryService->markGlossaryTerms($insightBody);
+
+        return $insightBody;
+    }
 }
