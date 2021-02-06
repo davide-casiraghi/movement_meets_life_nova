@@ -1,4 +1,4 @@
-
+<a href="https://travis-ci.com/davide-casiraghi/movement_meets_life_nova"><img src="https://travis-ci.org/davide-casiraghi/movement_meets_life_nova.svg" alt="Build Status"></a>
 
 ## About the Movement Meets Life project
 
