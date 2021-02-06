@@ -144,7 +144,9 @@ class GlossaryService
      */
     private function replaceGlossaryTerm(Glossary $glossaryTerm, string $text, int &$count): string
     {
-        $pattern = "/\b$glossaryTerm->term\b/";
+        //$pattern = "/\b$glossaryTerm->term\b/";
+        $pattern = "~<a .*?</a>(*SKIP)(*F)|\b$glossaryTerm->term\b~";
+        
         $text = preg_replace_callback(
             $pattern,
             function ($matches) use ($glossaryTerm, $count) {
