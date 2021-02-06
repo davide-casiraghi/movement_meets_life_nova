@@ -50,7 +50,7 @@ class Insight extends Model implements HasMedia, Searchable
     /**
      * The possible values the publishing status can be.
      */
-    const PUBLISHING_STATUS = [
+    public const PUBLISHING_STATUS = [
         'unpublished' => 'unpublished',
         'published' => 'published',
     ];

@@ -35,7 +35,7 @@ class Event extends Model implements HasMedia
     /**
      * The possible values the publishing status can be.
      */
-    const PUBLISHING_STATUS = [
+    public const PUBLISHING_STATUS = [
         'unpublished' => 'unpublished',
         'published' => 'published',
     ];
