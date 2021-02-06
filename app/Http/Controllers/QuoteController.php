@@ -58,7 +58,7 @@ class QuoteController extends Controller
      */
     public function store(QuoteSearchRequest $request)
     {
-        $quote = $this->quoteService->createQuote($request->all());
+        $quote = $this->quoteService->createQuote($request);
 
         return redirect()->route('quotes.index')
             ->with('success', 'Quote created successfully');
@@ -92,7 +92,7 @@ class QuoteController extends Controller
      */
     public function update(QuoteStoreRequest $request, int $quoteId)
     {
-        $quote = $this->quoteService->updateQuote($request->all(), $quoteId);
+        $quote = $this->quoteService->updateQuote($request, $quoteId);
 
         return redirect()->route('quotes.index')
             ->with('success', 'Quote updated successfully');
