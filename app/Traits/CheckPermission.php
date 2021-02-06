@@ -13,9 +13,14 @@ trait CheckPermission
         }
     }
 
+    /**
+    * Check permmission and also allows the owner of the model.
+    **/
     public function checkPermissionAllowOwner(string $permissionName, $entity)
     {
-        if (!( Auth::user()->hasPermissionTo($permissionName) || Auth::id() === $entity->user_id)) {
+        $userId = $entity->user_id ?? 'none';
+        
+        if (!( Auth::user()->hasPermissionTo($permissionName) || Auth::id() === $userId)) {
             throw new AccessDeniedException("You have not the permission to view this page", 403);
         }
     }
