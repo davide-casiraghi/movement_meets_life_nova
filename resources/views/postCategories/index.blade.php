@@ -1,7 +1,10 @@
 @extends('layouts.backend')
 
-@section('content')
+@section('title')
+    @lang('views.category_management')
+@endsection
 
+@section('buttons')
     @include('partials.forms.button',[
         'title' => 'Add category',
         'url' => route('postCategories.create'),
@@ -12,6 +15,9 @@
         'kind' => 'primary',
         'target' => '_self',
     ])
+@endsection
+
+@section('content')
 
     {{-- Tailwind Component: https://tailwindui.com/components/application-ui/lists/stacked-lists--}}
     <div class="bg-white shadow overflow-hidden sm:rounded-md">
