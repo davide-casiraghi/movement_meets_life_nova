@@ -1,8 +1,8 @@
-<a href="https://travis-ci.com/davide-casiraghi/movement_meets_life_nova"><img src="https://travis-ci.org/davide-casiraghi/movement_meets_life_nova.svg" alt="Build Status"></a>
+<a href="https://travis-ci.com/davide-casiraghi/movement_meets_life_nova"><img src="https://travis-ci.org/davide-casiraghi/movement_meets_life_nova.svg" alt="Build Status"></a>   
 
-[![Quality Score](https://img.shields.io/scrutinizer/g/davide-casiraghi/movement_meets_life_nova.svg?style=flat-square)](https://scrutinizer-ci.com/g/davide-casiraghi/movement_meets_life_nova)
+[![Quality Score](https://img.shields.io/scrutinizer/g/davide-casiraghi/movement_meets_life_nova.svg?style=flat-square)](https://scrutinizer-ci.com/g/davide-casiraghi/movement_meets_life_nova)   
 
-<a href="https://codeclimate.com/github/davide-casiraghi/movement_meets_life_nova/maintainability"><img src="https://api.codeclimate.com/v1/badges/0d0b577b4f4ca8dd9a18/maintainability" /></a>
+<a href="https://codeclimate.com/github/davide-casiraghi/movement_meets_life_nova/maintainability"><img src="https://api.codeclimate.com/v1/badges/0d0b577b4f4ca8dd9a18/maintainability" /></a>   
 
 ## About the Movement Meets Life project
 
