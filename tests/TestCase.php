@@ -3,6 +3,7 @@
 namespace Tests;
 
 use App\Models\User;
+use App\Models\UserProfile;
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
 
 abstract class TestCase extends BaseTestCase
@@ -16,5 +17,39 @@ abstract class TestCase extends BaseTestCase
     {
         $user = User::factory()->create();
         $this->actingAs($user);
+    }
+
+    /**
+     * Create admin and authenticate
+     *
+     * @return User
+     */
+    public function authenticateAsAdmin(): User
+    {
+        $user = User::factory()->create();
+        $userProfile = UserProfile::factory()->create(['user_id' => $user->id]);
+
+        $user->assignRole('Admin');
+
+        $this->actingAs($user)->assertAuthenticated();
+
+        return $user;
+    }
+
+    /**
+     * Create super admin and authenticate
+     *
+     * @return User
+     */
+    public function authenticateAsSuperAdmin(): User
+    {
+        $user = User::factory()->create();
+        $userProfile = UserProfile::factory()->create(['user_id' => $user->id]);
+
+        $user->assignRole('Super Admin');
+
+        $this->actingAs($user);
+
+        return $user;
     }
 }
