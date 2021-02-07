@@ -52,11 +52,11 @@ class QuoteController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \App\Http\Requests\QuoteSearchRequest $request
+     * @param \App\Http\Requests\QuoteStoreRequest $request
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(QuoteSearchRequest $request)
+    public function store(QuoteStoreRequest $request)
     {
         $quote = $this->quoteService->createQuote($request);
 
