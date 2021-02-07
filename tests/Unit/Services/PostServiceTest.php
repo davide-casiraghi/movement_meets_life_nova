@@ -52,18 +52,19 @@ class PostServiceTest extends TestCase
             'email' => 'admin@gmail.com',
         ]);
 
-        //$this->post1 = Post::factory()->create()->setStatus('published');
+        $this->postCategory1 = PostCategory::factory()->create();
+        $this->postCategory2 = PostCategory::factory()->create();
+        $this->postCategory3 = PostCategory::factory()->create();
+        $this->post1 = Post::factory()->create(['category_id' => 1])->setStatus('published');
         //$this->post2 = Post::factory()->create()->setStatus('published');
         //$this->post3 = Post::factory()->create()->setStatus('published');
 
-        $this->postCategory1 = PostCategory::factory()->create();
+
     }
 
     /** @test */
-    public function admin_should_create_a_post()
+    public function it_should_create_a_post()
     {
-        $user = $this->authenticateAsAdmin();
-
         $request = new PostStoreRequest();
         $data = [
             'title' => 'test title',
@@ -78,5 +79,24 @@ class PostServiceTest extends TestCase
         $this->assertDatabaseHas('posts', ['id' => $post->id]);
     }
 
+    /** @test */
+    public function it_should_update_a_post()
+    {
+        $request = new PostStoreRequest();
+
+        $data = [
+            'title' => 'title updated',
+            'title_it' => 'test title it',
+            'title_sl' => 'test title sl',
+            'intro_text' => 'test intro text',
+            'body' => 'test body',
+            'category_id' => 1,
+        ];
+        $request->merge($data);
+
+        $this->postService->updatePost($request, $this->post1->id);
+
+        $this->assertDatabaseHas('posts', ['title' => "{\"en\":\"title updated\",\"it\":\"test title it\",\"sl\":\"test title sl\"}"]);
+    }
 
 }
