@@ -3,6 +3,7 @@
 namespace Tests\Unit\Services;
 
 use App\Http\Requests\EventStoreRequest;
+use App\Http\Requests\PostSearchRequest;
 use App\Http\Requests\PostStoreRequest;
 use App\Models\Event;
 use App\Models\EventRepetition;
@@ -106,11 +107,50 @@ class PostServiceTest extends TestCase
     }
 
     /** @test */
-    public function itShouldReturnAllPosts()
+    public function itShouldDeleteAPosts()
     {
-        $posts = $this->postService->getPosts(20);
-        $this->assertCount(3, $posts);
+        $this->postService->deletePost(1);
+        $this->assertDatabaseMissing('posts', ['id' => $this->post1->id]);
     }
+
+    /** @test */
+    public function itShouldGetPostBody()
+    {
+        $this->post1->body = 'test body';
+        $this->post1->save();
+
+        $body = $this->postService->getPostBody($this->post1);
+
+        $this->assertEquals($body, 'test body');
+    }
+
+    /** @test */
+    public function itShouldGetNumberPostsCreatedLastThirtyDays(){
+        $numberPostsCreatedLastThirtyDays = $this->postService->getNumberPostsCreatedLastThirtyDays();
+        $this->assertEquals($numberPostsCreatedLastThirtyDays, 3);
+    }
+
+    /** @test */
+    public function itShouldGetSearchParameters(){
+
+        $request = new PostSearchRequest();
+        $data = [
+            'title' => 'test title',
+            'categoryId' => 1,
+            'startDate' => '2020-06-05',
+            'endDate' => '2020-06-12',
+            'status' => 'published',
+        ];
+        $request->merge($data);
+
+
+        $searchParameters = $this->postService->getSearchParameters($request);
+        $this->assertEquals($searchParameters['title'], 'test title');
+    }
+
+
+
+
 
 
 }
