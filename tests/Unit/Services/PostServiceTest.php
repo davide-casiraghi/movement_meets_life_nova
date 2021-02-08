@@ -56,14 +56,12 @@ class PostServiceTest extends TestCase
         $this->postCategory2 = PostCategory::factory()->create();
         $this->postCategory3 = PostCategory::factory()->create();
         $this->post1 = Post::factory()->create(['category_id' => 1])->setStatus('published');
-        //$this->post2 = Post::factory()->create()->setStatus('published');
-        //$this->post3 = Post::factory()->create()->setStatus('published');
-
-
+        $this->post2 = Post::factory()->create(['category_id' => 1])->setStatus('published');
+        $this->post3 = Post::factory()->create(['category_id' => 1])->setStatus('published');
     }
 
     /** @test */
-    public function it_should_create_a_post()
+    public function itShouldCreateAPost()
     {
         $request = new PostStoreRequest();
         $data = [
@@ -80,7 +78,7 @@ class PostServiceTest extends TestCase
     }
 
     /** @test */
-    public function it_should_update_a_post()
+    public function itShouldUpdateAPost()
     {
         $request = new PostStoreRequest();
 
@@ -98,5 +96,21 @@ class PostServiceTest extends TestCase
 
         $this->assertDatabaseHas('posts', ['title' => "{\"en\":\"title updated\",\"it\":\"test title it\",\"sl\":\"test title sl\"}"]);
     }
+
+    /** @test */
+    public function itShouldReturnAPostById()
+    {
+        $post = $this->postService->getById($this->post1->id);
+
+        $this->assertEquals($this->post1->id, $post->id);
+    }
+
+    /** @test */
+    public function itShouldReturnAllPosts()
+    {
+        $posts = $this->postService->getPosts(20);
+        $this->assertCount(3, $posts);
+    }
+
 
 }
