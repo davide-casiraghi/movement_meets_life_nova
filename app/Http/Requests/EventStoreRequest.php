@@ -28,21 +28,17 @@ class EventStoreRequest extends FormRequest
             'title' => ['required', 'string', 'max:255'],
             'event_category_id' => ['required'],
             'venue_id' => ['required'],
+            'teacher_ids' => ['nullable', 'array'],
+            'organizer_ids' => ['nullable', 'array'],
             'description' => ['required', 'string'],
+            'startDate' => ['required', 'string'],
+            'endDate' => ['required', 'string'],
             'repeat_weekly_on' => [Rule::requiredIf(request()->repeat_type == 2), 'array'],
-
-            /*'title' => 'required',
-            'description' => 'required',
-            'category_id' => 'required',
-            'venue_id' => 'required',
-            'startDate' => 'required',
-            'endDate' => 'required',
-            'repeat_until' => Rule::requiredIf($request->repeat_type == 2 || $request->repeat_type == 3),
-            'repeat_weekly_on_day' => Rule::requiredIf($request->repeat_type == 2),
-            'on_monthly_kind' => Rule::requiredIf($request->repeat_type == 3),
-            'contact_email' => 'nullable|email',
-            'facebook_event_link' => 'nullable|url',
-            'website_event_link' => 'nullable|url',*/
+            'on_monthly_kind' => [Rule::requiredIf(request()->repeat_type == 3), 'string'],
+            'repeat_until' => [Rule::requiredIf(request()->repeat_type == 3 || request()->repeat_type == 3), 'string'],
+            'contact_email' => ['nullable', 'email'],
+            'facebook_event_link' => ['nullable', 'url'],
+            'website_event_link' => ['nullable', 'url'],
         ];
     }
 }
