@@ -108,7 +108,7 @@ class TeacherService
      *
      * @return void
      */
-    private function storeImages(Teacher $teacher, TeacherStoreRequest $data): void
+    private function storeImages(Teacher $teacher, TeacherStoreRequest $request): void
     {
         /*if($data->file('photos')) {
             foreach ($data->file('photos') as $photo) {
@@ -118,14 +118,14 @@ class TeacherService
             }
         }*/
 
-        if ($data->file('introimage')) {
-            $introimage = $data->file('introimage');
+        if ($request->file('introimage')) {
+            $introimage = $request->file('introimage');
             if ($introimage->isValid()) {
                 $teacher->addMedia($introimage)->toMediaCollection('introimage');
             }
         }
 
-        if ($data['introimage_delete'] == 'true') {
+        if ($request->introimage_delete == 'true') {
             $mediaItems = $teacher->getMedia('introimage');
             if (!is_null($mediaItems[0])) {
                 $mediaItems[0]->delete();

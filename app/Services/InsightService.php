@@ -11,10 +11,12 @@ use App\Repositories\InsightRepositoryInterface;
 
 class InsightService
 {
-    private $insightRepository;
+    private InsightRepositoryInterface $insightRepository;
 
     /**
      * InsightService constructor.
+     *
+     * @param \App\Repositories\InsightRepositoryInterface $insightRepository
      */
     public function __construct(InsightRepositoryInterface $insightRepository)
     {
@@ -23,6 +25,9 @@ class InsightService
 
     /**
      * Get all the Insights
+     *
+     * @param int|null $recordsPerPage
+     * @param array|null $searchParameters
      *
      * @return mixed
      */
@@ -81,23 +86,23 @@ class InsightService
     /**
      * Store the uploaded photos in the Spatie Media Library
      *
-     * @param \App\Models\Post $post
-     * @param \App\Http\Requests\PostStoreRequest $data
+     * @param \App\Models\Insight $insight
+     * @param \App\Http\Requests\InsightStoreRequest $request
      *
      * @return void
      * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileDoesNotExist
      * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileIsTooBig
      */
-    private function storeImages(Insight $insight, InsightStoreRequest $data): void
+    private function storeImages(Insight $insight, InsightStoreRequest $request): void
     {
-        if ($data->file('introimage')) {
-            $introimage = $data->file('introimage');
+        if ($request->file('introimage')) {
+            $introimage = $request->file('introimage');
             if ($introimage->isValid()) {
                 $insight->addMedia($introimage)->toMediaCollection('introimage');
             }
         }
 
-        if ($data['introimage_delete'] == 'true') {
+        if ($request->introimage_delete == 'true') {
             $mediaItems = $insight->getMedia('introimage');
             if (!is_null($mediaItems[0])) {
                 $mediaItems[0]->delete();

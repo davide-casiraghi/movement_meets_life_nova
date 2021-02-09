@@ -139,30 +139,30 @@ class PostService
      * Store the uploaded photos in the Spatie Media Library
      *
      * @param \App\Models\Post $post
-     * @param \App\Http\Requests\PostStoreRequest $data
+     * @param \App\Http\Requests\PostStoreRequest $request
      *
      * @return void
      * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileDoesNotExist
      * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileIsTooBig
      */
-    private function storeImages(Post $post, PostStoreRequest $data): void
+    private function storeImages(Post $post, PostStoreRequest $request): void
     {
-        if ($data->file('introimage')) {
-            $introimage = $data->file('introimage');
+        if ($request->file('introimage')) {
+            $introimage = $request->file('introimage');
             if ($introimage->isValid()) {
                 $post->addMedia($introimage)->toMediaCollection('introimage');
             }
         }
 
-        if ($data->file('images')) {
-            foreach ($data->file('images') as $photo) {
+        if ($request->file('images')) {
+            foreach ($request->file('images') as $photo) {
                 if ($photo->isValid()) {
                     $post->addMedia($photo)->toMediaCollection('images');
                 }
             }
         }
 
-        if ($data['introimage_delete'] == 'true') {
+        if ($request->introimage_delete == 'true') {
             $mediaItems = $post->getMedia('introimage');
             if (!is_null($mediaItems[0])) {
                 $mediaItems[0]->delete();

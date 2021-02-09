@@ -104,28 +104,22 @@ class OrganizerService
      * Store the uploaded photos in the Spatie Media Library
      *
      * @param \App\Models\Organizer $organizer
-     * @param \App\Http\Requests\OrganizerStoreRequest $data
+     * @param \App\Http\Requests\OrganizerStoreRequest $request
      *
      * @return void
+     * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileDoesNotExist
+     * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileIsTooBig
      */
-    private function storeImages(Organizer $organizer, OrganizerStoreRequest $data): void
+    private function storeImages(Organizer $organizer, OrganizerStoreRequest $request): void
     {
-        /*if($data->file('photos')) {
-            foreach ($data->file('photos') as $photo) {
-                if ($photo->isValid()) {
-                    $organizer->addMedia($photo)->toMediaCollection('post');
-                }
-            }
-        }*/
-
-        if ($data->file('introimage')) {
-            $introimage = $data->file('introimage');
+        if ($request->file('introimage')) {
+            $introimage = $request->file('introimage');
             if ($introimage->isValid()) {
                 $organizer->addMedia($introimage)->toMediaCollection('introimage');
             }
         }
 
-        if ($data['introimage_delete'] == 'true') {
+        if ($request->introimage_delete == 'true') {
             $mediaItems = $organizer->getMedia('introimage');
             if (!is_null($mediaItems[0])) {
                 $mediaItems[0]->delete();

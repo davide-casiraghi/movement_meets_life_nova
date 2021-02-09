@@ -91,16 +91,16 @@ class TestimonialService
      * Store the uploaded photos in the Spatie Media Library
      *
      * @param \App\Models\Testimonial $testimonial
-     * @param \App\Http\Requests\TestimonialStoreRequest $data
+     * @param \App\Http\Requests\TestimonialStoreRequest $request
      *
      * @return void
      * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileDoesNotExist
      * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileIsTooBig
      */
-    public function storeImages(Testimonial $testimonial, TestimonialStoreRequest $data): void
+    public function storeImages(Testimonial $testimonial, TestimonialStoreRequest $request): void
     {
-        if ($data->file('photo')) {
-            $photo = $data->file('photo');
+        if ($request->file('photo')) {
+            $photo = $request->file('photo');
             if ($photo->isValid()) {
                 $testimonial->addMedia($photo)->toMediaCollection('testimonials');
             }

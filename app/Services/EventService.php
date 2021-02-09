@@ -131,16 +131,16 @@ class EventService
      * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileDoesNotExist
      * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileIsTooBig
      */
-    public function storeImages(Event $event, EventStoreRequest $data): void
+    public function storeImages(Event $event, EventStoreRequest $request): void
     {
-        if ($data->file('introimage')) {
-            $introimage = $data->file('introimage');
+        if ($request->file('introimage')) {
+            $introimage = $request->file('introimage');
             if ($introimage->isValid()) {
                 $event->addMedia($introimage)->toMediaCollection('introimage');
             }
         }
 
-        if ($data['introimage_delete'] == 'true') {
+        if ($request->introimage_delete == 'true') {
             $mediaItems = $event->getMedia('introimage');
             if (!is_null($mediaItems[0])) {
                 $mediaItems[0]->delete();

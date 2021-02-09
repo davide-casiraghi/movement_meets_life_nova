@@ -197,22 +197,22 @@ class GlossaryService
      * Store the uploaded introimage in the Spatie Media Library
      *
      * @param \App\Models\Glossary $glossary
-     * @param \App\Http\Requests\GlossaryStoreRequest $data
+     * @param \App\Http\Requests\GlossaryStoreRequest $request
      *
      * @return void
      * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileDoesNotExist
      * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileIsTooBig
      */
-    private function storeImages(Glossary $glossary, GlossaryStoreRequest $data): void
+    private function storeImages(Glossary $glossary, GlossaryStoreRequest $request): void
     {
-        if ($data->file('introimage')) {
-            $introimage = $data->file('introimage');
+        if ($request->file('introimage')) {
+            $introimage = $request->file('introimage');
             if ($introimage->isValid()) {
                 $glossary->addMedia($introimage)->toMediaCollection('introimage');
             }
         }
 
-        if ($data['introimage_delete'] == 'true') {
+        if ($request->introimage_delete == 'true') {
             $mediaItems = $glossary->getMedia('introimage');
             if (!is_null($mediaItems[0])) {
                 $mediaItems[0]->delete();
