@@ -6,7 +6,8 @@ namespace App\Services;
 use App\Http\Requests\CommentStoreRequest;
 use App\Models\Comment;
 
-class CommentService {
+class CommentService
+{
 
     /**
      * Create a comment
@@ -17,9 +18,9 @@ class CommentService {
      *
      * @return \App\Models\Comment
      */
-    public function createComment(CommentStoreRequest $data, $entity)
+    public function createComment(CommentStoreRequest $data, $entity): Comment
     {
-        $comment = new Comment;
+        $comment = new Comment();
         $comment->body = $data['body'];
         $comment->name = $data['name'];
         $comment->email = $data['email'];

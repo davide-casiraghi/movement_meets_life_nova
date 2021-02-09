@@ -4,7 +4,8 @@ namespace App\Services;
 
 use Spatie\Permission\Models\Role;
 
-class TeamService {
+class TeamService
+{
 
 
     /**
