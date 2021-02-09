@@ -4,6 +4,14 @@
     @lang('teacher.edit_teacher')
 @endsection
 
+@section('buttons')
+    @livewire('delete-model', [
+        'model' => $teacher,
+        'modelName' => 'teacher',
+        'redirectRoute' => 'teachers.index'
+    ])
+@endsection
+
 @section('content')
 
     @include('partials.messages')

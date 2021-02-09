@@ -1,5 +1,9 @@
 @extends('layouts.backend')
 
+@section('title')
+    @lang('glossary.create_new_glossary')
+@endsection
+
 @section('content')
 
     @include('partials.messages')

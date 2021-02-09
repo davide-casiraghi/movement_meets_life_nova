@@ -4,6 +4,14 @@
     @lang('event.edit_event')
 @endsection
 
+@section('buttons')
+    @livewire('delete-model', [
+    'model' => $event,
+    'modelName' => 'event',
+    'redirectRoute' => 'events.index'
+    ])
+@endsection
+
 @section('content')
 
     @include('partials.messages')

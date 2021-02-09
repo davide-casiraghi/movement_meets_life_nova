@@ -4,6 +4,14 @@
     @lang('organizer.edit_organizer')
 @endsection
 
+@section('buttons')
+    @livewire('delete-model', [
+    'model' => $organizer,
+    'modelName' => 'organizer',
+    'redirectRoute' => 'organizers.index'
+    ])
+@endsection
+
 @section('content')
 
     @include('partials.messages')

@@ -1,5 +1,13 @@
 @extends('layouts.backend')
 
+@section('buttons')
+    @livewire('delete-model', [
+    'model' => $eventCategory,
+    'modelName' => 'event category',
+    'redirectRoute' => 'eventCategories.index'
+    ])
+@endsection
+
 @section('content')
 
     @include('partials.messages')

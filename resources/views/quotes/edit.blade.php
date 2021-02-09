@@ -4,6 +4,14 @@
     @lang('views.edit_quote')
 @endsection
 
+@section('buttons')
+    @livewire('delete-model', [
+    'model' => $quote,
+    'modelName' => 'quote',
+    'redirectRoute' => 'quotes.index'
+    ])
+@endsection
+
 @section('content')
 
     @include('partials.messages')

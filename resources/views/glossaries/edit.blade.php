@@ -1,5 +1,17 @@
 @extends('layouts.backend')
 
+@section('title')
+    @lang('glossary.edit_glossary')
+@endsection
+
+@section('buttons')
+    @livewire('delete-model', [
+    'model' => $glossary,
+    'modelName' => 'glossary',
+    'redirectRoute' => 'glossaries.index'
+    ])
+@endsection
+
 @section('content')
 
     @include('partials.messages')

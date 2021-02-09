@@ -25,6 +25,14 @@
     @lang('user.edit_user')
 @endsection
 
+@section('buttons')
+    @livewire('delete-model', [
+    'model' => $user,
+    'modelName' => 'user',
+    'redirectRoute' => 'users.index'
+    ])
+@endsection
+
 @section('content')
 
     @include('partials.messages')
