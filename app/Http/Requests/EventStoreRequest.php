@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class EventStoreRequest extends FormRequest
 {
@@ -28,6 +29,7 @@ class EventStoreRequest extends FormRequest
             'event_category_id' => ['required'],
             'venue_id' => ['required'],
             'description' => ['required', 'string'],
+            'repeat_weekly_on' => [Rule::requiredIf(request()->repeat_type == 2), 'array'],
 
             /*'title' => 'required',
             'description' => 'required',

@@ -138,88 +138,90 @@
             </label>--}}
 
             @php
-                $repeatWeeklyOn = isset($event->repeat_weekly_on) ? json_decode($event->repeat_weekly_on, true) : null;
-                $checked = isset($repeatWeeklyOn[1]) ? "checked" : "";
+                $repeatWeeklyOn = isset($event->repeat_weekly_on) ? explode(',', $event->repeat_weekly_on) : [];
+                $checked = in_array(1, $repeatWeeklyOn) ? "checked" : "";
             @endphp
+
+           {{-- {{dd(explode(',', $event->repeat_weekly_on))}}--}}
+
            {{-- {{json_decode($event->repeat_weekly_on, true)[1]}}--}}
             @include('partials.forms.checkbox', [
                 'label' => __('general.monday'),
                 'id'  => 'day_1',
                 'name' => 'repeat_weekly_on[1]',
-                //'value' => 1,
                 'checked' => $checked,
                 'size' => 'small',
                 'required' => false,
             ])
 
             @php
-                $checked = isset($repeatWeeklyOn[2]) ? "checked" : "";
+                $checked = in_array(2, $repeatWeeklyOn)  ? "checked" : "";
             @endphp
             @include('partials.forms.checkbox', [
                 'label' => __('general.tuesday'),
                 'id'  => 'day_2',
                 'name' => 'repeat_weekly_on[2]',
-                //'value' => 2,
+                'checked' => $checked,
                 'size' => 'small',
                 'required' => false,
             ])
 
             @php
-                $checked = isset($repeatWeeklyOn[3]) ? "checked" : "";
+                $checked = in_array(3, $repeatWeeklyOn) ? "checked" : "";
             @endphp
             @include('partials.forms.checkbox', [
                 'label' => __('general.wednesday'),
                 'id'  => 'day_3',
                 'name' => 'repeat_weekly_on[3]',
-                //'value' => 3,
+                'checked' => $checked,
                 'size' => 'small',
                 'required' => false,
             ])
 
             @php
-                $checked = isset($repeatWeeklyOn[4]) ? "checked" : "";
+                $checked = in_array(4, $repeatWeeklyOn) ? "checked" : "";
             @endphp
             @include('partials.forms.checkbox', [
                 'label' => __('general.thursday'),
                 'id'  => 'day_4',
                 'name' => 'repeat_weekly_on[4]',
-                //'value' => 4,
+                'checked' => $checked,
                 'size' => 'small',
                 'required' => false,
             ])
 
             @php
-                $checked = isset($repeatWeeklyOn[5]) ? "checked" : "";
+                $checked = in_array(5, $repeatWeeklyOn) ? "checked" : "";
             @endphp
             @include('partials.forms.checkbox', [
                 'label' => __('general.friday'),
                 'id'  => 'day_5',
                 'name' => 'repeat_weekly_on[5]',
-                //'value' => 5,
+                'checked' => $checked,
                 'size' => 'small',
                 'required' => false,
             ])
 
             @php
-                $checked = isset($repeatWeeklyOn[6]) ? "checked" : "";
+                $checked = in_array(6, $repeatWeeklyOn) ? "checked" : "";
             @endphp
             @include('partials.forms.checkbox', [
                 'label' => __('general.saturday'),
                 'id'  => 'day_6',
                 'name' => 'repeat_weekly_on[6]',
-                //'value' => 6,
+                'checked' => $checked,
                 'size' => 'small',
                 'required' => false,
             ])
 
             @php
-                $checked = isset($repeatWeeklyOn[7]) ? "checked" : "";
+                $checked = in_array(7, $repeatWeeklyOn) ? "checked" : "";
             @endphp
             @include('partials.forms.checkbox', [
                 'label' => __('general.sunday'),
                 'id'  => 'day_7',
                 'name' => 'repeat_weekly_on[7]',
-                //'value' => 7,
+                'checked' => $checked,
                 'size' => 'small',
                 'required' => false,
             ])
