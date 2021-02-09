@@ -8,12 +8,14 @@ class DeleteModel extends Component
 {
     public $model;
     public $modelName;
+    public $redirectRoute;
     public $showModal = false;
 
-    public function mount($model, $modelName)
+    public function mount($model, $modelName, $redirectRoute)
     {
         $this->model = $model;
         $this->modelName = $modelName;
+        $this->redirectRoute = $redirectRoute;
     }
 
     public function render()
@@ -32,7 +34,7 @@ class DeleteModel extends Component
         $this->showModal = false;
 
         session()->flash('success', ucfirst($this->modelName) . ' deleted successfully');
-        return redirect(route('posts.index'));
+        return redirect(route($this->redirectRoute));
     }
 
     public function close()

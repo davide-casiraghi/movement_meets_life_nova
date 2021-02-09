@@ -8,6 +8,7 @@
     @livewire('delete-model', [
         'model' => $post,
         'modelName' => 'post',
+        'redirectRoute' => 'posts.index'
     ])
 @endsection
 

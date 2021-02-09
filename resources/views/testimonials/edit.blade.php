@@ -4,6 +4,14 @@
     @lang('views.edit_testimonial')
 @endsection
 
+@section('buttons')
+    @livewire('delete-model', [
+        'model' => $testimonial,
+        'modelName' => 'testimonial',
+        'redirectRoute' => 'testimonials.index'
+    ])
+@endsection
+
 @section('content')
 
     @include('partials.messages')
