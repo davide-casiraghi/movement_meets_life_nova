@@ -11,8 +11,8 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use Illuminate\Database\Eloquent\Collection;
 
-class TeacherServiceTest extends TestCase{
-
+class TeacherServiceTest extends TestCase
+{
     use WithFaker;
     use RefreshDatabase; // empty the test DB
 
@@ -44,7 +44,7 @@ class TeacherServiceTest extends TestCase{
     }
 
     /** @test */
-    public function it_should_create_a_teacher()
+    public function itShouldCreateATeacher()
     {
         $user = $this->authenticateAsUser();
 
@@ -68,7 +68,7 @@ class TeacherServiceTest extends TestCase{
     }
 
     /** @test */
-    public function it_should_update_a_teacher()
+    public function itShouldUpdateATeacher()
     {
         $request = new TeacherStoreRequest();
 
@@ -90,7 +90,7 @@ class TeacherServiceTest extends TestCase{
     }
 
     /** @test */
-    public function it_should_return_teacher_by_id()
+    public function itShouldReturnTeacherById()
     {
         $teacher = $this->teacherService->getById($this->teachers[1]->id);
 
@@ -98,7 +98,7 @@ class TeacherServiceTest extends TestCase{
     }
 
     /** @test */
-    public function it_should_return_all_teachers()
+    public function itShouldReturnAllTeachers()
     {
         $teachers = $this->teacherService->getTeachers(20);
         $this->assertCount(3, $teachers);
