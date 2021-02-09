@@ -42,6 +42,8 @@
 
 @section('content')
 
+    @include('partials.messages')
+
     @include('partials.posts.searchBar')
 
     {{-- Tailwind Component: https://tailwindui.com/components/application-ui/lists/stacked-lists--}}
