@@ -74,7 +74,7 @@
                                 'records' => $teachers,
                                 'value_attribute_name' => 'full_name',
                                 'selected' => old('teacher_ids'),
-                                'required' => TRUE,
+                                'required' => false,
                                 'extraClasses' => '',
                             ])
                         </div>
@@ -87,7 +87,7 @@
                                 'records' => $organizers,
                                 'value_attribute_name' => 'full_name',
                                 'selected' => old('organizer_ids'),
-                                'required' => TRUE,
+                                'required' => false,
                                 'extraClasses' => '',
                             ])
                         </div>

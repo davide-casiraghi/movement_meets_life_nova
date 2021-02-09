@@ -83,7 +83,7 @@
                                 'records' => $teachers,
                                 'value_attribute_name' => 'full_name',
                                 'selected' => $event->teachers->modelKeys(),
-                                'required' => TRUE,
+                                'required' => false,
                                 'extraClasses' => '',
                             ])
                         </div>
@@ -96,7 +96,7 @@
                                 'records' => $organizers,
                                 'value_attribute_name' => 'full_name',
                                 'selected' => $event->organizers->modelKeys(),
-                                'required' => TRUE,
+                                'required' => false,
                                 'extraClasses' => '',
                             ])
                         </div>

@@ -24,7 +24,7 @@ class UserStoreRequest extends FormRequest
      */
     public function rules()
     {
-        return [
+        $rules = [
             'name' => ['required', 'string', 'max:255'],
             'surname' => ['required', 'string', 'max:255'],
             'country_id' => ['required', 'string'],
@@ -32,5 +32,13 @@ class UserStoreRequest extends FormRequest
             'description' => ['required', 'string'],
             'accept_terms' => ['required'],
         ];
+
+        if ($this->getMethod() == 'POST') { //store
+            $rules += ['password' => 'required'];
+        } else {
+            // update
+        }
+
+        return $rules;
     }
 }
