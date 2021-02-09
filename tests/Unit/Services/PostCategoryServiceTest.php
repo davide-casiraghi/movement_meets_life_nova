@@ -2,27 +2,13 @@
 
 namespace Tests\Unit\Services;
 
-use App\Http\Requests\EventStoreRequest;
 use App\Http\Requests\PostCategoryStoreRequest;
-use App\Http\Requests\PostSearchRequest;
-use App\Http\Requests\PostStoreRequest;
-use App\Models\Event;
-use App\Models\EventRepetition;
-use App\Models\Organizer;
-use App\Models\Post;
 use App\Models\PostCategory;
-use App\Models\Teacher;
 use App\Models\User;
-use App\Models\Venue;
-use App\Models\EventCategory;
-use App\Services\EventService;
 use App\Services\PostCategoryService;
-use App\Services\PostService;
-use Carbon\Carbon;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
-use Illuminate\Database\Eloquent\Collection;
 
 class PostCategoryServiceTest extends TestCase
 {
@@ -102,7 +88,7 @@ class PostCategoryServiceTest extends TestCase
     /** @test */
     public function itShouldDeleteAPostCategory()
     {
-        $this->postCategoryService->deletePostCategory(1);
+        $this->postCategoryService->deletePostCategory($this->postCategory1->id);
         $this->assertDatabaseMissing('post_categories', ['id' => $this->postCategory1->id]);
     }
 }

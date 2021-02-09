@@ -2,25 +2,15 @@
 
 namespace Tests\Unit\Services;
 
-use App\Http\Requests\EventStoreRequest;
 use App\Http\Requests\PostSearchRequest;
 use App\Http\Requests\PostStoreRequest;
-use App\Models\Event;
-use App\Models\EventRepetition;
-use App\Models\Organizer;
 use App\Models\Post;
 use App\Models\PostCategory;
-use App\Models\Teacher;
 use App\Models\User;
-use App\Models\Venue;
-use App\Models\EventCategory;
-use App\Services\EventService;
 use App\Services\PostService;
-use Carbon\Carbon;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
-use Illuminate\Database\Eloquent\Collection;
 
 class PostServiceTest extends TestCase
 {
@@ -109,7 +99,7 @@ class PostServiceTest extends TestCase
     /** @test */
     public function itShouldDeleteAPost()
     {
-        $this->postService->deletePost(1);
+        $this->postService->deletePost($this->post1->id);
         $this->assertDatabaseMissing('posts', ['id' => $this->post1->id]);
     }
 
