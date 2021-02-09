@@ -41,7 +41,26 @@ class EventStoreRequest extends FormRequest
             'website_event_link' => ['nullable', 'url'],
         ];
     }
+
+    /**
+     * Get the error messages for the defined validation rules.
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            'repeat_weekly_on[].required' => 'Please specify which day of the week is repeting the event.',
+            'on_monthly_kind.required' => 'Please specify the kind of monthly repetition',
+            'endDate.same' => 'If the event is repetitive the start date and end date must match',
+            'facebook_event_link.url' => 'The facebook link is invalid. It should start with https://',
+            'website_event_link.url' => 'The website link is invalid. It should start with https://',
+            'image.max' => 'The maximum image size is 5MB. If you need to resize it you can use: www.simpleimageresizer.com',
+        ];
+    }
 }
+
+
 
 /*
  *
