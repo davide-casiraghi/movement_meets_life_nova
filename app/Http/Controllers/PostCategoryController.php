@@ -51,7 +51,7 @@ class PostCategoryController extends Controller
         $this->postCategoryService->createPostCategory($request);
 
         return redirect()->route('postCategories.index')
-            ->with('success','Post category created successfully');
+            ->with('success', 'Post category created successfully');
     }
 
     /**
@@ -83,7 +83,7 @@ class PostCategoryController extends Controller
         $this->postCategoryService->updatePostCategory($request, $postCategoryId);
 
         return redirect()->route('postCategories.index')
-            ->with('success','Post category updated successfully');
+            ->with('success', 'Post category updated successfully');
     }
 
     /**
@@ -98,6 +98,6 @@ class PostCategoryController extends Controller
         $this->postCategoryService->deletePostCategory($postCategoryId);
 
         return redirect()->route('postCategories.index')
-            ->with('success','Post category deleted successfully');
+            ->with('success', 'Post category deleted successfully');
     }
 }
