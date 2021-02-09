@@ -107,7 +107,7 @@ class PostServiceTest extends TestCase
     }
 
     /** @test */
-    public function itShouldDeleteAPosts()
+    public function itShouldDeleteAPost()
     {
         $this->postService->deletePost(1);
         $this->assertDatabaseMissing('posts', ['id' => $this->post1->id]);
