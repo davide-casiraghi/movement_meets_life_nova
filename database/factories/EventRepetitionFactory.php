@@ -6,7 +6,8 @@ use App\Models\EventRepetition;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Carbon\Carbon;
 
-class EventRepetitionFactory extends Factory {
+class EventRepetitionFactory extends Factory
+{
 
     /**
      * The name of the factory's corresponding model.
@@ -20,10 +21,9 @@ class EventRepetitionFactory extends Factory {
      *
      * @return array
      */
-    public function definition() {
-
-        $date_start_timestamp = rand(1895589603, 1924447203);
-        $date_start = Carbon::parse($date_start_timestamp);
+    public function definition(): array
+    {
+        $date_start = Carbon::today()->addDays(rand(1, 365));
         $date_end = $date_start->addDay();
 
         return [

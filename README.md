@@ -251,9 +251,9 @@ Event::factory()
     ->count(40)
     ->state(new Sequence(
         ['repeat_type' => '1'],
-        ['repeat_type' => '2'],
-        ['repeat_type' => '3'],
-        ['repeat_type' => '4'],
+        //['repeat_type' => '2'],
+        //['repeat_type' => '3'],
+        //['repeat_type' => '4'],
     ))
     ->create()->each(function($event) {
         $event->venue()->associate(
@@ -265,6 +265,14 @@ Event::factory()
         $event->teachers()->sync(
             Teacher::all()->random(1)
         );
+        
+        switch($event->repeat_type){
+            case 1:
+                EventRepetition::factory()->create([
+                    'event_id' => $event->id,
+                ]);
+            break;
+        }
         
         $statuses = ['published','unpublished'];
         $random_status = array_rand($statuses, 1);
