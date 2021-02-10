@@ -158,7 +158,7 @@ class PostRepository implements PostRepositoryInterface
         $post->publish_at = $data['publish_at'] ?? null;
         $post->publish_until = $data['publish_until'] ?? null;
 
-        if ($data['created_at'] != null) {
+        if (isset($data['created_at'])) {
             $post->created_at = Carbon::createFromFormat('d/m/Y', $data['created_at']);
         }
 
