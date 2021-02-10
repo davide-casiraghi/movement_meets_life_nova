@@ -8,7 +8,6 @@ use Carbon\Carbon;
 
 class EventRepetitionFactory extends Factory
 {
-
     /**
      * The name of the factory's corresponding model.
      *
@@ -23,13 +22,16 @@ class EventRepetitionFactory extends Factory
      */
     public function definition(): array
     {
-        $date_start = Carbon::today()->addDays(rand(1, 365));
-        $date_end = $date_start->addDay();
+        $dateStart = Carbon::today()->addDays(rand(1, 365));
+        $dateEnd = $dateStart->copy()->addDay();
+
+        $dateStart->hour = 18;
+        $dateEnd->hour = 20;
 
         return [
             'event_id' => rand(1, 100),
-            'start_repeat' => $date_start,
-            'end_repeat' => $date_end,
+            'start_repeat' => $dateStart,
+            'end_repeat' => $dateEnd,
         ];
     }
 
