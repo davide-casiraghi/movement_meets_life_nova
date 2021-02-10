@@ -159,7 +159,6 @@
                     </div>
                 </div>
 
-
                 {{-- Duration --}}
                 <div class="md:col-span-1">
                     <h3 class="text-lg font-medium leading-6 text-gray-900">@lang('event.start_end_duration')</h3>
