@@ -183,6 +183,7 @@
                                     'name' => 'startDate',
                                     'value' => old('startDate', $eventDateTimeParameters['dateStart']),
                                     'required' => true,
+                                    'disabled' => false,
                                 ])
                             </div>
                         </div>
@@ -220,6 +221,7 @@
                                     'name' => 'endDate',
                                     'value' => old('startDate', $eventDateTimeParameters['dateEnd']),
                                     'required' => true,
+                                    'disabled' => false,
                                 ])
                         </div>
                         <div class="col-span-3">

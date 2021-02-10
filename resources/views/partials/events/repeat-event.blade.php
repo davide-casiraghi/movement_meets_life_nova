@@ -264,6 +264,7 @@
                     'tooltipFontAwesomeClass' => 'fa fa-info-circle',
                     'tooltipText' => __('event.select_multiple_dates'),
                     'required' => false,
+                    'disabled' => false,
                 ])
     </div>
 
@@ -278,6 +279,7 @@
                   'tooltipFontAwesomeClass' => 'fa fa-info-circle',
                   'tooltipText' => __('laravel-events-calendar::event.max_until'),
                   'required' => true,
+                  'disabled' => false,
             ])
     </div>
 

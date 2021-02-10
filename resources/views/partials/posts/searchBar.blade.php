@@ -35,6 +35,7 @@
                 'name' => 'startDate',
                 'value' =>  old('startDate', $searchParameters['startDate']),
                 'required' => false,
+                'disabled' => false,
             ])
         </div>
 
@@ -47,6 +48,7 @@
                 'name' => 'endDate',
                 'value' =>  old('endDate', $searchParameters['endDate']),
                 'required' => false,
+                'disabled' => false,
             ])
         </div>
 

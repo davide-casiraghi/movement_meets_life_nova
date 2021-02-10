@@ -175,6 +175,7 @@
                                     'name' => 'startDate',
                                     'value' => old('startDate'),
                                     'required' => true,
+                                    'disabled' => false,
                                 ])
                             </div>
                         </div>
@@ -203,6 +204,7 @@
                                     'name' => 'endDate',
                                     'value' => old('endDate'),
                                     'required' => true,
+                                    'disabled' => false,
                                 ])
                         </div>
                         <div class="col-span-3">

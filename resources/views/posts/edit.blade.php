@@ -175,6 +175,7 @@
                                     'name' => 'created_at',
                                     'value' => old('created_at', $post->created_at->format('d/m/Y')),
                                     'required' => true,
+                                    'disabled' => false,
                                 ])
                         </div>
                     </div>
