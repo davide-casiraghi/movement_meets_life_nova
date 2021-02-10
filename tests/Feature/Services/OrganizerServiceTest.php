@@ -1,25 +1,25 @@
 <?php
 
-namespace Tests\Unit\Services;
+namespace Tests\Feature\Services;
 
-use App\Http\Requests\TeacherStoreRequest;
-use App\Models\Teacher;
+use App\Http\Requests\OrganizerStoreRequest;
+use App\Models\Organizer;
 use App\Models\User;
-use App\Services\TeacherService;
+use App\Services\OrganizerService;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use Illuminate\Database\Eloquent\Collection;
 
-class TeacherServiceTest extends TestCase
-{
+class OrganizerServiceTest extends TestCase{
+
     use WithFaker;
     use RefreshDatabase; // empty the test DB
 
-    private TeacherService $teacherService;
+    private OrganizerService $organizerService;
 
     private User $user1;
-    private Collection $teachers;
+    private Collection $organizers;
 
     /**
      * Populate test DB with dummy data.
@@ -34,74 +34,72 @@ class TeacherServiceTest extends TestCase
         // Seeders - /database/seeds
         $this->seed();
 
-        $this->teacherService = $this->app->make('App\Services\TeacherService');
+        $this->organizerService = $this->app->make('App\Services\OrganizerService');
 
         $this->user1 = User::factory()->create([
             'email' => 'admin@gmail.com',
         ]);
 
-        $this->teachers = Teacher::factory()->count(3)->create();
+        $this->organizers = Organizer::factory()->count(3)->create();
     }
 
     /** @test */
-    public function itShouldCreateATeacher()
+    public function it_should_create_an_organizer()
     {
         $user = $this->authenticateAsUser();
 
-        $request = new TeacherStoreRequest();
+        $request = new OrganizerStoreRequest();
 
         $data = [
-            'country_id' => '1',
             'name' => 'test new name',
             'surname' => 'test surname',
-            'bio' => 'test@newemail.com',
-            'year_starting_practice' => 'test@newemail.com',
-            'year_starting_teach' => 'test@newemail.com',
+            'email' => 'test@newemail.com',
+            'description' => 'test@newemail.com',
             'website' => 'test@newemail.com',
             'facebook' => 'test@newemail.com',
+            'phone' => 'test@newemail.com',
         ];
         $request->merge($data);
 
-        $this->teacherService->createTeacher($request);
+        $this->organizerService->createOrganizer($request);
 
-        $this->assertDatabaseHas('teachers', ['name' => 'test new name']);
+        $this->assertDatabaseHas('organizers', ['name' => 'test new name']);
     }
 
     /** @test */
-    public function itShouldUpdateATeacher()
+    public function it_should_update_an_organizer()
     {
-        $request = new TeacherStoreRequest();
+        $request = new OrganizerStoreRequest();
 
         $data = [
-            'country_id' => '2',
             'name' => 'name updated',
             'surname' => 'test surname',
-            'bio' => 'test@newemail.com',
-            'year_starting_practice' => 'test@newemail.com',
-            'year_starting_teach' => 'test@newemail.com',
+            'email' => 'test@newemail.com',
+            'description' => 'test@newemail.com',
             'website' => 'test@newemail.com',
             'facebook' => 'test@newemail.com',
+            'phone' => 'test@newemail.com',
         ];
         $request->merge($data);
 
-        $this->teacherService->updateTeacher($request, $this->teachers[1]->id);
+        $this->organizerService->updateOrganizer($request, $this->organizers[1]->id);
 
-        $this->assertDatabaseHas('teachers', ['name' => 'name updated']);
+        $this->assertDatabaseHas('organizers', ['name' => 'name updated']);
     }
 
     /** @test */
-    public function itShouldReturnTeacherById()
+    public function it_should_return_organizer_by_id()
     {
-        $teacher = $this->teacherService->getById($this->teachers[1]->id);
+        $organizer = $this->organizerService->getById($this->organizers[1]->id);
 
-        $this->assertEquals($this->teachers[1]->id, $teacher->id);
+        $this->assertEquals($this->organizers[1]->id, $organizer->id);
     }
 
     /** @test */
-    public function itShouldReturnAllTeachers()
+    public function it_should_return_all_organizers()
     {
-        $teachers = $this->teacherService->getTeachers(20);
-        $this->assertCount(3, $teachers);
+        $organizers = $this->organizerService->getOrganizers(20);
+        $this->assertCount(3, $organizers);
     }
 
     /** @test */
@@ -121,7 +119,13 @@ class TeacherServiceTest extends TestCase
         $this->assertCount(1, $users);
     }*/
 
+    /** @test */
+    /*public function it_should_return_number_of_pending_members()
+    {
+        $numberPendingMembers = $this->memberService->countAllPendingMembers();
 
+        $this->assertEquals(2, $numberPendingMembers);
+    }*/
 
 
 }

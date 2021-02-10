@@ -132,6 +132,20 @@ To check the code coverage:
 
 You can find now the code coverage in the /html directory.
 
+If you have the error:
+- change the xdebug config on Homestead:   
+```sudo nano /etc/php/7.4/fpm/conf.d/20-xdebug.ini```
+add
+```
+xdebug.remote_host = 192.168.10.1
+xdebug.remote_autostart = 1
+```
+- then start Xdebug:  
+```
+sudo phpenmod xdebug
+sudo service php7.4-fpm restart
+```
+
 ### Testing emails
 - Create an account on Mailtrap
 - Add the data to the .env file
