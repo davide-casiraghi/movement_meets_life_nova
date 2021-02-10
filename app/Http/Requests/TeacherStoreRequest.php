@@ -26,7 +26,7 @@ class TeacherStoreRequest extends FormRequest
     {
         $maxYear = Carbon::now()->year;
 
-        return [
+        $rules = [
             'country_id' => ['required', 'string'],
             'name' => ['required', 'string', 'max:255'],
             'surname' => ['required', 'string', 'max:255'],
@@ -36,8 +36,13 @@ class TeacherStoreRequest extends FormRequest
             'significant_teachers' => ['required', 'string'],
             'facebook' => ['nullable', 'url'],
             'website' => ['nullable', 'url'],
-            'profile_picture' => ['nullable', 'image','mimes:jpg,jpeg,png|max:5120'], // 5MB
         ];
+
+        if (request()->hasFile('profile_picture')) {
+            $rules['profile_picture'] = ['nullable', 'image','mimes:jpg,jpeg,png','max:5120']; // 5MB
+        }
+
+        return $rules;
     }
 
     /**

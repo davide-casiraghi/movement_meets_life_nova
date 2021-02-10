@@ -24,11 +24,16 @@ class GlossaryStoreRequest extends FormRequest
      */
     public function rules()
     {
-        return [
+        $rules = [
             'term' => ['required', 'max:255', new LettersAndWhitespaces()],
             'definition' => ['required', 'string'],
             'body' => ['nullable', 'string'],
-            'introimage' => ['nullable', 'image','mimes:jpg,jpeg,png|max:5120'], // 5MB
         ];
+
+        if (request()->hasFile('introimage')) {
+            $rules['introimage'] = ['nullable', 'image','mimes:jpg,jpeg,png','max:5120']; // 5MB
+        }
+
+        return $rules;
     }
 }

@@ -43,7 +43,7 @@ class EventStoreRequest extends FormRequest
         ];
 
         if (request()->hasFile('introimage')) {
-            $rules['introimage'] = 'nullable|image|mimes:jpeg,jpg,png|max:5000';
+            $rules['introimage'] = ['nullable', 'image','mimes:jpg,jpeg,png','max:5120']; // 5MB
         }
 
         return $rules;

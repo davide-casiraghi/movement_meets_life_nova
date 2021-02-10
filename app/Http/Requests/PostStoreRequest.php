@@ -23,7 +23,7 @@ class PostStoreRequest extends FormRequest
      */
     public function rules()
     {
-        return [
+        $rules = [
             'title' => ['required', 'string', 'max:255'],
             'category_id' => ['required', 'integer'],
             'intro_text' => ['nullable', 'string'],
@@ -32,5 +32,11 @@ class PostStoreRequest extends FormRequest
             'before_content' => ['nullable', 'string'],
             'after_content' => ['nullable', 'string'],
         ];
+
+        if (request()->hasFile('introimage')) {
+            $rules['introimage'] = ['nullable', 'image','mimes:jpg,jpeg,png','max:5120']; // 5MB
+        }
+
+        return $rules;
     }
 }
