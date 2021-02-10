@@ -33,7 +33,9 @@
     <input
             name="{{ $name }}"
             id="{{ $name }}"
-            class=" focus:ring-indigo-500 focus:border-indigo-500 block w-full pr-10 sm:text-sm border-gray-300 rounded-md"
+            class="focus:ring-indigo-500 focus:border-indigo-500 block w-full pr-10 sm:text-sm
+                    border-gray-300 rounded-md
+                    @if($disabled) bg-gray-200 @endif"
             type="text"
             @if(!empty($value)) value="{{ $value }}" @endif
             placeholder="{{$placeholder}}"
@@ -41,6 +43,9 @@
             @if(!empty($endDate)) data-date-end-date="{{ $endDate }}" @endif
             aria-describedby="{{ $name }}"
             aria-label="Enter date"
+            @if($disabled)
+                disabled
+            @endif
     >
     <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
         <svg class="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>

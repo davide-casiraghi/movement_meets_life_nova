@@ -169,6 +169,31 @@
                                ])
                         </div>
 
+                        <div class="col-span-6 sm:col-span-3">
+                            @include('partials.forms.inputDatePicker',[
+                                    'class' => 'datepicker all',
+                                    'label' => __('views.post_date'),
+                                    'placeholder' => __('general.select_date'),
+                                    'name' => 'created_at',
+                                    'value' => old('created_at', $insight->published_on_facebook_on->format('d/m/Y')),
+                                    'required' => false,
+                                    'disabled' => true,
+                                ])
+                        </div>
+
+                        <div class="col-span-6 sm:col-span-3 flex items-end">
+                            @include('partials.forms.button',[
+                                'title' => 'Post on Facebook',
+                                'url' => route('venues.create'),
+                                'color' => 'indigo',
+                                'icon' => '',
+                                'size' => 1,
+                                'extraClasses' => 'mb-2',
+                                'kind' => 'primary',
+                                'target' => '_self',
+                            ])
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -206,6 +231,31 @@
                                    'disabled' => false,
                                ])
                         </div>
+
+                        <div class="col-span-6 sm:col-span-3">
+                            @include('partials.forms.inputDatePicker',[
+                                    'class' => 'datepicker all',
+                                    'label' => __('views.post_date'),
+                                    'placeholder' => __('general.select_date'),
+                                    'name' => 'created_at',
+                                    'value' => old('created_at', $insight->published_on_twitter_on->format('d/m/Y')),
+                                    'required' => false,
+                                    'disabled' => true,
+                                ])
+                        </div>
+
+                        <div class="col-span-6 sm:col-span-3 flex items-end">
+                            @include('partials.forms.button',[
+                                'title' => 'Post on Twitter',
+                                'url' => route('venues.create'),
+                                'color' => 'indigo',
+                                'icon' => '',
+                                'size' => 1,
+                                'extraClasses' => 'mb-2',
+                                'kind' => 'primary',
+                                'target' => '_self',
+                            ])
+                        </div>
                     </div>
                 </div>
             </div>
@@ -242,6 +292,31 @@
                                    'required' => false,
                                    'disabled' => false,
                                ])
+                        </div>
+
+                        <div class="col-span-6 sm:col-span-3">
+                            @include('partials.forms.inputDatePicker',[
+                                    'class' => 'datepicker all',
+                                    'label' => __('views.post_date'),
+                                    'placeholder' => __('general.select_date'),
+                                    'name' => 'created_at',
+                                    'value' => old('created_at', $insight->published_on_instagram_on->format('d/m/Y')),
+                                    'required' => false,
+                                    'disabled' => true,
+                                ])
+                        </div>
+
+                        <div class="col-span-6 sm:col-span-3 flex items-end">
+                            @include('partials.forms.button',[
+                                'title' => 'Post on Instagram',
+                                'url' => route('venues.create'),
+                                'color' => 'indigo',
+                                'icon' => '',
+                                'size' => 1,
+                                'extraClasses' => 'mb-2',
+                                'kind' => 'primary',
+                                'target' => '_self',
+                            ])
                         </div>
 
                     </div>

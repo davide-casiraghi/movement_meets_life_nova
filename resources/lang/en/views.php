@@ -197,14 +197,7 @@ return [
 
     'post' => 'Post',
     'post_url' => 'Post url',
-/*
-    'facebook_body' => 'Facebook post',
-    'link_facebook_post' => 'Facebook post url',
-    'twitter_body' => 'Twitter post',
-    'link_twitter_post' => 'Twitter post url',
-    'instagram_body' => 'Instagram post',
-    'link_instagram_post' => 'Instagram post url',*/
-
+    'post_date' => 'Published on',
 
 
 
