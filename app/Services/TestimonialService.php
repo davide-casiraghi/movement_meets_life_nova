@@ -102,7 +102,7 @@ class TestimonialService
         if ($request->file('photo')) {
             $photo = $request->file('photo');
             if ($photo->isValid()) {
-                $testimonial->addMedia($photo)->toMediaCollection('testimonials');
+                $testimonial->addMedia($photo)->toMediaCollection('photo');
             }
         }
     }
