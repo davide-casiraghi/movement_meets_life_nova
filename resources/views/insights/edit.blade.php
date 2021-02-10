@@ -94,96 +94,6 @@
                                 ])
                             </div>
 
-                            {{-- Facebook --}}
-                            <div class="col-span-6">
-                                <hr class="mt-4 mb-6">
-                                <h3 class="text-lg font-medium text-gray-900">Facebook</h3>
-                            </div>
-
-                            <div class="col-span-6">
-                                @include('partials.forms.textarea', [
-                                       'label' => __('views.facebook_body'),
-                                       'name' => 'facebook_body',
-                                       'placeholder' => '',
-                                       'value' => old('facebook_body', $insight->facebook_body),
-                                       'required' => false,
-                                       'disabled' => false,
-                                       'style' => 'plain',
-                                       'extraDescription' => '',
-                                   ])
-                            </div>
-
-                            <div class="col-span-6">
-                                @include('partials.forms.input', [
-                                       'label' => __('views.link_facebook_post'),
-                                       'name' => 'facebook_url',
-                                       'placeholder' => '',
-                                       'value' => old('facebook_url', $insight->facebook_url),
-                                       'required' => false,
-                                       'disabled' => false,
-                                   ])
-                            </div>
-
-                            {{-- Twitter --}}
-                            <div class="col-span-6">
-                                <hr class="mt-4 mb-6">
-                                <h3 class="text-lg font-medium text-gray-900">Twitter</h3>
-                            </div>
-
-                            <div class="col-span-6">
-                                @include('partials.forms.textarea', [
-                                       'label' => __('views.twitter_body'),
-                                       'name' => 'twitter_body',
-                                       'placeholder' => '',
-                                       'value' => old('twitter_body', $insight->twitter_body),
-                                       'required' => false,
-                                       'disabled' => false,
-                                       'style' => 'plain',
-                                       'extraDescription' => '',
-                                   ])
-                            </div>
-
-                            <div class="col-span-6">
-                                @include('partials.forms.input', [
-                                       'label' => __('views.link_twitter_post'),
-                                       'name' => 'twitter_url',
-                                       'placeholder' => '',
-                                       'value' => old('twitter_url', $insight->twitter_url),
-                                       'required' => false,
-                                       'disabled' => false,
-                                   ])
-                            </div>
-
-                            {{-- Instagram --}}
-                            <div class="col-span-6">
-                                <hr class="mt-4 mb-6">
-                                <h3 class="text-lg font-medium text-gray-900">Instagram</h3>
-                            </div>
-
-                            <div class="col-span-6">
-                                @include('partials.forms.textarea', [
-                                       'label' => __('views.instagram_body'),
-                                       'name' => 'instagram_body',
-                                       'placeholder' => '',
-                                       'value' => old('instagram_body', $insight->instagram_body),
-                                       'required' => false,
-                                       'disabled' => false,
-                                       'style' => 'plain',
-                                       'extraDescription' => '',
-                                   ])
-                            </div>
-
-                            <div class="col-span-6">
-                                @include('partials.forms.input', [
-                                       'label' => __('views.link_instagram_post'),
-                                       'name' => 'instagram_url',
-                                       'placeholder' => '',
-                                       'value' => old('instagram_url', $insight->instagram_url),
-                                       'required' => false,
-                                       'disabled' => false,
-                                   ])
-                            </div>
-
                         </div>
                     </div>
 
@@ -226,6 +136,121 @@
             </div>
         </div>
 
+        {{-- Facebook --}}
+        <div class="bg-white shadow px-4 py-5 sm:rounded-lg sm:p-6">
+            <div class="md:grid md:grid-cols-3 md:gap-6">
+                <div class="md:col-span-1">
+                    <h3 class="text-lg font-medium leading-6 text-gray-900">Facebook</h3>
+                </div>
+                <div class="mt-5 md:mt-0 md:col-span-2">
+                    <div class="grid grid-cols-6 gap-6">
+
+                        <div class="col-span-6">
+                            @include('partials.forms.textarea', [
+                                   'label' => __('views.post'),
+                                   'name' => 'facebook_body',
+                                   'placeholder' => '',
+                                   'value' => old('facebook_body', $insight->facebook_body),
+                                   'required' => false,
+                                   'disabled' => false,
+                                   'style' => 'plain',
+                                   'extraDescription' => '',
+                               ])
+                        </div>
+
+                        <div class="col-span-6">
+                            @include('partials.forms.input', [
+                                   'label' => __('views.post_url'),
+                                   'name' => 'facebook_url',
+                                   'placeholder' => '',
+                                   'value' => old('facebook_url', $insight->facebook_url),
+                                   'required' => false,
+                                   'disabled' => false,
+                               ])
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {{-- Twitter --}}
+        <div class="bg-white shadow px-4 py-5 sm:rounded-lg sm:p-6">
+            <div class="md:grid md:grid-cols-3 md:gap-6">
+                <div class="md:col-span-1">
+                    <h3 class="text-lg font-medium leading-6 text-gray-900">Twitter</h3>
+                </div>
+                <div class="mt-5 md:mt-0 md:col-span-2">
+                    <div class="grid grid-cols-6 gap-6">
+
+                        <div class="col-span-6">
+                            @include('partials.forms.textarea', [
+                                   'label' => __('views.post'),
+                                   'name' => 'twitter_body',
+                                   'placeholder' => '',
+                                   'value' => old('twitter_body', $insight->twitter_body),
+                                   'required' => false,
+                                   'disabled' => false,
+                                   'style' => 'plain',
+                                   'extraDescription' => '',
+                               ])
+                        </div>
+
+                        <div class="col-span-6">
+                            @include('partials.forms.input', [
+                                   'label' => __('views.post_url'),
+                                   'name' => 'twitter_url',
+                                   'placeholder' => '',
+                                   'value' => old('twitter_url', $insight->twitter_url),
+                                   'required' => false,
+                                   'disabled' => false,
+                               ])
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {{-- Instagram --}}
+        <div class="bg-white shadow px-4 py-5 sm:rounded-lg sm:p-6">
+            <div class="md:grid md:grid-cols-3 md:gap-6">
+                <div class="md:col-span-1">
+                    <h3 class="text-lg font-medium leading-6 text-gray-900">Instagram</h3>
+                </div>
+                <div class="mt-5 md:mt-0 md:col-span-2">
+                    <div class="grid grid-cols-6 gap-6">
+
+                        <div class="col-span-6">
+                            @include('partials.forms.textarea', [
+                                   'label' => __('views.post'),
+                                   'name' => 'instagram_body',
+                                   'placeholder' => '',
+                                   'value' => old('instagram_body', $insight->instagram_body),
+                                   'required' => false,
+                                   'disabled' => false,
+                                   'style' => 'plain',
+                                   'extraDescription' => '',
+                               ])
+                        </div>
+
+                        <div class="col-span-6">
+                            @include('partials.forms.input', [
+                                   'label' => __('views.post_url'),
+                                   'name' => 'instagram_url',
+                                   'placeholder' => '',
+                                   'value' => old('instagram_url', $insight->instagram_url),
+                                   'required' => false,
+                                   'disabled' => false,
+                               ])
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
         {{-- Utility --}}
         <div class="bg-white shadow px-4 py-5 sm:rounded-lg sm:p-6">
             <div class="md:grid md:grid-cols-3 md:gap-6">
@@ -239,7 +264,7 @@
                                     'label' => __('views.link_to_this_insight'),
                                     'name' => 'insight_link',
                                     'placeholder' => '',
-                                    'value' => env('APP_URL').'insight/'.$insight->slug,
+                                    'value' => env('APP_URL').'/insight/'.$insight->slug,
                                     'required' => false,
                                     'disabled' => true,
                                 ])
@@ -255,7 +280,6 @@
                                     'disabled' => true,
                                 ])
                         </div>
-
                     </div>
                 </div>
             </div>
