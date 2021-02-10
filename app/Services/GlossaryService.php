@@ -173,7 +173,9 @@ class GlossaryService
     {
         $termTooltipContent = "<div class='tooltip-painter' id='glossary-definition-" . $glossaryTerm->id . "' style='display:none'>";
         $termTooltipContent .= "<div class='photo'>";
-        $termTooltipContent .= "<img src='https://source.unsplash.com/random/300x200' alt=''/>";
+        if($glossaryTerm->hasMedia('introimage')){
+            $termTooltipContent .= "<img src='".$glossaryTerm->getMedia('introimage')[0]->getUrl('thumb')."' alt=''/>";
+        }
         $termTooltipContent .= "</div>";
         $termTooltipContent .= "<div class='content p-2 overflow-auto'>";
         $termTooltipContent .= "<div class='padder'>";
