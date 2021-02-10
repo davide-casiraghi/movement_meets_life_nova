@@ -166,6 +166,17 @@
                                 'checked' => $checked,
                             ])
                         </div>
+
+                        <div class="col-span-6">
+                            @include('partials.forms.inputDatePicker',[
+                                    'class' => 'datepicker all',
+                                    'label' => __('post.created_on'),
+                                    'placeholder' => __('general.select_date'),
+                                    'name' => 'created_at',
+                                    'value' => old('created_at', $post->created_at->format('d/m/Y')),
+                                    'required' => true,
+                                ])
+                        </div>
                     </div>
                 </div>
 

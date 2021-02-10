@@ -158,6 +158,10 @@ class PostRepository implements PostRepositoryInterface
         $post->publish_at = $data['publish_at'] ?? null;
         $post->publish_until = $data['publish_until'] ?? null;
 
+        if ($data['created_at'] != null) {
+            $post->created_at = Carbon::createFromFormat('d/m/Y', $data['created_at']);
+        }
+
         // Translations
         foreach (LaravelLocalization::getSupportedLocales() as $countryCode => $countryAvTrans) {
             if ($countryCode != Config::get('app.fallback_locale')) {
