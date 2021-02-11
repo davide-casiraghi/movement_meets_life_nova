@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\Helper;
 use App\Http\Requests\VenueSearchRequest;
 use App\Http\Requests\VenueStoreRequest;
+use App\Models\Venue;
 use App\Services\CountryService;
 use App\Services\VenueService;
 use Illuminate\Http\RedirectResponse;
@@ -31,7 +33,8 @@ class VenueController extends Controller
      */
     public function index(VenueSearchRequest $request)
     {
-        $searchParameters = $this->venueService->getSearchParameters($request);
+        $searchParameters = Helper::getSearchParameters($request, Venue::SEARCH_PARAMETERS);
+
         $venues = $this->venueService->getVenues(20, $searchParameters);
         $countries = $this->countryService->getCountries();
 

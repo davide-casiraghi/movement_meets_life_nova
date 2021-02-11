@@ -23,9 +23,21 @@ class Venue extends Model implements HasMedia
     protected $guarded = [];
 
     /**
+     * The parameters used in the index view search filters.
+     *
+     * @var array
+     */
+    public const SEARCH_PARAMETERS = [
+        'name',
+        'city',
+        'countryId',
+    ];
+
+    /**
      * Returns the events that are assigned to this venue.
      */
-    public function events(){
+    public function events()
+    {
         return $this->hasMany(Event::class);
     }
 
@@ -41,7 +53,7 @@ class Venue extends Model implements HasMedia
     /**
      * Generates a unique slug.
      */
-    public function getSlugOptions() : SlugOptions
+    public function getSlugOptions(): SlugOptions
     {
         return SlugOptions::create()
             ->generateSlugsFrom('name')
@@ -51,7 +63,8 @@ class Venue extends Model implements HasMedia
     /**
      * Set default status value when a venue is created
      */
-    public static function boot() {
+    public static function boot()
+    {
         parent::boot();
 
         static::created(function (Venue $event) {

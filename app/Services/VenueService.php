@@ -152,20 +152,4 @@ class VenueService
         return $ret;
     }
 
-    /**
-     * Get the event search parameters
-     *
-     * @param \App\Http\Requests\VenueSearchRequest $request
-     *
-     * @return array
-     */
-    public function getSearchParameters(VenueSearchRequest $request): array
-    {
-        $searchParameters = [];
-        $searchParameters['name'] = $request->name ?? null;
-        $searchParameters['city'] = $request->city ?? null;
-        $searchParameters['countryId'] = $request->countryId ?? null;
-
-        return $searchParameters;
-    }
 }
