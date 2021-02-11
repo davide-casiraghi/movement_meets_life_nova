@@ -70,7 +70,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    const SEARCH_PARAMETERS = [
+    public const SEARCH_PARAMETERS = [
         'name',
         'surname',
         'email',
@@ -83,7 +83,7 @@ class User extends Authenticatable
     /**
      * The possible values the status can be.
      */
-    const STATUS = [
+    public const STATUS = [
         'disabled' => 'disabled',
         'enabled' => 'enabled',
     ];
