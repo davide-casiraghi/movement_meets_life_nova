@@ -118531,7 +118531,7 @@ $(document).ready(function () {
   }); // Delete an already uploaded image
 
   $('.deleteImage').on('click', function () {
-    $("input[name='{{$name}}_delete']").val("true");
+    $(this).parent().parent().children('span').children("input[type='hidden']").val("true");
     $("img.uploadedImage").remove();
   });
 });
