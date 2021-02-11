@@ -2,7 +2,8 @@
 
 namespace App\Helpers;
 
-class TextHelpers {
+class TextHelpers
+{
 
     /**
      * Return the estimated reading time for a given piece of $content in minutes.

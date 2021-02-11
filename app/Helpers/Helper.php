@@ -14,7 +14,8 @@ namespace App\Helpers;
  * https://stackoverflow.com/questions/28290332/best-practices-for-custom-helpers-in-laravel-5#32772686
  */
 
-class Helper {
+class Helper
+{
 
     /**
      * Removes from a string all whitespace (including tabs and line ends),
@@ -23,7 +24,7 @@ class Helper {
      *
      * @return string|string[]|null
      */
-    public static function cleanStringSpaces(?string $text) : ?string
+    public static function cleanStringSpaces(?string $text): ?string
     {
         return  preg_replace('/\s+/', '', $text);
     }
@@ -39,11 +40,11 @@ class Helper {
      */
     public static function cleanPhoneNumber(string $phoneNumber): ?string
     {
-        if (!empty($phoneNumber)){
+        if (!empty($phoneNumber)) {
             $phoneNumber = preg_replace("/[^0-9+]/", "", $phoneNumber);
         }
 
-        if($phoneNumber != ''){
+        if ($phoneNumber != '') {
             return $phoneNumber;
         }
 
@@ -177,7 +178,4 @@ class Helper {
             }
         }
     }
-
-
-
 }

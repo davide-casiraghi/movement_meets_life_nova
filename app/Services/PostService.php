@@ -1,6 +1,7 @@
 <?php
 namespace App\Services;
 
+use App\Helpers\ImageHelpers;
 use App\Http\Requests\PostSearchRequest;
 use App\Http\Requests\PostStoreRequest;
 use App\Models\Post;
@@ -50,6 +51,9 @@ class PostService
         $post = $this->postRepository->store($request->all());
         $this->storeImages($post, $request);
 
+        ImageHelpers::storeImages($post, $request, 'introimage');
+        ImageHelpers::storeImages($post, $request, 'images');
+
         return $post;
     }
 
@@ -64,7 +68,10 @@ class PostService
     public function updatePost(PostStoreRequest $request, int $postId): Post
     {
         $post = $this->postRepository->update($request->all(), $postId);
-        $this->storeImages($post, $request);
+        //$this->storeImages($post, $request);
+
+        ImageHelpers::storeImages($post, $request, 'introimage');
+        ImageHelpers::storeImages($post, $request, 'images');
 
         return $post;
     }
@@ -133,60 +140,6 @@ class PostService
     public function getNumberPostsCreatedLastThirtyDays(): int
     {
         return Post::whereDate('created_at', '>', date('Y-m-d', strtotime('-30 days')))->count();
-    }
-
-    /**
-     * Store the uploaded photos in the Spatie Media Library
-     *
-     * @param \App\Models\Post $post
-     * @param \App\Http\Requests\PostStoreRequest $request
-     *
-     * @return void
-     * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileDoesNotExist
-     * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileIsTooBig
-     */
-    private function storeImages(Post $post, PostStoreRequest $request): void
-    {
-        if ($request->file('introimage')) {
-            $introimage = $request->file('introimage');
-            if ($introimage->isValid()) {
-                $post->addMedia($introimage)->toMediaCollection('introimage');
-            }
-        }
-
-        if ($request->file('images')) {
-            foreach ($request->file('images') as $photo) {
-                if ($photo->isValid()) {
-                    $post->addMedia($photo)->toMediaCollection('images');
-                }
-            }
-        }
-
-        if ($request->introimage_delete == 'true') {
-            $mediaItems = $post->getMedia('introimage');
-            if (!is_null($mediaItems[0])) {
-                $mediaItems[0]->delete();
-            }
-        }
-    }
-
-    /**
-     * Return an array with the thumb images ulrs
-     *
-     * @param int $postId
-     *
-     * @return array
-     */
-    public function getThumbsUrls(int $postId): array
-    {
-        $thumbUrls = [];
-
-        $post = $this->getById($postId);
-        foreach ($post->getMedia('post') as $photo) {
-            $thumbUrls[] = $photo->getUrl('thumb');
-        }
-
-        return $thumbUrls;
     }
 
     /**

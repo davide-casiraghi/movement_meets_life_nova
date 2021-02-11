@@ -15,7 +15,8 @@ namespace App\Helpers;
  *
  */
 
-class DateHelpers {
+class DateHelpers
+{
 
     /**
      * Check the date and return true if the weekday is the one specified in $dayOfTheWeek. eg. if $dayOfTheWeek = 3, is true if the date is a Wednesday
