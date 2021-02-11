@@ -2,6 +2,7 @@
 namespace App\Services;
 
 use App\Helpers\Helper;
+use App\Helpers\ImageHelpers;
 use App\Http\Requests\VenueSearchRequest;
 use App\Http\Requests\VenueStoreRequest;
 use App\Models\Venue;
@@ -34,7 +35,7 @@ class VenueService
     public function createVenue(VenueStoreRequest $request): Venue
     {
         $venue = $this->venueRepository->store($request->all());
-        $this->storeImages($venue, $request);
+        ImageHelpers::storeImages($venue, $request, 'introimage');
 
         $venue->setStatus('published');
 
@@ -52,7 +53,9 @@ class VenueService
     public function updateVenue(VenueStoreRequest $request, int $venueId): Venue
     {
         $venue = $this->venueRepository->update($request->all(), $venueId);
-        $this->storeImages($venue, $request);
+
+        ImageHelpers::storeImages($venue, $request, 'introimage');
+        ImageHelpers::deleteImages($venue, $request, 'introimage');
 
         return $venue;
     }
@@ -100,31 +103,6 @@ class VenueService
     public function getNumberVenuesCreatedLastThirtyDays(): int
     {
         return Venue::whereDate('created_at', '>', date('Y-m-d', strtotime('-30 days')))->count();
-    }
-
-    /**
-     * Store the uploaded photos in the Spatie Media Library
-     *
-     * @param \App\Models\Venue $venue
-     * @param \App\Http\Requests\VenueStoreRequest $data
-     *
-     * @return void
-     */
-    private function storeImages(Venue $venue, VenueStoreRequest $data): void
-    {
-        if ($data->file('introimage')) {
-            $introimage = $data->file('introimage');
-            if ($introimage->isValid()) {
-                $venue->addMedia($introimage)->toMediaCollection('introimage');
-            }
-        }
-
-        if ($data['introimage_delete'] == 'true') {
-            $mediaItems = $venue->getMedia('introimage');
-            if (!is_null($mediaItems[0])) {
-                $mediaItems[0]->delete();
-            }
-        }
     }
 
     /**

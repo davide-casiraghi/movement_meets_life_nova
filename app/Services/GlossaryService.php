@@ -33,8 +33,6 @@ class GlossaryService
     public function createGlossary(GlossaryStoreRequest $request): Glossary
     {
         $glossary = $this->glossaryRepository->store($request->all());
-        $this->storeImages($glossary, $request);
-
         ImageHelpers::storeImages($glossary, $request, 'introimage');
 
         return $glossary;
