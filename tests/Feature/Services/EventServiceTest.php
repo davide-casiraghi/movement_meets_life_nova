@@ -61,10 +61,8 @@ class EventServiceTest extends TestCase
     }
 
     /** @test */
-    public function it_should_create_an_event()
+    public function itShouldCreateAnEvent()
     {
-        $user = $this->authenticateAsUser();
-
         $request = new EventStoreRequest();
         $data = [
             'title' => 'test title',

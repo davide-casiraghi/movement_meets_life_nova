@@ -79,35 +79,40 @@ class Event extends Model implements HasMedia
     /**
      * Returns the category of the event.
      */
-    public function category() {
-        return $this->belongsTo(EventCategory::class,'event_category_id', 'id');
+    public function category()
+    {
+        return $this->belongsTo(EventCategory::class, 'event_category_id', 'id');
     }
 
     /**
      * Returns the venue of the event.
      */
-    public function venue() {
+    public function venue()
+    {
         return $this->belongsTo(Venue::class); // 1-to-1 (one event can have just one venue)
     }
 
     /**
      * Returns the teachers of the event.
      */
-    public function teachers(){
+    public function teachers()
+    {
         return $this->belongsToMany(Teacher::class);
     }
 
     /**
      * Returns the organizers of the event.
      */
-    public function organizers(){
+    public function organizers()
+    {
         return $this->belongsToMany(Organizer::class);
     }
 
     /**
      * Returns the repetitions of the event.
      */
-    public function repetitions() {
+    public function repetitions()
+    {
         return $this->hasMany(EventRepetition::class);
     }
 
