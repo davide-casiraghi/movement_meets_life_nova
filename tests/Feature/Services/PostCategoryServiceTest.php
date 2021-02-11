@@ -86,6 +86,13 @@ class PostCategoryServiceTest extends TestCase
     }
 
     /** @test */
+    public function itShouldReturnAllPosts()
+    {
+        $postCategory = $this->postCategoryService->getPostCategories(20);
+        $this->assertCount(3, $postCategory);
+    }
+
+    /** @test */
     public function itShouldDeleteAPostCategory()
     {
         $this->postCategoryService->deletePostCategory($this->postCategory1->id);

@@ -97,6 +97,13 @@ class PostServiceTest extends TestCase
     }
 
     /** @test */
+    public function itShouldReturnAllPosts()
+    {
+        $posts = $this->postService->getPosts(20);
+        $this->assertCount(3, $posts);
+    }
+
+    /** @test */
     public function itShouldDeleteAPost()
     {
         $this->postService->deletePost($this->post1->id);

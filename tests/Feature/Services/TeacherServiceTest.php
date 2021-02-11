@@ -105,23 +105,16 @@ class TeacherServiceTest extends TestCase
     }
 
     /** @test */
-    /*public function it_should_search_members_by_email()
+    public function itShouldDeleteATeacher()
     {
-        $searchParameters = ['email' => 'info@aaa.com'];
-        $users = $this->memberService->getMembers(20, $searchParameters);
-        $this->assertCount(1, $users);
-    }*/
-
+        $this->teacherService->deleteTeacher($this->teachers[1]->id);
+        $this->assertDatabaseMissing('teachers', ['id' => $this->teachers[1]->id]);
+    }
 
     /** @test */
-    /*public function it_should_search_members_by_region()
+    public function itShouldGetNumberTeachersCreatedLastThirtyDays()
     {
-        $searchParameters = ['regionId' => 5];
-        $users = $this->memberService->getMembers(20, $searchParameters);
-        $this->assertCount(1, $users);
-    }*/
-
-
-
-
+        $numberTeachersCreatedLastThirtyDays = $this->teacherService->getNumberTeachersCreatedLastThirtyDays();
+        $this->assertEquals($numberTeachersCreatedLastThirtyDays, 3);
+    }
 }

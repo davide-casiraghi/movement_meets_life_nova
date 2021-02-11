@@ -125,25 +125,6 @@ class EventService
     }
 
     /**
-     * Return an array with the thumb images ulrs
-     *
-     * @param int $eventId
-     *
-     * @return array
-     */
-    public function getThumbsUrls(int $eventId): array
-    {
-        $thumbUrls = [];
-
-        $event = $this->getById($eventId);
-        foreach ($event->getMedia('event') as $photo) {
-            $thumbUrls[] = $photo->getUrl('thumb');
-        }
-
-        return $thumbUrls;
-    }
-
-    /**
      * Return an array with the event data related to:
      * - date and time start
      * - date and time end

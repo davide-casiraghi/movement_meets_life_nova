@@ -435,7 +435,19 @@ class EventServiceTest extends TestCase
         $this->assertEquals("the 4th to last Thursday of the month", $onMonthlyKind);
     }
 
+    /** @test */
+    public function itShouldDeleteAnEvent()
+    {
+        $this->eventService->deleteEvent($this->event1->id);
+        $this->assertDatabaseMissing('events', ['id' => $this->event1->id]);
+    }
 
+    /** @test */
+    public function itShouldGetNumberTeachersCreatedLastThirtyDays()
+    {
+        $numberEventsCreatedLastThirtyDays = $this->eventService->getNumberEventsCreatedLastThirtyDays();
+        $this->assertEquals($numberEventsCreatedLastThirtyDays, 3);
+    }
 
 
 
