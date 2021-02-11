@@ -19,9 +19,9 @@ class GlossaryServiceTest extends TestCase
     private GlossaryService $glossaryService;
 
     private User $user1;
-    private Glossary $post1;
-    private Glossary $post2;
-    private Glossary $post3;
+    private Glossary $glossary1;
+    private Glossary $glossary2;
+    private Glossary $glossary3;
 
     /**
      * Populate test DB with dummy data.
@@ -50,8 +50,6 @@ class GlossaryServiceTest extends TestCase
     /** @test */
     public function itShouldCreateAGlossary()
     {
-        $user = $this->authenticateAsUser();
-
         $request = new GlossaryStoreRequest();
 
         $data = [
