@@ -106,25 +106,6 @@ class VenueService
     }
 
     /**
-     * Return an array with the thumb images URLs
-     *
-     * @param int $venueId
-     *
-     * @return array
-     */
-    public function getThumbsUrls(int $venueId): array
-    {
-        $thumbUrls = [];
-
-        $venue = $this->getById($venueId);
-        foreach ($venue->getMedia('venue') as $photo) {
-            $thumbUrls[] = $photo->getUrl('thumb');
-        }
-
-        return $thumbUrls;
-    }
-
-    /**
      * Return the GPS coordinates of the venue
      * https://developer.mapquest.com/.
      *

@@ -2,31 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Exports\MembersExport;
-use App\Exports\ReportsExport;
 use App\Helpers\Helper;
-use App\Http\Requests\MemberSearchRequest;
-use App\Http\Requests\MemberStoreRequest;
 use App\Http\Requests\UserSearchRequest;
 use App\Http\Requests\UserStoreRequest;
 use App\Models\User;
-use App\Notifications\MemberResetPasswordNotification;
-use App\Repositories\GenderRepositoryInterface;
-use App\Repositories\HeardAboutUsRepositoryInterface;
-use App\Repositories\RegionRepositoryInterface;
-use App\Repositories\WorkTypeRepositoryInterface;
 use App\Services\CountryService;
-use App\Services\NoteService;
-use App\Services\MemberService;
-use App\Services\RegionService;
 use App\Services\TeamService;
 use App\Services\UserService;
-
 use App\Traits\CheckPermission;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
-use Maatwebsite\Excel\Facades\Excel;
 use Session;
 
 class UserController extends Controller
@@ -191,7 +177,7 @@ class UserController extends Controller
     {
         $this->checkPermission('users.delete');
 
-        $this->userService->deleteMember($userId);
+        $this->userService->deleteUser($userId);
 
         return redirect()->route('users.index')
             ->with('success', __('ui.users.admin_deleted_member_profile'));

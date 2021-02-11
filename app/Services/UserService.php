@@ -114,11 +114,11 @@ class UserService
     }
 
     /**
-     * Delete the admin from the database
+     * Delete the user from the database
      *
      * @param int $userId
      */
-    public function deleteAdmin(int $userId): void
+    public function deleteUser(int $userId): void
     {
         $this->userRepository->delete($userId);
     }

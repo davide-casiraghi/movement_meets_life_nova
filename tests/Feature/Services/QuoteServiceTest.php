@@ -16,7 +16,7 @@ class QuoteServiceTest extends TestCase
     use WithFaker;
     use RefreshDatabase; // empty the test DB
 
-    private quoteService $quoteService;
+    private QuoteService $quoteService;
 
     private User $user1;
     private Quote $quote1;
