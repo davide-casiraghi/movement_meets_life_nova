@@ -66,7 +66,7 @@ class UserController extends Controller
         $this->checkPermission('users.view');
 
         //$this->userService->getSearchParameters($request);
-        $searchParameters = Helper::getSearchParameters($request, ['name', 'surname', 'email', 'countryId', 'userLevel', 'team', 'status']);
+        $searchParameters = Helper::getSearchParameters($request, User::SEARCH_PARAMETERS);
 
         $users = $this->userService->getUsers(20, $searchParameters);
         $userLevels =  $this->teamService->getAllAdminRoles();

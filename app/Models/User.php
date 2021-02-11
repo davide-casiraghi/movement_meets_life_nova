@@ -66,6 +66,21 @@ class User extends Authenticatable
     ];
 
     /**
+     * The parameters used in the index view search filters.
+     *
+     * @var array
+     */
+    const SEARCH_PARAMETERS = [
+        'name',
+        'surname',
+        'email',
+        'countryId',
+        'userLevel',
+        'team',
+        'status'
+    ];
+
+    /**
      * The possible values the status can be.
      */
     const STATUS = [
