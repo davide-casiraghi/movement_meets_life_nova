@@ -4,6 +4,7 @@
 namespace App\Services;
 
 
+use App\Helpers\ImageHelpers;
 use App\Http\Requests\InsightSearchRequest;
 use App\Http\Requests\InsightStoreRequest;
 use App\Models\Insight;
@@ -56,7 +57,7 @@ class InsightService
     public function createInsight(InsightStoreRequest $request)
     {
         $insight = $this->insightRepository->store($request->all());
-        $this->storeImages($insight, $request);
+        ImageHelpers::storeImages($insight, $request, 'introimage');
 
         return $insight;
     }
@@ -65,12 +66,17 @@ class InsightService
      * Update the Insight
      *
      * @param  InsightStoreRequest  $request
-     * @param  int  $isightId
+     * @param  int  $insightId
      * @return mixed
      */
-    public function updateInsight(InsightStoreRequest $request, int $isightId)
+    public function updateInsight(InsightStoreRequest $request, int $insightId)
     {
-        return $this->insightRepository->update($request->all(), $isightId);
+        $insight = $this->insightRepository->update($request->all(), $insightId);
+
+        ImageHelpers::storeImages($insight, $request, 'introimage');
+        ImageHelpers::deleteImages($insight, $request, 'introimage');
+
+        return $insight;
     }
 
     /**
@@ -84,36 +90,9 @@ class InsightService
     }
 
     /**
-     * Store the uploaded photos in the Spatie Media Library
-     *
-     * @param \App\Models\Insight $insight
-     * @param \App\Http\Requests\InsightStoreRequest $request
-     *
-     * @return void
-     * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileDoesNotExist
-     * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileIsTooBig
-     */
-    private function storeImages(Insight $insight, InsightStoreRequest $request): void
-    {
-        if ($request->file('introimage')) {
-            $introimage = $request->file('introimage');
-            if ($introimage->isValid()) {
-                $insight->addMedia($introimage)->toMediaCollection('introimage');
-            }
-        }
-
-        if ($request->introimage_delete == 'true') {
-            $mediaItems = $insight->getMedia('introimage');
-            if (!is_null($mediaItems[0])) {
-                $mediaItems[0]->delete();
-            }
-        }
-    }
-
-    /**
      * Get the post search parameters
      *
-     * @param \App\Http\Requests\PostSearchRequest $request
+     * @param \App\Http\Requests\InsightSearchRequest $request
      *
      * @return array
      */

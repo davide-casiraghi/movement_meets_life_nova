@@ -1,6 +1,7 @@
 <?php
 namespace App\Services;
 
+use App\Helpers\ImageHelpers;
 use App\Http\Requests\TeacherSearchRequest;
 use App\Http\Requests\TeacherStoreRequest;
 use App\Models\Teacher;
@@ -32,7 +33,7 @@ class TeacherService
     public function createTeacher(TeacherStoreRequest $request): Teacher
     {
         $teacher = $this->teacherRepository->store($request->all());
-        $this->storeImages($teacher, $request);
+        ImageHelpers::storeImages($teacher, $request, 'profile_picture');
 
         $teacher->setStatus('published');
 
@@ -50,7 +51,9 @@ class TeacherService
     public function updateTeacher(TeacherStoreRequest $request, int $teacherId): Teacher
     {
         $teacher = $this->teacherRepository->update($request->all(), $teacherId);
-        $this->storeImages($teacher, $request);
+
+        ImageHelpers::storeImages($teacher, $request, 'profile_picture');
+        ImageHelpers::deleteImages($teacher, $request, 'profile_picture');
 
         return $teacher;
     }
@@ -98,58 +101,6 @@ class TeacherService
     public function getNumberTeachersCreatedLastThirtyDays(): int
     {
         return Teacher::whereDate('created_at', '>', date('Y-m-d', strtotime('-30 days')))->count();
-    }
-
-    /**
-     * Store the uploaded photos in the Spatie Media Library
-     *
-     * @param \App\Models\Teacher $teacher
-     * @param \App\Http\Requests\TeacherStoreRequest $data
-     *
-     * @return void
-     */
-    private function storeImages(Teacher $teacher, TeacherStoreRequest $request): void
-    {
-        /*if($data->file('photos')) {
-            foreach ($data->file('photos') as $photo) {
-                if ($photo->isValid()) {
-                    $teacher->addMedia($photo)->toMediaCollection('post');
-                }
-            }
-        }*/
-
-        if ($request->file('introimage')) {
-            $introimage = $request->file('introimage');
-            if ($introimage->isValid()) {
-                $teacher->addMedia($introimage)->toMediaCollection('introimage');
-            }
-        }
-
-        if ($request->introimage_delete == 'true') {
-            $mediaItems = $teacher->getMedia('introimage');
-            if (!is_null($mediaItems[0])) {
-                $mediaItems[0]->delete();
-            }
-        }
-    }
-
-    /**
-     * Return an array with the thumb images ulrs
-     *
-     * @param int $teacherId
-     *
-     * @return array
-     */
-    public function getThumbsUrls(int $teacherId): array
-    {
-        $thumbUrls = [];
-
-        $teacher = $this->getById($teacherId);
-        foreach ($teacher->getMedia('teacher') as $photo) {
-            $thumbUrls[] = $photo->getUrl('thumb');
-        }
-
-        return $thumbUrls;
     }
 
     /**

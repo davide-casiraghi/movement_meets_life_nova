@@ -1,6 +1,7 @@
 <?php
 namespace App\Services;
 
+use App\Helpers\ImageHelpers;
 use App\Http\Requests\OrganizerSearchRequest;
 use App\Http\Requests\OrganizerStoreRequest;
 use App\Models\Organizer;
@@ -32,7 +33,7 @@ class OrganizerService
     public function createOrganizer(OrganizerStoreRequest $request): Organizer
     {
         $organizer = $this->organizerRepository->store($request->all());
-        $this->storeImages($organizer, $request);
+        ImageHelpers::storeImages($organizer, $request, 'profile_picture');
 
         $organizer->setStatus('published');
 
@@ -50,7 +51,9 @@ class OrganizerService
     public function updateOrganizer(OrganizerStoreRequest $request, int $organizerId): Organizer
     {
         $organizer = $this->organizerRepository->update($request->all(), $organizerId);
-        $this->storeImages($organizer, $request);
+
+        ImageHelpers::storeImages($organizer, $request, 'profile_picture');
+        ImageHelpers::deleteImages($organizer, $request, 'profile_picture');
 
         return $organizer;
     }
@@ -98,52 +101,6 @@ class OrganizerService
     public function getNumberOrganizersCreatedLastThirtyDays(): int
     {
         return Organizer::whereDate('created_at', '>', date('Y-m-d', strtotime('-30 days')))->count();
-    }
-
-    /**
-     * Store the uploaded photos in the Spatie Media Library
-     *
-     * @param \App\Models\Organizer $organizer
-     * @param \App\Http\Requests\OrganizerStoreRequest $request
-     *
-     * @return void
-     * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileDoesNotExist
-     * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileIsTooBig
-     */
-    private function storeImages(Organizer $organizer, OrganizerStoreRequest $request): void
-    {
-        if ($request->file('introimage')) {
-            $introimage = $request->file('introimage');
-            if ($introimage->isValid()) {
-                $organizer->addMedia($introimage)->toMediaCollection('introimage');
-            }
-        }
-
-        if ($request->introimage_delete == 'true') {
-            $mediaItems = $organizer->getMedia('introimage');
-            if (!is_null($mediaItems[0])) {
-                $mediaItems[0]->delete();
-            }
-        }
-    }
-
-    /**
-     * Return an array with the thumb images ulrs
-     *
-     * @param int $organizerId
-     *
-     * @return array
-     */
-    public function getThumbsUrls(int $organizerId): array
-    {
-        $thumbUrls = [];
-
-        $organizer = $this->getById($organizerId);
-        foreach ($organizer->getMedia('organizer') as $photo) {
-            $thumbUrls[] = $photo->getUrl('thumb');
-        }
-
-        return $thumbUrls;
     }
 
     /**

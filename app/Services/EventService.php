@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Helpers\DateHelpers;
 use App\Helpers\Helper;
+use App\Helpers\ImageHelpers;
 use App\Http\Requests\EventSearchRequest;
 use App\Http\Requests\EventStoreRequest;
 use App\Models\Event;
@@ -46,7 +47,7 @@ class EventService
     public function createEvent(EventStoreRequest $request): Event
     {
         $event = $this->eventRepository->store($request->all());
-        $this->storeImages($event, $request);
+        ImageHelpers::storeImages($event, $request, 'introimage');
 
         $this->eventRepetitionService->updateEventRepetitions($request->all(), $event->id);
 
@@ -69,7 +70,9 @@ class EventService
     public function updateEvent(EventStoreRequest $request, int $eventId): Event
     {
         $event = $this->eventRepository->update($request->all(), $eventId);
-        $this->storeImages($event, $request);
+
+        ImageHelpers::storeImages($event, $request, 'introimage');
+        ImageHelpers::deleteImages($event, $request, 'introimage');
 
         $this->eventRepetitionService->updateEventRepetitions($request->all(), $eventId);
 
@@ -119,33 +122,6 @@ class EventService
     public function getNumberEventsCreatedLastThirtyDays(): int
     {
         return Event::whereDate('created_at', '>', date('Y-m-d', strtotime('-30 days')))->count();
-    }
-
-    /**
-     * Store the uploaded photos in the Spatie Media Library
-     *
-     * @param \App\Models\Event $event
-     * @param \App\Http\Requests\EventStoreRequest $data
-     *
-     * @return void
-     * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileDoesNotExist
-     * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileIsTooBig
-     */
-    public function storeImages(Event $event, EventStoreRequest $request): void
-    {
-        if ($request->file('introimage')) {
-            $introimage = $request->file('introimage');
-            if ($introimage->isValid()) {
-                $event->addMedia($introimage)->toMediaCollection('introimage');
-            }
-        }
-
-        if ($request->introimage_delete == 'true') {
-            $mediaItems = $event->getMedia('introimage');
-            if (!is_null($mediaItems[0])) {
-                $mediaItems[0]->delete();
-            }
-        }
     }
 
     /**
