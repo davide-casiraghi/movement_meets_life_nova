@@ -26,6 +26,17 @@ class Teacher extends Model implements HasMedia
     protected $guarded = [];
 
     /**
+     * The parameters used in the index view search filters.
+     *
+     * @var array
+     */
+    public const SEARCH_PARAMETERS = [
+        'name',
+        'surname',
+        'countryId',
+    ];
+
+    /**
      * Return the user that created the teacher
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */

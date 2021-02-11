@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\Helper;
 use App\Http\Requests\TestimonialSearchRequest;
 use App\Http\Requests\TestimonialStoreRequest;
 use App\Models\Testimonial;
@@ -39,7 +40,8 @@ class TestimonialController extends Controller
     {
         $this->checkPermission('testimonials.view');
 
-        $searchParameters = $this->testimonialService->getSearchParameters($request);
+        $searchParameters = Helper::getSearchParameters($request, Testimonial::SEARCH_PARAMETERS);
+
         $testimonials = $this->testimonialService->getTestimonials(20, $searchParameters);
         $statuses = Testimonial::PUBLISHING_STATUS;
         $countries = $this->countryService->getCountries();
@@ -59,6 +61,8 @@ class TestimonialController extends Controller
      */
     public function create(): View
     {
+        // No permission since has to be possible for a guest use to create a testimonial
+
         $countries = $this->countryService->getCountries();
 
         return view('testimonials.create', [
@@ -75,6 +79,8 @@ class TestimonialController extends Controller
      */
     public function store(TestimonialStoreRequest $request): RedirectResponse
     {
+        $this->checkPermission('testimonials.create');
+
         $testimonial = $this->testimonialService->createTestimonial($request);
 
         $message = Auth::guest() ? 'Thanks for your testimony!' : 'Testimonial created successfully';
@@ -135,6 +141,8 @@ class TestimonialController extends Controller
      */
     public function destroy(int $testimonialId): RedirectResponse
     {
+        $this->checkPermission('testimonials.delete');
+
         $this->testimonialService->deleteTestimonial($testimonialId);
 
         return redirect()->route('testimonials.index')

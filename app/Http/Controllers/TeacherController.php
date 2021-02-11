@@ -2,15 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\Helper;
 use App\Http\Requests\TeacherSearchRequest;
 use App\Http\Requests\TeacherStoreRequest;
+use App\Models\Teacher;
 use App\Services\CountryService;
 use App\Services\TeacherService;
+use App\Traits\CheckPermission;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class TeacherController extends Controller
 {
+    use CheckPermission;
+
     private TeacherService $teacherService;
     private CountryService $countryService;
 
@@ -31,7 +36,10 @@ class TeacherController extends Controller
      */
     public function index(TeacherSearchRequest $request)
     {
-        $searchParameters = $this->teacherService->getSearchParameters($request);
+        $this->checkPermission('teachers.view');
+
+        $searchParameters = Helper::getSearchParameters($request, Teacher::SEARCH_PARAMETERS);
+
         $teachers = $this->teacherService->getTeachers(20, $searchParameters);
         $countries = $this->countryService->getCountries();
 
@@ -49,6 +57,8 @@ class TeacherController extends Controller
      */
     public function create()
     {
+        $this->checkPermission('teachers.create');
+
         $countries = $this->countryService->getCountries();
 
         return view('teachers.create', [
@@ -66,6 +76,8 @@ class TeacherController extends Controller
      */
     public function store(TeacherStoreRequest $request): RedirectResponse
     {
+        $this->checkPermission('teachers.create');
+
         $this->teacherService->createTeacher($request);
 
         return redirect()->route('teachers.index')
@@ -95,6 +107,8 @@ class TeacherController extends Controller
      */
     public function edit(int $teacherId)
     {
+        $this->checkPermission('teachers.edit');
+
         $teacher = $this->teacherService->getById($teacherId);
         $countries = $this->countryService->getCountries();
 
@@ -114,6 +128,8 @@ class TeacherController extends Controller
      */
     public function update(TeacherStoreRequest $request, int $teacherId): RedirectResponse
     {
+        $this->checkPermission('teachers.edit');
+
         $this->teacherService->updateTeacher($request, $teacherId);
 
         return redirect()->route('teachers.index')
@@ -129,6 +145,8 @@ class TeacherController extends Controller
      */
     public function destroy(int $teacherId): RedirectResponse
     {
+        $this->checkPermission('teachers.delete');
+
         $this->teacherService->deleteTeacher($teacherId);
 
         return redirect()->route('teachers.index')

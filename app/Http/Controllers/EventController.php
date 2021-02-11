@@ -134,7 +134,7 @@ class EventController extends Controller
      */
     public function edit(int $eventId): View
     {
-        $this->checkPermission('posts.edit');
+        $this->checkPermission('events.edit');
 
         $event = $this->eventService->getById($eventId);
 
@@ -167,7 +167,7 @@ class EventController extends Controller
      */
     public function update(EventStoreRequest $request, int $eventId): RedirectResponse
     {
-        $this->checkPermission('posts.edit');
+        $this->checkPermission('events.edit');
 
         $event = $this->eventService->updateEvent($request, $eventId);
 
@@ -184,6 +184,8 @@ class EventController extends Controller
      */
     public function destroy(int $eventId): RedirectResponse
     {
+        $this->checkPermission('events.delete');
+
         $this->eventService->deleteEvent($eventId);
 
         return redirect()->route('events.index')

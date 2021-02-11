@@ -5,10 +5,13 @@ namespace App\Http\Controllers;
 use App\Http\Requests\OrganizerSearchRequest;
 use App\Http\Requests\OrganizerStoreRequest;
 use App\Services\OrganizerService;
+use App\Traits\CheckPermission;
 use Illuminate\Http\RedirectResponse;
 
 class OrganizerController extends Controller
 {
+    use CheckPermission;
+
     private OrganizerService $organizerService;
 
     public function __construct(
@@ -26,6 +29,8 @@ class OrganizerController extends Controller
      */
     public function index(OrganizerSearchRequest $request)
     {
+        $this->checkPermission('organizers.view');
+
         $searchParameters = $this->organizerService->getSearchParameters($request);
         $organizers = $this->organizerService->getOrganizers(20, $searchParameters);
 
@@ -42,6 +47,8 @@ class OrganizerController extends Controller
      */
     public function create()
     {
+        $this->checkPermission('organizers.create');
+
         return view('organizers.create');
     }
 
@@ -54,6 +61,8 @@ class OrganizerController extends Controller
      */
     public function store(OrganizerStoreRequest $request): RedirectResponse
     {
+        $this->checkPermission('organizers.create');
+
         $this->organizerService->createOrganizer($request);
 
         return redirect()->route('organizers.index')
@@ -69,6 +78,8 @@ class OrganizerController extends Controller
      */
     public function show(int $organizerId)
     {
+        $this->checkPermission('organizers.edit');
+
         $organizer = $this->organizerService->getById($organizerId);
 
         return view('organizers.show', compact('organizer'));
@@ -83,6 +94,8 @@ class OrganizerController extends Controller
      */
     public function edit(int $organizerId)
     {
+        $this->checkPermission('organizers.edit');
+
         $organizer = $this->organizerService->getById($organizerId);
 
         return view('organizers.edit', [
@@ -100,6 +113,8 @@ class OrganizerController extends Controller
      */
     public function update(OrganizerStoreRequest $request, int $organizerId): RedirectResponse
     {
+        $this->checkPermission('organizers.edit');
+
         $this->organizerService->updateOrganizer($request, $organizerId);
 
         return redirect()->route('organizers.index')
@@ -115,6 +130,8 @@ class OrganizerController extends Controller
      */
     public function destroy(int $organizerId): RedirectResponse
     {
+        $this->checkPermission('organizers.delete');
+
         $this->organizerService->deleteOrganizer($organizerId);
 
         return redirect()->route('organizers.index')

@@ -91,21 +91,4 @@ class TestimonialService
         $this->testimonialRepository->delete($testimonialId);
     }
 
-    /**
-     * Get the testimonial search parameters
-     *
-     * @param \App\Http\Requests\TestimonialSearchRequest $request
-     *
-     * @return array
-     */
-    public function getSearchParameters(TestimonialSearchRequest $request): array
-    {
-        $searchParameters = [];
-        $searchParameters['name'] = $request->title ?? null;
-        $searchParameters['surname'] = $request->categoryId ?? null;
-        $searchParameters['countryId'] = $request->startDate ?? null;
-        $searchParameters['status'] = $request->status ?? null;
-
-        return $searchParameters;
-    }
 }

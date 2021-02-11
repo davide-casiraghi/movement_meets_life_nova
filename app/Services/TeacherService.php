@@ -103,20 +103,4 @@ class TeacherService
         return Teacher::whereDate('created_at', '>', date('Y-m-d', strtotime('-30 days')))->count();
     }
 
-    /**
-     * Get the organizer search parameters
-     *
-     * @param \App\Http\Requests\TeacherSearchRequest $request
-     *
-     * @return array
-     */
-    public function getSearchParameters(TeacherSearchRequest $request): array
-    {
-        $searchParameters = [];
-        $searchParameters['name'] = $request->name ?? null;
-        $searchParameters['surname'] = $request->surname ?? null;
-        $searchParameters['countryId'] = $request->countryId ?? null;
-
-        return $searchParameters;
-    }
 }

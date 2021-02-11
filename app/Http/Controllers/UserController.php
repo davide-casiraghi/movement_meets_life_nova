@@ -65,7 +65,6 @@ class UserController extends Controller
     {
         $this->checkPermission('users.view');
 
-        //$this->userService->getSearchParameters($request);
         $searchParameters = Helper::getSearchParameters($request, User::SEARCH_PARAMETERS);
 
         $users = $this->userService->getUsers(20, $searchParameters);

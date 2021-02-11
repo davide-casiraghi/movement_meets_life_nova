@@ -43,6 +43,18 @@ class Testimonial extends Model implements HasMedia
     public $translatable = ['profession', 'feedback'];
 
     /**
+     * The parameters used in the index view search filters.
+     *
+     * @var array
+     */
+    public const SEARCH_PARAMETERS = [
+        'name',
+        'surname',
+        'countryId',
+        'status'
+    ];
+
+    /**
      * The possible values the publishing status can be.
      */
     const PUBLISHING_STATUS = [
