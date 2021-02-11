@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Helpers\ImageHelpers;
 use App\Http\Requests\GlossarySearchRequest;
 use App\Http\Requests\GlossaryStoreRequest;
 use App\Models\Glossary;
@@ -34,11 +35,13 @@ class GlossaryService
         $glossary = $this->glossaryRepository->store($request->all());
         $this->storeImages($glossary, $request);
 
+        ImageHelpers::storeImages($glossary, $request, 'introimage');
+
         return $glossary;
     }
 
     /**
-     * Update the gender
+     * Update the glossary
      *
      * @param \App\Http\Requests\GlossaryStoreRequest $request
      * @param int $glossaryId
@@ -48,13 +51,15 @@ class GlossaryService
     public function updateGlossary(GlossaryStoreRequest $request, int $glossaryId): Glossary
     {
         $glossary = $this->glossaryRepository->update($request->all(), $glossaryId);
-        $this->storeImages($glossary, $request);
+
+        ImageHelpers::storeImages($glossary, $request, 'introimage');
+        ImageHelpers::deleteImages($glossary, $request, 'introimage');
 
         return $glossary;
     }
 
     /**
-     * Return the gender from the database
+     * Return the glossary from the database
      *
      * @param int $glossaryId
      *
@@ -146,7 +151,7 @@ class GlossaryService
     {
         //$pattern = "/\b$glossaryTerm->term\b/";
         $pattern = "~<a .*?</a>(*SKIP)(*F)|\b$glossaryTerm->term\b~";
-        
+
         $text = preg_replace_callback(
             $pattern,
             function ($matches) use ($glossaryTerm, $count) {
@@ -193,33 +198,6 @@ class GlossaryService
 
         $ret = $text . $termTooltipContent;
         return $ret;
-    }
-
-    /**
-     * Store the uploaded introimage in the Spatie Media Library
-     *
-     * @param \App\Models\Glossary $glossary
-     * @param \App\Http\Requests\GlossaryStoreRequest $request
-     *
-     * @return void
-     * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileDoesNotExist
-     * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileIsTooBig
-     */
-    private function storeImages(Glossary $glossary, GlossaryStoreRequest $request): void
-    {
-        if ($request->file('introimage')) {
-            $introimage = $request->file('introimage');
-            if ($introimage->isValid()) {
-                $glossary->addMedia($introimage)->toMediaCollection('introimage');
-            }
-        }
-
-        if ($request->introimage_delete == 'true') {
-            $mediaItems = $glossary->getMedia('introimage');
-            if (!is_null($mediaItems[0])) {
-                $mediaItems[0]->delete();
-            }
-        }
     }
 
     /**
