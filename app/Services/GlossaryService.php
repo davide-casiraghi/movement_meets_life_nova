@@ -128,7 +128,7 @@ class GlossaryService
      *
      * @return bool
      */
-    private function termIsPresent($text, $term): bool
+    public function termIsPresent($text, $term): bool
     {
         if (strpos($text, $term) !== false) {
             return true;

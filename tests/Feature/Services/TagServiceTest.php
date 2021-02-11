@@ -15,7 +15,7 @@ class TagServiceTest extends TestCase
     use WithFaker;
     use RefreshDatabase; // empty the test DB
 
-    private tagService $tagService;
+    private TagService $tagService;
 
     private User $user1;
     private Tag $tag1;
@@ -49,13 +49,13 @@ class TagServiceTest extends TestCase
     /** @test */
     public function itShouldCreateATag()
     {
-        $request = new tagStoreRequest();
+        $request = new TagStoreRequest();
         $data = [
             'tag' => 'test tag',
         ];
         $request->merge($data);
 
-        $tag = $this->tagService->createtag($request);
+        $tag = $this->tagService->createTag($request);
 
         $this->assertDatabaseHas('tags', ['id' => $tag->id]);
     }
@@ -63,7 +63,7 @@ class TagServiceTest extends TestCase
     /** @test */
     public function itShouldUpdateATag()
     {
-        $request = new tagStoreRequest();
+        $request = new TagStoreRequest();
 
         $data = [
             'tag' => 'test tag updated',

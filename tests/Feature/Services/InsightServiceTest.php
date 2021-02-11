@@ -15,7 +15,7 @@ class InsightServiceTest extends TestCase
     use WithFaker;
     use RefreshDatabase; // empty the test DB
 
-    private insightService $insightService;
+    private InsightService $insightService;
 
     private User $user1;
     private Insight $insight1;

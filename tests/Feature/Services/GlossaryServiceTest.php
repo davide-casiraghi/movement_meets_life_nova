@@ -96,6 +96,23 @@ class GlossaryServiceTest extends TestCase
         $this->assertCount(3, $glossarys);
     }
 
+    /** @test */
+    public function itShouldDeleteAGlossary()
+    {
+        $this->glossaryService->deleteGlossary($this->glossary1->id);
+        $this->assertDatabaseMissing('glossaries', ['id' => $this->glossary1->id]);
+    }
+
+    /** @test */
+    public function itShouldReturnThatTheTermIsPresent()
+    {
+        $text = "In velit sapien, viverra at felis molestie, placerat egestas nunc.";
+        $term = "sapien";
+
+        $termPresent = $this->glossaryService->termIsPresent($text, $term);
+        $this->assertSame(true, $termPresent);
+    }
+
 
 
 }
