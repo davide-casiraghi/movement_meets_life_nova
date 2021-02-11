@@ -48,6 +48,15 @@ class Insight extends Model implements HasMedia, Searchable
     ];
 
     /**
+     * The parameters used in the index view search filters.
+     *
+     * @var array
+     */
+    public const SEARCH_PARAMETERS = [
+        'title',
+    ];
+
+    /**
      * The possible values the publishing status can be.
      */
     public const PUBLISHING_STATUS = [

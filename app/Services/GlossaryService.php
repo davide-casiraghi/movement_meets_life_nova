@@ -198,19 +198,4 @@ class GlossaryService
         return $ret;
     }
 
-    /**
-     * Get the post search parameters
-     *
-     * @param \App\Http\Requests\GlossarySearchRequest $request
-     *
-     * @return array
-     */
-    public function getSearchParameters(GlossarySearchRequest $request): array
-    {
-        $searchParameters = [];
-        $searchParameters['term'] = $request->term ?? null;
-        $searchParameters['status'] = $request->status ?? null;
-
-        return $searchParameters;
-    }
 }

@@ -37,6 +37,16 @@ class Glossary extends Model implements HasMedia, Searchable
     public $translatable = ['term','definition', 'body'];
 
     /**
+     * The parameters used in the index view search filters.
+     *
+     * @var array
+     */
+    public const SEARCH_PARAMETERS = [
+        'term',
+        'status',
+    ];
+
+    /**
      * The possible values the publishing status can be.
      */
     public const PUBLISHING_STATUS = [

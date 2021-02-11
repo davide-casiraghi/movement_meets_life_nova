@@ -141,23 +141,4 @@ class PostService
     {
         return Post::whereDate('created_at', '>', date('Y-m-d', strtotime('-30 days')))->count();
     }
-
-    /**
-     * Get the post search parameters
-     *
-     * @param \App\Http\Requests\PostSearchRequest $request
-     *
-     * @return array
-     */
-    public function getSearchParameters(PostSearchRequest $request): array
-    {
-        $searchParameters = [];
-        $searchParameters['title'] = $request->title ?? null;
-        $searchParameters['categoryId'] = $request->categoryId ?? null;
-        $searchParameters['startDate'] = $request->startDate ?? null;
-        $searchParameters['endDate'] = $request->endDate ?? null;
-        $searchParameters['status'] = $request->status ?? null;
-
-        return $searchParameters;
-    }
 }

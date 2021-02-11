@@ -88,22 +88,6 @@ class QuoteService
     }
 
     /**
-     * Get the quote search parameters
-     *
-     * @param \App\Http\Requests\QuoteSearchRequest $request
-     *
-     * @return array
-     */
-    public function getSearchParameters(QuoteSearchRequest $request): array
-    {
-        $searchParameters = [];
-        $searchParameters['author'] = $request->author ?? null;
-        $searchParameters['description'] = $request->description ?? null;
-
-        return $searchParameters;
-    }
-
-    /**
      *  Return the quote of the day.
      *  And set the quote to shown, so it will not be show it again in the
      *  next days until all the others has been shown.

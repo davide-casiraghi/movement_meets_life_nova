@@ -29,6 +29,15 @@ class Tag extends Model
     public $translatable = ['tag'];
 
     /**
+     * The parameters used in the index view search filters.
+     *
+     * @var array
+     */
+    public const SEARCH_PARAMETERS = [
+        'tag',
+    ];
+
+    /**
      * Generates a unique slug.
      */
     public function getSlugOptions() : SlugOptions

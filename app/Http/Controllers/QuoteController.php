@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\Helper;
 use App\Http\Requests\QuoteSearchRequest;
 use App\Http\Requests\QuoteStoreRequest;
+use App\Models\Quote;
 use App\Services\QuoteService;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
@@ -27,7 +29,8 @@ class QuoteController extends Controller
      */
     public function index(QuoteSearchRequest $request)
     {
-        $searchParameters = $this->quoteService->getSearchParameters($request);
+        $searchParameters = Helper::getSearchParameters($request, Quote::SEARCH_PARAMETERS);
+
         $quotes = $this->quoteService->getQuotes(20, $searchParameters);
 
         return view('quotes.index', [

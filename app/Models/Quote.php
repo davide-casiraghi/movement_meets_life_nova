@@ -33,6 +33,16 @@ class Quote extends Model implements Searchable
     public $translatable = ['description'];
 
     /**
+     * The parameters used in the index view search filters.
+     *
+     * @var array
+     */
+    public const SEARCH_PARAMETERS = [
+        'author',
+        'description',
+    ];
+
+    /**
      * Generates a unique slug.
      */
     public function getSlugOptions(): SlugOptions

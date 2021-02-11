@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\Helper;
 use App\Http\Requests\GlossarySearchRequest;
 use App\Http\Requests\GlossaryStoreRequest;
 use App\Models\Glossary;
@@ -47,7 +48,7 @@ class GlossaryController extends Controller
      */
     public function index(GlossarySearchRequest $request): View
     {
-        $searchParameters = $this->glossaryService->getSearchParameters($request);
+        $searchParameters = Helper::getSearchParameters($request, Glossary::SEARCH_PARAMETERS);
         $glossaries = $this->glossaryService->getGlossaries(20, $searchParameters);
         $statuses = Glossary::PUBLISHING_STATUS;
 

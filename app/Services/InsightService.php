@@ -89,21 +89,6 @@ class InsightService
         $this->insightRepository->delete($insightId);
     }
 
-    /**
-     * Get the post search parameters
-     *
-     * @param \App\Http\Requests\InsightSearchRequest $request
-     *
-     * @return array
-     */
-    public function getSearchParameters(InsightSearchRequest $request): array
-    {
-        $searchParameters = [];
-        $searchParameters['title'] = $request->title ?? null;
-
-        return $searchParameters;
-    }
-
     public function getInsightBody($insight)
     {
         $insightBody = $insight->body;

@@ -13,7 +13,10 @@ use Spatie\Sluggable\SlugOptions;
 
 class Organizer extends Model implements HasMedia
 {
-    use HasFactory, HasSlug, HasStatuses, InteractsWithMedia;
+    use HasFactory;
+    use HasSlug;
+    use HasStatuses;
+    use InteractsWithMedia;
 
     /**
      * The attributes that aren't mass assignable.
@@ -21,6 +24,17 @@ class Organizer extends Model implements HasMedia
      * @var array
      */
     protected $guarded = [];
+
+    /**
+     * The parameters used in the index view search filters.
+     *
+     * @var array
+     */
+    public const SEARCH_PARAMETERS = [
+        'name',
+        'surname',
+        'email',
+    ];
 
     /**
      * Return the user that created the organizer
@@ -34,7 +48,8 @@ class Organizer extends Model implements HasMedia
     /**
      * Returns the events of the organizer.
      */
-    public function events() {
+    public function events()
+    {
         return $this->belongsToMany(Event::class);
     }
 
@@ -50,7 +65,7 @@ class Organizer extends Model implements HasMedia
     /**
      * Generates a unique slug.
      */
-    public function getSlugOptions() : SlugOptions
+    public function getSlugOptions(): SlugOptions
     {
         return SlugOptions::create()
             ->generateSlugsFrom('name')
@@ -60,7 +75,8 @@ class Organizer extends Model implements HasMedia
     /**
      * Set default status value when a organizer is created
      */
-    public static function boot() {
+    public static function boot()
+    {
         parent::boot();
 
         static::created(function (Organizer $event) {

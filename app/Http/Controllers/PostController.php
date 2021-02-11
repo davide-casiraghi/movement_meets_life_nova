@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\Helper;
 use App\Http\Requests\PostCategoryStoreRequest;
 use App\Http\Requests\PostSearchRequest;
 use App\Http\Requests\PostStoreRequest;
@@ -44,7 +45,7 @@ class PostController extends Controller
     {
         $this->checkPermission('posts.view');
 
-        $searchParameters = $this->postService->getSearchParameters($request);
+        $searchParameters = Helper::getSearchParameters($request, Post::SEARCH_PARAMETERS);
         $posts = $this->postService->getPosts(20, $searchParameters);
         $categories = $this->postCategoryService->getPostCategories();
         $statuses = Post::PUBLISHING_STATUS;

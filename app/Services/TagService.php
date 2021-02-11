@@ -86,18 +86,4 @@ class TagService
         $this->tagRepository->delete($tagId);
     }
 
-    /**
-     * Get the post search parameters
-     *
-     * @param \App\Http\Requests\TagSearchRequest $request
-     *
-     * @return array
-     */
-    public function getSearchParameters(TagSearchRequest $request): array
-    {
-        $searchParameters = [];
-        $searchParameters['tag'] = $request->tag ?? null;
-
-        return $searchParameters;
-    }
 }

@@ -125,29 +125,6 @@ class EventService
     }
 
     /**
-     * Get the event search parameters
-     *
-     * @param \App\Http\Requests\EventSearchRequest $request
-     *
-     * @return array
-     */
-    public function getSearchParameters(EventSearchRequest $request): array
-    {
-        $searchParameters = [];
-        $searchParameters['title'] = $request->title ?? null;
-        $searchParameters['eventCategoryId'] = $request->eventCategoryId ?? null;
-        $searchParameters['startDate'] = $request->startDate ?? null;
-        $searchParameters['endDate'] = $request->endDate ?? null;
-        $searchParameters['teacherId'] = $request->teacherId ?? null;
-        $searchParameters['organizerId'] = $request->organizerId ?? null;
-        $searchParameters['repetitionKindId'] = $request->repetitionKindId ?? null;
-        $searchParameters['venueId'] = $request->venueId ?? null;
-        $searchParameters['status'] = $request->status ?? null;
-
-        return $searchParameters;
-    }
-
-    /**
      * Return an array with the thumb images ulrs
      *
      * @param int $eventId

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\Helper;
 use App\Http\Requests\OrganizerSearchRequest;
 use App\Http\Requests\OrganizerStoreRequest;
+use App\Models\Organizer;
 use App\Services\OrganizerService;
 use App\Traits\CheckPermission;
 use Illuminate\Http\RedirectResponse;
@@ -31,7 +33,7 @@ class OrganizerController extends Controller
     {
         $this->checkPermission('organizers.view');
 
-        $searchParameters = $this->organizerService->getSearchParameters($request);
+        $searchParameters = Helper::getSearchParameters($request, Organizer::SEARCH_PARAMETERS);
         $organizers = $this->organizerService->getOrganizers(20, $searchParameters);
 
         return view('organizers.index', [

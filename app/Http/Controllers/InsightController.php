@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\Helper;
 use App\Http\Requests\InsightSearchRequest;
 use App\Http\Requests\InsightStoreRequest;
 use App\Models\Insight;
@@ -41,7 +42,8 @@ class InsightController extends Controller
     {
         $this->checkPermission('insights.view');
 
-        $searchParameters = $this->insightService->getSearchParameters($request);
+        $searchParameters = Helper::getSearchParameters($request, Insight::SEARCH_PARAMETERS);
+
         $insights = $this->insightService->getInsights(20, $searchParameters);
         $statuses = Insight::PUBLISHING_STATUS;
         return view('insights.index', [

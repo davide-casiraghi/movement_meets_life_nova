@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\Helper;
 use App\Http\Requests\TagSearchRequest;
 use App\Http\Requests\TagStoreRequest;
 use App\Models\Tag;
@@ -47,7 +48,7 @@ class TagController extends Controller
      */
     public function index(TagSearchRequest $request)
     {
-        $searchParameters = $this->tagService->getSearchParameters($request);
+        $searchParameters = Helper::getSearchParameters($request, Tag::SEARCH_PARAMETERS);
         $tags = $this->tagService->getTags(20, $searchParameters);
 
         return view('tags.index', [

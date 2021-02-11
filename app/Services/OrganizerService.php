@@ -102,21 +102,4 @@ class OrganizerService
     {
         return Organizer::whereDate('created_at', '>', date('Y-m-d', strtotime('-30 days')))->count();
     }
-
-    /**
-     * Get the organizer search parameters
-     *
-     * @param \App\Http\Requests\OrganizerSearchRequest $request
-     *
-     * @return array
-     */
-    public function getSearchParameters(OrganizerSearchRequest $request): array
-    {
-        $searchParameters = [];
-        $searchParameters['name'] = $request->name ?? null;
-        $searchParameters['surname'] = $request->surname ?? null;
-        $searchParameters['email'] = $request->email ?? null;
-
-        return $searchParameters;
-    }
 }

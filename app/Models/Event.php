@@ -33,6 +33,23 @@ class Event extends Model implements HasMedia
     ];
 
     /**
+     * The parameters used in the index view search filters.
+     *
+     * @var array
+     */
+    public const SEARCH_PARAMETERS = [
+        'title',
+        'eventCategoryId',
+        'startDate',
+        'endDate',
+        'teacherId',
+        'organizerId',
+        'repetitionKindId',
+        'venueId',
+        'status'
+    ];
+
+    /**
      * The possible values the publishing status can be.
      */
     public const PUBLISHING_STATUS = [

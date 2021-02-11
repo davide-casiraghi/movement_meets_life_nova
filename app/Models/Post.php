@@ -39,6 +39,19 @@ class Post extends Model implements HasMedia, Searchable
     public $translatable = ['title','intro_text', 'body', 'introimage_alt'];
 
     /**
+     * The parameters used in the index view search filters.
+     *
+     * @var array
+     */
+    public const SEARCH_PARAMETERS = [
+        'title',
+        'categoryId',
+        'startDate',
+        'endDate',
+        'status',
+    ];
+
+    /**
      * The possible values the publishing status can be.
      */
     public const PUBLISHING_STATUS = [

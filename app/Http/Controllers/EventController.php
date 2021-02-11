@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\Helper;
 use App\Http\Requests\EventSearchRequest;
 use App\Http\Requests\EventStoreRequest;
 use App\Models\Event;
@@ -54,7 +55,8 @@ class EventController extends Controller
     {
         $this->checkPermission('events.view');
 
-        $searchParameters = $this->eventService->getSearchParameters($request);
+        $searchParameters = Helper::getSearchParameters($request, Event::SEARCH_PARAMETERS);
+
         $events = $this->eventService->getEvents(20, $searchParameters);
         $eventsCategories = $this->eventCategoryService->getEventCategories();
         $statuses = Event::PUBLISHING_STATUS;
