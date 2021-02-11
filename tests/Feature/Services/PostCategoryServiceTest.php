@@ -86,10 +86,10 @@ class PostCategoryServiceTest extends TestCase
     }
 
     /** @test */
-    public function itShouldReturnAllPosts()
+    public function itShouldReturnAllPostCategories()
     {
-        $postCategory = $this->postCategoryService->getPostCategories(20);
-        $this->assertCount(3, $postCategory);
+        $postCategories = $this->postCategoryService->getPostCategories(20);
+        $this->assertCount(3, $postCategories);
     }
 
     /** @test */
