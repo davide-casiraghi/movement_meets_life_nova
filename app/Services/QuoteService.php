@@ -102,15 +102,16 @@ class QuoteService
             ->orWhere('shown_on', $today)
             ->first();
 
+        // Reset the quotes shown when all the quotes has already been shown
+        if ($quote == null) {
+            //Quote::update(['shown' => 0]);
+            Quote::query()->update(['shown' => 0]);
+            $quote = Quote::where('shown', 0)->first();
+        }
+
         $quote->shown = 1;
         $quote->shown_on = $today;
         $quote->save();
-
-        // Reset the quotes shown when all the quotes has already been shown
-        if ($quote == null) {
-            Quote::update(['shown' => 0]);
-            $quote = Quote::where('shown', 0)->first();
-        }
 
         return $quote;
     }

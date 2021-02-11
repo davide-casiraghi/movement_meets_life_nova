@@ -2,10 +2,10 @@
 
 namespace Tests\Feature\Services;
 
-use App\Http\Requests\tagStoreRequest;
-use App\Models\tag;
+use App\Http\Requests\TagStoreRequest;
+use App\Models\Tag;
 use App\Models\User;
-use App\Services\tagService;
+use App\Services\TagService;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
@@ -18,9 +18,9 @@ class TagServiceTest extends TestCase
     private tagService $tagService;
 
     private User $user1;
-    private tag $tag1;
-    private tag $tag2;
-    private tag $tag3;
+    private Tag $tag1;
+    private Tag $tag2;
+    private Tag $tag3;
 
     /**
      * Populate test DB with dummy data.
@@ -41,9 +41,9 @@ class TagServiceTest extends TestCase
             'email' => 'admin@gmail.com',
         ]);
 
-        $this->tag1 = tag::factory()->create();
-        $this->tag2 = tag::factory()->create();
-        $this->tag3 = tag::factory()->create();
+        $this->tag1 = Tag::factory()->create();
+        $this->tag2 = Tag::factory()->create();
+        $this->tag3 = Tag::factory()->create();
     }
 
     /** @test */

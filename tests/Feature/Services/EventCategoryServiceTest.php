@@ -86,6 +86,13 @@ class EventCategoryServiceTest extends TestCase
     }
 
     /** @test */
+    public function itShouldReturnAllEventCategories()
+    {
+        $eventCategories = $this->eventCategoryService->getEventCategories();
+        $this->assertCount(15, $eventCategories); // 12 are created by the seeder
+    }
+
+    /** @test */
     public function itShouldDeleteAEventCategory()
     {
         $this->eventCategoryService->deleteEventCategory($this->eventCategory1->id);
