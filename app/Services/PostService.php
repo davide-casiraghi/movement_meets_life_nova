@@ -49,7 +49,6 @@ class PostService
     public function createPost(PostStoreRequest $request): Post
     {
         $post = $this->postRepository->store($request->all());
-        $this->storeImages($post, $request);
 
         ImageHelpers::storeImages($post, $request, 'introimage');
         ImageHelpers::storeImages($post, $request, 'images');
@@ -68,10 +67,11 @@ class PostService
     public function updatePost(PostStoreRequest $request, int $postId): Post
     {
         $post = $this->postRepository->update($request->all(), $postId);
-        //$this->storeImages($post, $request);
 
         ImageHelpers::storeImages($post, $request, 'introimage');
         ImageHelpers::storeImages($post, $request, 'images');
+
+        ImageHelpers::deleteImages($post, $request, 'introimage');
 
         return $post;
     }
