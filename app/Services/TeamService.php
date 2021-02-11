@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Http\Requests\TeamStoreRequest;
 use Spatie\Permission\Models\Role;
 
 class TeamService
@@ -11,13 +12,13 @@ class TeamService
     /**
      * Create a user team (Spatie role)
      *
-     * @param $data
+     * @param $request
      *
      * @return \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Eloquent\Model
      */
-    public function createTeam($data)
+    public function createTeam(TeamStoreRequest $request)
     {
-        $team = Role::create(['name' => $data->name, 'guard_name' => 'web']);
+        $team = Role::create(['name' => $request->name, 'guard_name' => 'web']);
 
         return $team;
     }
@@ -25,14 +26,15 @@ class TeamService
     /**
      * Update a user team (Spatie role)
      *
-     * @param $data
+     * @param \App\Http\Requests\TeamStoreRequest $request
+     * @param int $teamId
      *
      * @return \Spatie\Permission\Contracts\Role
      */
-    public function updateTeam($data, $teamId)
+    public function updateTeam(TeamStoreRequest $request, int $teamId)
     {
         $team = Role::findById($teamId);
-        $team->name = $data->name;
+        $team->name = $request->name;
         $team->save();
 
         return $team;

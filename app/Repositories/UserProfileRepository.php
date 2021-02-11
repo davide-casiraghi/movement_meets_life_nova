@@ -31,6 +31,7 @@ class UserProfileRepository implements UserProfileRepositoryInterface
     public function store(array $data): UserProfile
     {
         $userProfile = new UserProfile();
+        $testimonial = self::assignDataAttributes($userProfile, $data);
 
         $userProfile->save();
 
@@ -77,7 +78,7 @@ class UserProfileRepository implements UserProfileRepositoryInterface
      */
     public function assignDataAttributes(UserProfile $userProfile, array $data): UserProfile
     {
-        $userProfile->user_id = $userProfile->user->id;
+        $userProfile->user_id = $data['user_id'] ?? $userProfile->user->id;
         $userProfile->name = $data['name'];
         $userProfile->surname = $data['surname'];
         $userProfile->country_id = $data['country_id'];

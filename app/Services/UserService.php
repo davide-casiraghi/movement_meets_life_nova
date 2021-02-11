@@ -30,29 +30,29 @@ class UserService
     /**
      * Create an user and the profile at the same time
      *
-     * @param array $data
+     * @param \App\Http\Requests\UserStoreRequest $request
      *
      * @return User
      */
-    public function createUser(array $data): User
+    public function createUser(UserStoreRequest $request): User
     {
-        $user = $this->userRepository->storeUser($data);
+        $user = $this->userRepository->storeUser($request->all());
 
         // Assign an new empty user profile to the user
         $this->userProfileRepository->store([
             'user_id' => $user->id,
-            'name' => $data['name'],
-            'surname' => $data['surname'],
-            'country_id' => $data['country_id'],
-            'description' => $data['description'],
-            'accept_terms' => ($data['accept_terms'] == 'on') ? 1 : 0,
+            'name' => $request->name,
+            'surname' => $request->surname,
+            'country_id' => $request->country_id,
+            'description' => $request->description,
+            'accept_terms' => ($request->accept_terms == 'on') ? 1 : 0,
         ]);
 
         // Teams membership
-        $roles = $data['team_membership'] ?? [];
+        $roles = $request->team_membership ?? [];
 
         // User level
-        $roles[] = $data['role'];
+        $roles[] = $request->role;
 
         $user->assignRole($roles);
 
@@ -62,26 +62,26 @@ class UserService
     /**
      * Update the user user and profile at the same time
      *
-     * @param array $data
+     * @param \App\Http\Requests\UserStoreRequest $request
      * @param int $userId
      *
      * @return User
      * @throws \Spatie\ModelStatus\Exceptions\InvalidStatus
      */
-    public function updateUser(array $data, int $userId): User
+    public function updateUser(UserStoreRequest $request, int $userId): User
     {
-        $user = $this->userRepository->update($data, $userId);
-        $this->userProfileRepository->update($data, $user->profile->id);
+        $user = $this->userRepository->update($request->all(), $userId);
+        $this->userProfileRepository->update($request->all(), $user->profile->id);
 
         $roles = [];
 
         // User level
-        $roles[] = $data['role'];
+        $roles[] = $request->role;
 
         // Teams membership
         // (Just if the role is admin, for super admins we don't need them)
-        if ($data['role'] == "Admin") {
-            $roles[] = $data['team_membership'];
+        if ($request->role == "Admin") {
+            $roles[] = $request->team_membership;
         }
         $user->syncRoles($roles);
 

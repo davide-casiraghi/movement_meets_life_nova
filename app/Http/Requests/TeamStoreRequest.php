@@ -25,7 +25,7 @@ class TeamStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required', 'max:255', new LettersAndWhitespaces], // Allow just letters and white spaces
+            'name' => ['required', 'max:255', new LettersAndWhitespaces()], // Allow just letters and white spaces
         ];
     }
 }

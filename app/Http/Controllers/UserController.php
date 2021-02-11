@@ -102,7 +102,7 @@ class UserController extends Controller
     {
         $this->checkPermission('users.create');
 
-        $user = $this->userService->createUser($request->all());
+        $user = $this->userService->createUser($request);
         //$user->notify(new MemberResetPasswordNotification($user));
 
         return redirect()->route('users.index')
@@ -152,7 +152,7 @@ class UserController extends Controller
             $this->checkPermission('users.edit');
         }
 
-        $this->userService->updateUser($request->all(), $userId);
+        $this->userService->updateUser($request, $userId);
 
         if (Auth::user()->hasPermissionTo('users.edit')) {
             return redirect()->route('users.index')
