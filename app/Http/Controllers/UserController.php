@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Exports\MembersExport;
 use App\Exports\ReportsExport;
+use App\Helpers\Helper;
 use App\Http\Requests\MemberSearchRequest;
 use App\Http\Requests\MemberStoreRequest;
 use App\Http\Requests\UserSearchRequest;
@@ -64,7 +65,9 @@ class UserController extends Controller
     {
         $this->checkPermission('users.view');
 
-        $searchParameters = $this->userService->getSearchParameters($request);
+        //$this->userService->getSearchParameters($request);
+        $searchParameters = Helper::getSearchParameters($request, ['name', 'surname', 'email', 'countryId', 'userLevel', 'team', 'status']);
+
         $users = $this->userService->getUsers(20, $searchParameters);
         $userLevels =  $this->teamService->getAllAdminRoles();
         $teams = $this->teamService->getAllTeamRoles();

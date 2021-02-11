@@ -178,4 +178,25 @@ class Helper
             }
         }
     }
+
+
+    /**
+     * Return an array with the search parameters.
+     * if the parameter is null, so in the request is not set,
+     * it adds anyway to the array it with a null value to avoid a not found error.
+     *
+     * @param object $request
+     * @param array $parameterNames
+     *
+     * @return array
+     */
+    public static function getSearchParameters(object $request, array $parameterNames): array
+    {
+        $searchParameters = [];
+        foreach ($parameterNames as $parameterName) {
+            $searchParameters[$parameterName] = $request->$parameterName ?? null;
+        }
+
+        return $searchParameters;
+    }
 }

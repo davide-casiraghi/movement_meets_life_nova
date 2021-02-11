@@ -48,6 +48,9 @@ class UserRepository implements UserRepositoryInterface
             if (!empty($searchParameters['team'])) {
                 $query->role($searchParameters['team']);
             }
+            if (!empty($searchParameters['status'])) {
+                $query->currentStatus($searchParameters['status']);
+            }
         }
 
         if ($recordsPerPage) {

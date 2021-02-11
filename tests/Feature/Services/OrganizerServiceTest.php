@@ -44,7 +44,7 @@ class OrganizerServiceTest extends TestCase{
     }
 
     /** @test */
-    public function it_should_create_an_organizer()
+    public function itShouldCreateAnOrganizer()
     {
         $user = $this->authenticateAsUser();
 
@@ -67,7 +67,7 @@ class OrganizerServiceTest extends TestCase{
     }
 
     /** @test */
-    public function it_should_update_an_organizer()
+    public function itShouldUpdateAnOrganizer()
     {
         $request = new OrganizerStoreRequest();
 
@@ -88,7 +88,7 @@ class OrganizerServiceTest extends TestCase{
     }
 
     /** @test */
-    public function it_should_return_organizer_by_id()
+    public function itShouldReturnAnOrganizerById()
     {
         $organizer = $this->organizerService->getById($this->organizers[1]->id);
 
@@ -96,36 +96,25 @@ class OrganizerServiceTest extends TestCase{
     }
 
     /** @test */
-    public function it_should_return_all_organizers()
+    public function itShouldReturnAllOrganizers()
     {
         $organizers = $this->organizerService->getOrganizers(20);
         $this->assertCount(3, $organizers);
     }
 
     /** @test */
-    /*public function it_should_search_members_by_email()
+    public function itShouldDeleteAnOrganizer()
     {
-        $searchParameters = ['email' => 'info@aaa.com'];
-        $users = $this->memberService->getMembers(20, $searchParameters);
-        $this->assertCount(1, $users);
-    }*/
-
+        $this->organizerService->deleteOrganizer($this->organizers[1]->id);
+        $this->assertDatabaseMissing('organizers', ['id' => $this->organizers[1]->id]);
+    }
 
     /** @test */
-    /*public function it_should_search_members_by_region()
+    public function itShouldReturnNumberOrganizersCreatedLastThirtyDays()
     {
-        $searchParameters = ['regionId' => 5];
-        $users = $this->memberService->getMembers(20, $searchParameters);
-        $this->assertCount(1, $users);
-    }*/
+        $number = $this->organizerService->getNumberOrganizersCreatedLastThirtyDays();
 
-    /** @test */
-    /*public function it_should_return_number_of_pending_members()
-    {
-        $numberPendingMembers = $this->memberService->countAllPendingMembers();
-
-        $this->assertEquals(2, $numberPendingMembers);
-    }*/
-
+        $this->assertSame(3, $number);
+    }
 
 }

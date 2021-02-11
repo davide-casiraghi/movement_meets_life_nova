@@ -122,25 +122,4 @@ class UserService
     {
         $this->userRepository->delete($userId);
     }
-
-    /**
-     * Get the member search parameters
-     *
-     * @param \App\Http\Requests\UserSearchRequest $request
-     *
-     * @return array
-     */
-    public function getSearchParameters(UserSearchRequest $request): array
-    {
-        $searchParameters = [];
-        $searchParameters['name'] = $request->name ?? null;
-        $searchParameters['surname'] = $request->surname ?? null;
-        $searchParameters['email'] = $request->email ?? null;
-        $searchParameters['countryId'] = $request->countryId ?? null;
-        $searchParameters['userLevel'] = $request->userLevel ?? null;
-        $searchParameters['team'] = $request->team ?? null;
-        $searchParameters['status'] = $request->status ?? null;
-
-        return $searchParameters;
-    }
 }

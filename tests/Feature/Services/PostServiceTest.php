@@ -115,14 +115,15 @@ class PostServiceTest extends TestCase
     }
 
     /** @test */
-    public function itShouldGetNumberPostsCreatedLastThirtyDays(){
+    public function itShouldGetNumberPostsCreatedLastThirtyDays()
+    {
         $numberPostsCreatedLastThirtyDays = $this->postService->getNumberPostsCreatedLastThirtyDays();
         $this->assertEquals($numberPostsCreatedLastThirtyDays, 3);
     }
 
     /** @test */
-    public function itShouldGetSearchParameters(){
-
+    public function itShouldGetSearchParameters()
+    {
         $request = new PostSearchRequest();
         $data = [
             'title' => 'test title',
@@ -132,7 +133,6 @@ class PostServiceTest extends TestCase
             'status' => 'published',
         ];
         $request->merge($data);
-
 
         $searchParameters = $this->postService->getSearchParameters($request);
         $this->assertEquals($searchParameters['title'], 'test title');
