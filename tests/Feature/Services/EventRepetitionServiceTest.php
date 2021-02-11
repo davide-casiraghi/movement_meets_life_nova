@@ -107,6 +107,22 @@ class EventRepetitionServiceTest extends TestCase
         $this->assertSame($this->eventRepetition1->id, $eventRepetition->id);
     }
 
+    /** @test */
+    /*public function itShouldDeleteEventRepetitionById()
+    {
+        $this->eventRepetitionService->deleteEventRepetition(1);
+
+        $this->assertDatabaseMissing('event_repetitions', ['id' => 1]);
+    }*/
+
+    /** @test */
+    public function itShouldGetFirstByEventId()
+    {
+        $firstEventRepetition = $this->eventRepetitionService->getFirstByEventId($this->event1->id);
+
+        $this->assertSame($firstEventRepetition->id, 1);
+    }
+
 
 
 
