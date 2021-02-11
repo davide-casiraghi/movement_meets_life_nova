@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Helpers\ImageHelpers;
 use App\Http\Requests\TestimonialSearchRequest;
 use App\Http\Requests\TestimonialStoreRequest;
 use App\Models\Testimonial;
@@ -56,7 +57,8 @@ class TestimonialService
     public function createTestimonial(TestimonialStoreRequest $request): Testimonial
     {
         $testimonial = $this->testimonialRepository->store($request->all());
-        self::storeImages($testimonial, $request);
+
+        ImageHelpers::storeImages($testimonial, $request, 'photo');
 
         return $testimonial;
     }
@@ -72,7 +74,9 @@ class TestimonialService
     public function updateTestimonial(TestimonialStoreRequest $request, int $testimonialId): Testimonial
     {
         $testimonial = $this->testimonialRepository->update($request->all(), $testimonialId);
-        self::storeImages($testimonial, $request);
+
+        ImageHelpers::storeImages($testimonial, $request, 'photo');
+        ImageHelpers::deleteImages($testimonial, $request, 'photo');
 
         return $testimonial;
     }
@@ -86,27 +90,6 @@ class TestimonialService
     {
         $this->testimonialRepository->delete($testimonialId);
     }
-
-    /**
-     * Store the uploaded photos in the Spatie Media Library
-     *
-     * @param \App\Models\Testimonial $testimonial
-     * @param \App\Http\Requests\TestimonialStoreRequest $request
-     *
-     * @return void
-     * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileDoesNotExist
-     * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileIsTooBig
-     */
-    public function storeImages(Testimonial $testimonial, TestimonialStoreRequest $request): void
-    {
-        if ($request->file('photo')) {
-            $photo = $request->file('photo');
-            if ($photo->isValid()) {
-                $testimonial->addMedia($photo)->toMediaCollection('photo');
-            }
-        }
-    }
-
 
     /**
      * Get the testimonial search parameters
