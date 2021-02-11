@@ -20,8 +20,7 @@ class TextHelpers {
         string $content = '',
         int $wpm = 200,
         string $format = null
-    ): string
-    {
+    ): string {
 
         $word_count = str_word_count(strip_tags($content));
 
@@ -31,25 +30,22 @@ class TextHelpers {
         $str_minutes = ($minutes == 1) ? "minute" : "minutes";
         $str_seconds = ($seconds == 1) ? "second" : "seconds";
 
-        if ($format = 'minutes'){
+        if ($format = 'minutes') {
             if ($minutes == 0) {
                 return 'Less then one minute';
-            }
-            else{
+            } else {
                 return "{$minutes}";
             }
         }
 
-        if  ($format = 'minutesAndSeconds') {
+        if ($format = 'minutesAndSeconds') {
             if ($minutes == 0) {
                 return "{$seconds} {$str_seconds}";
-            }
-            else {
+            } else {
                 return "{$minutes} {$str_minutes}, {$seconds} {$str_seconds}";
             }
         }
 
         return "Please specify the time format";
     }
-
 }
