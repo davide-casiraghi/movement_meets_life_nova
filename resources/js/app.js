@@ -20,7 +20,6 @@ require('./video_embed');
 require('./gallery_mansonry');
 require('./vendors/bootstrap-datepicker');
 require('./vendors/staaky_tipped');
-require('./vendors/timepicker');
 
 
 // Helpers
