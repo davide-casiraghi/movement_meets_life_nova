@@ -9,7 +9,7 @@ use App\Services\VenueService;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
-use VCR\VCR;
+//use VCR\VCR;
 
 class VenueServiceTest extends TestCase
 {
@@ -118,11 +118,14 @@ class VenueServiceTest extends TestCase
     }
 
     /** @test */
-    public function itShouldGetVenueGpsCoordinates()
+   /* public function itShouldGetVenueGpsCoordinates()
     {
         // Tutorial for this test: https://laracasts.com/lessons/testing-http-requests
         // the output of the API request is saved in the tests/fixtures directory.
         // So after the first time, it reads this file instead of doing other requests.
+
+       // on hold for missing PHP8 support - until they don't merge this - https://github.com/php-vcr/phpunit-testlistener-vcr/pull/38
+        // Then install again the two packages and uncomment the test- https://stackoverflow.com/questions/36331847/laravel-api-test-how-to-test-api-that-has-external-api-call/66172537#66172537
 
         $address = "Milano, viale Abruzzi, 2";
 
@@ -135,7 +138,7 @@ class VenueServiceTest extends TestCase
 
         $this->assertEquals(45, number_format($coordinates['lat'], 0));
         $this->assertEquals(9, number_format($coordinates['lng'], 0));
-    }
+    }*/
 
 
 }
