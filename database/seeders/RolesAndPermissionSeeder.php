@@ -104,12 +104,20 @@ class RolesAndPermissionSeeder extends Seeder
         $role = Role::create(['name' => 'Registered']);
 
         // Team Roles
-        $role = Role::create(['name' => 'Editor']);
+        $role = Role::create(['name' => 'Post editor']);
         $role->givePermissionTo([
             'posts.view',
             'posts.create',
             'posts.view',
             'posts.approve'
+        ]);
+
+        $role = Role::create(['name' => 'Event editor']);
+        $role->givePermissionTo([
+            'events.view',
+            'events.create',
+            'events.view',
+            'events.approve'
         ]);
 
         /*$role = Role::create(['name' => 'Member']);

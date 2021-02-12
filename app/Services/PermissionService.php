@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Http\Requests\AdminStoreRequest;
 use App\Http\Requests\PermissionStoreRequest;
+use App\Http\Requests\UserStoreRequest;
 use App\Repositories\PermissionRepository;
 use App\Repositories\PermissionRepositoryInterface;
 use App\Repositories\UserRepository;
@@ -47,12 +48,12 @@ class PermissionService {
     /**
      * Update user permissions (Spatie permissions)
      *
-     * @param AdminStoreRequest $data
+     * @param array $data
      * @param int $userId
      *
      * @return void
      */
-    public function updateUserPermissions(AdminStoreRequest $data, int $userId): void
+    public function updateUserPermissions(array $data, int $userId): void
     {
         $user = $this->userRepository->getById($userId);
         $user->syncPermissions(array_keys($data['permissions']));
