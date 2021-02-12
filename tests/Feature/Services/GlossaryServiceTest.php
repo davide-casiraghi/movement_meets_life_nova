@@ -42,7 +42,12 @@ class GlossaryServiceTest extends TestCase
             'email' => 'admin@gmail.com',
         ]);
 
-        $this->glossary1 = Glossary::factory()->create()->setStatus('published');
+        $this->glossary1 = Glossary::factory()->create(
+            ['term' => [
+                'en' => 'kinesphere',
+                'it' => 'kinesfera',
+            ]]
+        )->setStatus('published');
         $this->glossary2 = Glossary::factory()->create()->setStatus('published');
         $this->glossary3 = Glossary::factory()->create()->setStatus('published');
     }
@@ -112,6 +117,48 @@ class GlossaryServiceTest extends TestCase
         $termPresent = $this->glossaryService->termIsPresent($text, $term);
         $this->assertSame(true, $termPresent);
     }
+
+    /** @test */
+    public function itShouldReturnThatTheTermIsNotPresent()
+    {
+        $text = "In velit sapien, viverra at felis molestie, placerat egestas nunc.";
+        $term = "lorem";
+
+        $termPresent = $this->glossaryService->termIsPresent($text, $term);
+        $this->assertSame(false, $termPresent);
+    }
+
+    /** @test */
+    public function itShouldMarkGlossaryTerms()
+    {
+        $text = "In velit kinesphere, viverra at felis molestie, placerat egestas nunc.";
+
+        $textWithHoverableTerm = $this->glossaryService->markGlossaryTerms($text);
+
+        $this->assertStringContainsString("<a href='/glossaryTerms/", $textWithHoverableTerm);
+    }
+
+    /** @test */
+    public function itShouldReplaceGlossaryTerm()
+    {
+        $text = "In velit kinesphere, viverra at felis molestie, placerat egestas nunc.";
+        $count = 1;
+
+        $textWithTermReplaced = $this->glossaryService->replaceGlossaryTerm($this->glossary1, $text, $count);
+        $this->assertStringContainsString("<a href='/glossaryTerms/", $textWithTermReplaced);
+    }
+
+    /** @test */
+    public function itShouldAttachTermDescription()
+    {
+        $text = "In velit kinesphere, viverra at felis molestie, placerat egestas nunc.";
+
+        $textWithTermDescription = $this->glossaryService->attachTermDescription($this->glossary1, $text);
+        $this->assertStringContainsString("kinesphere", $textWithTermDescription);
+        $this->assertStringContainsString($this->glossary1->definition, $textWithTermDescription);
+    }
+
+
 
 
 

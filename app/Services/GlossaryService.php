@@ -128,7 +128,7 @@ class GlossaryService
      *
      * @return bool
      */
-    public function termIsPresent($text, $term): bool
+    public function termIsPresent(string $text, string $term): bool
     {
         if (strpos($text, $term) !== false) {
             return true;
@@ -145,7 +145,7 @@ class GlossaryService
      *
      * @return string
      */
-    private function replaceGlossaryTerm(Glossary $glossaryTerm, string $text, int &$count): string
+    public function replaceGlossaryTerm(Glossary $glossaryTerm, string $text, int &$count): string
     {
         //$pattern = "/\b$glossaryTerm->term\b/";
         $pattern = "~<a .*?</a>(*SKIP)(*F)|\b$glossaryTerm->term\b~";
@@ -172,7 +172,7 @@ class GlossaryService
      *
      * @return string
      */
-    private function attachTermDescription(Glossary $glossaryTerm, string $text): string
+    public function attachTermDescription(Glossary $glossaryTerm, string $text): string
     {
         $termTooltipContent = "<div class='tooltip-painter' id='glossary-definition-" . $glossaryTerm->id . "' style='display:none'>";
         $termTooltipContent .= "<div class='photo'>";
