@@ -92,7 +92,11 @@ class GlossaryService
     }
 
     /**
-     * Finds the matches of all the words of the glossary in the specified text
+     * Check in the text if there is any published Glossary Term,
+     * and make them hoverable to show the tooltip.
+     *
+     * It adds also the hidden contents to show in the tooltips
+     * when the terms are hovered.
      *
      * @param string $text
      *
@@ -112,10 +116,6 @@ class GlossaryService
 
             $count++;
         }
-
-        // Check which terms are present and attach just them to the page!!!
-        //$text = $this->attachTermDescription($glossaryTerm, $text, $count);
-
 
         return $text;
     }
