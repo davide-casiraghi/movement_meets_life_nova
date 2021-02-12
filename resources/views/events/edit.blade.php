@@ -63,7 +63,7 @@
                 </div>
 
                 {{-- People --}}
-                <div class="md:col-span-1">
+                <div class="md:col-span-1 mt-6 md:mt-0">
                     <h3 class="text-lg font-medium leading-6 text-gray-900">@lang('event.people')</h3>
                     <p class="mt-1 text-sm text-gray-500">
                         @lang('event.select_one_or_more_people')
@@ -103,7 +103,7 @@
                 </div>
 
                 {{-- Venue --}}
-                <div class="md:col-span-1">
+                <div class="md:col-span-1 mt-6 md:mt-0">
                     <h3 class="text-lg font-medium leading-6 text-gray-900">@lang('general.venue')</h3>
                     <p class="mt-1 text-sm text-gray-500">
                         @lang('event.select_venue')
@@ -130,7 +130,7 @@
                 </div>
 
                 {{-- Description --}}
-                <div class="md:col-span-1">
+                <div class="md:col-span-1 mt-6 md:mt-0">
                     <h3 class="text-lg font-medium leading-6 text-gray-900">@lang('general.description')</h3>
                     <p class="mt-1 text-sm text-gray-500">
                         @lang('event.please_insert_english_translation')
@@ -158,7 +158,7 @@
                 </div>
 
                 {{-- Duration --}}
-                <div class="md:col-span-1">
+                <div class="md:col-span-1 mt-6 md:mt-0">
                     <h3 class="text-lg font-medium leading-6 text-gray-900">@lang('event.start_end_duration')</h3>
                     <p class="mt-1 text-sm text-gray-500">
                         @lang('event.please_use_repeat_until')
@@ -230,7 +230,7 @@
                 </div>
 
                 {{-- Links & Contacts --}}
-                <div class="md:col-span-1">
+                <div class="md:col-span-1 mt-6 md:mt-0">
                     <h3 class="text-lg font-medium leading-6 text-gray-900">@lang('event.contacts_and_links')</h3>
                     <p class="mt-1 text-sm text-gray-500">
 
@@ -290,7 +290,7 @@
                 </div>
 
                 {{-- Event teaser image --}}
-                <div class="md:col-span-1">
+                <div class="md:col-span-1 mt-6 md:mt-0">
                     <h3 class="text-lg font-medium leading-6 text-gray-900">@lang('event.event_teaser_image')</h3>
                     <p class="mt-1 text-sm text-gray-500">
 
