@@ -67,20 +67,20 @@ class EventRepetitionService
      *
      * @return iterable
      */
-    public function getEventRepetitions()
+    /*public function getEventRepetitions()
     {
         return $this->eventRepetitionRepository->getAll();
-    }
+    }*/
 
     /**
      * Delete the eventRepetition from the database
      *
      * @param int $eventRepetitionId
      */
-    public function deleteEventRepetition(int $eventRepetitionId): void
+    /*public function deleteEventRepetition(int $eventRepetitionId): void
     {
         $this->eventRepetitionRepository->delete($eventRepetitionId);
-    }
+    }*/
 
     /**
      * Get the event first repetition
