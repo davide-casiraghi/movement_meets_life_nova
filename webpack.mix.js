@@ -47,6 +47,13 @@ mix.copy('resources/images', 'public/images', false );
 mix.copy('resources/webfonts', 'public/webfonts', false );
 mix.copy('node_modules/tinymce/skins', 'public/js/skins');
 
+// Avoid Mix from generating license file when build for production
+mix.options({
+    terser: {
+        extractComments: false,
+    }
+});
+
 // Sync browser any time something change in compiled css, js or views
 mix.browserSync({
     proxy: 'movement_meets_life.local',
