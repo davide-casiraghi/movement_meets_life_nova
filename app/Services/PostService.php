@@ -79,7 +79,7 @@ class PostService
     /**
      * Return the post from the database
      *
-     * @param $postId
+     * @param int $postId
      *
      * @return \App\Models\Post
      */
@@ -115,11 +115,11 @@ class PostService
      * Returns the post body adding support to transform snippets to html code
      * eg. Accordion, Gallery, Glossary
      *
-     * @param $post
+     * @param Post $post
      *
      * @return string
      */
-    public function getPostBody($post): string
+    public function getPostBody(Post $post): string
     {
         //dd($post->getTranslation('body', 'en'));
 

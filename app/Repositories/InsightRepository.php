@@ -72,10 +72,10 @@ class InsightRepository implements InsightRepositoryInterface
     /**
      * Assign the attributes of the data array to the object
      *
-     * @param \App\Models\Post $insight
+     * @param \App\Models\Insight $insight
      * @param array $data
      *
-     * @return \App\Models\Post
+     * @return \App\Models\Insight
      */
     public function assignDataAttributes(Insight $insight, array $data): Insight
     {

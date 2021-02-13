@@ -40,7 +40,7 @@ class InsightService
     /**
      * Get the Insight by id
      *
-     * @param $insightId
+     * @param int $insightId
      * @return mixed
      */
     public function getInsightById($insightId)

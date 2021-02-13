@@ -26,10 +26,10 @@ class EventRepetitionRepository implements EventRepetitionRepositoryInterface
     /**
      * Get EventRepetition by id
      *
-     * @param $eventRepetitionId
+     * @param int $eventRepetitionId
      * @return EventRepetition
      */
-    public function getById($eventRepetitionId): EventRepetition
+    public function getById(int $eventRepetitionId): EventRepetition
     {
         return EventRepetition::findOrFail($eventRepetitionId);
     }
@@ -37,11 +37,11 @@ class EventRepetitionRepository implements EventRepetitionRepositoryInterface
     /**
      * Get the event first repetition
      *
-     * @param $eventId
+     * @param int $eventId
      *
      * @return EventRepetition
      */
-    public function getFirstByEventId($eventId): EventRepetition
+    public function getFirstByEventId(int $eventId): EventRepetition
     {
         return EventRepetition::select('id', 'start_repeat', 'end_repeat')
             ->where('event_id', '=', $eventId)

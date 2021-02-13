@@ -23,11 +23,11 @@ interface EventRepositoryInterface
     /**
      * Get Event by id
      *
-     * @param $eventId
+     * @param int $eventId
      *
      * @return Event
      */
-    public function getById($eventId);
+    public function getById(int $eventId);
 
     /**
      * Store Event

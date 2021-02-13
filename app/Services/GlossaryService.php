@@ -123,8 +123,8 @@ class GlossaryService
     /**
      * Check if the term is present in the text
      *
-     * @param $text
-     * @param $term
+     * @param string $text
+     * @param string $term
      *
      * @return bool
      */
@@ -168,7 +168,6 @@ class GlossaryService
      *
      * @param \App\Models\Glossary $glossaryTerm
      * @param string $text
-     * @param int $count
      *
      * @return string
      */

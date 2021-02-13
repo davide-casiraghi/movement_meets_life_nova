@@ -65,10 +65,10 @@ class EventRepository implements EventRepositoryInterface
     /**
      * Get Event by id
      *
-     * @param $eventId
+     * @param int $eventId
      * @return Event
      */
-    public function getById($eventId): Event
+    public function getById(int $eventId): Event
     {
         return Event::findOrFail($eventId);
     }

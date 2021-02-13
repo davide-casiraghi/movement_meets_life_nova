@@ -61,7 +61,7 @@ class TeacherService
     /**
      * Return the teacher from the database
      *
-     * @param $teacherId
+     * @param int $teacherId
      *
      * @return \App\Models\Teacher
      */

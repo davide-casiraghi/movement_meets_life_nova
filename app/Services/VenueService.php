@@ -63,7 +63,7 @@ class VenueService
     /**
      * Return the venue from the database
      *
-     * @param $venueId
+     * @param int $venueId
      *
      * @return \App\Models\Venue
      */

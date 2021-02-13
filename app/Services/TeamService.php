@@ -12,7 +12,7 @@ class TeamService
     /**
      * Create a user team (Spatie role)
      *
-     * @param $request
+     * @param TeamStoreRequest $request
      *
      * @return \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Eloquent\Model
      */
@@ -43,11 +43,11 @@ class TeamService
     /**
      * Return the team from the database
      *
-     * @param $teamId
+     * @param int $teamId
      *
      * @return \Spatie\Permission\Contracts\Role
      */
-    public function getById($teamId)
+    public function getById(int $teamId)
     {
         return Role::findById($teamId);
     }
@@ -65,9 +65,11 @@ class TeamService
     /**
      * Delete the team from the database
      *
-     * @param $userId
+     * @param int $teamId
+     *
+     * @throws \Exception
      */
-    public function deleteTeam($teamId)
+    public function deleteTeam(int $teamId)
     {
         $team = Role::findById($teamId);
         $team->delete();

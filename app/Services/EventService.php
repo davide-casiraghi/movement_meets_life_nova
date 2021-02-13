@@ -82,7 +82,7 @@ class EventService
     /**
      * Return the event from the database
      *
-     * @param $eventId
+     * @param int $eventId
      *
      * @return \App\Models\Event
      */
@@ -131,12 +131,12 @@ class EventService
      * - repeat until
      * - multiple dates
      *
-     * @param $event
-     * @param $eventFirstRepetition
+     * @param Event $event
+     * @param EventRepetition $eventFirstRepetition
      *
      * @return array
      */
-    public function getEventDateTimeParameters($event, $eventFirstRepetition): array
+    public function getEventDateTimeParameters(Event $event, EventRepetition $eventFirstRepetition): array
     {
         $dateTime = [];
         $dateTime['dateStart'] = (isset($eventFirstRepetition->start_repeat)) ? date('d/m/Y', strtotime($eventFirstRepetition->start_repeat)) : '';

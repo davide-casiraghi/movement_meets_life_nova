@@ -16,20 +16,20 @@ interface EventRepetitionRepositoryInterface {
     /**
      * Get EventRepetition by id
      *
-     * @param $eventRepetitionId
+     * @param int $eventRepetitionId
      *
      * @return EventRepetition
      */
-    public function getById($eventRepetitionId);
+    public function getById(int $eventRepetitionId);
 
     /**
      * Get the event first repetition
      *
-     * @param $eventId
+     * @param int $eventId
      *
      * @return EventRepetition
      */
-    public function getFirstByEventId($eventId);
+    public function getFirstByEventId(int $eventId);
 
     /**
      * To save event repetitions for create and update methods.

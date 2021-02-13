@@ -61,7 +61,7 @@ class OrganizerService
     /**
      * Return the organizer from the database
      *
-     * @param $organizerId
+     * @param int $organizerId
      *
      * @return \App\Models\Organizer
      */

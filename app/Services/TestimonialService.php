@@ -25,7 +25,7 @@ class TestimonialService
     /**
      * Return the testimonial from the database
      *
-     * @param $testimonialId
+     * @param int $testimonialId
      *
      * @return \App\Models\Testimonial
      */
