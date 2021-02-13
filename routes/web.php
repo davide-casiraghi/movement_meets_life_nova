@@ -39,6 +39,7 @@ use Spatie\Honeypot\ProtectAgainstSpam;
 
 Route::get('/', [ HomeController::class, 'index'])->name('home');
 Route::get('/blog', [PostController::class, 'blog'])->name('posts.blog');
+Route::get('/posts/{id}', [PostController::class, 'show'])->name('posts.show');
 
 
 Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
@@ -75,7 +76,6 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
         Route::get('/posts/create', [PostController::class, 'create'])->name('create');
         Route::post('/posts', [PostController::class, 'store'])->name('store');
         Route::delete('/posts/{id}', [PostController::class, 'destroy'])->name('destroy');
-        Route::get('/posts/{id}', [PostController::class, 'show'])->name('show');
     });
 
     // Tags
