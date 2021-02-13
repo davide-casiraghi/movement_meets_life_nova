@@ -4,8 +4,7 @@
     @lang('eventVenue.events_venue_management')
 @endsection
 
-@section('content')
-
+@section('buttons')
     @include('partials.forms.button',[
         'title' => 'Add venue',
         'url' => route('venues.create'),
@@ -16,6 +15,9 @@
         'kind' => 'primary',
         'target' => '_self',
     ])
+@endsection
+
+@section('content')
 
     @include('partials.venues.searchBar')
 

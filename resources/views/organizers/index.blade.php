@@ -4,8 +4,7 @@
     @lang('organizer.organizers_management')
 @endsection
 
-@section('content')
-
+@section('buttons')
     @include('partials.forms.button',[
         'title' => 'Add organizer',
         'url' => route('organizers.create'),
@@ -16,6 +15,9 @@
         'kind' => 'primary',
         'target' => '_self',
     ])
+@endsection
+
+@section('content')
 
     @include('partials.organizers.searchBar')
 

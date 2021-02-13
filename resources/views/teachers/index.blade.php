@@ -4,8 +4,7 @@
     @lang('teacher.teachers_management')
 @endsection
 
-@section('content')
-
+@section('buttons')
     @include('partials.forms.button',[
         'title' => 'Add teacher',
         'url' => route('teachers.create'),
@@ -16,6 +15,9 @@
         'kind' => 'primary',
         'target' => '_self',
     ])
+@endsection
+
+@section('content')
 
     @include('partials.teachers.searchBar')
 
