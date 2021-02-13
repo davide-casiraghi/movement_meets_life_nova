@@ -28,8 +28,8 @@ class PostFactory extends Factory
                 'it' => $this->faker->sentence($nbWords = 2, $variableNbWords = true),
             ],
             'intro_text' => [
-                'en' => $this->faker->sentence($nbWords = 15, $variableNbWords = true),
-                'it' => $this->faker->sentence($nbWords = 15, $variableNbWords = true),
+                'en' => $this->faker->text($maxNbChars = 300),
+                'it' => $this->faker->text($maxNbChars = 300),
             ],
             'body' => [
                 'en' => $this->faker->text($maxNbChars = 1000),

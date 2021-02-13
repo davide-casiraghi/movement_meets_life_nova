@@ -18,13 +18,13 @@
 
 
         <div class="px-4 py-2 mt-12 grid gap-5 max-w-lg mx-auto lg:grid-cols-3 lg:max-w-none">
-            @foreach($posts as $post)
+            @foreach($lastPosts as $post)
                 @include('partials.pages.home.blog.block_post')
             @endforeach
         </div>
 
         <div class="text-center mt-6">
-            <a href="{{ route('posts.index') }}" class="font-medium rounded-md text-white px-4 py-2 bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:ring-indigo active:bg-indigo-700 transition ease-in-out duration-150">All blog articles</a>
+            <a href="{{ route('posts.blog') }}" class="font-medium rounded-md text-white px-4 py-2 bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:ring-indigo active:bg-indigo-700 transition ease-in-out duration-150">All blog articles</a>
         </div>
     </div>
 </div>

@@ -7,17 +7,16 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    private $postService;
+    private PostService $postService;
 
     /**
      * Create a new controller instance.
      *
-     * @return void
+     * @param \App\Services\PostService $postService
      */
     public function __construct(
         PostService $postService
-    )
-    {
+    ) {
         $this->postService = $postService;
     }
 
@@ -30,8 +29,10 @@ class HomeController extends Controller
     {
         $posts = $this->postService->getPosts();
 
+        $lastPosts = $this->postService->getPosts(3);
+
         return view('home', [
-            'posts' => $posts,
+            'lastPosts' => $lastPosts,
         ]);
     }
 }

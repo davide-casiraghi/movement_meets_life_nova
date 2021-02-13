@@ -178,7 +178,7 @@ class PostController extends Controller
      */
     public function blog()
     {
-        $posts = $this->postService->getPosts(20);
+        $posts = $this->postService->getPosts(5);
 
         return view('posts.blog', [
             'posts' => $posts,
