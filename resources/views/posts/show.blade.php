@@ -32,10 +32,21 @@
 
     <div class="text-lg max-w-prose mx-auto mb-6 mt-8 sm:mt-32 px-10">
         @if(!$post->hasMedia('introimage'))
-            <h2 class="mt-2 mb-8 text-3xl leading-8 font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-10">{{ $post->title }}</h2>
+            <h2 class="mt-2 mb-8 text-3xl leading-8 font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-10">
+                {{ $post->title }}
+            </h2>
 
             <div class="my-10">
-            @include('partials.post.userDateAndReadingTime', ['textColor' => 'text-gray-400'])
+                @include('partials.post.userDateAndReadingTime', ['textColor' => 'text-gray-400'])
+            </div>
+
+            <div class="text-sm leading-5 font-medium text-cyan-600 mb-6">
+                @foreach($post->tags()->get() as $tag)
+                    <a href="{{ route('tags.show',$tag->id) }}" class="hover:underline mr-1">
+                        {{--{{$post->post_category->name}}--}}
+                        #{{$tag->tag}}
+                    </a>
+                @endforeach
             </div>
 
             <h3 class="text-lg leading-7 text-gray-500 mb-5">{!! $post->intro_text !!}</h3>

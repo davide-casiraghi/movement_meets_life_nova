@@ -5,14 +5,14 @@
     </div>
     <div class="flex-1 bg-white p-6 flex flex-col justify-between">
         <div class="flex-1">
-            <p class="text-sm leading-5 font-medium text-indigo-600">
+            <div class="text-sm leading-5 font-medium text-cyan-600">
                 @foreach($post->tags()->get() as $tag)
-                <a href="{{ route('tags.show',$tag->id) }}" class="hover:underline">
+                <a href="{{ route('tags.show',$tag->id) }}" class="hover:underline mr-1">
                     {{--{{$post->post_category->name}}--}}
                     #{{$tag->tag}}
                 </a>
                 @endforeach
-            </p>
+            </div>
 
             <a href="{{ route('posts.show',$post->id) }}" class="block">
                 <h3 class="mt-2 text-xl leading-7 font-semibold text-gray-900">
