@@ -4,7 +4,7 @@
 
     <div class="max-w-4xl mx-auto px-8 sm:px-0">
 
-        <div class="border-gray-400 border-solid border-0 box-border leading-6 pt-6 pb-8 text-black">
+        <div class="leading-6 pt-6 pb-8 text-black border-b border-solid border-gray-200">
             <h1 class="sm:text-4xl md:text-6xl border-solid box-border font-extrabold text-3xl m-0 text-gray-900 tracking-tight mb-2">
                 Latest
             </h1>
@@ -13,11 +13,13 @@
             </p>
         </div>
 
-        @forelse($posts as $post)
-            @include('partials.pages.blog.post')
-        @empty
-            No posts found
-        @endforelse
+        <ul class="divide-y divide-gray-200 border-b border-solid border-gray-200 mb-8">
+            @forelse($posts as $post)
+                @include('partials.pages.blog.post')
+            @empty
+                <li>No posts found</li>
+            @endforelse
+        </ul>
 
         <div class="my-5">
             {{ $posts->links() }}
