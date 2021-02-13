@@ -1,16 +1,16 @@
 <div class="">
     <div class="container max-w-4xl mx-auto px-8 lg:px-0 relative header-image-sm sm:header-image xl:no-header-image">
-        <nav class="grid grid-cols-1 md:grid-cols-2 text-cyan-600 pt-8 pb-6">  {{--flex justify-between--}}
+        <nav class="grid sm:grid sm:grid-cols-6 text-cyan-600 pt-8 pb-6">  {{--flex justify-between--}}
             {{--<div class="font-brand text-3xl">
                 <a href="/">MML</a>
             </div>--}}
-            <div class="font-medium z-10 block text-center sm:text-left font-semibold mb-4 sm:mb-0">
+            <div class="sm:col-span-2 font-medium z-10 block text-center sm:text-left font-semibold mb-4 sm:mb-0">
                 <a href="/" class="pr-8">
                     <svg class="w-6 h-6 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
                 </a>
                 <a href="/aboutMe" class="pr-8">About me</a>
             </div>
-            <div class="font-medium z-10 block text-center sm:text-right font-semibold">
+            <div class="sm:col-span-4 font-medium z-10 block text-center sm:text-right font-semibold">
                 <a href="/treatments" class="pr-8">Treatments</a>
                 <a href="/next_events" class="pr-8">Events</a>
                 <a href="/blog" class="pr-8">Blog</a>
