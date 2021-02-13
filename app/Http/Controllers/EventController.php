@@ -208,4 +208,26 @@ class EventController extends Controller
 
         return $this->eventService->getMonthlySelectOptions($date);
     }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\View\View
+     */
+    public function nextEvents(): View
+    {
+        $searchParameters = [];
+        $searchParameters['startDate'] = '13/2/2021';
+
+        $events = $this->eventService->getEvents(20, $searchParameters);
+        $eventsCategories = $this->eventCategoryService->getEventCategories();
+        $statuses = Event::PUBLISHING_STATUS;
+
+        return view('events.next', [
+            'events' => $events,
+            'eventsCategories' => $eventsCategories,
+            'searchParameters' => $searchParameters,
+            'statuses' => $statuses,
+        ]);
+    }
 }

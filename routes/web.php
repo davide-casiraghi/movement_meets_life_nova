@@ -40,7 +40,7 @@ use Spatie\Honeypot\ProtectAgainstSpam;
 Route::get('/', [ HomeController::class, 'index'])->name('home');
 Route::get('/blog', [PostController::class, 'blog'])->name('posts.blog');
 Route::get('/posts/{id}', [PostController::class, 'show'])->name('posts.show');
-
+Route::get('/next_events', [EventController::class, 'nextEvents'])->name('events.next');
 
 Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
     Route::name('dashboard.')->group(function () {

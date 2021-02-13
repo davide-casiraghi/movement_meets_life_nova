@@ -12,7 +12,7 @@
             </div>
             <div class="font-medium z-10 block text-center sm:text-right font-semibold">
                 <a href="/treatments" class="pr-8">Treatments</a>
-                <a href="/events" class="pr-8">Events</a>
+                <a href="/next_events" class="pr-8">Events</a>
                 <a href="/blog" class="pr-8">Blog</a>
             </div>
         </nav>
