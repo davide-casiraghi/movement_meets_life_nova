@@ -58,6 +58,11 @@ class EventServiceTest extends TestCase
         $this->event1 = Event::factory()->create()->setStatus('published');
         $this->event2 = Event::factory()->create()->setStatus('published');
         $this->event3 = Event::factory()->create()->setStatus('published');
+
+        EventRepetition::factory()->create([
+           'event_id' => $this->event1->id,
+        ]);
+
     }
 
     /** @test */
@@ -91,7 +96,7 @@ class EventServiceTest extends TestCase
     }
 
     /** @test */
-    public function it_should_update_an_event()
+    public function itShouldUpdateAnEvent()
     {
         $request = new EventStoreRequest();
         $data = [
@@ -121,7 +126,7 @@ class EventServiceTest extends TestCase
     }
 
     /** @test */
-    public function it_should_create_a_weekly_event()
+    public function itShouldCreateAWeeklyEvent()
     {
         $user = $this->authenticateAsUser();
 
@@ -185,7 +190,7 @@ class EventServiceTest extends TestCase
     }
 
     /** @test */
-    public function it_should_create_a_monthly_event()
+    public function itShouldCreateAMonthlyEvent()
     {
         $user = $this->authenticateAsUser();
 
@@ -241,7 +246,7 @@ class EventServiceTest extends TestCase
     }
 
     /** @test */
-    public function it_should_return_event_by_id()
+    public function itShouldReturnEventById()
     {
         $event = $this->eventService->getById($this->event1->id);
 
@@ -249,7 +254,7 @@ class EventServiceTest extends TestCase
     }
 
     /** @test */
-   public function it_should_return_all_events()
+    public function itShouldReturnAllEvents()
     {
         $events = $this->eventService->getEvents(20);
         $this->assertCount(3, $events);
@@ -281,7 +286,7 @@ class EventServiceTest extends TestCase
     }*/
 
     /** @test */
-    public function it_should_return_event_date_time_parameters()
+    public function itShouldReturnEventDateTimeParameters()
     {
         $event = $this->event1;
         $eventFirstRepetition = EventRepetition::first();
