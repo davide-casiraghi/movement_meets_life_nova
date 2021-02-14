@@ -14,6 +14,7 @@ use App\Http\Controllers\PostCommentController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ContactUsFormController;
 use App\Http\Controllers\QuoteController;
+use App\Http\Controllers\StaticPageController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\TeamController;
@@ -41,6 +42,8 @@ Route::get('/', [ HomeController::class, 'index'])->name('home');
 Route::get('/blog', [PostController::class, 'blog'])->name('posts.blog');
 Route::get('/posts/{id}', [PostController::class, 'show'])->name('posts.show');
 Route::get('/next_events', [EventController::class, 'nextEvents'])->name('events.next');
+Route::get('/treatments-ilan-lev-method', [StaticPageController::class, 'treatments'])->name('staticPages.treatments');
+
 
 Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
     Route::name('dashboard.')->group(function () {

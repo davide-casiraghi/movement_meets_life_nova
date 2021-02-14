@@ -11,9 +11,9 @@
                 <a href="/aboutMe" class="pr-8">About me</a>
             </div>
             <div class="sm:col-span-4 font-medium z-10 block text-center sm:text-right font-semibold">
-                <a href="/treatments" class="pr-8">Treatments</a>
-                <a href="/next_events" class="pr-8">Events</a>
-                <a href="/blog" class="pr-8">Blog</a>
+                <a href="{{route('staticPages.treatments')}}" class="pr-8">Treatments</a>
+                <a href="{{route('events.next')}}" class="pr-8">Events</a>
+                <a href="{{route('posts.blog')}}" class="pr-8">Blog</a>
             </div>
         </nav>
 
