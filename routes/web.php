@@ -43,7 +43,7 @@ Route::get('/blog', [PostController::class, 'blog'])->name('posts.blog');
 Route::get('/posts/{id}', [PostController::class, 'show'])->name('posts.show');
 Route::get('/next_events', [EventController::class, 'nextEvents'])->name('events.next');
 Route::get('/treatments-ilan-lev-method', [StaticPageController::class, 'treatments'])->name('staticPages.treatments');
-
+Route::get('/events/{id}', [EventController::class, 'show'])->name('events.show');
 
 Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
     Route::name('dashboard.')->group(function () {
@@ -144,7 +144,6 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
         Route::get('/events/create', [EventController::class, 'create'])->name('create');
         Route::post('/events', [EventController::class, 'store'])->name('store');
         Route::delete('/events/{id}', [EventController::class, 'destroy'])->name('destroy');
-        Route::get('/events/{id}', [EventController::class, 'show'])->name('show');
 
         Route::get('/event/monthSelectOptions/', [EventController::class, 'calculateMonthlySelectOptions'])->name('monthSelectOptions');  // To populate the event repeat by month options
     });
