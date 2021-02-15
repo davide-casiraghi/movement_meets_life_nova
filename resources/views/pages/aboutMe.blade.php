@@ -15,7 +15,7 @@
         <h2>Web development</h2>
 
         <p class="mb-3">
-           I work at Agiledrop as a PHP backend developer with Laravel and Drupal.<br>
+           I work at <a href="https://www.agiledrop.com/" class="textLink" target="_blank">Agiledrop</a> as a PHP backend developer with Laravel and Drupal.<br>
             I'm an active member of <a href="https://stackoverflow.com/users/10075394/davide-casiraghi" class="textLink">Stackoverflow</a>.
         </p>
 
@@ -31,8 +31,8 @@
 
                         Education: Bachelor of Science (Informatics)<br>
 
-                        Degree
-                        2006 (BSc) in Computer Science - Università Degli Studi di Milano Bicocca, Milano Italia (www.unimib.it)",
+                        <b>Degree</b>
+                        2006 (BSc) in Computer Science at <a href='https://www.www.unimib.it' class='textLink' target='_blank'>Università Degli Studi di Milano Bicocca</a>, Milano Italia.",
                     ],
                 ]
             ])
