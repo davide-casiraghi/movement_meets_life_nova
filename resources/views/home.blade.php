@@ -21,7 +21,7 @@
 
     @include('partials.blocks.rightImageCallToAction', [
             'title' => 'Contact Improvisation',
-            'body' => 'Deploy your mvp in minutes, not days. WT offers you a a wide selection swapable sections for your landing page.You are going to have fun building it, I did..',
+            'body' => 'Contact Improvisation dance is liberating, creative and fun. It’s about exploring movement, balance, weight, physical contact and communication, involving two or more persons at the time.',
             'button_text' => 'More about CI',
             'button_url' => route('staticPages.contactImprovisation'),
             'image_url' => 'https://dummyimage.com/720x600/F3F4F7/8693ac',
