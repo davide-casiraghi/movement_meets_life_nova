@@ -8,7 +8,6 @@
 
 @section('content')
 
-
     <div>
         Reconnect with your body and your feelings. <br>
         Release tensions, find home in your body.<br><br>
