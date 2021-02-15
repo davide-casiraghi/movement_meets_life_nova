@@ -26,10 +26,8 @@
         </div>
         
         <div class="">
-            @include('partials.contents.h2',[
-                'title'=>'Contact Classes in Ljubljana',
-                'color'=>'primary-600'
-            ])
+
+            <h2>Contact Classes in Ljubljana</h2>
 
             They will start at the end of September and will be co-taught with Daniele Mariuz. <br>
             Further info is coming soon. <br><br>
@@ -40,10 +38,8 @@
         </div>
         
         <div class="">
-            @include('partials.contents.h2',[
-                'title'=>'Contact Improvisation workshops in Trieste',
-                'color'=>'primary-600'
-            ])
+
+            <h2>Contact Improvisation workshops in Trieste</h2>
 
             For further info, you have a look at www.dancinghouse.it or contact Marta Zacchingna.<br>
             The first workshop will be on 20 September 2020.<br><br>
@@ -52,35 +48,30 @@
         </div>
         
         <div class="">
+
+            <h2>One to one classes</h2>
             
-            @include('partials.contents.h2',[
-                'title'=>'One to one classes',
-                'color'=>'primary-600'
-            ])
-            
-On request, I can offer one to one CI classes focused on your specific needs.
+            On request, I can offer one to one CI classes focused on your specific needs.
         </div>
-        
-        <div class="">
-            
-            @include('partials.contents.h2',[
-                'title'=>'Resources',
-                'color'=>'primary-600'
+
+        @include('partials.contents.accordion',[
+                'accordionNumber' => '1',
+                'elements' => [
+                    [
+                        'title' => 'Resources',
+                        'text' => "<h3>Guidelines for the jams</h3>
+
+            These are the <a href='https://goo.gl/qbwzjY' class='textLink' target='_blank'>guidelines</a> that we use on Sunday Contact Jams in Slovenia.",
+                    ],
+                ]
             ])
 
-            @include('partials.contents.h3',[
-                'title'=>'Guidelines for the jams',
-                'color'=>'gray-600'
-            ])
 
-            These are the <a href="https://goo.gl/qbwzjY" class="textLink" target="_blank">guidelines</a> that we use on Sunday Contact Jams in Slovenia.
-        </div>
+
         
         <div class="">
-            @include('partials.contents.h3',[
-                'title'=>'Guidelines for Musicians during the jams',
-                'color'=>'gray-600'
-            ])
+
+            <h3>Guidelines for Musicians during the jams</h3>
 
             These ideas have been written to clarify what are the needs of the dancers during a Contact Improvisation Jam.
             <br>
