@@ -24,14 +24,14 @@
                 'elements' => [
                     [
                         'title' => 'My Dev stack',
-                        'text' => "I'm a senior web developer, with more than ten years of experience.<br>
-                        Currently, I am exploring Drupal 8, Laravel 8, Tailwind CSS, PhpUnit, Flutter.<br><br>
+                        'text' => "I'm a <b>senior web developer</b>, with more than ten years of experience.<br><br>
+                        Currently, I am exploring Drupal 8, Laravel 8, Laravel Livewire, Tailwind CSS, PhpUnit.<br><br>
 
                         My two other big passions that nourish my creativity are dancing and cooking.<br><br>
 
-                        Education: Bachelor of Science (Informatics)<br>
+                        <b>Education:</b> Bachelor of Science (Informatics).<br><br>
 
-                        <b>Degree</b>
+                        <b>Degree:</b>
                         2006 (BSc) in Computer Science at <a href='https://www.www.unimib.it' class='textLink' target='_blank'>Università Degli Studi di Milano Bicocca</a>, Milano Italia.",
                     ],
                 ]
