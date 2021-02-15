@@ -54,7 +54,7 @@
                     class="border-solid box-border font-medium text-base leading-normal text-left"
                     style="--space-y-reverse:0; list-style: outside none none; quotes: auto;"
             >
-                <a href="{{route('posts.show', $post->id)}}" class="bg-transparent border-gray-400 border-0 cursor-pointer leading-6 text-cyan-600 hover:text-cyan-700" aria-label='Read "Welcoming David Luhr to Tailwind Labs"' style="text-decoration: inherit; list-style: outside none none; quotes: auto;">
+                <a href="{{route('posts.show', $post->id)}}" class="bg-transparent border-gray-400 border-0 cursor-pointer leading-6 text-primary-600 hover:text-primary-700" aria-label='Read "Welcoming David Luhr to Tailwind Labs"' style="text-decoration: inherit; list-style: outside none none; quotes: auto;">
                     Read more →
                 </a>
             </div>

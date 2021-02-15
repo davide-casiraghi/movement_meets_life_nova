@@ -134,7 +134,7 @@
                     Subscribe to our newsletter
                 </h4>
                 <p class="text-base leading-6 text-gray-300">
-                    The latest news, articles, and resources, sent to your inbox weekly.
+                    The latest news, articles, and resources, sent to your inbox every three months.
                 </p>
             </div>
             <form class="sm:flex sm:max-w-md">

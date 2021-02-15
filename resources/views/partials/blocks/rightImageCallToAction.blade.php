@@ -28,14 +28,22 @@
             {{-- text-3xl font-extrabold tracking-tight text-gray-900 --}}
             {{-- text-2xl font-bold tracking-tighter text-left text-white lg:text-5xl title-font --}}
 
-            <h1 class="mb-8 text-2xl font-bold tracking-tighter text-center text-blue-800 lg:text-left lg:text-3xl title-font">
+            <h1 class="mb-8 text-2xl font-bold tracking-tighter text-center text-primary-800 lg:text-left lg:text-3xl title-font">
                 {{$title}}
             </h1>
             <p class="mb-8 leading-relaxed text-center text-lg text-gray-500 lg:text-left lg:text-1xl">
                 {{$body}}
             </p>
             <div class="flex justify-center">
-                <a href={{$button_url}} class="flex items-center px-4 py-2 mt-auto font-semibold text-white transition duration-500 ease-in-out transform rounded-lg shadow-xl bg-gradient-to-r from-blue-700 hover:from-blue-600 to-blue-600 hover:to-blue-700 hover:-translate-y-1 hover:scale-110 focus:shadow-outline focus:outline-none">
+                <a href={{$button_url}}
+                    class="flex items-center px-4 py-2 mt-auto
+                    font-semibold text-white
+                    transition duration-150 ease-in-out 
+                    rounded-md shadow-xl
+                    bg-primary-600 hover:bg-primary-500
+                    hover:-translate-y-1 hover:scale-110
+                    focus:outline-none focus:border-primary-700 focus:ring-primar"
+                    >
                      {{$button_text}}
                 </a>
             </div>

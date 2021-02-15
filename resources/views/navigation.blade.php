@@ -1,6 +1,6 @@
 <div class="">
     <div class="container max-w-4xl mx-auto px-8 lg:px-0 relative header-image-sm sm:header-image xl:no-header-image">
-        <nav class="grid sm:grid sm:grid-cols-6 text-cyan-600 pt-8 pb-6">  {{--flex justify-between--}}
+        <nav class="grid sm:grid sm:grid-cols-6 text-primary-600 pt-8 pb-6">  {{--flex justify-between--}}
             {{--<div class="font-brand text-3xl">
                 <a href="/">MML</a>
             </div>--}}
