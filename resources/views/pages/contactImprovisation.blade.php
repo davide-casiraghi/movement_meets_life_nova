@@ -73,15 +73,7 @@ On request, I can offer one to one CI classes focused on your specific needs.
                 'color'=>'gray-600'
             ])
 
-            These are the 
-            @include('partials.contents.link',[
-                'text'=> 'guidelines',
-                'url'=> 'https://goo.gl/qbwzjY',
-                'color'=> 'primary-600',
-                'hoverColor'=> 'primary-700',
-                'target'=> '_blank'
-            ])
-            that we use on Sunday Contact Jams in Slovenia.
+            These are the <a href="https://goo.gl/qbwzjY" class="textLink" target="_blank">guidelines</a> that we use on Sunday Contact Jams in Slovenia.
         </div>
         
         <div class="">
@@ -96,13 +88,7 @@ On request, I can offer one to one CI classes focused on your specific needs.
             <br>
             Each influencing the other and vice versa. <br>
 
-            @include('partials.contents.link',[
-                'text'=> 'Guidelines for musicians >',
-                'url'=> 'https://goo.gl/gFVAB4',
-                'color'=> 'primary-600',
-                'hoverColor'=> 'primary-700',
-                'target'=> '_blank'
-            ])
+            <a href="https://goo.gl/gFVAB4" class="textLink" target="_blank">Guidelines for musicians ></a>
 
         </div>
 
