@@ -38,7 +38,7 @@
                 <a href={{$button_url}}
                     class="flex items-center px-4 py-2 mt-auto
                     font-semibold text-white
-                    transition duration-150 ease-in-out 
+                    transition duration-150 ease-in-out
                     rounded-md shadow-xl
                     bg-primary-600 hover:bg-primary-500
                     hover:-translate-y-1 hover:scale-110

@@ -141,7 +141,7 @@
                 <label for="emailAddress" class="sr-only">Email address</label>
                 <input type="email" id="emailAddress" required class="appearance-none min-w-0 w-full bg-white border border-transparent rounded-md py-2 px-4 text-base leading-6 text-gray-900 placeholder-gray-500 focus:outline-none focus:border-blue-300 focus:ring-blue focus:placeholder-gray-400 transition duration-150 ease-in-out sm:max-w-xs" placeholder="Enter your email">
                 <div class="mt-3 rounded-md sm:mt-0 sm:ml-3 sm:flex-shrink-0">
-                    <button type="submit" class="w-full bg-indigo-500 border border-transparent rounded-md py-2 px-4 flex items-center justify-center text-base leading-6 font-medium text-white hover:bg-indigo-400 focus:outline-none focus:border-indigo-600 focus:ring-indigo active:bg-indigo-600 transition duration-150 ease-in-out">
+                    <button type="submit" class="w-full bg-primary-500 border border-transparent rounded-md py-2 px-4 flex items-center justify-center text-base leading-6 font-medium text-white hover:bg-primary-400 focus:outline-none focus:border-primary-600 focus:ring-primary active:bg-primary-600 transition duration-150 ease-in-out">
                         Subscribe
                     </button>
                 </div>
