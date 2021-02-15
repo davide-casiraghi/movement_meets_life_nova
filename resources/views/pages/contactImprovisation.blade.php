@@ -54,34 +54,31 @@
             On request, I can offer one to one CI classes focused on your specific needs.
         </div>
 
+        <h2>
+            Resources
+        </h2>
+
         @include('partials.contents.accordion',[
                 'accordionNumber' => '1',
                 'elements' => [
                     [
-                        'title' => 'Resources',
-                        'text' => "<h3>Guidelines for the jams</h3>
+                        'title' => 'Guidelines for the jams',
+                        'text' => "
+                                    These are the <a href='https://goo.gl/qbwzjY' class='textLink' target='_blank'>guidelines</a> that we use on Sunday Contact Jams in Slovenia.",
+                    ],
+                    [
+                        'title' => 'Guidelines for Musicians during the jams',
+                        'text' => "
+                                    These ideas have been written to clarify what are the needs of the dancers during a Contact Improvisation Jam.
+                                    <br>
+                                    The musicians are books to experiment spontaneously with musical forms and ideas to seek, during the dance, a continuous symbiotic exchange with the dancers.
+                                    <br>
+                                    Each influencing the other and vice versa. <br>
 
-            These are the <a href='https://goo.gl/qbwzjY' class='textLink' target='_blank'>guidelines</a> that we use on Sunday Contact Jams in Slovenia.",
+                                    <a href='https://goo.gl/gFVAB4' class='textLink' target='_blank'>Guidelines for musicians ></a>",
                     ],
                 ]
             ])
-
-
-
-        
-        <div class="">
-
-            <h3>Guidelines for Musicians during the jams</h3>
-
-            These ideas have been written to clarify what are the needs of the dancers during a Contact Improvisation Jam.
-            <br>
-            The musicians are books to experiment spontaneously with musical forms and ideas to seek, during the dance, a continuous symbiotic exchange with the dancers.
-            <br>
-            Each influencing the other and vice versa. <br>
-
-            <a href="https://goo.gl/gFVAB4" class="textLink" target="_blank">Guidelines for musicians ></a>
-
-        </div>
 
     </div>
 

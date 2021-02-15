@@ -28,9 +28,9 @@
             {{-- text-3xl font-extrabold tracking-tight text-gray-900 --}}
             {{-- text-2xl font-bold tracking-tighter text-left text-white lg:text-5xl title-font --}}
 
-            <h1 class="mb-8 text-2xl font-bold tracking-tighter text-center text-primary-800 lg:text-left lg:text-3xl title-font">
+            <div class="mb-8 text-2xl font-bold tracking-tighter text-center text-primary-800 lg:text-left lg:text-3xl title-font">
                 {{$title}}
-            </h1>
+            </div>
             <p class="mb-8 leading-relaxed text-center text-lg text-gray-500 lg:text-left lg:text-1xl">
                 {{$body}}
             </p>

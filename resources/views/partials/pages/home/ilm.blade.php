@@ -6,9 +6,9 @@
             <div class="text-sm font-semibold uppercase tracking-wide text-gray-500 sm:text-base lg:text-sm xl:text-base">
                 ILAN LEV METHOD
             </div>
-            <h2 class="mt-1 text-4xl tracking-tight leading-10 font-brand text-gray-900 sm:leading-none sm:text-6xl lg:text-4xl xl:text-5xl">
+            <div class="mt-1 text-4xl tracking-tight leading-10 font-brand text-gray-900 sm:leading-none sm:text-6xl lg:text-4xl xl:text-5xl">
                 A revolutionary form of <span class="text-primary-600">hands-on bodywork</span> that addresses body aches, pains, and movement imbalances
-            </h2>
+            </div>
             <p class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
                 Through bodywork we can get an external support to address this situations and to allow our body to find a new equilibrium and alignment free from tensions.
             </p>
