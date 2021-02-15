@@ -1,4 +1,4 @@
-<div class="bg-gray-100 flex flex-col mb-8">
+<div class="bg-gray-100 flex flex-col mb-8 mx-10 sm:mx-0">
     <div class="relative py-3 max-w-xl mx-auto">
         <h3 class="text-3xl text-center text-gray-700 font-bold">Quote of the day</h3>
         @isset($quote)
