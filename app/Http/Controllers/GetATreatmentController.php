@@ -8,13 +8,14 @@ use Illuminate\Http\Request;
 class GetATreatmentController extends Controller
 {
     // Show Contact Form
-    public function show(Request $request) {
+    public function create(Request $request)
+    {
         return view('forms.getATreatment');
     }
 
     // Store Contact Form data
-    public function store(GetATreatmentStoreRequest $request) {
-
+    public function store(GetATreatmentStoreRequest $request)
+    {
         //  Store data in database
         Contact::create($request->all());
 

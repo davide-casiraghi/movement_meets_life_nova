@@ -38,6 +38,7 @@ use Spatie\Honeypot\ProtectAgainstSpam;
 |
 */
 
+// Guest routes
 Route::get('/', [ HomeController::class, 'index'])->name('home');
 Route::get('/blog', [PostController::class, 'blog'])->name('posts.blog');
 Route::get('/posts/{id}', [PostController::class, 'show'])->name('posts.show');
@@ -45,6 +46,11 @@ Route::get('/next_events', [EventController::class, 'nextEvents'])->name('events
 Route::get('/treatments-ilan-lev-method', [StaticPageController::class, 'treatments'])->name('staticPages.treatments');
 Route::get('/contact-improvisation', [StaticPageController::class, 'contactImprovisation'])->name('staticPages.contactImprovisation');
 Route::get('/events/{id}', [EventController::class, 'show'])->name('events.show');
+
+Route::get('/getATreatment', [GetATreatmentController::class, 'create'])->name('getATreatment.create');
+Route::post('/getATreatment', [GetATreatmentController::class, 'store'])->name('getATreatment.store');
+
+
 
 Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
     Route::name('dashboard.')->group(function () {
@@ -205,10 +211,6 @@ Route::get('glossaryTerms/{glossaryTermId}', [ GlossaryController::class, 'show'
 // Contact form
 Route::get('/contact', [ContactUsFormController::class, 'index']);
 Route::post('/contact', [ContactUsFormController::class, 'ContactUsForm'])->name('contact.store');
-
-// Get a treatment form
-Route::get('/getATreatment', [GetATreatmentController::class, 'show']);
-Route::post('/getATreatment', [GetATreatmentController::class, 'store'])->name('contact.store');
 
 
 // Pages

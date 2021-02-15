@@ -14,12 +14,12 @@
             </p>
             <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                 <div class="rounded-md shadow">
-                    <a href="#" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-cyan-600 hover:bg-cyan-500 focus:outline-none focus:border-cyan-700 focus:ring-cyan transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10">
+                    <a href="{{route('getATreatment.create')}}" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-cyan-600 hover:bg-cyan-500 focus:outline-none focus:border-cyan-700 focus:ring-cyan transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10">
                         Get a treatment
                     </a>
                 </div>
                 <div class="mt-3 sm:mt-0 sm:ml-3">
-                    <a href="#" class="w-full flex items-center justify-center px-8 py-3 border border-cyan-600 text-base leading-6 font-medium rounded-md text-cyan-700 bg-white hover:text-cyan-600 hover:bg-cyan-50 focus:outline-none focus:ring-cyan focus:border-cyan-300 transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10">
+                    <a href="{{route('staticPages.treatments')}}" class="w-full flex items-center justify-center px-8 py-3 border border-cyan-600 text-base leading-6 font-medium rounded-md text-cyan-700 bg-white hover:text-cyan-600 hover:bg-cyan-50 focus:outline-none focus:ring-cyan focus:border-cyan-300 transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10">
                         More info about ILM
                     </a>
                 </div>
