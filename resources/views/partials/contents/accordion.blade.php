@@ -25,12 +25,12 @@ Include like this:
 
 --}}
 
-<div class="textHasAccordion accordion border-t border-solid border-gray-500">
+<div class="textHasAccordion accordion border-t border-solid border-gray-500 my-8">
     @foreach($elements as $element)
 
         <div class='slide w-full'>
             <input type='checkbox' name='panel' id='panel-{{$accordionNumber}}{{$loop->iteration}}' class='hidden'>
-            <label for='panel-{{$accordionNumber}}{{$loop->iteration}}' class='relative block border-b border-solid border-gray-500 text-purple-600 p-4'>
+            <label for='panel-{{$accordionNumber}}{{$loop->iteration}}' class='relative block border-b border-solid border-gray-500 font-semibold p-4'>
                 {{$element['title']}}
             </label>
             <div class='accordion__content overflow-hidden bg-grey-lighter'>

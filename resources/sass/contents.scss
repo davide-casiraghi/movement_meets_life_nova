@@ -5,14 +5,14 @@
         }
     }
     h1{
-        @apply text-xl sm:text-4xl md:text-6xl;
+        @apply text-2xl sm:text-4xl md:text-5xl;
         @apply text-gray-900 font-extrabold;
         @apply border-solid box-border;
         @apply tracking-tight;
         @apply mt-16 mb-10 sm:mb-16;
     }
     h2{
-        @apply text-xl text-primary-600 font-extrabold tracking-tight sm:text-2xl mt-8 mb-4;
+        @apply text-xl text-primary-600 font-extrabold tracking-tight sm:text-2xl mt-14 mb-4;
     }
     h3{
         @apply text-lg text-gray-600 font-extrabold tracking-tight sm:text-xl mt-8 mb-4;

@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div class="text-lg max-w-prose mx-auto mb-6 mt-6">
+    <div class="text-lg max-w-prose mx-auto px-8 lg:px-0 mb-6 mt-6">
 
         <h1>About me</h1>
 
@@ -40,16 +40,16 @@
         <h2>Movement</h2>
 
         <p>
-            He is currently giving Contact Improvisation regular classes and Ilan Lev method bodyworks in Ljubljana.<br><br>
+            He is currently giving <b>Contact Improvisation</b> regular classes and <b>Ilan Lev method</b> bodyworks in Ljubljana.<br><br>
         </p>
 
         <p class="mb-3">
             Member of the <b>Round Robin Project</b> that has the aim to create tools for global networking of the worldwide Contact Improvisation community. He is web designer, developer and technical manager of the
-            <a class="textLink" href="https://www.ciglobalcalendar.net">Contact Improvisation Global Calendar (CIGG)</a><br>
+            <a class="textLink" target="_self" href="https://www.ciglobalcalendar.net">Contact Improvisation Global Calendar (CIGG).</a><br>
             Previously from 2010 to 2018 webmaster of the <b>Contact Improvisation Italian website</b> - www.contactimprov.it (now closed)
         </p>
         <p class="mb-3">
-            Passionate free-diver and monofin swimmer he is researching about deep water CI dances and he is co-organizer of <a class="textLink" href="https://deepwaterdancefestival.altervista.org">Deep Water Dance Festival 2018</a>
+            Passionate free-diver and monofin swimmer he is researching about deep water CI dances and he has been co-organizer of <a class="textLink" href="https://deepwaterdancefestival.altervista.org">Deep Water Dance Festival 2018</a>
         </p>
 
 
@@ -97,19 +97,18 @@
                         </li>
                         <li class='pb-2'>
                             <h4 class='text-xl font-bold mb-1'>Yoga</h4>
-                            2016 - RYT200 Yoga Alliance Certification @ Hari Om - Cascina Bellaria (www.hari-om.it)
+                            2016 - RYT200 Yoga Alliance Certification @ <a class='textLink' href='https://www.hari-om.it' target='_self'>Hari Om</a> - Cascina Bellaria.
                         </li>
                         <li class='pb-2'>
                             <h4 class='text-xl font-bold mb-1'>Free Diving</h4>
-                            2015 - 2016 Freediving certification FIPSAS PAp1 - Monofin Freediving certification FIPSAS PApm (www.fipsas.it)
+                            2015 - 2016 Freediving certification <a class='textLink' href='https://www.fipsas.it' target='_self'>FIPSAS</a> PAp1 - Monofin Freediving certification FIPSAS PApm.
                         </li>
                         <li class='pb-2'>
                             <h4 class='text-xl font-bold mb-1'>Ilan Lev Method</h4>
-                            2017-2019 - Ilan Lev Method bodywork certification <br>
-                            2019 - Ilan Lev Method movement classes facilitator certification (www.ilanlev.org)
+                            2017-2019 - <a class='textLink' href='https://www.ilanlev.org' target='_self'>Ilan Lev Method</a> bodywork certification. <br><br>
+                            2019 - <a class='textLink' href='https://www.ilanlev.org' target='_self'>Ilan Lev Method</a> movement classes facilitator certification.
                         </li>
-                    </ul>
-                                ",
+                    </ul>",
                     ],
                 ]
             ])
