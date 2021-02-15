@@ -21,6 +21,8 @@ use App\Http\Controllers\TeamController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VenueController;
+use App\Http\Controllers\MediaController;
+
 use App\Models\Organizer;
 use App\Models\Teacher;
 use Illuminate\Support\Facades\Route;
@@ -193,6 +195,13 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
         Route::get('/insights/{id}', [InsightController::class, 'show'])->name('show');
         Route::delete('/insights/{id}', [InsightController::class, 'destroy'])->name('destroy');
     });
+    
+    // Medias
+    Route::name('medias.')->group(function () {
+        Route::get('/medias', [MediaController::class, 'index'])->name('index');
+    });
+    
+    
 
     Route::get('/search', [GlobalSearchController::class, 'index'])->name('globalSearch');
 });
