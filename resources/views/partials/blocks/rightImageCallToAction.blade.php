@@ -21,7 +21,7 @@
 
 @endswitch
 
-<section class="text-gray-700 body-font">
+<section class="text-gray-700 body-font {{$extraClasses}}">
     <div class="container flex flex-col items-center mx-auto lg:gap-y-16 md:gap-y-24 lg:gap-x-5 md:gap-x-20 {{$imageAlignmentClass}}">
         <div class="flex flex-col items-center w-full pt-0 mb-16 text-left lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 lg:mr-20 md:items-start md:text-left md:mb-0 lg:text-center">
 

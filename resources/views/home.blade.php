@@ -25,6 +25,7 @@
             'button_url' => route('staticPages.contactImprovisation'),
             'image_url' => 'https://dummyimage.com/720x600/F3F4F7/8693ac',
             'image_alignment' => 'left',
+            'extraClasses' => 'mt-5 md:mt-0 px-6 md:px-0',
     ])
 
     @include('partials.pages.home.blog.block')
