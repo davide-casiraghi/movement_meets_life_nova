@@ -1,9 +1,9 @@
 <?php
 
-
 namespace App\Repositories;
 
 use App\Models\Insight;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Config;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
@@ -12,8 +12,7 @@ class InsightRepository implements InsightRepositoryInterface
     public function getAll(
         int $recordsPerPage = null,
         array $searchParameters = null
-    )
-    {
+    ) {
         $query = Insight::orderBy('created_at', 'desc');
 
         if (!is_null($searchParameters)) {
@@ -91,4 +90,17 @@ class InsightRepository implements InsightRepositoryInterface
 
         return $insight;
     }
+
+    /**
+     * Get the last 5 Insights.
+     *
+     * @param int $numberOfInsights
+     *
+     * @return Collection
+     */
+    public function getLatest(int $numberOfInsights): Collection
+    {
+        return Insight::orderBy('created_at', 'desc')->take($numberOfInsights)->get();
+    }
+
 }

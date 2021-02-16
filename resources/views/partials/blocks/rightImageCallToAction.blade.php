@@ -21,16 +21,16 @@
 
 @endswitch
 
-<section class="text-gray-700 body-font">
+<section class="text-gray-700 body-font {{$extraClasses}}">
     <div class="container flex flex-col items-center mx-auto lg:gap-y-16 md:gap-y-24 lg:gap-x-5 md:gap-x-20 {{$imageAlignmentClass}}">
         <div class="flex flex-col items-center w-full pt-0 mb-16 text-left lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 lg:mr-20 md:items-start md:text-left md:mb-0 lg:text-center">
 
             {{-- text-3xl font-extrabold tracking-tight text-gray-900 --}}
             {{-- text-2xl font-bold tracking-tighter text-left text-white lg:text-5xl title-font --}}
 
-            <h1 class="mb-8 text-2xl font-bold tracking-tighter text-center text-primary-800 lg:text-left lg:text-3xl title-font">
+            <div class="mb-8 text-2xl font-bold tracking-tighter text-center text-primary-800 lg:text-left lg:text-3xl title-font">
                 {{$title}}
-            </h1>
+            </div>
             <p class="mb-8 leading-relaxed text-center text-lg text-gray-500 lg:text-left lg:text-1xl">
                 {{$body}}
             </p>

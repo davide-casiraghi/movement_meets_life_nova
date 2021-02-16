@@ -173,12 +173,15 @@
                         </div>
 
                         <div class="col-span-6 sm:col-span-3">
+                            @php
+                                $publishedOnFacebookOn = isset($insight->published_on_facebook_on) ? $insight->published_on_facebook_on->format('d/m/Y') : "";
+                            @endphp
                             @include('partials.forms.inputDatePicker',[
                                     'class' => 'datepicker all',
                                     'label' => __('views.post_date'),
                                     'placeholder' => __('general.select_date'),
-                                    'name' => 'created_at',
-                                    'value' => old('created_at', $insight->published_on_facebook_on->format('d/m/Y')),
+                                    'name' => 'published_on_facebook_on',
+                                    'value' => old('published_on_facebook_on', $publishedOnFacebookOn),
                                     'required' => false,
                                     'disabled' => true,
                                 ])
@@ -239,12 +242,15 @@
                         </div>
 
                         <div class="col-span-6 sm:col-span-3">
+                            @php
+                                $publishedOnTwitterOn = isset($insight->published_on_twitter_on) ? $insight->published_on_twitter_on->format('d/m/Y') : "";
+                            @endphp
                             @include('partials.forms.inputDatePicker',[
                                     'class' => 'datepicker all',
                                     'label' => __('views.post_date'),
                                     'placeholder' => __('general.select_date'),
-                                    'name' => 'created_at',
-                                    'value' => old('created_at', $insight->published_on_twitter_on->format('d/m/Y')),
+                                    'name' => 'published_on_twitter_on',
+                                    'value' => old('published_on_twitter_on', $publishedOnTwitterOn),
                                     'required' => false,
                                     'disabled' => true,
                                 ])
@@ -303,13 +309,17 @@
                                ])
                         </div>
 
+
                         <div class="col-span-6 sm:col-span-3">
+                            @php
+                                $publishedOniInstagramOn = isset($insight->published_on_instagram_on) ? $insight->published_on_instagram_on->format('d/m/Y') : "";
+                            @endphp
                             @include('partials.forms.inputDatePicker',[
                                     'class' => 'datepicker all',
                                     'label' => __('views.post_date'),
                                     'placeholder' => __('general.select_date'),
-                                    'name' => 'created_at',
-                                    'value' => old('created_at', $insight->published_on_instagram_on->format('d/m/Y')),
+                                    'name' => 'published_on_instagram_on',
+                                    'value' => old('published_on_instagram_on', $publishedOniInstagramOn),
                                     'required' => false,
                                     'disabled' => true,
                                 ])

@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\PermissionRegistrar;
+use Spatie\MediaLibrary\HasMedia;
 
 class RolesAndPermissionSeeder extends Seeder
 {
@@ -89,7 +90,10 @@ class RolesAndPermissionSeeder extends Seeder
         Permission::create(['name' => 'insights.view']);
         Permission::create(['name' => 'insights.create']);
         Permission::create(['name' => 'insights.edit']);
-
+        
+        // HasMedia
+        Permission::create(['name' => 'medias.view']);
+        
         // CREATE ROLES
 
         // Create Super Admin role and attach all permissions

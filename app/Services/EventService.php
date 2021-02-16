@@ -40,8 +40,6 @@ class EventService
      * @param \App\Http\Requests\EventStoreRequest $request
      *
      * @return \App\Models\Event
-     * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileDoesNotExist
-     * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileIsTooBig
      * @throws \Spatie\ModelStatus\Exceptions\InvalidStatus
      */
     public function createEvent(EventStoreRequest $request): Event
@@ -63,8 +61,6 @@ class EventService
      * @param int $eventId
      *
      * @return \App\Models\Event
-     * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileDoesNotExist
-     * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileIsTooBig
      */
 
     public function updateEvent(EventStoreRequest $request, int $eventId): Event

@@ -45,7 +45,6 @@ class GalleryMasonryService
 
                 if (self::postHasGallery($post, $parameters['gallery_name'])) {
                     $images = $this->createImagesArray($post, $parameters['gallery_name']);
-
                     $galleryHtml = $this->prepareGalleryHtml($images, $parameters['hover_animate']);
                 } else {
                     $galleryHtml = "<div class='alert alert-warning' role='alert'>A gallery with this name not available for this element</div>";
@@ -204,7 +203,6 @@ class GalleryMasonryService
         return $ret;
     }
 
-
     /**
      *  Turn array of the metches after preg_match_all function.
      *  https://secure.php.net/manual/en/function.preg-match-all.php
@@ -219,8 +217,10 @@ class GalleryMasonryService
                 $ret[$x][$z] = $m[$z][$x];
             }
         }
-
         return $ret;
     }
+
+
+
 
 }
