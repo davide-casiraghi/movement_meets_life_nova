@@ -21,6 +21,7 @@ class CreateInsightsTable extends Migration
             $table->string('introimage')->nullable();
             $table->string('introimage_alt')->nullable();
             $table->string('slug');
+            $table->boolean('is_published')->default(0);
 
             $table->text('facebook_body')->nullable();
             $table->text('twitter_body')->nullable();

@@ -3,7 +3,6 @@
 namespace App\Repositories;
 
 use App\Models\Insight;
-use Carbon\Carbon;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Config;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -48,7 +47,6 @@ class InsightRepository implements InsightRepositoryInterface
         $insight->save();
 
         $insight->tags()->sync($data['tag_ids'] ?? null);
-        $insight->setStatus('published');
 
         return $insight->fresh();
     }
@@ -80,6 +78,7 @@ class InsightRepository implements InsightRepositoryInterface
     {
         $insight->title = $data['title'] ?? null;
         $insight->body = $data['body'] ?? null;
+        $insight->is_published = (isset($data['is_published'])) ? 1 : 0;
 
         // Translations
         foreach (LaravelLocalization::getSupportedLocales() as $countryCode => $countryAvTrans) {
