@@ -45,7 +45,6 @@ class GalleryMasonryService
 
                 if (self::postHasGallery($post, $parameters['gallery_name'])) {
                     $images = $this->createImagesArray($post, $parameters['gallery_name']);
-
                     $galleryHtml = $this->prepareGalleryHtml($images, $parameters['hover_animate']);
                 } else {
                     $galleryHtml = "<div class='alert alert-warning' role='alert'>A gallery with this name not available for this element</div>";
