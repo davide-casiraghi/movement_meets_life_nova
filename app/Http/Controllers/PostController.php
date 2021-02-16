@@ -24,6 +24,13 @@ class PostController extends Controller
     private PostCategoryService $postCategoryService;
     private TagService $tagService;
 
+    /**
+     * PostController constructor.
+     *
+     * @param \App\Services\PostService $postService
+     * @param \App\Services\PostCategoryService $postCategoryService
+     * @param \App\Services\TagService $tagService
+     */
     public function __construct(
         PostService $postService,
         PostCategoryService $postCategoryService,

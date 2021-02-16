@@ -16,6 +16,11 @@ class GlossaryController extends Controller
 {
     private GlossaryService $glossaryService;
 
+    /**
+     * GlossaryController constructor.
+     *
+     * @param \App\Services\GlossaryService $glossaryService
+     */
     public function __construct(
         GlossaryService $glossaryService
     ) {

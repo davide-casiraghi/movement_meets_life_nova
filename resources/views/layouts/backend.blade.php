@@ -54,7 +54,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 mt-4">
+                <div class="dashboard max-w-7xl mx-auto px-4 sm:px-6 md:px-8 mt-4">
                     @yield('content')
                 </div>
             </div>
