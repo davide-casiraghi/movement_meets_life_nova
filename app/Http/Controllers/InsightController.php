@@ -9,7 +9,6 @@ use App\Models\Insight;
 use App\Services\InsightService;
 use App\Services\TagService;
 use App\Traits\CheckPermission;
-use Illuminate\Http\Request;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 class InsightController extends Controller
@@ -45,11 +44,9 @@ class InsightController extends Controller
         $searchParameters = Helper::getSearchParameters($request, Insight::SEARCH_PARAMETERS);
 
         $insights = $this->insightService->getInsights(20, $searchParameters);
-        $statuses = Insight::PUBLISHING_STATUS;
         return view('insights.index', [
             'insights' => $insights,
             'searchParameters' => $searchParameters,
-            'statuses' => $statuses,
         ]);
     }
 

@@ -49,6 +49,8 @@ class InsightFactory extends Factory
                 'it' => $this->faker->sentence($nbWords = 2, $variableNbWords = true),
             ],
 
+            'is_published' => $this->faker->boolean(50),
+
             'facebook_body' => $this->faker->paragraph($nbSentences = 2, $variableNbSentences = true),
             'facebook_url' => $this->faker->url(),
             'published_on_facebook_on' => $published_on_facebook_on,

@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
-use Spatie\ModelStatus\HasStatuses;
 use Spatie\Searchable\Searchable;
 use Spatie\Searchable\SearchResult;
 use Spatie\Sluggable\HasSlug;
@@ -19,7 +18,6 @@ class Insight extends Model implements HasMedia, Searchable
     use HasFactory;
     use HasSlug;
     use HasTranslations;
-    use HasStatuses;
     use InteractsWithMedia;
 
     /**
@@ -60,8 +58,8 @@ class Insight extends Model implements HasMedia, Searchable
      * The possible values the publishing status can be.
      */
     public const PUBLISHING_STATUS = [
-        'unpublished' => 'unpublished',
-        'published' => 'published',
+        'unpublished',
+        'published',
     ];
 
     /**
@@ -118,7 +116,7 @@ class Insight extends Model implements HasMedia, Searchable
      */
     public function isPublished(): bool
     {
-        return $this->latestStatus('unpublished', 'published') == 'published';
+        return $this->is_published;
     }
 
     /**
@@ -128,7 +126,7 @@ class Insight extends Model implements HasMedia, Searchable
      */
     public function publishingStatus(): string
     {
-        return $this->latestStatus('unpublished', 'published');
+        return self::PUBLISHING_STATUS[$this->is_published];
     }
 
     public function getSearchResult(): SearchResult
