@@ -1,14 +1,13 @@
 <?php
 
-
 namespace App\Services;
-
 
 use App\Helpers\ImageHelpers;
 use App\Http\Requests\InsightSearchRequest;
 use App\Http\Requests\InsightStoreRequest;
 use App\Models\Insight;
 use App\Repositories\InsightRepositoryInterface;
+use Illuminate\Support\Collection;
 
 class InsightService
 {
@@ -30,7 +29,7 @@ class InsightService
      * @param int|null $recordsPerPage
      * @param array|null $searchParameters
      *
-     * @return mixed
+     * @return \Illuminate\Database\Eloquent\Collection|\Illuminate\Contracts\Pagination\LengthAwarePaginator
      */
     public function getInsights(int $recordsPerPage = null, array $searchParameters = null)
     {
@@ -41,9 +40,9 @@ class InsightService
      * Get the Insight by id
      *
      * @param int $insightId
-     * @return mixed
+     * @return Insight
      */
-    public function getInsightById($insightId)
+    public function getInsightById(int $insightId): Insight
     {
         return $this->insightRepository->getById($insightId);
     }
@@ -52,9 +51,9 @@ class InsightService
      * Create a new Insight
      *
      * @param  InsightStoreRequest  $request
-     * @return mixed
+     * @return Insight
      */
-    public function createInsight(InsightStoreRequest $request)
+    public function createInsight(InsightStoreRequest $request): Insight
     {
         $insight = $this->insightRepository->store($request->all());
         ImageHelpers::storeImages($insight, $request, 'introimage');
@@ -67,9 +66,9 @@ class InsightService
      *
      * @param  InsightStoreRequest  $request
      * @param  int  $insightId
-     * @return mixed
+     * @return Insight
      */
-    public function updateInsight(InsightStoreRequest $request, int $insightId)
+    public function updateInsight(InsightStoreRequest $request, int $insightId): Insight
     {
         $insight = $this->insightRepository->update($request->all(), $insightId);
 
@@ -84,12 +83,19 @@ class InsightService
      *
      * @param  int  $insightId
      */
-    public function deleteInsight(int $insightId)
+    public function deleteInsight(int $insightId): void
     {
         $this->insightRepository->delete($insightId);
     }
 
-    public function getInsightBody($insight)
+    /**
+     * Return the body of the insight
+     *
+     * @param \App\Models\Insight $insight
+     *
+     * @return string
+     */
+    public function getInsightBody(Insight $insight): string
     {
         $insightBody = $insight->body;
 
@@ -98,5 +104,17 @@ class InsightService
 //        $insightBody = $this->glossaryService->markGlossaryTerms($insightBody);
 
         return $insightBody;
+    }
+
+    /**
+     * Get all the Insights
+     *
+     * @param int $numberOfInsights
+     *
+     * @return Collection
+     */
+    public function getLatestInsights(int $numberOfInsights): Collection
+    {
+        return $this->insightRepository->getLatest($numberOfInsights);
     }
 }
