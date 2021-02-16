@@ -1,12 +1,12 @@
 <div>
     <div class="mt-1 mb-4"> {{-- flex flex-wrap space-x-4 --}}
 
-        @foreach($galleries as $gallery)
-            @if($gallery != null)
-            <div>
-                <div class="md:grid md:grid-cols-6 md:gap-6">
-                    <div class="col-span-2">
-                        <h3 class="mb-4 text-xl font-bold tracking-tighter text-center text-blue-800 lg:text-left lg:text-xl">{{$gallery}}</h3>
+         @foreach($galleries as $gallery)
+             @if($gallery != null)
+             <div>
+                 <div class="md:grid md:grid-cols-6 md:gap-6">
+                     <div class="col-span-2">
+                         <h3 class="mb-4 text-xl font-bold tracking-tighter text-center text-blue-800 lg:text-left lg:text-xl">{{$gallery}}</h3>
                     </div>
                     <div class="col-span-4">
                         <div class="select-all text-sm border border-gray-500 bg-gray-100 rounded p-1 overflow-x-hidden whitespace-nowrap">

@@ -35,9 +35,9 @@ class MediaController extends Controller
         // To use Spatie media library, that associate images to models,
         // I use a post to associate all the images related to any static page.
         $post = Post::firstOrCreate([
-            'title' => 'Static pages images',
-            'intro_text' => 'Static pages images',
-            'body' => 'Static pages images',
+            'title->en' => 'Static pages images',
+            'intro_text->en' => 'Static pages images',
+            'body->en' => 'Static pages images',
             'category_id' => 1,
             'user_id' => 1,
         ])->setStatus('published');
