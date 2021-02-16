@@ -41,9 +41,12 @@ class StaticPageService
         $post->setStatus('published');
 
         $galleryImages = $this->galleryMasonryService->createImagesArray($post, $galleryName);
-        $galleryHtml = $this->galleryMasonryService->prepareGalleryHtml($galleryImages, $animate);
 
-        return $galleryHtml;
+        if (empty($galleryImages)) {
+            return "<div class='bg-yellow-200 p-5'>There is not a gallery called <b>$galleryName</b>. <br> Please define it in the Media manager</div>";
+        }
+
+        return $this->galleryMasonryService->prepareGalleryHtml($galleryImages, $animate);
     }
 
 
