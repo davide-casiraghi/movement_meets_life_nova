@@ -203,7 +203,6 @@ class GalleryMasonryService
         return $ret;
     }
 
-
     /**
      *  Turn array of the metches after preg_match_all function.
      *  https://secure.php.net/manual/en/function.preg-match-all.php
@@ -218,8 +217,10 @@ class GalleryMasonryService
                 $ret[$x][$z] = $m[$z][$x];
             }
         }
-
         return $ret;
     }
+
+
+
 
 }
