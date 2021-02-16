@@ -18,7 +18,7 @@ class MediaController extends Controller
     private PostService $postService;
 
     public function __construct(
-        PostService $postService,
+        PostService $postService
     ) {
         $this->postService = $postService;
     }
