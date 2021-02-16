@@ -1,9 +1,0 @@
-{
-	"IMG_1584.jpg":"Jam in ECITE 2017 - Tuscania (Italy)",
-	"IMG_1979.jpg":"Performance in ECITE 2017 - Tuscania (Italy)",
-	"IMG_2075.jpg":"Jam in ECITE 2017 - Tuscania (Italy)",
-	"Kulturni_Dom_Velenje_3rd_international_pedagogy_school.jpg":"Kulturni Dom Velenje 3rd International Pedagogy School - Velenje (Slovenia)",
-	"performance_corso_roberto_lun.jpg":"Performance after Roberto Lun classes - Milano (Italy)",
-	"SlovakiaZlinaWorkshop.jpg":"Teaching in Riding Authenticity workshop (January 2017) - Zlina (Slovakia)",
-	"SpazioSemeDavidePaolaJam.jpg":"Dance with Paola Andreatta - Spazio Seme - Arezzo (Italy)"
-}
