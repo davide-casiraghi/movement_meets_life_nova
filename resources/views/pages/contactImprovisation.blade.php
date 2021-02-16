@@ -20,30 +20,38 @@
                 'alt' => 'Ecite 2017 in Tuscania with Nicole Cantik',
                 'classes' => 'w-100 sm:w-72 mb-6 sm:mb-0 ml-0 sm:ml-3 float-right',
             ])
-            {{--<div class="w-100 h-100 sm:w-72 sm:h-72 mb-6 sm:mb-0 ml-0 sm:ml-3 float-right">
-                <a href="{{asset('images/images_pages/contact_improvisation/ecite_tuscania_nicole.jpg')}}" data-fancybox="images" data-caption='Ecite 2017 in Tuscania with Nicole Cantik' alt="Ecite 2017 in Tuscania with Nicole Cantik">
-                    <img src="{{asset('images/images_pages/contact_improvisation/ecite_tuscania_nicole.jpg')}}" /> --}}{{-- Thumbnail --}}{{--
-                </a>
-            </div>--}}
+
             <b>Contact Improvisation</b> is an improvised dance form based on the communication between two moving bodies that are in physical contact and their combined relationship to the physical laws that govern their motion: gravity, momentum, inertia. The body, to open to these sensations, learns to release excess muscular tension and abandon a certain quality of willfulness to experience the natural flow of movement.<br><br>
             Alertness is developed to work in an energetic state of physical disorientation, trusting in one’s basic survival instincts. It is a free play with balance, self-correcting the wrong moves and reinforcing the right ones, bringing forth a physical/emotional truth about a shared moment of movement that leaves the participants informed, centered, and enlivened.<br><br>
-            I see CI as a way to re-awake and enjoy fully our sensitivity and playfulness, working on trust, explore curiosity about movement principles out of daily movement patterns.<br><br>
+            I see CI as a way to re-awake and enjoy fully our sensitivity and playfulness, working on trust, explore curiosity about movement principles out of daily movement patterns.<br>
         </div>
         
         <div class="">
             <h2>Contact Classes in Ljubljana</h2>
+
+            @include('partials.contents.image',[
+                'imageUrl' => 'images/images_pages/contact_improvisation/contact-classes-in-ljubljana-pic.jpg',
+                'imageThumbnailUrl' => 'images/images_pages/contact_improvisation/contact-classes-in-ljubljana-pic.jpg',
+                'alt' => 'Art by Giulia Ravarotto from Dance in the City CI festival in Ljubljana',
+                'classes' => 'w-100 sm:w-64 mb-6 sm:mb-0 ml-0 sm:ml-3 float-right',
+            ])
+
             They will start at the end of September and will be co-taught with Daniele Mariuz. <br>
             Further info is coming soon. <br><br>
             The CI classes in Ljubljana for the season 2020-2021 will be at the Ex Stena, in Parmova Ulica, 25. <br><br>
-            Art by Giulia Ravarotto from Dance in the City CI festival in Ljubljana
 
         </div>
         
         <div class="">
             <h2>Contact Improvisation workshops in Trieste</h2>
-            For further info, you have a look at www.dancinghouse.it or contact Marta Zacchingna.<br>
+            @include('partials.contents.image',[
+                'imageUrl' => 'images/images_pages/contact_improvisation/contact-improvisation-trieste-daniele-mariuz.jpg',
+                'imageThumbnailUrl' => 'images/images_pages/contact_improvisation/contact-improvisation-trieste-daniele-mariuz.jpg',
+                'alt' => 'Daniele Mariuz dancing Contact Impro in TriesteFor the season 2020-2021, we are planning a series of workshops at the Dancing House in Trieste.',
+                'classes' => 'w-100 sm:w-64 mb-6 sm:mb-0 ml-0 sm:ml-3 float-right',
+            ])
+            For further info, you have a look at www.dancinghouse.it or contact Marta Zacchingna.<br><br>
             The first workshop will be on 20 September 2020.<br><br>
-            Daniele Mariuz dancing Contact Impro in TriesteFor the season 2020-2021, we are planning a series of workshops at the Dancing House in Trieste.
         </div>
         
         <div class="">
