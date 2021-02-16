@@ -195,13 +195,12 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
         Route::get('/insights/{id}', [InsightController::class, 'show'])->name('show');
         Route::delete('/insights/{id}', [InsightController::class, 'destroy'])->name('destroy');
     });
-    
+
     // Medias
     Route::name('medias.')->group(function () {
-        Route::get('/medias', [MediaController::class, 'index'])->name('index');
+        Route::get('/medias', [MediaController::class, 'edit'])->name('edit');
+        Route::put('/medias/{id}', [MediaController::class, 'update'])->name('update');
     });
-    
-    
 
     Route::get('/search', [GlobalSearchController::class, 'index'])->name('globalSearch');
 });
