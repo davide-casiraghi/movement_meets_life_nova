@@ -46,7 +46,7 @@ class GalleryMasonryService
                     $images = $this->createImagesArray($post, $parameters['gallery_name']);
                     $galleryHtml = $this->prepareGalleryHtml($images, $parameters['hover_animate']);
                 } else {
-                    $galleryHtml = "<div class='alert alert-warning' role='alert'>A gallery with this name not available for this element</div>";
+                    $galleryHtml = "<div class='p-4 bg-yellow-200' role='alert'>A gallery with this name not available for this element</div>";
                 }
 
                 $galleryHtml .= "</div>";

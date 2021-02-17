@@ -37,14 +37,7 @@ class ImageService
                 $parameters = $this->getParameters($singleImageMatches);
 
                 $image = Media::find($parameters['image_id']);
-
-                if (is_null($image)) {
-                    $imageHtml = "<div class='alert alert-warning' role='alert'>A image with this id has not been found.</div>";
-                } else {
-                    $imageHtml = self::prepareImageHtml($image, $parameters);
-                }
-
-                //ray($image);
+                $imageHtml = self::prepareImageHtml($image, $parameters);
 
                 // Replace the TOKEN found in the article with the generatd gallery HTML
                 $postBody = str_replace($parameters['token'], $imageHtml, $postBody);
@@ -103,13 +96,17 @@ class ImageService
     /**
      *  Returns HTML with the image, caption, zoom functionality, etc.
      *
-     * @param \Spatie\MediaLibrary\MediaCollections\Models\Media $image
+     * @param \Spatie\MediaLibrary\MediaCollections\Models\Media|null $image
      * @param array $parameters
      *
      * @return string $ret
      */
-    public function prepareImageHtml(Media $image, array $parameters): string
+    public function prepareImageHtml(?Media $image, array $parameters): string
     {
+        if (is_null($image)) {
+            return "<div class='p-4 bg-yellow-200'>A image with this id has not been found.</div>";
+        }
+
         $alt = $image->getCustomProperty('image_description');
         //ray(empty($alt));
         $caption = $image->getCustomProperty('image_caption');

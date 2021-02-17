@@ -4,20 +4,26 @@ namespace App\Services;
 
 use App\Models\Post;
 use App\Services\Snippets\GalleryMasonryService;
+use App\Services\Snippets\ImageService;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class StaticPageService
 {
     private GalleryMasonryService $galleryMasonryService;
+    private ImageService $imageService;
 
     /**
      * StaticPageService constructor.
      *
      * @param \App\Services\Snippets\GalleryMasonryService $galleryMasonryService
+     * @param \App\Services\Snippets\ImageService $imageService
      */
     public function __construct(
-        GalleryMasonryService $galleryMasonryService
+        GalleryMasonryService $galleryMasonryService,
+        ImageService $imageService
     ) {
         $this->galleryMasonryService = $galleryMasonryService;
+        $this->imageService = $imageService;
     }
 
     /**
@@ -53,6 +59,33 @@ class StaticPageService
         }
 
         return $this->galleryMasonryService->prepareGalleryHtml($galleryImages, $animate);
+    }
+
+    /**
+     * Return the static Image HTML
+     *
+     * To show this in a blade view:
+     * - Load in the controller method end pass it to the view:
+     *      $image1Html = $this->staticPageService->getStaticImageHtml('1');
+     * - Then in the blade view:
+     *      {!! $image1Html !!}
+     *
+     * @param int $id
+     *
+     * @return string
+     */
+    public function getStaticImageHtml(int $id): string
+    {
+        $image = Media::find($id);
+
+        $parameters = [];
+        $parameters['image_id'] = $id;
+        $parameters['alignment'] = 'right';
+        $parameters['width'] = 'w-48';
+        $parameters['show_caption'] = true;
+        $parameters['zoom'] = true;
+
+        return $this->imageService->prepareImageHtml($image, $parameters);
     }
 
 
