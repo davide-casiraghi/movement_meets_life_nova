@@ -135,6 +135,13 @@
                             </div>
                         </div>
 
+                        <div class="mt-2">
+                            <label for="snippet" class="block text-sm font-medium text-gray-700 mt-3">Snippet</label>
+                            <div class="mt-1">
+                                <input type="text" wire:model="snippet" id="snippet" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="">
+                            </div>
+                        </div>
+
                     </div>
                 </div>
                 <div class="mt-5 sm:mt-4 sm:flex sm:flex-row-reverse">

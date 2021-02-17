@@ -15,6 +15,7 @@ class GalleryImagesParameters extends Component
     public $image_video_url;
     public $image_caption; // String shown on image hover
     public $image_gallery; // The name of the gallery to assign the image to
+    public $snippet; //the snippet to copy\paste in blog articles to show the image
 
     public $showModal = false;
 
@@ -23,6 +24,7 @@ class GalleryImagesParameters extends Component
         'image_video_url' => 'string',
         'image_caption' => 'string',
         'image_gallery' => 'string',
+        'snippet' => 'string',
     ];
 
     public function mount($model)
@@ -46,6 +48,7 @@ class GalleryImagesParameters extends Component
         $this->image_video_url = $this->image->getCustomProperty('image_video_url');
         $this->image_caption = $this->image->getCustomProperty('image_caption');
         $this->image_gallery = $this->image->getCustomProperty('image_gallery');
+        $this->snippet = self::getImageSnippet($imageId);
     }
 
     public function save()
@@ -81,4 +84,17 @@ class GalleryImagesParameters extends Component
 
         return $ret;
     }
+
+    /**
+     * Create the image snippet string
+     *
+     * @param int $imageId
+     *
+     * @return string
+     */
+    public function getImageSnippet(int $imageId): string
+    {
+        return "{# image id=[" . $imageId . "] alignment=[left] width=[300] show_caption=[true] zoom=[yes] #}";
+    }
+
 }
