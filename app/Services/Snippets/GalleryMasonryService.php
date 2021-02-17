@@ -17,6 +17,7 @@ namespace App\Services\Snippets;
         // Options: http://miromannino.github.io/Justified-Gallery/options-and-events/
 */
 
+use App\Helpers\Helper;
 use App\Models\Post;
 
 class GalleryMasonryService
@@ -37,7 +38,7 @@ class GalleryMasonryService
 
         if (preg_match_all($ptn, $postBody, $matches)) {
             // Transform the matches array in a way that can be used
-            $matches = $this->turnArray($matches);
+            $matches = Helper::turnArray($matches);
 
             foreach ($matches as $key => $single_gallery_matches) {
                 $parameters = $this->getParameters($single_gallery_matches);
@@ -199,25 +200,6 @@ class GalleryMasonryService
 
         $ret .= '</div>';
 
-        return $ret;
-    }
-
-    /**
-     *  Turn array of the matches after preg_match_all function.
-     *  https://secure.php.net/manual/en/function.preg-match-all.php
-     *
-     * @param array $m
-     * @return array $ret
-     */
-    public function turnArray(array $m): array
-    {
-        $ret = [];
-
-        for ($z = 0; $z < count($m); $z++) {
-            for ($x = 0; $x < count($m[$z]); $x++) {
-                $ret[$x][$z] = $m[$z][$x];
-            }
-        }
         return $ret;
     }
 

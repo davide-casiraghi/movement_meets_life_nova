@@ -199,4 +199,23 @@ class Helper
 
         return $searchParameters;
     }
+
+    /**
+     *  Turn array of the matches after preg_match_all function.
+     *  https://secure.php.net/manual/en/function.preg-match-all.php
+     *
+     * @param array $m
+     * @return array $ret
+     */
+    public static function turnArray(array $m): array
+    {
+        $ret = [];
+
+        for ($z = 0; $z < count($m); $z++) {
+            for ($x = 0; $x < count($m[$z]); $x++) {
+                $ret[$x][$z] = $m[$z][$x];
+            }
+        }
+        return $ret;
+    }
 }

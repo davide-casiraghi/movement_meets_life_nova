@@ -9,6 +9,7 @@ namespace App\Services\Snippets;
     {# image id=[1] alignment=[left] width=[300] show_caption=[true] zoom=[true] #}
 */
 
+use App\Helpers\Helper;
 use App\Models\Post;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
@@ -31,7 +32,7 @@ class ImageService
 
         if (preg_match_all($ptn, $postBody, $matches)) {
             // Transform the matches array in a way that can be used
-            $matches = $this->turnArray($matches);
+            $matches = Helper::turnArray($matches);
 
             foreach ($matches as $key => $singleImageMatches) {
                 $parameters = $this->getParameters($singleImageMatches);
@@ -47,25 +48,6 @@ class ImageService
         }
 
         return $postBody;
-    }
-
-    /**
-     *  Turn array of the matches after preg_match_all function.
-     *  https://secure.php.net/manual/en/function.preg-match-all.php
-     *
-     * @param array $m
-     * @return array $ret
-     */
-    public function turnArray(array $m): array
-    {
-        $ret = [];
-
-        for ($z = 0; $z < count($m); $z++) {
-            for ($x = 0; $x < count($m[$z]); $x++) {
-                $ret[$x][$z] = $m[$z][$x];
-            }
-        }
-        return $ret;
     }
 
     /**
