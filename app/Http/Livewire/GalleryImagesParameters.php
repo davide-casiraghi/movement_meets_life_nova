@@ -88,13 +88,15 @@ class GalleryImagesParameters extends Component
     /**
      * Create the image snippet string
      *
+     * The width is expressed with a Tailwind class.
+     *
      * @param int $imageId
      *
      * @return string
      */
     public function getImageSnippet(int $imageId): string
     {
-        return "{# image id=[" . $imageId . "] alignment=[left] width=[300] show_caption=[true] zoom=[yes] #}";
+        return "{# image id=[" . $imageId . "] alignment=[left] width=[w-48] show_caption=[true] zoom=[true] #}";
     }
 
 }

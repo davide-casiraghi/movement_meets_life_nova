@@ -36,8 +36,7 @@ class GalleryMasonryService
         $ptn = '/{# +gallery +(name|hover_animate)=\[(.*)\] +(name|hover_animate)=\[(.*)\] +#}/';
 
         if (preg_match_all($ptn, $postBody, $matches)) {
-
-            // Trasform the matches array in a way that can be used
+            // Transform the matches array in a way that can be used
             $matches = $this->turnArray($matches);
 
             foreach ($matches as $key => $single_gallery_matches) {
@@ -204,7 +203,7 @@ class GalleryMasonryService
     }
 
     /**
-     *  Turn array of the metches after preg_match_all function.
+     *  Turn array of the matches after preg_match_all function.
      *  https://secure.php.net/manual/en/function.preg-match-all.php
      *
      * @param array $m
@@ -212,6 +211,8 @@ class GalleryMasonryService
      */
     public function turnArray(array $m): array
     {
+        $ret = [];
+
         for ($z = 0; $z < count($m); $z++) {
             for ($x = 0; $x < count($m[$z]); $x++) {
                 $ret[$x][$z] = $m[$z][$x];
@@ -219,8 +220,5 @@ class GalleryMasonryService
         }
         return $ret;
     }
-
-
-
 
 }

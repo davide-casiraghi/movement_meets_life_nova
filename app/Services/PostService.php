@@ -9,6 +9,7 @@ use App\Repositories\PostRepository;
 use App\Repositories\PostRepositoryInterface;
 use App\Services\Snippets\AccordionService;
 use App\Services\Snippets\GalleryMasonryService;
+use App\Services\Snippets\ImageService;
 use Illuminate\Support\Collection;
 
 class PostService
@@ -17,6 +18,7 @@ class PostService
     private AccordionService $accordionService;
     private GalleryMasonryService $galleryService;
     private GlossaryService $glossaryService;
+    private ImageService $imageService;
 
     /**
      * PostService constructor.
@@ -25,17 +27,20 @@ class PostService
      * @param \App\Services\Snippets\AccordionService $accordionService
      * @param \App\Services\Snippets\GalleryMasonryService $galleryService
      * @param \App\Services\GlossaryService $glossaryService
+     * @param \App\Services\Snippets\ImageService $imageService
      */
     public function __construct(
         PostRepository $postRepository,
         AccordionService $accordionService,
         GalleryMasonryService $galleryService,
-        GlossaryService $glossaryService
+        GlossaryService $glossaryService,
+        ImageService $imageService
     ) {
         $this->postRepository = $postRepository;
         $this->accordionService = $accordionService;
         $this->galleryService = $galleryService;
         $this->glossaryService = $glossaryService;
+        $this->imageService = $imageService;
     }
 
     /**
@@ -128,6 +133,7 @@ class PostService
         $postBody = $this->accordionService->snippetsToHTML($postBody);
         $postBody = $this->galleryService->snippetsToHTML($postBody, $post);
         $postBody = $this->glossaryService->markGlossaryTerms($postBody);
+        $postBody = $this->imageService->snippetsToHTML($postBody);
 
         return $postBody;
     }
