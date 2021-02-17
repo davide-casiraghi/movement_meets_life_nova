@@ -54,6 +54,9 @@ class PostRepository implements PostRepositoryInterface
             }
         }
 
+        $query->where('title->en', '!=', 'Static pages images');
+
+
         if ($recordsPerPage) {
             $results = $query->paginate($recordsPerPage);
         } else {
