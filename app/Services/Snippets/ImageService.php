@@ -44,9 +44,7 @@ class ImageService
                     $imageHtml = self::prepareImageHtml($image, $parameters);
                 }
 
-                ray($image);
-
-                //$imageHtml = "Image HTML";
+                //ray($image);
 
                 // Replace the TOKEN found in the article with the generatd gallery HTML
                 $postBody = str_replace($parameters['token'], $imageHtml, $postBody);
@@ -98,8 +96,6 @@ class ImageService
         $ret['show_caption'] = filter_var($matches[8], FILTER_VALIDATE_BOOLEAN);
         $ret['zoom'] = filter_var($matches[10], FILTER_VALIDATE_BOOLEAN);
 
-
-
         //ray($ret);
         return $ret;
     }
@@ -115,6 +111,7 @@ class ImageService
     public function prepareImageHtml(Media $image, array $parameters): string
     {
         $alt = $image->getCustomProperty('image_description');
+        //ray(empty($alt));
         $caption = $image->getCustomProperty('image_caption');
 
         $width = "w-100 sm:" . $parameters['width']; // 100% width mobile, then for bigger devices the one specified
@@ -123,7 +120,7 @@ class ImageService
         $imagePath = $image->getUrl();
         $thumbnailPath = $image->getUrl('thumb');
         $videoUrl = $image->getCustomProperty('image_video_url');
-        
+
         $imageLink = ($videoUrl == null) ? $imagePath : $videoUrl;
         //$videoPlayIcon = ($videoUrl == null) ? '' : "<i class='far fa-play-circle absolute text-6xl text-white inset-center opacity-80'></i>";
         $videoPlayIcon = ($videoUrl == null) ? '' : "<svg class='absolute w-14 fill-current text-white inset-center opacity-80' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><path d='M371.7 238l-176-107c-15.8-8.8-35.7 2.5-35.7 21v208c0 18.4 19.8 29.8 35.7 21l176-101c16.4-9.1 16.4-32.8 0-42zM504 256C504 119 393 8 256 8S8 119 8 256s111 248 248 248 248-111 248-248zm-448 0c0-110.5 89.5-200 200-200s200 89.5 200 200-89.5 200-200 200S56 366.5 56 256z'/></svg>";
@@ -152,9 +149,11 @@ class ImageService
                     $imageHtml .= "<svg class='w-6 h-6' fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7'></path></svg>";
                 $imageHtml .= "</div>";
             $imageHtml .= "</div>";
-            $imageHtml .= "<div class='text-xs p-2 font-semibold'>"; /*bg-gray-200*/
+            if (!empty($alt)) {
+                $imageHtml .= "<div class='text-xs p-2 font-semibold'>"; /*bg-gray-200*/
                 $imageHtml .= $alt;
-            $imageHtml .= "</div>";
+                $imageHtml .= "</div>";
+            }
         $imageHtml .= "</div>";
 
         return $imageHtml;
