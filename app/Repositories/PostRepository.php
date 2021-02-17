@@ -54,6 +54,7 @@ class PostRepository implements PostRepositoryInterface
             }
         }
 
+        // Avoid retrieving the post used for the static image gallery
         $query->where('title->en', '!=', 'Static pages images');
 
 
