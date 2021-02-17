@@ -48,6 +48,9 @@
                     </div>
                 </button>
             </div>
+
+            {!! $videoIntro !!}
+
         </div>
     </div>
 </div>
