@@ -115,6 +115,8 @@ class ImageService
     public function prepareImageHtml(Media $image, array $parameters): string
     {
         $alt = $image->getCustomProperty('image_description');
+        $caption = $image->getCustomProperty('image_caption');
+
         $width = "w-100 sm:" . $parameters['width']; // 100% width mobile, then for bigger devices the one specified
         $margin = "mb-6 sm:mb-0 ";
 
@@ -131,12 +133,17 @@ class ImageService
         }
 
         $imageHtml = "";
-        $imageHtml .= "<div class='imageSnippet relative {$width} {$margin} {$alignment}'>";
-            $imageHtml .= "<a href='" . $image->getUrl() . "' data-fancybox='images' data-caption='" . $alt . "' alt='" . $alt . "'>";
-                $imageHtml .= "<img class='my-0' src='" . $image->getUrl('thumb') . "' />";
-            $imageHtml .= "</a>";
-            $imageHtml .= "<div class='absolute bottom-0 right-0 p-2 bg-gray-100 opacity-80'>";
-                $imageHtml .= "<svg class='w-6 h-6' fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7'></path></svg>";
+        $imageHtml .= "<div class='imageSnippet {$width} {$margin} {$alignment}'>";
+            $imageHtml .= "<div class='relative'>";
+                $imageHtml .= "<a href='" . $image->getUrl() . "' data-fancybox='images' data-caption='" . $caption . "' alt='" . $alt . "'>";
+                    $imageHtml .= "<img class='my-0' src='" . $image->getUrl('thumb') . "' />";
+                $imageHtml .= "</a>";
+                $imageHtml .= "<div class='absolute bottom-0 right-0 p-2 bg-gray-100 opacity-80'>";
+                    $imageHtml .= "<svg class='w-6 h-6' fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7'></path></svg>";
+                $imageHtml .= "</div>";
+            $imageHtml .= "</div>";
+            $imageHtml .= "<div class='text-xs p-2 font-semibold'>"; /*bg-gray-200*/
+                $imageHtml .= $alt;
             $imageHtml .= "</div>";
         $imageHtml .= "</div>";
 
