@@ -114,7 +114,7 @@ class ImageService
         //ray(empty($alt));
         $caption = $image->getCustomProperty('image_caption');
 
-        $width = "w-100 sm:" . $parameters['width']; // 100% width mobile, then for bigger devices the one specified
+        $width = "w-full sm:" . $parameters['width']; // 100% width mobile, then for bigger devices the one specified
         $margin = "mb-6 sm:mb-0 ";
 
         $imagePath = $image->getUrl();
@@ -140,7 +140,7 @@ class ImageService
 
         $imageHtml = "";
         $imageHtml .= "<div class='imageSnippet {$width} {$margin} {$alignment}'>";
-            $imageHtml .= "<div class='relative'>";
+            $imageHtml .= "<div class='relative inline-block'>";
                 $imageHtml .= "<a href='" . $imageLink . "' data-fancybox='images' data-caption='" . $caption . "' alt='" . $alt . "'>";
                     $imageHtml .= "<img class='my-0' src='" . $thumbnailPath . "' />";
                     $imageHtml .= $videoPlayIcon;
