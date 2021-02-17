@@ -131,7 +131,7 @@ class ImageService
         }
 
         $imageHtml = "";
-        $imageHtml .= "<div class='relative {$width} {$margin} {$alignment}'>";
+        $imageHtml .= "<div class='imageSnippet relative {$width} {$margin} {$alignment}'>";
             $imageHtml .= "<a href='" . $image->getUrl() . "' data-fancybox='images' data-caption='" . $alt . "' alt='" . $alt . "'>";
                 $imageHtml .= "<img class='my-0' src='" . $image->getUrl('thumb') . "' />";
             $imageHtml .= "</a>";

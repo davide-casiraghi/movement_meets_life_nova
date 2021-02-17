@@ -19,5 +19,15 @@
         @apply text-lg text-gray-600 font-extrabold tracking-tight sm:text-xl;
         @apply mt-4 sm:mt-8 mb-4;
     }
+
+    .prose{
+        .imageSnippet{
+            img{
+                @apply my-0;
+            }
+        }
+
+
+    }
 }
 
