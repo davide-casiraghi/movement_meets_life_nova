@@ -21,7 +21,13 @@ class StaticPageService
     }
 
     /**
-     * Return the static gallery hrml
+     * Return the static gallery HTML
+     *
+     * To show this in a blade view:
+     * - Load in the controller method end pass it to the view:
+     *      $gallery1Html = $this->staticPageService->getStaticGalleryHtml('contact improvisation', true);
+     * - Then in the blade view:
+     *      {!! $gallery1Html !!}
      *
      * @param string $galleryName
      * @param bool $animate
