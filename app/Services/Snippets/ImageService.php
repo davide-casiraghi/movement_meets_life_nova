@@ -123,8 +123,6 @@ class ImageService
         //$videoPlayIcon = ($videoUrl == null) ? '' : "<svg class='absolute w-14 fill-current text-white inset-center opacity-80' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><path d='M371.7 238l-176-107c-15.8-8.8-35.7 2.5-35.7 21v208c0 18.4 19.8 29.8 35.7 21l176-101c16.4-9.1 16.4-32.8 0-42zM504 256C504 119 393 8 256 8S8 119 8 256s111 248 248 248 248-111 248-248zm-448 0c0-110.5 89.5-200 200-200s200 89.5 200 200-89.5 200-200 200S56 366.5 56 256z'/></svg>";
         $videoPlayIcon = ($videoUrl == null) ? '' : "<svg class='absolute h-14 w-14 fill-current inset-center text-primary-500' fill='currentColor' viewBox='0 0 84 84'><circle opacity='0.9' cx='42' cy='42' r='42' fill='white' /><path d='M55.5039 40.3359L37.1094 28.0729C35.7803 27.1869 34 28.1396 34 29.737V54.263C34 55.8604 35.7803 56.8131 37.1094 55.9271L55.5038 43.6641C56.6913 42.8725 56.6913 41.1275 55.5039 40.3359Z' /></svg>";
 
-
-
         switch ($parameters['alignment']) {
             case 'right':
                 $alignment = "float-right";
@@ -144,9 +142,11 @@ class ImageService
                     $imageHtml .= "<img class='my-0' src='" . $thumbnailPath . "' />";
                     $imageHtml .= $videoPlayIcon;
                 $imageHtml .= "</a>";
-                $imageHtml .= "<div class='absolute bottom-0 right-0 p-2 bg-gray-100 opacity-80'>";
-                    $imageHtml .= "<svg class='w-6 h-6' fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7'></path></svg>";
-                $imageHtml .= "</div>";
+                if (is_null($videoUrl)) {
+                    $imageHtml .= "<div class='absolute bottom-0 right-0 p-2 bg-gray-100 opacity-80'>";
+                        $imageHtml .= "<svg class='w-6 h-6' fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7'></path></svg>";
+                    $imageHtml .= "</div>";
+                }
             $imageHtml .= "</div>";
             if (!empty($alt)) {
                 $imageHtml .= "<div class='text-xs p-2 font-semibold sm:text-left'>"; /*bg-gray-200*/
@@ -157,55 +157,5 @@ class ImageService
 
         return $imageHtml;
     }
-
-
-
-
 }
 
-
-
-
-
-/*
- *  ACCORDION EXAMPLE
- *
- *
-
-<div class="accordion flex flex-col items-center justify-center h-screen">
-  <!--  Panel 1  -->
-  <div class="w-1/2">
-    <input type="checkbox" name="panel" id="panel-1" class="hidden">
-    <label for="panel-1" class="relative block bg-black text-white p-4 shadow border-b border-grey">Panel 1</label>
-    <div class="accordion__content overflow-hidden bg-grey-lighter">
-      <h2 class="accordion__header pt-4 pl-4">Header</h2>
-      <p class="accordion__body p-4" id="panel1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto possimus at a cum saepe molestias modi illo facere ducimus voluptatibus praesentium deleniti fugiat ab error quia sit perspiciatis velit necessitatibus.Lorem ipsum dolor sit amet, consectetur
-        adipisicing elit. Lorem ipsum dolor sit amet.</p>
-    </div>
-  </div>
-  <!-- Panel 2 -->
-  <div class="w-1/2">
-    <input type="checkbox" name="panel" id="panel-2" class="hidden">
-    <label for="panel-2" class="relative block bg-black text-white p-4 shadow border-b border-grey">Panel 2</label>
-    <div class="accordion__content overflow-hidden bg-grey-lighter">
-      <h2 class="accordion__header pt-4 pl-4">Header</h2>
-      <p class="accordion__body p-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto possimus at a cum saepe molestias modi illo facere ducimus voluptatibus praesentium deleniti fugiat ab error quia sit perspiciatis velit necessitatibus.Lorem ipsum dolor sit amet, consectetur
-        adipisicing elit. Lorem ipsum dolor sit amet.</p>
-    </div>
-  </div>
-  <!--  Panel 3  -->
-  <div class="w-1/2">
-    <input type="checkbox" name="panel" id="panel-3" class="hidden">
-    <label for="panel-3" class="relative block bg-black text-white p-4 shadow border-b border-grey">Panel 3</label>
-    <div class="accordion__content overflow-hidden bg-grey-lighter">
-      <h2 class="accordion__header pt-4 pl-4">Header</h2>
-      <p class="accordion__body p-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto possimus at a cum saepe molestias modi illo facere ducimus voluptatibus praesentium deleniti fugiat ab error quia sit perspiciatis velit necessitatibus.Lorem ipsum dolor sit amet, consectetur
-        adipisicing elit. Lorem ipsum dolor sit amet.</p>
-    </div>
-  </div>
-</div>
-
-
-
- *
- */
