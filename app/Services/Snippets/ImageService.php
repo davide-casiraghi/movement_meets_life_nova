@@ -139,7 +139,7 @@ class ImageService
         }
 
         $imageHtml = "";
-        $imageHtml .= "<div class='imageSnippet {$width} {$margin} {$alignment}'>";
+        $imageHtml .= "<div class='imageSnippet {$width} {$margin} {$alignment} text-center'>";
             $imageHtml .= "<div class='relative inline-block'>";
                 $imageHtml .= "<a href='" . $imageLink . "' data-fancybox='images' data-caption='" . $caption . "' alt='" . $alt . "'>";
                     $imageHtml .= "<img class='my-0' src='" . $thumbnailPath . "' />";
@@ -150,7 +150,7 @@ class ImageService
                 $imageHtml .= "</div>";
             $imageHtml .= "</div>";
             if (!empty($alt)) {
-                $imageHtml .= "<div class='text-xs p-2 font-semibold'>"; /*bg-gray-200*/
+                $imageHtml .= "<div class='text-xs p-2 font-semibold sm:text-left'>"; /*bg-gray-200*/
                 $imageHtml .= $alt;
                 $imageHtml .= "</div>";
             }
