@@ -4,6 +4,14 @@
     @lang('views.edit_insight')
 @endsection
 
+@section('buttons')
+    @livewire('delete-model', [
+    'model' => $insight,
+    'modelName' => 'insight',
+    'redirectRoute' => 'insights.index'
+    ])
+@endsection
+
 @section('content')
 
     @include('partials.messages')
