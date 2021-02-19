@@ -65,15 +65,11 @@ class Glossary extends Model implements HasMedia, Searchable
     }
 
     /**
-     * Set default status value when a glossary is created
+     * Returns the variants of the glossary term.
      */
-    public static function boot()
+    public function variants()
     {
-        parent::boot();
-
-        static::created(function (Glossary $glossary) {
-            $glossary->setStatus('Published');
-        });
+        return $this->hasMany(GlossaryVariant::class, 'glossary_id');
     }
 
     /**

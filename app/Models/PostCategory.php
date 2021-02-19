@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
@@ -24,7 +23,7 @@ class PostCategory extends Model
     /**
      * Generates a unique slug.
      */
-    public function getSlugOptions() : SlugOptions
+    public function getSlugOptions(): SlugOptions
     {
         return SlugOptions::create()
             ->generateSlugsFrom('name')
@@ -34,11 +33,8 @@ class PostCategory extends Model
     /**
      * Returns the posts are assigned to this category.
      */
-    public function post(){         // 1-to-many (one category can have one or more posts)
-        return $this->hasMany(Post::class, 'category_id');  //  select * from post where category_id
+    public function post()
+    {
+        return $this->hasMany(Post::class, 'category_id');
     }
-
-
-
-
 }

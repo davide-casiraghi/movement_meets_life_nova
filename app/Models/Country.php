@@ -19,7 +19,8 @@ class Country extends Model
     /**
      * Returns the continent of the event.
      */
-    public function continent() {
+    public function continent()
+    {
         return $this->belongsTo(Continent::class);
     }
 
@@ -72,6 +73,5 @@ class Country extends Model
     {
         return $this->hasMany(Testimonial::class);
     }
-
 
 }

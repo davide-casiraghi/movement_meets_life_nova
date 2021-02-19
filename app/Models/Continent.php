@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Symfony\Component\Intl\Countries;
 
 class Continent extends Model
 {
@@ -20,7 +19,8 @@ class Continent extends Model
     /**
      * Returns the countries of the event.
      */
-    public function countries() {
-        return $this->hasMany(Countries::class);
+    public function countries()
+    {
+        return $this->hasMany(Country::class);
     }
 }
