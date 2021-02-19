@@ -91,6 +91,8 @@
 
     @include('footer')
 
+
+    @stack('scripts')
     {{-- Load Livewire scripts before Alpine --}}
     @livewireScripts
 

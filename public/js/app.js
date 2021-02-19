@@ -118673,11 +118673,6 @@ $(document).ready(function () {
   });
 });
 
-window.autoSave = function () {
-  console.log('test test'); //this.select2 = $(this.$refs.select).select2();
-  //$('#teacher_ids').select2();
-};
-
 /***/ }),
 
 /***/ "./resources/js/vendors/staaky_tipped.js":

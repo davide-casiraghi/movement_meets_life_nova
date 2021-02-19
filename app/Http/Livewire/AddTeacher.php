@@ -9,6 +9,10 @@ class AddTeacher extends Component
     public $teachers;
     public $selected;
 
+    protected $rules = [
+        'teachers' => ['array'],
+    ];
+
     public function mount($teachers, $selected)
     {
         $this->teachers = $teachers;

@@ -1,19 +1,4 @@
-<div
-{{--        x-data=""
-        x-init="
-            //$('.select2-multiple').select2('destroy');
-            //$('.select2-multiple').select2();
-            //$('.select2-multiple').trigger('change.select2');
-
-
-            autoSave();
-
-            console.log('aaa');
-        "--}}
-
-        x-data=""
-        x-init="autoSave();"
->
+<div wire:ignore>
     {{--@include('partials.forms.select_multiple', [
         'label' => __('general.teachers'),
         'name' => 'teacher_ids',
@@ -48,6 +33,24 @@
         <strong>{{ $errors->first('teacher_ids') }}</strong>
     </span>
     @enderror
-
-
 </div>
+
+
+@push('scripts')
+    <script>
+
+        $(document).ready(function () {
+            //console.log('ciao bello');
+
+            $('#teacher_ids').select2();
+            $('#teacher_ids').on('change', function (e) {
+
+                var data = $('#teacher_ids').select2("val");
+                //console.log(data);
+
+                @this.set('selected', data);
+            });
+        });
+        
+    </script>
+@endpush
