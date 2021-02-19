@@ -73,6 +73,7 @@ class VenueRepository implements VenueRepositoryInterface
         $venue = self::assignDataAttributes($venue, $data);
 
         $venue->save();
+        $venue->setStatus('published');
 
         return $venue->fresh();
     }
@@ -91,6 +92,11 @@ class VenueRepository implements VenueRepositoryInterface
         $venue = self::assignDataAttributes($venue, $data);
 
         $venue->update();
+
+        $status = (isset($data['status'])) ? 'published' : 'unpublished';
+        if ($venue->publishingStatus() != $status) {
+            $venue->setStatus($status);
+        }
 
         return $venue;
     }

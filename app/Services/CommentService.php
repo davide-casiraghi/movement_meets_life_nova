@@ -27,6 +27,8 @@ class CommentService
 
         $entity->comments()->save($comment);
 
+        //then publish comment
+
         return $comment;
     }
 }

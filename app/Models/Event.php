@@ -125,14 +125,13 @@ class Event extends Model implements HasMedia
     }*/
 
     /**
-     * Set default status value when a event is created
+     * Return the post publishing status
+     *
+     * @return string
      */
-    public static function boot() {
-        parent::boot();
-
-        static::created(function (Event $event) {
-            $event->setStatus('Published');
-        });
+    public function publishingStatus(): string
+    {
+        return $this->latestStatus('unpublished', 'published');
     }
 
     /**
@@ -166,13 +165,4 @@ class Event extends Model implements HasMedia
         return $this->latestStatus('unpublished', 'published') == 'published';
     }
 
-    /**
-     * Return the event publishing status
-     *
-     * @return string
-     */
-    public function publishingStatus(): string
-    {
-        return $this->latestStatus('unpublished', 'published');
-    }
 }

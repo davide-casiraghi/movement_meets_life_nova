@@ -53,15 +53,13 @@ class Quote extends Model implements Searchable
     }
 
     /**
-     * Set default status value when a quote is created
+     * Return the post publishing status
+     *
+     * @return string
      */
-    public static function boot()
+    public function publishingStatus(): string
     {
-        parent::boot();
-
-        static::created(function (Quote $quote) {
-            $quote->setStatus('Published');
-        });
+        return $this->latestStatus('unpublished', 'published');
     }
 
     /**

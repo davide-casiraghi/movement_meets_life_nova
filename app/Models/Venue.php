@@ -61,15 +61,13 @@ class Venue extends Model implements HasMedia
     }
 
     /**
-     * Set default status value when a venue is created
+     * Return the post publishing status
+     *
+     * @return string
      */
-    public static function boot()
+    public function publishingStatus(): string
     {
-        parent::boot();
-
-        static::created(function (Venue $event) {
-            $event->setStatus('Published');
-        });
+        return $this->latestStatus('unpublished', 'published');
     }
 
     /**

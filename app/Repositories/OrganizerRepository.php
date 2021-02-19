@@ -81,6 +81,7 @@ class OrganizerRepository implements OrganizerRepositoryInterface
         $organizer->user_id = !is_null(Auth::id()) ? Auth::id() : 1;
 
         $organizer->save();
+        $organizer->setStatus('published');
 
         return $organizer->fresh();
     }
@@ -99,6 +100,11 @@ class OrganizerRepository implements OrganizerRepositoryInterface
         $organizer = self::assignDataAttributes($organizer, $data);
 
         $organizer->update();
+
+        $status = (isset($data['status'])) ? 'published' : 'unpublished';
+        if ($organizer->publishingStatus() != $status) {
+            $organizer->setStatus($status);
+        }
 
         return $organizer;
     }

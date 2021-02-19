@@ -8,12 +8,11 @@ use App\Services\CommentService;
 
 class PostCommentController extends Controller
 {
-    private $commentService;
+    private CommentService $commentService;
 
     public function __construct(
         CommentService $commentService
-    )
-    {
+    ) {
         $this->commentService = $commentService;
     }
 
@@ -26,7 +25,7 @@ class PostCommentController extends Controller
      */
     public function store(CommentStoreRequest $request)
     {
-        $post = Post::find( $request['post_id']);
+        $post = Post::find($request['post_id']);
         $this->commentService->createComment($request, $post);
 
         return redirect()->route('posts.show', $post->id)
