@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Services;
 
 use App\Http\Requests\CommentStoreRequest;
@@ -18,7 +17,7 @@ class CommentService
      *
      * @return \App\Models\Comment
      */
-    public function createComment(CommentStoreRequest $data, $entity): Comment
+    public function createComment(CommentStoreRequest $data, object $entity): Comment
     {
         $comment = new Comment();
         $comment->body = $data['body'];

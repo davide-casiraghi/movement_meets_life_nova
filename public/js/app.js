@@ -118673,6 +118673,11 @@ $(document).ready(function () {
   });
 });
 
+window.autoSave = function () {
+  console.log('test test'); //this.select2 = $(this.$refs.select).select2();
+  //$('#teacher_ids').select2();
+};
+
 /***/ }),
 
 /***/ "./resources/js/vendors/staaky_tipped.js":
@@ -118915,8 +118920,8 @@ $(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/enrico/php/code/movement_meets_life_nova/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/enrico/php/code/movement_meets_life_nova/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/davide/Projects/PERSONAL/movement_meets_life/DEV/movement_meets_life_nova/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/davide/Projects/PERSONAL/movement_meets_life/DEV/movement_meets_life_nova/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
