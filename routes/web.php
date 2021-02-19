@@ -1,5 +1,16 @@
 <?php
 
+/**
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+ */
+
 use App\Http\Controllers\EventCategoryController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\GetATreatmentController;
@@ -22,39 +33,16 @@ use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VenueController;
 use App\Http\Controllers\MediaController;
-
-use App\Models\Organizer;
-use App\Models\Teacher;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use Spatie\Honeypot\ProtectAgainstSpam;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
-// Guest routes
-Route::get('/', [ HomeController::class, 'index'])->name('home');
-Route::get('/blog', [PostController::class, 'blog'])->name('posts.blog');
-Route::get('/posts/{id}', [PostController::class, 'show'])->name('posts.show');
-Route::get('/next_events', [EventController::class, 'nextEvents'])->name('events.next');
-Route::get('/treatments-ilan-lev-method', [StaticPageController::class, 'treatments'])->name('staticPages.treatments');
-Route::get('/contact-improvisation', [StaticPageController::class, 'contactImprovisation'])->name('staticPages.contactImprovisation');
-Route::get('/events/{id}', [EventController::class, 'show'])->name('events.show');
-
-Route::get('/getATreatment', [GetATreatmentController::class, 'create'])->name('getATreatment.create');
-Route::post('/getATreatment', [GetATreatmentController::class, 'store'])->name('getATreatment.store');
-
-
+/**
+ *    Dashboard Routes
+ */
 
 Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
+
     Route::name('dashboard.')->group(function () {
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('index');
     });
@@ -79,6 +67,7 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
         Route::delete('/teams/{id}', [TeamController::class, 'destroy'])->name('destroy');
     });
     Route::post('/permissions', [PermissionController::class, 'store'])->name('permissions.store');
+
 
     // Posts
     Route::name('posts.')->group(function () {
@@ -206,6 +195,10 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
 });
 
 
+/**
+ *    Frontend Routes
+ */
+
 // Post Comments
 Route::name('postComments.')->group(function () {
     Route::post('/postComment', [PostCommentController::class, 'store'])->name('store')->middleware(ProtectAgainstSpam::class);
@@ -228,3 +221,15 @@ Route::post('/contact', [ContactUsFormController::class, 'ContactUsForm'])->name
 Route::get('/aboutMe', function () {
     return view('pages.aboutMe');
 });
+
+// Guest routes
+Route::get('/', [ HomeController::class, 'index'])->name('home');
+Route::get('/blog', [PostController::class, 'blog'])->name('posts.blog');
+Route::get('/posts/{id}', [PostController::class, 'show'])->name('posts.show');
+Route::get('/next_events', [EventController::class, 'nextEvents'])->name('events.next');
+Route::get('/treatments-ilan-lev-method', [StaticPageController::class, 'treatments'])->name('staticPages.treatments');
+Route::get('/contact-improvisation', [StaticPageController::class, 'contactImprovisation'])->name('staticPages.contactImprovisation');
+Route::get('/events/{id}', [EventController::class, 'show'])->name('events.show');
+
+Route::get('/getATreatment', [GetATreatmentController::class, 'create'])->name('getATreatment.create');
+Route::post('/getATreatment', [GetATreatmentController::class, 'store'])->name('getATreatment.store');
