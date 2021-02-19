@@ -8,7 +8,8 @@ use Spatie\ModelStatus\HasStatuses;
 
 class Comment extends Model
 {
-    use HasFactory, HasStatuses;
+    use HasFactory;
+    use HasStatuses;
 
     /**
      * The attributes that aren't mass assignable.
@@ -28,11 +29,12 @@ class Comment extends Model
     /**
      * Set default status value when a comment is created
      */
-    public static function boot() {
+    public static function boot()
+    {
         parent::boot();
 
         static::created(function (Comment $comment) {
-            $comment->setStatus('Published');
+            $comment->setStatus('published');
         });
     }
 
