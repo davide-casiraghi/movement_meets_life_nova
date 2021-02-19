@@ -8,6 +8,7 @@ class AddTeacher extends Component
 {
     public $teachers;
     public $selected;
+    public $showTeacherModal = false;
 
     protected $rules = [
         'teachers' => ['array'],
@@ -23,4 +24,21 @@ class AddTeacher extends Component
     {
         return view('livewire.add-teacher');
     }
+
+    public function openModal()
+    {
+        $this->showTeacherModal = true;
+    }
+
+    public function close()
+    {
+        //
+    }
+
+    public function save()
+    {
+        //
+    }
+
+
 }

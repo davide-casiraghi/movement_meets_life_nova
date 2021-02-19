@@ -62,7 +62,6 @@
     </div>
 </div>
 
-
 {{-- Load Livewire scripts before Alpine --}}
 @livewireScripts
 
