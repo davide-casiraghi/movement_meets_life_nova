@@ -150,8 +150,8 @@ sudo service php7.4-fpm restart
 - Create an account on Mailtrap
 - Add the data to the .env file
 
-## Code Static Analisys
-Code static Analysys is provided by PHPStan.
+## Code Static Analysis
+Code static Analysis is provided by PHPStan.
 Run using:
 ```./vendor/bin/phpstan analyse```
 
@@ -160,7 +160,18 @@ Run using:
 TBD
 
 
-### Tinker Factories
+### Generate dummy data
+If you are using PHPStorm you can generate Dummy data with this plugin:
+
+[https://plugins.jetbrains.com/plugin/14957-laravel-tinker](https://plugins.jetbrains.com/plugin/14957-laravel-tinker)
+
+Once the plugin is installed in phpstorm.  
+1) From the console empty the database and run the seeders   
+   ```php artisan migrate:fresh && php artisan db:seed```
+2) Press ctrl+Shift+T
+3) Paste the following code
+4) Press again  ctrl+Shift+T to execute the code
+
 ```php
 <?php
 use App\Models\Event;
