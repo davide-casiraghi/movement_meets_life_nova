@@ -8,7 +8,7 @@ class AddTeacher extends Component
 {
     public $teachers;
     public $selected;
-    public $showTeacherModal = false;
+    public $showModal = false;
 
     protected $rules = [
         'teachers' => ['array'],
@@ -27,12 +27,12 @@ class AddTeacher extends Component
 
     public function openModal()
     {
-        $this->showTeacherModal = true;
+        $this->showModal = true;
     }
 
     public function close()
     {
-        //
+        $this->showModal = false;
     }
 
     public function save()

@@ -1,4 +1,4 @@
-<div wire:ignore>
+<div>
     {{--@include('partials.forms.select_multiple', [
         'label' => __('general.teachers'),
         'name' => 'teacher_ids',
@@ -10,7 +10,7 @@
         'extraClasses' => '',
     ])--}}
 
-    <div class="md:grid md:grid-cols-6 md:gap-6">
+    <div wire:ignore class="md:grid md:grid-cols-6 md:gap-6">
         <div class="md:col-span-4">
             <label for="teacher_ids" class="block text-sm font-medium text-gray-700 inline">{{__('general.teachers')}}</label>
 
@@ -41,17 +41,8 @@
         </div>
     </div>
 
-
-
-    @if($showTeacherModal)
-        SHOW
-    @else
-        HIDE
-    @endif
-
-
     {{-- MODAL --}}
-    <div class="z-10 inset-0 overflow-y-auto @if($showTeacherModal) fixed @else hidden @endif"> {{--  --}}
+    <div class="z-10 inset-0 overflow-y-auto @if($showModal) fixed @else hidden @endif">
         <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
             <!--
               Background overlay, show/hide based on modal state.
