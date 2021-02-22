@@ -65,10 +65,16 @@ class AddTeacher extends Component
         $teacher = $teacherRepository->store($this->newTeacher);
 
         $this->selected[] = $teacher->id;
-        $this->teachers[] = $teacher;
+        //$this->teachers[] = $teacher;
+
+        $this->teachers = $teacherRepository->getAll();
+
+        $this->emit('refreshDropdown', ['teacher' => $teacher]);
 
         session()->flash('message', 'Teacher added successfully 😁');
         $this->showModal = false;
+
+        $this->newTeacher = [];
     }
 
 

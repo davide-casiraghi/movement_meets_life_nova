@@ -250,12 +250,42 @@
 
             //$('#teacher_ids').select2();
             $('#teacher_ids').on('change', function (e) {
-
-                var data = $('#teacher_ids').select2("val");
+                let data = $('#teacher_ids').select2("val");
                 //console.log(data);
-
                 @this.set('selected', data);
             });
+
+            Livewire.on('refreshDropdown', data => {
+
+                //let array params;
+                //params.id = data.teacher['id'];
+                //params.name_surname = data.teacher['name'] + " " + data.teacher['surname'];
+
+
+                //$("#teacher_ids").select2("destroy");
+
+                //let data = $('#teacher_ids').select2("val");
+                //console.log(data);
+
+
+                $('#teacher_ids').select2({
+                    tags: true,
+                    createTag: function (params) {
+
+                        return {
+                            id: data.teacher['id'],
+                            text: data.teacher['name'] + " " + data.teacher['surname'],
+                        }
+                    }
+                });
+
+                
+
+                //$("#teacher_ids").select2({
+                //    data: {{$teachers}};
+                //});
+            });
+
         });
 
     </script>
