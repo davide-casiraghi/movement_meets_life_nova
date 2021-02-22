@@ -6,7 +6,9 @@
         - $value: the already stored value (used in edit view to retrieve the already stored value)
 --}}
 
-<input type="hidden" name="{{ $name }}"
+<input type="hidden"
+       @isset($livewireSupport) wire:model.lazy="{{ $name }}" @else name="{{ $name }}" @endisset
+        "
        @if(!empty($placeholder)) placeholder="{{ $placeholder }}" @endif
        @if(!empty($value)) value="{{ $value }}" @endif
 >

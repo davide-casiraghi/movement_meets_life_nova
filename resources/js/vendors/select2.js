@@ -13,7 +13,7 @@ $(document).ready(function () {
      */
     $(".select2-multiple").select2({
         placeholder: "Select one or more",
-        width: '100%'
+        width: '100%',
     });
 
 });

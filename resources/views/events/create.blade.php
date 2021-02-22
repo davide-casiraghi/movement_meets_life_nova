@@ -65,7 +65,15 @@
                 <div class="mt-5 md:mt-0 md:col-span-2">
                     <div class="grid grid-cols-6 gap-6">
                         <div class="col-span-6">
-                            @include('partials.forms.select_multiple', [
+                           {{-- @livewire('add-teacher', ['user' => $user])--}}
+                            {{--@livewire('add-teacher')--}}
+
+                            @livewire('add-teacher', [
+                                'teachers' => $teachers,
+                                'selected' => null,
+                            ])
+
+                            {{--@include('partials.forms.select_multiple', [
                                 'label' => __('general.teachers'),
                                 'name' => 'teacher_ids',
                                 'placeholder' => __('event.select_teachers'),
@@ -74,7 +82,7 @@
                                 'selected' => old('teacher_ids'),
                                 'required' => false,
                                 'extraClasses' => '',
-                            ])
+                            ])--}}
                         </div>
 
                         <div class="col-span-6">

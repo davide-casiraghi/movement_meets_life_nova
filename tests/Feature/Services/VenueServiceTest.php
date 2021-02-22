@@ -42,9 +42,9 @@ class VenueServiceTest extends TestCase
             'email' => 'admin@gmail.com',
         ]);
 
-        $this->venue1 = Venue::factory()->create();
-        $this->venue2 = Venue::factory()->create();
-        $this->venue3 = Venue::factory()->create();
+        $this->venue1 = Venue::factory()->create()->setStatus('published');
+        $this->venue2 = Venue::factory()->create()->setStatus('published');
+        $this->venue3 = Venue::factory()->create()->setStatus('published');
     }
 
     /** @test */

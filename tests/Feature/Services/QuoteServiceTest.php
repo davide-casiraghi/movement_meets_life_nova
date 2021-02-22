@@ -42,9 +42,9 @@ class QuoteServiceTest extends TestCase
             'email' => 'admin@gmail.com',
         ]);
 
-        $this->quote1 = Quote::factory()->create();
-        $this->quote2 = Quote::factory()->create();
-        $this->quote3 = Quote::factory()->create();
+        $this->quote1 = Quote::factory()->create()->setStatus('published');
+        $this->quote2 = Quote::factory()->create()->setStatus('published');
+        $this->quote3 = Quote::factory()->create()->setStatus('published');
     }
 
     /** @test */

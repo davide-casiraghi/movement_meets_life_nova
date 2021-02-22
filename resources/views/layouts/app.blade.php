@@ -91,6 +91,8 @@
 
     @include('footer')
 
+
+    @stack('scripts')
     {{-- Load Livewire scripts before Alpine --}}
     @livewireScripts
 
@@ -99,6 +101,7 @@
     <script src="{{ asset('js/vendor.js') }}" ></script>
     <script src="{{ asset('js/app.js') }}" ></script>
 
+    @stack('scripts')
     @yield('javascript')
 
     <script>
