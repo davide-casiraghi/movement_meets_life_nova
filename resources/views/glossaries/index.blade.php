@@ -32,9 +32,9 @@
         </ul>
     </div>
 
-   {{--<div class="my-5">
+    <div class="my-5">
         {{ $glossaries->links() }}
-    </div>--}}
+    </div>
 
 
 @endsection
