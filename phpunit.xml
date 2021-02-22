@@ -10,6 +10,8 @@
         </testsuite>
         <testsuite name="Feature">
             <directory suffix="Test.php">./tests/Feature</directory>
+
+            <!--<exclude>./tests/Feature/Services/PostCategoryServiceTest.php</exclude>-->
         </testsuite>
     </testsuites>
     <coverage processUncoveredFiles="true">
