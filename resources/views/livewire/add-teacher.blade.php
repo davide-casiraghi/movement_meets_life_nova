@@ -250,42 +250,29 @@
 
             //$('#teacher_ids').select2();
             $('#teacher_ids').on('change', function (e) {
-                let data = $('#teacher_ids').select2("val");
+                let selectedValues = $('#teacher_ids').select2("val");
                 //console.log(data);
-                @this.set('selected', data);
+                @this.set('selected', selectedValues);
             });
 
+            // The data variable  is the parameter array passed to the emit('refreshDropdown') function in the Livewire component.
             Livewire.on('refreshDropdown', data => {
 
-                //let array params;
-                //params.id = data.teacher['id'];
-                //params.name_surname = data.teacher['name'] + " " + data.teacher['surname'];
-
-
-                //$("#teacher_ids").select2("destroy");
-
-                //let data = $('#teacher_ids').select2("val");
-                //console.log(data);
-
-
-                $('#teacher_ids').select2({
+                /*$('#teacher_ids').select2({
                     tags: true,
                     createTag: function (params) {
-
                         return {
                             id: data.teacher['id'],
                             text: data.teacher['name'] + " " + data.teacher['surname'],
                         }
                     }
-                });
+                });*/
 
-                
 
-                //$("#teacher_ids").select2({
-                //    data: {{$teachers}};
-                //});
+                var newOption = new Option(data.teacher['name']+ " " + data.teacher['surname'], data.teacher['id'], false, true);
+                $('#teacher_ids').append(newOption).trigger('change');
+
             });
-
         });
 
     </script>
