@@ -22,7 +22,7 @@
     @endif
     @if(!empty($records))
         @foreach ($records as $key => $record)
-            <option value="{{$record}}" @if(!empty($selected)) {{  $selected == $record ? 'selected' : '' }}@endif>{{ ucfirst($record) }}</option>
+            <option value="{{$key}}" @if(isset($selected)) {{  $selected == $key ? 'selected' : '' }}@endif>{{ ucfirst($record) }}</option>
         @endforeach
     @endif
 </select>

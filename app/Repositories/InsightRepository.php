@@ -23,6 +23,9 @@ class InsightRepository implements InsightRepositoryInterface
                     '%' . $searchParameters['title'] . '%'
                 );
             }
+            if (!is_null($searchParameters['is_published'])) {
+                $query->where('is_published', $searchParameters['is_published']);
+            }
         }
 
         if ($recordsPerPage) {

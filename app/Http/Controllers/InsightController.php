@@ -44,9 +44,12 @@ class InsightController extends Controller
         $searchParameters = Helper::getSearchParameters($request, Insight::SEARCH_PARAMETERS);
 
         $insights = $this->insightService->getInsights(20, $searchParameters);
+        $statuses = Insight::PUBLISHING_STATUS;
+
         return view('insights.index', [
             'insights' => $insights,
             'searchParameters' => $searchParameters,
+            'statuses' => $statuses,
         ]);
     }
 
