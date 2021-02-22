@@ -246,32 +246,18 @@
 @push('scripts')
     <script>
         $(document).ready(function () {
-            //console.log('ciao bello');
 
-            //$('#teacher_ids').select2();
+            // When a value is selected in the dropdown, update the selected property in the Livewire component
             $('#teacher_ids').on('change', function (e) {
                 let selectedValues = $('#teacher_ids').select2("val");
-                //console.log(data);
                 @this.set('selected', selectedValues);
             });
 
-            // The data variable  is the parameter array passed to the emit('refreshDropdown') function in the Livewire component.
+            // When a new teacher is added update the select2
+            // The data variable is the parameter array passed to the emit('refreshDropdown') function in the Livewire component.
             Livewire.on('refreshDropdown', data => {
-
-                /*$('#teacher_ids').select2({
-                    tags: true,
-                    createTag: function (params) {
-                        return {
-                            id: data.teacher['id'],
-                            text: data.teacher['name'] + " " + data.teacher['surname'],
-                        }
-                    }
-                });*/
-
-
                 var newOption = new Option(data.teacher['name'] + " " + data.teacher['surname'], data.teacher['id'], false, true);
                 $('#teacher_ids').append(newOption).trigger('change');
-
             });
         });
 

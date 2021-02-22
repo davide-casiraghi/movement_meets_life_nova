@@ -18,7 +18,6 @@ class AddTeacher extends Component
     public $newTeacher;
 
     protected $rules = [
-        //'teacher_ids' => ['array'],
         'newTeacher.country_id' => ['required', 'string'],
         'newTeacher.name' => ['required', 'string', 'max:255'],
         'newTeacher.surname' => ['required', 'string', 'max:255'],
@@ -60,8 +59,6 @@ class AddTeacher extends Component
         $teacherRepository = App::make(TeacherRepository::class);
 
         $this->validate();
-
-        //dd($this->newTeacher);
 
         $teacher = $teacherRepository->store($this->newTeacher);
 
