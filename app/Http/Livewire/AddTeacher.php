@@ -18,6 +18,7 @@ class AddTeacher extends Component
     public $newTeacher;
 
     protected $rules = [
+        //'teacher_ids' => ['array'],
         'newTeacher.country_id' => ['required', 'string'],
         'newTeacher.name' => ['required', 'string', 'max:255'],
         'newTeacher.surname' => ['required', 'string', 'max:255'],

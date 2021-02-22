@@ -269,7 +269,7 @@
                 });*/
 
 
-                var newOption = new Option(data.teacher['name']+ " " + data.teacher['surname'], data.teacher['id'], false, true);
+                var newOption = new Option(data.teacher['name'] + " " + data.teacher['surname'], data.teacher['id'], false, true);
                 $('#teacher_ids').append(newOption).trigger('change');
 
             });

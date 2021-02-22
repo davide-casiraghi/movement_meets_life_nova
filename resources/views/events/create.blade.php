@@ -66,7 +66,12 @@
                     <div class="grid grid-cols-6 gap-6">
                         <div class="col-span-6">
                            {{-- @livewire('add-teacher', ['user' => $user])--}}
-                            @livewire('add-teacher')
+                            {{--@livewire('add-teacher')--}}
+
+                            @livewire('add-teacher', [
+                                'teachers' => $teachers,
+                                'selected' => null,
+                            ])
 
                             {{--@include('partials.forms.select_multiple', [
                                 'label' => __('general.teachers'),
