@@ -17,10 +17,6 @@ class AddTeacher extends Component
     public $showModal = false;
     public $newTeacher;
 
-    /*protected $rules = [
-        'teachers' => ['array'],
-    ];*/
-
     protected $rules = [
         'newTeacher.country_id' => ['required', 'string'],
         'newTeacher.name' => ['required', 'string', 'max:255'],
@@ -66,35 +62,13 @@ class AddTeacher extends Component
 
         //dd($this->newTeacher);
 
-        /*$data = [
-            'country_id' => $this->newTeacher.country_id,
-            'name' => ['required', 'string', 'max:255'],
-            'surname' => ['required', 'string', 'max:255'],
-            'bio' => ['required', 'string'],
-            'year_starting_practice' => ['required', 'integer','min:1972','before_or_equal:today'],
-            'year_starting_teach' => ['required', 'integer','min:1972','before_or_equal:today'],
-            'significant_teachers' => ['required', 'string'],
-            'facebook' => ['nullable', 'url'],
-            'website' => ['nullable', 'url'],
-        ];*/
+        $teacher = $teacherRepository->store($this->newTeacher);
 
-        $teacherRepository->store($this->newTeacher);
+        $this->selected[] = $teacher->id;
+        $this->teachers[] = $teacher;
 
         session()->flash('message', 'Teacher added successfully 😁');
         $this->showModal = false;
-
-        //$this->user->save();
-        //$this->success = true;
-
-
-
-
-        //
-
-
-        //$this->newComment = '';
-        //$this->image      = '';
-        //
     }
 
 
