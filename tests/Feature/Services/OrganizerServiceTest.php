@@ -11,15 +11,17 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use Illuminate\Database\Eloquent\Collection;
 
-class OrganizerServiceTest extends TestCase{
-
+class OrganizerServiceTest extends TestCase
+{
     use WithFaker;
     use RefreshDatabase; // empty the test DB
 
     private OrganizerService $organizerService;
 
     private User $user1;
-    private Collection $organizers;
+    private Organizer $organizer1;
+    private Organizer $organizer2;
+    private Organizer $organizer3;
 
     /**
      * Populate test DB with dummy data.
@@ -40,7 +42,9 @@ class OrganizerServiceTest extends TestCase{
             'email' => 'admin@gmail.com',
         ]);
 
-        $this->organizers = Organizer::factory()->count(3)->create();
+        $this->organizer1 = Organizer::factory()->create()->setStatus('published');
+        $this->organizer2 = Organizer::factory()->create()->setStatus('published');
+        $this->organizer3 = Organizer::factory()->create()->setStatus('published');
     }
 
     /** @test */
@@ -82,7 +86,7 @@ class OrganizerServiceTest extends TestCase{
         ];
         $request->merge($data);
 
-        $this->organizerService->updateOrganizer($request, $this->organizers[1]->id);
+        $this->organizerService->updateOrganizer($request, $this->organizer1->id);
 
         $this->assertDatabaseHas('organizers', ['name' => 'name updated']);
     }
@@ -90,9 +94,9 @@ class OrganizerServiceTest extends TestCase{
     /** @test */
     public function itShouldReturnAnOrganizerById()
     {
-        $organizer = $this->organizerService->getById($this->organizers[1]->id);
+        $organizer = $this->organizerService->getById($this->organizer1->id);
 
-        $this->assertEquals($this->organizers[1]->id, $organizer->id);
+        $this->assertEquals($this->organizer1->id, $organizer->id);
     }
 
     /** @test */
@@ -105,8 +109,8 @@ class OrganizerServiceTest extends TestCase{
     /** @test */
     public function itShouldDeleteAnOrganizer()
     {
-        $this->organizerService->deleteOrganizer($this->organizers[1]->id);
-        $this->assertDatabaseMissing('organizers', ['id' => $this->organizers[1]->id]);
+        $this->organizerService->deleteOrganizer($this->organizer1->id);
+        $this->assertDatabaseMissing('organizers', ['id' => $this->organizer1->id]);
     }
 
     /** @test */
