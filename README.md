@@ -132,18 +132,29 @@ To check the code coverage:
 
 You can find now the code coverage in the /html directory.
 
-If you have the error:
-- change the xdebug config on Homestead:   
-```sudo nano /etc/php/7.4/fpm/conf.d/20-xdebug.ini```
+If you have any error:
+- change the xdebug config file on Homestead:  (These settings are for Xdebug 3.0) 
+```sudo nano /etc/php/8.0/fpm/conf.d/20-xdebug.ini```
 add
 ```
-xdebug.remote_host = 192.168.10.1
-xdebug.remote_autostart = 1
+zend_extension=xdebug.so
+xdebug.mode=coverage
+xdebug.discover_client_host = 1
+xdebug.client_port = 9000
+xdebug.max_nesting_level = 512
+xdebug.log = /var/log/php8.0-fpm.log
+xdebug.log_level = 7
 ```
 - then start Xdebug:  
 ```
 sudo phpenmod xdebug
-sudo service php7.4-fpm restart
+sudo service php8.0-fpm restart
+```
+
+If you still have errors you can try to add also:
+```
+xdebug.client_host = 192.168.10.1
+xdebug.start_with_request = yes
 ```
 
 ### Testing emails
