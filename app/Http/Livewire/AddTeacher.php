@@ -47,12 +47,18 @@ class AddTeacher extends Component
         $this->profilePicture = $imageData;
     }
 
+    /**
+     * The component constructor
+     */
     public function mount($teachers, $selected)
     {
         $this->teachers = $teachers;
         $this->selected = $selected;
     }
 
+    /**
+     * Default component render method
+     */
     public function render()
     {
         $countryService = App::make(CountryService::class);
@@ -88,14 +94,7 @@ class AddTeacher extends Component
         $this->validate();
 
         $teacher = $teacherRepository->store($this->newTeacher);
-
-
         $this->storeImage($teacher, $this->profilePicture);
-
-        /*$this->profilePicture->store('photos');
-        $this->storeImage($teacher, $this->profilePicture);*/
-
-        //$this->photo->store('profile_picture');
 
         $this->selected[] = $teacher->id;
         //$this->teachers[] = $teacher;
@@ -112,6 +111,12 @@ class AddTeacher extends Component
 
     /**
      * Store a the image using Spatie Media Library
+     *
+     * @param \App\Models\Teacher $teacher
+     * @param $photo
+     *
+     * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileDoesNotExist
+     * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileIsTooBig
      */
     public function storeImage(Teacher $teacher, $photo): void
     {
@@ -131,7 +136,14 @@ class AddTeacher extends Component
     }
 
 
-    public function convertBase64ImageToUploadedFile($base64File)
+    /**
+     * Convert a base64 image to UploadedFile Laravel
+     *
+     * @param string $base64File
+     *
+     * @return \Illuminate\Http\UploadedFile
+     */
+    public function convertBase64ImageToUploadedFile(string $base64File): UploadedFile
     {
         // decode the base64 file
         $fileData = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $base64File));
