@@ -182,14 +182,20 @@
                                 </div>
 
                                 <div class="mt-2">
-                                    @include('partials.forms.uploadImage', [
+                                    {{--@include('partials.forms.uploadImage', [
                                               'label' => __('teacher.upload_profile_picture'),
                                               'name' => 'newTeacher.profile_picture',
                                               'required' => false,
                                               'collection' => 'newTeacher.profile_picture',
                                               //'entity' => $teacher,
                                               'livewireSupport' => true,
-                                          ])
+                                          ])--}}
+
+                                    {{--<input type="file" id="image" wire:change="$emit('fileChoosen')">--}}
+
+                                    {{--<input type="file" wire:model="profilePicture">--}}
+
+                                    <input type="file" id="image" wire:change="$emit('fileChoosen')">
                                 </div>
 
                             </div>
@@ -226,7 +232,20 @@
                 var newOption = new Option(data.teacher['name'] + " " + data.teacher['surname'], data.teacher['id'], false, true);
                 $('#teacher_ids').append(newOption).trigger('change');
             });
+
+            window.livewire.on('fileChoosen', () => {
+                console.log('file chosen');
+                let inputField = document.getElementById('image')
+                let file = inputField.files[0]
+                let reader = new FileReader();
+                reader.onloadend = () => {
+                    window.livewire.emit('fileUpload', reader.result)
+                }
+                reader.readAsDataURL(file);
+            });
         });
+
+
 
     </script>
 @endpush
