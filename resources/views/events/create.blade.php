@@ -86,7 +86,13 @@
                         </div>
 
                         <div class="col-span-6">
-                            @include('partials.forms.select_multiple', [
+
+                            @livewire('add-organizer', [
+                            'organizer' => $organizers,
+                            'selected' => null,
+                            ])
+
+                            {{--@include('partials.forms.select_multiple', [
                                 'label' => __('general.organizers'),
                                 'name' => 'organizer_ids',
                                 'placeholder' => __('event.select_organizers'),
@@ -95,7 +101,7 @@
                                 'selected' => old('organizer_ids'),
                                 'required' => false,
                                 'extraClasses' => '',
-                            ])
+                            ])--}}
                         </div>
 
                     </div>
