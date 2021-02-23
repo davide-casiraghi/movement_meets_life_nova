@@ -264,11 +264,12 @@ class PostControllerTest extends TestCase
         $response->assertRedirect('/posts');
     }
 
+    /** @test */
+    public function itShouldDisplayTheBlogToGuestUser()
+    {
+        $response = $this->get("/blog");
 
-
-
-
-
-
-
+        $response->assertStatus(200);
+        $response->assertViewIs('posts.blog');
+    }
 }
