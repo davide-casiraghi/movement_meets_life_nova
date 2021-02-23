@@ -184,7 +184,7 @@ class PostControllerTest extends TestCase
 
         $response->assertStatus(302);
         $response->assertRedirect('/posts');
-        $this->assertNull($this->post1->fresh());
+        $this->assertDeleted($this->post1);
     }
 
     /** @test */
