@@ -172,6 +172,8 @@ class PostController extends Controller
      */
     public function destroy(int $postId): RedirectResponse
     {
+        $this->checkPermission('posts.delete');
+
         $this->postService->deletePost($postId);
 
         return redirect()->route('posts.index')

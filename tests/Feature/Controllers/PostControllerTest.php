@@ -44,7 +44,7 @@ class PostControllerTest extends TestCase
     }
 
     /** @test */
-    public function itShouldRedirectTheGuestUserAccessingThePostsPageToLoginPage()
+    public function itShouldRedirectTheGuestUserAccessingThePostsIndexPageToLoginPage()
     {
         $response = $this->get('posts');
         $response->assertRedirect('/login');
@@ -62,7 +62,7 @@ class PostControllerTest extends TestCase
     }
 
     /** @test */
-    public function itShouldBlockTheAdminAccessingThePostsPageWithoutPostIndexPermissionToLoginPage()
+    public function itShouldBlockTheAdminAccessingThePostsPageWithoutPostIndexPermission()
     {
         $user = $this->authenticateAsAdmin();
 
@@ -93,6 +93,127 @@ class PostControllerTest extends TestCase
         $response->assertStatus(200);
         $response->assertViewIs('posts.show');
     }
+
+    /** @test */
+    public function itShouldRedirectTheGuestUserAccessingThePostsCreatePageToLoginPage()
+    {
+        $response = $this->get('/posts/create');
+        $response->assertRedirect('/login');
+    }
+
+    /** @test */
+    public function itShouldShowThePostsCreateViewToTheSuperAdmin()
+    {
+        $user = $this->authenticateAsSuperAdmin();
+        $response = $this->get("/posts/create");
+
+        $response->assertStatus(200);
+        $response->assertViewIs('posts.create');
+    }
+
+    /** @test */
+    public function itShouldBlockTheAdminAccessingThePostCreatePageWithoutPostCreatePermission()
+    {
+        $user = $this->authenticateAsAdmin();
+
+        $this->withoutExceptionHandling();
+        $this->expectException(AccessDeniedException::class);
+
+        $response = $this->get("/posts/create");
+        $response->assertStatus(500);
+    }
+
+    /** @test */
+    public function itShouldDisplayThePostsCreateViewToAdminWithPostCreatePermission()
+    {
+        $user = $this->authenticateAsAdmin();
+        $user->givePermissionTo('posts.create');
+
+        $response = $this->get("/posts/create");
+
+        $response->assertStatus(200);
+        $response->assertViewIs('posts.create');
+    }
+
+    /** @test */
+    public function itShouldRedirectTheGuestUserAccessingThePostsEditPageToLoginPage()
+    {
+        $response = $this->get("/posts/{$this->post1->id}/edit");
+        $response->assertRedirect('/login');
+    }
+
+    /** @test */
+    public function itShouldShowThePostsEditViewToTheSuperAdmin()
+    {
+        $user = $this->authenticateAsSuperAdmin();
+        $response = $this->get("/posts/{$this->post1->id}/edit");
+
+        $response->assertStatus(200);
+        $response->assertViewIs('posts.edit');
+    }
+
+    /** @test */
+    public function itShouldBlockTheAdminAccessingThePostEditPageWithoutPostEditPermission()
+    {
+        $user = $this->authenticateAsAdmin();
+
+        $this->withoutExceptionHandling();
+        $this->expectException(AccessDeniedException::class);
+
+        $response = $this->get("/posts/{$this->post1->id}/edit");
+        $response->assertStatus(500);
+    }
+
+    /** @test */
+    public function itShouldDisplayThePostEditViewToAdminWithPostEditPermission()
+    {
+        $user = $this->authenticateAsAdmin();
+        $user->givePermissionTo('posts.edit');
+
+        $response = $this->get("/posts/{$this->post1->id}/edit");
+
+        $response->assertStatus(200);
+        $response->assertViewIs('posts.edit');
+    }
+
+    /** @test */
+    public function itShouldAllowSuperAdminToDeletePosts()
+    {
+        $this->authenticateAsSuperAdmin();
+        $response = $this->delete("/posts/{$this->post1->id}");
+
+        $response->assertStatus(302);
+        $response->assertRedirect('/posts');
+        $this->assertNull($this->post1->fresh());
+    }
+
+    /** @test */
+    public function itShouldNotAllowTheAdminToDeleteAPostWithoutPostDeletePermission()
+    {
+        $user = $this->authenticateAsAdmin();
+
+        $this->withoutExceptionHandling();
+        $this->expectException(AccessDeniedException::class);
+
+        $response = $this->delete("/posts/{$this->post1->id}");
+        $response->assertRedirect('/posts');
+        $response->assertStatus(500);
+    }
+
+    /** @test */
+    public function itShouldAllowTheAdminToDeleteAPostWithPostDeletePermission()
+    {
+        $user = $this->authenticateAsAdmin();
+        $user->givePermissionTo('posts.delete');
+
+        $response = $this->delete("/posts/{$this->post1->id}");
+
+        $response->assertStatus(302);
+        $response->assertRedirect('/posts');
+        $this->assertNull($this->post1->fresh());
+    }
+
+
 
 
 
