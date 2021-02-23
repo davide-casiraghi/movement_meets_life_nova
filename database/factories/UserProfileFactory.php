@@ -27,7 +27,7 @@ class UserProfileFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->firstName($gender = 'male'|'female'),
+            'name' => $this->faker->firstName($gender = 'male' | 'female'),
             'surname' => $this->faker->lastName,
         ];
     }

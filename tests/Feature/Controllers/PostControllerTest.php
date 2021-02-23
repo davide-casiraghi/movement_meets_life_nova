@@ -3,7 +3,9 @@
 namespace Tests\Feature\Controllers;
 
 use App\Models\Post;
+use App\Models\PostCategory;
 use App\Models\User;
+use App\Models\UserProfile;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Symfony\Component\Finder\Exception\AccessDeniedException;
@@ -14,12 +16,9 @@ class PostControllerTest extends TestCase
     use WithFaker;
     use RefreshDatabase; // empty the test DB
 
-    /*private GlossaryService $glossaryService;
-
-    private User $user1;
-    private Glossary $glossary1;
-    private Glossary $glossary2;
-    private Glossary $glossary3;*/
+    private Post $post1;
+    private Post $post2;
+    private Post $post3;
 
     /**
      * Populate test DB with dummy data.
@@ -34,22 +33,15 @@ class PostControllerTest extends TestCase
         // Seeders - /database/seeds
         $this->seed();
 
-        /*$this->glossaryService = $this->app->make('App\Services\GlossaryService');
+        $this->user1 = User::factory()->create(['email' => 'admin@gmail.com']);
+        $userProfile = UserProfile::factory()->create(['user_id' => $this->user1->id]);
 
-        $this->user1 = User::factory()->create([
-            'email' => 'admin@gmail.com',
-        ]);
+        $this->postCategory1 = PostCategory::factory()->create();
 
-        $this->glossary1 = Glossary::factory()->create(
-            ['term' => [
-                'en' => 'kinesphere',
-                'it' => 'kinesfera',
-            ]]
-        )->setStatus('published');
-        $this->glossary2 = Glossary::factory()->create()->setStatus('published');
-        $this->glossary3 = Glossary::factory()->create()->setStatus('published');*/
+        $this->post1 = Post::factory()->create(['category_id' => 1, 'user_id' => 1])->setStatus('published');
+        $this->post2 = Post::factory()->create(['category_id' => 1, 'user_id' => 1])->setStatus('published');
+        $this->post3 = Post::factory()->create(['category_id' => 1, 'user_id' => 1])->setStatus('published');
     }
-
 
     /** @test */
     public function itShouldRedirectTheGuestUserAccessingThePostsPageToLoginPage()
@@ -59,7 +51,7 @@ class PostControllerTest extends TestCase
     }
 
     /** @test */
-    public function itShouldDisplayThePostsIndexPageToSuperAdmin()
+    public function itShouldDisplayThePostsIndexViewToSuperAdmin()
     {
         $user = $this->authenticateAsSuperAdmin();
 
@@ -82,7 +74,7 @@ class PostControllerTest extends TestCase
     }
 
     /** @test */
-    public function itShouldDisplayThePostsIndexPageToAdminWithPostIndexPermission()
+    public function itShouldDisplayThePostsIndexViewToAdminWithPostIndexPermission()
     {
         $user = $this->authenticateAsAdmin();
         $user->givePermissionTo('posts.view');
@@ -92,6 +84,17 @@ class PostControllerTest extends TestCase
         $response->assertStatus(200);
         $response->assertViewIs('posts.index');
     }
+
+    /** @test */
+    public function itShouldDisplayThePostsShowViewToGuestUser()
+    {
+        $response = $this->get("/posts/{$this->post1->id}");
+
+        $response->assertStatus(200);
+        $response->assertViewIs('posts.show');
+    }
+
+
 
 
 
