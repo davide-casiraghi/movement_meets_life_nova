@@ -39,8 +39,8 @@ class PostControllerTest extends TestCase
         $this->postCategory1 = PostCategory::factory()->create();
 
         $this->post1 = Post::factory()->create(['category_id' => 1, 'user_id' => 1])->setStatus('published');
-        $this->post2 = Post::factory()->create(['category_id' => 1, 'user_id' => 1])->setStatus('published');
-        $this->post3 = Post::factory()->create(['category_id' => 1, 'user_id' => 1])->setStatus('published');
+        //$this->post2 = Post::factory()->create(['category_id' => 1, 'user_id' => 1])->setStatus('published');
+        //$this->post3 = Post::factory()->create(['category_id' => 1, 'user_id' => 1])->setStatus('published');
     }
 
     /** @test */
@@ -211,6 +211,57 @@ class PostControllerTest extends TestCase
         $response->assertStatus(302);
         $response->assertRedirect('/posts');
         $this->assertNull($this->post1->fresh());
+    }
+
+    /** @test */
+    public function itShouldAllowASuperAdminToStoreAValidPost()
+    {
+        $superAdmin = $this->authenticateAsSuperAdmin();
+
+        $parameters = [
+            'title' => 'test title',
+            'intro_text' => 'test intro text',
+            'body' => 'test body',
+            'category_id' => 1,
+            'user_id' => 1,
+        ];
+        $response = $this->post('/posts', $parameters);
+
+        $response->assertRedirect('/posts');
+        $this->assertDatabaseHas('posts', [
+            'slug' => 'test-title',
+        ]);
+    }
+
+    /** @test */
+    public function itShouldNotAllowASuperAdminToStoreAnInvalidPost()
+    {
+        $superAdmin = $this->authenticateAsSuperAdmin();
+
+        $parameters = [];
+        $response = $this->post('/posts', $parameters);
+
+        $response->assertSessionHasErrors();
+    }
+
+    /** @test */
+    public function itShouldAllowASuperAdminToUpdateAValidPost()
+    {
+        $this->authenticateAsSuperAdmin();
+
+        $parameters = [
+            'title' => 'test title updated',
+            'intro_text' => 'test intro text',
+            'body' => 'test body',
+            'category_id' => 1,
+            'user_id' => 1,
+        ];
+        $response = $this->put("/posts/{$this->post1->id}", $parameters);
+
+        $this->assertDatabaseHas('posts', [
+            'slug' => 'test-title-updated',
+        ]);
+        $response->assertRedirect('/posts');
     }
 
 
