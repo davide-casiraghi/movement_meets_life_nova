@@ -57,7 +57,8 @@ class AddTeacherTest extends TestCase
         ->set('newTeacher.year_starting_practice', '2002')
         ->set('newTeacher.year_starting_teach', '2005')
         ->set('newTeacher.significant_teachers', 'test significant teachers')
-        //->set('newTeacher.website', 'test website')
+        ->set('newTeacher.website', 'http://www.test.com')
+        ->set('newTeacher.facebook', 'http://www.facebook.com/teacher_name')
         ->call('saveTeacher');
 
         //dd(Teacher::all());
@@ -65,4 +66,32 @@ class AddTeacherTest extends TestCase
         $this->assertTrue(Teacher::where('name', 'test name')->exists());
     }
 
+    /** @test  */
+    public function eventCreatePageShouldContainAddTeacherComponent()
+    {
+        $user = $this->authenticateAsSuperAdmin();
+
+        $this->get('/events/create')->assertSeeLivewire('add-teacher');
+    }
+
+    /** @test  */
+    public function teacherNameShouldBeRequired()
+    {
+        $user = $this->authenticateAsSuperAdmin();
+
+        $teachers = [];
+        $selected = [];
+        Livewire::test(AddTeacher::class, [$teachers, $selected])
+            ->set('newTeacher.name', '')
+            ->set('newTeacher.surname', 'test surname')
+            ->set('newTeacher.country_id', '1')
+            ->set('newTeacher.bio', 'test bio')
+            ->set('newTeacher.year_starting_practice', '2002')
+            ->set('newTeacher.year_starting_teach', '2005')
+            ->set('newTeacher.significant_teachers', 'test significant teachers')
+            ->set('newTeacher.website', 'http://www.test.com')
+            ->set('newTeacher.facebook', 'http://www.facebook.com/teacher_name')
+            ->call('saveTeacher')
+            ->assertHasErrors(['newTeacher.name' => 'required']);
+    }
 }
