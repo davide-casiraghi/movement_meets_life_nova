@@ -59,7 +59,7 @@ class PostRepository implements PostRepositoryInterface
 
 
         if ($recordsPerPage) {
-            $results = $query->paginate($recordsPerPage);
+            $results = $query->paginate($recordsPerPage)->withQueryString();
         } else {
             $results = $query->get();
         }

@@ -54,7 +54,7 @@ class UserRepository implements UserRepositoryInterface
         }
 
         if ($recordsPerPage) {
-            return $query->paginate($recordsPerPage);
+            return $query->paginate($recordsPerPage)->withQueryString();
         }
         return $query->get();
     }
