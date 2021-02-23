@@ -30,7 +30,7 @@ class AddTeacherTest extends TestCase
     }
 
     /** @test */
-    public function canSeeAddTeacherModal()
+    public function itShouldShowTheAddTeacherModal()
     {
         $teachers = [];
         $selected = [];
@@ -42,7 +42,7 @@ class AddTeacherTest extends TestCase
     }
 
     /** @test */
-    public function canAddATeacher()
+    public function itShouldStoreTheNewTeacherOnDb()
     {
         $user = $this->authenticateAsSuperAdmin();
 
