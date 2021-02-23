@@ -54,7 +54,7 @@ class EventRepository implements EventRepositoryInterface
         }
 
         if ($recordsPerPage) {
-            $results = $query->paginate($recordsPerPage);
+            $results = $query->paginate($recordsPerPage)->withQueryString();
         } else {
             $results = $query->get();
         }

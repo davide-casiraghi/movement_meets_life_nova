@@ -35,7 +35,7 @@ class GlossaryRepository implements GlossaryRepositoryInterface
         }
 
         if ($recordsPerPage) {
-            $results = $query->paginate($recordsPerPage);
+            $results = $query->paginate($recordsPerPage)->withQueryString();
         } else {
             $results = $query->get();
         }

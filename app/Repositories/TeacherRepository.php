@@ -42,7 +42,7 @@ class TeacherRepository implements TeacherRepositoryInterface
         }
 
         if ($recordsPerPage) {
-            $results = $query->paginate($recordsPerPage);
+            $results = $query->paginate($recordsPerPage)->withQueryString();
         } else {
             $results = $query->get();
         }

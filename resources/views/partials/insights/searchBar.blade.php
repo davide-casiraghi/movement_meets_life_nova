@@ -13,6 +13,18 @@
                     ])
         </div>
 
+        {{-- Status --}}
+        <div class="md:col-span-2 lg:col-span-1 mb-2 md:mb-0">
+            @include('partials.forms.select_status', [
+                       'label' => __('views.status'),
+                       'name' => 'is_published',
+                       'placeholder' => __('views.select_status'),
+                       'records' => $statuses,
+                       'selected' =>  old('is_published', $searchParameters['is_published']),
+                       'required' => false,
+                   ])
+        </div>
+
         {{-- Search / Reset buttons --}}
         <div class="md:col-span-2 lg:col-span-1 flex items-end justify-end mt-4 md:mt-0 mb-2">
 
