@@ -2,6 +2,8 @@
 
 namespace Tests\Feature\Livewire;
 
+use App\Models\Teacher;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Livewire\Livewire;
@@ -38,6 +40,29 @@ class AddTeacherTest extends TestCase
             ->set('showModal', true)
             ->assertSee('Create new teacher');
     }
-    
+
+    /** @test */
+    public function canAddATeacher()
+    {
+        $user = $this->authenticateAsSuperAdmin();
+
+        $teachers = [];
+        $selected = [];
+
+        Livewire::test(AddTeacher::class, [$teachers, $selected])
+        ->set('newTeacher.name', 'test name')
+        ->set('newTeacher.surname', 'test surname')
+        ->set('newTeacher.country_id', '1')
+        ->set('newTeacher.bio', 'test bio')
+        ->set('newTeacher.year_starting_practice', '2002')
+        ->set('newTeacher.year_starting_teach', '2005')
+        ->set('newTeacher.significant_teachers', 'test significant teachers')
+        //->set('newTeacher.website', 'test website')
+        ->call('saveTeacher');
+
+        //dd(Teacher::all());
+
+        $this->assertTrue(Teacher::where('name', 'test name')->exists());
+    }
 
 }
