@@ -120,40 +120,19 @@ class AddTeacher extends Component
         // https://github.com/bitfumes/laravel-livewire-full-course/blob/master/resources/views/livewire/comments.blade.php
         // https://github.com/bitfumes/laravel-livewire-full-course/blob/master/app/Http/Livewire/Comments.php
 
-
-        //dd($photo);
         $collectionName = 'profile_picture';
-        //dd($teacher);
         if (!$photo) {
             return;
         }
 
+        $file = self::convertBase64ImageToUploadedFile($photo);
 
-        //dd($this->image);
-
-        /*$img   = ImageManagerStatic::make($this->image)->encode('jpg');
-        $name  = Str::random() . '.jpg';
-        Storage::disk('public')->put($name, $img);
-        return $name;*/
+        $teacher->addMedia($file)->toMediaCollection($collectionName);
+    }
 
 
-        //$file = $request->file($collectionName);
-
-        //$this->photo->store('photos');
-
-        //if ($file->isValid()) {
-        //dd($img = Image::make($photo));
-
-        //$img = Image::make($photo);
-
-
-        //$img = base64_decode($photo);
-
-
-
-
-        $base64File = $photo;
-
+    public function convertBase64ImageToUploadedFile($base64File)
+    {
         // decode the base64 file
         $fileData = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $base64File));
 
@@ -172,19 +151,9 @@ class AddTeacher extends Component
             true // Mark it as test, since the file isn't from real HTTP POST.
         );
 
-
-
-
-
-
-
-
-
-        //dd($img);
-
-        $teacher->addMedia($file)->toMediaCollection($collectionName);
-        //}
+        return $file;
     }
+
 
 
 }
