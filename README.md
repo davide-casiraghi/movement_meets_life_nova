@@ -81,7 +81,7 @@ folders:
 sites:
     - map: movement_meets_life_nova.local
       to: /home/vagrant/code/movement_meets_life_nova/public
-      php: "7.4"
+      php: "8.0"
 ```
 
 To start the virtual machine:    
