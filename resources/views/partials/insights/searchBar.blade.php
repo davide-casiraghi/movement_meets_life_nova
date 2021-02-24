@@ -13,7 +13,7 @@
                     ])
         </div>
 
-        {{-- Status --}}
+        {{-- Publish --}}
         <div class="md:col-span-2 lg:col-span-1 mb-2 md:mb-0">
             @include('partials.forms.select_status', [
                        'label' => __('views.status'),

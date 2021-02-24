@@ -32,10 +32,12 @@ class QuoteController extends Controller
         $searchParameters = Helper::getSearchParameters($request, Quote::SEARCH_PARAMETERS);
 
         $quotes = $this->quoteService->getQuotes(20, $searchParameters);
+        $statuses = Quote::PUBLISHING_STATUS;
 
         return view('quotes.index', [
             'quotes' => $quotes,
             'searchParameters' => $searchParameters,
+            'statuses' => $statuses,
         ]);
     }
 

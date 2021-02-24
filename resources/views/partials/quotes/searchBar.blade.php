@@ -2,7 +2,7 @@
 <form id="searchPostsForm" method="get" action="#" class="mb-4">
     <div class="md:grid md:grid-cols-6 md:gap-2">
         {{-- Author --}}
-        <div class="md:col-span-2 mb-2 md:mb-0">
+        <div class="md:col-span-1 mb-2 md:mb-0">
             @include('partials.forms.input', [
                             'label' => __('views.author'),
                             'name' => 'author',
@@ -23,6 +23,18 @@
                             'required' => false,
                             'disabled' => false,
                     ])
+        </div>
+
+        {{-- Publish --}}
+        <div class="md:col-span-1 lg:col-span-1 mb-2 md:mb-0">
+            @include('partials.forms.select_status', [
+                       'label' => __('views.status'),
+                       'name' => 'is_published',
+                       'placeholder' => __('views.select_status'),
+                       'records' => $statuses,
+                       'selected' =>  old('is_published', $searchParameters['is_published']),
+                       'required' => false,
+                   ])
         </div>
 
         {{-- Search / Reset buttons --}}

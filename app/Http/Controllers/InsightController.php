@@ -26,8 +26,7 @@ class InsightController extends Controller
     public function __construct(
         InsightService $insightService,
         TagService $tagService
-    )
-    {
+    ) {
         $this->insightService = $insightService;
         $this->tagService = $tagService;
     }
