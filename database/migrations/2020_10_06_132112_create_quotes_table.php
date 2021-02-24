@@ -19,6 +19,7 @@ class CreateQuotesTable extends Migration
             $table->text('description');
             $table->boolean('shown')->default(0);
             $table->dateTime('shown_on')->nullable();
+            $table->boolean('is_published')->default(0);
 
             $table->string('slug');
             $table->timestamps();

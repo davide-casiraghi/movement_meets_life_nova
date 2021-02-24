@@ -82,10 +82,9 @@ class ImageHelpers
      * The $photo parameter is an image in Base64 string format.
      *
      * @param object $model
-     * @param string $photo
-     *
+     * @param string|null $photo
      */
-    public static function storeImageFromLivewireComponent(object $model, string $photo): void
+    public static function storeImageFromLivewireComponent(object $model, ?string $photo): void
     {
         //Check image upload strategy here
         // https://www.youtube.com/watch?v=ARFZU-q-Td8&list=PLe30vg_FG4OQ8b813BDykoYz95Zc3xUWK&index=13&ab_channel=Bitfumes

@@ -22,8 +22,9 @@ class QuoteFactory extends Factory
     public function definition()
     {
         return [
-            'author' => $this->faker->name($gender = 'male'|'female'),
+            'author' => $this->faker->name($gender = 'male' | 'female'),
             'description' => $this->faker->paragraph($nbSentences = 2, $variableNbSentences = true),
+            'is_published' => $this->faker->boolean(50),
         ];
     }
 }

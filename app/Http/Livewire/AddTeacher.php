@@ -53,9 +53,9 @@ class AddTeacher extends Component
      * The component constructor
      *
      * @param \Illuminate\Support\Collection $teachers
-     * @param array $selected
+     * @param array|null $selected
      */
-    public function mount(Collection $teachers, array $selected)
+    public function mount(Collection $teachers, ?array $selected)
     {
         $this->teachers = $teachers;
         $this->selected = $selected;

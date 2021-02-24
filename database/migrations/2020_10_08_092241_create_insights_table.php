@@ -20,7 +20,6 @@ class CreateInsightsTable extends Migration
             $table->text('body')->nullable();
             $table->string('introimage')->nullable();
             $table->string('introimage_alt')->nullable();
-            $table->string('slug');
             $table->boolean('is_published')->default(0);
 
             $table->text('facebook_body')->nullable();
@@ -31,11 +30,11 @@ class CreateInsightsTable extends Migration
             $table->string('twitter_url')->nullable();
             $table->string('instagram_url')->nullable();
 
-
             $table->datetime('published_on_facebook_on')->nullable();
             $table->datetime('published_on_twitter_on')->nullable();
             $table->datetime('published_on_instagram_on')->nullable();
 
+            $table->string('slug');
             $table->timestamps();
         });
     }

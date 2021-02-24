@@ -43,9 +43,9 @@ class AddOrganizer extends Component
      * The component constructor
      *
      * @param \Illuminate\Support\Collection $organizers
-     * @param array $selected
+     * @param array|null $selected
      */
-    public function mount(Collection $organizers, array $selected)
+    public function mount(Collection $organizers, ?array $selected)
     {
         $this->organizers = $organizers;
         $this->selected = $selected;

@@ -40,6 +40,15 @@ class Quote extends Model implements Searchable
     public const SEARCH_PARAMETERS = [
         'author',
         'description',
+        'is_published'
+    ];
+
+    /**
+     * The possible values the publishing status can be.
+     */
+    public const PUBLISHING_STATUS = [
+        0 => 'unpublished',
+        1 => 'published',
     ];
 
     /**
@@ -53,23 +62,23 @@ class Quote extends Model implements Searchable
     }
 
     /**
-     * Return true if the post is published
+     * Return true if the quote is published
      *
      * @return bool
      */
     public function isPublished(): bool
     {
-        return $this->latestStatus('unpublished', 'published') == 'published';
+        return $this->is_published;
     }
 
     /**
-     * Return the post publishing status
+     * Return the insight publishing status
      *
      * @return string
      */
     public function publishingStatus(): string
     {
-        return $this->latestStatus('unpublished', 'published');
+        return self::PUBLISHING_STATUS[$this->is_published];
     }
 
     /**
