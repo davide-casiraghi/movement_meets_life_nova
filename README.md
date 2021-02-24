@@ -274,7 +274,7 @@ Organizer::factory()->count(40)->create();
 Teacher::factory()->count(40)->create();
 
 Event::factory()
-    ->count(40)
+    ->count(20)
     ->state(new Sequence(
         ['repeat_type' => '1'],
         //['repeat_type' => '2'],
