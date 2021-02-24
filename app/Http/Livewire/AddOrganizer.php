@@ -85,13 +85,9 @@ class AddOrganizer extends Component
         ImageHelpers::storeImageFromLivewireComponent($organizer, $this->profilePicture);
 
         $this->selected[] = $organizer->id;
-        //$this->organizers[] = $organizer;
-
         $this->organizers = $organizerRepository->getAll();
 
         $this->emit('refreshOrganizersDropdown', ['organizer' => $organizer]);
-
-        session()->flash('message', 'Organizer added successfully 😁'); //todo - replace this flash message with a variable to set true
         $this->showModal = false;
 
         $this->newOrganizer = [];

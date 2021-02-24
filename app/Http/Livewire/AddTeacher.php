@@ -98,13 +98,10 @@ class AddTeacher extends Component
         ImageHelpers::storeImageFromLivewireComponent($teacher, $this->profilePicture);
 
         $this->selected[] = $teacher->id;
-        //$this->teachers[] = $teacher;
-
         $this->teachers = $teacherRepository->getAll();
 
         $this->emit('refreshTeachersDropdown', ['teacher' => $teacher]);
 
-        session()->flash('message', 'Teacher added successfully 😁'); //todo - replace this flash message with a variable to set true
         $this->showModal = false;
 
         $this->newTeacher = [];
