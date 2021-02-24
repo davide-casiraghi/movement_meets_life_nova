@@ -53,6 +53,16 @@ class Quote extends Model implements Searchable
     }
 
     /**
+     * Return true if the post is published
+     *
+     * @return bool
+     */
+    public function isPublished(): bool
+    {
+        return $this->latestStatus('unpublished', 'published') == 'published';
+    }
+
+    /**
      * Return the post publishing status
      *
      * @return string

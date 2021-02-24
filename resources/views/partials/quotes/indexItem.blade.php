@@ -6,9 +6,9 @@
                     {{$quote->author}}
                 </p>
                 <div class="ml-2 flex-shrink-0 flex">
-                    {{--<p class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                        {{$postsCategory->status()}}
-                    </p>--}}
+                    <p class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full @if($quote->isPublished())bg-green-100 text-green-800 @else bg-red-100 text-red-800 @endif">
+                        {{ucfirst($quote->publishingStatus())}}
+                    </p>
                 </div>
             </div>
             <div class="md:grid md:grid-cols-6 md:gap-2 mt-1">
