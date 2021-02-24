@@ -156,7 +156,7 @@
 
                                     {{--<input type="file" wire:model="profilePicture">--}}
 
-                                    <input type="file" id="image" wire:change="$emit('fileChoosen')">
+                                    <input type="file" id="image" wire:change="$emit('organizerImageChoosen')">
                                 </div>
 
                             </div>
@@ -184,17 +184,17 @@
             // When a value is selected in the dropdown, update the selected property in the Livewire component
             $('#organizer_ids').on('change', function (e) {
                 let selectedValues = $('#organizer_ids').select2("val");
-            @this.set('selected', selectedValues);
+                @this.set('selected', selectedValues);
             });
 
             // When a new organizer is added update the select2
             // The data variable is the parameter array passed to the emit('refreshDropdown') function in the Livewire component.
-            Livewire.on('refreshDropdown', data => {
+            Livewire.on('refreshOrganizersDropdown', data => {
                 var newOption = new Option(data.organizer['name'] + " " + data.organizer['surname'], data.organizer['id'], false, true);
                 $('#organizer_ids').append(newOption).trigger('change');
             });
 
-            window.livewire.on('fileChoosen', () => {
+            window.livewire.on('organizerImageChoosen', () => {
                 console.log('file chosen');
                 let inputField = document.getElementById('image')
                 let file = inputField.files[0]

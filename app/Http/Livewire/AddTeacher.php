@@ -101,9 +101,9 @@ class AddTeacher extends Component
 
         $this->teachers = $teacherRepository->getAll();
 
-        $this->emit('refreshDropdown', ['teacher' => $teacher]);
+        $this->emit('refreshTeachersDropdown', ['teacher' => $teacher]);
 
-        session()->flash('message', 'Teacher added successfully 😁');
+        session()->flash('message', 'Teacher added successfully 😁'); //todo - replace this flash message with a variable to set true
         $this->showModal = false;
 
         $this->newTeacher = [];

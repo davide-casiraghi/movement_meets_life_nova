@@ -195,7 +195,7 @@
 
                                     {{--<input type="file" wire:model="profilePicture">--}}
 
-                                    <input type="file" id="image" wire:change="$emit('fileChoosen')">
+                                    <input type="file" id="image" wire:change="$emit('teacherImageChoosen')">
                                 </div>
 
                             </div>
@@ -228,12 +228,12 @@
 
             // When a new teacher is added update the select2
             // The data variable is the parameter array passed to the emit('refreshDropdown') function in the Livewire component.
-            Livewire.on('refreshDropdown', data => {
+            Livewire.on('refreshTeachersDropdown', data => {
                 var newOption = new Option(data.teacher['name'] + " " + data.teacher['surname'], data.teacher['id'], false, true);
                 $('#teacher_ids').append(newOption).trigger('change');
             });
 
-            window.livewire.on('fileChoosen', () => {
+            window.livewire.on('teacherImageChoosen', () => {
                 console.log('file chosen');
                 let inputField = document.getElementById('image')
                 let file = inputField.files[0]

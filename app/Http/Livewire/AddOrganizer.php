@@ -81,6 +81,7 @@ class AddOrganizer extends Component
         $this->validate();
 
         $organizer = $organizerRepository->store($this->newOrganizer);
+
         $this->storeImage($organizer, $this->profilePicture);
 
         $this->selected[] = $organizer->id;
@@ -88,9 +89,9 @@ class AddOrganizer extends Component
 
         $this->organizers = $organizerRepository->getAll();
 
-        $this->emit('refreshDropdown', ['organizer' => $organizer]);
+        $this->emit('refreshOrganizersDropdown', ['organizer' => $organizer]);
 
-        session()->flash('message', 'Organizer added successfully 😁');
+        session()->flash('message', 'Organizer added successfully 😁'); //todo - replace this flash message with a variable to set true
         $this->showModal = false;
 
         $this->newOrganizer = [];
@@ -152,6 +153,4 @@ class AddOrganizer extends Component
 
         return $file;
     }
-
-    
 }
