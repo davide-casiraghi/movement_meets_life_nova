@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Helpers\ImageHelpers;
 use App\Models\Organizer;
 use App\Repositories\OrganizerRepository;
 use Illuminate\Http\File;
@@ -81,8 +82,7 @@ class AddOrganizer extends Component
         $this->validate();
 
         $organizer = $organizerRepository->store($this->newOrganizer);
-
-        $this->storeImage($organizer, $this->profilePicture);
+        ImageHelpers::storeImageFromLivewireComponent($organizer, $this->profilePicture);
 
         $this->selected[] = $organizer->id;
         //$this->organizers[] = $organizer;
@@ -95,63 +95,5 @@ class AddOrganizer extends Component
         $this->showModal = false;
 
         $this->newOrganizer = [];
-    }
-
-    /**
-     * Store a the image using Spatie Media Library
-     * The $photo parameter is an image in Base64 string format.
-     *
-     * @param \App\Models\Organizer $organizer
-     * @param string $photo
-     *
-     * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileDoesNotExist
-     * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileIsTooBig
-     */
-    public function storeImage(Organizer $organizer, string $photo): void
-    {
-        //Check image upload strategy here
-        // https://www.youtube.com/watch?v=ARFZU-q-Td8&list=PLe30vg_FG4OQ8b813BDykoYz95Zc3xUWK&index=13&ab_channel=Bitfumes
-        // https://github.com/bitfumes/laravel-livewire-full-course/blob/master/resources/views/livewire/comments.blade.php
-        // https://github.com/bitfumes/laravel-livewire-full-course/blob/master/app/Http/Livewire/Comments.php
-
-        $collectionName = 'profile_picture';
-        if (!$photo) {
-            return;
-        }
-
-        $file = self::convertBase64ImageToUploadedFile($photo);
-
-        $organizer->addMedia($file)->toMediaCollection($collectionName);
-    }
-
-
-    /**
-     * Convert a base64 image to UploadedFile Laravel
-     *
-     * @param string $base64File
-     *
-     * @return \Illuminate\Http\UploadedFile
-     */
-    public function convertBase64ImageToUploadedFile(string $base64File): UploadedFile
-    {
-        // decode the base64 file
-        $fileData = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $base64File));
-
-        // save it to temporary dir first.
-        $tmpFilePath = sys_get_temp_dir() . '/' . Str::uuid()->toString();
-        file_put_contents($tmpFilePath, $fileData);
-
-        // this just to help us get file info.
-        $tmpFile = new File($tmpFilePath);
-
-        $file = new UploadedFile(
-            $tmpFile->getPathname(),
-            $tmpFile->getFilename(),
-            $tmpFile->getMimeType(),
-            0,
-            true // Mark it as test, since the file isn't from real HTTP POST.
-        );
-
-        return $file;
     }
 }

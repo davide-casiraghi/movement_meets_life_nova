@@ -2,6 +2,10 @@
 
 namespace App\Helpers;
 
+use Illuminate\Http\File;
+use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Str;
+
 class ImageHelpers
 {
 
@@ -71,6 +75,61 @@ class ImageHelpers
         }
 
         return $thumbUrls;
+    }
+
+    /**
+     * Store an image using Spatie Media Library
+     * The $photo parameter is an image in Base64 string format.
+     *
+     * @param object $model
+     * @param string $photo
+     *
+     */
+    public static function storeImageFromLivewireComponent(object $model, string $photo): void
+    {
+        //Check image upload strategy here
+        // https://www.youtube.com/watch?v=ARFZU-q-Td8&list=PLe30vg_FG4OQ8b813BDykoYz95Zc3xUWK&index=13&ab_channel=Bitfumes
+        // https://github.com/bitfumes/laravel-livewire-full-course/blob/master/resources/views/livewire/comments.blade.php
+        // https://github.com/bitfumes/laravel-livewire-full-course/blob/master/app/Http/Livewire/Comments.php
+
+        $collectionName = 'profile_picture';
+        if (!$photo) {
+            return;
+        }
+
+        $file = self::convertBase64ImageToUploadedFile($photo);
+
+        $model->addMedia($file)->toMediaCollection($collectionName);
+    }
+
+    /**
+     * Convert a base64 image to UploadedFile Laravel
+     *
+     * @param string $base64File
+     *
+     * @return \Illuminate\Http\UploadedFile
+     */
+    public static function convertBase64ImageToUploadedFile(string $base64File): UploadedFile
+    {
+        // decode the base64 file
+        $fileData = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $base64File));
+
+        // save it to temporary dir first.
+        $tmpFilePath = sys_get_temp_dir() . '/' . Str::uuid()->toString();
+        file_put_contents($tmpFilePath, $fileData);
+
+        // this just to help us get file info.
+        $tmpFile = new File($tmpFilePath);
+
+        $file = new UploadedFile(
+            $tmpFile->getPathname(),
+            $tmpFile->getFilename(),
+            $tmpFile->getMimeType(),
+            0,
+            true // Mark it as test, since the file isn't from real HTTP POST.
+        );
+
+        return $file;
     }
 
 }
