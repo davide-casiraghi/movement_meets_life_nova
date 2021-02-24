@@ -98,7 +98,7 @@ class AddTeacher extends Component
         $this->validate();
 
         $teacher = $teacherRepository->store($this->newTeacher);
-        ImageHelpers::storeImageFromLivewireComponent($teacher, $this->profilePicture);
+        ImageHelpers::storeImageFromLivewireComponent($teacher, $this->profilePicture, 'profile_picture');
 
         $this->selected[] = $teacher->id;
         $this->teachers = $teacherRepository->getAll();

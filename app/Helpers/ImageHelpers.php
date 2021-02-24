@@ -83,21 +83,15 @@ class ImageHelpers
      *
      * @param object $model
      * @param string|null $photo
+     * @param string $collectionName
      */
-    public static function storeImageFromLivewireComponent(object $model, ?string $photo): void
+    public static function storeImageFromLivewireComponent(object $model, ?string $photo, string $collectionName): void
     {
-        //Check image upload strategy here
-        // https://www.youtube.com/watch?v=ARFZU-q-Td8&list=PLe30vg_FG4OQ8b813BDykoYz95Zc3xUWK&index=13&ab_channel=Bitfumes
-        // https://github.com/bitfumes/laravel-livewire-full-course/blob/master/resources/views/livewire/comments.blade.php
-        // https://github.com/bitfumes/laravel-livewire-full-course/blob/master/app/Http/Livewire/Comments.php
-
-        $collectionName = 'profile_picture';
         if (!$photo) {
             return;
         }
 
         $file = self::convertBase64ImageToUploadedFile($photo);
-
         $model->addMedia($file)->toMediaCollection($collectionName);
     }
 

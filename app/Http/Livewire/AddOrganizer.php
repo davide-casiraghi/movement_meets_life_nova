@@ -85,7 +85,7 @@ class AddOrganizer extends Component
         $this->validate();
 
         $organizer = $organizerRepository->store($this->newOrganizer);
-        ImageHelpers::storeImageFromLivewireComponent($organizer, $this->profilePicture);
+        ImageHelpers::storeImageFromLivewireComponent($organizer, $this->profilePicture, 'profile_picture');
 
         $this->selected[] = $organizer->id;
         $this->organizers = $organizerRepository->getAll();
