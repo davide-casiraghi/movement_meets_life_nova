@@ -73,7 +73,6 @@ class AddTeacher extends Component
      */
     public function openModal(): void
     {
-        $this->teacher = new Teacher();
         $this->showModal = true;
     }
 
@@ -88,7 +87,7 @@ class AddTeacher extends Component
     /**
      * Store a newly created teacher in storage.
      */
-    public function saveTeacher()
+    public function saveTeacher(): void
     {
         $teacherRepository = App::make(TeacherRepository::class);
 

@@ -60,7 +60,6 @@ class AddOrganizer extends Component
      */
     public function openModal(): void
     {
-        $this->organizer = new Organizer();
         $this->showModal = true;
     }
 
@@ -75,7 +74,7 @@ class AddOrganizer extends Component
     /**
      * Store a newly created organizer in storage.
      */
-    public function saveOrganizer()
+    public function saveOrganizer(): void
     {
         $organizerRepository = App::make(OrganizerRepository::class);
 
