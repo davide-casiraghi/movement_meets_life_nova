@@ -21,7 +21,7 @@ class AddOrganizer extends Component
     protected $rules = [
         'newOrganizer.name' => ['required', 'string', 'max:255'],
         'newOrganizer.surname' => ['required', 'string', 'max:255'],
-        'newOrganizer.email_address' => ['required', 'email', 'max:255'],
+        'newOrganizer.email' => ['required', 'email', 'max:255'],
         'newOrganizer.phone' => ['nullable', 'string', 'max:255'],
         'newOrganizer.website' => ['nullable', 'url'],
         'newOrganizer.description' => ['required', 'string'],
