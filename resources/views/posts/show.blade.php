@@ -5,6 +5,15 @@
     resources/js/vendors/staaky_tipped.js
 --}}
 
+@section('fb-tags')
+    <meta property="og:title" content="{{ $post->title }}" />
+    @if($post->hasMedia('introimage'))
+        <meta property="og:image" content="{{$post->getMedia('introimage')[0]->getUrl()}}" />
+    @else
+        <meta property="og:image" content="/storage/logo/fb_logo_cigc_red.jpg" />
+    @endif
+@endsection
+
 @section('jumbotron')
     @if($post->hasMedia('introimage'))
         <div class="bg-fixed relative bg-cover bg-no-repeat" style="background-image: url('{{$post->getMedia('introimage')[0]->getUrl()}}'); ">
