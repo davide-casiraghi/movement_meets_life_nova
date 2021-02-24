@@ -22,6 +22,8 @@
                     {{ $event->title }}
                 </h2>
 
+                @include('partials.events.mainInformation')
+
             </div>
 
             <div class="opacity-25 bg-black flex items-center h-full w-full flex-wrap z-0 top-0 right-0 absolute"></div>
@@ -36,7 +38,11 @@
 
     <div class="text-lg max-w-prose mx-auto mb-6 mt-8 sm:mt-32 px-10">
         @if(!$event->hasMedia('introimage'))
-            <h2 class="mt-2 mb-8 text-3xl leading-8 font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-10">{{ $event->title }}</h2>
+            <h2>
+                {{ $event->title }}
+            </h2>
+
+            @include('partials.events.mainInformation')
         @endif
 
         <div class="prose text-gray-500 mb-10">

@@ -124,7 +124,14 @@ class EventController extends Controller
     {
         $event = $this->eventService->getById($eventId);
 
-        return view('events.show', compact('event'));
+        // todo - probably $eventFirstRepetition has to change since in the previous calendar was a show() parameter.
+        $eventFirstRepetition = $this->eventRepetitionService->getFirstByEventId($event->id);
+        $repetitionTextString = $this->eventService->getRepetitionTextString($event, $eventFirstRepetition);
+
+        return view('events.show', [
+            'event' => $event,
+            'repetitionTextString' => $repetitionTextString,
+        ]);
     }
 
     /**
