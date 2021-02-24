@@ -17,8 +17,8 @@
 @section('jumbotron')
     @if($event->hasMedia('introimage'))
         <div class="bg-fixed relative bg-cover bg-no-repeat" style="background-image: url('{{$event->getMedia('introimage')[0]->getUrl()}}'); ">
-            <div class="container mx-auto px-6 py-40 max-w-prose relative z-10">
-                <h2 class="text-4xl font-bold mb-2 text-white">
+            <div class="container mx-auto px-6 py-40 max-w-prose relative z-10 text-white">
+                <h2 class="text-4xl font-bold mb-2">
                     {{ $event->title }}
                 </h2>
 
@@ -36,7 +36,7 @@
 
     @include('partials.messages')
 
-    <div class="text-lg max-w-prose mx-auto mb-6 mt-8 sm:mt-32 px-10">
+    <div class="text-lg max-w-prose mx-auto mb-6 mt-8 sm:mt-32 px-10 text-gray-500">
         @if(!$event->hasMedia('introimage'))
             <h2>
                 {{ $event->title }}
