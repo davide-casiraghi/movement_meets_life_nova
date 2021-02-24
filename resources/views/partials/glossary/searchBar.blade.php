@@ -13,14 +13,14 @@
                     ])
         </div>
 
-        {{-- Status --}}
+        {{-- Publish --}}
         <div class="md:col-span-2 mb-2 md:mb-0">
             @include('partials.forms.select_status', [
                        'label' => __('views.status'),
-                       'name' => 'status',
+                       'name' => 'is_published',
                        'placeholder' => __('views.select_status'),
                        'records' => $statuses,
-                       'selected' =>  old('status', $searchParameters['status']),
+                       'selected' =>  old('is_published', $searchParameters['is_published']),
                        'required' => false,
                    ])
         </div>

@@ -73,7 +73,6 @@ class QuoteRepository implements QuoteRepositoryInterface
         $quote = self::assignDataAttributes($quote, $data);
 
         $quote->save();
-        $quote->setStatus('published');
 
         return $quote->fresh();
     }
@@ -91,11 +90,6 @@ class QuoteRepository implements QuoteRepositoryInterface
         $quote = self::assignDataAttributes($quote, $data);
 
         $quote->update();
-
-        $status = (isset($data['status'])) ? 'published' : 'unpublished';
-        if ($quote->publishingStatus() != $status) {
-            $quote->setStatus($status);
-        }
 
         return $quote;
     }

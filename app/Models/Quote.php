@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Spatie\ModelStatus\HasStatuses;
 use Spatie\Searchable\Searchable;
 use Spatie\Searchable\SearchResult;
 use Spatie\Sluggable\HasSlug;
@@ -16,7 +15,6 @@ class Quote extends Model implements Searchable
     use HasFactory;
     use HasSlug;
     use HasTranslations;
-    use HasStatuses;
 
     /**
      * The attributes that aren't mass assignable.
@@ -72,7 +70,7 @@ class Quote extends Model implements Searchable
     }
 
     /**
-     * Return the insight publishing status
+     * Return the quote publishing status
      *
      * @return string
      */

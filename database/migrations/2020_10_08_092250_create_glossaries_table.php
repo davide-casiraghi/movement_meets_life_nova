@@ -20,8 +20,8 @@ class CreateGlossariesTable extends Migration
             $table->text('body');
             $table->string('introimage')->nullable();
             $table->string('introimage_alt')->nullable();
+            $table->boolean('is_published')->default(0);
 
-            //$table->boolean('is_published')->default(false);
             $table->string('slug');
             $table->timestamps();
         });

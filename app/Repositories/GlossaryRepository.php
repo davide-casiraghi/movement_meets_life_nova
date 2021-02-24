@@ -29,8 +29,8 @@ class GlossaryRepository implements GlossaryRepositoryInterface
                     '%' . $searchParameters['term'] . '%'
                 );
             }
-            if (!empty($searchParameters['status'])) {
-                $query->currentStatus($searchParameters['status']);
+            if (!is_null($searchParameters['is_published'])) {
+                $query->where('is_published', $searchParameters['is_published']);
             }
         }
 
@@ -67,8 +67,6 @@ class GlossaryRepository implements GlossaryRepositoryInterface
 
         $glossary->save();
 
-        $glossary->setStatus('published');
-
         return $glossary->fresh();
     }
 
@@ -85,11 +83,6 @@ class GlossaryRepository implements GlossaryRepositoryInterface
         $glossary = self::assignDataAttributes($glossary, $data);
 
         $glossary->update();
-
-        $status = (isset($data['status'])) ? 'published' : 'unpublished';
-        if ($glossary->publishingStatus() != $status) {
-            $glossary->setStatus($status);
-        }
 
         return $glossary;
     }
@@ -118,6 +111,7 @@ class GlossaryRepository implements GlossaryRepositoryInterface
         $glossary->term = $data['term'];
         $glossary->definition = $data['definition'];
         $glossary->body = $data['body'];
+        $glossary->is_published = (isset($data['is_published'])) ? 1 : 0;
 
         // Translations
         foreach (LaravelLocalization::getSupportedLocales() as $countryCode => $countryAvTrans) {

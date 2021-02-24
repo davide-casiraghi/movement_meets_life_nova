@@ -43,15 +43,15 @@ class Glossary extends Model implements HasMedia, Searchable
      */
     public const SEARCH_PARAMETERS = [
         'term',
-        'status',
+        'is_published'
     ];
 
     /**
      * The possible values the publishing status can be.
      */
     public const PUBLISHING_STATUS = [
-        'unpublished' => 'unpublished',
-        'published' => 'published',
+        0 => 'unpublished',
+        1 => 'published',
     ];
 
     /**
@@ -94,23 +94,23 @@ class Glossary extends Model implements HasMedia, Searchable
     }
 
     /**
-     * Return true if the post is published
+     * Return true if the glossary term is published
      *
      * @return bool
      */
     public function isPublished(): bool
     {
-        return $this->latestStatus('unpublished', 'published') == 'published';
+        return $this->is_published;
     }
 
     /**
-     * Return the post publishing status
+     * Return the glossary term publishing status
      *
      * @return string
      */
     public function publishingStatus(): string
     {
-        return $this->latestStatus('unpublished', 'published');
+        return self::PUBLISHING_STATUS[$this->is_published];
     }
 
     /**

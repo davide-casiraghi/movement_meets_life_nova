@@ -34,6 +34,8 @@ class InsightController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param \App\Http\Requests\InsightSearchRequest $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function index(InsightSearchRequest $request)

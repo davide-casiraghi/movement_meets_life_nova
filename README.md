@@ -255,12 +255,8 @@ Post::factory()->count(40)->create()->each(function($post) {
     $status = $statuses[$random_status];
     $post->setStatus($status);
 });
-Glossary::factory()->count(40)->create()->each(function($glossary) {
-    $statuses = ['published','unpublished'];
-    $random_status = array_rand($statuses, 1);
-    $status = $statuses[$random_status];
-    $glossary->setStatus($status);
-});
+
+Glossary::factory()->count(20)->create();
 
 Testimonial::factory()->count(40)->create()->each(function($testimonial) {
     $statuses = ['published','unpublished'];
