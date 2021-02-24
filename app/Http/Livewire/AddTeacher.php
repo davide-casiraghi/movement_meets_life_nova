@@ -10,6 +10,7 @@ use App\Services\TeacherService;
 use Carbon\Carbon;
 use Illuminate\Http\File;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
@@ -50,8 +51,11 @@ class AddTeacher extends Component
 
     /**
      * The component constructor
+     *
+     * @param \Illuminate\Support\Collection $teachers
+     * @param array $selected
      */
-    public function mount($teachers, $selected)
+    public function mount(Collection $teachers, array $selected)
     {
         $this->teachers = $teachers;
         $this->selected = $selected;

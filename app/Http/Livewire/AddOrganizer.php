@@ -7,6 +7,7 @@ use App\Models\Organizer;
 use App\Repositories\OrganizerRepository;
 use Illuminate\Http\File;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Str;
 use Livewire\Component;
@@ -40,8 +41,11 @@ class AddOrganizer extends Component
 
     /**
      * The component constructor
+     *
+     * @param \Illuminate\Support\Collection $organizers
+     * @param array $selected
      */
-    public function mount($organizers, $selected)
+    public function mount(Collection $organizers, array $selected)
     {
         $this->organizers = $organizers;
         $this->selected = $selected;
