@@ -13,11 +13,6 @@
                         </h4>
                         <ul class="mt-4 space-y-4">
                             <li>
-                                <a href="/getATreatment" class="text-base leading-6 text-gray-300 hover:text-white">
-                                    Get a treatment
-                                </a>
-                            </li>
-                            <li>
                                 <a href="/testimonial" class="text-base leading-6 text-gray-300 hover:text-white">
                                     {{--Be a testimonial--}}
                                     Treatment feedback
@@ -33,7 +28,21 @@
                     </div>
                     <div class="mt-12 md:mt-0">
                         <h4 class="text-sm leading-5 font-semibold text-gray-400 tracking-wider uppercase">
-                            Support
+                            Services
+                        </h4>
+                        <ul class="mt-4 space-y-4">
+                            <li>
+                                <a href="/getATreatment" class="text-base leading-6 text-gray-300 hover:text-white">
+                                    Get a treatment
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="md:grid md:grid-cols-2 md:gap-8">
+                    <div>
+                        <h4 class="text-sm leading-5 font-semibold text-gray-400 tracking-wider uppercase">
+                            Pages
                         </h4>
                         <ul class="mt-4 space-y-4">
                             <li>
@@ -48,63 +57,29 @@
                             </li>
                             <li>
                                 <a href="#" class="text-base leading-6 text-gray-300 hover:text-white">
-                                    Quote of the day
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="md:grid md:grid-cols-2 md:gap-8">
-                    <div>
-                        <h4 class="text-sm leading-5 font-semibold text-gray-400 tracking-wider uppercase">
-                            Company
-                        </h4>
-                        <ul class="mt-4 space-y-4">
-                            <li>
-                                <a href="#" class="text-base leading-6 text-gray-300 hover:text-white">
-                                    About
+                                    Contact Improvisation
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="text-base leading-6 text-gray-300 hover:text-white">
-                                    Blog
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="text-base leading-6 text-gray-300 hover:text-white">
-                                    Jobs
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="text-base leading-6 text-gray-300 hover:text-white">
-                                    Press
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="text-base leading-6 text-gray-300 hover:text-white">
-                                    Partners
+                                    Events
                                 </a>
                             </li>
                         </ul>
                     </div>
                     <div class="mt-12 md:mt-0">
                         <h4 class="text-sm leading-5 font-semibold text-gray-400 tracking-wider uppercase">
-                            Legal
+                            Research
                         </h4>
                         <ul class="mt-4 space-y-4">
                             <li>
                                 <a href="#" class="text-base leading-6 text-gray-300 hover:text-white">
-                                    Claim
+                                    Water contact
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="text-base leading-6 text-gray-300 hover:text-white">
-                                    Privacy
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="text-base leading-6 text-gray-300 hover:text-white">
-                                    Terms
+                                    Glossary
                                 </a>
                             </li>
                         </ul>
