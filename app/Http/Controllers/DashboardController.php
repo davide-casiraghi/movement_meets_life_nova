@@ -34,7 +34,8 @@ class DashboardController extends Controller
     public function index()
     {
         $searchParameters = [];
-        $searchParameters['status'] = 'unpublished';
+        $searchParameters['is_published'] = 0;
+
         $unpublishedGlossaryTerms = $this->glossaryService->getGlossaries(100, $searchParameters)->all();
 
         $latestInsights = $this->insightService->getLatestInsights(5);
