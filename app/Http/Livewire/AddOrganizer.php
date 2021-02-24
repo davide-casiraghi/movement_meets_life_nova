@@ -99,14 +99,15 @@ class AddOrganizer extends Component
 
     /**
      * Store a the image using Spatie Media Library
+     * The $photo parameter is an image in Base64 string format.
      *
      * @param \App\Models\Organizer $organizer
-     * @param $photo
+     * @param string $photo
      *
      * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileDoesNotExist
      * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileIsTooBig
      */
-    public function storeImage(Organizer $organizer, $photo): void
+    public function storeImage(Organizer $organizer, string $photo): void
     {
         //Check image upload strategy here
         // https://www.youtube.com/watch?v=ARFZU-q-Td8&list=PLe30vg_FG4OQ8b813BDykoYz95Zc3xUWK&index=13&ab_channel=Bitfumes

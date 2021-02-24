@@ -110,15 +110,16 @@ class AddTeacher extends Component
     }
 
     /**
-     * Store a the image using Spatie Media Library
+     * Store an image using Spatie Media Library
+     * The $photo parameter is an image in Base64 string format.
      *
      * @param \App\Models\Teacher $teacher
-     * @param $photo
+     * @param string $photo
      *
      * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileDoesNotExist
      * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileIsTooBig
      */
-    public function storeImage(Teacher $teacher, $photo): void
+    public function storeImage(Teacher $teacher, string $photo): void
     {
         //Check image upload strategy here
         // https://www.youtube.com/watch?v=ARFZU-q-Td8&list=PLe30vg_FG4OQ8b813BDykoYz95Zc3xUWK&index=13&ab_channel=Bitfumes
