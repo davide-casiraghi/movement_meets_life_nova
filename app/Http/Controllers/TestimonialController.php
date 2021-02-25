@@ -6,6 +6,8 @@ use App\Helpers\Helper;
 use App\Http\Requests\TestimonialSearchRequest;
 use App\Http\Requests\TestimonialStoreRequest;
 use App\Models\Testimonial;
+use App\Models\User;
+use App\Notifications\NewTestimonialMailNotification;
 use App\Services\CountryService;
 use App\Services\TestimonialService;
 use App\Traits\CheckPermission;
@@ -82,6 +84,9 @@ class TestimonialController extends Controller
         $this->checkPermission('testimonials.create');
 
         $testimonial = $this->testimonialService->createTestimonial($request);
+
+        $admin = User::find(1);
+        $admin->notify(new NewTestimonialMailNotification($request->all()));
 
         $message = Auth::guest() ? 'Thanks for your testimony!' : 'Testimonial created successfully';
 
