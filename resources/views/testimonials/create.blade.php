@@ -35,8 +35,8 @@
                        {{-- <label for="about" class="block text-sm leading-5 font-medium text-gray-700">
                             Your feedback
                         </label>--}}
-                        <div class="rounded-md shadow-sm">
-                            <textarea name="feedback" rows="3" class="form-textarea mt-1 block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" placeholder="A brief description of your experience.">{{ old('feedback') }}</textarea>
+                        <div class="">
+                            <textarea name="feedback" rows="3" class="form-textarea mt-1 block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary-300" placeholder="A brief description of your experience.">{{ old('feedback') }}</textarea>
                         </div>
                     </div>
                 </div>
@@ -55,17 +55,17 @@
                         <div class="grid grid-cols-6 gap-6">
                             <div class="col-span-6 sm:col-span-3">
                                 <label for="name" class="block text-sm font-medium leading-5 text-gray-700">First name</label>
-                                <input name="name" value="{{ old('name') }}" id="first_name" class="mt-1 form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                                <input name="name" value="{{ old('name') }}" id="first_name" class="mt-1 form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
                             </div>
 
                             <div class="col-span-6 sm:col-span-3">
                                 <label for="surname" class="block text-sm font-medium leading-5 text-gray-700">Last name</label>
-                                <input name="surname" value="{{ old('surname') }}" id="last_name" class="mt-1 form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                                <input name="surname" value="{{ old('surname') }}" id="last_name" class="mt-1 form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
                             </div>
 
                             <div class="col-span-6 sm:col-span-3">
                                 <label for="profession" class="block text-sm font-medium leading-5 text-gray-700">Your profession</label>
-                                <input name="profession" value="{{ old('profession') }}" id="profession" class="mt-1 form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                                <input name="profession" value="{{ old('profession') }}" id="profession" class="mt-1 form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
                             </div>
 
                             <div class="col-span-6 sm:col-span-3">
@@ -91,10 +91,10 @@
                                       </svg>
                                     </span>
                                     <span class="ml-5 rounded-md shadow-sm">
-                                      {{--<button type="button" class="py-2 px-3 border border-gray-300 rounded-md text-sm leading-4 font-medium text-gray-700 hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:ring-blue active:bg-gray-50 active:text-gray-800 transition duration-150 ease-in-out">
+                                      {{--<button type="button" class="py-2 px-3 border border-gray-300 rounded-md text-sm leading-4 font-medium text-gray-700 hover:text-gray-500 focus:outline-none focus:border-primary-300 focus:ring-primary active:bg-gray-50 active:text-gray-800 transition duration-150 ease-in-out">
                                         Change
                                       </button>--}}
-                                        <label class="py-2 px-3 border border-gray-300 rounded-md text-xs leading-4 font-medium text-gray-700 hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:ring-blue active:bg-gray-50 active:text-gray-800 transition duration-150 ease-in-out">
+                                        <label class="py-2 px-3 border border-gray-300 rounded-md text-xs leading-4 font-medium text-gray-700 hover:text-gray-500 focus:outline-none focus:border-primary-300 focus:ring-primary active:bg-gray-50 active:text-gray-800 transition duration-150 ease-in-out">
                                             {{--<svg class="w-5 h-5 inline-block" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                                                 <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
                                             </svg>--}}
@@ -150,7 +150,7 @@
                             <div class="flex justify-end">
                                 <span class="inline-flex rounded-md shadow-sm">
                                     <a href="{{ route('testimonials.index') }}">
-                                        <button type="button" class="py-2 px-4 border border-gray-300 rounded-md text-sm leading-5 font-medium text-gray-700 hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:ring-blue active:bg-gray-50 active:text-gray-800 transition duration-150 ease-in-out">
+                                        <button type="button" class="py-2 px-4 border border-gray-300 rounded-md text-sm leading-5 font-medium text-gray-700 hover:text-gray-500 focus:outline-none focus:border-primary-300 focus:ring-primary active:bg-gray-50 active:text-gray-800 transition duration-150 ease-in-out">
                                             Cancel
                                         </button>
                                     </a>
