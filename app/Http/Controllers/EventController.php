@@ -235,6 +235,8 @@ class EventController extends Controller
             'eventsCategories' => $eventsCategories,
             'searchParameters' => $searchParameters,
             'statuses' => $statuses,
+            'eventRepetitionService' => $this->eventRepetitionService,
+            'eventService' => $this->eventService,
         ]);
     }
 }
