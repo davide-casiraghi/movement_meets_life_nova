@@ -35,8 +35,6 @@ class TeacherService
         $teacher = $this->teacherRepository->store($request->all());
         ImageHelpers::storeImages($teacher, $request, 'profile_picture');
 
-        $teacher->setStatus('published');
-
         return $teacher;
     }
 

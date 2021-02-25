@@ -37,8 +37,6 @@ class VenueService
         $venue = $this->venueRepository->store($request->all());
         ImageHelpers::storeImages($venue, $request, 'introimage');
 
-        $venue->setStatus('published');
-
         return $venue;
     }
 

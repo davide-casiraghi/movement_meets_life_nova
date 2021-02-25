@@ -326,18 +326,20 @@ class EventServiceTest extends TestCase
     }
 
     /** @test */
-    public function it_should_return_event_repetition_string_empty_for_one_time_event()
+    public function itShouldReturnEventRepetitionStringForOneTimeEvent()
     {
         $event = Event::factory()->create([
             'repeat_type' => 1,
         ]);
         $eventRepetition = EventRepetition::factory()->create([
             'event_id' => $event->id,
+            'start_repeat' => Carbon::createFromFormat('d/m/Y', "14/1/2020"),
+            'end_repeat' => Carbon::createFromFormat('d/m/Y', "16/1/2020"),
         ]);
 
         $repetitionTextString = $this->eventService->getRepetitionTextString($event, $eventRepetition);
 
-        $this->assertEquals("", $repetitionTextString);
+        $this->assertEquals("From 14/01/2020 to 16/01/2020", $repetitionTextString);
     }
 
     /** @test */

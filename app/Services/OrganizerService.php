@@ -35,8 +35,6 @@ class OrganizerService
         $organizer = $this->organizerRepository->store($request->all());
         ImageHelpers::storeImages($organizer, $request, 'profile_picture');
 
-        $organizer->setStatus('published');
-
         return $organizer;
     }
 

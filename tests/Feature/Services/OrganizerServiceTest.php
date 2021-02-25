@@ -42,9 +42,9 @@ class OrganizerServiceTest extends TestCase
             'email' => 'admin@gmail.com',
         ]);
 
-        $this->organizer1 = Organizer::factory()->create()->setStatus('published');
-        $this->organizer2 = Organizer::factory()->create()->setStatus('published');
-        $this->organizer3 = Organizer::factory()->create()->setStatus('published');
+        $this->organizer1 = Organizer::factory()->create();
+        $this->organizer2 = Organizer::factory()->create();
+        $this->organizer3 = Organizer::factory()->create();
     }
 
     /** @test */
