@@ -126,7 +126,7 @@
 
                 <div class="rounded-md shadow-sm">
                     <label for="comment_body" class="block text-sm font-medium leading-5 text-gray-700">Your comment</label>
-                    <textarea name='body' id="comment_body" rows="3" class="form-textarea mt-1 block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5">{{ old('body') }}</textarea>
+                    <textarea name='body' id="comment_body" rows="3" class="form-textarea mt-1 block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary-300">{{ old('body') }}</textarea>
                 </div>
 
                 <div class="col-span-6 sm:col-span-3 mt-2">
