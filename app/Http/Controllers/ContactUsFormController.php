@@ -1,24 +1,24 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Http\Requests\CommentStoreRequest;
 use Illuminate\Http\Request;
 use App\Models\Contact;
 use Mail;
 use Illuminate\Support\Facades\Validator;
 
-class ContactUsFormController extends Controller {
-
+class ContactUsFormController extends Controller
+{
     // Show Contact Form
-    public function index(Request $request) {
+    public function index(Request $request)
+    {
         return view('forms.contact');
     }
 
     // Store Contact Form data
-    public function store(CommentStoreRequest $request) {
-
-
-
+    public function store(CommentStoreRequest $request)
+    {
         //  Store data in database
         Contact::create($request->all());
 

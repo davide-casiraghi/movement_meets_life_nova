@@ -210,7 +210,7 @@ Route::name('postComments.')->group(function () {
 Route::get('glossaryTerms/{glossaryTermId}', [ GlossaryController::class, 'show'])->name('glossary.show');
 
 // Contact form
-Route::get('/contact', [ContactUsFormController::class, 'index']);
+Route::get('/contact', [ContactUsFormController::class, 'index'])->name('contact.index');
 Route::post('/contact', [ContactUsFormController::class, 'ContactUsForm'])->name('contact.store');
 
 

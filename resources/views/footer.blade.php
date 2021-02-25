@@ -13,17 +13,15 @@
                         </h4>
                         <ul class="mt-4 space-y-4">
                             <li>
-                                <a href="{{route('testimonials.create')}}" class="text-base leading-6 text-gray-300 hover:text-white">
-                                    {{--Be a testimonial--}}
-                                    Treatment feedback
+                                <a href="{{route('contact.index')}}" class="text-base leading-6 text-gray-300 hover:text-white">
+                                    Contact me / Feedback
                                 </a>
                             </li>
                             <li>
-                                <a href="contact" class="text-base leading-6 text-gray-300 hover:text-white">
-                                    Contact me
+                                <a href="{{route('testimonials.create')}}" class="text-base leading-6 text-gray-300 hover:text-white">
+                                    Become a testimonial
                                 </a>
                             </li>
-
                         </ul>
                     </div>
                     <div class="mt-12 md:mt-0">
