@@ -9,17 +9,21 @@
             @csrf
             <div class="bg-white shadow px-4 py-5 sm:rounded-lg sm:p-6 mt-4">
 
-                <div class="text-center">
-                    <h2 class="text-3xl leading-9 tracking-tight font-extrabold text-gray-900 sm:text-4xl sm:leading-10">
+                <div class="">
+                    <h1>
                         Become a Testimonial
-                    </h2>
-                    <p class="mt-3 max-w-2xl mx-auto text-xl leading-7 text-gray-500 sm:mt-4">
+                    </h1>
+                    <div class="text-lg text-gray-500">
                         Did you enjoy receiving a bodywork and you would love to leave a feedback that I can publish on my website?
-                    </p>
-                    <br>
-                    <p class="text-gray-400 mb-8">Since it's a quite unique experience to explain, this will support me to allow people know does it feel to receive an ILM treatment.</p>
+                    </div>
+                    <div class="text-lg text-gray-500">
+                        Since it's a quite unique experience to explain, this will support me to allow people know does it feel to receive an ILM treatment.
+                    </div>
+
+                    <p class="text-gray-400 mb-8"></p>
                 </div>
 
+                {{-- Your experience --}}
                 <div class="md:grid md:grid-cols-3 md:gap-6">
                     <div class="md:col-span-1">
                         <h3 class="text-lg font-medium leading-6 text-gray-900">Your experience</h3>
@@ -32,15 +36,13 @@
                             Your feedback
                         </label>
                         <div class="rounded-md shadow-sm">
-                            <textarea name="feedback" rows="3" class="form-textarea mt-1 block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" placeholder="you@example.com">{{ old('feedback') }}</textarea>
+                            <textarea name="feedback" rows="3" class="form-textarea mt-1 block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" placeholder="A brief description of your experience.">{{ old('feedback') }}</textarea>
                         </div>
-                        <p class="mt-2 text-sm text-gray-500">
-                            Brief description of your experience.
-                        </p>
                     </div>
                 </div>
             </div>
 
+            {{-- Personal Information --}}
             <div class="mt-6 bg-white shadow px-4 py-5 sm:rounded-lg sm:p-6">
                 <div class="md:grid md:grid-cols-3 md:gap-6">
                     <div class="md:col-span-1">
@@ -99,8 +101,6 @@
                                             <span class="mt-2 text-base leading-normal">Select a file</span>
                                             <input type='file' name="photo" class="hidden" />
                                         </label>
-
-
                                     </span>
                                 </div>
                             </div>
@@ -109,6 +109,7 @@
                 </div>
             </div>
 
+            {{-- Notifications --}}
             <div class="mt-6 bg-white shadow px-4 py-5 sm:rounded-lg sm:p-6 mb-4">
                 <div class="md:grid md:grid-cols-3 md:gap-6">
                     <div class="md:col-span-1">

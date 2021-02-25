@@ -13,7 +13,7 @@
                         </h4>
                         <ul class="mt-4 space-y-4">
                             <li>
-                                <a href="/testimonial" class="text-base leading-6 text-gray-300 hover:text-white">
+                                <a href="{{route('testimonials.create')}}" class="text-base leading-6 text-gray-300 hover:text-white">
                                     {{--Be a testimonial--}}
                                     Treatment feedback
                                 </a>
