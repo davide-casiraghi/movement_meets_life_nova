@@ -90,10 +90,11 @@ class RolesAndPermissionSeeder extends Seeder
         Permission::create(['name' => 'insights.view']);
         Permission::create(['name' => 'insights.create']);
         Permission::create(['name' => 'insights.edit']);
-        
+        Permission::create(['name' => 'insights.delete']);
+
         // HasMedia
         Permission::create(['name' => 'medias.view']);
-        
+
         // CREATE ROLES
 
         // Create Super Admin role and attach all permissions

@@ -150,6 +150,8 @@ class InsightController extends Controller
      */
     public function destroy($insightId)
     {
+        $this->checkPermission('insights.delete');
+
         $this->insightService->deleteInsight($insightId);
 
         return redirect()->route('insights.index')
