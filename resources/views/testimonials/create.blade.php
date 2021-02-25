@@ -26,15 +26,15 @@
                 {{-- Your experience --}}
                 <div class="md:grid md:grid-cols-3 md:gap-6">
                     <div class="md:col-span-1">
-                        <h3 class="text-lg font-medium leading-6 text-gray-900">Your experience</h3>
-                        <p class="mt-1 text-sm leading-5 text-gray-500">
+                        <div class="text-lg text-gray-600 font-extrabold tracking-tight sm:text-xl">Your experience</div>
+                        {{--<p class="mt-1 text-sm leading-5 text-gray-500">
                             This information will be displayed publicly so be careful what you share.
-                        </p>
+                        </p>--}}
                     </div>
                     <div class="mt-5 md:mt-0 md:col-span-2">
-                        <label for="about" class="block text-sm leading-5 font-medium text-gray-700">
+                       {{-- <label for="about" class="block text-sm leading-5 font-medium text-gray-700">
                             Your feedback
-                        </label>
+                        </label>--}}
                         <div class="rounded-md shadow-sm">
                             <textarea name="feedback" rows="3" class="form-textarea mt-1 block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" placeholder="A brief description of your experience.">{{ old('feedback') }}</textarea>
                         </div>
@@ -46,10 +46,10 @@
             <div class="mt-6 bg-white shadow px-4 py-5 sm:rounded-lg sm:p-6">
                 <div class="md:grid md:grid-cols-3 md:gap-6">
                     <div class="md:col-span-1">
-                        <h3 class="text-lg font-medium leading-6 text-gray-900">Personal Information</h3>
-                        <p class="mt-1 text-sm leading-5 text-gray-500">
+                        <div class="text-lg text-gray-600 font-extrabold tracking-tight sm:text-xl">Personal Information</div>
+                        {{--<p class="mt-1 text-sm leading-5 text-gray-500">
                             This information will be displayed publicly so be careful what you share.
-                        </p>
+                        </p>--}}
                     </div>
                     <div class="mt-5 md:mt-0 md:col-span-2">
                         <div class="grid grid-cols-6 gap-6">
@@ -109,14 +109,14 @@
                 </div>
             </div>
 
-            {{-- Notifications --}}
+            {{-- Publish agreement --}}
             <div class="mt-6 bg-white shadow px-4 py-5 sm:rounded-lg sm:p-6 mb-4">
                 <div class="md:grid md:grid-cols-3 md:gap-6">
                     <div class="md:col-span-1">
-                        <h3 class="text-lg font-medium leading-6 text-gray-900">Notifications</h3>
-                        <p class="mt-1 text-sm leading-5 text-gray-500">
+                        <div class="text-lg text-gray-600 font-extrabold tracking-tight sm:text-xl">Publish agreement</div>
+                        {{--<p class="mt-1 text-sm leading-5 text-gray-500">
                             Decide which communications you'd like to receive and how.
-                        </p>
+                        </p>--}}
                     </div>
 
                     <div class="mt-5 md:mt-0 md:col-span-2">
