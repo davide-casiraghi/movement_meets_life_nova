@@ -49,5 +49,24 @@
             {!! $event->description !!}
         </div>
 
+        <div class="mt-4" id="map">
+
+            @include('partials.events.gmap', [
+                  'venue_name' => $event->venue->name,
+                  'venue_address' => $event->venue->address,
+                  'venue_city' => $event->venue->city,
+                  'venue_country' => $event->venue->country->name,
+                  'venue_zip_code' => $event->venue->zip_code
+            ])
+
+            {{--@include('laravel-events-calendar::partials.gmap', [
+                  'venue_name' => $venue->name,
+                  'venue_address' => $venue->address,
+                  'venue_city' => $venue->city,
+                  'venue_country' => $country->name,
+                  'venue_zip_code' => $venue->zip_code
+            ])--}}
+        </div>
+
     </div>
 @endsection
