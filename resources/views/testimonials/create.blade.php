@@ -126,7 +126,7 @@
                                 <div class="mb-4">
                                     <div class="flex items-start">
                                         <div class="flex items-center h-5">
-                                            <input name="personal_data_agreement" type="checkbox" class="form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out" @if(old('personal_data_agreement')) checked @endif>
+                                            <input name="personal_data_agreement" type="checkbox" class="form-checkbox h-4 w-4 text-primary-600 transition duration-150 ease-in-out" @if(old('personal_data_agreement')) checked @endif>
                                         </div>
                                         <div class="ml-3 text-sm leading-5">
                                             <label for="candidates" class="font-medium text-gray-700">Personal data agreement</label>
@@ -136,7 +136,7 @@
                                 </div>
                                 <div class="flex items-start">
                                     <div class="flex items-center h-5">
-                                        <input name="publish_agreement" type="checkbox" class="form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out" @if(old('publish_agreement')) checked @endif>
+                                        <input name="publish_agreement" type="checkbox" class="form-checkbox h-4 w-4 text-primary-600 transition duration-150 ease-in-out" @if(old('publish_agreement')) checked @endif>
                                     </div>
                                     <div class="ml-3 text-sm leading-5">
                                         <label for="comments" class="font-medium text-gray-700">Feedback agreement</label>
@@ -156,7 +156,7 @@
                                     </a>
                                 </span>
                                 <span class="ml-3 inline-flex rounded-md shadow-sm">
-                                    <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:ring-indigo active:bg-indigo-700 transition duration-150 ease-in-out">
+                                    <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-primary-600 hover:bg-primary-500 focus:outline-none focus:border-primary-700 focus:ring-primary active:bg-primary-700 transition duration-150 ease-in-out">
                                         Save
                                     </button>
                                 </span>

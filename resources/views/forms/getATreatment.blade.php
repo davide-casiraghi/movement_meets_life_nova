@@ -17,20 +17,20 @@
         <div class="bg-white shadow px-4 py-5 sm:rounded-lg sm:p-6 mt-4">
             <div class="md:grid md:grid-cols-3 md:gap-6">
                 <div class="md:col-span-1">
-                    <h3 class="text-lg font-medium leading-6 text-gray-900">Profile</h3>
+                    <div class="text-lg text-gray-600 font-extrabold tracking-tight sm:text-xl">Your condition</div>
                     <p class="mt-1 text-sm leading-5 text-gray-500">
-                        Please specify which conditions worsen / facilitate and on what time of the day does the problem appear.
+                        Please specify which conditions worsen/facilitate and at what time of the day does the problem appear.
                     </p>
                 </div>
                 <div class="mt-5 md:mt-0 md:col-span-2">
 
                     {{-- Main complaint description --}}
-                    <div class="mt-6">
+                    <div class="">
                         <label for="about" class="block text-sm leading-5 font-medium text-gray-700">
                             Main complaint
                         </label>
                         <div class="rounded-md shadow-sm">
-                            <textarea id="about" rows="3" class="form-textarea mt-1 block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" placeholder="Brief description of the complaint."></textarea>
+                            <textarea id="about" rows="3" class="form-textarea mt-1 block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary-300" placeholder="Brief description of the complaint."></textarea>
                         </div>
                         <p class="mt-2 text-sm text-gray-500">
                             Please specify the physical locations if the problem is focused in specific spots.
@@ -44,31 +44,31 @@
                         </label>
                         <div class="flex mt-2">
                             <div class="w-1/5 bg-gray-100 h-12 text-center">
-                                <input id="main_complaint_1" name="main_complaint_intensity" type="radio" class="form-radio h-4 w-4 text-indigo-600 transition duration-150 ease-in-out">
+                                <input id="main_complaint_1" name="main_complaint_intensity" type="radio" class="form-radio h-4 w-4 text-primary-600 transition duration-150 ease-in-out">
                                 <label for="main_complaint_1" class="">
                                     <span class="block text-sm leading-5 font-medium text-gray-700">1</span>
                                 </label>
                             </div>
                             <div class="w-1/5 bg-gray-100 h-12 text-center">
-                                <input id="main_complaint_2" name="main_complaint_intensity" type="radio" class="form-radio h-4 w-4 text-indigo-600 transition duration-150 ease-in-out">
+                                <input id="main_complaint_2" name="main_complaint_intensity" type="radio" class="form-radio h-4 w-4 text-primary-600 transition duration-150 ease-in-out">
                                 <label for="main_complaint_2" class="">
                                     <span class="block text-sm leading-5 font-medium text-gray-700">2</span>
                                 </label>
                             </div>
                             <div class="w-1/5 bg-gray-100 h-12 text-center">
-                                <input id="main_complaint_3" name="main_complaint_intensity" type="radio" class="form-radio h-4 w-4 text-indigo-600 transition duration-150 ease-in-out">
+                                <input id="main_complaint_3" name="main_complaint_intensity" type="radio" class="form-radio h-4 w-4 text-primary-600 transition duration-150 ease-in-out">
                                 <label for="main_complaint_3" class="">
                                     <span class="block text-sm leading-5 font-medium text-gray-700">3</span>
                                 </label>
                             </div>
                             <div class="w-1/5 bg-gray-100 h-12 text-center">
-                                <input id="main_complaint_4" name="main_complaint_intensity" type="radio" class="form-radio h-4 w-4 text-indigo-600 transition duration-150 ease-in-out">
+                                <input id="main_complaint_4" name="main_complaint_intensity" type="radio" class="form-radio h-4 w-4 text-primary-600 transition duration-150 ease-in-out">
                                 <label for="main_complaint_4" class="">
                                     <span class="block text-sm leading-5 font-medium text-gray-700">4</span>
                                 </label>
                             </div>
                             <div class="w-1/5 bg-gray-100 h-12 text-center">
-                                <input id="main_complaint_5" name="main_complaint_intensity" type="radio" class="form-radio h-4 w-4 text-indigo-600 transition duration-150 ease-in-out">
+                                <input id="main_complaint_5" name="main_complaint_intensity" type="radio" class="form-radio h-4 w-4 text-primary-600 transition duration-150 ease-in-out">
                                 <label for="main_complaint_5" class="">
                                     <span class="block text-sm leading-5 font-medium text-gray-700">5</span>
                                 </label>
@@ -82,10 +82,10 @@
                             Secondary complaint
                         </label>
                         <div class="rounded-md shadow-sm">
-                            <textarea id="about" rows="3" class="form-textarea mt-1 block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5" placeholder="Brief description of the complaint."></textarea>
+                            <textarea id="about" rows="3" class="form-textarea mt-1 block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary-300" placeholder="Brief description of the complaint."></textarea>
                         </div>
                         <p class="mt-2 text-sm text-gray-500">
-                            Brief description of the secondary complaint.
+                            Please specify the physical locations if the problem is focused in specific spots.
                         </p>
                     </div>
 
@@ -96,31 +96,31 @@
                         </label>
                         <div class="flex mt-2">
                             <div class="w-1/5 bg-gray-100 h-12 text-center">
-                                <input id="secondary_complaint_1" name="secondary_complaint_intensity" type="radio" class="form-radio h-4 w-4 text-indigo-600 transition duration-150 ease-in-out">
+                                <input id="secondary_complaint_1" name="secondary_complaint_intensity" type="radio" class="form-radio h-4 w-4 text-primary-600 transition duration-150 ease-in-out">
                                 <label for="secondary_complaint_1" class="">
                                     <span class="block text-sm leading-5 font-medium text-gray-700">1</span>
                                 </label>
                             </div>
                             <div class="w-1/5 bg-gray-100 h-12 text-center">
-                                <input id="secondary_complaint_2" name="secondary_complaint_intensity" type="radio" class="form-radio h-4 w-4 text-indigo-600 transition duration-150 ease-in-out">
+                                <input id="secondary_complaint_2" name="secondary_complaint_intensity" type="radio" class="form-radio h-4 w-4 text-primary-600 transition duration-150 ease-in-out">
                                 <label for="secondary_complaint_2" class="">
                                     <span class="block text-sm leading-5 font-medium text-gray-700">2</span>
                                 </label>
                             </div>
                             <div class="w-1/5 bg-gray-100 h-12 text-center">
-                                <input id="secondary_complaint_3" name="secondary_complaint_intensity" type="radio" class="form-radio h-4 w-4 text-indigo-600 transition duration-150 ease-in-out">
+                                <input id="secondary_complaint_3" name="secondary_complaint_intensity" type="radio" class="form-radio h-4 w-4 text-primary-600 transition duration-150 ease-in-out">
                                 <label for="secondary_complaint_3" class="">
                                     <span class="block text-sm leading-5 font-medium text-gray-700">3</span>
                                 </label>
                             </div>
                             <div class="w-1/5 bg-gray-100 h-12 text-center">
-                                <input id="secondary_complaint_4" name="secondary_complaint_intensity" type="radio" class="form-radio h-4 w-4 text-indigo-600 transition duration-150 ease-in-out">
+                                <input id="secondary_complaint_4" name="secondary_complaint_intensity" type="radio" class="form-radio h-4 w-4 text-primary-600 transition duration-150 ease-in-out">
                                 <label for="secondary_complaint_4" class="">
                                     <span class="block text-sm leading-5 font-medium text-gray-700">4</span>
                                 </label>
                             </div>
                             <div class="w-1/5 bg-gray-100 h-12 text-center">
-                                <input id="secondary_complaint_5" name="secondary_complaint_intensity" type="radio" class="form-radio h-4 w-4 text-indigo-600 transition duration-150 ease-in-out">
+                                <input id="secondary_complaint_5" name="secondary_complaint_intensity" type="radio" class="form-radio h-4 w-4 text-primary-600 transition duration-150 ease-in-out">
                                 <label for="secondary_complaint_5" class="">
                                     <span class="block text-sm leading-5 font-medium text-gray-700">5</span>
                                 </label>
@@ -136,10 +136,10 @@
         <div class="mt-6 bg-white shadow px-4 py-5 sm:rounded-lg sm:p-6">
             <div class="md:grid md:grid-cols-3 md:gap-6">
                 <div class="md:col-span-1">
-                    <h3 class="text-lg font-medium leading-6 text-gray-900">Personal Information</h3>
-                    <p class="mt-1 text-sm leading-5 text-gray-500">
+                    <div class="text-lg text-gray-600 font-extrabold tracking-tight sm:text-xl">Personal Information</div>
+                    {{--<p class="mt-1 text-sm leading-5 text-gray-500">
                         Use a permanent address where you can receive mail.
-                    </p>
+                    </p>--}}
                 </div>
                 <div class="mt-5 md:mt-0 md:col-span-2">
                         <div class="grid grid-cols-6 gap-6">
@@ -153,39 +153,27 @@
                                 <input id="last_name" class="mt-1 form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
                             </div>
 
-                            <div class="col-span-6 sm:col-span-4">
-                                <label for="email_address" class="block text-sm font-medium leading-5 text-gray-700">Email address</label>
-                                <input id="email_address" class="mt-1 form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                            <div class="col-span-6 sm:col-span-3">
+                                <label for="email" class="block text-sm font-medium leading-5 text-gray-700">Email address</label>
+                                <input id="email" class="mt-1 form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
                             </div>
 
                             <div class="col-span-6 sm:col-span-3">
-                                <label for="country" class="block text-sm font-medium leading-5 text-gray-700">Country / Region</label>
-                                <select id="country" class="mt-1 block form-select w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
-                                    <option>United States</option>
-                                    <option>Canada</option>
-                                    <option>Mexico</option>
-                                </select>
+                                <label for="phone" class="block text-sm font-medium leading-5 text-gray-700">Phone</label>
+                                <input id="phone" class="mt-1 form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
                             </div>
-
                             <div class="col-span-6">
-                                <label for="street_address" class="block text-sm font-medium leading-5 text-gray-700">Street address</label>
-                                <input id="street_address" class="mt-1 form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                                <div class="flex items-start">
+                                    <div class="flex items-center h-5">
+                                        <input id="offers" type="checkbox" class="form-checkbox h-4 w-4 text-primary-600 transition duration-150 ease-in-out">
+                                    </div>
+                                    <div class="ml-3 text-sm leading-5">
+                                        <label for="offers" class="font-medium text-gray-700">Personal data agreement</label>
+                                        <p class="text-gray-500">I agree to save my contact information</p>
+                                    </div>
+                                </div>
                             </div>
 
-                            <div class="col-span-6 sm:col-span-6 lg:col-span-2">
-                                <label for="city" class="block text-sm font-medium leading-5 text-gray-700">City</label>
-                                <input id="city" class="mt-1 form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
-                            </div>
-
-                            <div class="col-span-6 sm:col-span-3 lg:col-span-2">
-                                <label for="state" class="block text-sm font-medium leading-5 text-gray-700">State / Province</label>
-                                <input id="state" class="mt-1 form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
-                            </div>
-
-                            <div class="col-span-6 sm:col-span-3 lg:col-span-2">
-                                <label for="postal_code" class="block text-sm font-medium leading-5 text-gray-700">ZIP / Postal</label>
-                                <input id="postal_code" class="mt-1 form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
-                            </div>
                         </div>
                 </div>
             </div>
@@ -194,73 +182,52 @@
         <div class="my-6 bg-white shadow px-4 py-5 sm:rounded-lg sm:p-6">
             <div class="md:grid md:grid-cols-3 md:gap-6">
                 <div class="md:col-span-1">
-                    <h3 class="text-lg font-medium leading-6 text-gray-900">Contact</h3>
+                    <div class="text-lg text-gray-600 font-extrabold tracking-tight sm:text-xl">Contact</div>
                     <p class="mt-1 text-sm leading-5 text-gray-500">
                         Decide how you would like to be contacted
                     </p>
                 </div>
-                <div class="mt-5 md:mt-0 md:col-span-2">
-                    <fieldset>
-                        <legend class="text-base leading-6 font-medium text-gray-900">By Email</legend>
+                <div class="md:col-span-2">
+                    <fieldset class="">
                         <div class="mt-4">
-                            <div class="flex items-start">
-                                <div class="flex items-center h-5">
-                                    <input id="comments" type="checkbox" class="form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out">
-                                </div>
-                                <div class="ml-3 text-sm leading-5">
-                                    <label for="comments" class="font-medium text-gray-700">Comments</label>
-                                    <p class="text-gray-500">Get notified when someones posts a comment on a posting.</p>
-                                </div>
-                            </div>
-                            <div class="mt-4">
-                                <div class="flex items-start">
-                                    <div class="flex items-center h-5">
-                                        <input id="candidates" type="checkbox" class="form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out">
-                                    </div>
-                                    <div class="ml-3 text-sm leading-5">
-                                        <label for="candidates" class="font-medium text-gray-700">Candidates</label>
-                                        <p class="text-gray-500">Get notified when a candidate applies for a job.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="mt-4">
-                                <div class="flex items-start">
-                                    <div class="flex items-center h-5">
-                                        <input id="offers" type="checkbox" class="form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out">
-                                    </div>
-                                    <div class="ml-3 text-sm leading-5">
-                                        <label for="offers" class="font-medium text-gray-700">Offers</label>
-                                        <p class="text-gray-500">Get notified when a candidate accepts or rejects an offer.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </fieldset>
-                    <fieldset class="mt-6">
-                        <legend class="text-base leading-6 font-medium text-gray-900">Push Notifications</legend>
-                        <p class="text-sm leading-5 text-gray-500">These are delivered via SMS to your mobile phone.</p>
-                        <div class="mt-4">
-                            <div class="flex items-center">
-                                <input id="push_everything" name="push_notifications" type="radio" class="form-radio h-4 w-4 text-indigo-600 transition duration-150 ease-in-out">
-                                <label for="push_everything" class="ml-3">
-                                    <span class="block text-sm leading-5 font-medium text-gray-700">Everything</span>
+                            <div class="mt-4 flex items-center">
+                                <input id="contact_email" name="contact_choice" type="radio" class="form-radio h-4 w-4 text-primary-600 transition duration-150 ease-in-out">
+                                <label for="contact_email" class="ml-3">
+                                    <span class="block text-sm leading-5 font-medium text-gray-700">Email</span>
                                 </label>
                             </div>
                             <div class="mt-4 flex items-center">
-                                <input id="push_email" name="push_notifications" type="radio" class="form-radio h-4 w-4 text-indigo-600 transition duration-150 ease-in-out">
-                                <label for="push_email" class="ml-3">
-                                    <span class="block text-sm leading-5 font-medium text-gray-700">Same as email</span>
+                                <input id="contact_phone_call" name="contact_choice" type="radio" class="form-radio h-4 w-4 text-primary-600 transition duration-150 ease-in-out">
+                                <label for="contact_phone_call" class="ml-3">
+                                    <span class="block text-sm leading-5 font-medium text-gray-700">Phone call</span>
                                 </label>
                             </div>
                             <div class="mt-4 flex items-center">
-                                <input id="push_nothing" name="push_notifications" type="radio" class="form-radio h-4 w-4 text-indigo-600 transition duration-150 ease-in-out">
-                                <label for="push_nothing" class="ml-3">
-                                    <span class="block text-sm leading-5 font-medium text-gray-700">No push notifications</span>
+                                <input id="contact_sms_whatsapp" name="contact_choice" type="radio" class="form-radio h-4 w-4 text-primary-600 transition duration-150 ease-in-out">
+                                <label for="contact_sms_whatsapp" class="ml-3">
+                                    <span class="block text-sm leading-5 font-medium text-gray-700">SMS/Whatsapp</span>
+                                </label>
+                            </div>
+                            <div class="mt-4 flex items-center">
+                                <input id="contact_everything" name="contact_choice" type="radio" class="form-radio h-4 w-4 text-primary-600 transition duration-150 ease-in-out">
+                                <label for="contact_everything" class="ml-3">
+                                    <span class="block text-sm leading-5 font-medium text-gray-700">All these ways are fine for me</span>
                                 </label>
                             </div>
                         </div>
                     </fieldset>
                 </div>
+            </div>
+        </div>
+
+        {{-- Send button --}}
+        <div class="mt-6 py-5 mb-4">
+            <div class="flex justify-end">
+                <span class="ml-3 inline-flex rounded-md shadow-sm">
+                    <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-primary-600 hover:bg-primary-500 focus:outline-none focus:border-primary-700 focus:ring-primary active:bg-primary-700 transition duration-150 ease-in-out">
+                        Send
+                    </button>
+                </span>
             </div>
         </div>
     </form>
