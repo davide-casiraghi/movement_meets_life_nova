@@ -62,7 +62,7 @@ class PostControllerTest extends TestCase
     }
 
     /** @test */
-    public function itShouldBlockTheAdminAccessingThePostsPageWithoutPostIndexPermission()
+    public function itShouldBlockTheAdminAccessingTheIndexViewWithoutPostIndexPermission()
     {
         $user = $this->authenticateAsAdmin();
 
