@@ -15,7 +15,6 @@ class Teacher extends Model implements HasMedia
 {
     use HasFactory;
     use HasSlug;
-    use HasStatuses;
     use InteractsWithMedia;
 
     /**
@@ -76,6 +75,10 @@ class Teacher extends Model implements HasMedia
      * Add Image gallery support using:
      * https://spatie.be/docs/laravel-medialibrary/v8/introduction
      * https://github.com/ebess/advanced-nova-media-library
+     *
+     * @param \Spatie\MediaLibrary\MediaCollections\Models\Media|null $media
+     *
+     * @throws \Spatie\Image\Exceptions\InvalidManipulation
      */
     public function registerMediaConversions(Media $media = null): void
     {
@@ -95,7 +98,7 @@ class Teacher extends Model implements HasMedia
      *
      * @return string
      */
-    public function getFullNameAttribute()
+    public function getFullNameAttribute(): string
     {
         return "{$this->name} {$this->surname}";
     }

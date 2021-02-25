@@ -5,11 +5,11 @@
                 <p class="text-sm font-medium text-indigo-600 truncate">
                     {{$organizer->full_name}}
                 </p>
-                <div class="ml-2 flex-shrink-0 flex">
+                {{--<div class="ml-2 flex-shrink-0 flex">
                     <p class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                        {{$organizer->status()}}
+
                     </p>
-                </div>
+                </div>--}}
             </div>
             <div class="mt-2 sm:flex sm:justify-between">
                 <div class="sm:flex">

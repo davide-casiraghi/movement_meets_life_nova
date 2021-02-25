@@ -15,7 +15,6 @@ class Organizer extends Model implements HasMedia
 {
     use HasFactory;
     use HasSlug;
-    use HasStatuses;
     use InteractsWithMedia;
 
     /**
@@ -73,16 +72,6 @@ class Organizer extends Model implements HasMedia
     }
 
     /**
-     * Return the post publishing status
-     *
-     * @return string
-     */
-    public function publishingStatus(): string
-    {
-        return $this->latestStatus('unpublished', 'published');
-    }
-
-    /**
      * Add Image gallery support using:
      * https://spatie.be/docs/laravel-medialibrary/v8/introduction
      * https://github.com/ebess/advanced-nova-media-library
@@ -109,7 +98,7 @@ class Organizer extends Model implements HasMedia
      *
      * @return string
      */
-    public function getFullNameAttribute()
+    public function getFullNameAttribute(): string
     {
         return "{$this->name} {$this->surname}";
     }

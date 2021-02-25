@@ -13,7 +13,9 @@ use Spatie\Sluggable\SlugOptions;
 
 class Venue extends Model implements HasMedia
 {
-    use HasFactory, HasSlug, HasStatuses, InteractsWithMedia;
+    use HasFactory;
+    use HasSlug;
+    use InteractsWithMedia;
 
     /**
      * The attributes that aren't mass assignable.
@@ -58,16 +60,6 @@ class Venue extends Model implements HasMedia
         return SlugOptions::create()
             ->generateSlugsFrom('name')
             ->saveSlugsTo('slug');
-    }
-
-    /**
-     * Return the post publishing status
-     *
-     * @return string
-     */
-    public function publishingStatus(): string
-    {
-        return $this->latestStatus('unpublished', 'published');
     }
 
     /**
