@@ -11,6 +11,7 @@
 |
  */
 
+use App\Http\Controllers\ContactMeController;
 use App\Http\Controllers\EventCategoryController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\GetATreatmentController;
@@ -23,7 +24,6 @@ use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\PostCategoryController;
 use App\Http\Controllers\PostCommentController;
 use App\Http\Controllers\PostController;
-use App\Http\Controllers\ContactUsFormController;
 use App\Http\Controllers\QuoteController;
 use App\Http\Controllers\StaticPageController;
 use App\Http\Controllers\TagController;
@@ -210,8 +210,8 @@ Route::name('postComments.')->group(function () {
 Route::get('glossaryTerms/{glossaryTermId}', [ GlossaryController::class, 'show'])->name('glossary.show');
 
 // Contact form
-Route::get('/contact', [ContactUsFormController::class, 'index'])->name('contact.index');
-Route::post('/contact', [ContactUsFormController::class, 'ContactUsForm'])->name('contact.store');
+Route::get('/contact', [ContactMeController::class, 'index'])->name('contact.index');
+Route::post('/contact', [ContactMeController::class, 'store'])->name('contact.store');
 
 
 // Pages

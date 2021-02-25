@@ -5,7 +5,7 @@
     @include('partials.messages')
 
     <div class="flex justify-center px-4 md:px-0">
-        <form action="{{route('testimonials.store')}}" method="POST" class="max-w-3xl">
+        <form action="{{route('contact.store')}}" method="POST" class="max-w-3xl">
             @csrf
             <div class="bg-white shadow px-4 py-5 sm:rounded-lg sm:p-6 mt-4">
 
@@ -37,7 +37,7 @@
                              Your feedback
                          </label>--}}
                         <div class="">
-                            <textarea name="feedback" rows="3" class="form-textarea mt-1 block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary-300" placeholder="">{{ old('feedback') }}</textarea>
+                            <textarea name="message" rows="3" class="form-textarea mt-1 block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary-300" placeholder="">{{ old('message') }}</textarea>
                         </div>
                     </div>
                 </div>
