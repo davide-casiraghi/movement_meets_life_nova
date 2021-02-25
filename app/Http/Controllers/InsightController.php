@@ -9,7 +9,6 @@ use App\Models\Insight;
 use App\Services\InsightService;
 use App\Services\TagService;
 use App\Traits\CheckPermission;
-use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 class InsightController extends Controller
 {
@@ -63,11 +62,9 @@ class InsightController extends Controller
     {
         $this->checkPermission('insights.create');
 
-        $countriesAvailableForTranslations = LaravelLocalization::getSupportedLocales();
         $tags = $this->tagService->getTags();
 
         return view('insights.create', [
-            'countriesAvailableForTranslations' => $countriesAvailableForTranslations,
             'tags' => $tags,
         ]);
     }
@@ -96,6 +93,8 @@ class InsightController extends Controller
      */
     public function show($insightId)
     {
+        $this->checkPermission('insights.view');
+
         $insight = $this->insightService->getInsightById($insightId);
 
         $insight['body'] = $this->insightService->getInsightBody($insight);
@@ -114,12 +113,10 @@ class InsightController extends Controller
         $this->checkPermission('insights.edit');
 
         $insight = $this->insightService->getInsightById($insightId);
-        $countriesAvailableForTranslations = LaravelLocalization::getSupportedLocales();
         $tags = $this->tagService->getTags();
 
         return view('insights.edit', [
             'insight' => $insight,
-            'countriesAvailableForTranslations' => $countriesAvailableForTranslations,
             'tags' => $tags,
         ]);
     }

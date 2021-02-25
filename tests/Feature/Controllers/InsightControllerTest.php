@@ -236,12 +236,46 @@ class InsightControllerTest extends TestCase
         $response->assertStatus(500);
     }
 
+    /** ------------------------------------------------------------------------------------- */
     /** @test */
-    public function itShouldDisplayTheInsightsShowViewToGuestUser()
+    public function itShouldDisplayTheInsightShowViewToSuperAdmin()
     {
+        $user = $this->authenticateAsSuperAdmin();
+
         $response = $this->get("/insights/{$this->insight1->id}");
 
         $response->assertStatus(200);
         $response->assertViewIs('insights.show');
+    }
+
+    /** @test */
+    public function itShouldDisplayTheInsightShowViewToAdminWithInsightViewPermission()
+    {
+        $user = $this->authenticateAsAdmin();
+        $user->givePermissionTo('insights.view');
+
+        $response = $this->get("/insights/{$this->insight1->id}");
+
+        $response->assertStatus(200);
+        $response->assertViewIs('insights.show');
+    }
+
+    /** @test */
+    public function itShouldBlockTheAdminAccessingTheInsightShowViewWithoutInsightViewPermission()
+    {
+        $user = $this->authenticateAsAdmin();
+
+        $this->withoutExceptionHandling();
+        $this->expectException(AccessDeniedException::class);
+
+        $response = $this->get("/insights/{$this->insight1->id}");
+        $response->assertStatus(500);
+    }
+
+    /** @test */
+    public function itShouldRedirectTheGuestUserAccessingTheInsightsShowPageToLoginPage()
+    {
+        $response = $this->get("/insights/{$this->insight1->id}");
+        $response->assertRedirect('/login');
     }
 }

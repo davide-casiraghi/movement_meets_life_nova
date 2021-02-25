@@ -83,14 +83,6 @@ class InsightRepository implements InsightRepositoryInterface
         $insight->body = $data['body'] ?? null;
         $insight->is_published = (isset($data['is_published'])) ? 1 : 0;
 
-        // Translations
-        foreach (LaravelLocalization::getSupportedLocales() as $countryCode => $countryAvTrans) {
-            if ($countryCode != Config::get('app.fallback_locale')) {
-                $insight->setTranslation('title', $countryCode, $data['title_' . $countryCode] ?? null);
-                $insight->setTranslation('body', $countryCode, $data['body_' . $countryCode] ?? null);
-            }
-        }
-
         return $insight;
     }
 
