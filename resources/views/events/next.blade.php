@@ -16,11 +16,11 @@
         <div>
         @forelse($events as $event)
             <div class="mb-6">
-                <div class="text-base font-medium text-primary-600 truncate">
-                    <a href="{{route('events.show', $event->id)}}">{{$event->title}}</a>
-                </div>
-                <div class="md:grid md:grid-cols-3 md:gap-2 mt-2">
+                <div class="md:grid md:grid-cols-3 md:gap-2 mt-2 items-start">
                     <div class="md:col-span-2">
+                        <div class="text-base font-medium text-primary-600 truncate">
+                            <a href="{{route('events.show', $event->id)}}">{{$event->title}}</a>
+                        </div>
                         <div class="sm:flex sm:justify-start text-sm text-gray-500 sm:mt-0">
 
                             {{-- Country --}}
@@ -30,7 +30,7 @@
                             </div>
 
                             {{-- City --}}
-                            <div class="flex mt-3 sm:mt-0 ml-0 sm:ml-2">
+                            <div class="flex mt-2 sm:mt-0 ml-0 sm:ml-2">
                                 <svg class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" fill="currentColor" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                                 <p>{{$event->venue->city}}</p>
                             </div>
@@ -48,8 +48,8 @@
                             </div>--}}
                         </div>
                     </div>
-                    <div class="mt-5 md:mt-0 md:col-span-1">
-                        <div class="mt-2 flex items-start justify-end text-sm text-gray-500 sm:mt-0">
+                    <div class="mt-2 md:mt-0 md:col-span-1">
+                        <div class="mt-2 flex items-start md:justify-end text-sm text-gray-500 sm:mt-0">
                             {{-- Event date or repetition string --}}
                             <svg class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                 <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd" />
