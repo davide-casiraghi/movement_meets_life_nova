@@ -10,11 +10,13 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Spatie\ModelStatus\HasStatuses;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
-use Spatie\Translatable\HasTranslations;
 
 class Event extends Model implements HasMedia
 {
-    use HasFactory, HasSlug, HasStatuses, InteractsWithMedia;
+    use HasFactory;
+    use HasSlug;
+    use HasStatuses;
+    use InteractsWithMedia;
 
     /**
      * The attributes that aren't mass assignable.
