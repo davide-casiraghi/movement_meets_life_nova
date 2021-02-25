@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="text-center mt-5">
+<div class="text-center mt-5 px-4 md:px-0">
     <h2 class="text-3xl leading-9 tracking-tight font-extrabold text-gray-900 sm:text-4xl sm:leading-10">
         Get a treatment
     </h2>
@@ -11,7 +11,7 @@
     </p>
 </div>
 
-<div class="flex justify-center">
+<div class="flex justify-center px-4 md:px-0">
 
     <form action="#" method="POST" class="max-w-3xl">
         <div class="bg-white shadow px-4 py-5 sm:rounded-lg sm:p-6 mt-4">

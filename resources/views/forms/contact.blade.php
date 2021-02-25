@@ -4,7 +4,7 @@
 
     @include('partials.messages')
 
-    <div class="flex justify-center">
+    <div class="flex justify-center px-4 md:px-0">
         <form action="{{route('testimonials.store')}}" method="POST" class="max-w-3xl">
             @csrf
             <div class="bg-white shadow px-4 py-5 sm:rounded-lg sm:p-6 mt-4">
@@ -74,7 +74,7 @@
             </div>
 
             {{-- Send button --}}
-            <div class="mt-6 px-4 py-5 sm:p-6 mb-4">
+            <div class="mt-6 py-5 mb-4">
                 <div class="flex justify-end">
                     <span class="ml-3 inline-flex rounded-md shadow-sm">
                         <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:ring-indigo active:bg-indigo-700 transition duration-150 ease-in-out">
