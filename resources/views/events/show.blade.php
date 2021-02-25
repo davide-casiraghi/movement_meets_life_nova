@@ -38,9 +38,9 @@
 
     <div class="text-lg max-w-prose mx-auto mb-6 mt-8 sm:mt-32 px-10 text-gray-500">
         @if(!$event->hasMedia('introimage'))
-            <h2>
+            <h1>
                 {{ $event->title }}
-            </h2>
+            </h1>
 
             @include('partials.events.mainInformation')
         @endif
@@ -49,24 +49,47 @@
             {!! $event->description !!}
         </div>
 
-        <div class="mt-4" id="map">
+        {{-- Location --}}
+        <div class="">
+            <div class="">
+                <h2>{{ $event->venue->name }}</h2>
+                <div class="">
+                    {{ $event->venue->address }}<br />
+                    {{ $event->venue->city }}<br />
+                    {{--@if(!empty($region->name)){{ $region->name }}<br /> @endif--}}
+                    {{ $event->venue->zip_code }}<br />
+                    <b>{{ $event->venue->country->name }}</b><br />
+                </div>
 
-            @include('partials.events.gmap', [
-                  'venue_name' => $event->venue->name,
-                  'venue_address' => $event->venue->address,
-                  'venue_city' => $event->venue->city,
-                  'venue_country' => $event->venue->country->name,
-                  'venue_zip_code' => $event->venue->zip_code
-            ])
+                @if(!empty($event->venue->website))
+                    <div class="flex mt-4">
+                        <svg class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
+                        <a class="textLink" href="{{ $event->venue->website }}" target="_blank">{{ $event->venue->website }}</a>
+                    </div>
+                @endif
 
-            {{--@include('laravel-events-calendar::partials.gmap', [
-                  'venue_name' => $venue->name,
-                  'venue_address' => $venue->address,
-                  'venue_city' => $venue->city,
-                  'venue_country' => $country->name,
-                  'venue_zip_code' => $venue->zip_code
-            ])--}}
+                @if(!empty($event->venue->extra_info))
+                    <div class="mt-4">
+                        {!! $event->venue->extra_info !!}
+                    </div>
+                @endif
+
+                <div class="mt-4">
+                {!! $event->venue->description !!}
+                </div>
+            </div>
+
+            <div class="mt-4" id="map">
+                @include('partials.events.gmap', [
+                      'venue_name' => $event->venue->name,
+                      'venue_address' => $event->venue->address,
+                      'venue_city' => $event->venue->city,
+                      'venue_country' => $event->venue->country->name,
+                      'venue_zip_code' => $event->venue->zip_code
+                ])
+            </div>
         </div>
+
 
     </div>
 @endsection
