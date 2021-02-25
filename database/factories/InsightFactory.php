@@ -22,17 +22,32 @@ class InsightFactory extends Factory
      */
     public function definition()
     {
-        // Generate posted on facebook date
-        $timestamp_published_on_facebook_on = rand(1444395410, 1602248210);
-        $published_on_facebook_on = date("Y-m-d H:i:s", $timestamp_published_on_facebook_on);
+        // Facebook data
+        $publishedOnFacebookOn = $facebookUrl = $facebookBody = null;
+        if ($this->faker->boolean(50)) {
+            $timestamp_published_on_facebook_on = rand(1444395410, 1602248210);
+            $publishedOnFacebookOn = date("Y-m-d H:i:s", $timestamp_published_on_facebook_on);
+            $facebookUrl = $this->faker->url();
+            $facebookBody = $this->faker->paragraph($nbSentences = 2, $variableNbSentences = true);
+        }
 
-        // Generate published on twitter date
-        $timestamp_published_on_twitter_on = rand(1444395410, 1602248210);
-        $published_on_twitter_on = date("Y-m-d H:i:s", $timestamp_published_on_twitter_on);
+        // Twitter data
+        $publishedOnTwitterOn = $twitterUrl = $twitterBody = null;
+        if ($this->faker->boolean(50)) {
+            $timestamp_published_on_twitter_on = rand(1444395410, 1602248210);
+            $publishedOnTwitterOn = date("Y-m-d H:i:s", $timestamp_published_on_twitter_on);
+            $twitterUrl = $this->faker->url();
+            $twitterBody = $this->faker->paragraph($nbSentences = 2, $variableNbSentences = true);
+        }
 
-        // Generate published on instagram date
-        $timestamp_published_on_instagram_on = rand(1444395410, 1602248210);
-        $published_on_instagram_on = date("Y-m-d H:i:s", $timestamp_published_on_instagram_on);
+        // Instagram data
+        $publishedOnInstagramOn = $instagramUrl = $instagramBody = null;
+        if ($this->faker->boolean(50)) {
+            $timestamp_published_on_instagram_on = rand(1444395410, 1602248210);
+            $publishedOnInstagramOn = date("Y-m-d H:i:s", $timestamp_published_on_instagram_on);
+            $instagramUrl = $this->faker->url();
+            $instagramBody = $this->faker->paragraph($nbSentences = 2, $variableNbSentences = true);
+        }
 
         return [
             'title' => [
@@ -51,17 +66,17 @@ class InsightFactory extends Factory
 
             'is_published' => $this->faker->boolean(50),
 
-            'facebook_body' => $this->faker->paragraph($nbSentences = 2, $variableNbSentences = true),
-            'facebook_url' => $this->faker->url(),
-            'published_on_facebook_on' => $published_on_facebook_on,
+            'facebook_body' => $facebookBody,
+            'facebook_url' => $facebookUrl,
+            'published_on_facebook_on' => $publishedOnFacebookOn,
 
-            'twitter_body' => $this->faker->text(280),
-            'twitter_url' => $this->faker->url(),
-            'published_on_twitter_on' => $published_on_twitter_on,
+            'twitter_body' => $twitterBody,
+            'twitter_url' => $twitterUrl,
+            'published_on_twitter_on' => $publishedOnTwitterOn,
 
-            'instagram_body' => $this->faker->paragraph($nbSentences = 2, $variableNbSentences = true),
-            'instagram_url' => $this->faker->url(),
-            'published_on_instagram_on' => $published_on_instagram_on,
+            'instagram_body' => $instagramBody,
+            'instagram_url' => $instagramUrl,
+            'published_on_instagram_on' => $publishedOnInstagramOn,
         ];
     }
 }
