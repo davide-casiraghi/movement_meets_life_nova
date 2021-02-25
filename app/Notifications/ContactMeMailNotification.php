@@ -44,7 +44,7 @@ class ContactMeMailNotification extends Notification
     {
         return (new MailMessage())
             ->subject('Message from the contact form')
-            ->view('emails.contactMe', ['data' => $this->data]);
+            ->markdown('mail.contactMe', ['data' => $this->data]);
     }
 
     /**
