@@ -56,7 +56,15 @@
                             </svg>
                             <p>
                                 @if($event->repeat_type == 1)
-                                    One time event
+                                    @php
+                                        $dateStart = date('d/m/Y', strtotime($eventFirstRepetition->start_repeat));
+                                        $dateEnd = date('d/m/Y', strtotime($eventFirstRepetition->end_repeat));
+                                    @endphp
+                                    @if ($dateStart == $dateEnd)
+                                        {{$dateStart}}
+                                    @else
+                                        From {{$dateStart}} to {{$dateEnd}}
+                                    @endif
                                 @else
                                     @php
                                         $eventFirstRepetition = $eventRepetitionService->getFirstByEventId($event->id);
