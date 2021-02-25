@@ -244,6 +244,7 @@ class EventService
      * @param \App\Models\EventRepetition $firstRpDates
      *
      * @return string $ret
+     * @throws \Exception
      */
     public static function getRepetitionTextString(Event $event, EventRepetition $firstRpDates): string
     {
@@ -251,6 +252,14 @@ class EventService
 
         switch ($event->repeat_type) {
             case '1': // noRepeat
+                $dateStart = date('d/m/Y', strtotime($firstRpDates->start_repeat));
+                $dateEnd = date('d/m/Y', strtotime($firstRpDates->end_repeat));
+
+                if ($dateStart == $dateEnd) {
+                    $ret = $dateStart;
+                } else {
+                    $ret = "From {$dateStart} to {$dateEnd}";
+                }
                 break;
             case '2': // repeatWeekly
                 $repeatUntil = new DateTime($event->repeat_until);
@@ -297,6 +306,8 @@ class EventService
 
         return $ret;
     }
+
+
 
     /**
      * Return a string that describe the report misuse reason.
