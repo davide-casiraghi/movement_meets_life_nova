@@ -50,19 +50,10 @@ class InsightFactory extends Factory
         }
 
         return [
-            'title' => [
-                'en' => $this->faker->sentence($nbWords = 7, $variableNbWords = true),
-                'it' => $this->faker->sentence($nbWords = 7, $variableNbWords = true),
-            ],
-            'body' => [
-                'en' => $this->faker->paragraph($nbSentences = 2, $variableNbSentences = true),
-                'it' => $this->faker->paragraph($nbSentences = 2, $variableNbSentences = true),
-            ],
+            'title' => $this->faker->sentence($nbWords = 7, $variableNbWords = true),
+            'body' => $this->faker->paragraph($nbSentences = 2, $variableNbSentences = true),
             'introimage' => 'placeholders/placeholder-768x768.png',
-            'introimage_alt' => [
-                'en' => $this->faker->sentence($nbWords = 2, $variableNbWords = true),
-                'it' => $this->faker->sentence($nbWords = 2, $variableNbWords = true),
-            ],
+            'introimage_alt' => $this->faker->sentence($nbWords = 2, $variableNbWords = true),
 
             'is_published' => $this->faker->boolean(50),
 

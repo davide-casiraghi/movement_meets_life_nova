@@ -25,13 +25,6 @@
             <div class="md:grid md:grid-cols-3 md:gap-6">
                 <div class="md:col-span-1">
                     <h3 class="text-lg font-medium leading-6 text-gray-900">Insight contents</h3>
-                    {{-- Translations tabs - Buttons --}}
-                    <div class="mt-4">
-                        @include('partials.forms.languageTabs',[
-                            'countriesAvailableForTranslations' => $countriesAvailableForTranslations
-                        ])
-                    </div>
-
                 </div>
                 <div class="mt-5 md:mt-0 md:col-span-2">
 
@@ -104,41 +97,6 @@
 
                         </div>
                     </div>
-
-                    {{-- Translations tabs - Contents translated other languages --}}
-                    @foreach ($countriesAvailableForTranslations as $countryCode => $countryAvTrans)
-                        @if($countryCode != Config::get('app.fallback_locale'))
-                            <div class="translation {{$countryCode}}" x-show.transition.in="translationActive === '{{$countryCode}}'">
-                                <div class="grid grid-cols-6 gap-6">
-
-                                    <div class="col-span-6">
-                                        @include('partials.forms.input', [
-                                                'label' => __('views.title'),
-                                                'name' => 'title_'.$countryCode,
-                                                'placeholder' => 'Insight title',
-                                                'value' => old('title_'.$countryCode, $insight->getTranslation('title', $countryCode)),
-                                                'required' => true,
-                                                'disabled' => false,
-                                        ])
-                                    </div>
-
-                                    <div class="col-span-6">
-                                        @include('partials.forms.textarea', [
-                                               'label' => __('views.text'),
-                                               'name' => 'body_'.$countryCode,
-                                               'placeholder' => '',
-                                               'value' => old('body_'.$countryCode, $insight->getTranslation('body', $countryCode)),
-                                               'required' => false,
-                                               'disabled' => false,
-                                               'style' => 'tinymce',
-                                               'extraDescription' => 'Anything to show jumbo style after the content',
-                                           ])
-                                    </div>
-                                </div>
-                            </div>
-                        @endif
-                    @endforeach
-
                 </div>
 
             </div>

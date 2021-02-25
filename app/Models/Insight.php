@@ -11,13 +11,11 @@ use Spatie\Searchable\Searchable;
 use Spatie\Searchable\SearchResult;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
-use Spatie\Translatable\HasTranslations;
 
 class Insight extends Model implements HasMedia, Searchable
 {
     use HasFactory;
     use HasSlug;
-    use HasTranslations;
     use InteractsWithMedia;
 
     /**
@@ -26,13 +24,6 @@ class Insight extends Model implements HasMedia, Searchable
      * @var array
      */
     protected $guarded = [];
-
-    /**
-     * The attributes that are translatable.
-     *
-     * @var array
-     */
-    public $translatable = ['title', 'body', 'introimage_alt'];
 
     /**
      * The attributes that should be mutated to dates.

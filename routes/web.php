@@ -230,7 +230,6 @@ Route::get('/next_events', [EventController::class, 'nextEvents'])->name('events
 Route::get('/treatments-ilan-lev-method', [StaticPageController::class, 'treatments'])->name('staticPages.treatments');
 Route::get('/contact-improvisation', [StaticPageController::class, 'contactImprovisation'])->name('staticPages.contactImprovisation');
 Route::get('/events/{id}', [EventController::class, 'show'])->name('events.show');
-Route::get('/insights/{id}', [InsightController::class, 'show'])->name('insights.show');
 
 Route::get('/getATreatment', [GetATreatmentController::class, 'create'])->name('getATreatment.create');
 Route::post('/getATreatment', [GetATreatmentController::class, 'store'])->name('getATreatment.store');

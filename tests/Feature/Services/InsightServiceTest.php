@@ -74,7 +74,7 @@ class InsightServiceTest extends TestCase
 
         $this->insightService->updateinsight($request, $this->insight1->id);
 
-        $this->assertDatabaseHas('insights', ['body' => "{\"en\":\"test body updated\",\"sl\":null}"]);
+        $this->assertDatabaseHas('insights', ['body' => 'test body updated']);
     }
 
     /** @test */
