@@ -186,7 +186,7 @@ class EventService
         // Add option: Same weekday/week of the month.
         // eg. the "1st Monday" 1|1|1 (first week, monday)
         $dayOfWeekValue = date('N', $unixTimestamp); // 1 (for Monday) through 7 (for Sunday)
-        $weekOfTheMonth = DateHelpers::weekdayNumberOfMonth($date, $dayOfWeekValue); // 1 | 2 | 3 | 4 | 5
+        $weekOfTheMonth = DateHelpers::monthWeekNumber($date, $dayOfWeekValue); // 1 | 2 | 3 | 4 | 5
 
         $format = __('ordinalDays.the_' . ($weekOfTheMonth) . '_x_of_the_month');
         $repeatText = sprintf($format, $dayOfWeekString);

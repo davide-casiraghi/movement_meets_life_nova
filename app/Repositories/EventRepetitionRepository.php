@@ -194,7 +194,7 @@ class EventRepetitionRepository implements EventRepetitionRepositoryInterface
         $period = CarbonPeriod::create($beginPeriod, $interval, $endPeriod);
         foreach ($period as $day) {  // Iterate for each day of the period
             foreach ($weekDays as $weekDayNumber) { // Iterate for every day of the week (1:Monday, 2:Tuesday, 3:Wednesday ...)
-                if (DateHelpers::isWeekDay($day->format('Y-m-d'), $weekDayNumber)) {
+                if (DateHelpers::isSpecifiedWeekDay($day->format('Y-m-d'), $weekDayNumber)) {
                     self::store($eventId, $day->format('Y-m-d'), $day->format('Y-m-d'), $timeStart, $timeEnd);
                 }
             }

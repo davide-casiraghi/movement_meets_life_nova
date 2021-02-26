@@ -19,15 +19,17 @@ class DateHelpers
 {
 
     /**
-     * Check the date and return true if the weekday is the one specified in $dayOfTheWeek. eg. if $dayOfTheWeek = 3, is true if the date is a Wednesday
+     * Check the date and return true if the weekday is the one specified in $dayOfTheWeek.
+     *
+     * eg. if $dayOfTheWeek = 3, is true if the $date is a Wednesday
      * $dayOfTheWeek: 1|2|3|4|5|6|7 (MONDAY-SUNDAY)
      * https://stackoverflow.com/questions/2045736/getting-all-dates-for-mondays-and-tuesdays-for-the-next-year.
      *
      * @param  string $date
-     * @param  int $dayOfTheWeek
+     * @param  int $dayOfTheWeek  (Y-m-d)
      * @return bool
      */
-    public static function isWeekDay(string $date, int $dayOfTheWeek)
+    public static function isSpecifiedWeekDay(string $date, int $dayOfTheWeek): bool
     {
         // Fix the bug that was avoiding to save Sunday. Date 'w' identify sunday as 0 and not 7.
         if ($dayOfTheWeek == 7) {
@@ -38,24 +40,25 @@ class DateHelpers
     }
 
     /**
-     * GET number of the specified weekday in this month (1 for the first).
+     * Return the number of the week (1|2|3|4|5) in the month of the weekday specified.
+     *
      * $dateTimestamp - unix timestamp of the date specified
      * $dayOfWeekValue -  1 (for Monday) through 7 (for Sunday)
-     * Return the number of the week in the month of the weekday specified.
+     *
      * @param  string $dateTimestamp
      * @param  string $dayOfWeekValue
      * @return int
      */
-    public static function weekdayNumberOfMonth(string $dateTimestamp, string $dayOfWeekValue)
+    public static function monthWeekNumber(string $dateTimestamp, string $dayOfWeekValue): int
     {
         $cut = substr($dateTimestamp, 0, 8);
         $daylen = 86400;
         $timestamp = strtotime($dateTimestamp);
-        $first = strtotime($cut.'01');
+        $first = strtotime($cut . '01');
         $elapsed = (($timestamp - $first) / $daylen) + 1;
         $weeks = 0;
         for ($i = 1; $i <= $elapsed; $i++) {
-            $dayFind = $cut.(strlen((string) $i) < 2 ? '0'.$i : $i);
+            $dayFind = $cut . (strlen((string) $i) < 2 ? '0' . $i : $i);
             $dayTimestamp = strtotime($dayFind);
             $day = strtolower(date('N', $dayTimestamp));
             if ($day == strtolower($dayOfWeekValue)) {
@@ -69,9 +72,11 @@ class DateHelpers
         return $weeks;
     }
 
-
     /**
-     * GET number of week from the end of the month - https://stackoverflow.com/questions/5853380/php-get-number-of-week-for-month
+     * GET number of week from the end of the month
+     *
+     * https://stackoverflow.com/questions/5853380/php-get-number-of-week-for-month
+     *
      * Week of the month = Week of the year - Week of the year of first day of month + 1.
      * Return the number of the week in the month of the day specified
      * $when - unix timestramp of the date specified.
