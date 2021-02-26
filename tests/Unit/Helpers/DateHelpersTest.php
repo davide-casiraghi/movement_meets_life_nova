@@ -111,6 +111,16 @@ class DateHelpersTest extends TestCase
         $this->assertEquals(5, $numberOfWeekFromEndOfMonth);
     }
 
+    /** @test */
+    public function itShouldReturnTheDayOfTheMonthFromTheEnd()
+    {
+        $date = "2010-10-26"; // the 5th to last day of the month
+        $dateTimestamp = strtotime($date);
+
+        $dayOfMonthFromTheEnd = $this->dateHelpers->dayOfMonthFromTheEnd($dateTimestamp);
+        $this->assertEquals($dayOfMonthFromTheEnd, 5);
+    }
+
 
 
 
