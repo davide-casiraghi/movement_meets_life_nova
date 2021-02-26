@@ -5,6 +5,7 @@ namespace App\Services;
 use App\Models\User;
 use App\Notifications\ContactMeMailNotification;
 use App\Notifications\GetATreatmentMailNotification;
+use App\Notifications\NewTestimonialMailNotification;
 
 class NotificationService
 {
@@ -37,6 +38,22 @@ class NotificationService
     {
         $user = User::find($userId);
         $user->notify(new GetATreatmentMailNotification($data));
+
+        return true;
+    }
+
+    /**
+     * Send an email when the new testimonial form is submitted
+     *
+     * @param  array  $data
+     * @param  int  $userId
+     *
+     * @return bool
+     */
+    public function sendEmailNewTestimonial(array $data, int $userId): bool
+    {
+        $user = User::find($userId);
+        $user->notify(new NewTestimonialMailNotification($data));
 
         return true;
     }
