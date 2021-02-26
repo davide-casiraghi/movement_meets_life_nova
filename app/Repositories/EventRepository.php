@@ -76,20 +76,19 @@ class EventRepository implements EventRepositoryInterface
     /**
      * Return the list of the expiring repetitive events (the 7th day from now).
      * Consider just Weekly(2) and Monthly(3) events.
+     * It returns just the events expiring the 7th day from now, not the 6th day or less.
      *
      * @return Collection
      */
-    public function getExpiringRepetitiveEventsList(): Collection
+    public function getRepetitiveExpiringInOneWeek(): Collection
     {
         $query = Event::orderBy('title', 'desc');
         $query->where('repeat_until', '<=', Carbon::today()->addWeek()->toDateString());
-        $query->where('repeat_until', '>=', Carbon::today()->toDateString());
+        $query->where('repeat_until', '>', Carbon::now()->addWeek()->subDay()->toDateString());
         $query->whereIn('repeat_type', [2, 3]); // Weekly(2), Monthly(3)
 
         return $query->get();
     }
-
-
 
     /**
      * Store Event

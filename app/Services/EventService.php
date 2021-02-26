@@ -314,8 +314,6 @@ class EventService
         return $ret;
     }
 
-
-
     /**
      * Return a string that describe the report misuse reason.
      *
@@ -398,23 +396,23 @@ class EventService
      * Return the list of the expiring repetitive events (the 7th day from now).
      * When the cache parameter is true, get them from the cache.
      *
-     * The cache tag get invalidated once a day and also on event save.
+     * The cache tag get invalidated once a day and also on event save, update and delete.
      * To empty the cache you can run a 'php artisan cache:clear'
      *
      * @param bool $cached
      *
      * @return Collection
      */
-    public function getExpiringRepetitiveEvents(bool $cached): Collection
+    public function getRepetitiveEventsExpiringInOneWeek(bool $cached): Collection
     {
         if (!$cached) {
-            return $this->eventRepository->getExpiringRepetitiveEventsList();
+            return $this->eventRepository->getRepetitiveExpiringInOneWeek();
         }
 
         $cacheTag = 'active_events'; //todo - invalidate this cache tag on event save
         $seconds = 86400; // One day
         return Cache::remember($cacheTag, $seconds, function () {
-            return $this->eventRepository->getExpiringRepetitiveEventsList();
+            return $this->eventRepository->getRepetitiveExpiringInOneWeek();
         });
     }
 
@@ -429,7 +427,7 @@ class EventService
         $data['emailFrom'] = env('ADMIN_MAIL');
         $data['senderName'] = 'CI Global Calendar Administrator';
 
-        $expiringRepetitiveEvents = self::getExpiringRepetitiveEvents(true);
+        $expiringRepetitiveEvents = self::getRepetitiveEventsExpiringInOneWeek(true);
         foreach ($expiringRepetitiveEvents as $key => $event) {
             $event->user->notify(new ExpiringEventMailNotification($data, $event));
         }

@@ -248,7 +248,7 @@ class EventController extends Controller
      */
    /* public function sendEmailToExpiringEventsOrganizers(): string
     {
-        $expiringEvents = $this->eventService->getExpiringRepetitiveEvents(true);
+        $expiringEvents = $this->eventService->getRepetitiveEventsExpiringInOneWeek(true);
 
         $this->eventService->sendEmailToExpiringEventsOrganizers($expiringEvents);
 
