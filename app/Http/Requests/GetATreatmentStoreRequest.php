@@ -24,12 +24,12 @@ class GetATreatmentStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'surname' => 'required',
-            'email' => 'required|email',
-            'phone' => 'regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
-            'main_complain'=>'required',
-            'secondary_complain' => 'required'
+            'mainComplaint' => 'required',
+            //'surname' => 'required',
+            //'email' => 'required|email',
+            //'phone' => 'regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
+            //'main_complain'=>'required',
+            //'secondary_complain' => 'required'
         ];
     }
 }

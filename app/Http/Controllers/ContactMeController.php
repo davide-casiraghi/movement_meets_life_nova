@@ -31,20 +31,6 @@ class ContactMeController extends Controller
 
         $this->notificationService->sendEmailContactMe($request->all());
 
-
-        $data = $request->all();
-
-        /*//  Send mail to admin
-        Mail::send('mail', array(
-            'name' => $data['name'],
-            'surname' => $data['surname'],
-            'email' => $data['email'],
-            'message' => $data['message'],
-        ), function ($message) use ($request) {
-            $message->from($request->email);
-            $message->to('digambersingh126@gmail.com', 'Admin')->subject($request->get('subject'));
-        });*/
-
         return back()->with('success', 'We have received your message and would like to thank you for writing to us.');
         //return redirect('/');
     }
