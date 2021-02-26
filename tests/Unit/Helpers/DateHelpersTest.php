@@ -121,7 +121,21 @@ class DateHelpersTest extends TestCase
         $this->assertEquals($dayOfMonthFromTheEnd, 5);
     }
 
+    /** @test */
+    public function itShouldReturnMonday()
+    {
+        $repeatWeeklyOn = '1';
+        $repeatWeeklyDecoded = $this->dateHelpers->decodeRepeatWeeklyOn($repeatWeeklyOn);
+        $this->assertEquals($repeatWeeklyDecoded, 'Monday');
+    }
 
+    /** @test */
+    public function itShouldReturnWednesday()
+    {
+        $repeatWeeklyOn = '3';
+        $repeatWeeklyDecoded = $this->dateHelpers->decodeRepeatWeeklyOn($repeatWeeklyOn);
+        $this->assertEquals($repeatWeeklyDecoded, 'Wednesday');
+    }
 
 
 
