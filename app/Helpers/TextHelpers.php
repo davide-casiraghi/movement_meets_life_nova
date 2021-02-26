@@ -31,7 +31,7 @@ class TextHelpers
         $str_minutes = ($minutes == 1) ? "minute" : "minutes";
         $str_seconds = ($seconds == 1) ? "second" : "seconds";
 
-        if ($format = 'minutes') {
+        if ($format == 'minutes') {
             if ($minutes == 0) {
                 return 'Less then one minute';
             } else {
@@ -39,7 +39,7 @@ class TextHelpers
             }
         }
 
-        if ($format = 'minutesAndSeconds') {
+        if ($format == 'minutesAndSeconds') {
             if ($minutes == 0) {
                 return "{$seconds} {$str_seconds}";
             } else {
