@@ -78,18 +78,17 @@ class DateHelpers
      * https://stackoverflow.com/questions/5853380/php-get-number-of-week-for-month
      *
      * Week of the month = Week of the year - Week of the year of first day of month + 1.
-     * Return the number of the week in the month of the day specified
-     * $when - unix timestramp of the date specified.
      *
-     * @param  int $when
+     * @param string $dateTimestamp
+     *
      * @return int
      */
-    public static function weekOfMonthFromTheEnd(int $when): int
+    public static function monthWeekNumberFromTheEnd(string $dateTimestamp): int
     {
-        $numberOfDayOfTheMonth = strftime('%e', $when); // Day of the month 1-31
+        $numberOfDayOfTheMonth = strftime('%e', $dateTimestamp); // Day of the month 1-31
 
         // the last day of the month of the specified date
-        $lastDayOfMonth = strftime('%e', strtotime(date('Y-m-t', $when)));
+        $lastDayOfMonth = strftime('%e', strtotime(date('Y-m-t', $dateTimestamp)));
 
         $dayDifference = (int) $lastDayOfMonth - (int) $numberOfDayOfTheMonth;
 

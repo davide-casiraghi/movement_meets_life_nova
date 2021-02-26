@@ -210,15 +210,15 @@ class EventService
 
         // Add option: Same weekday/week of the month (from the end).
         // eg. the last Friday - (0 if last Friday, 1 if the 2nd to last Friday, 2 if the 3nd to last Friday)
-        $weekOfMonthFromTheEnd = DateHelpers::weekOfMonthFromTheEnd($unixTimestamp); // 1 | 2 | 3 | 4 | 5
+        $monthWeekNumberFromTheEnd = DateHelpers::monthWeekNumberFromTheEnd($unixTimestamp); // 1 | 2 | 3 | 4 | 5
 
-        if ($weekOfMonthFromTheEnd == 1) {
+        if ($monthWeekNumberFromTheEnd == 1) {
             $weekValue = 0;
         } else {
-            $weekValue = $weekOfMonthFromTheEnd - 1;
+            $weekValue = $monthWeekNumberFromTheEnd - 1;
         }
 
-        $format = __('ordinalDays.the_' . ($weekOfMonthFromTheEnd) . '_to_last_x_of_the_month');
+        $format = __('ordinalDays.the_' . ($monthWeekNumberFromTheEnd) . '_to_last_x_of_the_month');
         $repeatText = sprintf($format, $dayOfWeekString);
 
         array_push($monthlySelectOptions, [

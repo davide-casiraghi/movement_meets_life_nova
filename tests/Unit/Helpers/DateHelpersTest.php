@@ -56,6 +56,65 @@ class DateHelpersTest extends TestCase
         $this->assertEquals(3, $isSpecifiedWeekDay);
     }
 
+    /** @test */
+    public function itShouldReturnOneSinceTheSpecifiedDayIsInTheLastWeekOfTheMonth()
+    {
+        $date = "2019-10-30"; // Last week of the month
+        $dateTimestamp = strtotime($date);
+
+        $numberOfWeekFromEndOfMonth = $this->dateHelpers->monthWeekNumberFromTheEnd($dateTimestamp);
+
+        $this->assertEquals(1, $numberOfWeekFromEndOfMonth);
+    }
+
+    /** @test */
+    public function itShouldReturnTwoSinceTheSpecifiedDayIsInTheSecondToLastWeekOfTheMonth()
+    {
+        $date = "2019-10-23"; // Second to last week of the month
+        $dateTimestamp = strtotime($date);
+
+        $numberOfWeekFromEndOfMonth = $this->dateHelpers->monthWeekNumberFromTheEnd($dateTimestamp);
+
+        $this->assertEquals(2, $numberOfWeekFromEndOfMonth);
+    }
+
+    /** @test */
+    public function itShouldReturnThreeSinceTheSpecifiedDayIsInTheThirdToLastWeekOfTheMonth()
+    {
+        $date = "2019-10-16"; // Third to last week of the month
+        $dateTimestamp = strtotime($date);
+
+        $numberOfWeekFromEndOfMonth = $this->dateHelpers->monthWeekNumberFromTheEnd($dateTimestamp);
+
+        $this->assertEquals(3, $numberOfWeekFromEndOfMonth);
+    }
+
+    /** @test */
+    public function itShouldReturnFourSinceTheSpecifiedDayIsInTheFourToLastWeekOfTheMonth()
+    {
+        $date = "2019-10-9"; // Fourth to last week of the month
+        $dateTimestamp = strtotime($date);
+
+        $numberOfWeekFromEndOfMonth = $this->dateHelpers->monthWeekNumberFromTheEnd($dateTimestamp);
+
+        $this->assertEquals(4, $numberOfWeekFromEndOfMonth);
+    }
+
+    /** @test */
+    public function itShouldReturnFiveSinceTheSpecifiedDayIsInTheFifthToLastWeekOfTheMonth()
+    {
+        $date = "2019-10-2"; // Fifth to last week of the month
+        $dateTimestamp = strtotime($date);
+
+        $numberOfWeekFromEndOfMonth = $this->dateHelpers->monthWeekNumberFromTheEnd($dateTimestamp);
+
+        $this->assertEquals(5, $numberOfWeekFromEndOfMonth);
+    }
+
+
+
+
+
 
 
 }
