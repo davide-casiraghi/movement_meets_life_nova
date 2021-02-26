@@ -138,7 +138,7 @@ class DateHelpers
      * @param  string $repeatWeeklyOn
      * @return string
      */
-    public static function decodeRepeatWeeklyOn(string $repeatWeeklyOn)
+    public static function decodeRepeatWeeklyOn(string $repeatWeeklyOn): string
     {
         $weekdayArray = [
             '',
