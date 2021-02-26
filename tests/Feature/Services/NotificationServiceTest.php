@@ -8,6 +8,7 @@ use App\Models\Post;
 use App\Models\PostCategory;
 use App\Models\User;
 use App\Notifications\ContactMeMailNotification;
+use App\Notifications\GetATreatmentMailNotification;
 use App\Services\CommentService;
 use App\Services\NotificationService;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -64,5 +65,30 @@ class NotificationServiceTest extends TestCase
         $this->assertEquals(true, $sent);
     }
 
+    /** @test  */
+    public function itShouldSendGetATreatmentEmailNotification()
+    {
+        Notification::fake();
 
+        // Assert that no notifications were sent
+        Notification::assertNothingSent();
+
+        $data = [
+            'name' => 'Billy',
+            'surname' => 'Red',
+            'email' => 'billy.red@test.com',
+            'phone' => '5550123456789',
+            'mainComplaint' => 'Elit voluptatem Co',
+            'mainComplaintIntensity' => '2',
+            'secondaryComplaint' => 'Voluptatibus dolorum',
+            'secondaryComplaintIntensity' => '5',
+            'personalDataAgreement' => 'on',
+            'contactChoice' => 'sms_whatsapp'
+        ];
+
+        $sent = $this->notificationService->sendEmailGetATreatment($data, $this->user1->id);
+
+        Notification::assertSentTo([$this->user1], GetATreatmentMailNotification::class);
+        $this->assertEquals(true, $sent);
+    }
 }
