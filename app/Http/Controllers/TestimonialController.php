@@ -9,6 +9,7 @@ use App\Models\Testimonial;
 use App\Models\User;
 use App\Notifications\NewTestimonialMailNotification;
 use App\Services\CountryService;
+use App\Services\NotificationService;
 use App\Services\TestimonialService;
 use App\Traits\CheckPermission;
 use Illuminate\Http\RedirectResponse;
@@ -22,13 +23,16 @@ class TestimonialController extends Controller
 
     private TestimonialService $testimonialService;
     private CountryService $countryService;
+    private NotificationService $notificationService;
 
     public function __construct(
         TestimonialService $testimonialService,
-        CountryService $countryService
+        CountryService $countryService,
+        NotificationService $notificationService
     ) {
         $this->testimonialService = $testimonialService;
         $this->countryService = $countryService;
+        $this->notificationService = $notificationService;
     }
 
     /**
@@ -85,8 +89,7 @@ class TestimonialController extends Controller
 
         $testimonial = $this->testimonialService->createTestimonial($request);
 
-        $admin = User::find(1);
-        $admin->notify(new NewTestimonialMailNotification($request->all()));
+        $this->notificationService->sendEmailNewTestimonial($request->all(), 1);
 
         $message = Auth::guest() ? 'Thanks for your testimony!' : 'Testimonial created successfully';
 
