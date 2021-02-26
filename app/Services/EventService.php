@@ -363,28 +363,27 @@ class EventService
             __('general.sunday'),
         ];
 
-        //dd($onMonthlyKindCodeArray);
         switch ($onMonthlyKindCodeArray[0]) {
             case '0':  // 0|7 eg. the 7th day of the month
                 $dayNumber = $onMonthlyKindCodeArray[1];
-                $format = __('ordinalDays.the_'.($dayNumber).'_x_of_the_month');
+                $format = __("ordinalDays.the_{$dayNumber}_x_of_the_month");
                 $ret = sprintf($format, __('general.day'));
                 break;
             case '1':  // 1|2|4 eg. the 2nd Thursday of the month
                 $dayNumber = $onMonthlyKindCodeArray[1];
                 $weekDay = $weekDays[$onMonthlyKindCodeArray[2]]; // Monday, Tuesday, Wednesday
-                $format = __('ordinalDays.the_'.($dayNumber).'_x_of_the_month');
+                $format = __("ordinalDays.the_{$dayNumber}_x_of_the_month");
                 $ret = sprintf($format, $weekDay);
                 break;
             case '2': // 2|20 eg. the 21st to last day of the month
                 $dayNumber = (int) $onMonthlyKindCodeArray[1] + 1;
-                $format = __('ordinalDays.the_'.($dayNumber).'_to_last_x_of_the_month');
+                $format = __("ordinalDays.the_{$dayNumber}_to_last_x_of_the_month");
                 $ret = sprintf($format, __('general.day'));
                 break;
             case '3': // 3|3|4 eg. the 4th to last Thursday of the month
                 $dayNumber = (int) $onMonthlyKindCodeArray[1] + 1;
                 $weekDay = $weekDays[$onMonthlyKindCodeArray[2]]; // Monday, Tuesday, Wednesday
-                $format = __('ordinalDays.the_'.($dayNumber).'_to_last_x_of_the_month');
+                $format = __("ordinalDays.the_{$dayNumber}_to_last_x_of_the_month");
                 $ret = sprintf($format, $weekDay);
                 break;
         }
