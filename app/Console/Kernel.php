@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use App\Console\Commands\SendEmailsExpiringRepetitiveEvents;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -24,7 +25,12 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
+        $logPath = storage_path('logs/schedule.log');
+
+        $schedule->command(SendEmailsExpiringRepetitiveEvents::class)
+            ->daily()
+            ->appendOutputTo($logPath)
+            ->emailOutputTo(env('WEBMASTER_MAIL'));
     }
 
     /**

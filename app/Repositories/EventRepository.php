@@ -6,11 +6,11 @@ namespace App\Repositories;
 use App\Http\Requests\EventStoreRequest;
 use App\Models\Event;
 use Carbon\Carbon;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 
 class EventRepository implements EventRepositoryInterface
 {
-
     /**
      * Get all Events.
      *
@@ -72,6 +72,24 @@ class EventRepository implements EventRepositoryInterface
     {
         return Event::findOrFail($eventId);
     }
+
+    /**
+     * Return the list of the expiring repetitive events (the 7th day from now).
+     * Consider just Weekly(2) and Monthly(3) events.
+     *
+     * @return Collection
+     */
+    public function getExpiringRepetitiveEventsList(): Collection
+    {
+        $query = Event::orderBy('title', 'desc');
+        $query->where('repeat_until', '<=', Carbon::today()->addWeek()->toDateString());
+        $query->where('repeat_until', '>=', Carbon::today()->toDateString());
+        $query->whereIn('repeat_type', [2, 3]); // Weekly(2), Monthly(3)
+
+        return $query->get();
+    }
+
+
 
     /**
      * Store Event

@@ -9,10 +9,14 @@ use App\Http\Requests\EventSearchRequest;
 use App\Http\Requests\EventStoreRequest;
 use App\Models\Event;
 use App\Models\EventRepetition;
+use App\Notifications\ExpiringEventMailNotification;
 use App\Repositories\EventRepository;
 use Carbon\Carbon;
 use DateTime;
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Log;
 use PHPUnit\TextUI\Help;
 
 class EventService
@@ -50,6 +54,7 @@ class EventService
         $this->eventRepetitionService->updateEventRepetitions($request->all(), $event->id);
 
         $event->setStatus('published');
+        $this->cleanActiveEventsCaches();
 
         return $event;
     }
@@ -71,6 +76,7 @@ class EventService
         ImageHelpers::deleteImages($event, $request, 'introimage');
 
         $this->eventRepetitionService->updateEventRepetitions($request->all(), $eventId);
+        $this->cleanActiveEventsCaches();
 
         return $event;
     }
@@ -108,6 +114,7 @@ class EventService
     public function deleteEvent(int $eventId): void
     {
         $this->eventRepository->delete($eventId);
+        $this->cleanActiveEventsCaches();
     }
 
     /**
@@ -323,7 +330,7 @@ class EventService
                 $ret = 'Not about Contact Improvisation';
                 break;
             case '2':
-                $ret = 'Contains wrong informations';
+                $ret = 'Contains wrong information';
                 break;
             case '3':
                 $ret = 'It is not translated in english';
@@ -386,4 +393,67 @@ class EventService
 
         return $ret;
     }
+
+    /**
+     * Return the list of the expiring repetitive events (the 7th day from now).
+     * When the cache parameter is true, get them from the cache.
+     *
+     * The cache tag get invalidated once a day and also on event save.
+     * To empty the cache you can run a 'php artisan cache:clear'
+     *
+     * @param bool $cached
+     *
+     * @return Collection
+     */
+    public function getExpiringRepetitiveEvents(bool $cached): Collection
+    {
+        if (!$cached) {
+            return $this->eventRepository->getExpiringRepetitiveEventsList();
+        }
+
+        $cacheTag = 'active_events'; //todo - invalidate this cache tag on event save
+        $seconds = 86400; // One day
+        return Cache::remember($cacheTag, $seconds, function () {
+            return $this->eventRepository->getExpiringRepetitiveEventsList();
+        });
+    }
+
+    /**
+     * Send an email to the users which repetitive events are expiring.
+     *
+     * @return string
+     */
+    public function sendEmailToExpiringEventsOrganizers(): string
+    {
+        $data = [];
+        $data['emailFrom'] = env('ADMIN_MAIL');
+        $data['senderName'] = 'CI Global Calendar Administrator';
+
+        $expiringRepetitiveEvents = self::getExpiringRepetitiveEvents(true);
+        foreach ($expiringRepetitiveEvents as $key => $event) {
+            $event->user->notify(new ExpiringEventMailNotification($data, $event));
+        }
+
+        $message = empty($expiringRepetitiveEvents) ?
+            'No events were expiring'
+            : count($expiringRepetitiveEvents) . ' events were expiring, mails sent to the organizers.';
+
+        Log::notice($message);
+        return $message;
+    }
+
+    /**
+     * Clean caches related to active events.
+     *
+     * @return void
+     */
+    public function cleanActiveEventsCaches()
+    {
+        Cache::forget('active_events');
+        //Cache::forget('active_events_map_markers_json');
+        //Cache::forget('active_events_map_markers_db_data');
+    }
+
+
+
 }

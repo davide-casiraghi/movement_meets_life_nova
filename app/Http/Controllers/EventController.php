@@ -15,6 +15,7 @@ use App\Services\VenueService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Traits\CheckPermission;
+use Illuminate\Support\Facades\Log;
 use Illuminate\View\View;
 
 class EventController extends Controller
@@ -217,7 +218,7 @@ class EventController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
+     * Display the event list in the frontend Events page.
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\View\View
      */
@@ -239,4 +240,26 @@ class EventController extends Controller
             'eventService' => $this->eventService,
         ]);
     }
+
+    /**
+     * Check if there are expiring repeat events and in case send emails to the organizers.
+     *
+     * @return string
+     */
+   /* public function sendEmailToExpiringEventsOrganizers(): string
+    {
+        $expiringEvents = $this->eventService->getExpiringRepetitiveEvents(true);
+
+        $this->eventService->sendEmailToExpiringEventsOrganizers($expiringEvents);
+
+        $message = empty($expiringEventsList) ?
+            'No events were expiring'
+            : count($expiringEventsList) . ' events were expiring, mails sent to the organizers.';
+
+        Log::notice($message);
+        return $message;
+    }*/
+
+
+
 }
