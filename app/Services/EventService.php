@@ -409,7 +409,7 @@ class EventService
             return $this->eventRepository->getRepetitiveExpiringInOneWeek();
         }
 
-        $cacheTag = 'active_events'; //todo - invalidate this cache tag on event save
+        $cacheTag = 'active_events';
         $seconds = 86400; // One day
         return Cache::remember($cacheTag, $seconds, function () {
             return $this->eventRepository->getRepetitiveExpiringInOneWeek();
@@ -445,7 +445,7 @@ class EventService
      *
      * @return void
      */
-    public function cleanActiveEventsCaches()
+    public function cleanActiveEventsCaches(): void
     {
         Cache::forget('active_events');
         //Cache::forget('active_events_map_markers_json');

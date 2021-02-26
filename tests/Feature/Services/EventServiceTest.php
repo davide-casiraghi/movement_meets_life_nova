@@ -311,7 +311,7 @@ class EventServiceTest extends TestCase
     }
 
     /** @test */
-    public function it_should_return_event_monthly_select_options()
+    public function itShouldReturnEventMonthlySelectOptions()
     {
         $date = '16/11/2020';
         $options = $this->eventService->getMonthlySelectOptions($date);
@@ -343,7 +343,7 @@ class EventServiceTest extends TestCase
     }
 
     /** @test */
-    public function it_should_return_event_repetition_weekly_string_for_weekly_repeat_event()
+    public function itShouldReturnEventRepetitionWeeklyStringForWeeklyRepeatEvent()
     {
         $event = Event::factory()->create([
             'repeat_type' => 2,
@@ -361,7 +361,7 @@ class EventServiceTest extends TestCase
     }
 
     /** @test */
-    public function it_should_return_event_repetition_monthly_string_for_monthly_repeat_event()
+    public function itShouldReturnEventRepetitionMonthlyStringForMonthlyRepeatEvent()
     {
         $event = Event::factory()->create([
             'repeat_type' => 3,
@@ -379,7 +379,7 @@ class EventServiceTest extends TestCase
     }
 
     /** @test */
-    public function it_should_return_event_repetition_multiple_dates_string_for_multiple_dates_repeat_event()
+    public function itShouldReturnEventRepetitionMultipleDatesStringForMultipleDatesRepeatEvent()
     {
         $event = Event::factory()->create([
             'repeat_type' => 4,
@@ -397,7 +397,7 @@ class EventServiceTest extends TestCase
     }
 
     /** @test */
-    public function it_should_return_report_misuse_reason_description()
+    public function itShouldReturnTheReportMisuseReasonDescription()
     {
         $reportMisuseReasonDescription = $this->eventService->getReportMisuseReasonDescription(1);
 
@@ -405,7 +405,7 @@ class EventServiceTest extends TestCase
     }
 
     /** @test */
-    public function it_should_return_on_mothly_kind_day_of_the_month_string()
+    public function itShouldReturnDayOfTheMonthFromMonthBeginningString()
     {
         $onMonthlyKindCode = '0|7';
         $onMonthlyKind = $this->eventService->decodeOnMonthlyKind($onMonthlyKindCode);
@@ -414,7 +414,7 @@ class EventServiceTest extends TestCase
     }
 
     /** @test */
-    public function it_should_return_on_mothly_kind_weekday_of_the_month_from_month_beginning_string()
+    public function itShouldReturnWeekdayOfTheMonthFromMonthBeginningString()
     {
         $onMonthlyKindCode = '1|2|4';
         $onMonthlyKind = $this->eventService->decodeOnMonthlyKind($onMonthlyKindCode);
@@ -423,7 +423,7 @@ class EventServiceTest extends TestCase
     }
 
     /** @test */
-    public function it_should_return_on_mothly_kind_day_of_the_month_from_month_end_string()
+    public function itShouldReturnsDayOfTheMonthFromMonthEndString()
     {
         $onMonthlyKindCode = '2|20';
         $onMonthlyKind = $this->eventService->decodeOnMonthlyKind($onMonthlyKindCode);
@@ -432,7 +432,7 @@ class EventServiceTest extends TestCase
     }
 
     /** @test */
-    public function it_should_return_on_mothly_kind_weekday_of_the_month_from_month_end_string()
+    public function itShouldReturnWeekdayOfTheMonthFromMonthEndString()
     {
         $onMonthlyKindCode = '3|3|4';
         $onMonthlyKind = $this->eventService->decodeOnMonthlyKind($onMonthlyKindCode);
