@@ -84,10 +84,13 @@ class DateHelpers
      * @param  int $when
      * @return int
      */
-    public static function weekOfMonthFromTheEnd(int $when)
+    public static function weekOfMonthFromTheEnd(int $when): int
     {
         $numberOfDayOfTheMonth = strftime('%e', $when); // Day of the month 1-31
-        $lastDayOfMonth = strftime('%e', strtotime(date('Y-m-t', $when))); // the last day of the month of the specified date
+
+        // the last day of the month of the specified date
+        $lastDayOfMonth = strftime('%e', strtotime(date('Y-m-t', $when)));
+
         $dayDifference = (int) $lastDayOfMonth - (int) $numberOfDayOfTheMonth;
 
         switch (true) {

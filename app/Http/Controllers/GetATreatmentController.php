@@ -29,7 +29,7 @@ class GetATreatmentController extends Controller
         //  Store data in database
         //Contact::create($request->all());
 
-        $this->notificationService->sendEmailGetATreatment($request->all());
+        $this->notificationService->sendEmailGetATreatment($request->all(), 1);
 
         return back()->with('success', 'Thank you for your treatment request, I will contact you soon.');
     }

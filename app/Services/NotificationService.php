@@ -13,13 +13,14 @@ class NotificationService
      * Send an email when the contact form is submitted
      *
      * @param array $data
+     * @param int $userId
      *
      * @return bool
      */
-    public function sendEmailContactMe(array $data): bool
+    public function sendEmailContactMe(array $data, int $userId): bool
     {
-        $admin = User::find(1);
-        $admin->notify(new ContactMeMailNotification($data));
+        $user = User::find($userId);
+        $user->notify(new ContactMeMailNotification($data));
 
         return true;
     }
@@ -28,13 +29,14 @@ class NotificationService
      * Send an email when the get a treatment form is submitted
      *
      * @param array $data
+     * @param int $userId
      *
      * @return bool
      */
-    public function sendEmailGetATreatment(array $data): bool
+    public function sendEmailGetATreatment(array $data, int $userId): bool
     {
-        $admin = User::find(1);
-        $admin->notify(new GetATreatmentMailNotification($data));
+        $user = User::find($userId);
+        $user->notify(new GetATreatmentMailNotification($data));
 
         return true;
     }
