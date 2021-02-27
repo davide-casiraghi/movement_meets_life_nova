@@ -9,6 +9,7 @@ use App\Services\GlossaryService;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\App;
 use Livewire\Component;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 /**
  * Class GlossaryVariants
@@ -21,20 +22,11 @@ use Livewire\Component;
 
 class GlossaryVariants extends Component
 {
-
-    /*public $variants = [
-        ['id' => 1, 'title' => 'Do dishes'],
-        ['id' => 2, 'title' => 'Dust shelves'],
-        ['id' => 3, 'title' => 'Clean Counters'],
-        ['id' => 4, 'title' => 'Fold Laundry'],
-        ['id' => 5, 'title' => 'Scrub Toilet'],
-    ];*/
-
     public $glossaryTerm;
-
     public $variants; //Collection
-
     public $newVariant;
+    public $showModal = false;
+    public $locales;
 
     protected $rules = [
         'newVariant.term' => ['required', 'string'],
@@ -53,6 +45,7 @@ class GlossaryVariants extends Component
         $this->glossaryTerm = $glossaryService->getById($glossaryId);
 
         $this->variants = $this->glossaryTerm->variants->sortBy('order');
+        $this->locales = LaravelLocalization::getSupportedLocales();
     }
 
     /**
@@ -92,7 +85,7 @@ class GlossaryVariants extends Component
     }
 
     /**
-     * Store a newly created teacher in storage.
+     * Store a newly created variant in storage.
      */
     public function saveGlossaryVariant(): void
     {
@@ -132,6 +125,22 @@ class GlossaryVariants extends Component
 
         // Reload variants
         $this->emit('variantsRefresh', $this->glossaryTerm->id);
+    }
+
+    /**
+     * Open the modal
+     */
+    public function openModal(): void
+    {
+        $this->showModal = true;
+    }
+
+    /**
+     * Close the modal
+     */
+    public function closeModal(): void
+    {
+        $this->showModal = false;
     }
 
 
