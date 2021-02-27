@@ -93,9 +93,11 @@ class GlossaryVariants extends Component
             GlossaryVariantRepository::class
         );
 
-        $this->validate();
+        //$this->validate();
 
         $this->newVariant['glossary_id'] = $this->glossaryTerm->id;
+
+        //dd($this->newVariant);
 
         $variant = $glossaryVariantRepository->store($this->newVariant);
 

@@ -29,12 +29,15 @@ class GlossaryVariantRepository
      */
     public function store(array $data): GlossaryVariant
     {
+
         $glossaryVariant = new GlossaryVariant();
-        $glossaryVariant->term = $data['term'];
+
         $glossaryVariant->glossary_id = $data['glossary_id'];
+        foreach (LaravelLocalization::getSupportedLocales() as $key => $locale) {
+            $glossaryVariant->setTranslation('term', $key, $data['lang'][$key]);
+        }
 
         $glossaryVariant->save();
-
         return $glossaryVariant->fresh();
     }
 
