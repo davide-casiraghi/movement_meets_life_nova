@@ -14,7 +14,7 @@ class GlossaryVariantRepository
      * Get Glossary variants bt Glossary term id
      *
      * @param int $id
-     * @return Glossary
+     * @return GlossaryVariant
      */
     public function getById(int $id): GlossaryVariant
     {
@@ -30,7 +30,6 @@ class GlossaryVariantRepository
     public function store(array $data): GlossaryVariant
     {
         $glossaryVariant = new GlossaryVariant();
-
         $glossaryVariant->glossary_id = $data['glossary_id'];
         foreach (LaravelLocalization::getSupportedLocales() as $key => $locale) {
             $glossaryVariant->setTranslation('term', $key, $data['lang'][$key]);

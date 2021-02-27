@@ -128,6 +128,8 @@ class GlossaryVariants extends Component
 
     /**
      * Open the modal
+     *
+     * @param int|null $variantId
      */
     public function openModal(int $variantId = null): void
     {
@@ -137,11 +139,11 @@ class GlossaryVariants extends Component
             $glossaryVariantRepository = App::make(
                 GlossaryVariantRepository::class
             );
-            $this->glossaryTerm = $glossaryVariantRepository->getById($variantId);
-
+            $variant = $glossaryVariantRepository->getById($variantId);
+            //dd($this->glossaryTerm->id);
             $this->newVariant['glossary_id'] = $this->glossaryTerm->id;
             foreach ($this->locales as $key => $locale) {
-                $this->newVariant['lang'][$key] = $this->glossaryTerm->getTranslation('term', $key);
+                $this->newVariant['lang'][$key] = $variant->getTranslation('term', $key);
             }
         }
     }
