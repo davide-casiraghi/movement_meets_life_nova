@@ -80,6 +80,10 @@
                         </div>
 
                         <div class="col-span-6">
+                            @livewire('glossary-variants')
+                        </div>
+
+                        <div class="col-span-6">
                             @include('partials.forms.uploadImage', [
                                       'label' => __('views.intro_image'),
                                       'name' => 'introimage',

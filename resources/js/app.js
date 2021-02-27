@@ -6,6 +6,8 @@ require('justifiedGallery');
 require("@fancyapps/fancybox");
 require('bootstrap-datepicker');
 require('select2');
+require('livewire-sortable')
+
 
 require('./vendors/tinymce');
 require('./vendors/select2');
