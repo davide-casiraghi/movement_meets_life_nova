@@ -1,8 +1,13 @@
-<div>
-    <h2 class="mb-4">Variants</h2>
+<div class="mb-4">
+    <div class="flex justify-between">
+        <h2 class="mb-4">Variants</h2>
+        <div class="mr-4" wire:click.prevent="openModal">
+            <svg class="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+        </div>
+    </div>
 
-    <div class="md:grid md:grid-cols-6 md:gap-4">
-        <div class="md:col-span-2">
+    <div class="">
+        <div class="">
             <ul wire:sortable="reorder" class="overflow-hidden rounded shadow divide-y">
                 @foreach($variants as $variant)
                     <li wire:sortable.item="{{$variant->id}}" wire:key="{{$variant->id}}" class="p-4 bg-gray-300">
@@ -24,28 +29,6 @@
                     </li>
                 @endforeach
             </ul>
-        </div>
-        <div class="md:col-span-4 mt-5 md:mt-0">
-
-            <div class="flex items-end">
-                <div class="w-full">
-                    @include('partials.forms.input', [
-                            'label' => "New variant",
-                            'name' => 'newVariant.term',
-                            'placeholder' => '',
-                            'value' => old('newVariant.term'),
-                            'required' => false,
-                            'disabled' => false,
-                            'livewireSupport' => true,
-                    ])
-                </div>
-
-                <div class="w-20">
-                    <button wire:click="saveGlossaryVariant" type="button" class="inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-indigo-600 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:ml-3 sm:w-auto sm:text-sm">
-                        Save
-                    </button>
-                </div>
-            </div>
         </div>
     </div>
 
