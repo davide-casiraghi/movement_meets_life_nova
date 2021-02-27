@@ -21,6 +21,7 @@ use Livewire\Component;
 
 class GlossaryVariants extends Component
 {
+
     /*public $variants = [
         ['id' => 1, 'title' => 'Do dishes'],
         ['id' => 2, 'title' => 'Dust shelves'],
@@ -30,7 +31,9 @@ class GlossaryVariants extends Component
     ];*/
 
     public $glossaryTerm;
+
     public $variants; //Collection
+
     public $newVariant;
 
     protected $rules = [
@@ -68,15 +71,19 @@ class GlossaryVariants extends Component
     public function reorder(array $orderedIds)
     {
         // Array with itemId as key and order as value
-        $orderedIds = collect($orderedIds)->mapWithKeys(function ($item) {
-            return [$item['value'] => $item['order']];
-        })->toArray();
+        $orderedIds = collect($orderedIds)->mapWithKeys(
+            function ($item) {
+                return [$item['value'] => $item['order']];
+            }
+        )->toArray();
 
         // Assign the order to the variants
-        $this->variants = $this->variants->map(function ($item) use ($orderedIds) {
-            $item->order = $orderedIds[$item->id];
-            return $item;
-        })->sortBy('order');
+        $this->variants = $this->variants->map(
+            function ($item) use ($orderedIds) {
+                $item->order = $orderedIds[$item->id];
+                return $item;
+            }
+        )->sortBy('order');
 
         // Update the variants on DB
         foreach ($this->variants as $variant) {
@@ -89,7 +96,9 @@ class GlossaryVariants extends Component
      */
     public function saveGlossaryVariant(): void
     {
-        $glossaryVariantRepository = App::make(GlossaryVariantRepository::class);
+        $glossaryVariantRepository = App::make(
+            GlossaryVariantRepository::class
+        );
 
         $this->validate();
 
@@ -102,6 +111,29 @@ class GlossaryVariants extends Component
 
         $this->newVariant = [];
     }
+
+
+    /**
+     * Delete a variant
+     *
+     * @param int $variantId
+     */
+    public function delete(int $variantId)
+    {
+        $glossaryVariantRepository = App::make(
+            GlossaryVariantRepository::class
+        );
+
+        /*$this->variants->reject(function ($item) use ($variantId) {
+            return $item->id == $variantId;
+        });*/
+
+        $glossaryVariantRepository->delete($variantId);
+
+        // Reload variants
+        $this->emit('variantsRefresh', $this->glossaryTerm->id);
+    }
+
 
 
 }
