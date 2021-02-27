@@ -80,7 +80,7 @@
                         </div>
 
                         <div class="col-span-6">
-                            @livewire('glossary-variants')
+                            @livewire('glossary-variants', ['glossaryId' => $glossary->id])
                         </div>
 
                         <div class="col-span-6">

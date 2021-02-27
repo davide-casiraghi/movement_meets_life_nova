@@ -22,15 +22,26 @@
             </ul>
         </div>
         <div class="md:col-span-4 mt-5 md:mt-0">
-            @include('partials.forms.input', [
-                    'label' => "New variant",
-                    'name' => 'newVariant.term',
-                    'placeholder' => '',
-                    'value' => old('newVariant.term'),
-                    'required' => false,
-                    'disabled' => false,
-                    'livewireSupport' => true,
-            ])
+
+            <div class="flex items-end">
+                <div class="w-full">
+                    @include('partials.forms.input', [
+                            'label' => "New variant",
+                            'name' => 'newVariant.term',
+                            'placeholder' => '',
+                            'value' => old('newVariant.term'),
+                            'required' => false,
+                            'disabled' => false,
+                            'livewireSupport' => true,
+                    ])
+                </div>
+
+                <div class="w-20">
+                    <button wire:click="saveGlossaryVariant" type="button" class="inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-indigo-600 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:ml-3 sm:w-auto sm:text-sm">
+                        Save
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
 
