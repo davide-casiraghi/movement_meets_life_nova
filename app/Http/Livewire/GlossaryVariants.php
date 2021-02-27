@@ -37,6 +37,8 @@ class GlossaryVariants extends Component
         'newVariant.term' => ['required', 'string'],
     ];
 
+    protected $listeners = ['variantsRefresh' => 'mount'];
+
     /**
      * The component constructor
      *
@@ -47,7 +49,7 @@ class GlossaryVariants extends Component
         $glossaryService = App::make(GlossaryService::class);
         $this->glossaryTerm = $glossaryService->getById($glossaryId);
 
-        $this->variants = $this->glossaryTerm->variants;
+        $this->variants = $this->glossaryTerm->variants->sortBy('order');
     }
 
     /**
@@ -60,12 +62,26 @@ class GlossaryVariants extends Component
 
     /**
      * Reorder variants with Drag and Drop
+     *
+     * @param array $orderedIds
      */
-    public function reorder($orderedIds)
+    public function reorder(array $orderedIds)
     {
-        $this->variants = collect($orderedIds)->map(function ($id) {
-            return collect($this->variants)->where('id', (int) $id['value'])->first();
+        // Array with itemId as key and order as value
+        $orderedIds = collect($orderedIds)->mapWithKeys(function ($item) {
+            return [$item['value'] => $item['order']];
         })->toArray();
+
+        // Assign the order to the variants
+        $this->variants = $this->variants->map(function ($item) use ($orderedIds) {
+            $item->order = $orderedIds[$item->id];
+            return $item;
+        })->sortBy('order');
+
+        // Update the variants on DB
+        foreach ($this->variants as $variant) {
+            $variant->update();
+        }
     }
 
     /**
@@ -80,6 +96,9 @@ class GlossaryVariants extends Component
         $this->newVariant['glossary_id'] = $this->glossaryTerm->id;
 
         $variant = $glossaryVariantRepository->store($this->newVariant);
+
+        // Reload variants
+        $this->emit('variantsRefresh', $this->glossaryTerm->id);
 
         $this->newVariant = [];
     }

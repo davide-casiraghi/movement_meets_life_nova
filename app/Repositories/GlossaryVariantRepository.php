@@ -16,13 +16,10 @@ class GlossaryVariantRepository
      * @param int $id
      * @return Glossary
      */
-    /*public function getById(int $glossaryTermId): Glossary
+    /*public function getById(int $id): GlossaryVariant
     {
-        return GlossaryVariant::where($id);
+        return GlossaryVariant::findOrFail($id);
     }*/
-
-
-
 
     /**
      * Store Glossary Variant term
@@ -50,10 +47,11 @@ class GlossaryVariantRepository
      */
     /*public function update(array $data, int $id): Glossary
     {
-        $glossary = $this->getById($id);
-        $glossary = self::assignDataAttributes($glossary, $data);
+        $glossaryVariant = $this->getById($id);
+        $glossaryVariant->term = $data['term'];
+        $glossaryVariant->glossary_id = $data['glossary_id'];
 
-        $glossary->update();
+        $glossaryVariant->update();
 
         return $glossary;
     }*/
