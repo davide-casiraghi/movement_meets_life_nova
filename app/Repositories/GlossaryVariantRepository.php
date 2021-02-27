@@ -16,10 +16,10 @@ class GlossaryVariantRepository
      * @param int $id
      * @return Glossary
      */
-    /*public function getById(int $id): GlossaryVariant
+    public function getById(int $id): GlossaryVariant
     {
         return GlossaryVariant::findOrFail($id);
-    }*/
+    }
 
     /**
      * Store Glossary Variant term
@@ -29,7 +29,6 @@ class GlossaryVariantRepository
      */
     public function store(array $data): GlossaryVariant
     {
-
         $glossaryVariant = new GlossaryVariant();
 
         $glossaryVariant->glossary_id = $data['glossary_id'];
