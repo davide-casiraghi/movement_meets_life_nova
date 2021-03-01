@@ -28,9 +28,9 @@ class GlossaryVariants extends Component
     public $showModal = false;
     public $locales;
 
-    protected $rules = [
+    /*protected $rules = [
         'newVariant.term' => ['required', 'string'],
-    ];
+    ];*/
 
     protected $listeners = ['variantsRefresh' => 'mount'];
 

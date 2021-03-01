@@ -4,7 +4,6 @@ namespace App\Repositories;
 
 use App\Models\Glossary;
 use App\Models\GlossaryVariant;
-use Illuminate\Support\Facades\Config;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 class GlossaryVariantRepository
@@ -22,7 +21,7 @@ class GlossaryVariantRepository
     }
 
     /**
-     * Store Glossary Variant term
+     * Store Glossary Variant (all the languages)
      *
      * @param array $data
      * @return GlossaryVariant
@@ -30,7 +29,7 @@ class GlossaryVariantRepository
     public function store(array $data): GlossaryVariant
     {
         $glossaryVariant = new GlossaryVariant();
-        //$glossaryVariant->id = $data['id'] ?? null;
+
         $glossaryVariant->glossary_id = $data['glossary_id'];
         foreach (LaravelLocalization::getSupportedLocales() as $key => $locale) {
             $glossaryVariant->setTranslation('term', $key, $data['lang'][$key]);
@@ -41,7 +40,7 @@ class GlossaryVariantRepository
     }
 
     /**
-     * Update Glossary term
+     * Update Glossary Variant (all the languages)
      *
      * @param array $data
      * @param int $id
@@ -50,6 +49,7 @@ class GlossaryVariantRepository
     public function update(array $data, int $id): GlossaryVariant
     {
         $glossaryVariant = $this->getById($id);
+
         $glossaryVariant->glossary_id = $data['glossary_id'];
         foreach (LaravelLocalization::getSupportedLocales() as $key => $locale) {
             $glossaryVariant->setTranslation('term', $key, $data['lang'][$key]);
