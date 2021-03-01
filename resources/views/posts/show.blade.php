@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+@section('title'){{$post->title}}@endsection
+@section('description'){{$post->intro_text}}@endsection
+
 {{--
     Glossary tooltips loaded in:
     resources/js/vendors/staaky_tipped.js

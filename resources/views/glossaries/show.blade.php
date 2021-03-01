@@ -1,8 +1,16 @@
 @extends('layouts.app')
 
 @section('title'){{$titleQuestion}}@endsection
-
 @section('description'){{$glossaryTerm->definition}}@endsection
+
+@section('fb-tags')
+    <meta property="og:title" content="{{ $titleQuestion }}" />
+    @if($glossaryTerm->hasMedia('introimage'))
+        <meta property="og:image" content="{{$glossaryTerm->getMedia('introimage')[0]->getUrl()}}" />
+    @else
+        <meta property="og:image" content="/storage/logo/fb_logo_cigc_red.jpg" />
+    @endif
+@endsection
 
 @section('content')
 
