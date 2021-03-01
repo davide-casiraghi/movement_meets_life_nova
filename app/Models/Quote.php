@@ -60,6 +60,18 @@ class Quote extends Model implements Searchable
     }
 
     /**
+     * Return true if the quote is public
+     * Public means that it's snown in the frontent to the users
+     * When is private it's shown just in the backend
+     *
+     * @return bool
+     */
+    public function isPublic(): bool
+    {
+        return $this->is_public;
+    }
+
+    /**
      * Return true if the quote is published
      *
      * @return bool

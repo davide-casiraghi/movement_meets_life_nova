@@ -194,19 +194,8 @@ return [
     'publish_agreement' => 'Publish agreement',
     'photo' => 'Photo',
     'tags' => 'Tags',
-
     'post' => 'Post',
     'post_url' => 'Post url',
     'post_date' => 'Published on',
-
-
-
-
-
-
-
-
-
-
-
+    'public' => 'Public',
 ];

@@ -63,6 +63,22 @@
                                 ])
                             </div>
 
+                            {{-- Public --}}
+                            <div class="col-span-6">
+                                @php
+                                    $checked = ($quote->isPublic()) ? "checked" : "";
+                                @endphp
+                                @include('partials.forms.checkbox', [
+                                    'label' => __('views.public'),
+                                    'id'  => 'is_public',
+                                    'name' => 'is_public',
+                                    'size' => 'small',
+                                    'required' => false,
+                                    'checked' => $checked,
+                                    'description' => 'When private the quote is shown just in the backend dashboard',
+                                ])
+                            </div>
+
                             {{-- Published --}}
                             <div class="col-span-6">
                                 @php
