@@ -15,7 +15,7 @@ class CreateGlossaryVariantsTable extends Migration
     {
         Schema::create('glossary_variants', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('glossary_id')->constrained();
+            $table->foreignId('glossary_id')->constrained()->onDelete('cascade');
             $table->string('term')->nullable();
             $table->integer('order')->nullable();
 

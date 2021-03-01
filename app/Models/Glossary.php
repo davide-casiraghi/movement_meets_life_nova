@@ -19,7 +19,6 @@ class Glossary extends Model implements HasMedia, Searchable
     use HasFactory;
     use HasSlug;
     use HasTranslations;
-    use HasStatuses;
     use InteractsWithMedia;
 
     /**

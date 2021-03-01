@@ -4,6 +4,7 @@ namespace Tests\Feature\Services;
 
 use App\Http\Requests\GlossaryStoreRequest;
 use App\Models\Glossary;
+use App\Models\GlossaryVariant;
 use App\Models\User;
 use App\Services\GlossaryService;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -22,6 +23,10 @@ class GlossaryServiceTest extends TestCase
     private Glossary $glossary1;
     private Glossary $glossary2;
     private Glossary $glossary3;
+
+    private GlossaryVariant $glossaryVariant1;
+    private GlossaryVariant $glossaryVariant2;
+    private GlossaryVariant $glossaryVariant3;
 
     /**
      * Populate test DB with dummy data.
@@ -47,9 +52,26 @@ class GlossaryServiceTest extends TestCase
                 'en' => 'kinesphere',
                 'it' => 'kinesfera',
             ]]
-        )->setStatus('published');
-        $this->glossary2 = Glossary::factory()->create()->setStatus('published');
-        $this->glossary3 = Glossary::factory()->create()->setStatus('published');
+        );
+        $this->glossary2 = Glossary::factory()->create();
+        $this->glossary3 = Glossary::factory()->create();
+
+        $this->glossaryVariant1 = GlossaryVariant::factory()->create([
+            'glossary_id' => $this->glossary1->id,
+            'term' => [
+                'en' => 'kinesphere',
+                'it' => 'kinesfera',
+            ]
+        ]);
+
+        $this->glossaryVariant2 = GlossaryVariant::factory()->create([
+             'glossary_id' => $this->glossary1->id,
+             'term' => [
+                 'en' => 'kinespheres',
+                 'it' => 'kinesfere',
+             ]
+         ]);
+
     }
 
     /** @test */
@@ -61,6 +83,7 @@ class GlossaryServiceTest extends TestCase
             'term' => 'test term name',
             'definition' => 'test term definition',
             'body' => 'test term body',
+            'question_type' => 1,
         ];
         $request->merge($data);
 
@@ -78,6 +101,7 @@ class GlossaryServiceTest extends TestCase
             'term' => 'term updated',
             'definition' => 'test term definition updated',
             'body' => 'test term body updated',
+            'question_type' => 1,
         ];
         $request->merge($data);
 
@@ -114,7 +138,7 @@ class GlossaryServiceTest extends TestCase
         $text = "In velit sapien, viverra at felis molestie, placerat egestas nunc.";
         $term = "sapien";
 
-        $termPresent = $this->glossaryService->termIsPresent($text, $term);
+        $termPresent = $this->glossaryService->variantIsPresent($text, $term);
         $this->assertSame(true, $termPresent);
     }
 
@@ -124,7 +148,7 @@ class GlossaryServiceTest extends TestCase
         $text = "In velit sapien, viverra at felis molestie, placerat egestas nunc.";
         $term = "lorem";
 
-        $termPresent = $this->glossaryService->termIsPresent($text, $term);
+        $termPresent = $this->glossaryService->variantIsPresent($text, $term);
         $this->assertSame(false, $termPresent);
     }
 
@@ -139,12 +163,15 @@ class GlossaryServiceTest extends TestCase
     }
 
     /** @test */
-    public function itShouldReplaceGlossaryTerm()
+    public function itShouldReplaceGlossaryVariant()
     {
         $text = "In velit kinesphere, viverra at felis molestie, placerat egestas nunc.";
         $count = 1;
 
-        $textWithTermReplaced = $this->glossaryService->replaceGlossaryTerm($this->glossary1, $text, $count);
+        $currentLanguageVariantTerm = 'kinesphere';
+        $glossaryTermId = $this->glossary1->id;
+
+        $textWithTermReplaced = $this->glossaryService->replaceGlossaryVariant($currentLanguageVariantTerm, $glossaryTermId, $text, $count);
         $this->assertStringContainsString("<a href='/glossaryTerms/", $textWithTermReplaced);
     }
 

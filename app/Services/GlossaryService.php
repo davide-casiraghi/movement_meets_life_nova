@@ -98,7 +98,7 @@ class GlossaryService
     }
 
     /**
-     * Check in the text if there is any published Glossary Term,
+     * Check in the text if there is any published Glossary Term variant,
      * and make them hoverable to show the tooltip.
      *
      * It adds also the hidden contents to show in the tooltips
