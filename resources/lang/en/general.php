@@ -52,4 +52,5 @@ return [
     'your_email' => 'Your email',
     'message' => 'Message',
     'optional' => '(optional)',
+    'website_name' => 'Beyond Movement',
 ];

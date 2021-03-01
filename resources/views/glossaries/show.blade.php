@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+@section('title'){{$titleQuestion}}@endsection
+
+@section('description'){{$glossaryTerm->definition}}@endsection
 
 @section('content')
 

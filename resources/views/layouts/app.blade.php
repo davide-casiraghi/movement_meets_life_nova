@@ -48,7 +48,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-    <title>@hasSection('title')@yield('title') -@endif @lang('homepage-serach.contact_improvisation') - @lang('homepage-serach.global_calendar')</title>
+    <title>@yield('title'){{-- - @lang('general.website_name')--}}</title>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
