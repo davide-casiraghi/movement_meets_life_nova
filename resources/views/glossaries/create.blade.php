@@ -71,12 +71,19 @@
                         </div>
 
                         <div class="col-span-6">
+                            <h2 class="mb-4">Variants</h2>
+                            <div class="text-sm text-gray-500">
+                                After creating the term, please edit it to add all the possible variants.
+                            </div>
+                        </div>
+
+                        <div class="col-span-6">
                             <h2 class="mb-2">Question type</h2>
                             <div class="text-sm text-gray-500">
                                 The question to show in the definition page for the Google snippet.
                             </div>
 
-                            <select name="question_type" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm @if ($errors->has('question_type')) border-red-500 @endif">
+                            <select name="question_type" class="mt-2 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm @if ($errors->has('question_type')) border-red-500 @endif">
                                 <option value="">Choose...</option>
                                 <option value="1" {{ old('question_type') == 1 ? 'selected' : ''}}>What is..</option>
                                 <option value="2" {{ old('question_type') == 2 ? 'selected' : ''}}>What does it mean..</option>
