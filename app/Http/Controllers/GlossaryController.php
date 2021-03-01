@@ -37,10 +37,11 @@ class GlossaryController extends Controller
     public function show(int $glossaryTermId): View
     {
         $glossaryTerm = Glossary::find($glossaryTermId);
+        $titleQuestion = $this->glossaryService->getGlossaryTermTitleQuestion($glossaryTerm);
 
         return view('glossaries.show', [
             'glossaryTerm' => $glossaryTerm,
-            //'posts' => $posts,
+            'titleQuestion' => $titleQuestion,
         ]);
     }
 

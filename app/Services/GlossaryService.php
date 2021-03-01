@@ -214,4 +214,28 @@ class GlossaryService
         return $ret;
     }
 
+    /**
+     * Return the title question to show in the Glossary show view
+     *
+     * @param \App\Models\Glossary $glossaryTerm
+     *
+     * @return string
+     */
+    public function getGlossaryTermTitleQuestion(Glossary $glossaryTerm): string
+    {
+        $ret = "";
+
+        switch ($glossaryTerm->question_type) {
+            case 1:
+                $ret .= __('glossary.what_is');
+                break;
+            case 2:
+                $ret .= __('glossary.what_does_it_mean');
+                break;
+        }
+        $ret .= " {$glossaryTerm->term} ?" ;
+
+        return $ret;
+    }
+
 }
