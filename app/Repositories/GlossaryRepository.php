@@ -126,6 +126,7 @@ class GlossaryRepository implements GlossaryRepositoryInterface
         $glossary->term = $data['term'];
         $glossary->definition = $data['definition'];
         $glossary->body = $data['body'];
+        $glossary->question_type = $data['question_type'];
         $glossary->is_published = (isset($data['is_published'])) ? 1 : 0;
 
         // Translations

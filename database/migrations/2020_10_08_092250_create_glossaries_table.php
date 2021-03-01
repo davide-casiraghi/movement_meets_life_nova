@@ -20,6 +20,7 @@ class CreateGlossariesTable extends Migration
             $table->text('body');
             $table->string('introimage')->nullable();
             $table->string('introimage_alt')->nullable();
+            $table->integer('question_type')->nullable();
             $table->boolean('is_published')->default(0);
 
             $table->string('slug');

@@ -71,6 +71,24 @@
                         </div>
 
                         <div class="col-span-6">
+                            <h2 class="mb-2">Question type</h2>
+                            <div class="text-sm text-gray-500">
+                                The question to show in the definition page for the Google snippet.
+                            </div>
+
+                            <select name="question_type" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm @if ($errors->has('question_type')) border-red-500 @endif">
+                                <option value="">Choose...</option>
+                                <option value="1" {{ old('question_type') == 1 ? 'selected' : ''}}>What is..</option>
+                                <option value="2" {{ old('question_type') == 2 ? 'selected' : ''}}>What does it mean..</option>
+                            </select>
+                            @error('question_type')
+                            <span class="invalid-feedback text-red-500" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+
+                        <div class="col-span-6">
                             @include('partials.forms.uploadImage', [
                                       'label' => __('views.intro_image'),
                                       'name' => 'introimage',

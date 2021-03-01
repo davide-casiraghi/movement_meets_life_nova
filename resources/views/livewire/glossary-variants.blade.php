@@ -1,4 +1,4 @@
-<div class="mb-4">
+<div class="my-4">
     <div class="flex justify-between">
         <h2 class="mb-4">Variants</h2>
         <div class="mr-4" wire:click.prevent="openModal">

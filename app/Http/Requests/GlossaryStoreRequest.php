@@ -28,6 +28,7 @@ class GlossaryStoreRequest extends FormRequest
             'term' => ['required', 'max:255', new LettersAndWhitespaces()],
             'definition' => ['required', 'string'],
             'body' => ['nullable', 'string'],
+            'question_type' => ['required', 'string'],
         ];
 
         if (request()->hasFile('introimage')) {
