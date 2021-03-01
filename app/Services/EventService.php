@@ -396,6 +396,7 @@ class EventService
      * When the cache parameter is true, get them from the cache.
      *
      * The cache tag get invalidated once a day and also on event save, update and delete.
+     * Using the function cleanActiveEventsCaches()
      * To empty the cache you can run a 'php artisan cache:clear'
      *
      * @param bool $cached
@@ -440,7 +441,7 @@ class EventService
     }
 
     /**
-     * Clean caches related to active events.
+     * Invalidate the cache tags related to active events.
      *
      * @return void
      */
