@@ -91,10 +91,12 @@
                 <form class="mt-4 space-y-4 sm:max-w-xs">
                     <fieldset class="w-full">
                         <label for="language" class="sr-only">Language</label>
+
                         <div class="relative">
                             <select id="language" class="appearance-none block w-full bg-gray-700 border border-transparent rounded-md py-2 pl-3 pr-10 text-base leading-6 text-white focus:outline-none focus:ring-blue focus:border-blue-300 sm:text-sm sm:leading-5">
-                                <option selected>English</option>
-                                <option>Italian</option>
+                                @foreach (LaravelLocalization::getSupportedLocales() as $key => $locale)
+                                    <option value="{{$key}}" @if(app()->getLocale() == $key) selected @endif>{{$locale['name']}}</option>
+                                @endforeach
                             </select>
                         </div>
                     </fieldset>
