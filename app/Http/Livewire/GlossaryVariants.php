@@ -96,11 +96,17 @@ class GlossaryVariants extends Component
         //$this->validate();
 
         $this->newVariant['glossary_id'] = $this->glossaryTerm->id;
-        $variant = $glossaryVariantRepository->store($this->newVariant);
+
+        if (array_key_exists('id', $this->newVariant)) {
+            $variant = $glossaryVariantRepository->update($this->newVariant, $this->newVariant['id']);
+        } else {
+            $variant = $glossaryVariantRepository->store($this->newVariant);
+        }
 
         // Reload variants
         $this->emit('variantsRefresh', $this->glossaryTerm->id);
 
+        $this->showModal = false;
         $this->newVariant = [];
     }
 
@@ -140,7 +146,7 @@ class GlossaryVariants extends Component
                 GlossaryVariantRepository::class
             );
             $variant = $glossaryVariantRepository->getById($variantId);
-            //dd($this->glossaryTerm->id);
+            $this->newVariant['id'] = $variant->id;
             $this->newVariant['glossary_id'] = $this->glossaryTerm->id;
             foreach ($this->locales as $key => $locale) {
                 $this->newVariant['lang'][$key] = $variant->getTranslation('term', $key);

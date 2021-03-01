@@ -30,6 +30,7 @@ class GlossaryVariantRepository
     public function store(array $data): GlossaryVariant
     {
         $glossaryVariant = new GlossaryVariant();
+        //$glossaryVariant->id = $data['id'] ?? null;
         $glossaryVariant->glossary_id = $data['glossary_id'];
         foreach (LaravelLocalization::getSupportedLocales() as $key => $locale) {
             $glossaryVariant->setTranslation('term', $key, $data['lang'][$key]);
@@ -46,16 +47,18 @@ class GlossaryVariantRepository
      * @param int $id
      * @return Glossary
      */
-    /*public function update(array $data, int $id): Glossary
+    public function update(array $data, int $id): GlossaryVariant
     {
         $glossaryVariant = $this->getById($id);
-        $glossaryVariant->term = $data['term'];
         $glossaryVariant->glossary_id = $data['glossary_id'];
+        foreach (LaravelLocalization::getSupportedLocales() as $key => $locale) {
+            $glossaryVariant->setTranslation('term', $key, $data['lang'][$key]);
+        }
 
         $glossaryVariant->update();
 
-        return $glossary;
-    }*/
+        return $glossaryVariant;
+    }
 
     /**
      * Delete Glossary Variant term
