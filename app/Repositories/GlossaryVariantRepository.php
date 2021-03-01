@@ -4,10 +4,28 @@ namespace App\Repositories;
 
 use App\Models\Glossary;
 use App\Models\GlossaryVariant;
+use Illuminate\Support\Collection;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+
 
 class GlossaryVariantRepository
 {
+
+    /**
+     * Get Glossary variants bt Glossary term id
+     *
+     * @return Collection
+     */
+    public function getAll(): Collection
+    {
+        return GlossaryVariant::with('glossary')
+            ->whereHas('glossary', function ($q) {
+                $q->where('is_published', 1);
+            })->get();
+
+
+        //return GlossaryVariant::where($id);
+    }
 
     /**
      * Get Glossary variants bt Glossary term id
@@ -44,7 +62,8 @@ class GlossaryVariantRepository
      *
      * @param array $data
      * @param int $id
-     * @return Glossary
+     *
+     * @return \App\Models\GlossaryVariant
      */
     public function update(array $data, int $id): GlossaryVariant
     {

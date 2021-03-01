@@ -6,21 +6,27 @@ use App\Helpers\ImageHelpers;
 use App\Http\Requests\GlossarySearchRequest;
 use App\Http\Requests\GlossaryStoreRequest;
 use App\Models\Glossary;
+use App\Models\GlossaryVariant;
 use App\Repositories\GlossaryRepository;
+use App\Repositories\GlossaryVariantRepository;
 
 class GlossaryService
 {
     private GlossaryRepository $glossaryRepository;
+    private GlossaryVariantRepository $glossaryVariantRepository;
 
     /**
      * GlossaryService constructor.
      *
      * @param \App\Repositories\GlossaryRepository $glossaryRepository
+     * @param \App\Repositories\GlossaryVariantRepository $glossaryVariantRepository
      */
     public function __construct(
-        GlossaryRepository $glossaryRepository
+        GlossaryRepository $glossaryRepository,
+        GlossaryVariantRepository $glossaryVariantRepository
     ) {
         $this->glossaryRepository = $glossaryRepository;
+        $this->glossaryVariantRepository = $glossaryVariantRepository;
     }
 
     /**
@@ -104,15 +110,17 @@ class GlossaryService
      */
     public function markGlossaryTerms(string $text): string
     {
-        $glossaryTerms = Glossary::currentStatus('published')->get();
+        //$glossaryTerms = Glossary::currentStatus('published')->get();
+        $glossaryVariants = $this->glossaryVariantRepository->getAll();
+
         $count = 1;
 
-        foreach ($glossaryTerms as $id => $glossaryTerm) {
-            $text = $this->replaceGlossaryTerm($glossaryTerm, $text, $count);
+        foreach ($glossaryVariants as $id => $glossaryVariant) {
+            $text = $this->replaceGlossaryVariant($glossaryVariant, $text, $count);
 
-            if (self::termIsPresent($text, $glossaryTerm->term)) {
+            /*if (self::termIsPresent($text, $glossaryTerm->term)) {
                 $text = $this->attachTermDescription($glossaryTerm, $text);
-            }
+            }*/
 
             $count++;
         }
@@ -139,21 +147,23 @@ class GlossaryService
     /**
      * Replace glossary term
      *
-     * @param \App\Models\Glossary $glossaryTerm
+     * @param \App\Models\GlossaryVariant $glossaryVariant
      * @param string $text
      * @param int $count
      *
      * @return string
      */
-    public function replaceGlossaryTerm(Glossary $glossaryTerm, string $text, int &$count): string
+    public function replaceGlossaryVariant(GlossaryVariant $glossaryVariant, string $text, int &$count): string
     {
+        $currentLanguageVariantTerm = $glossaryVariant->getTranslation('term', app()->getLocale());
+
         //$pattern = "/\b$glossaryTerm->term\b/";
-        $pattern = "~<a .*?</a>(*SKIP)(*F)|\b$glossaryTerm->term\b~";
+        $pattern = "~<a .*?</a>(*SKIP)(*F)|\b$currentLanguageVariantTerm\b~";
 
         $text = preg_replace_callback(
             $pattern,
-            function ($matches) use ($glossaryTerm, $count) {
-                $glossaryTermTemplate = "<a href='/glossaryTerms/".$glossaryTerm->id."' class='text-red-700 has-glossary-term glossary-term-".$count."' data-termFoundId='".$count."' data-definitionId='".$glossaryTerm->id."'>".$glossaryTerm->term."</a>";
+            function ($matches) use ($glossaryVariant, $count) {
+                $glossaryTermTemplate = "<a href='/glossaryTerms/".$glossaryVariant->glossary->id."' class='text-red-700 has-glossary-term glossary-term-".$count."' data-termFoundId='".$count."' data-definitionId='".$glossaryVariant->glossary->id."'>".$glossaryVariant->term."</a>";
                 return $glossaryTermTemplate;
                 $count++;
             },
