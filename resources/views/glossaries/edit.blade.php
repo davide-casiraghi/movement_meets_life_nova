@@ -95,7 +95,7 @@
                         </div>
 
                         {{-- Published --}}
-                        <div class="col-span-6">
+                        <div class="col-span-6 mt-6">
                             @php
                                 $checked = ($glossary->isPublished()) ? "checked" : "";
                             @endphp
