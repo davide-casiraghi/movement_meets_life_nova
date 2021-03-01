@@ -110,19 +110,27 @@ class GlossaryService
      */
     public function markGlossaryTerms(string $text): string
     {
-        //$glossaryTerms = Glossary::currentStatus('published')->get();
-        $glossaryVariants = $this->glossaryVariantRepository->getAll();
+        $glossaryTermsWithVariants = $this->glossaryRepository->getAllWithVariants();
 
         $count = 1;
+        $glossaryTermPresent = false;
+        foreach ($glossaryTermsWithVariants as $glossaryTermId => $glossaryTerm) {
+            foreach ($glossaryTerm->variants as $variant) {
+                $currentLanguageVariantTerm = $variant->getTranslation('term', app()->getLocale());
 
-        foreach ($glossaryVariants as $id => $glossaryVariant) {
-            $text = $this->replaceGlossaryVariant($glossaryVariant, $text, $count);
+                $text = $this->replaceGlossaryVariant($currentLanguageVariantTerm, $glossaryTerm->id, $text, $count);
 
-            /*if (self::termIsPresent($text, $glossaryTerm->term)) {
+                if (self::variantIsPresent($text, $currentLanguageVariantTerm)) {
+                    $glossaryTermPresent = true;
+                }
+            }
+
+            if ($glossaryTermPresent) {
                 $text = $this->attachTermDescription($glossaryTerm, $text);
-            }*/
+            }
 
             $count++;
+            $glossaryTermPresent = false;
         }
 
         return $text;
@@ -136,7 +144,7 @@ class GlossaryService
      *
      * @return bool
      */
-    public function termIsPresent(string $text, string $term): bool
+    public function variantIsPresent(string $text, string $term): bool
     {
         if (strpos($text, $term) !== false) {
             return true;
@@ -147,23 +155,22 @@ class GlossaryService
     /**
      * Replace glossary term
      *
-     * @param \App\Models\GlossaryVariant $glossaryVariant
+     * @param string $currentLanguageVariantTerm
+     * @param int $glossaryTermId
      * @param string $text
      * @param int $count
      *
      * @return string
      */
-    public function replaceGlossaryVariant(GlossaryVariant $glossaryVariant, string $text, int &$count): string
+    public function replaceGlossaryVariant(string $currentLanguageVariantTerm, int $glossaryTermId, string $text, int &$count): string
     {
-        $currentLanguageVariantTerm = $glossaryVariant->getTranslation('term', app()->getLocale());
-
         //$pattern = "/\b$glossaryTerm->term\b/";
         $pattern = "~<a .*?</a>(*SKIP)(*F)|\b$currentLanguageVariantTerm\b~";
 
         $text = preg_replace_callback(
             $pattern,
-            function ($matches) use ($glossaryVariant, $count) {
-                $glossaryTermTemplate = "<a href='/glossaryTerms/".$glossaryVariant->glossary->id."' class='text-red-700 has-glossary-term glossary-term-".$count."' data-termFoundId='".$count."' data-definitionId='".$glossaryVariant->glossary->id."'>".$glossaryVariant->term."</a>";
+            function ($matches) use ($currentLanguageVariantTerm, $glossaryTermId, $count) {
+                $glossaryTermTemplate = "<a href='/glossaryTerms/".$glossaryTermId."' class='text-red-700 has-glossary-term glossary-term-".$count."' data-termFoundId='".$count."' data-definitionId='".$glossaryTermId."'>".$currentLanguageVariantTerm."</a>";
                 return $glossaryTermTemplate;
                 $count++;
             },

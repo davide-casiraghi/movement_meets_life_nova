@@ -44,6 +44,21 @@ class GlossaryRepository implements GlossaryRepositoryInterface
     }
 
     /**
+     * Get all Glossary terms with their variants.
+     *
+     * @param int|null $recordsPerPage
+     * @param array|null $searchParameters
+     *
+     * @return \Illuminate\Support\Collection|\Illuminate\Contracts\Pagination\LengthAwarePaginator
+     */
+    public function getAllWithVariants()
+    {
+        return Glossary::with('variants')
+            ->where('is_published', 1)
+            ->get();
+    }
+
+    /**
      * Get Glossary term by id
      *
      * @param int $id
