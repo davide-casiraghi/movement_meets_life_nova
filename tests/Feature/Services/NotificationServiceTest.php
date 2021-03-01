@@ -4,14 +4,18 @@ namespace Tests\Feature\Services;
 
 use App\Http\Requests\CommentStoreRequest;
 use App\Models\Comment;
+use App\Models\Event;
 use App\Models\Post;
 use App\Models\PostCategory;
 use App\Models\User;
+use App\Models\Venue;
 use App\Notifications\ContactMeMailNotification;
+use App\Notifications\ExpiringEventMailNotification;
 use App\Notifications\GetATreatmentMailNotification;
 use App\Notifications\NewTestimonialMailNotification;
 use App\Services\CommentService;
 use App\Services\NotificationService;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Facades\Notification;
@@ -24,6 +28,8 @@ class NotificationServiceTest extends TestCase
 
     private NotificationService $notificationService;
     private User $user1;
+    private Event $event1;
+    private Collection $venues;
 
     /**
      * Populate test DB with dummy data.
@@ -43,6 +49,9 @@ class NotificationServiceTest extends TestCase
         $this->user1 = User::factory()->create([
            'email' => 'admin@gmail.com',
         ]);
+
+        $this->venues = Venue::factory()->count(3)->create();
+        $this->event1 = Event::factory()->create()->setStatus('published');
     }
 
     /** @test */
@@ -114,6 +123,23 @@ class NotificationServiceTest extends TestCase
         $sent = $this->notificationService->sendEmailNewTestimonial($data, $this->user1->id);
 
         Notification::assertSentTo([$this->user1], NewTestimonialMailNotification::class);
+        $this->assertEquals(true, $sent);
+    }
+
+    /** @test  */
+    public function itShouldSendExpiringEventEmailNotification()
+    {
+        Notification::fake();
+
+        // Assert that no notifications were sent
+        Notification::assertNothingSent();
+
+        $data = [];
+        $data['emailFrom'] = env('ADMIN_MAIL');
+        $data['senderName'] = 'CI Global Calendar Administrator';
+
+        $sent = $this->notificationService->sendEmailExpiringEvent($data, $this->event1);
+        Notification::assertSentTo([$this->event1->user], ExpiringEventMailNotification::class);
         $this->assertEquals(true, $sent);
     }
 }

@@ -5,37 +5,37 @@ namespace App\Services;
 use App\Helpers\DateHelpers;
 use App\Helpers\Helper;
 use App\Helpers\ImageHelpers;
-use App\Http\Requests\EventSearchRequest;
 use App\Http\Requests\EventStoreRequest;
 use App\Models\Event;
 use App\Models\EventRepetition;
-use App\Notifications\ExpiringEventMailNotification;
 use App\Repositories\EventRepository;
 use Carbon\Carbon;
 use DateTime;
-use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Log;
-use PHPUnit\TextUI\Help;
 
 class EventService
 {
     private EventRepository $eventRepository;
     private EventRepetitionService $eventRepetitionService;
+    private NotificationService $notificationService;
 
     /**
      * EventService constructor.
      *
-     * @param \App\Repositories\EventRepository $eventRepository
-     * @param \App\Services\EventRepetitionService $eventRepetitionService
+     * @param  \App\Repositories\EventRepository  $eventRepository
+     * @param  \App\Services\EventRepetitionService  $eventRepetitionService
+     * @param  NotificationService  $notificationService
      */
     public function __construct(
         EventRepository $eventRepository,
-        EventRepetitionService $eventRepetitionService
+        EventRepetitionService $eventRepetitionService,
+        NotificationService $notificationService
     ) {
         $this->eventRepository = $eventRepository;
         $this->eventRepetitionService = $eventRepetitionService;
+        $this->notificationService = $notificationService;
     }
 
     /**
@@ -429,7 +429,7 @@ class EventService
 
         $expiringRepetitiveEvents = self::getRepetitiveEventsExpiringInOneWeek(true);
         foreach ($expiringRepetitiveEvents as $key => $event) {
-            $event->user->notify(new ExpiringEventMailNotification($data, $event));
+            $this->notificationService->sendEmailExpiringEvent($data, $event);
         }
 
         $message = empty($expiringRepetitiveEvents) ?
