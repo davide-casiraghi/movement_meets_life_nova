@@ -35,6 +35,7 @@ class GlossaryFactory extends Factory
                 'it' => $this->faker->paragraph($nbSentences = 2, $variableNbSentences = true),
             ],
             'is_published' => $this->faker->boolean(50),
+            'question_type' => 1,
         ];
     }
 }
