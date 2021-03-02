@@ -432,7 +432,7 @@ class EventService
             $this->notificationService->sendEmailExpiringEvent($data, $event);
         }
 
-        $message = empty($expiringRepetitiveEvents) ?
+        $message = $expiringRepetitiveEvents->isEmpty() ?
             'No events were expiring'
             : count($expiringRepetitiveEvents) . ' events were expiring, mails sent to the organizers.';
 

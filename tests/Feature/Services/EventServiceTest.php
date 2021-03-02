@@ -10,10 +10,12 @@ use App\Models\Teacher;
 use App\Models\User;
 use App\Models\Venue;
 use App\Models\EventCategory;
+use App\Notifications\ExpiringEventMailNotification;
 use App\Services\EventService;
 use Carbon\Carbon;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Support\Facades\Notification;
 use Tests\TestCase;
 use Illuminate\Database\Eloquent\Collection;
 
@@ -454,10 +456,50 @@ class EventServiceTest extends TestCase
         $this->assertEquals($numberEventsCreatedLastThirtyDays, 3);
     }
 
+    /** @test */
+    public function itShouldReturnRepetitiveEventsExpiringInOneWeek()
+    {
+        $this->event1->repeat_type = 2; // One time event(1), Weekly(2), Monthly(3)
+        $this->event1->repeat_until = Carbon::today()->addWeek();
+        $this->event1->save();
+        // From database
+        $events = $this->eventService->getRepetitiveEventsExpiringInOneWeek(false);
+        $this->assertCount(1, $events);
+        // From cache
+        $this->eventService->getRepetitiveEventsExpiringInOneWeek(true);
+        Event::destroy($this->event1->id);
+        $events = $this->eventService->getRepetitiveEventsExpiringInOneWeek(true);
+        $this->assertCount(1, $events);
+    }
 
+    /** @test  */
+    public function itShouldSendEmailToExpiringEventsOrganizers()
+    {
+        $this->event1->repeat_type = 2; // One time event(1), Weekly(2), Monthly(3)
+        $this->event1->repeat_until = Carbon::today()->addWeek(); // Expiring event the 7th day from now
+        $this->event1->save();
 
+        $notificationFake1 = Notification::fake();
+        $notificationFake1->assertNothingSent();
+        // Get expiring event from database
+        $message = $this->eventService->sendEmailToExpiringEventsOrganizers();
+        $notificationFake1->assertSentTo([$this->event1->user], ExpiringEventMailNotification::class);
+        $this->assertEquals('1 events were expiring, mails sent to the organizers.', $message);
 
+        Event::destroy($this->event1->id);
+        $notificationFake2 = Notification::fake();
+        $notificationFake2->assertNothingSent();
+        // Get expiring event from cache
+        $message = $this->eventService->sendEmailToExpiringEventsOrganizers();
+        $notificationFake2->assertSentTo([$this->event1->user], ExpiringEventMailNotification::class);
+        $this->assertEquals('1 events were expiring, mails sent to the organizers.', $message);
 
-
-
+        $notificationFake3 = Notification::fake();
+        $notificationFake3->assertNothingSent();
+        $this->eventService->cleanActiveEventsCaches();
+        // Get no expiring events
+        $message = $this->eventService->sendEmailToExpiringEventsOrganizers();
+        $notificationFake3->assertNothingSent();
+        $this->assertEquals('No events were expiring', $message);
+    }
 }
