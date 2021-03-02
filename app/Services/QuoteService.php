@@ -100,21 +100,28 @@ class QuoteService
     {
         $today = Carbon::today();
 
-        $quote = Quote::where('show_where', $where)
-                        ->orWhere('show_where', 'both')
-                        ->where(function ($query) use ($today) {
-                            $query->where('shown_on', $today) //Quote already picked today
-                                  ->orWhere('shown', 0);
+        /*$quote = Quote::whereIn('show_where', [$where, 'both'])
+            ->where('is_published', true)
+            ->where("shown_{$where}_on", $today) //Quote already picked today
+            ->first();*/
+
+        $quote = Quote::whereIn('show_where', [$where, 'both'])
+                        ->where('is_published', true)
+                        ->orWhere(function ($query) use ($where, $today) {
+                            $query->where("shown_{$where}_on", $today)
+                                  ->where("shown_{$where}_on", null);
                         })->first();
 
         // Reset the quotes shown when all the quotes has already been shown
         if ($quote == null) {
-            Quote::whereIn('show_where', [$where, 'both'])->update(['shown' => 0,'shown_on' => null]);
+            Quote::whereIn('show_where', [$where, 'both'])
+                ->update(["shown_{$where}_on" => null]);
             $quote = self::getQuoteOfTheDay($where);
         }
 
-        $quote->shown = 1;
-        $quote->shown_on = $today;
+        $shownOnWhere = "shown_{$where}_on";
+        $quote->$shownOnWhere = $today;
+
         $quote->save();
 
         return $quote;
