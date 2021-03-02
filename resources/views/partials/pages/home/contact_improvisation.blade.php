@@ -6,7 +6,7 @@
                 CONTACT IMPROVISATION
             </div>
             <div class="mt-1 text-4xl tracking-tight leading-10 font-brand text-gray-900 sm:leading-none sm:text-6xl lg:text-4xl xl:text-5xl">
-                More than a dance, it's like a mindful practice to fully awake our agility, release tensions and find a state of inner peace.
+                More than a dance, it's like a <span class="text-primary-600">mindful practice</span> to fully awake our agility, release tensions and find a state of inner peace.
             </div>
             <p class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
                 Contact Improvisation dance is liberating, creative and fun. It’s about exploring movement, balance, weight, physical contact and communication, involving two or more persons at the time.
@@ -14,7 +14,7 @@
             <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                 <div class="rounded-md shadow">
                     <a href="{{route('getATreatment.create')}}" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-primary-600 hover:bg-primary-500 focus:outline-none focus:border-primary-700 focus:ring-primary transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10">
-                        More about Contact Improvisation
+                        More about CI
                     </a>
                 </div>
                 {{--<div class="mt-3 sm:mt-0 sm:ml-3">
