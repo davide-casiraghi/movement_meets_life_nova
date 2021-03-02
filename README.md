@@ -264,8 +264,9 @@ Testimonial::factory()->count(40)->create()->each(function($testimonial) {
     $status = $statuses[$random_status];
     $testimonial->setStatus($status);
 });
-Quote::factory()->count(40)->create();
 
+
+Quote::factory()->count(40)->create();
 Inspiration::factory()->count(40)->create();
 Mantra::factory()->count(40)->create();
 

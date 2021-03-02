@@ -14,7 +14,7 @@
         </div>
 
         {{-- Description --}}
-        <div class="lg:col-span-2 mb-2 lg:mb-0">
+        <div class="lg:col-span-1 mb-2 lg:mb-0">
             @include('partials.forms.input', [
                             'label' => __('general.description'),
                             'name' => 'description',
@@ -23,6 +23,18 @@
                             'required' => false,
                             'disabled' => false,
                     ])
+        </div>
+
+        {{-- Show where --}}
+        <div class="lg:col-span-1 mb-2 lg:mb-0">
+            @include('partials.forms.select_status', [
+                       'label' => 'Show where',
+                       'name' => 'show_where',
+                       'placeholder' => 'Select one',
+                       'records' => $showWhereOptions,
+                       'selected' =>  old('show_where', $searchParameters['show_where']),
+                       'required' => false,
+                   ])
         </div>
 
         {{-- Publish --}}

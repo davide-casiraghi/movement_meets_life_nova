@@ -39,6 +39,9 @@ class QuoteRepository implements QuoteRepositoryInterface
             if (!is_null($searchParameters['is_published'])) {
                 $query->where('is_published', $searchParameters['is_published']);
             }
+            if (!is_null($searchParameters['show_where'])) {
+                $query->where('show_where', $searchParameters['show_where']);
+            }
         }
 
         if ($recordsPerPage) {
@@ -118,6 +121,7 @@ class QuoteRepository implements QuoteRepositoryInterface
         $quote->author = $data['author'];
         $quote->description = $data['description'];
         $quote->is_published = (isset($data['is_published'])) ? 1 : 0;
+        $quote->show_where = $data['show_where'];
 
         // Translations
         foreach (LaravelLocalization::getSupportedLocales() as $countryCode => $countryAvTrans) {

@@ -38,7 +38,8 @@ class Quote extends Model implements Searchable
     public const SEARCH_PARAMETERS = [
         'author',
         'description',
-        'is_published'
+        'is_published',
+        'show_where'
     ];
 
     /**
@@ -47,6 +48,15 @@ class Quote extends Model implements Searchable
     public const PUBLISHING_STATUS = [
         0 => 'unpublished',
         1 => 'published',
+    ];
+
+    /**
+     * The possible values the show_where can be.
+     */
+    public const SHOW_WHERE_OPTIONS = [
+        'frontend' => 'frontend',
+        'backend' => 'backend',
+        'both' => 'both',
     ];
 
     /**

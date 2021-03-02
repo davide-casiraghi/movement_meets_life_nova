@@ -43,7 +43,7 @@
                             <h1 class="text-2xl font-semibold text-gray-900">
                                 @yield('title')
                             </h1>
-                            <div class="text-sm text-gray-500">
+                            <div class="text-sm text-gray-500 mt-2">
                                 @yield('subTitle')
                             </div>
                         </div>

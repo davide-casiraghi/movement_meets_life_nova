@@ -33,11 +33,13 @@ class QuoteController extends Controller
 
         $quotes = $this->quoteService->getQuotes(20, $searchParameters);
         $statuses = Quote::PUBLISHING_STATUS;
+        $showWhereOptions = Quote::SHOW_WHERE_OPTIONS;
 
         return view('quotes.index', [
             'quotes' => $quotes,
             'searchParameters' => $searchParameters,
             'statuses' => $statuses,
+            'showWhereOptions' => $showWhereOptions,
         ]);
     }
 

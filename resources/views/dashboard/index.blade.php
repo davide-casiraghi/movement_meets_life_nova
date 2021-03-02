@@ -64,12 +64,22 @@
 
             {{-- Latest insights --}}
             <div class="md:col-span-4">
-                <h2 class="mb-4">Latest insights</h2>
-                <ul class="bg-white overflow-hidden shadow rounded-lg p-6">
-                    @foreach($latestInsights as $insight)
-                        <li><a class="textLink" href="{{route('insights.edit', $insight->id)}}">{{$insight->title}}</a></li>
-                    @endforeach
-                </ul>
+                <div class="mb-4">
+                    <h2 class="mb-4">Inspiration</h2>
+                    <div class="bg-white overflow-hidden shadow rounded-lg p-6">
+                        <div class="italic mb-2">{{$quote->description}}</div>
+                        {{$quote->author}}
+                    </div>
+                </div>
+
+                <div>
+                    <h2 class="mb-4">Latest insights</h2>
+                    <ul class="bg-white overflow-hidden shadow rounded-lg p-6">
+                        @foreach($latestInsights as $insight)
+                            <li><a class="textLink" href="{{route('insights.edit', $insight->id)}}">{{$insight->title}}</a></li>
+                        @endforeach
+                    </ul>
+                </div>
 
 
             </div>

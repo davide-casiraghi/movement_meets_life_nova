@@ -33,34 +33,40 @@ othewrise put all of them in the same if you want inline
 }
 @endphp
 
-
-@if (!empty($label))
-    <label class="inline-flex items-center mr-6 mb-1">
+<div class="mb-1">
+    @if (!empty($label))
+        <label class="flex items-center mr-6">
+            <input id="{{$name}}"
+                   @isset($livewireSupport) wire:model.lazy="{{ $name }}" @else name="{{ $name }}" @endisset
+                   type="checkbox"
+                   class="focus:ring-indigo-500 {{$sizeClass}} text-indigo-600 border-gray-300 rounded @if ($errors->has($name)) border-red-500 @endif"
+                    {{--value="{{$value}}"--}}
+                    {{$checked}}
+            >
+            <span class="ml-2">
+                {{$label}}
+            </span>
+        </label>
+        @isset($description)
+            <div class="ml-6 text-gray-500 text-sm">
+                {{$description}}
+            </div>
+        @endisset
+    @else
         <input id="{{$name}}"
-               @isset($livewireSupport) wire:model.lazy="{{ $name }}" @else name="{{ $name }}" @endisset
+               name="{{$name}}"
                type="checkbox"
                class="focus:ring-indigo-500 {{$sizeClass}} text-indigo-600 border-gray-300 rounded @if ($errors->has($name)) border-red-500 @endif"
                 {{--value="{{$value}}"--}}
                 {{$checked}}
         >
-        <span class="ml-2">
-        {{$label}}
-    </span>
-    </label>
-@else
-    <input id="{{$name}}"
-           name="{{$name}}"
-           type="checkbox"
-           class="focus:ring-indigo-500 {{$sizeClass}} text-indigo-600 border-gray-300 rounded @if ($errors->has($name)) border-red-500 @endif"
-            {{--value="{{$value}}"--}}
-            {{$checked}}
-    >
-@endif
+    @endif
 
 
 
-@error($name)
-    <span class="invalid-feedback text-red-500" role="alert">
-        <strong>{{ $errors->first($name) }}</strong>
-    </span>
-@enderror
+    @error($name)
+        <span class="invalid-feedback text-red-500" role="alert">
+            <strong>{{ $errors->first($name) }}</strong>
+        </span>
+    @enderror
+</div>

@@ -6,6 +6,7 @@ use App\Http\Requests\QuoteStoreRequest;
 use App\Models\Quote;
 use App\Models\User;
 use App\Services\QuoteService;
+use Carbon\Carbon;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Facades\DB;
@@ -42,9 +43,9 @@ class QuoteServiceTest extends TestCase
             'email' => 'admin@gmail.com',
         ]);
 
-        $this->quote1 = Quote::factory()->create();
-        $this->quote2 = Quote::factory()->create();
-        $this->quote3 = Quote::factory()->create();
+        $this->quote1 = Quote::factory()->create(['show_where' => 'frontend', 'is_published' => true]);
+        $this->quote2 = Quote::factory()->create(['show_where' => 'backend', 'is_published' => true]);
+        $this->quote3 = Quote::factory()->create(['show_where' => 'both', 'is_published' => true]);
     }
 
     /** @test */
@@ -54,6 +55,7 @@ class QuoteServiceTest extends TestCase
         $data = [
             'author' => 'test author',
             'description' => 'test description',
+            'show_where' => 'frontend',
         ];
         $request->merge($data);
 
@@ -70,6 +72,7 @@ class QuoteServiceTest extends TestCase
         $data = [
             'author' => 'test author updated',
             'description' => 'test description updated',
+            'show_where' => 'backend',
         ];
         $request->merge($data);
 
@@ -103,24 +106,23 @@ class QuoteServiceTest extends TestCase
     /** @test */
     public function itShouldReturnTheQuoteOfTheDay()
     {
-        $quote = $this->quoteService->getQuoteOfTheDay();
+        $quote = $this->quoteService->getQuoteOfTheDay('backend');
 
         $this->assertInstanceOf(Quote::class, $quote);
-
-        $this->assertSame(1, $quote->id);
+        $this->assertSame(2, $quote->id);
     }
 
     /** @test */
     public function itShouldResetQuotesShownAttributeAndReturnTheQuoteOfTheDay()
     {
-        // Set all the quotes as shown
-        //Quote::update(['shown' => 1]);
-        Quote::query()->update(['shown' => 1]);
+        // Set all the frontend quotes as shown
+        $yesterday = Carbon::yesterday();
+        Quote::whereIn('show_where', ['frontend', 'both'])
+            ->update(['shown_frontend_on' => $yesterday]);
 
-        $quote = $this->quoteService->getQuoteOfTheDay();
+        $quote = $this->quoteService->getQuoteOfTheDay('frontend');
 
         $this->assertInstanceOf(Quote::class, $quote);
-
         $this->assertSame(1, $quote->id);
     }
 }

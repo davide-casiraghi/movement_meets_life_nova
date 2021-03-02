@@ -25,6 +25,7 @@ class QuoteFactory extends Factory
             'author' => $this->faker->name($gender = 'male' | 'female'),
             'description' => $this->faker->paragraph($nbSentences = 2, $variableNbSentences = true),
             'is_published' => $this->faker->boolean(50),
+            'show_where' => $this->faker->randomElement(['frontend','backend', 'both']),
         ];
     }
 }

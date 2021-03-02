@@ -26,6 +26,7 @@ class QuoteStoreRequest extends FormRequest
         return [
             'author' => ['required', 'string', 'max:255'],
             'description' => ['required', 'string'],
+            'show_where' => ['required', 'string'],
         ];
     }
 }

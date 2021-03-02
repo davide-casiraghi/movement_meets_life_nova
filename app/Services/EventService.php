@@ -155,7 +155,7 @@ class EventService
         $dateTime['timeEndMinutes'] = (isset($eventFirstRepetition->end_repeat)) ? date('i', strtotime($eventFirstRepetition->end_repeat)) : '';
         $dateTime['timeEndAmpm'] = (isset($eventFirstRepetition->end_repeat)) ? date('A', strtotime($eventFirstRepetition->end_repeat)) : '';
 
-        $dateTime['repeatUntil'] = date('d/m/Y', strtotime($event->repeat_until));
+        $dateTime['repeatUntil'] = is_null($event->repeat_until) ? null : date('d/m/Y', strtotime($event->repeat_until));
         $dateTime['multipleDates'] = $event->multiple_dates;
 
         return $dateTime;

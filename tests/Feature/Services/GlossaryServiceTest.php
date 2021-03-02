@@ -48,13 +48,16 @@ class GlossaryServiceTest extends TestCase
         ]);
 
         $this->glossary1 = Glossary::factory()->create(
-            ['term' => [
-                'en' => 'kinesphere',
-                'it' => 'kinesfera',
-            ]]
+            [
+                'term' => [
+                    'en' => 'kinesphere',
+                    'it' => 'kinesfera',
+                ],
+                'is_published' => true
+            ]
         );
-        $this->glossary2 = Glossary::factory()->create();
-        $this->glossary3 = Glossary::factory()->create();
+        $this->glossary2 = Glossary::factory()->create(['is_published' => true]);
+        $this->glossary3 = Glossary::factory()->create(['is_published' => true]);
 
         $this->glossaryVariant1 = GlossaryVariant::factory()->create([
             'glossary_id' => $this->glossary1->id,
