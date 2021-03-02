@@ -39,6 +39,9 @@ class QuoteRepository implements QuoteRepositoryInterface
             if (!is_null($searchParameters['is_published'])) {
                 $query->where('is_published', $searchParameters['is_published']);
             }
+            if (!is_null($searchParameters['show_where'])) {
+                $query->where('show_where', $searchParameters['show_where']);
+            }
         }
 
         if ($recordsPerPage) {
