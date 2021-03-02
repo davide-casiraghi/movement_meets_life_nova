@@ -155,7 +155,7 @@ class EventController extends Controller
 
         $eventFirstRepetition = $this->eventRepetitionService->getFirstByEventId($event->id);
         $eventDateTimeParameters = $this->eventService->getEventDateTimeParameters($event, $eventFirstRepetition);
-        
+
         return view('events.edit', [
             'event' => $event,
             'eventCategories' => $eventCategories,
