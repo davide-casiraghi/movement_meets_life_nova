@@ -79,11 +79,11 @@ class DateHelpers
      *
      * Week of the month = Week of the year - Week of the year of first day of month + 1.
      *
-     * @param string $dateTimestamp
+     * @param int $dateTimestamp
      *
      * @return int
      */
-    public static function monthWeekNumberFromTheEnd(string $dateTimestamp): int
+    public static function monthWeekNumberFromTheEnd(int $dateTimestamp): int
     {
         $numberOfDayOfTheMonth = strftime('%e', $dateTimestamp); // Day of the month 1-31
         $lastDayOfMonth = strftime('%e', strtotime(date('Y-m-t', $dateTimestamp)));
@@ -118,11 +118,11 @@ class DateHelpers
     /**
      * Return the number of day of the month from end
      *
-     * @param string $dateTimestamp
+     * @param int $dateTimestamp
      *
      * @return int
      */
-    public static function dayOfMonthFromTheEnd(string $dateTimestamp): int
+    public static function dayOfMonthFromTheEnd(int $dateTimestamp): int
     {
         $numberOfDayOfTheMonth = strftime('%e', $dateTimestamp); // Day of the month 1-31
         $lastDayOfMonth = strftime('%e', strtotime(date('Y-m-t', $dateTimestamp)));
