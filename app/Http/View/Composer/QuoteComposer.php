@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\View\Composer;
 
 use Illuminate\View\View;
@@ -22,6 +23,6 @@ class QuoteComposer
      */
     public function compose(View $view)
     {
-        $view->with('quote', $this->quoteService->getQuoteOfTheDay());
+        $view->with('quote', $this->quoteService->getQuoteOfTheDay('frontend'));
     }
 }

@@ -92,21 +92,25 @@ class QuoteService
      *  And set the quote to shown, so it will not be show it again in the
      *  next days until all the others has been shown.
      *
+     * @param string $where - 'frontend' or 'backend'
+     *
      * @return \App\Models\Quote
      */
-    public function getQuoteOfTheDay(): ?Quote
+    public function getQuoteOfTheDay(string $where): ?Quote
     {
         $today = Carbon::today();
 
-        $quote = Quote::where('shown', 0)
-            ->orWhere('shown_on', $today)
-            ->first();
+        $quote = Quote::where('show_where', $where)
+                        ->orWhere('show_where', 'both')
+                        ->where(function ($query) use ($today) {
+                            $query->where('shown_on', $today) //Quote already picked today
+                                  ->orWhere('shown', 0);
+                        })->first();
 
         // Reset the quotes shown when all the quotes has already been shown
         if ($quote == null) {
-            //Quote::update(['shown' => 0]);
-            Quote::query()->update(['shown' => 0]);
-            $quote = Quote::where('shown', 0)->first();
+            Quote::whereIn('show_where', [$where, 'both'])->update(['shown' => 0,'shown_on' => null]);
+            $quote = self::getQuoteOfTheDay($where);
         }
 
         $quote->shown = 1;
