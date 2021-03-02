@@ -63,20 +63,24 @@
                                 ])
                             </div>
 
-                            {{-- Public --}}
+                            {{-- Show where --}}
                             <div class="col-span-6">
-                                @php
-                                    $checked = ($quote->isPublic()) ? "checked" : "";
-                                @endphp
-                                @include('partials.forms.checkbox', [
-                                    'label' => __('views.public'),
-                                    'id'  => 'is_public',
-                                    'name' => 'is_public',
-                                    'size' => 'small',
-                                    'required' => false,
-                                    'checked' => $checked,
-                                    'description' => 'When private the quote is shown just in the backend dashboard',
-                                ])
+                                <h2 class="mb-2">Show where</h2>
+                                <div class="text-sm text-gray-500">
+                                    You can decide to show it in frontend, backend or both.
+                                </div>
+
+                                <select name="show_where" class="mt-2 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm @if ($errors->has('question_type')) border-red-500 @endif">
+                                    <option value="">Choose...</option>
+                                    <option value="frontend" {{ old('show_where', $quote->show_where) == 'frontend' ? 'selected' : ''}}>Frontend</option>
+                                    <option value="backend" {{ old('show_where', $quote->show_where) == 'backend' ? 'selected' : ''}}>Backend</option>
+                                    <option value="both" {{ old('show_where', $quote->show_where) == 'both' ? 'selected' : ''}}>Both</option>
+                                </select>
+                                @error('show_where')
+                                <span class="invalid-feedback text-red-500" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
 
                             {{-- Published --}}

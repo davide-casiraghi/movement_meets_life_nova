@@ -118,7 +118,7 @@ class QuoteRepository implements QuoteRepositoryInterface
         $quote->author = $data['author'];
         $quote->description = $data['description'];
         $quote->is_published = (isset($data['is_published'])) ? 1 : 0;
-        $quote->is_public = (isset($data['is_public'])) ? 1 : 0;
+        $quote->show_where = $data['show_where'];
 
         // Translations
         foreach (LaravelLocalization::getSupportedLocales() as $countryCode => $countryAvTrans) {
