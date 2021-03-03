@@ -93,6 +93,7 @@ class GlossaryServiceTest extends TestCase
         $glossaryTerm = $this->glossaryService->createGlossary($request);
 
         $this->assertDatabaseHas('glossaries', ['id' => $glossaryTerm->id]);
+        $this->assertDatabaseHas('glossary_variants', ['glossary_id' => $glossaryTerm->id]);
     }
 
     /** @test */
