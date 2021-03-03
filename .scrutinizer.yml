@@ -27,9 +27,9 @@ build:
     environment:
         php:
             version: 7.4
-        mysql: 5.7
+        mysql: 8.0
     services:
-        mysql: 5.7
+        mysql: 8.0
     nodes:
         analysis:
             tests:
