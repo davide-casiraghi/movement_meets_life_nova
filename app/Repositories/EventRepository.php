@@ -3,7 +3,6 @@
 
 namespace App\Repositories;
 
-use App\Http\Requests\EventStoreRequest;
 use App\Models\Event;
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
@@ -48,8 +47,8 @@ class EventRepository implements EventRepositoryInterface
                 );
                 $query->where('created_at', '<=', $endDate);
             }
-            if (!empty($searchParameters['status'])) {
-                $query->currentStatus($searchParameters['status']);
+            if (!is_null($searchParameters['is_published'])) {
+                $query->where('is_published', $searchParameters['is_published']);
             }
         }
 

@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
-use Spatie\ModelStatus\HasStatuses;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
@@ -15,7 +14,6 @@ class Event extends Model implements HasMedia
 {
     use HasFactory;
     use HasSlug;
-    use HasStatuses;
     use InteractsWithMedia;
 
     /**
@@ -48,15 +46,15 @@ class Event extends Model implements HasMedia
         'organizerId',
         'repetitionKindId',
         'venueId',
-        'status'
+        'is_published'
     ];
 
     /**
      * The possible values the publishing status can be.
      */
     public const PUBLISHING_STATUS = [
-        'unpublished' => 'unpublished',
-        'published' => 'published',
+        0 => 'unpublished',
+        1 => 'published',
     ];
 
     /**
@@ -133,7 +131,7 @@ class Event extends Model implements HasMedia
      */
     public function publishingStatus(): string
     {
-        return $this->latestStatus('unpublished', 'published');
+        return self::PUBLISHING_STATUS[$this->is_published];
     }
 
     /**
@@ -164,7 +162,7 @@ class Event extends Model implements HasMedia
      */
     public function isPublished(): bool
     {
-        return $this->latestStatus('unpublished', 'published') == 'published';
+        return $this->is_published;
     }
 
 }

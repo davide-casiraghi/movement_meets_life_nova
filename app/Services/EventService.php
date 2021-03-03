@@ -9,6 +9,7 @@ use App\Http\Requests\EventStoreRequest;
 use App\Models\Event;
 use App\Models\EventRepetition;
 use App\Repositories\EventRepository;
+use App\Repositories\EventRepositoryInterface;
 use Carbon\Carbon;
 use DateTime;
 use Illuminate\Support\Collection;
@@ -17,19 +18,19 @@ use Illuminate\Support\Facades\Log;
 
 class EventService
 {
-    private EventRepository $eventRepository;
+    private EventRepositoryInterface $eventRepository;
     private EventRepetitionService $eventRepetitionService;
     private NotificationService $notificationService;
 
     /**
      * EventService constructor.
      *
-     * @param  \App\Repositories\EventRepository  $eventRepository
-     * @param  \App\Services\EventRepetitionService  $eventRepetitionService
+     * @param  EventRepositoryInterface  $eventRepository
+     * @param  EventRepetitionService  $eventRepetitionService
      * @param  NotificationService  $notificationService
      */
     public function __construct(
-        EventRepository $eventRepository,
+        EventRepositoryInterface $eventRepository,
         EventRepetitionService $eventRepetitionService,
         NotificationService $notificationService
     ) {
