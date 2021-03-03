@@ -2,8 +2,10 @@
 
 namespace App\Services;
 
+use App\Models\Event;
 use App\Models\User;
 use App\Notifications\ContactMeMailNotification;
+use App\Notifications\ExpiringEventMailNotification;
 use App\Notifications\GetATreatmentMailNotification;
 use App\Notifications\NewTestimonialMailNotification;
 
@@ -58,4 +60,17 @@ class NotificationService
         return true;
     }
 
+    /**
+     * Send an email to expiring event organizer
+     *
+     * @param  array  $data
+     * @param  Event  $event
+     *
+     * @return bool
+     */
+    public function sendEmailExpiringEvent(array $data, Event $event): bool
+    {
+        $event->user->notify(new ExpiringEventMailNotification($data, $event));
+        return true;
+    }
 }
