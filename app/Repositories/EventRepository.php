@@ -131,11 +131,6 @@ class EventRepository implements EventRepositoryInterface
 
         self::syncManyToMany($event, $data);
 
-        $status = (isset($data['status'])) ? 'published' : 'unpublished';
-        if ($event->publishingStatus() != $status) {
-            $event->setStatus($status);
-        }
-
         return $event;
     }
 
@@ -169,6 +164,7 @@ class EventRepository implements EventRepositoryInterface
         $event->website_event_link = $data['website_event_link'];
         $event->facebook_event_link = $data['facebook_event_link'];
         $event->repeat_type = $data['repeat_type'];
+        $event->is_published = (isset($data['is_published'])) ? 1 : 0;
 
         switch ($data['repeat_type']) {
             case 1: // No Repeat
