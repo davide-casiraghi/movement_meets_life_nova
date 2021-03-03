@@ -54,7 +54,6 @@ class EventService
 
         $this->eventRepetitionService->updateEventRepetitions($request->all(), $event->id);
 
-        $event->setStatus('published');
         $this->cleanActiveEventsCaches();
 
         return $event;

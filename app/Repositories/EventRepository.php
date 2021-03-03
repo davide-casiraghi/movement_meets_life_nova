@@ -104,12 +104,12 @@ class EventRepository implements EventRepositoryInterface
 
         // Creator - Logged user id or 1 for factories
         $event->user_id = !is_null(Auth::id()) ? Auth::id() : 1;
+        // Default 'published'
+        $event->is_published = 1;
 
         $event->save();
 
         self::syncManyToMany($event, $data);
-
-        $event->setStatus('published');
 
         return $event->fresh();
     }
