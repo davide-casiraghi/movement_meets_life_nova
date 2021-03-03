@@ -1,7 +1,7 @@
 
 <div class="mt-8 mx-auto max-w-screen-xl p-4 sm:mt-12 sm:px-6 md:mt-20 xl:mt-24">
     <div class="lg:grid lg:grid-cols-12 lg:gap-8">
-        <div class="sm:text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left">
+        <div class="sm:text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left lg:col-start-7 lg:row-start-1">
             <div class="text-sm font-semibold uppercase tracking-wide text-gray-500 sm:text-base lg:text-sm xl:text-base">
                 CONTACT IMPROVISATION
             </div>
@@ -24,7 +24,7 @@
                 </div>--}}
             </div>
         </div>
-        <div class="mt-12 relative sm:max-w-lg sm:mx-auto lg:mt-0 lg:max-w-none lg:mx-0 lg:col-span-6 lg:flex lg:items-center">
+        <div class="mt-12 relative sm:max-w-lg sm:mx-auto lg:mt-0 lg:max-w-none lg:mx-0 lg:col-span-6 lg:flex lg:items-center lg:col-start-1 lg:row-start-1">
             {{--<svg class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-8 scale-75 origin-top sm:scale-100 lg:hidden" width="640" height="784" fill="none" viewBox="0 0 640 784">
                 <defs>
                     <pattern id="4f4f415c-a0e9-44c2-9601-6ded5a34a13e" x="118" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
@@ -57,3 +57,6 @@
         </div>
     </div>
 </div>
+
+
+
