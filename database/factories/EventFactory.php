@@ -50,6 +50,7 @@ class EventFactory extends Factory
             'event_category_id' => $this->faker->numberBetween($min = 1, $max = 3),
             'user_id' => 1,
             'repeat_type' => 1, // If not specified the event created is one time event
+            'is_published' => $this->faker->boolean(50),
         ];
     }
 
