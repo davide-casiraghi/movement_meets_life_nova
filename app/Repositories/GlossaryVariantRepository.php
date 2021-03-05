@@ -2,13 +2,12 @@
 
 namespace App\Repositories;
 
-use App\Models\Glossary;
 use App\Models\GlossaryVariant;
 use Illuminate\Support\Collection;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 
-class GlossaryVariantRepository
+class GlossaryVariantRepository implements GlossaryVariantRepositoryInterface
 {
 
     /**
@@ -30,7 +29,7 @@ class GlossaryVariantRepository
     /**
      * Get Glossary variants bt Glossary term id
      *
-     * @param int $id
+     * @param  int  $id
      * @return GlossaryVariant
      */
     public function getById(int $id): GlossaryVariant

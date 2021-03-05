@@ -16,6 +16,8 @@ use App\Repositories\EventRepository;
 use App\Repositories\EventRepositoryInterface;
 use App\Repositories\GlossaryRepository;
 use App\Repositories\GlossaryRepositoryInterface;
+use App\Repositories\GlossaryVariantRepository;
+use App\Repositories\GlossaryVariantRepositoryInterface;
 use App\Repositories\InsightRepository;
 use App\Repositories\InsightRepositoryInterface;
 use App\Repositories\OrganizerRepository;
@@ -56,6 +58,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(EventRepetitionRepositoryInterface::class, EventRepetitionRepository::class);
         $this->app->bind(EventRepositoryInterface::class, EventRepository::class);
         $this->app->bind(GlossaryRepositoryInterface::class, GlossaryRepository::class);
+        $this->app->bind(GlossaryVariantRepositoryInterface::class, GlossaryVariantRepository::class);
         $this->app->bind(OrganizerRepositoryInterface::class, OrganizerRepository::class);
         $this->app->bind(PermissionRepositoryInterface::class, PermissionRepository::class);
         $this->app->bind(PostCategoryRepositoryInterface::class, PostCategoryRepository::class);

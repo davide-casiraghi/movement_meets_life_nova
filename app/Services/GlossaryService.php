@@ -3,30 +3,27 @@
 namespace App\Services;
 
 use App\Helpers\ImageHelpers;
-use App\Http\Requests\GlossarySearchRequest;
 use App\Http\Requests\GlossaryStoreRequest;
 use App\Models\Glossary;
-use App\Models\GlossaryVariant;
-use App\Repositories\GlossaryRepository;
-use App\Repositories\GlossaryVariantRepository;
+use App\Repositories\GlossaryRepositoryInterface;
 
 class GlossaryService
 {
-    private GlossaryRepository $glossaryRepository;
-    private GlossaryVariantRepository $glossaryVariantRepository;
+    private GlossaryRepositoryInterface $glossaryRepository;
+    private GlossaryVariantService $glossaryVariantService;
 
     /**
      * GlossaryService constructor.
      *
-     * @param \App\Repositories\GlossaryRepository $glossaryRepository
-     * @param \App\Repositories\GlossaryVariantRepository $glossaryVariantRepository
+     * @param  GlossaryRepositoryInterface  $glossaryRepository
+     * @param  GlossaryVariantService  $glossaryVariantService
      */
     public function __construct(
-        GlossaryRepository $glossaryRepository,
-        GlossaryVariantRepository $glossaryVariantRepository
+        GlossaryRepositoryInterface $glossaryRepository,
+        GlossaryVariantService $glossaryVariantService
     ) {
         $this->glossaryRepository = $glossaryRepository;
-        $this->glossaryVariantRepository = $glossaryVariantRepository;
+        $this->glossaryVariantService = $glossaryVariantService;
     }
 
     /**
@@ -39,6 +36,9 @@ class GlossaryService
     public function createGlossary(GlossaryStoreRequest $request): Glossary
     {
         $glossary = $this->glossaryRepository->store($request->all());
+
+        $this->glossaryVariantService->createGlossaryVariant($glossary);
+
         ImageHelpers::storeImages($glossary, $request, 'introimage');
 
         return $glossary;
