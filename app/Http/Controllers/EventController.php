@@ -12,6 +12,7 @@ use App\Services\EventService;
 use App\Services\OrganizerService;
 use App\Services\TeacherService;
 use App\Services\VenueService;
+use Carbon\Carbon;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Traits\CheckPermission;
@@ -67,6 +68,8 @@ class EventController extends Controller
             'eventsCategories' => $eventsCategories,
             'searchParameters' => $searchParameters,
             'statuses' => $statuses,
+            'eventRepetitionService' => $this->eventRepetitionService,
+            'eventService' => $this->eventService,
         ]);
     }
 
@@ -218,14 +221,15 @@ class EventController extends Controller
     }
 
     /**
-     * Display the event list in the frontend Events page.
+     * Display list of upcoming events in the frontend Events page.
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\View\View
      */
     public function nextEvents(): View
     {
         $searchParameters = [];
-        $searchParameters['startDate'] = '13/2/2021';
+        $searchParameters['startDate'] = Carbon::today()->format('d/m/Y');
+        $searchParameters['is_published'] = 1;
 
         $events = $this->eventService->getEvents(20, $searchParameters);
         $eventsCategories = $this->eventCategoryService->getEventCategories();

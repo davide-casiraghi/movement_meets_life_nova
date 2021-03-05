@@ -55,9 +55,15 @@ class EventRepetitionRepositoryTest extends TestCase
         $this->organizers = Organizer::factory()->count(3)->create();
         $this->venues = Venue::factory()->count(3)->create();
 
-        $this->event1 = Event::factory()->create()->setStatus('published');
-        $this->event2 = Event::factory()->create()->setStatus('published');
-        $this->event3 = Event::factory()->create()->setStatus('published');
+        $this->event1 = Event::factory()->create([
+            'is_published' => 1
+        ]);
+        $this->event2 = Event::factory()->create([
+            'is_published' => 1
+        ]);
+        $this->event3 = Event::factory()->create([
+            'is_published' => 1
+        ]);
     }
 
     /** @test */

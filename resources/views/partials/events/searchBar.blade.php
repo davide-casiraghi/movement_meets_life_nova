@@ -29,7 +29,7 @@
         {{-- Creation date before --}}
         <div class="md:col-span-2 lg:col-span-1 mb-2 md:mb-0">
             @include('partials.forms.inputDatePicker',[
-                'class' => 'datepicker past',
+                'class' => 'datepicker all',
                 'label' => __('event.date_start'),
                 'placeholder' => __('general.select_date'),
                 'name' => 'startDate',
@@ -42,7 +42,7 @@
         {{-- Creation date after --}}
         <div class="md:col-span-2 lg:col-span-1 mb-2 md:mb-0">
             @include('partials.forms.inputDatePicker',[
-                'class' => 'datepicker past',
+                'class' => 'datepicker all',
                 'label' => __('event.date_end'),
                 'placeholder' => __('general.select_date'),
                 'name' => 'endDate',

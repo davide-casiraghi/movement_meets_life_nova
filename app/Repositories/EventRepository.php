@@ -4,6 +4,7 @@
 namespace App\Repositories;
 
 use App\Models\Event;
+use App\Models\EventRepetition;
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
@@ -20,7 +21,10 @@ class EventRepository implements EventRepositoryInterface
      */
     public function getAll(int $recordsPerPage = null, array $searchParameters = null)
     {
-        $query = Event::orderBy('title', 'desc');
+        // Upcoming events are shown first
+        $query = Event::select('events.*', 'event_repetitions.start_repeat', 'event_repetitions.end_repeat')
+            ->leftJoin('event_repetitions', 'events.id', '=', 'event_repetitions.event_id')
+            ->orderBy('event_repetitions.start_repeat');
 
         if (!is_null($searchParameters)) {
             if (!empty($searchParameters['title'])) {
@@ -38,14 +42,14 @@ class EventRepository implements EventRepositoryInterface
                     'd/m/Y',
                     $searchParameters['startDate']
                 );
-                $query->where('created_at', '>=', $startDate);
+                $query->where('start_repeat', '>=', $startDate);
             }
             if (!empty($searchParameters['endDate'])) {
                 $endDate = Carbon::createFromFormat(
                     'd/m/Y',
                     $searchParameters['endDate']
                 );
-                $query->where('created_at', '<=', $endDate);
+                $query->where('end_repeat', '<=', $endDate);
             }
             if (!is_null($searchParameters['is_published'])) {
                 $query->where('is_published', $searchParameters['is_published']);

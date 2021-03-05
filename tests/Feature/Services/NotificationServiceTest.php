@@ -51,7 +51,9 @@ class NotificationServiceTest extends TestCase
         ]);
 
         $this->venues = Venue::factory()->count(3)->create();
-        $this->event1 = Event::factory()->create()->setStatus('published');
+        $this->event1 = Event::factory()->create([
+            'is_published' => 1
+        ]);
     }
 
     /** @test */
