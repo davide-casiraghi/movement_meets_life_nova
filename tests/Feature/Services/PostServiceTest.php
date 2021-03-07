@@ -97,6 +97,14 @@ class PostServiceTest extends TestCase
     }
 
     /** @test */
+    public function itShouldReturnAPostBySlug()
+    {
+        $post = $this->postService->getBySlug($this->post1->slug);
+
+        $this->assertEquals($this->post1->slug, $post->slug);
+    }
+
+    /** @test */
     public function itShouldReturnAllPosts()
     {
         $posts = $this->postService->getPosts(20);
