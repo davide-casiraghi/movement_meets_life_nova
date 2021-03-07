@@ -84,6 +84,14 @@ class TagServiceTest extends TestCase
     }
 
     /** @test */
+    public function itShouldReturnATagBySlug()
+    {
+        $tag = $this->tagService->getBySlug($this->tag1->slug);
+
+        $this->assertEquals($this->tag1->slug, $tag->slug);
+    }
+
+    /** @test */
     public function itShouldReturnAllTags()
     {
         $tags = $this->tagService->getTags(20);
