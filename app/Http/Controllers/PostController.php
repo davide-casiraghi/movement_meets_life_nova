@@ -106,13 +106,14 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param int $postId
+     * @param string $postSlug
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\View\View
      */
-    public function show(int $postId)
+    public function show(string $postSlug)
     {
-        $post = $this->postService->getById($postId);
+        //$post = $this->postService->getById($postId);
+        $post = $this->postService->getBySlug($postSlug);
 
         $post['body'] = $this->postService->getPostBody($post);
 
