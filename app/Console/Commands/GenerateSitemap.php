@@ -54,10 +54,15 @@ class GenerateSitemap extends Command
           ->add(Url::create('/aboutMe'))
           ->add(Url::create('/contact'));
 
-        /*$posts = $this->postService->getPosts(null, ['status' => 'published']);
+        // POSTS
+        $posts = $this->postService->getPosts(null, ['status' => 'published']);
         foreach ($posts as $post) {
             $sitemap->add(Url::create("/posts/{$post->slug}"));
-        }*/
+        }
+        
+
+
+        // Write Sitemap to file
         $sitemap->writeToFile(public_path('sitemap.xml'));
     }
 }

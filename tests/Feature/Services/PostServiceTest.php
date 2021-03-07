@@ -48,7 +48,7 @@ class PostServiceTest extends TestCase
         $this->postCategory3 = PostCategory::factory()->create();
         $this->post1 = Post::factory()->create(['category_id' => 1])->setStatus('published');
         $this->post2 = Post::factory()->create(['category_id' => 1])->setStatus('published');
-        $this->post3 = Post::factory()->create(['category_id' => 1])->setStatus('published');
+        $this->post3 = Post::factory()->create(['category_id' => 1])->setStatus('unpublished');
     }
 
     /** @test */
@@ -109,6 +109,13 @@ class PostServiceTest extends TestCase
     {
         $posts = $this->postService->getPosts(20);
         $this->assertCount(3, $posts);
+    }
+
+    /** @test */
+    public function itShouldReturnAllPublishedPosts()
+    {
+        $posts = $this->postService->getPosts(20, ['status' => 'published']);
+        $this->assertCount(2, $posts);
     }
 
     /** @test */
