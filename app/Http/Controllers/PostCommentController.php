@@ -28,7 +28,7 @@ class PostCommentController extends Controller
         $post = Post::find($request['post_id']);
         $this->commentService->createComment($request, $post);
 
-        return redirect()->route('posts.show', $post->id)
+        return redirect()->route('posts.show', $post->slug)
             ->with('success', 'Comment added successfully');
     }
 }
