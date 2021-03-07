@@ -31,6 +31,8 @@ class Kernel extends ConsoleKernel
             ->daily()
             ->appendOutputTo($logPath)
             ->emailOutputTo(env('WEBMASTER_MAIL'));
+
+        $schedule->command('sitemap:generate')->daily();
     }
 
     /**
