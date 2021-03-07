@@ -54,7 +54,7 @@
 
             <div class="text-sm leading-5 font-medium text-primary-600 mb-6">
                 @foreach($post->tags()->get() as $tag)
-                    <a href="{{ route('tags.show',$tag->id) }}" class="hover:underline mr-1">
+                    <a href="{{ route('tags.show',$tag->slug) }}" class="hover:underline mr-1">
                         {{--{{$post->post_category->name}}--}}
                         #{{$tag->tag}}
                     </a>

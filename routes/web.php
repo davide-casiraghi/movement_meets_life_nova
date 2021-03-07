@@ -87,7 +87,6 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
         Route::get('/tags/create', [TagController::class, 'create'])->name('create');
         Route::post('/tags', [TagController::class, 'store'])->name('store');
         Route::delete('/tags/{id}', [TagController::class, 'destroy'])->name('destroy');
-        Route::get('/tags/{id}', [TagController::class, 'show'])->name('show');
     });
 
     // Glossaries
@@ -226,6 +225,7 @@ Route::get('/aboutMe', function () {
 Route::get('/', [ HomeController::class, 'index'])->name('home');
 Route::get('/blog', [PostController::class, 'blog'])->name('posts.blog');
 Route::get('/posts/{slug}', [PostController::class, 'show'])->name('posts.show');
+Route::get('/tags/{slug}', [TagController::class, 'show'])->name('tags.show');
 Route::get('/next_events', [EventController::class, 'nextEvents'])->name('events.next');
 Route::get('/treatments-ilan-lev-method', [StaticPageController::class, 'treatments'])->name('staticPages.treatments');
 Route::get('/contact-improvisation', [StaticPageController::class, 'contactImprovisation'])->name('staticPages.contactImprovisation');

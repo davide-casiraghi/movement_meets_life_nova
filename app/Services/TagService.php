@@ -64,6 +64,18 @@ class TagService
     }
 
     /**
+     * Return the post from the database by SLUG
+     *
+     * @param string $tagSlug
+     *
+     * @return \App\Models\Tag
+     */
+    public function getBySlug(string $tagSlug): Tag
+    {
+        return $this->tagRepository->getBySlug($tagSlug);
+    }
+
+    /**
      * Get all the tags
      *
      * @param int|null $recordsPerPage
@@ -85,5 +97,4 @@ class TagService
     {
         $this->tagRepository->delete($tagId);
     }
-
 }

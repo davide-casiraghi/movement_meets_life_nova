@@ -53,6 +53,18 @@ class TagRepository implements TagRepositoryInterface
     }
 
     /**
+     * Get Tag by slug
+     *
+     * @param string $tagSlug
+     *
+     * @return Tag
+     */
+    public function getBySlug(string $tagSlug): Tag
+    {
+        return Tag::where('slug', $tagSlug)->first();
+    }
+
+    /**
      * Store Tag
      *
      * @param array $data
