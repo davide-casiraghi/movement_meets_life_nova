@@ -9,7 +9,7 @@
         <div class="">
             @foreach($posts as $post)
                 <div class="mb-6">
-                    <a class="textLink" href="{{ route('posts.show',$post->id) }}">{{$post->title}}</a>
+                    <a class="textLink" href="{{ route('posts.show',$post->slug) }}">{{$post->title}}</a>
                     <div class="">
                     {{$post->intro_text}}
                     </div>

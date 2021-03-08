@@ -24,13 +24,14 @@ class TagController extends Controller
     /**
      * Display the resource.
      *
-     * @param int $tagId
+     * @param string $tagSlug
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\View\View
      */
-    public function show(int $tagId): View
+    public function show(string $tagSlug): View
     {
-        $tag = Tag::find($tagId);
+        //$tag = Tag::find($tagId);
+        $tag = $this->tagService->getBySlug($tagSlug);
         $posts = $tag->posts()->get();
 
         return view('tags.show', [

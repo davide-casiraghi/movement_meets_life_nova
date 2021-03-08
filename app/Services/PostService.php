@@ -82,7 +82,7 @@ class PostService
     }
 
     /**
-     * Return the post from the database
+     * Return the post from the database by ID
      *
      * @param int $postId
      *
@@ -91,6 +91,18 @@ class PostService
     public function getById(int $postId): Post
     {
         return $this->postRepository->getById($postId);
+    }
+
+    /**
+    * Return the post from the database by SLUG
+    *
+    * @param string $postSlug
+    *
+    * @return \App\Models\Post
+    */
+    public function getBySlug(string $postSlug): Post
+    {
+        return $this->postRepository->getBySlug($postSlug);
     }
 
     /**

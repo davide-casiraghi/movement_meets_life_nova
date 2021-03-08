@@ -88,7 +88,7 @@ class PostControllerTest extends TestCase
     /** @test */
     public function itShouldDisplayThePostsShowViewToGuestUser()
     {
-        $response = $this->get("/posts/{$this->post1->id}");
+        $response = $this->get("/posts/{$this->post1->slug}");
 
         $response->assertStatus(200);
         $response->assertViewIs('posts.show');

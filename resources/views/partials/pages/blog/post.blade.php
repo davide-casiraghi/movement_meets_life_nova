@@ -16,7 +16,7 @@
         <div class="xl:col-span-3 border-gray-400 border-0 leading-6 text-black" style="--space-y-reverse:0; list-style: outside none none; quotes: auto;">
             <div class="border-solid box-border text-left" style="list-style: outside none none; quotes: auto;">
                 <h2 class="border-gray-400 border-0 font-bold text-2xl m-0 text-black tracking-tight" style="line-height: 1.33333; list-style: outside none none; quotes: auto;">
-                    <a href="{{route('posts.show', $post->id)}}" class="bg-transparent border-solid box-border cursor-pointer text-2xl text-left text-gray-900" style="text-decoration: inherit; line-height: 1.33333; list-style: outside none none; quotes: auto;">
+                    <a href="{{route('posts.show', $post->slug)}}" class="bg-transparent border-solid box-border cursor-pointer text-2xl text-left text-gray-900" style="text-decoration: inherit; line-height: 1.33333; list-style: outside none none; quotes: auto;">
                         {{$post->title}}
                     </a>
                 </h2>
@@ -54,7 +54,7 @@
                     class="border-solid box-border font-medium text-base leading-normal text-left"
                     style="--space-y-reverse:0; list-style: outside none none; quotes: auto;"
             >
-                <a href="{{route('posts.show', $post->id)}}" class="bg-transparent border-gray-400 border-0 cursor-pointer leading-6 text-primary-600 hover:text-primary-700" aria-label='Read "Welcoming David Luhr to Tailwind Labs"' style="text-decoration: inherit; list-style: outside none none; quotes: auto;">
+                <a href="{{route('posts.show', $post->slug)}}" class="bg-transparent border-gray-400 border-0 cursor-pointer leading-6 text-primary-600 hover:text-primary-700" aria-label='Read "Welcoming David Luhr to Tailwind Labs"' style="text-decoration: inherit; list-style: outside none none; quotes: auto;">
                     Read more →
                 </a>
             </div>
