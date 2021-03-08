@@ -3,11 +3,9 @@
 namespace App\Repositories;
 
 use App\Models\Event;
-use Ev;
 
 interface EventRepositoryInterface
 {
-
     /**
      * Get all Events.
      *
@@ -66,5 +64,4 @@ interface EventRepositoryInterface
      * @return void
      */
     public function delete(int $id);
-
 }
