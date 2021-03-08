@@ -77,6 +77,17 @@ class EventRepository implements EventRepositoryInterface
     }
 
     /**
+     * Get Event by slug
+     *
+     * @param  string  $eventSlug
+     * @return Event
+     */
+    public function getBySlug(string $eventSlug): Event
+    {
+        return Event::where('slug', $eventSlug)->first();
+    }
+
+    /**
      * Return the list of the expiring repetitive events (the 7th day from now).
      * Consider just Weekly(2) and Monthly(3) events.
      * It returns just the events expiring the 7th day from now, not the 6th day or less.
@@ -207,4 +218,5 @@ class EventRepository implements EventRepositoryInterface
         $event->teachers()->sync($data['teacher_ids'] ?? null);
         $event->organizers()->sync($data['organizer_ids'] ?? null);
     }
+
 }

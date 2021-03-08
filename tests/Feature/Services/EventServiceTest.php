@@ -262,6 +262,13 @@ class EventServiceTest extends TestCase
     }
 
     /** @test */
+    public function itShouldReturnEventBySlug()
+    {
+        $event = $this->eventService->getBySlug($this->event1->slug);
+        $this->assertEquals($this->event1->slug, $event->slug);
+    }
+
+    /** @test */
     public function itShouldReturnAllEvents()
     {
         $events = $this->eventService->getEvents(20);

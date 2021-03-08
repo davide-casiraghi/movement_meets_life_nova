@@ -94,6 +94,17 @@ class EventService
     }
 
     /**
+     * Return the event from the database by SLUG
+     *
+     * @param  string  $eventSlug
+     * @return Event
+     */
+    public function getBySlug(string $eventSlug): Event
+    {
+        return $this->eventRepository->getBySlug($eventSlug);
+    }
+
+    /**
      * Get all the Events.
      *
      * @param int|null $recordsPerPage

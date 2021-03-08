@@ -19,7 +19,7 @@
                     <div class="mt-2 items-start">
                         <div class="text-sm text-gray-500">
                             <div class="text-base font-medium text-primary-600 truncate">
-                                <a href="{{route('events.show', $event->id)}}">{{$event->title}}</a>
+                                <a href="{{route('events.show', $event->slug)}}">{{$event->title}}</a>
                             </div>
                             <div class="sm:flex sm:justify-start mt-2">
                                 {{-- Country --}}

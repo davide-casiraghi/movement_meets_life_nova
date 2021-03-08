@@ -124,9 +124,9 @@ class EventController extends Controller
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\View\View
      */
-    public function show(int $eventId): View
+    public function show(string $eventSlug): View
     {
-        $event = $this->eventService->getById($eventId);
+        $event = $this->eventService->getBySlug($eventSlug);
 
         // todo - probably $eventFirstRepetition has to change since in the previous calendar was a show() parameter.
         $eventFirstRepetition = $this->eventRepetitionService->getFirstByEventId($event->id);

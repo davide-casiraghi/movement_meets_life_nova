@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\Event;
+use Ev;
 
 interface EventRepositoryInterface
 {
@@ -28,6 +29,14 @@ interface EventRepositoryInterface
      * @return Event
      */
     public function getById(int $eventId);
+
+    /**
+     * Get Event by slug
+     *
+     * @param  string  $eventSlug
+     * @return Event
+     */
+    public function getBySlug(string $eventSlug): Event;
 
     /**
      * Store Event
