@@ -300,10 +300,5 @@ Event::factory()
                 ]);
             break;
         }
-        
-        $statuses = ['published','unpublished'];
-        $random_status = array_rand($statuses, 1);
-        $status = $statuses[$random_status];
-        $event->setStatus($status);
     });
 ```

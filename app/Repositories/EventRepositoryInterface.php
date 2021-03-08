@@ -6,7 +6,6 @@ use App\Models\Event;
 
 interface EventRepositoryInterface
 {
-
     /**
      * Get all Events.
      *
@@ -28,6 +27,14 @@ interface EventRepositoryInterface
      * @return Event
      */
     public function getById(int $eventId);
+
+    /**
+     * Get Event by slug
+     *
+     * @param  string  $eventSlug
+     * @return Event
+     */
+    public function getBySlug(string $eventSlug): Event;
 
     /**
      * Store Event
@@ -57,5 +64,4 @@ interface EventRepositoryInterface
      * @return void
      */
     public function delete(int $id);
-
 }

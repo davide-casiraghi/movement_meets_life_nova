@@ -3,8 +3,8 @@
 
 namespace App\Repositories;
 
-use App\Http\Requests\EventStoreRequest;
 use App\Models\Event;
+use App\Models\EventRepetition;
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
@@ -21,7 +21,10 @@ class EventRepository implements EventRepositoryInterface
      */
     public function getAll(int $recordsPerPage = null, array $searchParameters = null)
     {
-        $query = Event::orderBy('title', 'desc');
+        // Upcoming events are shown first
+        $query = Event::select('events.*', 'event_repetitions.start_repeat', 'event_repetitions.end_repeat')
+            ->leftJoin('event_repetitions', 'events.id', '=', 'event_repetitions.event_id')
+            ->orderBy('event_repetitions.start_repeat');
 
         if (!is_null($searchParameters)) {
             if (!empty($searchParameters['title'])) {
@@ -39,17 +42,17 @@ class EventRepository implements EventRepositoryInterface
                     'd/m/Y',
                     $searchParameters['startDate']
                 );
-                $query->where('created_at', '>=', $startDate);
+                $query->where('start_repeat', '>=', $startDate);
             }
             if (!empty($searchParameters['endDate'])) {
                 $endDate = Carbon::createFromFormat(
                     'd/m/Y',
                     $searchParameters['endDate']
                 );
-                $query->where('created_at', '<=', $endDate);
+                $query->where('end_repeat', '<=', $endDate);
             }
-            if (!empty($searchParameters['status'])) {
-                $query->currentStatus($searchParameters['status']);
+            if (!is_null($searchParameters['is_published'])) {
+                $query->where('is_published', $searchParameters['is_published']);
             }
         }
 
@@ -71,6 +74,17 @@ class EventRepository implements EventRepositoryInterface
     public function getById(int $eventId): Event
     {
         return Event::findOrFail($eventId);
+    }
+
+    /**
+     * Get Event by slug
+     *
+     * @param  string  $eventSlug
+     * @return Event
+     */
+    public function getBySlug(string $eventSlug): Event
+    {
+        return Event::where('slug', $eventSlug)->first();
     }
 
     /**
@@ -105,12 +119,12 @@ class EventRepository implements EventRepositoryInterface
 
         // Creator - Logged user id or 1 for factories
         $event->user_id = !is_null(Auth::id()) ? Auth::id() : 1;
+        // Default 'published'
+        $event->is_published = 1;
 
         $event->save();
 
         self::syncManyToMany($event, $data);
-
-        $event->setStatus('published');
 
         return $event->fresh();
     }
@@ -131,11 +145,6 @@ class EventRepository implements EventRepositoryInterface
         $event->update();
 
         self::syncManyToMany($event, $data);
-
-        $status = (isset($data['status'])) ? 'published' : 'unpublished';
-        if ($event->publishingStatus() != $status) {
-            $event->setStatus($status);
-        }
 
         return $event;
     }
@@ -170,6 +179,7 @@ class EventRepository implements EventRepositoryInterface
         $event->website_event_link = $data['website_event_link'];
         $event->facebook_event_link = $data['facebook_event_link'];
         $event->repeat_type = $data['repeat_type'];
+        $event->is_published = (isset($data['is_published'])) ? 1 : 0;
 
         switch ($data['repeat_type']) {
             case 1: // No Repeat
@@ -208,4 +218,5 @@ class EventRepository implements EventRepositoryInterface
         $event->teachers()->sync($data['teacher_ids'] ?? null);
         $event->organizers()->sync($data['organizer_ids'] ?? null);
     }
+
 }
