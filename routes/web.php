@@ -206,7 +206,7 @@ Route::name('postComments.')->group(function () {
 
 
 //Route::get('tag/{tagId}',[ TagController::class, 'show'])->name('tags.show');
-Route::get('glossaryTerms/{glossaryTermId}', [ GlossaryController::class, 'show'])->name('glossary.show');
+Route::get('glossaryTerms/{slug}', [ GlossaryController::class, 'show'])->name('glossary.show');
 
 // Contact form
 Route::get('/contact', [ContactMeController::class, 'index'])->name('contact.index');
@@ -229,7 +229,7 @@ Route::get('/tags/{slug}', [TagController::class, 'show'])->name('tags.show');
 Route::get('/next_events', [EventController::class, 'nextEvents'])->name('events.next');
 Route::get('/treatments-ilan-lev-method', [StaticPageController::class, 'treatments'])->name('staticPages.treatments');
 Route::get('/contact-improvisation', [StaticPageController::class, 'contactImprovisation'])->name('staticPages.contactImprovisation');
-Route::get('/events/{id}', [EventController::class, 'show'])->name('events.show');
+Route::get('/events/{slug}', [EventController::class, 'show'])->name('events.show');
 
 Route::get('/getATreatment', [GetATreatmentController::class, 'create'])->name('getATreatment.create');
 Route::post('/getATreatment', [GetATreatmentController::class, 'store'])->name('getATreatment.store');

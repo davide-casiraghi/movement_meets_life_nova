@@ -88,10 +88,10 @@ class GenerateSitemap extends Command
         }
 
         // GLOSSARIES
-//        $glossaries = $this->glossaryService->getGlossaries(null, ['is_published'=> 1]);
-//        foreach ($glossaries as $glossary) {
-//            $sitemap->add(Url::create("/glossaryTerms/{$glossary->slug}"));
-//        }
+        $glossaries = $this->glossaryService->getGlossaries(null, ['is_published'=> 1]);
+        foreach ($glossaries as $glossary) {
+            $sitemap->add(Url::create("/glossaryTerms/{$glossary->slug}"));
+        }
 
         // Write Sitemap to file
         $sitemap->writeToFile(public_path('sitemap.xml'));

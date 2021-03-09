@@ -178,7 +178,7 @@
 
             <div class="col-span-6">
                 <div class="flex justify-end mt-4">
-                    <a href="{{ route('glossaries.index') }}">
+                    <a href="{{ url()->previous() }}">
                         <button type="button" class="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                             Cancel
                         </button>
