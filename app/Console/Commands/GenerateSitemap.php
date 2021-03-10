@@ -75,7 +75,7 @@ class GenerateSitemap extends Command
         // EVENTS
         $searchParameters = [];
         $searchParameters['startDate'] = Carbon::today()->format('d/m/Y');
-        $searchParameters['is_published'] = 1;
+        $searchParameters['is_published'] = true;
         $events = $this->eventService->getEvents(null, $searchParameters);
         foreach ($events as $event) {
             $sitemap->add(Url::create("/events/{$event->slug}"));
@@ -88,7 +88,7 @@ class GenerateSitemap extends Command
         }
 
         // GLOSSARIES
-        $glossaries = $this->glossaryService->getGlossaries(null, ['is_published'=> 1]);
+        $glossaries = $this->glossaryService->getGlossaries(null, ['is_published'=> true]);
         foreach ($glossaries as $glossary) {
             $sitemap->add(Url::create("/glossaryTerms/{$glossary->slug}"));
         }
