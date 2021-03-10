@@ -10,7 +10,7 @@ class CountryRepository implements CountryRepositoryInterface
 {
 
     /**
-     * Get all PostCategories.
+     * Get all Countries.
      *
      * @return \Illuminate\Support\Collection
      */
