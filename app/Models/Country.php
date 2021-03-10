@@ -25,6 +25,16 @@ class Country extends Model
     }
 
     /**
+     * Return the regions in this country
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function regions()
+    {
+        return $this->hasMany(Region::class);
+    }
+
+    /**
      * Return the teachers based in this country
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
