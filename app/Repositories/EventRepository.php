@@ -23,6 +23,7 @@ class EventRepository implements EventRepositoryInterface
     {
         // Upcoming events are shown first
         $query = Event::select('events.*', 'event_repetitions.start_repeat', 'event_repetitions.end_repeat')
+            ->with(['category', 'teachers', 'venue', 'venue.country'])
             ->leftJoin('event_repetitions', 'events.id', '=', 'event_repetitions.event_id')
             ->orderBy('event_repetitions.start_repeat');
 

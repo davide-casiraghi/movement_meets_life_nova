@@ -229,7 +229,7 @@ class EventController extends Controller
     {
         $searchParameters = [];
         $searchParameters['startDate'] = Carbon::today()->format('d/m/Y');
-        $searchParameters['is_published'] = 1;
+        $searchParameters['is_published'] = true;
 
         $events = $this->eventService->getEvents(20, $searchParameters);
         $eventsCategories = $this->eventCategoryService->getEventCategories();
