@@ -69,15 +69,13 @@ class GenerateSitemapTest extends TestCase
     }
 
     /** @test */
-    public function itShouldGenerateTheSitemap()
+    public function itShouldConfirmThatTheSitemapExist()
     {
+        if (File::exists(public_path('sitemap.xml'))) {
+            File::delete(public_path('sitemap.xml'));
+        }
         $this->artisan(GenerateSitemap::class)
             ->assertExitCode(0);
-    }
-
-    /** @test */
-    public function itShouldCheckIfSitemapFileExists()
-    {
         try {
             File::get(public_path('sitemap.xml'));
         } catch (FileNotFoundException $e) {}
@@ -85,28 +83,28 @@ class GenerateSitemapTest extends TestCase
     }
 
     /** @test */
-    public function itShouldCheckIfSitemapFileContainsPostSlug()
+    public function itShouldConfirmThatSitemapFileContainsPostSlug()
     {
         $content = File::get(public_path('sitemap.xml'));
         $this->assertStringContainsString('posts/post-title-with-spaces', $content);
     }
 
     /** @test */
-    public function itShouldCheckIfSitemapFileContainsEventSlug()
+    public function itShouldConfirmThatSitemapFileContainsEventSlug()
     {
         $content = File::get(public_path('sitemap.xml'));
         $this->assertStringContainsString('events/event-title-with-spaces', $content);
     }
 
     /** @test */
-    public function itShouldCheckIfSitemapFileContainsTagSlug()
+    public function itShouldConfirmThatSitemapFileContainsTagSlug()
     {
         $content = File::get(public_path('sitemap.xml'));
         $this->assertStringContainsString('tags/tag-word-with-spaces', $content);
     }
 
     /** @test */
-    public function itShouldCheckIfSitemapFileContainsGlossaryTermSlug()
+    public function itShouldConfirmThatSitemapFileContainsGlossaryTermSlug()
     {
         $content = File::get(public_path('sitemap.xml'));
         $this->assertStringContainsString('glossaryTerms/glossary-term-with-spaces', $content);
