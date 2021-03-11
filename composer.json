@@ -34,7 +34,9 @@
         "stevebauman/location": "^5.2"
     },
     "require-dev": {
+        "barryvdh/laravel-debugbar": "^3.5",
         "barryvdh/laravel-ide-helper": "^2.8",
+        "beyondcode/laravel-query-detector": "^1.5",
         "facade/ignition": "^2.3.6",
         "friendsofphp/php-cs-fixer": "^2.1.16",
         "laravel/homestead": "^11.2",
