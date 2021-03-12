@@ -40,9 +40,9 @@ class HomeController extends Controller
 
         $videoIntro = $this->staticPageService->getStaticImageHtml('1');
 
-        $lastPosts = $this->postService->getPosts(3);
+        $lastPosts = $this->postService->getPosts(3, ['status' => 'published']);
 
-        $testimonials = $this->testimonialService->getTestimonials(3);
+        $testimonials = $this->testimonialService->getTestimonials(3, ['status' => 'published']);
 
         return view('home', [
             'lastPosts' => $lastPosts,
