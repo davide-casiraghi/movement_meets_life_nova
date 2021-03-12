@@ -30,6 +30,7 @@ class Testimonial extends Model implements HasMedia
         'surname',
         'profession',
         'feedback',
+        'feedback_short',
         'photo',
         'personal_data_agreement',
         'publish_agreement',
@@ -40,7 +41,7 @@ class Testimonial extends Model implements HasMedia
      *
      * @var array
      */
-    public $translatable = ['profession', 'feedback'];
+    public $translatable = ['profession', 'feedback', 'feedback_short'];
 
     /**
      * The parameters used in the index view search filters.

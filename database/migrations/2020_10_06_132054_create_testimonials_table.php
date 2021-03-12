@@ -20,6 +20,7 @@ class CreateTestimonialsTable extends Migration
             $table->string('name');
             $table->string('surname');
             $table->string('profession')->nullable();
+            $table->text('feedback_short');
             $table->text('feedback');
             $table->string('photo')->nullable();
 

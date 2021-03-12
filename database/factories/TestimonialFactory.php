@@ -32,6 +32,10 @@ class TestimonialFactory extends Factory
                 'en' => $this->faker->sentence($nbWords = 2, $variableNbWords = true),
                 'it' => $this->faker->sentence($nbWords = 2, $variableNbWords = true),
             ],
+            'feedback_short' => [
+              'en' => $this->faker->sentence($nbWords = 2, $variableNbWords = true),
+              'it' => $this->faker->sentence($nbWords = 2, $variableNbWords = true),
+            ],
             'country_id' => $this->faker->numberBetween($min = 1, $max = 250),
             'photo' => 'placeholders/placeholder-150x150.png',
             'personal_data_agreement' => 1,
