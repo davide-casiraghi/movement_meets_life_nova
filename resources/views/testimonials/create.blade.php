@@ -149,7 +149,7 @@
                         <div class="mt-8 border-t border-gray-200 pt-5">
                             <div class="flex justify-end">
                                 <span class="inline-flex rounded-md shadow-sm">
-                                    <a href="{{ route('testimonials.index') }}">
+                                    <a href="{{ url()->previous() }}">
                                         <button type="button" class="py-2 px-4 border border-gray-300 rounded-md text-sm leading-5 font-medium text-gray-700 hover:text-gray-500 focus:outline-none focus:border-primary-300 focus:ring-primary active:bg-gray-50 active:text-gray-800 transition duration-150 ease-in-out">
                                             Cancel
                                         </button>

@@ -128,6 +128,7 @@ class TestimonialRepository implements TestimonialRepositoryInterface
     public function assignDataAttributes(Testimonial $testimonial, array $data): Testimonial
     {
         $testimonial->feedback = $data['feedback'] ?? null;
+        $testimonial->feedback_short = $data['feedback_short'] ?? null;
         $testimonial->name = $data['name'] ?? null;
         $testimonial->surname = $data['surname'] ?? null;
         $testimonial->profession = $data['profession'] ?? null;

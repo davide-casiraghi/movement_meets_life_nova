@@ -191,6 +191,7 @@ return [
     'author' => 'Author',
     'profession' => 'Profession',
     'feedback' => 'Feedback',
+    'feedback_short' => 'Short feedback',
     'personal_data_agreement' => 'Personal data agreement',
     'publish_agreement' => 'Publish agreement',
     'photo' => 'Photo',
