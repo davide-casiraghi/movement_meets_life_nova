@@ -42,12 +42,13 @@ class HomeController extends Controller
 
         $lastPosts = $this->postService->getPosts(3, ['status' => 'published']);
 
-        $testimonials = $this->testimonialService->getTestimonials(3, ['status' => 'published']);
+        $testimonials = $this->testimonialService->getTestimonials(null, ['status' => 'published']);
+        $random = $testimonials->random(3);
 
         return view('home', [
             'lastPosts' => $lastPosts,
             'videoIntro' => $videoIntro,
-            'testimonials' => $testimonials
+            'testimonials' => $random
         ]);
     }
 }
