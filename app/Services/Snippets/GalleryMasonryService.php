@@ -23,13 +23,14 @@ use App\Models\Post;
 class GalleryMasonryService
 {
 
-    /**
-     *  Substitute gallery snippets with the related HTML
-     *
-     * @param \App\Models\Post $post
-     *
-     * @return string
-     */
+  /**
+   *  Substitute gallery snippets with the related HTML
+   *
+   * @param  string  $postBody
+   * @param  \App\Models\Post  $post
+   *
+   * @return string
+   */
     public function snippetsToHTML(string $postBody, Post $post): string
     {
         // Find snippet occurrences

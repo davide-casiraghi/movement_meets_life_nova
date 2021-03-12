@@ -25,6 +25,8 @@
 
     @include('partials.pages.home.blog.block')
 
+    @include('partials.pages.home.testimonials')
+
     @include('partials.quote_of_the_day')
 
 @endsection
