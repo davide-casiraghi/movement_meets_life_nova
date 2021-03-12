@@ -74,6 +74,7 @@ return [
     'create_new_menu_item' => 'Create new menu item',
     'create_new_insight' => 'Create new insight',
     'edit_post' => 'Edit post',
+    'edit_post_category' => 'Edit post category',
     'edit_translation' => 'Edit translation',
     'edit_event' => 'Edit event',
     'edit_venue' => 'Edit venue',

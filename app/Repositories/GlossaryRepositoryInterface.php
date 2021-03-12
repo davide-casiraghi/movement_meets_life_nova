@@ -70,4 +70,12 @@ interface GlossaryRepositoryInterface
         array $data
     ): Glossary;
 
+    /**
+     * Get glossary term by slug
+     *
+     * @param  string  $glossarySlug
+     * @return Glossary
+     */
+    public function getBySlug(string $glossarySlug): Glossary;
+
 }

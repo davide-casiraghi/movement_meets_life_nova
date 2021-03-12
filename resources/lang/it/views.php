@@ -63,6 +63,7 @@ return [
     'create_new_background_image' => 'Crea un immagine di sfondo',
     'create_new_insight' => 'Crea un nuovo approfondimento',
     'edit_post' => 'Modifica post',
+    'edit_post_category' => 'Modifica categoria',
     'edit_translation' => 'Modifica la traduzione',
     'edit_event' => 'Modifica l\'evento',
     'edit_venue' => 'Modifica lo spazio',

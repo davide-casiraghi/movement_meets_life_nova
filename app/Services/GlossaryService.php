@@ -74,6 +74,11 @@ class GlossaryService
         return $this->glossaryRepository->getById($glossaryId);
     }
 
+    public function getBySlug(string $glossarySlug): Glossary
+    {
+        return $this->glossaryRepository->getBySlug($glossarySlug);
+    }
+
     /**
      * Get all the glossary terms
      *
@@ -118,7 +123,7 @@ class GlossaryService
             foreach ($glossaryTerm->variants as $variant) {
                 $currentLanguageVariantTerm = $variant->getTranslation('term', app()->getLocale());
 
-                $text = $this->replaceGlossaryVariant($currentLanguageVariantTerm, $glossaryTerm->id, $text, $count);
+                $text = $this->replaceGlossaryVariant($currentLanguageVariantTerm, $glossaryTerm->slug, $text, $count);
 
                 if (self::variantIsPresent($text, $currentLanguageVariantTerm)) {
                     $glossaryTermPresent = true;
@@ -162,15 +167,15 @@ class GlossaryService
      *
      * @return string
      */
-    public function replaceGlossaryVariant(string $currentLanguageVariantTerm, int $glossaryTermId, string $text, int &$count): string
+    public function replaceGlossaryVariant(string $currentLanguageVariantTerm, string $glossarySlug, string $text, int &$count): string
     {
         //$pattern = "/\b$glossaryTerm->term\b/";
         $pattern = "~<a .*?</a>(*SKIP)(*F)|\b$currentLanguageVariantTerm\b~";
 
         $text = preg_replace_callback(
             $pattern,
-            function ($matches) use ($currentLanguageVariantTerm, $glossaryTermId, $count) {
-                $glossaryTermTemplate = "<a href='/glossaryTerms/".$glossaryTermId."' class='text-red-700 has-glossary-term glossary-term-".$count."' data-termFoundId='".$count."' data-definitionId='".$glossaryTermId."'>".$currentLanguageVariantTerm."</a>";
+            function ($matches) use ($currentLanguageVariantTerm, $glossarySlug, $count) {
+                $glossaryTermTemplate = "<a href='/glossaryTerms/".$glossarySlug."' class='text-red-700 has-glossary-term glossary-term-".$count."' data-termFoundId='".$count."' data-definitionId='".$glossarySlug."'>".$currentLanguageVariantTerm."</a>";
                 return $glossaryTermTemplate;
                 $count++;
             },
@@ -190,7 +195,7 @@ class GlossaryService
      */
     public function attachTermDescription(Glossary $glossaryTerm, string $text): string
     {
-        $termTooltipContent = "<div class='tooltip-painter' id='glossary-definition-" . $glossaryTerm->id . "' style='display:none'>";
+        $termTooltipContent = "<div class='tooltip-painter' id='glossary-definition-" . $glossaryTerm->slug . "' style='display:none'>";
         $termTooltipContent .= "<div class='photo'>";
         if($glossaryTerm->hasMedia('introimage')){
             $termTooltipContent .= "<img src='".$glossaryTerm->getMedia('introimage')[0]->getUrl('thumb')."' alt=''/>";
@@ -203,7 +208,7 @@ class GlossaryService
         $termTooltipContent .= $glossaryTerm->definition;
         $termTooltipContent .= "<br>";
         $termTooltipContent .= "<div class='mt-2'>";
-        $termTooltipContent .= "<a href='" . route('glossary.show',$glossaryTerm->id) . "'>Read more</a>";  // route('glossary.show',$glossaryTerm->id)
+        $termTooltipContent .= "<a href='" . route('glossary.show',$glossaryTerm->slug) . "'>Read more</a>";  // route('glossary.show',$glossaryTerm->id)
         $termTooltipContent .= "</div>";
         $termTooltipContent .= "</div>";
         $termTooltipContent .=  "</div>";

@@ -8,7 +8,6 @@ use App\Http\Requests\GlossaryStoreRequest;
 use App\Models\Glossary;
 use App\Services\GlossaryService;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
@@ -30,13 +29,12 @@ class GlossaryController extends Controller
     /**
      * Show the resource.
      *
-     * @param int $glossaryTermId
-     *
+     * @param  int  $glossarySlug
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\View\View
      */
-    public function show(int $glossaryTermId): View
+    public function show(string $glossarySlug): View
     {
-        $glossaryTerm = Glossary::find($glossaryTermId);
+        $glossaryTerm = $this->glossaryService->getBySlug($glossarySlug);
         $titleQuestion = $this->glossaryService->getGlossaryTermTitleQuestion($glossaryTerm);
 
         return view('glossaries.show', [

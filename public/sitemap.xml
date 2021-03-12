@@ -1,200 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
     <url>
-        <loc>http://movement_meets_life.local/aboutMe</loc>
-        <lastmod>2021-03-07T19:29:09+00:00</lastmod>
+        <loc>https://movement_meets_life_nova.local/aboutMe</loc>
+        <lastmod>2021-03-11T15:48:27+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>http://movement_meets_life.local/blog</loc>
-        <lastmod>2021-03-07T19:29:09+00:00</lastmod>
+        <loc>https://movement_meets_life_nova.local/blog</loc>
+        <lastmod>2021-03-11T15:48:27+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>http://movement_meets_life.local/contact</loc>
-        <lastmod>2021-03-07T19:29:09+00:00</lastmod>
+        <loc>https://movement_meets_life_nova.local/contact</loc>
+        <lastmod>2021-03-11T15:48:27+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>http://movement_meets_life.local/contact-improvisation</loc>
-        <lastmod>2021-03-07T19:29:09+00:00</lastmod>
+        <loc>https://movement_meets_life_nova.local/contact-improvisation</loc>
+        <lastmod>2021-03-11T15:48:27+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>http://movement_meets_life.local/getATreatment</loc>
-        <lastmod>2021-03-07T19:29:09+00:00</lastmod>
+        <loc>https://movement_meets_life_nova.local/events/event-title-with-spaces</loc>
+        <lastmod>2021-03-11T15:48:27+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>http://movement_meets_life.local/next_events</loc>
-        <lastmod>2021-03-07T19:29:09+00:00</lastmod>
+        <loc>https://movement_meets_life_nova.local/getATreatment</loc>
+        <lastmod>2021-03-11T15:48:27+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>http://movement_meets_life.local/posts/ab-asperiores-voluptatem</loc>
-        <lastmod>2021-03-07T19:29:19+00:00</lastmod>
+        <loc>https://movement_meets_life_nova.local/glossaryTerms/glossary-term-with-spaces</loc>
+        <lastmod>2021-03-11T15:48:27+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>http://movement_meets_life.local/posts/aut-nemo</loc>
-        <lastmod>2021-03-07T19:29:19+00:00</lastmod>
+        <loc>https://movement_meets_life_nova.local/next_events</loc>
+        <lastmod>2021-03-11T15:48:27+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>http://movement_meets_life.local/posts/cupiditate-minus</loc>
-        <lastmod>2021-03-07T19:29:19+00:00</lastmod>
+        <loc>https://movement_meets_life_nova.local/posts/post-title-with-spaces</loc>
+        <lastmod>2021-03-11T15:48:27+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>http://movement_meets_life.local/posts/dolore-sit-id</loc>
-        <lastmod>2021-03-07T19:29:19+00:00</lastmod>
+        <loc>https://movement_meets_life_nova.local/tags/tag-word-with-spaces</loc>
+        <lastmod>2021-03-11T15:48:27+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>http://movement_meets_life.local/posts/dolorem-id-voluptatum</loc>
-        <lastmod>2021-03-07T19:29:19+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>http://movement_meets_life.local/posts/doloribus-iure-totam</loc>
-        <lastmod>2021-03-07T19:29:19+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>http://movement_meets_life.local/posts/esse-quae</loc>
-        <lastmod>2021-03-07T19:29:19+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>http://movement_meets_life.local/posts/et-iste-ducimus</loc>
-        <lastmod>2021-03-07T19:29:19+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>http://movement_meets_life.local/posts/eveniet-sed-et</loc>
-        <lastmod>2021-03-07T19:29:19+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>http://movement_meets_life.local/posts/facere-assumenda-reiciendis</loc>
-        <lastmod>2021-03-07T19:29:19+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>http://movement_meets_life.local/posts/id-doloribus</loc>
-        <lastmod>2021-03-07T19:29:19+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>http://movement_meets_life.local/posts/in-et-nulla</loc>
-        <lastmod>2021-03-07T19:29:19+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>http://movement_meets_life.local/posts/neque-quo-ut</loc>
-        <lastmod>2021-03-07T19:29:19+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>http://movement_meets_life.local/posts/odio-voluptatibus-suscipit</loc>
-        <lastmod>2021-03-07T19:29:19+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>http://movement_meets_life.local/posts/qui-voluptas-est</loc>
-        <lastmod>2021-03-07T19:29:19+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>http://movement_meets_life.local/posts/quis-vitae-alias</loc>
-        <lastmod>2021-03-07T19:29:19+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>http://movement_meets_life.local/posts/recusandae-soluta-maxime</loc>
-        <lastmod>2021-03-07T19:29:19+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>http://movement_meets_life.local/posts/repellat-tempore</loc>
-        <lastmod>2021-03-07T19:29:19+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>http://movement_meets_life.local/posts/sit-impedit</loc>
-        <lastmod>2021-03-07T19:29:19+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>http://movement_meets_life.local/posts/sit-sunt-amet</loc>
-        <lastmod>2021-03-07T19:29:19+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>http://movement_meets_life.local/posts/velit-sed-repellendus</loc>
-        <lastmod>2021-03-07T19:29:19+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>http://movement_meets_life.local/posts/veritatis-corrupti-explicabo</loc>
-        <lastmod>2021-03-07T19:29:19+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>http://movement_meets_life.local/posts/veritatis-iusto</loc>
-        <lastmod>2021-03-07T19:29:19+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>http://movement_meets_life.local/posts/vero-dolor-quisquam</loc>
-        <lastmod>2021-03-07T19:29:19+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>http://movement_meets_life.local/posts/voluptas-doloremque-dolores</loc>
-        <lastmod>2021-03-07T19:29:19+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>http://movement_meets_life.local/posts/voluptas-quisquam-recusandae</loc>
-        <lastmod>2021-03-07T19:29:19+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>http://movement_meets_life.local/treatments-ilan-lev-method</loc>
-        <lastmod>2021-03-07T19:29:09+00:00</lastmod>
+        <loc>https://movement_meets_life_nova.local/treatments-ilan-lev-method</loc>
+        <lastmod>2021-03-11T15:48:27+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>

@@ -70,6 +70,17 @@ class GlossaryRepository implements GlossaryRepositoryInterface
     }
 
     /**
+     * Get glossary term by slug
+     *
+     * @param  string  $glossarySlug
+     * @return Glossary
+     */
+    public function getBySlug(string $glossarySlug): Glossary
+    {
+        return Glossary::where('slug', $glossarySlug)->first();
+    }
+
+    /**
      * Store Glossary term
      *
      * @param array $data
