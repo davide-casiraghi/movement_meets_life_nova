@@ -74,6 +74,7 @@ class TestimonialServiceTest extends TestCase
             'surname' => 'test surname updated',
             'profession' => 'test profession updated',
             'feedback' => 'test feedback updated',
+            'feedback_short' => 'test feedback short',
             'country_id' => 1,
         ];
         $request->merge($data);
