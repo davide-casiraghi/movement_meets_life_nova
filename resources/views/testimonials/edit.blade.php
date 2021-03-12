@@ -91,6 +91,19 @@
 
                         <div class="col-span-6">
                             @include('partials.forms.textarea', [
+                                   'label' => __('views.feedback_short'),
+                                   'name' => 'feedback_short',
+                                   'placeholder' => '',
+                                   'value' => old('feedback_short', $testimonial->feedback_short),
+                                   'required' => false,
+                                   'disabled' => false,
+                                   'style' => 'plain',
+                                   'extraDescription' => '',
+                               ])
+                        </div>
+
+                        <div class="col-span-6">
+                            @include('partials.forms.textarea', [
                                    'label' => __('views.feedback'),
                                    'name' => 'feedback',
                                    'placeholder' => '',
@@ -171,6 +184,19 @@
                                             'required' => true,
                                             'disabled' => false,
                                     ])
+                                </div>
+
+                                <div class="col-span-6">
+                                    @include('partials.forms.textarea', [
+                                           'label' => __('views.feedback_short'),
+                                           'name' => 'feedback_short'.$countryCode,
+                                           'placeholder' => '',
+                                           'value' => old('feedback_short_'.$countryCode, $testimonial->getTranslation('feedback_short', $countryCode)),
+                                           'required' => false,
+                                           'disabled' => false,
+                                           'style' => 'plain',
+                                           'extraDescription' => '',
+                                       ])
                                 </div>
 
                                 <div class="col-span-6">
