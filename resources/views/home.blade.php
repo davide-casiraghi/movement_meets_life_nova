@@ -25,7 +25,7 @@
 
     @include('partials.pages.home.blog.block')
 
-    @include('partials.pages.home.testimonials')
+    @include('partials.pages.home.testimonials.block')
 
     @include('partials.quote_of_the_day')
 
