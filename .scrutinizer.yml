@@ -27,11 +27,9 @@ build:
     environment:
         php:
             version: 7.4
-        #mysql: 5.7
-        mariadb: 10
+        mysql: 5.7
     services:
-        #mysql: 5.7
-        mariadb: 10
+        mysql: 5.7
     nodes:
         analysis:
             tests:
