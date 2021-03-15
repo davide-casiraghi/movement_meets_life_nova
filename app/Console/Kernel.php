@@ -33,6 +33,10 @@ class Kernel extends ConsoleKernel
             ->emailOutputTo(env('WEBMASTER_MAIL'));
 
         $schedule->command('sitemap:generate')->daily();
+
+        // Backup
+//        $schedule->command('backup:clean')->weekly()->sundays()->at('00:00');
+        $schedule->command('backup:run')->weekly()->sundays()->at('00:30');
     }
 
     /**
