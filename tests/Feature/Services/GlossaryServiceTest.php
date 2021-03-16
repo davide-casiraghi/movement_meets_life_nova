@@ -123,6 +123,13 @@ class GlossaryServiceTest extends TestCase
     }
 
     /** @test */
+    public function itShouldReturnGlossaryBySlug()
+    {
+        $glossary = $this->glossaryService->getBySlug($this->glossary1->slug);
+        $this->assertEquals($this->glossary1->slug, $glossary->slug);
+    }
+
+    /** @test */
     public function itShouldReturnAllGlossariess()
     {
         $glossarys = $this->glossaryService->getGlossaries(20);

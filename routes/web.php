@@ -107,7 +107,6 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
         Route::get('/teachers/create', [TeacherController::class, 'create'])->name('create');
         Route::post('/teachers', [TeacherController::class, 'store'])->name('store');
         Route::delete('/teachers/{id}', [TeacherController::class, 'destroy'])->name('destroy');
-        Route::get('/teachers/{id}', [TeacherController::class, 'show'])->name('show');
     });
 
     // Organizers
@@ -232,3 +231,5 @@ Route::get('/events/{slug}', [EventController::class, 'show'])->name('events.sho
 
 Route::get('/getATreatment', [GetATreatmentController::class, 'create'])->name('getATreatment.create');
 Route::post('/getATreatment', [GetATreatmentController::class, 'store'])->name('getATreatment.store');
+
+Route::get('/teachers/{slug}', [TeacherController::class, 'show'])->name('teachers.show');

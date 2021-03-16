@@ -98,6 +98,13 @@ class TeacherServiceTest extends TestCase
     }
 
     /** @test */
+    public function itShouldReturnTeacherBySlug()
+    {
+        $teacher = $this->teacherService->getBySlug($this->teachers[1]->slug);
+        $this->assertEquals($this->teachers[1]->slug, $teacher->slug);
+    }
+
+    /** @test */
     public function itShouldReturnAllTeachers()
     {
         $teachers = $this->teacherService->getTeachers(20);

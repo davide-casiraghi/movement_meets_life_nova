@@ -63,6 +63,17 @@ class TeacherRepository implements TeacherRepositoryInterface
     }
 
     /**
+     * Get Teacher by slug
+     *
+     * @param  string  $teacherSlug
+     * @return Teacher
+     */
+    public function getBySlug(string $teacherSlug): Teacher
+    {
+        return Teacher::where('slug', $teacherSlug)->first();
+    }
+
+    /**
      * Store Teacher
      *
      * @param array $data
