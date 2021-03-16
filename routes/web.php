@@ -217,9 +217,7 @@ Route::post('/contact', [ContactMeController::class, 'store'])->name('contact.st
 //Route::get('/aboutMe', return view('pages.aboutMe'));
 //return view('posts.index');
 
-Route::get('/aboutMe', function () {
-    return view('pages.aboutMe');
-});
+
 
 // Guest routes
 Route::get('/', [ HomeController::class, 'index'])->name('home');
@@ -227,6 +225,7 @@ Route::get('/blog', [PostController::class, 'blog'])->name('posts.blog');
 Route::get('/posts/{slug}', [PostController::class, 'show'])->name('posts.show');
 Route::get('/tags/{slug}', [TagController::class, 'show'])->name('tags.show');
 Route::get('/next_events', [EventController::class, 'nextEvents'])->name('events.next');
+Route::get('/aboutMe', [StaticPageController::class, 'aboutMe'])->name('staticPages.aboutMe');
 Route::get('/treatments-ilan-lev-method', [StaticPageController::class, 'treatments'])->name('staticPages.treatments');
 Route::get('/contact-improvisation', [StaticPageController::class, 'contactImprovisation'])->name('staticPages.contactImprovisation');
 Route::get('/events/{slug}', [EventController::class, 'show'])->name('events.show');
