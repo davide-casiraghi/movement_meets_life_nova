@@ -163,7 +163,7 @@ class GlossaryServiceTest extends TestCase
 
         $textWithHoverableTerm = $this->glossaryService->markGlossaryTerms($text);
 
-        $this->assertStringContainsString("<a href='/glossaryTerms/", $textWithHoverableTerm);
+        $this->assertStringContainsString("<a href='/glossaries/", $textWithHoverableTerm);
     }
 
     /** @test */
@@ -176,7 +176,7 @@ class GlossaryServiceTest extends TestCase
         $glossaryTermId = $this->glossary1->id;
 
         $textWithTermReplaced = $this->glossaryService->replaceGlossaryVariant($currentLanguageVariantTerm, $glossaryTermId, $text, $count);
-        $this->assertStringContainsString("<a href='/glossaryTerms/", $textWithTermReplaced);
+        $this->assertStringContainsString("<a href='/glossaries/", $textWithTermReplaced);
     }
 
     /** @test */

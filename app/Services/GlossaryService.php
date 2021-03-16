@@ -175,7 +175,7 @@ class GlossaryService
         $text = preg_replace_callback(
             $pattern,
             function ($matches) use ($currentLanguageVariantTerm, $glossarySlug, $count) {
-                $glossaryTermTemplate = "<a href='/glossaryTerms/".$glossarySlug."' class='text-red-700 has-glossary-term glossary-term-".$count."' data-termFoundId='".$count."' data-definitionId='".$glossarySlug."'>".$currentLanguageVariantTerm."</a>";
+                $glossaryTermTemplate = "<a href='/glossaries/".$glossarySlug."' class='text-red-700 has-glossary-term glossary-term-".$count."' data-termFoundId='".$count."' data-definitionId='".$glossarySlug."'>".$currentLanguageVariantTerm."</a>";
                 return $glossaryTermTemplate;
                 $count++;
             },
@@ -208,7 +208,7 @@ class GlossaryService
         $termTooltipContent .= $glossaryTerm->definition;
         $termTooltipContent .= "<br>";
         $termTooltipContent .= "<div class='mt-2'>";
-        $termTooltipContent .= "<a href='" . route('glossary.show',$glossaryTerm->slug) . "'>Read more</a>";  // route('glossary.show',$glossaryTerm->id)
+        $termTooltipContent .= "<a href='" . route('glossaries.show',$glossaryTerm->slug) . "'>Read more</a>";  // route('glossary.show',$glossaryTerm->id)
         $termTooltipContent .= "</div>";
         $termTooltipContent .= "</div>";
         $termTooltipContent .=  "</div>";
