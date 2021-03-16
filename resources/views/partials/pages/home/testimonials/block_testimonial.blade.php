@@ -1,9 +1,8 @@
-<div>
+<div class="mb-10 lg:mb-0">
     <blockquote class="col-span-3 md:col-span-1 rounded-md shadow-xl overflow-hidden bg-white ">
-        <div class="flex-grow flex items-center px-12 py-6 text-xl leading-relaxed text-dark-800">
+        <div class="flex-grow flex items-center px-12 py-6 text-xl leading-relaxed text-gray-500">
             <p class="">
                 {{$testimonial->feedback_short}}
-                <mark class="px-1 bg-orange-100 text-dark-800">It’s a breath of fresh air</mark>
             </p>
         </div>
 
