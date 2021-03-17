@@ -9,7 +9,10 @@
         <footer class="z-20 px-12 py-3 bg-gray-200">
             <a href="{{route('testimonials.show', $testimonial->id)}}" target="_blank" rel="noopener" class="flex items-center group">
                     <span class="mr-3 w-12 h-12 rounded-full overflow-hidden shadow">
-                        <img alt="{{$testimonial->name}} {{$testimonial->surname}} avatar" class="w-12 h-12 object-cover rounded-full overflow-hidden" src="{{$testimonial->getMedia('photo')->first()->getUrl('thumb')}}">
+                        @if($testimonial->getMedia('photo')->first())
+                            <img alt="{{$testimonial->name}} {{$testimonial->surname}} avatar" class="w-12 h-12 object-cover rounded-full overflow-hidden"
+                                 src="{{$testimonial->getMedia('photo')->first()->getUrl('thumb')}}">
+                        @endif
                     </span>
                 <span class="leading-snug">
                     <span class="block font-semibold uppercase tracking-widest | group-hover:text-dark-700">{{$testimonial->name}} {{$testimonial->surname}}</span>
