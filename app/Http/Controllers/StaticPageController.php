@@ -18,6 +18,16 @@ class StaticPageController extends Controller
     }
 
     /**
+     * Show the about me page.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function aboutMe()
+    {
+      return view('pages.aboutMe');
+    }
+
+    /**
      * Show the treatments page.
      *
      * @return \Illuminate\Contracts\Support\Renderable

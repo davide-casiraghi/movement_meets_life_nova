@@ -44,22 +44,22 @@
                         </h4>
                         <ul class="mt-4 space-y-4">
                             <li>
-                                <a href="#" class="text-base leading-6 text-gray-300 hover:text-white">
+                                <a href="{{route('staticPages.aboutMe')}}" class="text-base leading-6 text-gray-300 hover:text-white">
                                     About me
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="text-base leading-6 text-gray-300 hover:text-white">
+                                <a href="{{route('posts.blog')}}" class="text-base leading-6 text-gray-300 hover:text-white">
                                     Blog
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="text-base leading-6 text-gray-300 hover:text-white">
+                                <a href="{{route('staticPages.contactImprovisation')}}" class="text-base leading-6 text-gray-300 hover:text-white">
                                     Contact Improvisation
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="text-base leading-6 text-gray-300 hover:text-white">
+                                <a href="{{route('events.next')}}" class="text-base leading-6 text-gray-300 hover:text-white">
                                     Events
                                 </a>
                             </li>
