@@ -66,6 +66,17 @@ class OrganizerRepository implements OrganizerRepositoryInterface
     }
 
     /**
+     * Get Organizer by slug
+     *
+     * @param  string  $organizerSlug
+     * @return Organizer
+     */
+    public function getBySlug(string $organizerSlug): Organizer
+    {
+        return Organizer::where('slug', $organizerSlug)->first();
+    }
+
+    /**
      * Store Organizer
      *
      * @param array $data

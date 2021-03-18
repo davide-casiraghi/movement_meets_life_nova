@@ -2,22 +2,21 @@
 namespace App\Services;
 
 use App\Helpers\ImageHelpers;
-use App\Http\Requests\OrganizerSearchRequest;
 use App\Http\Requests\OrganizerStoreRequest;
 use App\Models\Organizer;
-use App\Repositories\OrganizerRepository;
+use App\Repositories\OrganizerRepositoryInterface;
 
 class OrganizerService
 {
-    private OrganizerRepository $organizerRepository;
+    private OrganizerRepositoryInterface $organizerRepository;
 
     /**
      * OrganizerService constructor.
      *
-     * @param \App\Repositories\OrganizerRepository $organizerRepository
+     * @param  OrganizerRepositoryInterface  $organizerRepository
      */
     public function __construct(
-        OrganizerRepository $organizerRepository
+        OrganizerRepositoryInterface $organizerRepository
     ) {
         $this->organizerRepository = $organizerRepository;
     }
@@ -66,6 +65,17 @@ class OrganizerService
     public function getById(int $organizerId): Organizer
     {
         return $this->organizerRepository->getById($organizerId);
+    }
+
+    /**
+     * Get Organizer by slug
+     *
+     * @param  string  $organizerSlug
+     * @return Organizer
+     */
+    public function getBySlug(string $organizerSlug): Organizer
+    {
+        return $this->organizerRepository->getBySlug($organizerSlug);
     }
 
     /**

@@ -30,6 +30,14 @@ interface OrganizerRepositoryInterface
     public function getById(int $id): Organizer;
 
     /**
+     * Get Organizer by slug
+     *
+     * @param  string  $organizerSlug
+     * @return Organizer
+     */
+    public function getBySlug(string $organizerSlug): Organizer;
+
+    /**
      * Store Organizer
      *
      * @param array $data

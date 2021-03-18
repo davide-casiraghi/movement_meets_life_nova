@@ -54,8 +54,8 @@
         <div>
             <h3>Bio</h3>
             <div>
-                @if($teacher->getMedia('profile_picture')->first())
-                    <img class="mb-2 sm:float-right sm:ml-3" src="{{ $teacher->getMedia('profile_picture')->first()->getUrl('thumb') }}"
+                @if($teacher->hasMedia('profile_picture'))
+                    <img class="rounded-lg shadow-lg mb-2 sm:float-right sm:ml-3" src="{{ $teacher->getMedia('profile_picture')->first()->getUrl('thumb') }}"
                         alt="{{ $teacher->name }} {{ $teacher->surname }} picture">
                 @endif
                 <p>{!! $teacher->bio !!}</p>
