@@ -8,7 +8,7 @@
 @section('fb-tags')
     <meta property="og:title" content="{{ $event->title }} - {{ $event->venue->name }} - {{ $event->venue->city }}, {{ $event->venue->country->name }}" />
     @if($event->hasMedia('introimage'))
-        <meta property="og:image" content="{{$event->getMedia('introimage')[0]->getUrl()}}" />
+        <meta property="og:image" content="{{$event->getMedia('introimage')[0]->getUrl('facebook')}}" />
     @else
         <meta property="og:image" content="/storage/logo/fb_logo_cigc_red.jpg" />
     @endif
