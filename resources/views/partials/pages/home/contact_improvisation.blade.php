@@ -3,18 +3,18 @@
     <div class="lg:grid lg:grid-cols-12 lg:gap-8">
         <div class="sm:text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left lg:col-start-7 lg:row-start-1">
             <div class="text-sm font-semibold uppercase tracking-wide text-gray-500 sm:text-base lg:text-sm xl:text-base">
-                CONTACT IMPROVISATION
+                {{ ucfirst(trans('static_pages.home.blocks.contact.contact_improvisation')) }}
             </div>
             <div class="mt-1 text-4xl tracking-tight leading-10 font-brand text-gray-900 sm:leading-none sm:text-6xl lg:text-4xl xl:text-5xl">
-                More than a dance, it's like a <span class="text-primary-600">mindful practice</span> to fully awake our agility, release tensions and find a state of inner peace.
+                @lang('static_pages.home.blocks.contact.more_than_a_dance')
             </div>
             <p class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
-                Contact Improvisation dance is liberating, creative and fun. It’s about exploring movement, balance, weight, physical contact and communication, involving two or more persons at the time.
+                @lang('static_pages.home.blocks.contact.ci_is_liberating')
             </p>
             <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                 <div class="rounded-md shadow">
                     <a href="{{route('staticPages.contactImprovisation')}}" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-primary-600 hover:bg-primary-500 focus:outline-none focus:border-primary-700 focus:ring-primary transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10">
-                        More about CI
+                        @lang('static_pages.home.blocks.contact.more_about_ci')
                     </a>
                 </div>
                 {{--<div class="mt-3 sm:mt-0 sm:ml-3">
