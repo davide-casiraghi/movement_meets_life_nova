@@ -1,5 +1,14 @@
 @extends('layouts.app')
 
+@section('fb-tags')
+    <meta property="og:title" content="{{ $teacher->name }} {{ $teacher->surname }}" />
+    @if($teacher->hasMedia('profile_picture'))
+        <meta property="og:image" content="{{$teacher->getMedia('profile_picture')->first()->getUrl('thumb')}}" />
+    @else
+        <meta property="og:image" content="/storage/logo/fb_logo_cigc_red.jpg" />
+    @endif
+@endsection
+
 @section('content')
 
     @include('partials.messages')
