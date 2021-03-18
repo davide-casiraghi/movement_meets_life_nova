@@ -18,12 +18,8 @@ return [
         'ilm' => [
           'ilan_lev_method' => 'ILAN LEV METHOD',
           'a_revolutionary_form' => "A revolutionary form of <br><span class='text-primary-600'>hands-on bodywork</span> that addresses body aches, pains and movement imbalances",
-
-
-
           'through_bodywork' => "Through bodywork we can get an external support to address this situations and to allow our body to find a new equilibrium and alignment free from tensions.",
           'get_a_treatment' => 'Get a treatment',
-
           'more_info' => 'More info about ILM',
         ],
         'contact' => [
