@@ -123,6 +123,13 @@ class GlossaryServiceTest extends TestCase
     }
 
     /** @test */
+    public function itShouldReturnGlossaryBySlug()
+    {
+        $glossary = $this->glossaryService->getBySlug($this->glossary1->slug);
+        $this->assertEquals($this->glossary1->slug, $glossary->slug);
+    }
+
+    /** @test */
     public function itShouldReturnAllGlossariess()
     {
         $glossarys = $this->glossaryService->getGlossaries(20);
@@ -163,7 +170,7 @@ class GlossaryServiceTest extends TestCase
 
         $textWithHoverableTerm = $this->glossaryService->markGlossaryTerms($text);
 
-        $this->assertStringContainsString("<a href='/glossaryTerms/", $textWithHoverableTerm);
+        $this->assertStringContainsString("<a href='/glossaries/", $textWithHoverableTerm);
     }
 
     /** @test */
@@ -176,7 +183,7 @@ class GlossaryServiceTest extends TestCase
         $glossaryTermId = $this->glossary1->id;
 
         $textWithTermReplaced = $this->glossaryService->replaceGlossaryVariant($currentLanguageVariantTerm, $glossaryTermId, $text, $count);
-        $this->assertStringContainsString("<a href='/glossaryTerms/", $textWithTermReplaced);
+        $this->assertStringContainsString("<a href='/glossaries/", $textWithTermReplaced);
     }
 
     /** @test */

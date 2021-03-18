@@ -9,6 +9,7 @@ use App\Models\Teacher;
 use App\Services\CountryService;
 use App\Services\TeacherService;
 use App\Traits\CheckPermission;
+use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
@@ -32,7 +33,7 @@ class TeacherController extends Controller
      *
      * @param \App\Http\Requests\TeacherSearchRequest $request
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @return Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function index(TeacherSearchRequest $request)
     {
@@ -87,15 +88,14 @@ class TeacherController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param int $teacherId
-     *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @param  string  $teacherSlug
+     * @return Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function show(int $teacherId)
+    public function show(string $teacherSlug)
     {
-        $teacher = $this->teacherService->getById($teacherId);
+        $teacher = $this->teacherService->getBySlug($teacherSlug);
 
-        return view('teachers.show', compact('teacher'));
+        return view('teachers.show', ['teacher' => $teacher]);
     }
 
     /**
@@ -103,7 +103,7 @@ class TeacherController extends Controller
      *
      * @param int $teacherId
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @return Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function edit(int $teacherId)
     {

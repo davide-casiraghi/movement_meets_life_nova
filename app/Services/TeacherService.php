@@ -2,22 +2,21 @@
 namespace App\Services;
 
 use App\Helpers\ImageHelpers;
-use App\Http\Requests\TeacherSearchRequest;
 use App\Http\Requests\TeacherStoreRequest;
 use App\Models\Teacher;
-use App\Repositories\TeacherRepository;
+use App\Repositories\TeacherRepositoryInterface;
 
 class TeacherService
 {
-    private TeacherRepository $teacherRepository;
+    private TeacherRepositoryInterface $teacherRepository;
 
     /**
      * TestimonialService constructor.
      *
-     * @param \App\Repositories\TeacherRepository $teacherRepository
+     * @param  TeacherRepositoryInterface  $teacherRepository
      */
     public function __construct(
-        TeacherRepository $teacherRepository
+        TeacherRepositoryInterface $teacherRepository
     ) {
         $this->teacherRepository = $teacherRepository;
     }
@@ -66,6 +65,17 @@ class TeacherService
     public function getById(int $teacherId): Teacher
     {
         return $this->teacherRepository->getById($teacherId);
+    }
+
+    /**
+     * Return the teacher from the database
+     *
+     * @param  string  $teacherSlug
+     * @return Teacher
+     */
+    public function getBySlug(string $teacherSlug): Teacher
+    {
+        return $this->teacherRepository->getBySlug($teacherSlug);
     }
 
     /**

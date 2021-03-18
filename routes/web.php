@@ -98,7 +98,6 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
         Route::get('/glossaries/create', [GlossaryController::class, 'create'])->name('create');
         Route::post('/glossaries', [GlossaryController::class, 'store'])->name('store');
         Route::delete('/glossaries/{id}', [GlossaryController::class, 'destroy'])->name('destroy');
-        Route::get('/glossaries/{id}', [GlossaryController::class, 'show'])->name('show');
     });
 
     // Teachers
@@ -109,7 +108,6 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
         Route::get('/teachers/create', [TeacherController::class, 'create'])->name('create');
         Route::post('/teachers', [TeacherController::class, 'store'])->name('store');
         Route::delete('/teachers/{id}', [TeacherController::class, 'destroy'])->name('destroy');
-        Route::get('/teachers/{id}', [TeacherController::class, 'show'])->name('show');
     });
 
     // Organizers
@@ -212,7 +210,7 @@ Route::group(
 
 
   //Route::get('tag/{tagId}',[ TagController::class, 'show'])->name('tags.show');
-  Route::get('glossaryTerms/{slug}', [ GlossaryController::class, 'show'])->name('glossary.show');
+  Route::get('glossaries/{slug}', [ GlossaryController::class, 'show'])->name('glossaries.show');
 
   // Contact form
   Route::get('/contact', [ContactMeController::class, 'index'])->name('contact.index');
@@ -239,5 +237,5 @@ Route::group(
   Route::get('/getATreatment', [GetATreatmentController::class, 'create'])->name('getATreatment.create');
   Route::post('/getATreatment', [GetATreatmentController::class, 'store'])->name('getATreatment.store');
 
+  Route::get('/teachers/{slug}', [TeacherController::class, 'show'])->name('teachers.show');
 });
-

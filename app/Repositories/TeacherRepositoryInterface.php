@@ -30,6 +30,14 @@ interface TeacherRepositoryInterface
     public function getById(int $id): Teacher;
 
     /**
+     * Get Teacher by slug
+     *
+     * @param  string  $teacherSlug
+     * @return Teacher
+     */
+    public function getBySlug(string $teacherSlug): Teacher;
+
+    /**
      * Store Teacher
      *
      * @param array $data
