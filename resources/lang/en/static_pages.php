@@ -39,5 +39,31 @@ return [
     'treatments' => [
       'aaa' => 'aaa',
     ],
+    'top_menu' => [
+        'about_me' => 'About me',
+        'treatments' => 'Treatments',
+        'events' => 'Events',
+        'blog' => 'Blog',
+    ],
+    'footer' => [
+        'get_in_touch' => 'Get in touch',
+        'contact_me' => 'Contact me / Feedback',
+        'become_a_testimonial' => 'Become a testimonial',
+        'services' => 'Services',
+        'get_a_treatment' => 'Get a treatment',
+        'pages' => 'Pages',
+        'about_me' => 'About me',
+        'blog' => 'Blog',
+        'contact_improvisation' => 'Contact Improvisation',
+        'events' => 'Events',
+        'research' => 'Research',
+        'water_contact' => 'Water contact',
+        'glossary' => 'Glossary',
+        'subscribe_to_newsletter' => 'Subscribe to our newsletter',
+        'latest_news' => 'The latest news, articles, and resources, sent to your inbox every three months.',
+        'enter_email' => 'Enter your email',
+        'subscribe_button' => 'Subscribe',
+        'copyright' => '© 2020 Workflow, Inc. All rights reserved.',
+    ],
 
 ];

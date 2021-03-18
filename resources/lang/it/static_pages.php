@@ -39,5 +39,31 @@ return [
     'treatments' => [
       'aaa' => 'aaa',
     ],
+    'top_menu' => [
+        'about_me' => 'Su di me',
+        'treatments' => 'Trattamenti',
+        'events' => 'Eventi',
+        'blog' => 'Blog',
+    ],
+    'footer' => [
+        'get_in_touch' => 'Stiamo in contatto',
+        'contact_me' => 'Contattami / Feedback',
+        'become_a_testimonial' => 'Diventa un testimonial',
+        'services' => 'Servizi',
+        'get_a_treatment' => 'Prenota un trattamento',
+        'pages' => 'Pagine',
+        'about_me' => 'Su di me',
+        'blog' => 'Blog',
+        'contact_improvisation' => 'Contact Improvisation',
+        'events' => 'Eventi',
+        'research' => 'Rierca',
+        'water_contact' => 'Water contact',
+        'glossary' => 'Glossario',
+        'subscribe_to_newsletter' => 'Iscriviti alla newsletter',
+        'latest_news' => 'Le ultime notizie, articoli e risorse, inviati alla tua casella di posta ogni tre mesi.',
+        'enter_email' => 'Inserisci la tua email',
+        'subscribe_button' => 'Iscriviti',
+        'copyright' => '© 2020 Workflow, Inc. Tutti i diritti riservati.',
+    ],
 
 ];

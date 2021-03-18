@@ -9,29 +9,29 @@
                 <div class="md:grid md:grid-cols-2 md:gap-8">
                     <div>
                         <h4 class="text-sm leading-5 font-semibold text-gray-400 tracking-wider uppercase">
-                            Get in touch
+                            @lang('static_pages.footer.get_in_touch')
                         </h4>
                         <ul class="mt-4 space-y-4">
                             <li>
                                 <a href="{{route('contact.index')}}" class="text-base leading-6 text-gray-300 hover:text-white">
-                                    Contact me / Feedback
+                                    @lang('static_pages.footer.contact_me')
                                 </a>
                             </li>
                             <li>
                                 <a href="{{route('testimonials.create')}}" class="text-base leading-6 text-gray-300 hover:text-white">
-                                    Become a testimonial
+                                    @lang('static_pages.footer.become_a_testimonial')
                                 </a>
                             </li>
                         </ul>
                     </div>
                     <div class="mt-12 md:mt-0">
                         <h4 class="text-sm leading-5 font-semibold text-gray-400 tracking-wider uppercase">
-                            Services
+                            @lang('static_pages.footer.services')
                         </h4>
                         <ul class="mt-4 space-y-4">
                             <li>
                                 <a href="/getATreatment" class="text-base leading-6 text-gray-300 hover:text-white">
-                                    Get a treatment
+                                    @lang('static_pages.footer.get_a_treatment')
                                 </a>
                             </li>
                         </ul>
@@ -45,39 +45,39 @@
                         <ul class="mt-4 space-y-4">
                             <li>
                                 <a href="{{route('staticPages.aboutMe')}}" class="text-base leading-6 text-gray-300 hover:text-white">
-                                    About me
+                                    @lang('static_pages.footer.about_me')
                                 </a>
                             </li>
                             <li>
                                 <a href="{{route('posts.blog')}}" class="text-base leading-6 text-gray-300 hover:text-white">
-                                    Blog
+                                    @lang('static_pages.footer.blog')
                                 </a>
                             </li>
                             <li>
                                 <a href="{{route('staticPages.contactImprovisation')}}" class="text-base leading-6 text-gray-300 hover:text-white">
-                                    Contact Improvisation
+                                    @lang('static_pages.footer.contact_improvisation')
                                 </a>
                             </li>
                             <li>
                                 <a href="{{route('events.next')}}" class="text-base leading-6 text-gray-300 hover:text-white">
-                                    Events
+                                    @lang('static_pages.footer.events')
                                 </a>
                             </li>
                         </ul>
                     </div>
                     <div class="mt-12 md:mt-0">
                         <h4 class="text-sm leading-5 font-semibold text-gray-400 tracking-wider uppercase">
-                            Research
+                            @lang('static_pages.footer.research')
                         </h4>
                         <ul class="mt-4 space-y-4">
                             <li>
                                 <a href="#" class="text-base leading-6 text-gray-300 hover:text-white">
-                                    Water contact
+                                    @lang('static_pages.footer.water_contact')
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="text-base leading-6 text-gray-300 hover:text-white">
-                                    Glossary
+                                    @lang('static_pages.footer.glossary')
                                 </a>
                             </li>
                         </ul>
@@ -107,18 +107,18 @@
         <div class="border-t border-gray-700 pt-8 space-y-4 lg:space-y-0 lg:flex lg:items-center lg:justify-between xl:mt-0">
             <div class="space-y-2">
                 <h4 class="text-sm leading-5 font-semibold text-gray-400 tracking-wider uppercase">
-                    Subscribe to our newsletter
+                    @lang('static_pages.footer.subscribe_to_newsletter')
                 </h4>
                 <p class="text-base leading-6 text-gray-300">
-                    The latest news, articles, and resources, sent to your inbox every three months.
+                    @lang('static_pages.footer.latest_news')
                 </p>
             </div>
             <form class="sm:flex sm:max-w-md">
                 <label for="emailAddress" class="sr-only">Email address</label>
-                <input type="email" id="emailAddress" required class="appearance-none min-w-0 w-full bg-white border border-transparent rounded-md py-2 px-4 text-base leading-6 text-gray-900 placeholder-gray-500 focus:outline-none focus:border-blue-300 focus:ring-blue focus:placeholder-gray-400 transition duration-150 ease-in-out sm:max-w-xs" placeholder="Enter your email">
+                <input type="email" id="emailAddress" required class="appearance-none min-w-0 w-full bg-white border border-transparent rounded-md py-2 px-4 text-base leading-6 text-gray-900 placeholder-gray-500 focus:outline-none focus:border-blue-300 focus:ring-blue focus:placeholder-gray-400 transition duration-150 ease-in-out sm:max-w-xs" placeholder="@lang('static_pages.footer.enter_email')">
                 <div class="mt-3 rounded-md sm:mt-0 sm:ml-3 sm:flex-shrink-0">
                     <button type="submit" class="w-full bg-primary-500 border border-transparent rounded-md py-2 px-4 flex items-center justify-center text-base leading-6 font-medium text-white hover:bg-primary-400 focus:outline-none focus:border-primary-600 focus:ring-primary active:bg-primary-600 transition duration-150 ease-in-out">
-                        Subscribe
+                        @lang('static_pages.footer.subscribe_button')
                     </button>
                 </div>
             </form>
@@ -151,7 +151,7 @@
                 </a>
             </div>
             <p class="mt-8 text-base leading-6 text-gray-400 md:mt-0 md:order-1">
-                &copy; 2020 Workflow, Inc. All rights reserved.
+                @lang('static_pages.footer.copyright')
             </p>
         </div>
     </div>
