@@ -100,6 +100,13 @@ class OrganizerServiceTest extends TestCase
     }
 
     /** @test */
+    public function itShouldReturnAnOrganizerBySlug()
+    {
+        $organizer = $this->organizerService->getBySlug($this->organizer1->slug);
+        $this->assertEquals($this->organizer1->slug, $organizer->slug);
+    }
+
+    /** @test */
     public function itShouldReturnAllOrganizers()
     {
         $organizers = $this->organizerService->getOrganizers(20);
