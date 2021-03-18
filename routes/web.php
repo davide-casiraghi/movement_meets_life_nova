@@ -118,7 +118,6 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
         Route::get('/organizers/create', [OrganizerController::class, 'create'])->name('create');
         Route::post('/organizers', [OrganizerController::class, 'store'])->name('store');
         Route::delete('/organizers/{id}', [OrganizerController::class, 'destroy'])->name('destroy');
-        Route::get('/organizers/{id}', [OrganizerController::class, 'show'])->name('show');
     });
 
     // Venues
@@ -238,4 +237,5 @@ Route::group(
   Route::post('/getATreatment', [GetATreatmentController::class, 'store'])->name('getATreatment.store');
 
   Route::get('/teachers/{slug}', [TeacherController::class, 'show'])->name('teachers.show');
+  Route::get('/organizers/{slug}', [OrganizerController::class, 'show'])->name('organizers.show');
 });

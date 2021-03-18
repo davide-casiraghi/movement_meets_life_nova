@@ -95,7 +95,7 @@ class TeacherController extends Controller
     {
         $teacher = $this->teacherService->getBySlug($teacherSlug);
 
-        return view('teachers.show', ['teacher' => $teacher]);
+        return view('teachers.show', compact('teacher'));
     }
 
     /**

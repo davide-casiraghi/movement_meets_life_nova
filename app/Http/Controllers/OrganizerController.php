@@ -78,11 +78,11 @@ class OrganizerController extends Controller
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function show(int $organizerId)
+    public function show(string $organizerSlug)
     {
         $this->checkPermission('organizers.edit');
 
-        $organizer = $this->organizerService->getById($organizerId);
+        $organizer = $this->organizerService->getBySlug($organizerSlug);
 
         return view('organizers.show', compact('organizer'));
     }
