@@ -3,7 +3,7 @@
 
 /**
  * A helper file for Laravel, to provide autocomplete information to your IDE
- * Generated for Laravel 8.9.0.
+ * Generated for Laravel 8.33.1.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -198,6 +198,18 @@
                         return $instance->langPath();
         }
                     /**
+         * Set the language file directory.
+         *
+         * @param string $path
+         * @return \Illuminate\Foundation\Application 
+         * @static 
+         */ 
+        public static function useLangPath($path)
+        {
+                        /** @var \Illuminate\Foundation\Application $instance */
+                        return $instance->useLangPath($path);
+        }
+                    /**
          * Get the path to the public / web directory.
          *
          * @return string 
@@ -242,6 +254,20 @@
         {
                         /** @var \Illuminate\Foundation\Application $instance */
                         return $instance->resourcePath($path);
+        }
+                    /**
+         * Get the path to the views directory.
+         * 
+         * This method returns the first configured path in the array of view paths.
+         *
+         * @param string $path
+         * @return string 
+         * @static 
+         */ 
+        public static function viewPath($path = '')
+        {
+                        /** @var \Illuminate\Foundation\Application $instance */
+                        return $instance->viewPath($path);
         }
                     /**
          * Get the path to the environment file directory.
@@ -313,7 +339,7 @@
                         return $instance->environment(...$environments);
         }
                     /**
-         * Determine if application is in local environment.
+         * Determine if the application is in the local environment.
          *
          * @return bool 
          * @static 
@@ -324,7 +350,7 @@
                         return $instance->isLocal();
         }
                     /**
-         * Determine if application is in production environment.
+         * Determine if the application is in the production environment.
          *
          * @return bool 
          * @static 
@@ -800,6 +826,17 @@
                         return $instance->getLocale();
         }
                     /**
+         * Get the current application locale.
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function currentLocale()
+        {
+                        /** @var \Illuminate\Foundation\Application $instance */
+                        return $instance->currentLocale();
+        }
+                    /**
          * Get the current application fallback locale.
          *
          * @return string 
@@ -835,7 +872,7 @@
                         $instance->setFallbackLocale($fallbackLocale);
         }
                     /**
-         * Determine if application locale is the given locale.
+         * Determine if the application locale is the given locale.
          *
          * @param string $locale
          * @return bool 
@@ -1187,7 +1224,7 @@
                     /**
          * An alias function name for make().
          *
-         * @param string $abstract
+         * @param string|callable $abstract
          * @param array $parameters
          * @return mixed 
          * @throws \Illuminate\Contracts\Container\BindingResolutionException
@@ -1218,12 +1255,26 @@
          * @param \Closure|string $concrete
          * @return mixed 
          * @throws \Illuminate\Contracts\Container\BindingResolutionException
+         * @throws \Illuminate\Contracts\Container\CircularDependencyException
          * @static 
          */ 
         public static function build($concrete)
         {            //Method inherited from \Illuminate\Container\Container         
                         /** @var \Illuminate\Foundation\Application $instance */
                         return $instance->build($concrete);
+        }
+                    /**
+         * Register a new before resolving callback for all types.
+         *
+         * @param \Closure|string $abstract
+         * @param \Closure|null $callback
+         * @return void 
+         * @static 
+         */ 
+        public static function beforeResolving($abstract, $callback = null)
+        {            //Method inherited from \Illuminate\Container\Container         
+                        /** @var \Illuminate\Foundation\Application $instance */
+                        $instance->beforeResolving($abstract, $callback);
         }
                     /**
          * Register a new resolving callback.
@@ -1847,6 +1898,7 @@
          * @param string $password
          * @param string $attribute
          * @return bool|null 
+         * @throws \Illuminate\Auth\AuthenticationException
          * @static 
          */ 
         public static function logoutOtherDevices($password, $attribute = 'password')
@@ -2015,7 +2067,7 @@
                         return $instance->setRequest($request);
         }
                     /**
-         * Determine if current user is authenticated. If not, throw an exception.
+         * Determine if the current user is authenticated. If not, throw an exception.
          *
          * @return \App\Models\User 
          * @throws \Illuminate\Auth\AuthenticationException
@@ -2704,7 +2756,7 @@
                     /**
          * Create a new batch of queueable jobs.
          *
-         * @param \Illuminate\Support\Collection|array $jobs
+         * @param \Illuminate\Support\Collection|array|mixed $jobs
          * @return \Illuminate\Bus\PendingBatch 
          * @static 
          */ 
@@ -2877,6 +2929,31 @@
                         $instance->assertNotDispatchedAfterResponse($command, $callback);
         }
                     /**
+         * Assert if a chain of jobs was dispatched.
+         *
+         * @param array $expectedChain
+         * @return void 
+         * @static 
+         */ 
+        public static function assertChained($expectedChain)
+        {
+                        /** @var \Illuminate\Support\Testing\Fakes\BusFake $instance */
+                        $instance->assertChained($expectedChain);
+        }
+                    /**
+         * Assert if a job was dispatched with an empty chain based on a truth-test callback.
+         *
+         * @param string|\Closure $command
+         * @param callable|null $callback
+         * @return void 
+         * @static 
+         */ 
+        public static function assertDispatchedWithoutChain($command, $callback = null)
+        {
+                        /** @var \Illuminate\Support\Testing\Fakes\BusFake $instance */
+                        $instance->assertDispatchedWithoutChain($command, $callback);
+        }
+                    /**
          * Assert if a batch was dispatched based on a truth-test callback.
          *
          * @param callable $callback
@@ -2967,8 +3044,6 @@
             /**
      * 
      *
-     * @method static \Illuminate\Contracts\Cache\Lock lock(string $name, int $seconds = 0, mixed $owner = null)
-     * @method static \Illuminate\Contracts\Cache\Lock restoreLock(string $name, string $owner)
      * @see \Illuminate\Cache\CacheManager
      * @see \Illuminate\Cache\Repository
      */ 
@@ -3382,6 +3457,17 @@
                         return $instance->tags($names);
         }
                     /**
+         * Determine if the current store supports tags.
+         *
+         * @return bool 
+         * @static 
+         */ 
+        public static function supportsTags()
+        {
+                        /** @var \Illuminate\Cache\Repository $instance */
+                        return $instance->supportsTags();
+        }
+                    /**
          * Get the default cache time.
          *
          * @return int|null 
@@ -3580,6 +3666,33 @@
         {
                         /** @var \Illuminate\Cache\FileStore $instance */
                         return $instance->getPrefix();
+        }
+                    /**
+         * Get a lock instance.
+         *
+         * @param string $name
+         * @param int $seconds
+         * @param string|null $owner
+         * @return \Illuminate\Contracts\Cache\Lock 
+         * @static 
+         */ 
+        public static function lock($name, $seconds = 0, $owner = null)
+        {
+                        /** @var \Illuminate\Cache\FileStore $instance */
+                        return $instance->lock($name, $seconds, $owner);
+        }
+                    /**
+         * Restore a lock instance using the owner identifier.
+         *
+         * @param string $name
+         * @param string $owner
+         * @return \Illuminate\Contracts\Cache\Lock 
+         * @static 
+         */ 
+        public static function restoreLock($name, $owner)
+        {
+                        /** @var \Illuminate\Cache\FileStore $instance */
+                        return $instance->restoreLock($name, $owner);
         }
          
     }
@@ -4459,6 +4572,17 @@
                         $instance->recordsHaveBeenModified($value);
         }
                     /**
+         * Reset the record modification state.
+         *
+         * @return void 
+         * @static 
+         */ 
+        public static function forgetRecordModificationState()
+        {            //Method inherited from \Illuminate\Database\Connection         
+                        /** @var \Illuminate\Database\MySqlConnection $instance */
+                        $instance->forgetRecordModificationState();
+        }
+                    /**
          * Is Doctrine available?
          *
          * @return bool 
@@ -4710,6 +4834,29 @@
                         $instance->unsetEventDispatcher();
         }
                     /**
+         * Set the transaction manager instance on the connection.
+         *
+         * @param \Illuminate\Database\DatabaseTransactionsManager $manager
+         * @return \Illuminate\Database\MySqlConnection 
+         * @static 
+         */ 
+        public static function setTransactionManager($manager)
+        {            //Method inherited from \Illuminate\Database\Connection         
+                        /** @var \Illuminate\Database\MySqlConnection $instance */
+                        return $instance->setTransactionManager($manager);
+        }
+                    /**
+         * Unset the transaction manager for this connection.
+         *
+         * @return void 
+         * @static 
+         */ 
+        public static function unsetTransactionManager()
+        {            //Method inherited from \Illuminate\Database\Connection         
+                        /** @var \Illuminate\Database\MySqlConnection $instance */
+                        $instance->unsetTransactionManager();
+        }
+                    /**
          * Determine if the connection is in a "dry run".
          *
          * @return bool 
@@ -4918,6 +5065,18 @@
                         /** @var \Illuminate\Database\MySqlConnection $instance */
                         return $instance->transactionLevel();
         }
+                    /**
+         * Execute the callback after a transaction commits.
+         *
+         * @param callable $callback
+         * @return void 
+         * @static 
+         */ 
+        public static function afterCommit($callback)
+        {            //Method inherited from \Illuminate\Database\Connection         
+                        /** @var \Illuminate\Database\MySqlConnection $instance */
+                        $instance->afterCommit($callback);
+        }
          
     }
             /**
@@ -4930,7 +5089,7 @@
          * Register an event listener with the dispatcher.
          *
          * @param \Closure|string|array $events
-         * @param \Closure|string|null $listener
+         * @param \Closure|string|array|null $listener
          * @return void 
          * @static 
          */ 
@@ -5174,6 +5333,17 @@
         {
                         /** @var \Illuminate\Support\Testing\Fakes\EventFake $instance */
                         $instance->assertNotDispatched($event, $callback);
+        }
+                    /**
+         * Assert that no events were dispatched.
+         *
+         * @return void 
+         * @static 
+         */ 
+        public static function assertNothingDispatched()
+        {
+                        /** @var \Illuminate\Support\Testing\Fakes\EventFake $instance */
+                        $instance->assertNothingDispatched();
         }
                     /**
          * Get all of the events matching a truth-test callback.
@@ -6198,6 +6368,7 @@
      * @method static \Illuminate\Http\Client\PendingRequest bodyFormat(string $format)
      * @method static \Illuminate\Http\Client\PendingRequest contentType(string $contentType)
      * @method static \Illuminate\Http\Client\PendingRequest retry(int $times, int $sleep = 0)
+     * @method static \Illuminate\Http\Client\PendingRequest sink($to)
      * @method static \Illuminate\Http\Client\PendingRequest stub(callable $callback)
      * @method static \Illuminate\Http\Client\PendingRequest timeout(int $seconds)
      * @method static \Illuminate\Http\Client\PendingRequest withBasicAuth(string $username, string $password)
@@ -6209,6 +6380,8 @@
      * @method static \Illuminate\Http\Client\PendingRequest withToken(string $token, string $type = 'Bearer')
      * @method static \Illuminate\Http\Client\PendingRequest withoutRedirecting()
      * @method static \Illuminate\Http\Client\PendingRequest withoutVerifying()
+     * @method static \Illuminate\Http\Client\PendingRequest dump()
+     * @method static \Illuminate\Http\Client\PendingRequest dd()
      * @method static \Illuminate\Http\Client\Response delete(string $url, array $data = [])
      * @method static \Illuminate\Http\Client\Response get(string $url, array $query = [])
      * @method static \Illuminate\Http\Client\Response head(string $url, array $query = [])
@@ -6305,6 +6478,18 @@
         {
                         /** @var \Illuminate\Http\Client\Factory $instance */
                         $instance->assertSent($callback);
+        }
+                    /**
+         * Assert that the given request was sent in the given order.
+         *
+         * @param array $callbacks
+         * @return void 
+         * @static 
+         */ 
+        public static function assertSentInOrder($callbacks)
+        {
+                        /** @var \Illuminate\Http\Client\Factory $instance */
+                        $instance->assertSentInOrder($callbacks);
         }
                     /**
          * Assert that a request / response pair was not recorded matching a given truth test.
@@ -6948,7 +7133,7 @@
          * Get a mailer instance by name.
          *
          * @param string|null $name
-         * @return \Illuminate\Mail\Mailer 
+         * @return \Illuminate\Contracts\Mail\Mailer 
          * @static 
          */ 
         public static function mailer($name = null)
@@ -7192,7 +7377,7 @@
                     /**
          * Send a new message using a view.
          *
-         * @param string|array $view
+         * @param \Illuminate\Contracts\Mail\Mailable|string|array $view
          * @param array $data
          * @param \Closure|string|null $callback
          * @return void 
@@ -7206,7 +7391,7 @@
                     /**
          * Queue a new e-mail message for sending.
          *
-         * @param string|array $view
+         * @param \Illuminate\Contracts\Mail\Mailable|string|array $view
          * @param string|null $queue
          * @return mixed 
          * @static 
@@ -7508,7 +7693,7 @@
      * 
      *
      * @method static mixed reset(array $credentials, \Closure $callback)
-     * @method static string sendResetLink(array $credentials)
+     * @method static string sendResetLink(array $credentials, \Closure $callback = null)
      * @method static \Illuminate\Contracts\Auth\CanResetPassword getUser(array $credentials)
      * @method static string createToken(\Illuminate\Contracts\Auth\CanResetPassword $user)
      * @method static void deleteToken(\Illuminate\Contracts\Auth\CanResetPassword $user)
@@ -7993,7 +8178,7 @@
                     /**
          * Register a callback to be executed when creating job payloads.
          *
-         * @param callable $callback
+         * @param callable|null $callback
          * @return void 
          * @static 
          */ 
@@ -8423,7 +8608,7 @@
                         return $instance->routeIs(...$patterns);
         }
                     /**
-         * Determine if the current request URL and query string matches a pattern.
+         * Determine if the current request URL and query string match a pattern.
          *
          * @param mixed $patterns
          * @return bool 
@@ -8446,7 +8631,7 @@
                         return $instance->ajax();
         }
                     /**
-         * Determine if the request is the result of an PJAX call.
+         * Determine if the request is the result of a PJAX call.
          *
          * @return bool 
          * @static 
@@ -8457,7 +8642,7 @@
                         return $instance->pjax();
         }
                     /**
-         * Determine if the request is the result of an prefetch call.
+         * Determine if the request is the result of a prefetch call.
          *
          * @return bool 
          * @static 
@@ -8875,7 +9060,6 @@
          *
          * @param array $proxies A list of trusted proxies, the string 'REMOTE_ADDR' will be replaced with $_SERVER['REMOTE_ADDR']
          * @param int $trustedHeaderSet A bit field of Request::HEADER_*, to set which headers to trust from your proxies
-         * @throws \InvalidArgumentException When $trustedHeaderSet is invalid
          * @static 
          */ 
         public static function setTrustedProxies($proxies, $trustedHeaderSet)
@@ -9545,7 +9729,6 @@
          *
          * @param bool $asResource If true, a resource will be returned
          * @return string|resource The request body content or a resource to read the body stream
-         * @throws \LogicException
          * @static 
          */ 
         public static function getContent($asResource = false)
@@ -9647,7 +9830,7 @@
                         return $instance->getAcceptableContentTypes();
         }
                     /**
-         * Returns true if the request is a XMLHttpRequest.
+         * Returns true if the request is an XMLHttpRequest.
          * 
          * It works if your JavaScript library sets an X-Requested-With HTTP header.
          * It is known to work with common JavaScript frameworks:
@@ -9685,18 +9868,6 @@
         {            //Method inherited from \Symfony\Component\HttpFoundation\Request         
                         /** @var \Illuminate\Http\Request $instance */
                         return $instance->isFromTrustedProxy();
-        }
-                    /**
-         * Determine if the given content types match.
-         *
-         * @param string $actual
-         * @param string $type
-         * @return bool 
-         * @static 
-         */ 
-        public static function matchesType($actual, $type)
-        {
-                        return \Illuminate\Http\Request::matchesType($actual, $type);
         }
                     /**
          * Determine if the request is sending JSON.
@@ -9787,6 +9958,18 @@
         {
                         /** @var \Illuminate\Http\Request $instance */
                         return $instance->acceptsHtml();
+        }
+                    /**
+         * Determine if the given content types match.
+         *
+         * @param string $actual
+         * @param string $type
+         * @return bool 
+         * @static 
+         */ 
+        public static function matchesType($actual, $type)
+        {
+                        return \Illuminate\Http\Request::matchesType($actual, $type);
         }
                     /**
          * Get the data format expected in the response.
@@ -10181,6 +10364,30 @@
                         return $instance->file($key, $default);
         }
                     /**
+         * Dump the request items and end the script.
+         *
+         * @param array|mixed $keys
+         * @return void 
+         * @static 
+         */ 
+        public static function dd(...$keys)
+        {
+                        /** @var \Illuminate\Http\Request $instance */
+                        $instance->dd(...$keys);
+        }
+                    /**
+         * Dump the items.
+         *
+         * @param array $keys
+         * @return \Illuminate\Http\Request 
+         * @static 
+         */ 
+        public static function dump($keys = [])
+        {
+                        /** @var \Illuminate\Http\Request $instance */
+                        return $instance->dump($keys);
+        }
+                    /**
          * Register a custom macro.
          *
          * @param string $name
@@ -10219,6 +10426,7 @@
                     /**
          * 
          *
+         * @see \Illuminate\Foundation\Providers\FoundationServiceProvider::registerRequestValidation()
          * @param array $rules
          * @param mixed $params
          * @static 
@@ -10230,6 +10438,7 @@
                     /**
          * 
          *
+         * @see \Illuminate\Foundation\Providers\FoundationServiceProvider::registerRequestValidation()
          * @param string $errorBag
          * @param array $rules
          * @param mixed $params
@@ -10242,6 +10451,7 @@
                     /**
          * 
          *
+         * @see \Illuminate\Foundation\Providers\FoundationServiceProvider::registerRequestSignatureValidation()
          * @param mixed $absolute
          * @static 
          */ 
@@ -10252,6 +10462,7 @@
                     /**
          * 
          *
+         * @see \Illuminate\Foundation\Providers\FoundationServiceProvider::registerRequestSignatureValidation()
          * @static 
          */ 
         public static function hasValidRelativeSignature()
@@ -10516,7 +10727,7 @@
      * @method static \Illuminate\Routing\RouteRegistrar domain(string $value)
      * @method static \Illuminate\Routing\RouteRegistrar middleware(array|string|null $middleware)
      * @method static \Illuminate\Routing\RouteRegistrar name(string $value)
-     * @method static \Illuminate\Routing\RouteRegistrar namespace(string $value)
+     * @method static \Illuminate\Routing\RouteRegistrar namespace(string|null $value)
      * @method static \Illuminate\Routing\RouteRegistrar prefix(string  $prefix)
      * @method static \Illuminate\Routing\RouteRegistrar where(array  $where)
      * @see \Illuminate\Routing\Router
@@ -11003,6 +11214,17 @@
                         return $instance->pushMiddlewareToGroup($group, $middleware);
         }
                     /**
+         * Flush the router's middleware groups.
+         *
+         * @return \Illuminate\Routing\Router 
+         * @static 
+         */ 
+        public static function flushMiddlewareGroups()
+        {
+                        /** @var \Illuminate\Routing\Router $instance */
+                        return $instance->flushMiddlewareGroups();
+        }
+                    /**
          * Add a new route parameter binder.
          *
          * @param string $key
@@ -11126,7 +11348,7 @@
                     /**
          * Get the currently dispatched route instance.
          *
-         * @return \Illuminate\Routing\Route 
+         * @return \Illuminate\Routing\Route|null 
          * @static 
          */ 
         public static function getCurrentRoute()
@@ -11299,6 +11521,17 @@
                         $instance->setCompiledRoutes($routes);
         }
                     /**
+         * Remove any duplicate middleware from the given array.
+         *
+         * @param array $middleware
+         * @return array 
+         * @static 
+         */ 
+        public static function uniqueMiddleware($middleware)
+        {
+                        return \Illuminate\Routing\Router::uniqueMiddleware($middleware);
+        }
+                    /**
          * Register a custom macro.
          *
          * @param string $name
@@ -11348,43 +11581,6 @@
                         /** @var \Illuminate\Routing\Router $instance */
                         return $instance->macroCall($method, $parameters);
         }
-                    /**
-         * 
-         *
-         * @param mixed $options
-         * @static 
-         */ 
-        public static function auth($options = [])
-        {
-                        return \Illuminate\Routing\Router::auth($options);
-        }
-                    /**
-         * 
-         *
-         * @static 
-         */ 
-        public static function resetPassword()
-        {
-                        return \Illuminate\Routing\Router::resetPassword();
-        }
-                    /**
-         * 
-         *
-         * @static 
-         */ 
-        public static function confirmPassword()
-        {
-                        return \Illuminate\Routing\Router::confirmPassword();
-        }
-                    /**
-         * 
-         *
-         * @static 
-         */ 
-        public static function emailVerification()
-        {
-                        return \Illuminate\Routing\Router::emailVerification();
-        }
          
     }
             /**
@@ -11393,6 +11589,30 @@
      * @see \Illuminate\Database\Schema\Builder
      */ 
         class Schema {
+                    /**
+         * Create a database in the schema.
+         *
+         * @param string $name
+         * @return bool 
+         * @static 
+         */ 
+        public static function createDatabase($name)
+        {
+                        /** @var \Illuminate\Database\Schema\MySqlBuilder $instance */
+                        return $instance->createDatabase($name);
+        }
+                    /**
+         * Drop a database from the schema if the database exists.
+         *
+         * @param string $name
+         * @return bool 
+         * @static 
+         */ 
+        public static function dropDatabaseIfExists($name)
+        {
+                        /** @var \Illuminate\Database\Schema\MySqlBuilder $instance */
+                        return $instance->dropDatabaseIfExists($name);
+        }
                     /**
          * Determine if the given table exists.
          *
@@ -11581,6 +11801,19 @@
         {            //Method inherited from \Illuminate\Database\Schema\Builder         
                         /** @var \Illuminate\Database\Schema\MySqlBuilder $instance */
                         $instance->dropIfExists($table);
+        }
+                    /**
+         * Drop columns from a table schema.
+         *
+         * @param string $table
+         * @param string|array $columns
+         * @return void 
+         * @static 
+         */ 
+        public static function dropColumns($table, $columns)
+        {            //Method inherited from \Illuminate\Database\Schema\Builder         
+                        /** @var \Illuminate\Database\Schema\MySqlBuilder $instance */
+                        $instance->dropColumns($table, $columns);
         }
                     /**
          * Drop all types from the database.
@@ -12459,13 +12692,14 @@
          * Assert that the given file exists.
          *
          * @param string|array $path
+         * @param string|null $content
          * @return \Illuminate\Filesystem\FilesystemAdapter 
          * @static 
          */ 
-        public static function assertExists($path)
+        public static function assertExists($path, $content = null)
         {
                         /** @var \Illuminate\Filesystem\FilesystemAdapter $instance */
-                        return $instance->assertExists($path);
+                        return $instance->assertExists($path, $content);
         }
                     /**
          * Assert that the given file does not exist.
@@ -14158,7 +14392,7 @@
                         return \Illuminate\View\Factory::parentPlaceholder($section);
         }
                     /**
-         * Check if section exists.
+         * Check if the section exists.
          *
          * @param string $name
          * @return bool 
@@ -14397,18 +14631,52 @@
                     /**
          * 
          *
+         * @see \Spatie\LaravelRay\RayServiceProvider::registerMacros()
+         * @param string $description
          * @static 
          */ 
-        public static function isAssoc()
+        public static function ray($description = '')
         {
-                        return \Illuminate\Support\Collection::isAssoc();
+                        return \Illuminate\Support\Collection::ray($description);
         }
          
     }
      
 }
 
-        namespace Facade\Ignition\Facades { 
+        namespace App\Helpers { 
+            /**
+     * 
+     *
+     */ 
+        class Helper {
+         
+    }
+            /**
+     * 
+     *
+     */ 
+        class DateHelpers {
+         
+    }
+            /**
+     * 
+     *
+     */ 
+        class TextHelpers {
+         
+    }
+            /**
+     * 
+     *
+     */ 
+        class ImageHelpers {
+         
+    }
+     
+}
+
+    namespace Facade\Ignition\Facades { 
             /**
      * Class Flare.
      *
@@ -14743,7 +15011,7 @@
                     /**
          * 
          *
-         * @return \Jenssegers\Agent\CrawlerDetect 
+         * @return \Jaybizzle\CrawlerDetect\CrawlerDetect 
          * @static 
          */ 
         public static function getCrawlerDetect()
@@ -15249,17 +15517,6 @@
      
 }
 
-    namespace Laravel\Nova { 
-            /**
-     * 
-     *
-     */ 
-        class Nova {
-         
-    }
-     
-}
-
     namespace Livewire { 
             /**
      * 
@@ -15362,6 +15619,36 @@
          *
          * @static 
          */ 
+        public static function addPersistentMiddleware($middleware)
+        {
+                        /** @var \Livewire\LivewireManager $instance */
+                        return $instance->addPersistentMiddleware($middleware);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function setPersistentMiddleware($middleware)
+        {
+                        /** @var \Livewire\LivewireManager $instance */
+                        return $instance->setPersistentMiddleware($middleware);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function getPersistentMiddleware()
+        {
+                        /** @var \Livewire\LivewireManager $instance */
+                        return $instance->getPersistentMiddleware();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
         public static function styles($options = [])
         {
                         /** @var \Livewire\LivewireManager $instance */
@@ -15386,6 +15673,56 @@
         {
                         /** @var \Livewire\LivewireManager $instance */
                         return $instance->isLivewireRequest();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function isDefinitelyLivewireRequest()
+        {
+                        /** @var \Livewire\LivewireManager $instance */
+                        return $instance->isDefinitelyLivewireRequest();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function isProbablyLivewireRequest()
+        {
+                        /** @var \Livewire\LivewireManager $instance */
+                        return $instance->isProbablyLivewireRequest();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function originalUrl()
+        {
+                        /** @var \Livewire\LivewireManager $instance */
+                        return $instance->originalUrl();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function originalPath()
+        {
+                        /** @var \Livewire\LivewireManager $instance */
+                        return $instance->originalPath();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function originalMethod()
+        {
+                        /** @var \Livewire\LivewireManager $instance */
+                        return $instance->originalMethod();
         }
                     /**
          * 
@@ -15427,6 +15764,454 @@
                         /** @var \Livewire\LivewireManager $instance */
                         return $instance->isOnVapor();
         }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function withQueryParams($queryParams)
+        {
+                        /** @var \Livewire\LivewireManager $instance */
+                        return $instance->withQueryParams($queryParams);
+        }
+         
+    }
+     
+}
+
+    namespace Mcamara\LaravelLocalization\Facades { 
+            /**
+     * 
+     *
+     */ 
+        class LaravelLocalization {
+                    /**
+         * Set and return current locale.
+         *
+         * @param string $locale Locale to set the App to (optional)
+         * @return string Returns locale (if route has any) or null (if route does not have a locale)
+         * @static 
+         */ 
+        public static function setLocale($locale = null)
+        {
+                        /** @var \Mcamara\LaravelLocalization\LaravelLocalization $instance */
+                        return $instance->setLocale($locale);
+        }
+                    /**
+         * Check if $locale is default locale and supposed to be hidden in url
+         *
+         * @param string $locale Locale to be checked
+         * @return boolean Returns true if above requirement are met, otherwise false
+         * @static 
+         */ 
+        public static function isHiddenDefault($locale)
+        {
+                        /** @var \Mcamara\LaravelLocalization\LaravelLocalization $instance */
+                        return $instance->isHiddenDefault($locale);
+        }
+                    /**
+         * Set and return supported locales.
+         *
+         * @param array $locales Locales that the App supports
+         * @static 
+         */ 
+        public static function setSupportedLocales($locales)
+        {
+                        /** @var \Mcamara\LaravelLocalization\LaravelLocalization $instance */
+                        return $instance->setSupportedLocales($locales);
+        }
+                    /**
+         * Returns an URL adapted to $locale or current locale.
+         *
+         * @param string $url URL to adapt. If not passed, the current url would be taken.
+         * @param string|bool $locale Locale to adapt, false to remove locale
+         * @throws UnsupportedLocaleException
+         * @return string URL translated
+         * @static 
+         */ 
+        public static function localizeURL($url = null, $locale = null)
+        {
+                        /** @var \Mcamara\LaravelLocalization\LaravelLocalization $instance */
+                        return $instance->localizeURL($url, $locale);
+        }
+                    /**
+         * Returns an URL adapted to $locale.
+         *
+         * @param string|bool $locale Locale to adapt, false to remove locale
+         * @param string|false $url URL to adapt in the current language. If not passed, the current url would be taken.
+         * @param array $attributes Attributes to add to the route, if empty, the system would try to extract them from the url.
+         * @param bool $forceDefaultLocation Force to show default location even hideDefaultLocaleInURL set as TRUE
+         * @throws SupportedLocalesNotDefined
+         * @throws UnsupportedLocaleException
+         * @return string|false URL translated, False if url does not exist
+         * @static 
+         */ 
+        public static function getLocalizedURL($locale = null, $url = null, $attributes = [], $forceDefaultLocation = false)
+        {
+                        /** @var \Mcamara\LaravelLocalization\LaravelLocalization $instance */
+                        return $instance->getLocalizedURL($locale, $url, $attributes, $forceDefaultLocation);
+        }
+                    /**
+         * Returns an URL adapted to the route name and the locale given.
+         *
+         * @param string|bool $locale Locale to adapt
+         * @param string $transKeyName Translation key name of the url to adapt
+         * @param array $attributes Attributes for the route (only needed if transKeyName needs them)
+         * @param bool $forceDefaultLocation Force to show default location even hideDefaultLocaleInURL set as TRUE
+         * @throws SupportedLocalesNotDefined
+         * @throws UnsupportedLocaleException
+         * @return string|false URL translated
+         * @static 
+         */ 
+        public static function getURLFromRouteNameTranslated($locale, $transKeyName, $attributes = [], $forceDefaultLocation = false)
+        {
+                        /** @var \Mcamara\LaravelLocalization\LaravelLocalization $instance */
+                        return $instance->getURLFromRouteNameTranslated($locale, $transKeyName, $attributes, $forceDefaultLocation);
+        }
+                    /**
+         * It returns an URL without locale (if it has it)
+         * Convenience function wrapping getLocalizedURL(false).
+         *
+         * @param string|false $url URL to clean, if false, current url would be taken
+         * @return string URL with no locale in path
+         * @static 
+         */ 
+        public static function getNonLocalizedURL($url = null)
+        {
+                        /** @var \Mcamara\LaravelLocalization\LaravelLocalization $instance */
+                        return $instance->getNonLocalizedURL($url);
+        }
+                    /**
+         * Returns default locale.
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function getDefaultLocale()
+        {
+                        /** @var \Mcamara\LaravelLocalization\LaravelLocalization $instance */
+                        return $instance->getDefaultLocale();
+        }
+                    /**
+         * Return locales mapping.
+         *
+         * @return array 
+         * @static 
+         */ 
+        public static function getLocalesMapping()
+        {
+                        /** @var \Mcamara\LaravelLocalization\LaravelLocalization $instance */
+                        return $instance->getLocalesMapping();
+        }
+                    /**
+         * Returns a locale from the mapping.
+         *
+         * @param string|null $locale
+         * @return string|null 
+         * @static 
+         */ 
+        public static function getLocaleFromMapping($locale)
+        {
+                        /** @var \Mcamara\LaravelLocalization\LaravelLocalization $instance */
+                        return $instance->getLocaleFromMapping($locale);
+        }
+                    /**
+         * Returns inversed locale from the mapping.
+         *
+         * @param string|null $locale
+         * @return string|null 
+         * @static 
+         */ 
+        public static function getInversedLocaleFromMapping($locale)
+        {
+                        /** @var \Mcamara\LaravelLocalization\LaravelLocalization $instance */
+                        return $instance->getInversedLocaleFromMapping($locale);
+        }
+                    /**
+         * Return an array of all supported Locales.
+         *
+         * @throws SupportedLocalesNotDefined
+         * @return array 
+         * @static 
+         */ 
+        public static function getSupportedLocales()
+        {
+                        /** @var \Mcamara\LaravelLocalization\LaravelLocalization $instance */
+                        return $instance->getSupportedLocales();
+        }
+                    /**
+         * Return an array of all supported Locales but in the order the user
+         * has specified in the config file. Useful for the language selector.
+         *
+         * @return array 
+         * @static 
+         */ 
+        public static function getLocalesOrder()
+        {
+                        /** @var \Mcamara\LaravelLocalization\LaravelLocalization $instance */
+                        return $instance->getLocalesOrder();
+        }
+                    /**
+         * Returns current locale name.
+         *
+         * @return string current locale name
+         * @static 
+         */ 
+        public static function getCurrentLocaleName()
+        {
+                        /** @var \Mcamara\LaravelLocalization\LaravelLocalization $instance */
+                        return $instance->getCurrentLocaleName();
+        }
+                    /**
+         * Returns current locale native name.
+         *
+         * @return string current locale native name
+         * @static 
+         */ 
+        public static function getCurrentLocaleNative()
+        {
+                        /** @var \Mcamara\LaravelLocalization\LaravelLocalization $instance */
+                        return $instance->getCurrentLocaleNative();
+        }
+                    /**
+         * Returns current locale direction.
+         *
+         * @return string current locale direction
+         * @static 
+         */ 
+        public static function getCurrentLocaleDirection()
+        {
+                        /** @var \Mcamara\LaravelLocalization\LaravelLocalization $instance */
+                        return $instance->getCurrentLocaleDirection();
+        }
+                    /**
+         * Returns current locale script.
+         *
+         * @return string current locale script
+         * @static 
+         */ 
+        public static function getCurrentLocaleScript()
+        {
+                        /** @var \Mcamara\LaravelLocalization\LaravelLocalization $instance */
+                        return $instance->getCurrentLocaleScript();
+        }
+                    /**
+         * Returns current language's native reading.
+         *
+         * @return string current language's native reading
+         * @static 
+         */ 
+        public static function getCurrentLocaleNativeReading()
+        {
+                        /** @var \Mcamara\LaravelLocalization\LaravelLocalization $instance */
+                        return $instance->getCurrentLocaleNativeReading();
+        }
+                    /**
+         * Returns current language.
+         *
+         * @return string current language
+         * @static 
+         */ 
+        public static function getCurrentLocale()
+        {
+                        /** @var \Mcamara\LaravelLocalization\LaravelLocalization $instance */
+                        return $instance->getCurrentLocale();
+        }
+                    /**
+         * Returns current regional.
+         *
+         * @return string current regional
+         * @static 
+         */ 
+        public static function getCurrentLocaleRegional()
+        {
+                        /** @var \Mcamara\LaravelLocalization\LaravelLocalization $instance */
+                        return $instance->getCurrentLocaleRegional();
+        }
+                    /**
+         * Returns supported languages language key.
+         *
+         * @return array keys of supported languages
+         * @static 
+         */ 
+        public static function getSupportedLanguagesKeys()
+        {
+                        /** @var \Mcamara\LaravelLocalization\LaravelLocalization $instance */
+                        return $instance->getSupportedLanguagesKeys();
+        }
+                    /**
+         * Check if Locale exists on the supported locales array.
+         *
+         * @param string|bool $locale string|bool Locale to be checked
+         * @throws SupportedLocalesNotDefined
+         * @return bool is the locale supported?
+         * @static 
+         */ 
+        public static function checkLocaleInSupportedLocales($locale)
+        {
+                        /** @var \Mcamara\LaravelLocalization\LaravelLocalization $instance */
+                        return $instance->checkLocaleInSupportedLocales($locale);
+        }
+                    /**
+         * Set current route name.
+         *
+         * @param string $routeName current route name
+         * @static 
+         */ 
+        public static function setRouteName($routeName)
+        {
+                        /** @var \Mcamara\LaravelLocalization\LaravelLocalization $instance */
+                        return $instance->setRouteName($routeName);
+        }
+                    /**
+         * Translate routes and save them to the translated routes array (used in the localize route filter).
+         *
+         * @param string $routeName Key of the translated string
+         * @return string Translated string
+         * @static 
+         */ 
+        public static function transRoute($routeName)
+        {
+                        /** @var \Mcamara\LaravelLocalization\LaravelLocalization $instance */
+                        return $instance->transRoute($routeName);
+        }
+                    /**
+         * Returns the translation key for a given path.
+         *
+         * @param string $path Path to get the key translated
+         * @return string|false Key for translation, false if not exist
+         * @static 
+         */ 
+        public static function getRouteNameFromAPath($path)
+        {
+                        /** @var \Mcamara\LaravelLocalization\LaravelLocalization $instance */
+                        return $instance->getRouteNameFromAPath($path);
+        }
+                    /**
+         * Returns the config repository for this instance.
+         *
+         * @return \Illuminate\Config\Repository Configuration repository
+         * @static 
+         */ 
+        public static function getConfigRepository()
+        {
+                        /** @var \Mcamara\LaravelLocalization\LaravelLocalization $instance */
+                        return $instance->getConfigRepository();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function hideUrlAndAcceptHeader()
+        {
+                        /** @var \Mcamara\LaravelLocalization\LaravelLocalization $instance */
+                        return $instance->hideUrlAndAcceptHeader();
+        }
+                    /**
+         * Returns the translation key for a given path.
+         *
+         * @return bool Returns value of hideDefaultLocaleInURL in config.
+         * @static 
+         */ 
+        public static function hideDefaultLocaleInURL()
+        {
+                        /** @var \Mcamara\LaravelLocalization\LaravelLocalization $instance */
+                        return $instance->hideDefaultLocaleInURL();
+        }
+                    /**
+         * Create an url from the uri.
+         *
+         * @param string $uri Uri
+         * @return string Url for the given uri
+         * @static 
+         */ 
+        public static function createUrlFromUri($uri)
+        {
+                        /** @var \Mcamara\LaravelLocalization\LaravelLocalization $instance */
+                        return $instance->createUrlFromUri($uri);
+        }
+                    /**
+         * Sets the base url for the site.
+         *
+         * @param string $url Base url for the site
+         * @static 
+         */ 
+        public static function setBaseUrl($url)
+        {
+                        /** @var \Mcamara\LaravelLocalization\LaravelLocalization $instance */
+                        return $instance->setBaseUrl($url);
+        }
+                    /**
+         * Returns serialized translated routes for caching purposes.
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function getSerializedTranslatedRoutes()
+        {
+                        /** @var \Mcamara\LaravelLocalization\LaravelLocalization $instance */
+                        return $instance->getSerializedTranslatedRoutes();
+        }
+                    /**
+         * Sets the translated routes list.
+         * 
+         * Only useful from a cached routes context.
+         *
+         * @param string $serializedRoutes
+         * @static 
+         */ 
+        public static function setSerializedTranslatedRoutes($serializedRoutes)
+        {
+                        /** @var \Mcamara\LaravelLocalization\LaravelLocalization $instance */
+                        return $instance->setSerializedTranslatedRoutes($serializedRoutes);
+        }
+         
+    }
+     
+}
+
+    namespace Stevebauman\Location\Facades { 
+            /**
+     * 
+     *
+     * @see \Stevebauman\Location\Location
+     */ 
+        class Location {
+                    /**
+         * Creates the selected driver instance and sets the driver property.
+         *
+         * @param \Stevebauman\Location\Drivers\Driver $driver
+         * @static 
+         */ 
+        public static function setDriver($driver)
+        {
+                        /** @var \Stevebauman\Location\Location $instance */
+                        return $instance->setDriver($driver);
+        }
+                    /**
+         * Sets the default driver from the configuration.
+         *
+         * @throws DriverDoesNotExistException
+         * @static 
+         */ 
+        public static function setDefaultDriver()
+        {
+                        /** @var \Stevebauman\Location\Location $instance */
+                        return $instance->setDefaultDriver();
+        }
+                    /**
+         * Retrieve the users location.
+         *
+         * @param string|null $ip
+         * @return \Stevebauman\Location\Position|bool 
+         * @static 
+         */ 
+        public static function get($ip = null)
+        {
+                        /** @var \Stevebauman\Location\Location $instance */
+                        return $instance->get($ip);
+        }
          
     }
      
@@ -15441,6 +16226,7 @@
                     /**
          * 
          *
+         * @see \Illuminate\Foundation\Providers\FoundationServiceProvider::registerRequestValidation()
          * @param array $rules
          * @param mixed $params
          * @static 
@@ -15452,6 +16238,7 @@
                     /**
          * 
          *
+         * @see \Illuminate\Foundation\Providers\FoundationServiceProvider::registerRequestValidation()
          * @param string $errorBag
          * @param array $rules
          * @param mixed $params
@@ -15464,6 +16251,7 @@
                     /**
          * 
          *
+         * @see \Illuminate\Foundation\Providers\FoundationServiceProvider::registerRequestSignatureValidation()
          * @param mixed $absolute
          * @static 
          */ 
@@ -15474,6 +16262,7 @@
                     /**
          * 
          *
+         * @see \Illuminate\Foundation\Providers\FoundationServiceProvider::registerRequestSignatureValidation()
          * @static 
          */ 
         public static function hasValidRelativeSignature()
@@ -15495,6 +16284,7 @@
                     /**
          * 
          *
+         * @see \Livewire\LivewireServiceProvider::registerTestMacros()
          * @param mixed $component
          * @static 
          */ 
@@ -15505,12 +16295,23 @@
                     /**
          * 
          *
+         * @see \Livewire\LivewireServiceProvider::registerTestMacros()
          * @param mixed $component
          * @static 
          */ 
         public static function assertDontSeeLivewire($component)
         {
                         return \Illuminate\Testing\TestResponse::assertDontSeeLivewire($component);
+        }
+                    /**
+         * 
+         *
+         * @see \Spatie\LaravelRay\RayServiceProvider::registerMacros()
+         * @static 
+         */ 
+        public static function ray()
+        {
+                        return \Illuminate\Testing\TestResponse::ray();
         }
          
     }
@@ -15521,65 +16322,29 @@
             /**
      * 
      *
-     * @mixin \Illuminate\Routing\RouteRegistrar
      */ 
-        class Router {
+        class Route {
                     /**
          * 
          *
-         * @param mixed $options
+         * @see \Spatie\Permission\PermissionServiceProvider::registerMacroHelpers()
+         * @param mixed $roles
          * @static 
          */ 
-        public static function auth($options = [])
+        public static function role($roles = [])
         {
-                        return \Illuminate\Routing\Router::auth($options);
+                        return \Illuminate\Routing\Route::role($roles);
         }
                     /**
          * 
          *
+         * @see \Spatie\Permission\PermissionServiceProvider::registerMacroHelpers()
+         * @param mixed $permissions
          * @static 
          */ 
-        public static function resetPassword()
+        public static function permission($permissions = [])
         {
-                        return \Illuminate\Routing\Router::resetPassword();
-        }
-                    /**
-         * 
-         *
-         * @static 
-         */ 
-        public static function confirmPassword()
-        {
-                        return \Illuminate\Routing\Router::confirmPassword();
-        }
-                    /**
-         * 
-         *
-         * @static 
-         */ 
-        public static function emailVerification()
-        {
-                        return \Illuminate\Routing\Router::emailVerification();
-        }
-         
-    }
-     
-}
-
-    namespace Laravel\Nova\Fields { 
-            /**
-     * 
-     *
-     */ 
-        class Field {
-                    /**
-         * 
-         *
-         * @static 
-         */ 
-        public static function inline()
-        {
-                        return \Laravel\Nova\Fields\Field::inline();
+                        return \Illuminate\Routing\Route::permission($permissions);
         }
          
     }
@@ -15595,6 +16360,7 @@
                     /**
          * 
          *
+         * @see \Livewire\LivewireServiceProvider::registerViewMacros()
          * @param mixed $name
          * @static 
          */ 
@@ -15612,6 +16378,7 @@
                     /**
          * 
          *
+         * @see \Livewire\Macros\ViewMacros::extends()
          * @param mixed $view
          * @param mixed $params
          * @static 
@@ -15623,6 +16390,7 @@
                     /**
          * 
          *
+         * @see \Livewire\Macros\ViewMacros::layout()
          * @param mixed $view
          * @param mixed $params
          * @static 
@@ -15634,6 +16402,7 @@
                     /**
          * 
          *
+         * @see \Livewire\Macros\ViewMacros::section()
          * @param mixed $section
          * @static 
          */ 
@@ -15644,6 +16413,7 @@
                     /**
          * 
          *
+         * @see \Livewire\Macros\ViewMacros::slot()
          * @param mixed $slot
          * @static 
          */ 
@@ -15765,7 +16535,7 @@ namespace  {
                 /**
              * Add a basic where clause to the query.
              *
-             * @param \Closure|string|array $column
+             * @param \Closure|string|array|\Illuminate\Database\Query\Expression $column
              * @param mixed $operator
              * @param mixed $value
              * @param string $boolean
@@ -15781,7 +16551,7 @@ namespace  {
                 /**
              * Add a basic where clause to the query, and return the first result.
              *
-             * @param \Closure|string|array $column
+             * @param \Closure|string|array|\Illuminate\Database\Query\Expression $column
              * @param mixed $operator
              * @param mixed $value
              * @param string $boolean
@@ -15797,7 +16567,7 @@ namespace  {
                 /**
              * Add an "or where" clause to the query.
              *
-             * @param \Closure|array|string $column
+             * @param \Closure|array|string|\Illuminate\Database\Query\Expression $column
              * @param mixed $operator
              * @param mixed $value
              * @return \Illuminate\Database\Eloquent\Builder|static 
@@ -15812,7 +16582,7 @@ namespace  {
                 /**
              * Add an "order by" clause for a timestamp to the query.
              *
-             * @param string $column
+             * @param string|\Illuminate\Database\Query\Expression $column
              * @return \Illuminate\Database\Eloquent\Builder|static 
              * @static 
              */ 
@@ -15825,7 +16595,7 @@ namespace  {
                 /**
              * Add an "order by" clause for a timestamp to the query.
              *
-             * @param string $column
+             * @param string|\Illuminate\Database\Query\Expression $column
              * @return \Illuminate\Database\Eloquent\Builder|static 
              * @static 
              */ 
@@ -15990,9 +16760,24 @@ namespace  {
             }
              
                 /**
+             * Execute the query and get the first result if it's the sole matching record.
+             *
+             * @param array|string $columns
+             * @return \Illuminate\Database\Eloquent\Model 
+             * @throws \Illuminate\Database\Eloquent\ModelNotFoundException
+             * @throws \Illuminate\Database\MultipleRecordsFoundException
+             * @static 
+             */ 
+            public static function sole($columns = [])
+            {
+                                /** @var \Illuminate\Database\Eloquent\Builder $instance */
+                                return $instance->sole($columns);
+            }
+             
+                /**
              * Get a single column's value from the first result of a query.
              *
-             * @param string $column
+             * @param string|\Illuminate\Database\Query\Expression $column
              * @return mixed 
              * @static 
              */ 
@@ -16056,7 +16841,7 @@ namespace  {
                 /**
              * Get an array with the values of a given column.
              *
-             * @param string $column
+             * @param string|\Illuminate\Database\Query\Expression $column
              * @param string|null $key
              * @return \Illuminate\Support\Collection 
              * @static 
@@ -16124,6 +16909,21 @@ namespace  {
             {
                                 /** @var \Illuminate\Database\Eloquent\Builder $instance */
                                 return $instance->forceCreate($attributes);
+            }
+             
+                /**
+             * Insert new records or update the existing ones.
+             *
+             * @param array $values
+             * @param array|string $uniqueBy
+             * @param array|null $update
+             * @return int 
+             * @static 
+             */ 
+            public static function upsert($values, $uniqueBy, $update = null)
+            {
+                                /** @var \Illuminate\Database\Eloquent\Builder $instance */
+                                return $instance->upsert($values, $uniqueBy, $update);
             }
              
                 /**
@@ -16341,122 +17141,6 @@ namespace  {
             }
              
                 /**
-             * Chunk the results of the query.
-             *
-             * @param int $count
-             * @param callable $callback
-             * @return bool 
-             * @static 
-             */ 
-            public static function chunk($count, $callback)
-            {
-                                /** @var \Illuminate\Database\Eloquent\Builder $instance */
-                                return $instance->chunk($count, $callback);
-            }
-             
-                /**
-             * Execute a callback over each item while chunking.
-             *
-             * @param callable $callback
-             * @param int $count
-             * @return bool 
-             * @static 
-             */ 
-            public static function each($callback, $count = 1000)
-            {
-                                /** @var \Illuminate\Database\Eloquent\Builder $instance */
-                                return $instance->each($callback, $count);
-            }
-             
-                /**
-             * Chunk the results of a query by comparing IDs.
-             *
-             * @param int $count
-             * @param callable $callback
-             * @param string|null $column
-             * @param string|null $alias
-             * @return bool 
-             * @static 
-             */ 
-            public static function chunkById($count, $callback, $column = null, $alias = null)
-            {
-                                /** @var \Illuminate\Database\Eloquent\Builder $instance */
-                                return $instance->chunkById($count, $callback, $column, $alias);
-            }
-             
-                /**
-             * Execute a callback over each item while chunking by ID.
-             *
-             * @param callable $callback
-             * @param int $count
-             * @param string|null $column
-             * @param string|null $alias
-             * @return bool 
-             * @static 
-             */ 
-            public static function eachById($callback, $count = 1000, $column = null, $alias = null)
-            {
-                                /** @var \Illuminate\Database\Eloquent\Builder $instance */
-                                return $instance->eachById($callback, $count, $column, $alias);
-            }
-             
-                /**
-             * Execute the query and get the first result.
-             *
-             * @param array|string $columns
-             * @return \Illuminate\Database\Eloquent\Model|object|static|null 
-             * @static 
-             */ 
-            public static function first($columns = [])
-            {
-                                /** @var \Illuminate\Database\Eloquent\Builder $instance */
-                                return $instance->first($columns);
-            }
-             
-                /**
-             * Apply the callback's query changes if the given "value" is true.
-             *
-             * @param mixed $value
-             * @param callable $callback
-             * @param callable|null $default
-             * @return mixed|$this 
-             * @static 
-             */ 
-            public static function when($value, $callback, $default = null)
-            {
-                                /** @var \Illuminate\Database\Eloquent\Builder $instance */
-                                return $instance->when($value, $callback, $default);
-            }
-             
-                /**
-             * Pass the query to a given callback.
-             *
-             * @param callable $callback
-             * @return \Illuminate\Database\Eloquent\Builder|static 
-             * @static 
-             */ 
-            public static function tap($callback)
-            {
-                                /** @var \Illuminate\Database\Eloquent\Builder $instance */
-                                return $instance->tap($callback);
-            }
-             
-                /**
-             * Apply the callback's query changes if the given "value" is false.
-             *
-             * @param mixed $value
-             * @param callable $callback
-             * @param callable|null $default
-             * @return mixed|$this 
-             * @static 
-             */ 
-            public static function unless($value, $callback, $default = null)
-            {
-                                /** @var \Illuminate\Database\Eloquent\Builder $instance */
-                                return $instance->unless($value, $callback, $default);
-            }
-             
-                /**
              * Add a relationship count / exists condition to the query.
              *
              * @param \Illuminate\Database\Eloquent\Relations\Relation|string $relation
@@ -16580,7 +17264,7 @@ namespace  {
                 /**
              * Add a polymorphic relationship count / exists condition to the query.
              *
-             * @param string $relation
+             * @param \Illuminate\Database\Eloquent\Relations\MorphTo|string $relation
              * @param string|array $types
              * @param string $operator
              * @param int $count
@@ -16598,7 +17282,7 @@ namespace  {
                 /**
              * Add a polymorphic relationship count / exists condition to the query with an "or".
              *
-             * @param string $relation
+             * @param \Illuminate\Database\Eloquent\Relations\MorphTo|string $relation
              * @param string|array $types
              * @param string $operator
              * @param int $count
@@ -16614,7 +17298,7 @@ namespace  {
                 /**
              * Add a polymorphic relationship count / exists condition to the query.
              *
-             * @param string $relation
+             * @param \Illuminate\Database\Eloquent\Relations\MorphTo|string $relation
              * @param string|array $types
              * @param string $boolean
              * @param \Closure|null $callback
@@ -16630,7 +17314,7 @@ namespace  {
                 /**
              * Add a polymorphic relationship count / exists condition to the query with an "or".
              *
-             * @param string $relation
+             * @param \Illuminate\Database\Eloquent\Relations\MorphTo|string $relation
              * @param string|array $types
              * @return \Illuminate\Database\Eloquent\Builder|static 
              * @static 
@@ -16644,7 +17328,7 @@ namespace  {
                 /**
              * Add a polymorphic relationship count / exists condition to the query with where clauses.
              *
-             * @param string $relation
+             * @param \Illuminate\Database\Eloquent\Relations\MorphTo|string $relation
              * @param string|array $types
              * @param \Closure|null $callback
              * @param string $operator
@@ -16661,7 +17345,7 @@ namespace  {
                 /**
              * Add a polymorphic relationship count / exists condition to the query with where clauses and an "or".
              *
-             * @param string $relation
+             * @param \Illuminate\Database\Eloquent\Relations\MorphTo|string $relation
              * @param string|array $types
              * @param \Closure|null $callback
              * @param string $operator
@@ -16678,7 +17362,7 @@ namespace  {
                 /**
              * Add a polymorphic relationship count / exists condition to the query with where clauses.
              *
-             * @param string $relation
+             * @param \Illuminate\Database\Eloquent\Relations\MorphTo|string $relation
              * @param string|array $types
              * @param \Closure|null $callback
              * @return \Illuminate\Database\Eloquent\Builder|static 
@@ -16693,7 +17377,7 @@ namespace  {
                 /**
              * Add a polymorphic relationship count / exists condition to the query with where clauses and an "or".
              *
-             * @param string $relation
+             * @param \Illuminate\Database\Eloquent\Relations\MorphTo|string $relation
              * @param string|array $types
              * @param \Closure|null $callback
              * @return \Illuminate\Database\Eloquent\Builder|static 
@@ -16703,6 +17387,21 @@ namespace  {
             {
                                 /** @var \Illuminate\Database\Eloquent\Builder $instance */
                                 return $instance->orWhereDoesntHaveMorph($relation, $types, $callback);
+            }
+             
+                /**
+             * Add subselect queries to include an aggregate value for a relationship.
+             *
+             * @param mixed $relations
+             * @param string $column
+             * @param string $function
+             * @return \Illuminate\Database\Eloquent\Builder|static 
+             * @static 
+             */ 
+            public static function withAggregate($relations, $column, $function = null)
+            {
+                                /** @var \Illuminate\Database\Eloquent\Builder $instance */
+                                return $instance->withAggregate($relations, $column, $function);
             }
              
                 /**
@@ -16719,6 +17418,62 @@ namespace  {
             }
              
                 /**
+             * Add subselect queries to include the max of the relation's column.
+             *
+             * @param string|array $relation
+             * @param string $column
+             * @return \Illuminate\Database\Eloquent\Builder|static 
+             * @static 
+             */ 
+            public static function withMax($relation, $column)
+            {
+                                /** @var \Illuminate\Database\Eloquent\Builder $instance */
+                                return $instance->withMax($relation, $column);
+            }
+             
+                /**
+             * Add subselect queries to include the min of the relation's column.
+             *
+             * @param string|array $relation
+             * @param string $column
+             * @return \Illuminate\Database\Eloquent\Builder|static 
+             * @static 
+             */ 
+            public static function withMin($relation, $column)
+            {
+                                /** @var \Illuminate\Database\Eloquent\Builder $instance */
+                                return $instance->withMin($relation, $column);
+            }
+             
+                /**
+             * Add subselect queries to include the sum of the relation's column.
+             *
+             * @param string|array $relation
+             * @param string $column
+             * @return \Illuminate\Database\Eloquent\Builder|static 
+             * @static 
+             */ 
+            public static function withSum($relation, $column)
+            {
+                                /** @var \Illuminate\Database\Eloquent\Builder $instance */
+                                return $instance->withSum($relation, $column);
+            }
+             
+                /**
+             * Add subselect queries to include the average of the relation's column.
+             *
+             * @param string|array $relation
+             * @param string $column
+             * @return \Illuminate\Database\Eloquent\Builder|static 
+             * @static 
+             */ 
+            public static function withAvg($relation, $column)
+            {
+                                /** @var \Illuminate\Database\Eloquent\Builder $instance */
+                                return $instance->withAvg($relation, $column);
+            }
+             
+                /**
              * Merge the where constraints from another query to the current query.
              *
              * @param \Illuminate\Database\Eloquent\Builder $from
@@ -16729,6 +17484,163 @@ namespace  {
             {
                                 /** @var \Illuminate\Database\Eloquent\Builder $instance */
                                 return $instance->mergeConstraintsFrom($from);
+            }
+             
+                /**
+             * Explains the query.
+             *
+             * @return \Illuminate\Support\Collection 
+             * @static 
+             */ 
+            public static function explain()
+            {
+                                /** @var \Illuminate\Database\Eloquent\Builder $instance */
+                                return $instance->explain();
+            }
+             
+                /**
+             * Chunk the results of the query.
+             *
+             * @param int $count
+             * @param callable $callback
+             * @return bool 
+             * @static 
+             */ 
+            public static function chunk($count, $callback)
+            {
+                                /** @var \Illuminate\Database\Eloquent\Builder $instance */
+                                return $instance->chunk($count, $callback);
+            }
+             
+                /**
+             * Run a map over each item while chunking.
+             *
+             * @param callable $callback
+             * @param int $count
+             * @return \Illuminate\Support\Collection 
+             * @static 
+             */ 
+            public static function chunkMap($callback, $count = 1000)
+            {
+                                /** @var \Illuminate\Database\Eloquent\Builder $instance */
+                                return $instance->chunkMap($callback, $count);
+            }
+             
+                /**
+             * Execute a callback over each item while chunking.
+             *
+             * @param callable $callback
+             * @param int $count
+             * @return bool 
+             * @static 
+             */ 
+            public static function each($callback, $count = 1000)
+            {
+                                /** @var \Illuminate\Database\Eloquent\Builder $instance */
+                                return $instance->each($callback, $count);
+            }
+             
+                /**
+             * Chunk the results of a query by comparing IDs.
+             *
+             * @param int $count
+             * @param callable $callback
+             * @param string|null $column
+             * @param string|null $alias
+             * @return bool 
+             * @static 
+             */ 
+            public static function chunkById($count, $callback, $column = null, $alias = null)
+            {
+                                /** @var \Illuminate\Database\Eloquent\Builder $instance */
+                                return $instance->chunkById($count, $callback, $column, $alias);
+            }
+             
+                /**
+             * Execute a callback over each item while chunking by ID.
+             *
+             * @param callable $callback
+             * @param int $count
+             * @param string|null $column
+             * @param string|null $alias
+             * @return bool 
+             * @static 
+             */ 
+            public static function eachById($callback, $count = 1000, $column = null, $alias = null)
+            {
+                                /** @var \Illuminate\Database\Eloquent\Builder $instance */
+                                return $instance->eachById($callback, $count, $column, $alias);
+            }
+             
+                /**
+             * Execute the query and get the first result.
+             *
+             * @param array|string $columns
+             * @return \Illuminate\Database\Eloquent\Model|object|static|null 
+             * @static 
+             */ 
+            public static function first($columns = [])
+            {
+                                /** @var \Illuminate\Database\Eloquent\Builder $instance */
+                                return $instance->first($columns);
+            }
+             
+                /**
+             * Execute the query and get the first result if it's the sole matching record.
+             *
+             * @param array|string $columns
+             * @return \Illuminate\Database\Eloquent\Model|object|static|null 
+             * @throws \Illuminate\Database\RecordsNotFoundException
+             * @throws \Illuminate\Database\MultipleRecordsFoundException
+             * @static 
+             */ 
+            public static function baseSole($columns = [])
+            {
+                                /** @var \Illuminate\Database\Eloquent\Builder $instance */
+                                return $instance->baseSole($columns);
+            }
+             
+                /**
+             * Apply the callback's query changes if the given "value" is true.
+             *
+             * @param mixed $value
+             * @param callable $callback
+             * @param callable|null $default
+             * @return mixed|$this 
+             * @static 
+             */ 
+            public static function when($value, $callback, $default = null)
+            {
+                                /** @var \Illuminate\Database\Eloquent\Builder $instance */
+                                return $instance->when($value, $callback, $default);
+            }
+             
+                /**
+             * Pass the query to a given callback.
+             *
+             * @param callable $callback
+             * @return \Illuminate\Database\Eloquent\Builder|static 
+             * @static 
+             */ 
+            public static function tap($callback)
+            {
+                                /** @var \Illuminate\Database\Eloquent\Builder $instance */
+                                return $instance->tap($callback);
+            }
+             
+                /**
+             * Apply the callback's query changes if the given "value" is false.
+             *
+             * @param mixed $value
+             * @param callable $callback
+             * @param callable|null $default
+             * @return mixed|$this 
+             * @static 
+             */ 
+            public static function unless($value, $callback, $default = null)
+            {
+                                /** @var \Illuminate\Database\Eloquent\Builder $instance */
+                                return $instance->unless($value, $callback, $default);
             }
              
                 /**
@@ -16747,7 +17659,7 @@ namespace  {
                 /**
              * Add a subselect expression to the query.
              *
-             * @param \Closure|$this|string $query
+             * @param \Closure|\Illuminate\Database\Query\Builder|string $query
              * @param string $as
              * @return \Illuminate\Database\Query\Builder 
              * @throws \InvalidArgumentException
@@ -16879,7 +17791,7 @@ namespace  {
                 /**
              * Add a subquery join clause to the query.
              *
-             * @param \Closure|\Illuminate\Database\Query\Builder|string $query
+             * @param \Closure|\Illuminate\Database\Query\Builder|\Illuminate\Database\Eloquent\Builder|string $query
              * @param string $as
              * @param \Closure|string $first
              * @param string|null $operator
@@ -16931,7 +17843,7 @@ namespace  {
                 /**
              * Add a subquery left join to the query.
              *
-             * @param \Closure|\Illuminate\Database\Query\Builder|string $query
+             * @param \Closure|\Illuminate\Database\Query\Builder|\Illuminate\Database\Eloquent\Builder|string $query
              * @param string $as
              * @param \Closure|string $first
              * @param string|null $operator
@@ -16980,7 +17892,7 @@ namespace  {
                 /**
              * Add a subquery right join to the query.
              *
-             * @param \Closure|\Illuminate\Database\Query\Builder|string $query
+             * @param \Closure|\Illuminate\Database\Query\Builder|\Illuminate\Database\Eloquent\Builder|string $query
              * @param string $as
              * @param \Closure|string $first
              * @param string|null $operator
@@ -18544,6 +19456,18 @@ namespace  {
             }
              
                 /**
+             * Clone the query.
+             *
+             * @return static 
+             * @static 
+             */ 
+            public static function clone()
+            {
+                                /** @var \Illuminate\Database\Query\Builder $instance */
+                                return $instance->clone();
+            }
+             
+                /**
              * Clone the query without the given properties.
              *
              * @param array $properties
@@ -18657,11 +19581,16 @@ namespace  {
             class URL extends \Illuminate\Support\Facades\URL {}
             class Validator extends \Illuminate\Support\Facades\Validator {}
             class View extends \Illuminate\Support\Facades\View {}
+            class Helper extends \App\Helpers\Helper {}
+            class DateHelpers extends \App\Helpers\DateHelpers {}
+            class TextHelpers extends \App\Helpers\TextHelpers {}
+            class ImageHelpers extends \App\Helpers\ImageHelpers {}
             class Flare extends \Facade\Ignition\Facades\Flare {}
             class Image extends \Intervention\Image\Facades\Image {}
             class Agent extends \Jenssegers\Agent\Facades\Agent {}
-            class Nova extends \Laravel\Nova\Nova {}
             class Livewire extends \Livewire\Livewire {}
+            class LaravelLocalization extends \Mcamara\LaravelLocalization\Facades\LaravelLocalization {}
+            class Location extends \Stevebauman\Location\Facades\Location {}
      
 }
 

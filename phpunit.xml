@@ -29,5 +29,7 @@
         <server name="QUEUE_CONNECTION" value="sync"/>
         <server name="SESSION_DRIVER" value="array"/>
         <server name="TELESCOPE_ENABLED" value="false"/>
+        <!-- it disable the localization for the tests -->
+        <server name="LOCALIZATION_HIDE_DEFAULT_LOCALE" value="true" />
     </php>
 </phpunit>
