@@ -116,7 +116,6 @@ class Event extends Model implements HasMedia
         return $this->hasMany(EventRepetition::class);
     }
 
-
     /**
      * Get the repeat type of the event.
      */
@@ -148,6 +147,14 @@ class Event extends Model implements HasMedia
         $this->addMediaConversion('thumb')
             ->width(300)
             ->height(300);
+
+        $this->addMediaConversion('facebook')
+            ->width(1200)
+            ->height(630);
+
+        $this->addMediaConversion('twitter')
+            ->width(1024)
+            ->height(512);
     }
 
     public function registerMediaCollections(): void

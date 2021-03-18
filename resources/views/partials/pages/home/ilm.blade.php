@@ -3,23 +3,23 @@
     <div class="lg:grid lg:grid-cols-12 lg:gap-8">
         <div class="sm:text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left">
             <div class="text-sm font-semibold uppercase tracking-wide text-gray-500 sm:text-base lg:text-sm xl:text-base">
-                ILAN LEV METHOD
+                {{ ucfirst(trans('static_pages.home.blocks.ilm.ilan_lev_method')) }}
             </div>
             <div class="mt-1 text-4xl tracking-tight leading-10 font-brand text-gray-900 sm:leading-none sm:text-6xl lg:text-4xl xl:text-5xl">
-                A revolutionary form of <br><span class="text-primary-600">hands-on bodywork</span> that addresses body aches, pains and movement imbalances
+                @lang('static_pages.home.blocks.ilm.a_revolutionary_form')
             </div>
             <p class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
-                Through bodywork we can get an external support to address this situations and to allow our body to find a new equilibrium and alignment free from tensions.
+                @lang('static_pages.home.blocks.ilm.through_bodywork')
             </p>
             <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                 <div class="rounded-md shadow">
                     <a href="{{route('getATreatment.create')}}" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-primary-600 hover:bg-primary-500 focus:outline-none focus:border-primary-700 focus:ring-primary transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10">
-                        Get a treatment
+                        @lang('static_pages.home.blocks.ilm.get_a_treatment')
                     </a>
                 </div>
                 <div class="mt-3 sm:mt-0 sm:ml-3">
                     <a href="{{route('staticPages.treatments')}}" class="w-full flex items-center justify-center px-8 py-3 border border-primary-600 text-base leading-6 font-medium rounded-md text-primary-700 bg-white hover:text-primary-600 hover:bg-primary-50 focus:outline-none focus:ring-primary focus:border-primary-300 transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10">
-                        More info about ILM
+                        @lang('static_pages.home.blocks.ilm.more_info')
                     </a>
                 </div>
             </div>
