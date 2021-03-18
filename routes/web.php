@@ -35,6 +35,7 @@ use App\Http\Controllers\VenueController;
 use App\Http\Controllers\MediaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use Spatie\Honeypot\ProtectAgainstSpam;
 
 /**
@@ -196,39 +197,45 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
  *    Frontend Routes
  */
 
-// Post Comments
-Route::name('postComments.')->group(function () {
+Route::group(
+  [
+    'prefix' => LaravelLocalization::setLocale(),
+    'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
+  ], function(){
+  // Post Comments
+  Route::name('postComments.')->group(function () {
     Route::post('/postComment', [PostCommentController::class, 'store'])->name('store')->middleware(ProtectAgainstSpam::class);
     ;
+  });
+
+
+  //Route::get('tag/{tagId}',[ TagController::class, 'show'])->name('tags.show');
+  Route::get('glossaries/{slug}', [ GlossaryController::class, 'show'])->name('glossaries.show');
+
+  // Contact form
+  Route::get('/contact', [ContactMeController::class, 'index'])->name('contact.index');
+  Route::post('/contact', [ContactMeController::class, 'store'])->name('contact.store');
+
+
+  // Pages
+  //Route::get('/aboutMe', return view('pages.aboutMe'));
+  //return view('posts.index');
+
+
+
+  // Guest routes
+  Route::get('/', [ HomeController::class, 'index'])->name('home');
+  Route::get('/blog', [PostController::class, 'blog'])->name('posts.blog');
+  Route::get('/posts/{slug}', [PostController::class, 'show'])->name('posts.show');
+  Route::get('/tags/{slug}', [TagController::class, 'show'])->name('tags.show');
+  Route::get('/next_events', [EventController::class, 'nextEvents'])->name('events.next');
+  Route::get('/aboutMe', [StaticPageController::class, 'aboutMe'])->name('staticPages.aboutMe');
+  Route::get('/treatments-ilan-lev-method', [StaticPageController::class, 'treatments'])->name('staticPages.treatments');
+  Route::get('/contact-improvisation', [StaticPageController::class, 'contactImprovisation'])->name('staticPages.contactImprovisation');
+  Route::get('/events/{slug}', [EventController::class, 'show'])->name('events.show');
+
+  Route::get('/getATreatment', [GetATreatmentController::class, 'create'])->name('getATreatment.create');
+  Route::post('/getATreatment', [GetATreatmentController::class, 'store'])->name('getATreatment.store');
+
+  Route::get('/teachers/{slug}', [TeacherController::class, 'show'])->name('teachers.show');
 });
-
-
-//Route::get('tag/{tagId}',[ TagController::class, 'show'])->name('tags.show');
-Route::get('glossaries/{slug}', [ GlossaryController::class, 'show'])->name('glossaries.show');
-
-// Contact form
-Route::get('/contact', [ContactMeController::class, 'index'])->name('contact.index');
-Route::post('/contact', [ContactMeController::class, 'store'])->name('contact.store');
-
-
-// Pages
-//Route::get('/aboutMe', return view('pages.aboutMe'));
-//return view('posts.index');
-
-
-
-// Guest routes
-Route::get('/', [ HomeController::class, 'index'])->name('home');
-Route::get('/blog', [PostController::class, 'blog'])->name('posts.blog');
-Route::get('/posts/{slug}', [PostController::class, 'show'])->name('posts.show');
-Route::get('/tags/{slug}', [TagController::class, 'show'])->name('tags.show');
-Route::get('/next_events', [EventController::class, 'nextEvents'])->name('events.next');
-Route::get('/aboutMe', [StaticPageController::class, 'aboutMe'])->name('staticPages.aboutMe');
-Route::get('/treatments-ilan-lev-method', [StaticPageController::class, 'treatments'])->name('staticPages.treatments');
-Route::get('/contact-improvisation', [StaticPageController::class, 'contactImprovisation'])->name('staticPages.contactImprovisation');
-Route::get('/events/{slug}', [EventController::class, 'show'])->name('events.show');
-
-Route::get('/getATreatment', [GetATreatmentController::class, 'create'])->name('getATreatment.create');
-Route::post('/getATreatment', [GetATreatmentController::class, 'store'])->name('getATreatment.store');
-
-Route::get('/teachers/{slug}', [TeacherController::class, 'show'])->name('teachers.show');
