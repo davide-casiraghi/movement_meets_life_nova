@@ -117,6 +117,7 @@
 
     @stack('modals')
 
+    @include('analytics')
 </body>
 
 </html>
