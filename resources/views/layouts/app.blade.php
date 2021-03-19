@@ -77,6 +77,8 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">--}}
 
     @livewireStyles
+
+    @include('analytics')
 </head>
 
 <body class="bg-gray-100">
@@ -116,8 +118,6 @@
     </script>
 
     @stack('modals')
-
-    @include('analytics')
 </body>
 
 </html>
