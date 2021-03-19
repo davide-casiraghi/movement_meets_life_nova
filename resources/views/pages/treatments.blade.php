@@ -22,6 +22,8 @@
             I give private treatments in Ljubljana, Slovenia.
         </div>
 
+
+        {{-- Ilan Lev Method Bodywork --}}
         <h2 class="text-xl text-gray-900 font-extrabold tracking-tight sm:text-2xl mt-8 mb-4">
             Ilan Lev Method Bodywork
         </h2>
@@ -50,7 +52,8 @@
             </div>
         </div>
 
-        
+
+        {{-- Movement classes according to the Ilan Lev Method --}}
         <div class="">
             <h2 class="text-xl text-gray-900 font-extrabold tracking-tight sm:text-2xl mt-8 mb-4">
                 Movement classes according to the Ilan Lev Method
@@ -63,7 +66,17 @@
                 The activity is intended for all those who want to improve their functioning abilities.
             </p>
         </div>
-        
+
+    </div>
+
+
+
+    {{-- FAQs --}}
+    @include('partials.pages.treatments.faq')
+
+
+
+    <div class="max-w-2xl mx-auto px-8 lg:px-0 mb-10 md:mt-6">
         <div class="">
 
             <h2 class="text-xl text-gray-900 font-extrabold tracking-tight sm:text-2xl mt-8 mb-4">
