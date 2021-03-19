@@ -72,7 +72,28 @@
 
 
     {{-- FAQs --}}
-    @include('partials.pages.treatments.faq_two_columns')
+    @include('partials.pages.treatments.faq_two_columns', [
+          'left' => [
+              1 => [
+                'question' => "Left, What's the best thing about Switzerland?",
+                'answer' =>  "I don't know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.",
+              ],
+              2 => [
+                'question' => "Left, How do you make holy water?",
+                'answer' =>  "You boil the hell out of it. Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam aut tempora vitae odio inventore fuga aliquam nostrum quod porro. Delectus quia facere id sequi expedita natus.",
+              ],
+            ],
+          'right' => [
+              1 => [
+                'question' => "Right, What's the best thing about Switzerland?",
+                'answer' =>  "I don't know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.",
+              ],
+              2 => [
+                'question' => "Right, How do you make holy water?",
+                'answer' =>  "You boil the hell out of it. Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam aut tempora vitae odio inventore fuga aliquam nostrum quod porro. Delectus quia facere id sequi expedita natus.",
+              ],
+            ],
+      ])
 
 
 

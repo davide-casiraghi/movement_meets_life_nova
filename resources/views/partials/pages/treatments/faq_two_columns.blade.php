@@ -6,10 +6,12 @@
         </h2>
 
         <div class="md:grid md:grid-cols-6 md:gap-x-24">
-            {{--col1--}}
+            {{-- COL LEFT --}}
             <div class="md:col-span-3">
-                <div class=" divide-y-2 divide-gray-200"> {{--max-w-3xl mx-auto--}}
+                <div class=" divide-y-2 divide-gray-200">
                     <dl class="mt-6 space-y-6 divide-y divide-gray-200">
+
+                        {{-- question 1 --}}
                         <div class="pt-6">
                             <dt class="text-lg">
                                 <button x-description="Expand/collapse question button" @click="openPanel = (openPanel === 0 ? null : 0)" x-bind:aria-expanded="openPanel === 0" class="text-left w-full flex justify-between items-start text-gray-400">
@@ -30,6 +32,8 @@
                                 </p>
                             </dd>
                         </div>
+
+                        {{-- question 2 --}}
                         <div class="pt-6">
                             <dt class="text-lg">
                                 <button x-description="Expand/collapse question button" @click="openPanel = (openPanel === 1 ? null : 1)" x-bind:aria-expanded="openPanel === 1" class="text-left w-full flex justify-between items-start text-gray-400">
@@ -54,10 +58,12 @@
                 </div>
             </div>
 
-            {{--col2--}}
+            {{-- COL RIGHT --}}
             <div class="md:col-span-3">
-                <div class=" divide-y-2 divide-gray-200"> {{--max-w-3xl mx-auto--}}
+                <div class=" divide-y-2 divide-gray-200">
                     <dl class="mt-6 space-y-6 divide-y divide-gray-200">
+
+                        {{-- question 3 --}}
                         <div class="pt-6">
                             <dt class="text-lg">
                                 <button x-description="Expand/collapse question button" @click="openPanel = (openPanel === 2 ? null : 2)" x-bind:aria-expanded="openPanel === 2" class="text-left w-full flex justify-between items-start text-gray-400">
@@ -78,6 +84,8 @@
                                 </p>
                             </dd>
                         </div>
+
+                        {{-- question 4 --}}
                         <div class="pt-6">
                             <dt class="text-lg">
                                 <button x-description="Expand/collapse question button" @click="openPanel = (openPanel === 3 ? null : 3)" x-bind:aria-expanded="openPanel === 3" class="text-left w-full flex justify-between items-start text-gray-400">
@@ -103,8 +111,6 @@
             </div>
 
         </div>
-
-
 
 
     </div>
