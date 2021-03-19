@@ -80,8 +80,6 @@ class OrganizerController extends Controller
      */
     public function show(string $organizerSlug)
     {
-        $this->checkPermission('organizers.edit');
-
         $organizer = $this->organizerService->getBySlug($organizerSlug);
 
         return view('organizers.show', compact('organizer'));
