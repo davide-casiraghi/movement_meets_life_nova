@@ -5,7 +5,7 @@
             Frequently asked questions
         </h2>
 
-        <div class="md:grid md:grid-cols-6 md:gap-4">
+        <div class="md:grid md:grid-cols-6 md:gap-x-24">
             {{--col1--}}
             <div class="md:col-span-3">
                 <div class=" divide-y-2 divide-gray-200"> {{--max-w-3xl mx-auto--}}
