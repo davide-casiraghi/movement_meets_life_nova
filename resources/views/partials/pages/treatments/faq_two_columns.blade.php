@@ -12,7 +12,7 @@
                     <dl class="mt-6 space-y-6 divide-y divide-gray-200">
                         <div class="pt-6">
                             <dt class="text-lg">
-                                <button x-description="Expand/collapse question button" @click="openPanelLeft = (openPanelLeft === 0 ? null : 0)" class="text-left w-full flex justify-between items-start text-gray-400" x-bind:aria-expanded="openPanelLeft === 0">
+                                <button x-description="Expand/collapse question button" @click="openPanelLeft = (openPanelLeft === 0 ? null : 0)" x-bind:aria-expanded="openPanelLeft === 0" class="text-left w-full flex justify-between items-start text-gray-400">
                                 <span class="font-medium text-gray-900">
                                 What's the best thing about Switzerland?
                                 </span>
@@ -32,7 +32,7 @@
                         </div>
                         <div class="pt-6">
                             <dt class="text-lg">
-                                <button x-description="Expand/collapse question button" @click="openPanelLeft = (openPanelLeft === 1 ? null : 1)" class="text-left w-full flex justify-between items-start text-gray-400" x-bind:aria-expanded="openPanelLeft === 1">
+                                <button x-description="Expand/collapse question button" @click="openPanelLeft = (openPanelLeft === 1 ? null : 1)" x-bind:aria-expanded="openPanelLeft === 1" class="text-left w-full flex justify-between items-start text-gray-400">
                                 <span class="font-medium text-gray-900">
                                 How do you make holy water?
                                 </span>
@@ -60,7 +60,7 @@
                     <dl class="mt-6 space-y-6 divide-y divide-gray-200">
                         <div class="pt-6">
                             <dt class="text-lg">
-                                <button x-description="Expand/collapse question button" @click="openPanelRight = (openPanelRight === 0 ? null : 0)" class="text-left w-full flex justify-between items-start text-gray-400" x-bind:aria-expanded="openPanelRight === 0">
+                                <button x-description="Expand/collapse question button" @click="openPanelRight = (openPanelRight === 0 ? null : 0)" x-bind:aria-expanded="openPanelRight === 0" class="text-left w-full flex justify-between items-start text-gray-400">
                                 <span class="font-medium text-gray-900">
                                 What's the best thing about Switzerland?
                                 </span>
@@ -80,7 +80,7 @@
                         </div>
                         <div class="pt-6">
                             <dt class="text-lg">
-                                <button x-description="Expand/collapse question button" @click="openPanelRight = (openPanelRight === 1 ? null : 1)" class="text-left w-full flex justify-between items-start text-gray-400" x-bind:aria-expanded="openPanelRight === 1">
+                                <button x-description="Expand/collapse question button" @click="openPanelRight = (openPanelRight === 1 ? null : 1)" x-bind:aria-expanded="openPanelRight === 1" class="text-left w-full flex justify-between items-start text-gray-400">
                                 <span class="font-medium text-gray-900">
                                 How do you make holy water?
                                 </span>
@@ -103,8 +103,6 @@
             </div>
 
         </div>
-
-
 
 
 
