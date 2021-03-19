@@ -72,7 +72,7 @@
 
 
     {{-- FAQs --}}
-    @include('partials.pages.treatments.faq')
+    @include('partials.pages.treatments.faq_two_columns')
 
 
 
