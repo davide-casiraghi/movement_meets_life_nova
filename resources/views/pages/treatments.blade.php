@@ -4,24 +4,24 @@
 
     <div class="max-w-2xl mx-auto px-8 lg:px-0 mb-10 md:mt-6">
 
-        <div class="border-gray-400 border-solid border-0 box-border leading-6 pt-6 pb-8 text-black">
+        <div class="leading-6 pt-6 pb-8 text-black">
             <h1 class="sm:text-3xl md:text-5xl border-solid box-border font-extrabold text-3xl m-0 text-gray-900 tracking-tight mb-2">
                 Treatments - Ilan Lev Method
             </h1>
-            <p class="border-solid box-border text-lg m-0 text-gray-500">
-                The Ilan Lev method works towards improving human capabilities and removing functional difficulties. The treatment resolves body-circulation issues, relieves pain and skeletal and joint problems.
-            </p>
         </div>
 
-        <div class="mt-4 text-xl text-gray-500 leading-8">
-            The Ilan Lev Method (ILM) is a revolutionary form of hands-on bodywork that addresses body aches, pains, and movement imbalances caused by physical or emotional strain.
-        </div>
-        
+        @include('partials.pages.treatments.intro')
+
+
+        <p class="border-solid box-border text-lg m-0 text-gray-500 mt-20">
+            The Ilan Lev method works towards improving human capabilities and removing functional difficulties. The treatment resolves body-circulation issues, relieves pain and skeletal and joint problems.
+        </p>
+
+
         <div class="">
             In April 2019 I've completed the first Ilan Lev Method training program in Europe and I'm a certified practitioner.
             I give private treatments in Ljubljana, Slovenia.
         </div>
-
 
         @include('partials.pages.treatments.bodywork')
         @include('partials.pages.treatments.movementClasses')
@@ -90,8 +90,8 @@
             </p>
 
         </div>
-        
-        
+
+
         <div class="mt-4 text-xl text-gray-500 leading-8">
             Here is your treatment <br>
             Contact: Davide Casiraghi, +38669627872, davide.casiraghi@gmail.com<br>
@@ -108,7 +108,7 @@
 
 
         </div>
-        
+
         <div class="">
             Testimonials
         </div>
