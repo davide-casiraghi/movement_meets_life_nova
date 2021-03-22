@@ -1,4 +1,4 @@
-<div class="mt-32 h-96 movingCircles">
+<div class="mt-32 h-96 turnPageBackground">
     <div class="mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:px-8 lg:max-w-7xl">
         <div class="lg:grid lg:grid-cols-2 lg:gap-24 lg:items-center pt-20">
             <div>
