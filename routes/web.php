@@ -227,7 +227,8 @@ Route::group(
   Route::get('/blog', [PostController::class, 'blog'])->name('posts.blog');
   Route::get('/posts/{slug}', [PostController::class, 'show'])->name('posts.show');
   Route::get('/tags/{slug}', [TagController::class, 'show'])->name('tags.show');
-  Route::get('/next_events', [EventController::class, 'nextEvents'])->name('events.next');
+  Route::get('/next-events', [EventController::class, 'nextEvents'])->name('events.next');
+  Route::get('/past-events', [EventController::class, 'pastEvents'])->name('events.past');
   Route::get('/aboutMe', [StaticPageController::class, 'aboutMe'])->name('staticPages.aboutMe');
   Route::get('/treatments-ilan-lev-method', [StaticPageController::class, 'treatments'])->name('staticPages.treatments');
   Route::get('/contact-improvisation', [StaticPageController::class, 'contactImprovisation'])->name('staticPages.contactImprovisation');
