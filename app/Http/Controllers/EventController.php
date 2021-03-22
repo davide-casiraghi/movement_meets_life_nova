@@ -235,7 +235,7 @@ class EventController extends Controller
         $eventsCategories = $this->eventCategoryService->getEventCategories();
         $statuses = Event::PUBLISHING_STATUS;
 
-        return view('events.next', [
+        return view('events.frontend', [
             'events' => $events,
             'eventsCategories' => $eventsCategories,
             'searchParameters' => $searchParameters,
