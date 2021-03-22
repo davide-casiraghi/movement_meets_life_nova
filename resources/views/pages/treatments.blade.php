@@ -27,6 +27,7 @@
         @include('partials.pages.treatments.movementClasses')
         @include('partials.pages.treatments.big_feedbacks')
 
+        @include('partials.pages.treatments.treatment_gallery')
     </div>
 
 
