@@ -45,10 +45,10 @@ class StaticPageController extends Controller
      */
     public function contactImprovisation()
     {
-        $gallery1Html = $this->staticPageService->getStaticGalleryHtml('contact improvisation', true);
+        //$gallery1Html = $this->staticPageService->getStaticGalleryHtml('contact improvisation', true);
 
         return view('pages.contactImprovisation', [
-            'gallery1Html' => $gallery1Html,
+            //'gallery1Html' => $gallery1Html,
         ]);
     }
 }

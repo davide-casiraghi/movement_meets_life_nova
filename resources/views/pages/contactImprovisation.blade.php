@@ -89,8 +89,8 @@
     @include('partials.pages.contact_improvisation.ci_gallery')
 
 
-    <div class="mb-10">
+    {{--<div class="mb-10">
         {!! $gallery1Html !!}
-    </div>
+    </div>--}}
 
 @endsection
