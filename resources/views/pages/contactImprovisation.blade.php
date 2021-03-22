@@ -25,7 +25,7 @@
             Alertness is developed to work in an energetic state of physical disorientation, trusting in one’s basic survival instincts. It is a free play with balance, self-correcting the wrong moves and reinforcing the right ones, bringing forth a physical/emotional truth about a shared moment of movement that leaves the participants informed, centered, and enlivened.<br><br>
             I see CI as a way to re-awake and enjoy fully our sensitivity and playfulness, working on trust, explore curiosity about movement principles out of daily movement patterns.<br>
         </div>
-        
+
         <div class="">
             <h2>Contact Classes in Ljubljana</h2>
 
@@ -41,7 +41,7 @@
             The CI classes in Ljubljana for the season 2020-2021 will be at the Ex Stena, in Parmova Ulica, 25. <br><br>
 
         </div>
-        
+
         <div class="">insights/edit.blade.php
             <h2>Contact Improvisation workshops in Trieste</h2>
             @include('partials.contents.image',[
@@ -53,7 +53,7 @@
             For further info, you have a look at www.dancinghouse.it or contact Marta Zacchingna.<br><br>
             The first workshop will be on 20 September 2020.<br><br>
         </div>
-        
+
         <div class="">
             <h2>One to one classes</h2>
             On request, I can offer one to one CI classes focused on your specific needs.
@@ -84,6 +84,10 @@
             ])
 
     </div>
+
+    {{-- Galley --}}
+    @include('partials.pages.contact_improvisation.ci_gallery')
+
 
     <div class="mb-10">
         {!! $gallery1Html !!}

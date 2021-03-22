@@ -4,39 +4,42 @@
             'path' => 'storage/static_pages/treatments/gallery_1/',
             'images' => [
                 1 => [
-                  'name' => 'IMG_7821.jpg',
+                  'name' => '1.jpg',
                 ],
                 2 => [
-                  'name' => 'IMG_7821.jpg',
+                  'name' => '2.jpg',
                   'description' => 'description',
                   'credits' => 'credits',
                 ],
                 3 => [
-                  'name' => 'IMG_7821.jpg',
+                  'name' => '3.jpg',
                   'description' => 'description',
                   'credits' => 'credits',
                 ],
                 4 => [
-                  'name' => 'IMG_7821.jpg',
+                  'name' => '4.jpg',
                   'description' => 'description',
                   'credits' => 'credits',
                 ],
                 5 => [
-                  'name' => 'IMG_7821.jpg',
+                  'name' => '5.jpg',
                   'description' => 'description',
                   'credits' => 'credits',
                 ],
                 6 => [
-                  'name' => 'IMG_7821.jpg',
+                  'name' => '6.jpg',
                   'description' => 'description',
                   'credits' => 'credits',
                 ],
                 7 => [
-                  'name' => 'IMG_7821.jpg',
+                  'name' => '7.jpg',
+                  'description' => 'description',
+                  'credits' => 'credits',
+                ],
+                8 => [
+                  'name' => '8.jpg',
                   'description' => 'description',
                   'credits' => 'credits',
                 ],
             ]
         ])
-
-
