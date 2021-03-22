@@ -25,8 +25,6 @@
                 }
             @endphp
 
-
-
             <a href='{{asset($imageLink)}}' data-fancybox='images' @if(!empty($caption))data-caption='{{$caption}}'@endif>
                 <img src='{{asset($thumbLink)}}' @if(array_key_exists('description',$image)) alt='{{$image['description']}} @endif' />
                 @if($isVideo)
@@ -41,5 +39,3 @@
         </div>
     @endforeach
 </div>
-
-@isset($image['description']){{$image['description']}}@endisset
