@@ -231,15 +231,30 @@ class EventController extends Controller
         $searchParameters['startDate'] = Carbon::today()->format('d/m/Y');
         $searchParameters['is_published'] = true;
 
-        $events = $this->eventService->getEvents(20, $searchParameters);
-        $eventsCategories = $this->eventCategoryService->getEventCategories();
-        $statuses = Event::PUBLISHING_STATUS;
+        $events = $this->eventService->getEvents(10, $searchParameters);
 
-        return view('events.next', [
+        return view('events.frontend', [
             'events' => $events,
-            'eventsCategories' => $eventsCategories,
-            'searchParameters' => $searchParameters,
-            'statuses' => $statuses,
+            'eventRepetitionService' => $this->eventRepetitionService,
+            'eventService' => $this->eventService,
+        ]);
+    }
+
+    /**
+     * Display list of past events in the frontend Events page.
+     *
+     * @return View
+     */
+    public function pastEvents(): View
+    {
+        $searchParameters = [];
+        $searchParameters['endDate'] = Carbon::today()->format('d/m/Y');
+        $searchParameters['is_published'] = true;
+
+        $events = $this->eventService->getEvents(10, $searchParameters);
+
+        return view('events.past', [
+            'events' => $events,
             'eventRepetitionService' => $this->eventRepetitionService,
             'eventService' => $this->eventService,
         ]);
