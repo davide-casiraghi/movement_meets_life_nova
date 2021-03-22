@@ -1,4 +1,3 @@
-GALLERY HERE
 
 
 @include('partials.pages.staticGallery', [

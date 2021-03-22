@@ -27,10 +27,10 @@
         @include('partials.pages.treatments.movementClasses')
         @include('partials.pages.treatments.big_feedbacks')
 
-        @include('partials.pages.treatments.treatment_gallery')
     </div>
 
-
+    {{-- Galley --}}
+    @include('partials.pages.treatments.treatment_gallery')
 
     {{-- FAQs --}}
     @include('partials.pages.treatments.faq_two_columns', [

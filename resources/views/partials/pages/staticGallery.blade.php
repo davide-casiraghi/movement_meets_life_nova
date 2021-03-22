@@ -23,10 +23,7 @@
                 if(array_key_exists('credits',$image)){
                   $caption = $image['credits'];
                 }
-
             @endphp
-
-
 
 
 
