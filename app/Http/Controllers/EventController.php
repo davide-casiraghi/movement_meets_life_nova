@@ -233,7 +233,7 @@ class EventController extends Controller
 
         $events = $this->eventService->getEvents(10, $searchParameters);
 
-        return view('events.frontend', [
+        return view('events.future', [
             'events' => $events,
             'eventRepetitionService' => $this->eventRepetitionService,
             'eventService' => $this->eventService,
