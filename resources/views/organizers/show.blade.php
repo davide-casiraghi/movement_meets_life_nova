@@ -1,7 +1,14 @@
 @extends('layouts.app')
 
 @section('fb-tags')
-
+    <!-- Social meta-tags -->
+    <x-social-meta
+        :title="$organizer->name . ' ' . $organizer->surname"
+        :image="$organizer->hasMedia('profile_picture') ?
+                $organizer->getMedia('profile_picture')->first()->getUrl('facebook') :
+                '/storage/logo/fb_logo_cigc_red.jpg'"
+    />
+    <!-- End Social meta-tags -->
 @endsection
 
 @section('content')

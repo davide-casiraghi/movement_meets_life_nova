@@ -79,6 +79,10 @@
     @livewireStyles
 
     @include('analytics')
+
+    <!-- Blade UI Kit styles -->
+    @bukStyles
+    <!-- End Blade UI Kit styles -->
 </head>
 
 <body class="bg-gray-100">
@@ -118,6 +122,10 @@
     </script>
 
     @stack('modals')
+
+    <!-- Blade UI Kit scripts -->
+    @bukScripts
+    <!-- End Blade UI Kit scripts -->
 </body>
 
 </html>
