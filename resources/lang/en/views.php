@@ -188,6 +188,7 @@ return [
     'term' => 'Term',
     'definition' => 'Definition',
     'body' => 'Body',
+    'intro_text' => 'Intro text',
     'author' => 'Author',
     'profession' => 'Profession',
     'feedback' => 'Feedback',

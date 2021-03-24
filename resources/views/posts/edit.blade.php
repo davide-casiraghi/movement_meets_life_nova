@@ -82,7 +82,20 @@
 
                         <div class="col-span-6">
                             @include('partials.forms.textarea', [
-                                   'label' => __('views.text'),
+                                    'label' => __('views.intro_text'),
+                                    'name' => 'intro_text',
+                                    'placeholder' => '',
+                                    'value' => old('intro_text', $post->intro_text),
+                                    'required' => false,
+                                    'disabled' => false,
+                                    'style' => 'plain',
+                                    'extraDescription' => '',
+                                ])
+                        </div>
+
+                        <div class="col-span-6">
+                            @include('partials.forms.textarea', [
+                                   'label' => __('views.body'),
                                    'name' => 'body',
                                    'placeholder' => '',
                                    'value' => old('body', $post->body),
