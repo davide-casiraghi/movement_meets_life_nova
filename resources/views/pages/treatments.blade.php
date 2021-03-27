@@ -36,22 +36,30 @@
     @include('partials.pages.treatments.faq_two_columns', [
           'left' => [
               1 => [
-                'question' => "Left, What's the best thing about Switzerland?",
-                'answer' =>  "I don't know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.",
+                'question' => "Why ILM is different from a normal massage?",
+                'answer' =>  "A normal massage is directed to fascia and bones <br> In Ilan Lev method our focus is the structure of the receiver the movement goes from the skeleton of the practitioner to the one of the receiver. <br> Everything is attached to the skeleton: muscles, fascia, nervous system, blood system, immune system. <br> We never force, it's a dialogue with mutual.listening.<br> If the tensions were coming out of a bad habit after the massage will come back. The treatment instead, allow the receive to get a better understanding of his/her system addressing sensory motor amnesia and in this way address also bad habits.",
               ],
               2 => [
-                'question' => "Left, How do you make holy water?",
-                'answer' =>  "You boil the hell out of it. Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam aut tempora vitae odio inventore fuga aliquam nostrum quod porro. Delectus quia facere id sequi expedita natus.",
+                'question' => "What is sensory motor amnesia ?",
+                'answer' =>  "The more we are stressed somewhere and the less we are able to get feedback for that part of our body. <br> This because the tensions cut off the sensations. <br> So when we have tensions we are not able to identify what is going on and work to release that.",
+              ],
+              3 => [
+                'question' => "I have a fresh injury, can I get a bodywork ?",
+                'answer' =>  "Yes, it's gonna be much more slow and minimal compared with an usual bodywork, anyway it can support the process of healing from the injury.",
               ],
             ],
           'right' => [
               1 => [
-                'question' => "Right, What's the best thing about Switzerland?",
-                'answer' =>  "I don't know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.",
+                'question' => "How much time a treatment lasts ?",
+                'answer' =>  "It can last from 1h to 1h and half.",
               ],
               2 => [
-                'question' => "Right, How do you make holy water?",
-                'answer' =>  "You boil the hell out of it. Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam aut tempora vitae odio inventore fuga aliquam nostrum quod porro. Delectus quia facere id sequi expedita natus.",
+                'question' => "How many treatments I should take?",
+                'answer' =>  "You can come for the first treatment to meet the method and see if it resonate you. After that I suggest a cycle of 5 treatment, after that we will check the how the condition is changed and decide if continue or not.",
+              ],
+              3 => [
+                'question' => "It is a bodywork good to address back pain ?",
+                'answer' =>  "Yes it is.",
               ],
             ],
       ])
