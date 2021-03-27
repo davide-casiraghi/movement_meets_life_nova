@@ -1,7 +1,7 @@
 
 
 @include('partials.pages.staticGallery', [
-            'path' => 'storage/static_pages/treatments/gallery_1/',
+            'path' => 'images/static_pages/treatments/gallery_1/',
             'images' => [
                 1 => [
                   'name' => '1.jpg',

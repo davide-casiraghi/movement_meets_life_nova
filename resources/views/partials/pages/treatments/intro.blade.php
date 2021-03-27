@@ -5,6 +5,6 @@
         </div>
     </div>
     <div class="md:col-span-2">
-        <img class="w-full" src="{{asset('storage/static_pages/treatments/ilan_lev_logo.png')}}" alt="Ilan Lev Logo">
+        <img class="w-full" src="{{asset('images/static_pages/treatments/ilan_lev_logo.png')}}" alt="Ilan Lev Logo">
     </div>
 </div>

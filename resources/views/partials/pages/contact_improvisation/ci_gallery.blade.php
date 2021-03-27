@@ -1,7 +1,7 @@
 
 
 @include('partials.pages.staticGallery', [
-            'path' => 'storage/static_pages/contact_improvisation/gallery_1/',
+            'path' => 'images/static_pages/contact_improvisation/gallery_1/',
             'images' => [
                 1 => [
                   'name' => 'IMG_1584.jpg',
