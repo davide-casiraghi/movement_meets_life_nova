@@ -32,7 +32,7 @@
                                 </dt>
                                 <dd class="mt-2 pr-12" x-show="openPanel === {{$openPanelIndex}}" style="display: none;">
                                     <p class="text-base text-gray-500">
-                                        {!! $faqItem['answer'] !!}}
+                                        {!! $faqItem['answer'] !!}
                                     </p>
                                 </dd>
                             </div>
