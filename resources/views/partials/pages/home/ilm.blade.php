@@ -51,7 +51,7 @@
             {!! $videoIntro !!}--}}
 
             <div class="relative mx-auto w-full rounded-lg shadow-lg lg:max-w-md">
-                <img class="w-full" src="{{asset('storage/static_pages/bodywork_1.jpg')}}" alt="Woman making a sale">
+                <img class="w-full" src="{{asset('images/static_pages/bodywork_1.jpg')}}" alt="Woman making a sale">
             </div>
 
         </div>

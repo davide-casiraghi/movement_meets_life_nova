@@ -8,7 +8,7 @@ https://tailwindui.com/components/application-ui/elements/dropdowns
     <div>
         <button type="button" class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500" id="options-menu" @click="open = !open" aria-haspopup="true" x-bind:aria-expanded="open">
             <div class="flex">
-                <img class="flex-shrink-0 mr-2 mt-1 h-3 w-5" src="{{asset('storage/flags/'.LaravelLocalization::getCurrentLocale())}}.gif" alt="{{LaravelLocalization::getCurrentLocaleName()}} flag">
+                <img class="flex-shrink-0 mr-2 mt-1 h-3 w-5" src="{{asset('images/flags/'.LaravelLocalization::getCurrentLocale())}}.gif" alt="{{LaravelLocalization::getCurrentLocaleName()}} flag">
                 {{LaravelLocalization::getCurrentLocaleName()}}
                 <svg class="-mr-1 ml-2 h-5 w-5" x-description="Heroicon name: solid/chevron-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                     <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
@@ -24,7 +24,7 @@ https://tailwindui.com/components/application-ui/elements/dropdowns
 
                 <a href="{{ LaravelLocalization::getLocalizedURL($localeCode) }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">
                     <div class="flex">
-                        <img class="flex-shrink-0 mr-1.5 mt-1 h-3 w-5" src="/storage/flags/{{ $localeCode }}.gif" alt="{{$locale['name']}} flag">
+                        <img class="flex-shrink-0 mr-1.5 mt-1 h-3 w-5" src="/images/flags/{{ $localeCode }}.gif" alt="{{$locale['name']}} flag">
                         {{$locale['name']}}
                     </div>
                 </a>
