@@ -36,14 +36,18 @@
     @include('partials.pages.treatments.faq_two_columns', [
           'left' => [
               1 => [
-                'question' => "Why ILM is different from a normal massage?",
-                'answer' =>  "A normal massage is directed to fascia and bones <br> In Ilan Lev method our focus is the structure of the receiver the movement goes from the skeleton of the practitioner to the one of the receiver. <br> Everything is attached to the skeleton: muscles, fascia, nervous system, blood system, immune system. <br> We never force, it's a dialogue with mutual.listening.<br> If the tensions were coming out of a bad habit after the massage will come back. The treatment instead, allow the receive to get a better understanding of his/her system addressing sensory motor amnesia and in this way address also bad habits.",
+                'question' => "Why to get a bodywork ?",
+                'answer' =>  "Somatic bodywork involves someone else's eyes and senses on your body, to help you find lost parts of yourself, areas subject to sensori-motor amnesia that only outside pair of hands can help you discover, because they have fallen out of your body image. <br>- Tom Meyers -",
               ],
               2 => [
+                'question' => "Why ILM is different from a normal massage?",
+                'answer' =>  "A normal massage is directed muscles and soft tissues <br> In Ilan Lev method the focus is the structure of the receiver, the movement goes from the skeleton of the practitioner to the one of the receiver. <br>Everything is attached to the skeleton: muscles, fascia, nervous system, blood system, immune system. <br>We never force, it's a dialogue with mutual.listening.<br> If the tensions were coming out of a bad habit after the massage will come back. The treatment instead, allow the receive to get a better understanding of his/her system addressing sensory motor amnesia and in this way address also bad habits.",
+              ],
+              3 => [
                 'question' => "What is sensory motor amnesia ?",
                 'answer' =>  "The more we are stressed somewhere and the less we are able to get feedback for that part of our body. <br> This because the tensions cut off the sensations. <br> So when we have tensions we are not able to identify what is going on and work to release that.",
               ],
-              3 => [
+              4 => [
                 'question' => "I have a fresh injury, can I get a bodywork ?",
                 'answer' =>  "Yes, it's gonna be much more slow and minimal compared with an usual bodywork, anyway it can support the process of healing from the injury.",
               ],
