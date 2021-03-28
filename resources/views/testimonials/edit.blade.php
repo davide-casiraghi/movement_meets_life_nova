@@ -189,7 +189,7 @@
                                 <div class="col-span-6">
                                     @include('partials.forms.textarea', [
                                            'label' => __('views.feedback_short'),
-                                           'name' => 'feedback_short'.$countryCode,
+                                           'name' => 'feedback_short_'.$countryCode,
                                            'placeholder' => '',
                                            'value' => old('feedback_short_'.$countryCode, $testimonial->getTranslation('feedback_short', $countryCode)),
                                            'required' => false,
