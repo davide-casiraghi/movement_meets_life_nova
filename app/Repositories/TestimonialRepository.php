@@ -144,6 +144,7 @@ class TestimonialRepository implements TestimonialRepositoryInterface
         foreach (LaravelLocalization::getSupportedLocales() as $countryCode => $countryAvTrans) {
             if ($countryCode != Config::get('app.fallback_locale')) {
                 $testimonial->setTranslation('feedback', $countryCode, $data['feedback_' . $countryCode] ?? null);
+                $testimonial->setTranslation('feedback_short', $countryCode, $data['feedback_short_' . $countryCode] ?? null);
                 $testimonial->setTranslation('profession', $countryCode, $data['profession_' . $countryCode] ?? null);
             }
         }
