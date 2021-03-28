@@ -69,7 +69,7 @@
       ])
 
 
-    @include('partials.pages.treatments.benefits')
+    {{--@include('partials.pages.treatments.benefits')--}}
 
 
 
