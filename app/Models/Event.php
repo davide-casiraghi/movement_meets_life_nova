@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
+use Spatie\SchemaOrg\Schema;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
@@ -172,4 +173,33 @@ class Event extends Model implements HasMedia
         return $this->is_published;
     }
 
+    public function toSeoStructuredDataScript(): string
+    {
+        return Schema::event()
+            ->name($this->title)
+            ->description($this->description)
+            ->if($this->hasMedia('introimage'), function (\Spatie\SchemaOrg\Event $schema) {
+                $schema->image($this->getMedia('introimage')->first()->getUrl('thumb'));
+            })
+            ->startDate($this->repetitions()->first()->start_repeat)
+            ->endDate($this->repetitions()->first()->end_repeat)
+            ->performer(Schema::person()
+                           ->name($this->teachers()->first()->name)
+            )
+            ->organizer(Schema::person()
+                            ->name($this->organizers()->first()->name)
+                            ->url($this->organizers()->first()->website)
+            )
+            ->location(Schema::place()
+                            ->name($this->venue->name)
+                            ->address(Schema::postalAddress()
+                                        ->streetAddress($this->venue->address)
+                                        ->addressLocality($this->venue->city)
+                                        ->addressRegion($this->venue->state_province)
+                                        ->postalCode($this->venue->zip_code)
+                                        ->addressCountry($this->venue->country->code)
+                            )
+            )
+        ->toScript();
+    }
 }

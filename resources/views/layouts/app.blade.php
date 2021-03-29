@@ -80,6 +80,11 @@
 
     @include('analytics')
 
+    {{-- SEO Structured Data  --}}
+    @hasSection('structured-data')
+        @yield('structured-data')
+    @endif
+
     <!-- Blade UI Kit styles -->
 {{--    @bukStyles--}}
     <!-- End Blade UI Kit styles -->

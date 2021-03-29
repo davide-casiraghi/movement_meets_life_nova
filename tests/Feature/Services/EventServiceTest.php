@@ -58,9 +58,13 @@ class EventServiceTest extends TestCase
         $this->venues = Venue::factory()->count(3)->create();
 
         $this->event1 = Event::factory()->create([
-            'is_published' => 1
-        ]);
-        $this->event2 = Event::factory()->create([
+                                'is_published' => 1
+                            ]);
+        $this->event2 = Event::factory()
+            ->has(Teacher::factory()->count(3))
+            ->has(Organizer::factory()->count(3))
+            ->has(Venue::factory()->count(1))
+            ->create([
             'is_published' => 1
         ]);
         $this->event3 = Event::factory()->create([
@@ -69,6 +73,10 @@ class EventServiceTest extends TestCase
 
         EventRepetition::factory()->create([
            'event_id' => $this->event1->id,
+        ]);
+
+        EventRepetition::factory()->create([
+            'event_id' => $this->event2->id,
         ]);
 
     }
@@ -515,4 +523,11 @@ class EventServiceTest extends TestCase
         $notificationFake3->assertNothingSent();
         $this->assertEquals('No events were expiring', $message);
     }
+
+    /** @test  */
+//    public function itShouldReturnSeoStructuredDataScript()
+//    {
+//        $script = $this->event2->toSeoStructuredDataScript();
+//        dd($script);
+//    }
 }

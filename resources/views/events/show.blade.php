@@ -23,6 +23,12 @@
 {{--    @endif--}}
 @endsection
 
+@section('structured-data')
+    <!-- Structured data -->
+    {!! $event->toSeoStructuredDataScript() !!}
+    <!-- End Structured data -->
+@endsection
+
 @section('jumbotron')
     @if($event->hasMedia('introimage'))
         <div class="bg-fixed relative bg-cover bg-no-repeat" style="background-image: url('{{$event->getMedia('introimage')[0]->getUrl()}}'); ">
