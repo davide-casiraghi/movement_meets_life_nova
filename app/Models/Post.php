@@ -196,10 +196,12 @@ class Post extends Model implements HasMedia, Searchable
     protected function generateStructuredDataScript(): Type
     {
         return Schema::blogPosting()
+            ->name($this->title)
             ->headline($this->title)
             ->if($this->hasMedia('introimage'), function (\Spatie\SchemaOrg\BlogPosting $schema) {
                 $schema->image($this->getMedia('introimage')->first()->getUrl());
             })
+            ->about($this->category->name)
             ->description($this->intro_text)
             ->author(Schema::person()
                 ->name($this->user->profile->full_name)
