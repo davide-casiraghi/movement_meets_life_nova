@@ -6,9 +6,9 @@ use App\Helpers\TextHelpers;
 use App\Traits\HasStructuredData;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Spatie\MediaLibrary\HasMedia;
-use Spatie\MediaLibrary\InteractsWithMedia;
-use Spatie\MediaLibrary\MediaCollections\Models\Media;
+use Spatie\MediaLibrary\HasMedia; //used for Gallery field
+use Spatie\MediaLibrary\InteractsWithMedia; //used for Gallery field
+use Spatie\MediaLibrary\MediaCollections\Models\Media; //used for Gallery field
 use Spatie\ModelStatus\HasStatuses;
 use Spatie\SchemaOrg\Schema;
 use Spatie\SchemaOrg\Type;
@@ -17,10 +17,6 @@ use Spatie\Searchable\SearchResult;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 use Spatie\Translatable\HasTranslations;
-
-//used for Gallery field
-//used for Gallery field
-//used for Gallery field
 
 class Post extends Model implements HasMedia, Searchable
 {
