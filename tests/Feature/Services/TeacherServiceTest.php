@@ -124,4 +124,11 @@ class TeacherServiceTest extends TestCase
         $numberTeachersCreatedLastThirtyDays = $this->teacherService->getNumberTeachersCreatedLastThirtyDays();
         $this->assertEquals($numberTeachersCreatedLastThirtyDays, 3);
     }
+
+//    /** @test  */
+//    public function itShouldReturnSeoStructuredDataScript()
+//    {
+//        $script = $this->teachers[1]->toJsonLdScript();
+//        dd($script);
+//    }
 }

@@ -209,7 +209,6 @@ class Post extends Model implements HasMedia, Searchable
             ->dateModified($this->updated_at)
             ->mainEntityOfPage(Schema::webPage()
                 ->url(env('APP_URL').'/posts/'.$this->slug)
-            )
-            ;
+            );
     }
 }

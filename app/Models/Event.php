@@ -187,7 +187,7 @@ class Event extends Model implements HasMedia
             ->name($this->title)
             ->description($this->description)
             ->if($this->hasMedia('introimage'), function (\Spatie\SchemaOrg\Event $schema) {
-                $schema->image($this->getMedia('introimage')->first()->getUrl('thumb'));
+                $schema->image($this->getMedia('introimage')->first()->getUrl());
             })
             ->startDate($this->repetitions()->first()->start_repeat)
             ->endDate($this->repetitions()->first()->end_repeat)

@@ -18,6 +18,10 @@
 {{--    @endif--}}
 @endsection
 
+@section('structured-data')
+    {!! $teacher->toJsonLdScript() !!}
+@endsection
+
 @section('content')
 
     @include('partials.messages')

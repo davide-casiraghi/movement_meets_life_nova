@@ -2,20 +2,23 @@
 
 namespace App\Models;
 
+use App\Traits\HasStructuredData;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
-use Spatie\ModelStatus\HasStatuses;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
+use Spatie\SchemaOrg\Schema;
+use Spatie\SchemaOrg\Type;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
-use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class Teacher extends Model implements HasMedia
 {
     use HasFactory;
     use HasSlug;
     use InteractsWithMedia;
+    use HasStructuredData;
 
     /**
      * The attributes that aren't mass assignable.
@@ -109,5 +112,25 @@ class Teacher extends Model implements HasMedia
     public function getFullNameAttribute(): string
     {
         return "{$this->name} {$this->surname}";
+    }
+
+    /**
+     * Factory method for generating the script for a Schema.org type.
+     *
+     * @return Type
+     */
+    protected function generateStructuredDataScript(): Type
+    {
+        return Schema::person()
+            ->name($this->full_name)
+            ->if($this->hasMedia('profile_picture'), function (\Spatie\SchemaOrg\Person $schema) {
+                $schema->image($this->getMedia('profile_picture')->first()->getUrl());
+            })
+            ->jobTitle('Teacher')
+            ->url(env('APP_URL').'/teachers/'.$this->slug)
+            ->sameAs([
+              $this->facebook,
+              $this->website
+            ]);
     }
 }
