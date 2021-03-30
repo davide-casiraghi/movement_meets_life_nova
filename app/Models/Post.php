@@ -3,18 +3,24 @@
 namespace App\Models;
 
 use App\Helpers\TextHelpers;
+use App\Traits\HasStructuredData;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Auth;
-use Spatie\MediaLibrary\MediaCollections\Models\Media;  //used for Gallery field
-use Spatie\MediaLibrary\HasMedia; //used for Gallery field
-use Spatie\MediaLibrary\InteractsWithMedia; //used for Gallery field
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Spatie\ModelStatus\HasStatuses;
+use Spatie\SchemaOrg\Schema;
+use Spatie\SchemaOrg\Type;
 use Spatie\Searchable\Searchable;
 use Spatie\Searchable\SearchResult;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 use Spatie\Translatable\HasTranslations;
+
+//used for Gallery field
+//used for Gallery field
+//used for Gallery field
 
 class Post extends Model implements HasMedia, Searchable
 {
@@ -23,6 +29,7 @@ class Post extends Model implements HasMedia, Searchable
     use HasTranslations;
     use HasStatuses;
     use InteractsWithMedia;
+    use HasStructuredData;
 
     /**
      * The attributes that aren't mass assignable.
@@ -183,5 +190,30 @@ class Post extends Model implements HasMedia, Searchable
             $this->title,
             $url
         );
+    }
+
+    /**
+     * Factory method for generating the script for a blog post Schema.org type.
+     *
+     * @return Type
+     */
+    protected function generateStructuredDataScript(): Type
+    {
+        return Schema::blogPosting()
+            ->headline($this->title)
+            ->if($this->hasMedia('introimage'), function (\Spatie\SchemaOrg\BlogPosting $schema) {
+                $schema->image($this->getMedia('introimage')->first()->getUrl());
+            })
+            ->description($this->intro_text)
+            ->author(Schema::person()
+                ->name($this->user->profile->full_name)
+            )
+            ->dateCreated($this->created_at)
+            ->datePublished($this->created_at)
+            ->dateModified($this->updated_at)
+            ->mainEntityOfPage(Schema::webPage()
+                ->url(env('APP_URL').'/posts/'.$this->slug)
+            )
+            ;
     }
 }

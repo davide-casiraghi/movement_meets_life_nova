@@ -36,6 +36,10 @@
 {{--    @endif--}}
 @endsection
 
+@section('structured-data')
+    {!! $post->toJsonLdScript() !!}
+@endsection
+
 @section('jumbotron')
     @if($post->hasMedia('introimage'))
         <div class="bg-fixed relative bg-cover bg-no-repeat" style="background-image: url('{{$post->getMedia('introimage')[0]->getUrl()}}'); ">

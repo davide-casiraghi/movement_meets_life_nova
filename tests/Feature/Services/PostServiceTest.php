@@ -2,11 +2,11 @@
 
 namespace Tests\Feature\Services;
 
-use App\Http\Requests\PostSearchRequest;
 use App\Http\Requests\PostStoreRequest;
 use App\Models\Post;
 use App\Models\PostCategory;
 use App\Models\User;
+use App\Models\UserProfile;
 use App\Services\PostService;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -39,8 +39,10 @@ class PostServiceTest extends TestCase
 
         $this->postService = $this->app->make('App\Services\PostService');
 
-        $this->user1 = User::factory()->create([
-            'email' => 'admin@gmail.com',
+        $this->user1 = User::factory()
+            ->has(UserProfile::factory()->count(1), 'profile')
+            ->create([
+            'email' => 'admin@gmail.com'
         ]);
 
         $this->postCategory1 = PostCategory::factory()->create();
@@ -142,4 +144,11 @@ class PostServiceTest extends TestCase
         $numberPostsCreatedLastThirtyDays = $this->postService->getNumberPostsCreatedLastThirtyDays();
         $this->assertEquals($numberPostsCreatedLastThirtyDays, 3);
     }
+
+//    /** @test  */
+//    public function itShouldReturnSeoStructuredDataScript()
+//    {
+//        $script = $this->post2->toJsonLdScript();
+//        dd($script);
+//    }
 }
