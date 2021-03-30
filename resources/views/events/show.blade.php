@@ -24,9 +24,7 @@
 @endsection
 
 @section('structured-data')
-    <!-- Structured data -->
-    {!! $event->toSeoStructuredDataScript() !!}
-    <!-- End Structured data -->
+    {!! $event->toJsonLdScript() !!}
 @endsection
 
 @section('jumbotron')
