@@ -183,10 +183,10 @@ class Event extends Model implements HasMedia
      */
     protected function generateStructuredDataScript(): Type
     {
-        return Schema::event()
+        return Schema::danceEvent()
             ->name($this->title)
             ->description($this->description)
-            ->if($this->hasMedia('introimage'), function (\Spatie\SchemaOrg\Event $schema) {
+            ->if($this->hasMedia('introimage'), function (\Spatie\SchemaOrg\DanceEvent $schema) {
                 $schema->image($this->getMedia('introimage')->first()->getUrl());
             })
             ->about($this->category->name)
