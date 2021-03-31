@@ -252,7 +252,7 @@
                                     'label' => __('views.link_to_this_post'),
                                     'name' => 'post_link',
                                     'placeholder' => '',
-                                    'value' => env('APP_URL').'/post/'.$post->slug,
+                                    'value' => env('APP_URL').'/posts/'.$post->slug,
                                     'required' => false,
                                     'disabled' => true,
                                 ])
