@@ -2,12 +2,14 @@
 
 namespace App\Models;
 
+use App\Traits\HasStructuredData;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Spatie\SchemaOrg\Schema;
+use Spatie\SchemaOrg\Type;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
@@ -16,6 +18,7 @@ class Event extends Model implements HasMedia
     use HasFactory;
     use HasSlug;
     use InteractsWithMedia;
+    use HasStructuredData;
 
     /**
      * The attributes that aren't mass assignable.
@@ -173,33 +176,38 @@ class Event extends Model implements HasMedia
         return $this->is_published;
     }
 
-    public function toSeoStructuredDataScript(): string
+    /**
+     * Factory method for generating the script for an Event Schema.org type.
+     *
+     * @return Type
+     */
+    protected function generateStructuredDataScript(): Type
     {
-        return Schema::event()
+        return Schema::danceEvent()
             ->name($this->title)
             ->description($this->description)
-            ->if($this->hasMedia('introimage'), function (\Spatie\SchemaOrg\Event $schema) {
-                $schema->image($this->getMedia('introimage')->first()->getUrl('thumb'));
+            ->if($this->hasMedia('introimage'), function (\Spatie\SchemaOrg\DanceEvent $schema) {
+                $schema->image($this->getMedia('introimage')->first()->getUrl());
             })
+            ->about($this->category->name)
             ->startDate($this->repetitions()->first()->start_repeat)
             ->endDate($this->repetitions()->first()->end_repeat)
             ->performer(Schema::person()
-                           ->name($this->teachers()->first()->name)
+                ->name($this->teachers()->first()->name)
             )
             ->organizer(Schema::person()
-                            ->name($this->organizers()->first()->name)
-                            ->url($this->organizers()->first()->website)
+                ->name($this->organizers()->first()->name)
+                ->url($this->organizers()->first()->website)
             )
             ->location(Schema::place()
-                            ->name($this->venue->name)
-                            ->address(Schema::postalAddress()
-                                        ->streetAddress($this->venue->address)
-                                        ->addressLocality($this->venue->city)
-                                        ->addressRegion($this->venue->state_province)
-                                        ->postalCode($this->venue->zip_code)
-                                        ->addressCountry($this->venue->country->code)
-                            )
-            )
-        ->toScript();
+                ->name($this->venue->name)
+                ->address(Schema::postalAddress()
+                    ->streetAddress($this->venue->address)
+                    ->addressLocality($this->venue->city)
+                    ->addressRegion($this->venue->state_province)
+                    ->postalCode($this->venue->zip_code)
+                    ->addressCountry($this->venue->country->code)
+                )
+            );
     }
 }
