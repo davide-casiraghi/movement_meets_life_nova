@@ -23,7 +23,7 @@
             'extraClasses' => 'mt-5 md:mt-14 px-6 md:px-0',
     ])--}}
 
-    @include('partials.pages.home.blog.block')
+    {{--@include('partials.pages.home.blog.block')--}}
 
     @include('partials.pages.home.testimonials.block')
 
