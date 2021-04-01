@@ -524,10 +524,18 @@ class EventServiceTest extends TestCase
         $this->assertEquals('No events were expiring', $message);
     }
 
+    // TODO
 //    /** @test  */
 //    public function itShouldReturnSeoStructuredDataScript()
 //    {
 //        $script = $this->event2->toJsonLdScript();
 //        dd($script);
+//    }
+
+//    /** @test */
+//    public function itShouldReturnGoogleCalendarLink()
+//    {
+//        $link = $this->eventService->getGoogleCalendarLink($this->event2);
+//        dd($link);
 //    }
 }
