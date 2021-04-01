@@ -82,7 +82,9 @@
 
     {{-- SEO Structured Data  --}}
     @hasSection('structured-data')
+        <!-- Structured data -->
         @yield('structured-data')
+        <!-- End Structured data -->
     @endif
 
     <!-- Blade UI Kit styles -->
