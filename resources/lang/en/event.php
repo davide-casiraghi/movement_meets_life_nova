@@ -50,6 +50,6 @@ return [
     'message_sent_to_organizers_description' => 'Your message has been delivered to the emails of the organizers of this event.',
     'select_organizers' => 'Select organizers',
     'select_teachers' => 'Select teachers',
-
+    'add_to_google_calendar' => 'Add to Google Calendar',
 
 ];
