@@ -11,6 +11,7 @@ use App\Models\EventRepetition;
 use App\Repositories\EventRepositoryInterface;
 use Carbon\Carbon;
 use DateTime;
+use Exception;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Log;
@@ -471,18 +472,23 @@ class EventService
      */
     public function getGoogleCalendarLink(Event $event): string
     {
-        // TODO get the repetitions of the event
-        // TODO for each repetition...
-        //  TODO create
-        $from = Carbon::createFromFormat('Y-m-d H:i:s',
-                            $event->repetitions()->first()->start_repeat);
-        $to = Carbon::createFromFormat('Y-m-d H:i:s',
-                            $event->repetitions()->first()->end_repeat);
-
-        $link = Link::create($event->title, $from, $to)
-                ->description($event->description);
-
-        return $link->google();
+        try {
+            $from = Carbon::createFromFormat('Y-m-d H:i:s',
+                $event->repetitions()->first()->start_repeat);// TODO not first repetition!
+            $to = Carbon::createFromFormat('Y-m-d H:i:s',
+                $event->repetitions()->first()->end_repeat);// TODO not first repetition!
+            $link = Link::create($event->title, $from, $to)
+                ->description($event->description)
+                ->address($event->venue->address.', '.
+                    $event->venue->city.', '.
+                    $event->venue->zip_code.', '.
+                    $event->venue->state_province.', '.
+                    $event->venue->country->code
+                );
+            return $link->google();
+        } catch (Exception $e) {
+            return '';
+        }
     }
 
 
