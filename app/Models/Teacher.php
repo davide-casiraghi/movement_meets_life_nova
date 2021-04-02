@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Generators\StructuredDataScriptGenerator;
 use App\Traits\HasStructuredData;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -132,5 +133,15 @@ class Teacher extends Model implements HasMedia
               $this->facebook,
               $this->website
             ]);
+    }
+
+    /**
+     * Get the specific structured data script generator.
+     *
+     * @return StructuredDataScriptGenerator
+     */
+    protected function getStructuredDataScriptGenerator(): StructuredDataScriptGenerator
+    {
+        // TODO: Implement getStructuredDataScriptGenerator() method.
     }
 }

@@ -524,10 +524,10 @@ class EventServiceTest extends TestCase
         $this->assertEquals('No events were expiring', $message);
     }
 
-//    /** @test  */
-//    public function itShouldReturnSeoStructuredDataScript()
-//    {
-//        $script = $this->event2->toJsonLdScript();
-//        dd($script);
-//    }
+    /** @test  */
+    public function itShouldReturnSeoStructuredDataScript()
+    {
+        $script = $this->event2->toJsonLdScript();
+        dd($script);
+    }
 }

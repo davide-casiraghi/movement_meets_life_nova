@@ -3,8 +3,7 @@
 
 namespace App\Traits;
 
-
-use Spatie\SchemaOrg\Type;
+use \App\Generators\StructuredDataScriptGenerator;
 
 /**
  * Trait HasStructuredData to implement a builder for all Schema.org types
@@ -17,12 +16,13 @@ use Spatie\SchemaOrg\Type;
  */
 trait HasStructuredData
 {
+
     /**
-     * Factory method for generating the script for a Schema.org type.
+     * Get the specific structured data script generator.
      *
-     * @return Type
+     * @return StructuredDataScriptGenerator
      */
-    abstract protected function generateStructuredDataScript() : Type;
+    protected abstract function getStructuredDataScriptGenerator() : StructuredDataScriptGenerator;
 
     /**
      * Render a json-ld script tag for the entity that implements this trait.
@@ -31,6 +31,8 @@ trait HasStructuredData
      */
     public function toJsonLdScript() : string
     {
-        return $this->generateStructuredDataScript()->toScript();
+        return $this->getStructuredDataScriptGenerator()
+                    ->generate()
+                    ->toScript();
     }
 }

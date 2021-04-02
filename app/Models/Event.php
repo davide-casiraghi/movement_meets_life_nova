@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Generators\EventStructuredDataScriptGenerator;
+use App\Generators\StructuredDataScriptGenerator;
 use App\Traits\HasStructuredData;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -177,37 +179,12 @@ class Event extends Model implements HasMedia
     }
 
     /**
-     * Factory method for generating the script for an Event Schema.org type.
+     * Get the specific structured data script generator.
      *
-     * @return Type
+     * @return StructuredDataScriptGenerator
      */
-    protected function generateStructuredDataScript(): Type
+    protected function getStructuredDataScriptGenerator(): StructuredDataScriptGenerator
     {
-        return Schema::danceEvent()
-            ->name($this->title)
-            ->description($this->description)
-            ->if($this->hasMedia('introimage'), function (\Spatie\SchemaOrg\DanceEvent $schema) {
-                $schema->image($this->getMedia('introimage')->first()->getUrl());
-            })
-            ->about($this->category->name)
-            ->startDate($this->repetitions()->first()->start_repeat)
-            ->endDate($this->repetitions()->first()->end_repeat)
-            ->performer(Schema::person()
-                ->name($this->teachers()->first()->name)
-            )
-            ->organizer(Schema::person()
-                ->name($this->organizers()->first()->name)
-                ->url($this->organizers()->first()->website)
-            )
-            ->location(Schema::place()
-                ->name($this->venue->name)
-                ->address(Schema::postalAddress()
-                    ->streetAddress($this->venue->address)
-                    ->addressLocality($this->venue->city)
-                    ->addressRegion($this->venue->state_province)
-                    ->postalCode($this->venue->zip_code)
-                    ->addressCountry($this->venue->country->code)
-                )
-            );
+        return new EventStructuredDataScriptGenerator($this);
     }
 }

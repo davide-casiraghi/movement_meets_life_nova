@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Generators\StructuredDataScriptGenerator;
 use App\Helpers\TextHelpers;
 use App\Traits\HasStructuredData;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -212,5 +213,15 @@ class Post extends Model implements HasMedia, Searchable
             ->mainEntityOfPage(Schema::webPage()
                 ->url(env('APP_URL').'/posts/'.$this->slug)
             );
+    }
+
+    /**
+     * Get the specific structured data script generator.
+     *
+     * @return StructuredDataScriptGenerator
+     */
+    protected function getStructuredDataScriptGenerator(): StructuredDataScriptGenerator
+    {
+        // TODO: Implement getStructuredDataScriptGenerator() method.
     }
 }
