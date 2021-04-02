@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Generators\StructuredDataScriptGeneratorInterface;
+use App\Generators\TeacherStructuredDataScriptGenerator;
 use App\Traits\HasStructuredData;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -115,22 +117,12 @@ class Teacher extends Model implements HasMedia
     }
 
     /**
-     * Generate the script for a Schema.org type.
+     * Get the specific structured data script generator.
      *
-     * @return Type
+     * @return StructuredDataScriptGeneratorInterface
      */
-    protected function generateStructuredDataScript(): Type
+    protected function getStructuredDataScriptGenerator(): StructuredDataScriptGeneratorInterface
     {
-        return Schema::person()
-            ->name($this->full_name)
-            ->if($this->hasMedia('profile_picture'), function (\Spatie\SchemaOrg\Person $schema) {
-                $schema->image($this->getMedia('profile_picture')->first()->getUrl());
-            })
-            ->jobTitle('Teacher')
-            ->url(env('APP_URL').'/teachers/'.$this->slug)
-            ->sameAs([
-              $this->facebook,
-              $this->website
-            ]);
+        return new TeacherStructuredDataScriptGenerator($this);
     }
 }

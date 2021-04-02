@@ -196,8 +196,11 @@ class GlossaryServiceTest extends TestCase
         $this->assertStringContainsString($this->glossary1->definition, $textWithTermDescription);
     }
 
-
-
-
-
+    // TODO
+//    /** @test  */
+//    public function itShouldReturnSeoStructuredDataScript()
+//    {
+//        $script = $this->glossary1->toJsonLdScript();
+//        dd($script);
+//    }
 }

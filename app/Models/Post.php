@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Generators\PostStructuredDataScriptGenerator;
+use App\Generators\StructuredDataScriptGeneratorInterface;
 use App\Helpers\TextHelpers;
 use App\Traits\HasStructuredData;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -10,8 +12,6 @@ use Spatie\MediaLibrary\HasMedia; //used for Gallery field
 use Spatie\MediaLibrary\InteractsWithMedia; //used for Gallery field
 use Spatie\MediaLibrary\MediaCollections\Models\Media; //used for Gallery field
 use Spatie\ModelStatus\HasStatuses;
-use Spatie\SchemaOrg\Schema;
-use Spatie\SchemaOrg\Type;
 use Spatie\Searchable\Searchable;
 use Spatie\Searchable\SearchResult;
 use Spatie\Sluggable\HasSlug;
@@ -189,28 +189,12 @@ class Post extends Model implements HasMedia, Searchable
     }
 
     /**
-     * Generate the script for a blog post Schema.org type.
+     * Get the specific structured data script generator.
      *
-     * @return Type
+     * @return StructuredDataScriptGeneratorInterface
      */
-    protected function generateStructuredDataScript(): Type
+    protected function getStructuredDataScriptGenerator(): StructuredDataScriptGeneratorInterface
     {
-        return Schema::blogPosting()
-            ->name($this->title)
-            ->headline($this->title)
-            ->if($this->hasMedia('introimage'), function (\Spatie\SchemaOrg\BlogPosting $schema) {
-                $schema->image($this->getMedia('introimage')->first()->getUrl());
-            })
-            ->about($this->category->name)
-            ->description($this->intro_text)
-            ->author(Schema::person()
-                ->name($this->user->profile->full_name)
-            )
-            ->dateCreated($this->created_at)
-            ->datePublished($this->created_at)
-            ->dateModified($this->updated_at)
-            ->mainEntityOfPage(Schema::webPage()
-                ->url(env('APP_URL').'/posts/'.$this->slug)
-            );
+        return new PostStructuredDataScriptGenerator($this);
     }
 }
