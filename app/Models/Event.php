@@ -192,12 +192,12 @@ class Event extends Model implements HasMedia
             ->about($this->category->name)
             ->startDate($this->repetitions()->first()->start_repeat)
             ->endDate($this->repetitions()->first()->end_repeat)
-            ->if($this->teachers(), function (\Spatie\SchemaOrg\DanceEvent $schema) {
+            ->if($this->teachers()->count() > 0, function (\Spatie\SchemaOrg\DanceEvent $schema) {
                 $schema->performer(Schema::person()
                     ->name($this->teachers()->first()->name)
                 );
             })
-            ->if($this->organizers(), function (\Spatie\SchemaOrg\DanceEvent $schema) {
+            ->if($this->organizers()->count() > 0, function (\Spatie\SchemaOrg\DanceEvent $schema) {
                 $schema->organizer(Schema::person()
                     ->name($this->organizers()->first()->name)
                     ->url($this->organizers()->first()->website)
