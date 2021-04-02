@@ -21,6 +21,10 @@
 {{--    @endif--}}
 @endsection
 
+@section('structured-data')
+    {!! $glossaryTerm->toJsonLdScript() !!}
+@endsection
+
 @section('content')
 
     <div class="text-lg max-w-prose mx-auto mb-6 mt-6">
