@@ -41,7 +41,11 @@
               ],
               2 => [
                 'question' => "Why ILM is different from a normal massage?",
-                'answer' =>  "A normal massage is directed muscles and soft tissues <br> In Ilan Lev method the focus is the structure of the receiver, the movement goes from the skeleton of the practitioner to the one of the receiver. <br>Everything is attached to the skeleton: muscles, fascia, nervous system, blood system, immune system. <br>We never force, it's a dialogue with mutual.listening.<br> If the tensions were coming out of a bad habit after the massage will come back. The treatment instead, allow the receive to get a better understanding of his/her system addressing sensory motor amnesia and in this way address also bad habits.",
+                'answer' =>  "A normal massage is focused on <b>muscles and soft tissues</b>, in the Ilan Lev method instead the focus is the <b>skeleton</b>. <br> The <b>movement and vibrations</b> spread from the structure of the practitioner to the one of the receiver. <br>
+Everything is attached to the skeleton: muscles, fascia, nervous system, blood system, immune system.<br>
+We never force, it's a <b>dialogue with mutual listening</b>.<br>
+If the tensions were coming out of a bad habit, after the massage they will come back. <br>
+An Ilan Lev bodywork instead, allows the receiver to: restore the ability to get feedback from that area, improve the relation between that area and the rest of the body, experience new movement possibilities.",
               ],
               3 => [
                 'question' => "What is sensory motor amnesia ?",
