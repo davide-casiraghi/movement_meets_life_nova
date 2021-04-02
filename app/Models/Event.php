@@ -177,7 +177,7 @@ class Event extends Model implements HasMedia
     }
 
     /**
-     * Factory method for generating the script for an Event Schema.org type.
+     * Generate the script for an Event Schema.org type.
      *
      * @return Type
      */

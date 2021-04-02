@@ -115,7 +115,7 @@ class Teacher extends Model implements HasMedia
     }
 
     /**
-     * Factory method for generating the script for a Schema.org type.
+     * Generate the script for a Schema.org type.
      *
      * @return Type
      */
