@@ -52,4 +52,6 @@ return [
     'select_teachers' => 'Select teachers',
     'add_to_google_calendar' => 'Add to Google Calendar',
     'download_i_calendar_file' => 'Download iCalendar file',
+    'website_event_link' => 'Website of the event',
+    'facebook_event_link' => 'Facebook event',
 ];
