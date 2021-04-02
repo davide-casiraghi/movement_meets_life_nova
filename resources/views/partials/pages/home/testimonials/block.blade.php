@@ -19,7 +19,7 @@
 
 <div class="mt-10 mx-4">
    <h2 class="text-center mb-10 text-2xl">Testimonials</h2>
-   <div class="box-border mx-auto md:masonry before:box-inherit after:box-inherit">
+   <div class="box-border mx-auto md:masonry-2-col lg:masonry-3-col before:box-inherit after:box-inherit">
        @foreach($testimonials as $testimonial)
        <div class=" my-4 bg-gray-200 rounded-lg break-inside">
            @include('partials.pages.home.testimonials.block_testimonial')
