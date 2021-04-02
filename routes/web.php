@@ -165,7 +165,6 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
         Route::get('/testimonials', [TestimonialController::class, 'index'])->name('index');
         Route::get('/testimonials/{id}/edit', [TestimonialController::class, 'edit'])->name('edit');
         Route::put('/testimonials/{id}', [TestimonialController::class, 'update'])->name('update');
-        Route::post('/testimonials', [TestimonialController::class, 'store'])->name('store');
         Route::delete('/testimonials/{id}', [TestimonialController::class, 'destroy'])->name('destroy');
         Route::get('/testimonials/{id}', [TestimonialController::class, 'show'])->name('show');
     });
@@ -233,6 +232,7 @@ Route::group(
   Route::get('/contact-improvisation', [StaticPageController::class, 'contactImprovisation'])->name('staticPages.contactImprovisation');
   Route::get('/events/{slug}', [EventController::class, 'show'])->name('events.show');
   Route::get('/testimonials/create', [TestimonialController::class, 'create'])->name('testimonials.create');
+  Route::post('/testimonials', [TestimonialController::class, 'store'])->name('testimonials.store');
 
   Route::get('/getATreatment', [GetATreatmentController::class, 'create'])->name('getATreatment.create');
   Route::post('/getATreatment', [GetATreatmentController::class, 'store'])->name('getATreatment.store');
