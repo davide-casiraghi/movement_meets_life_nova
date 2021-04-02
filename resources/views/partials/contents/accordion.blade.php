@@ -30,7 +30,7 @@ Include like this:
 
         <div class='slide w-full'>
             <input type='checkbox' name='panel' id='panel-{{$accordionNumber}}{{$loop->iteration}}' class='hidden'>
-            <label for='panel-{{$accordionNumber}}{{$loop->iteration}}' class='relative block border-b border-solid border-gray-500 font-semibold p-4'>
+            <label for='panel-{{$accordionNumber}}{{$loop->iteration}}' class='relative block border-b border-solid border-gray-500 font-semibold p-4 pr-12'>
                 {{$element['title']}}
             </label>
             <div class='accordion__content overflow-hidden bg-grey-lighter'>
