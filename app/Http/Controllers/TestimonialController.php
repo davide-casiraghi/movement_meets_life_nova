@@ -85,8 +85,6 @@ class TestimonialController extends Controller
      */
     public function store(TestimonialStoreRequest $request): RedirectResponse
     {
-        $this->checkPermission('testimonials.create');
-
         $testimonial = $this->testimonialService->createTestimonial($request);
 
         $this->notificationService->sendEmailNewTestimonial($request->all(), 1);

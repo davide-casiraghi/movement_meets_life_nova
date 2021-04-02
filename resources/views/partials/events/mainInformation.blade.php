@@ -32,17 +32,36 @@
         </div>
     @endif
 
-
-
     {{-- Repetitions --}}
     @if(!empty($repetitionTextString))
-        <div class="flex mt-3">
-            <svg class="flex-shrink-0 mr-1.5 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-            <div>{{$repetitionTextString}}</div>
+        <div class="flex flex-col md:flex-row mt-3">
+            <div class="flex">
+                <svg class="flex-shrink-0 mr-1.5 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                <div>{{$repetitionTextString}}</div>
+            </div>
         </div>
     @endif
 
+    @if(isset($calendarLink))
+        <div class="grid grid-cols-2 gap-2 mt-3">
+            <div class="col-span-2 md:col-span-1 flex flex-col md:flex-row">
+                <div class="flex">
+                    <svg class="flex-shrink-0 ml-1.5 h-5 w-5 mr-1.5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                    <a class="textLink" target="_blank" href="{{$calendarLink->google()}}">@lang('event.add_to_google_calendar')</a>
+                </div>
+            </div>
 
-
+            <div class="col-span-2 md:col-span-1 flex flex-col md:flex-row mt-2 md:mt-0">
+                <div class="flex">
+                    <svg class="flex-shrink-0 ml-1.5 h-5 w-5 mr-1.5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                    </svg>
+                    <a class="textLink" target="_blank" href="{{$calendarLink->ics()}}">@lang('event.download_i_calendar_file')</a>
+                </div>
+            </div>
+        </div>
+    @endif
 
 </div>

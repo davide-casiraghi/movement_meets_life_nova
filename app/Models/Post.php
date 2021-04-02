@@ -190,7 +190,7 @@ class Post extends Model implements HasMedia, Searchable
     }
 
     /**
-     * Factory method for generating the script for a blog post Schema.org type.
+     * Generate the script for a blog post Schema.org type.
      *
      * @return Type
      */
