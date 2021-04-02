@@ -14,16 +14,10 @@ use Spatie\SchemaOrg\Type;
  *
  * @package App\Generators
  */
-class EventStructuredDataScriptGenerator implements StructuredDataScriptGenerator
+class EventStructuredDataScriptGenerator implements StructuredDataScriptGeneratorInterface
 {
-    /**
-     * @var Event
-     */
     private Event $event;
 
-    /**
-     * EventStructuredDataScriptGenerator constructor.
-     */
     public function __construct(Event $event)
     {
         $this->event = $event;

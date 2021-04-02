@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use App\Generators\EventStructuredDataScriptGenerator;
-use App\Generators\StructuredDataScriptGenerator;
+use App\Generators\StructuredDataScriptGeneratorInterface;
 use App\Traits\HasStructuredData;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -181,9 +181,9 @@ class Event extends Model implements HasMedia
     /**
      * Get the specific structured data script generator.
      *
-     * @return StructuredDataScriptGenerator
+     * @return StructuredDataScriptGeneratorInterface
      */
-    protected function getStructuredDataScriptGenerator(): StructuredDataScriptGenerator
+    protected function getStructuredDataScriptGenerator(): StructuredDataScriptGeneratorInterface
     {
         return new EventStructuredDataScriptGenerator($this);
     }

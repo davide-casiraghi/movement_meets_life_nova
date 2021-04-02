@@ -6,7 +6,7 @@ namespace App\Generators;
 use Spatie\SchemaOrg\Type;
 
 /**
- * Interface StructuredDataScriptGenerator
+ * Interface StructuredDataScriptGeneratorInterface
  * Implementations generate the script for specific entity.
  *
  * @see https://schema.org
@@ -14,10 +14,10 @@ use Spatie\SchemaOrg\Type;
  *
  * @package App\Generators
  */
-interface StructuredDataScriptGenerator
+interface StructuredDataScriptGeneratorInterface
 {
     /**
-     * Generating the script for a specific Schema.org type.
+     * Generate the script for a specific Schema.org type.
      *
      * @return Type
      */

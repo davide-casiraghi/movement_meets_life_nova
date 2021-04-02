@@ -525,12 +525,12 @@ class EventServiceTest extends TestCase
     }
 
     // TODO
-//    /** @test  */
-//    public function itShouldReturnSeoStructuredDataScript()
-//    {
-//        $script = $this->event2->toJsonLdScript();
-//        dd($script);
-//    }
+    /** @test  */
+    public function itShouldReturnSeoStructuredDataScript()
+    {
+        $script = $this->event2->toStructuredDataJson();
+        dd($script);
+    }
 
     // TODO
 //    /** @test */

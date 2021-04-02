@@ -3,7 +3,7 @@
 
 namespace App\Traits;
 
-use \App\Generators\StructuredDataScriptGenerator;
+use \App\Generators\StructuredDataScriptGeneratorInterface;
 
 /**
  * Trait HasStructuredData to implement a builder for all Schema.org types
@@ -20,9 +20,9 @@ trait HasStructuredData
     /**
      * Get the specific structured data script generator.
      *
-     * @return StructuredDataScriptGenerator
+     * @return StructuredDataScriptGeneratorInterface
      */
-    protected abstract function getStructuredDataScriptGenerator() : StructuredDataScriptGenerator;
+    protected abstract function getStructuredDataScriptGenerator() : StructuredDataScriptGeneratorInterface;
 
     /**
      * Render a json-ld script tag for the entity that implements this trait.
@@ -34,5 +34,27 @@ trait HasStructuredData
         return $this->getStructuredDataScriptGenerator()
                     ->generate()
                     ->toScript();
+    }
+
+    /**
+     * Return an array for the entity that implements this trait.
+     *
+     * @return array
+     */
+    public function toStructuredDataArray() : array
+    {
+        return $this->getStructuredDataScriptGenerator()
+            ->generate()
+            ->toArray();
+    }
+
+    /**
+     * Return a json for the entity that implements this trait.
+     *
+     * @return array
+     */
+    public function toStructuredDataJson() : string
+    {
+        return json_encode($this->getStructuredDataScriptGenerator()->generate());
     }
 }
