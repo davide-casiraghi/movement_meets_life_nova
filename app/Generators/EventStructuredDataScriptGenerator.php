@@ -40,13 +40,17 @@ class EventStructuredDataScriptGenerator implements StructuredDataScriptGenerato
             ->about($this->event->category->name)
             ->startDate($this->event->repetitions()->first()->start_repeat)
             ->endDate($this->event->repetitions()->first()->end_repeat)
-            ->performer(Schema::person()
+            ->if($this->event->teachers()->count() > 0, function (\Spatie\SchemaOrg\DanceEvent $schema) {
+              $schema->performer(Schema::person()
                 ->name($this->event->teachers()->first()->name)
-            )
-            ->organizer(Schema::person()
+              );
+            })
+            ->if($this->event->organizers()->count() > 0, function (\Spatie\SchemaOrg\DanceEvent $schema) {
+              $schema->organizer(Schema::person()
                 ->name($this->event->organizers()->first()->name)
                 ->url($this->event->organizers()->first()->website)
-            )
+              );
+            })
             ->location(Schema::place()
                 ->name($this->event->venue->name)
                 ->address(Schema::postalAddress()
