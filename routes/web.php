@@ -166,7 +166,7 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
         Route::get('/testimonials/{id}/edit', [TestimonialController::class, 'edit'])->name('edit');
         Route::put('/testimonials/{id}', [TestimonialController::class, 'update'])->name('update');
         Route::delete('/testimonials/{id}', [TestimonialController::class, 'destroy'])->name('destroy');
-        Route::get('/testimonials/{id}', [TestimonialController::class, 'show'])->name('show');
+        Route::get('/testimonials/{id}', [TestimonialController::class, 'show'])->name('show')->where('id', '[0-9]+');;
     });
 
     // Insights
