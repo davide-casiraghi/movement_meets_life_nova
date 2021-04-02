@@ -35,6 +35,9 @@
     {{-- Galley --}}
     @include('partials.pages.treatments.treatment_gallery')
 
+    {{-- What is the treatment about--}}
+    @include('partials.pages.treatments.features')
+
     {{-- FAQs --}}
     @include('partials.pages.treatments.faq_two_columns', [
           'left' => [
@@ -62,7 +65,7 @@ An Ilan Lev bodywork instead, allows the receiver to: restore the ability to get
           'right' => [
               1 => [
                 'question' => "How much time a treatment lasts ?",
-                'answer' =>  "It can last from 1h to 1h and half.",
+                'answer' =>  "60-90 minutes per session.",
               ],
               2 => [
                 'question' => "How many treatments I should take?",
@@ -79,54 +82,41 @@ An Ilan Lev bodywork instead, allows the receiver to: restore the ability to get
     {{--@include('partials.pages.treatments.benefits')--}}
 
 
+    {{--
+        <div class="max-w-2xl mx-auto px-8 lg:px-0 mb-10 md:mt-6">
+            <div class="">
 
-    <div class="max-w-2xl mx-auto px-8 lg:px-0 mb-10 md:mt-6">
-        <div class="">
+                <h2 class="text-xl text-gray-900 font-extrabold tracking-tight sm:text-2xl mt-8 mb-4">
+                    More info
+                </h2>
 
-            <h2 class="text-xl text-gray-900 font-extrabold tracking-tight sm:text-2xl mt-8 mb-4">
-                More info
-            </h2>
+                <p>
+                    Please enjoy this video about the method: Youtube >
+                    To keep updated on my latest articles and special offers you can follow my Facebook page
+                </p>
 
-            <p>
-                Please enjoy this video about the method: Youtube >
-                To keep updated on my latest articles and special offers you can follow my Facebook page
-            </p>
+            </div>
 
-        </div>
+            <div class="">
 
-        <div class="">
+                <h2 class="text-xl text-gray-900 font-extrabold tracking-tight sm:text-2xl mt-8 mb-4">
+                    Extra resources
+                </h2>
 
-            <h2 class="text-xl text-gray-900 font-extrabold tracking-tight sm:text-2xl mt-8 mb-4">
-                Extra resources
-            </h2>
+                <p>
+                    If you are new to the somatic world I find very interesting and clear this description of somatic education provided by the Rolling Point association in Vienna.
+                </p>
 
-            <p>
-                If you are new to the somatic world I find very interesting and clear this description of somatic education provided by the Rolling Point association in Vienna.
-            </p>
-
-        </div>
-
-
-        <div class="mt-4 text-xl text-gray-500 leading-8">
-            Here is your treatment <br>
-            Contact: Davide Casiraghi, +38669627872, davide.casiraghi@gmail.com<br>
-            Treatment duration: 60-90 minutes per session<br>
-            By appointment<br>
-        </div>
-    </div>
-
-        {{-- What is the treatment about--}}
-        @include('partials.pages.treatments.features')
-
-    <div class="max-w-2xl mx-auto px-8 lg:px-0 mb-10 md:mt-6">
-        <div class="">
+            </div>
 
 
-        </div>
+            <div class="mt-4 text-xl text-gray-500 leading-8">
+                Here is your treatment <br>
+                Contact: Davide Casiraghi, +38669627872, davide.casiraghi@gmail.com<br>
+                Treatment duration: 60-90 minutes per session<br>
+                By appointment<br>
+            </div>
+        </div>--}}
 
-        <div class="">
-            Testimonials
-        </div>
-    </div>
 
 @endsection
