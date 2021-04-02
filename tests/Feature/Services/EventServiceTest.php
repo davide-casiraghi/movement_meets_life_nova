@@ -536,7 +536,7 @@ class EventServiceTest extends TestCase
 //    /** @test */
 //    public function itShouldReturnGoogleCalendarLink()
 //    {
-//        $link = $this->eventService->getGoogleCalendarLink($this->event2);
-//        dd($link);
+//        $link = $this->eventService->getCalendarLink($this->event2);
+//        dd($link->google());
 //    }
 }

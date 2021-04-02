@@ -468,9 +468,9 @@ class EventService
      * Generate a link to create an event on Google calendar.
      *
      * @param  Event  $event
-     * @return string
+     * @return Link|null
      */
-    public function getGoogleCalendarLink(Event $event): string
+    public function getCalendarLink(Event $event): ?Link
     {
         try {
             $from = Carbon::createFromFormat('Y-m-d H:i:s',
@@ -485,9 +485,9 @@ class EventService
                     $event->venue->state_province.', '.
                     $event->venue->country->code
                 );
-            return $link->google();
+            return $link;
         } catch (Exception $e) {
-            return '';
+            return null;
         }
     }
 

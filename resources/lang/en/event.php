@@ -51,5 +51,5 @@ return [
     'select_organizers' => 'Select organizers',
     'select_teachers' => 'Select teachers',
     'add_to_google_calendar' => 'Add to Google Calendar',
-
+    'download_i_calendar_file' => 'Download iCalendar file',
 ];

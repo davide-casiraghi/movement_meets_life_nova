@@ -49,4 +49,5 @@ return [
     'message_sent_to_organizers' => 'Messaggio inviato agli organizzatori',
     'message_sent_to_organizers_description' => 'Il tuo messaggio è stato recapitato alle e-mail degli organizzatori di questo evento.',
     'add_to_google_calendar' => 'Aggiungi a Google Calendar',
+    'download_i_calendar_file' => 'Scarica file iCalendar',
 ];
