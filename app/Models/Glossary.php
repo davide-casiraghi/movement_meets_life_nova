@@ -2,12 +2,14 @@
 
 namespace App\Models;
 
+use App\Generators\GlossaryStructuredDataScriptGenerator;
+use App\Generators\StructuredDataScriptGeneratorInterface;
+use App\Traits\HasStructuredData;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
-use Spatie\ModelStatus\HasStatuses;
 use Spatie\Searchable\Searchable;
 use Spatie\Searchable\SearchResult;
 use Spatie\Sluggable\HasSlug;
@@ -20,6 +22,7 @@ class Glossary extends Model implements HasMedia, Searchable
     use HasSlug;
     use HasTranslations;
     use InteractsWithMedia;
+    use HasStructuredData;
 
     /**
      * The attributes that aren't mass assignable.
@@ -132,5 +135,15 @@ class Glossary extends Model implements HasMedia, Searchable
             $this->term,
             $url
         );
+    }
+
+    /**
+     * Get the specific structured data script generator.
+     *
+     * @return StructuredDataScriptGeneratorInterface
+     */
+    protected function getStructuredDataScriptGenerator(): StructuredDataScriptGeneratorInterface
+    {
+        return new GlossaryStructuredDataScriptGenerator($this);
     }
 }

@@ -5,6 +5,7 @@ namespace App\Generators;
 
 
 use App\Models\Event;
+use Spatie\SchemaOrg\DanceEvent;
 use Spatie\SchemaOrg\Schema;
 use Spatie\SchemaOrg\Type;
 
@@ -33,7 +34,7 @@ class EventStructuredDataScriptGenerator implements StructuredDataScriptGenerato
         return Schema::danceEvent()
             ->name($this->event->title)
             ->description($this->event->description)
-            ->if($this->event->hasMedia('introimage'), function (\Spatie\SchemaOrg\DanceEvent $schema) {
+            ->if($this->event->hasMedia('introimage'), function (DanceEvent $schema) {
                 $schema->image($this->event->getMedia('introimage')->first()->getUrl());
             })
             ->about($this->event->category->name)

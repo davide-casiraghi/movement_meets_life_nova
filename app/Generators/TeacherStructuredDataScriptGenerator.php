@@ -3,8 +3,8 @@
 
 namespace App\Generators;
 
-use App\Models\Post;
 use App\Models\Teacher;
+use Spatie\SchemaOrg\Person;
 use Spatie\SchemaOrg\Schema;
 use Spatie\SchemaOrg\Type;
 
@@ -32,7 +32,7 @@ class TeacherStructuredDataScriptGenerator implements StructuredDataScriptGenera
     {
         return Schema::person()
             ->name($this->teacher->full_name)
-            ->if($this->teacher->hasMedia('profile_picture'), function (\Spatie\SchemaOrg\Person $schema) {
+            ->if($this->teacher->hasMedia('profile_picture'), function (Person $schema) {
                 $schema->image($this->teacher->getMedia('profile_picture')->first()->getUrl());
             })
             ->jobTitle('Teacher')

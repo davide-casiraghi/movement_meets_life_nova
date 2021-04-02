@@ -4,6 +4,7 @@
 namespace App\Generators;
 
 use App\Models\Post;
+use Spatie\SchemaOrg\BlogPosting;
 use Spatie\SchemaOrg\Schema;
 use Spatie\SchemaOrg\Type;
 
@@ -32,7 +33,7 @@ class PostStructuredDataScriptGenerator implements StructuredDataScriptGenerator
         return Schema::blogPosting()
             ->name($this->post->title)
             ->headline($this->post->title)
-            ->if($this->post->hasMedia('introimage'), function (\Spatie\SchemaOrg\BlogPosting $schema) {
+            ->if($this->post->hasMedia('introimage'), function (BlogPosting $schema) {
                 $schema->image($this->post->getMedia('introimage')->first()->getUrl());
             })
             ->about($this->post->category->name)
