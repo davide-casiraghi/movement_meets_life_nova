@@ -8,13 +8,14 @@ use App\Helpers\ImageHelpers;
 use App\Http\Requests\EventStoreRequest;
 use App\Models\Event;
 use App\Models\EventRepetition;
-use App\Repositories\EventRepository;
 use App\Repositories\EventRepositoryInterface;
 use Carbon\Carbon;
 use DateTime;
+use Exception;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Log;
+use Spatie\CalendarLinks\Link;
 
 class EventService
 {
@@ -463,6 +464,32 @@ class EventService
         //Cache::forget('active_events_map_markers_db_data');
     }
 
+    /**
+     * Generate a link to create an event on Google calendar.
+     *
+     * @param  Event  $event
+     * @return Link|null
+     */
+    public function getCalendarLink(Event $event): ?Link
+    {
+        try {
+            $from = Carbon::createFromFormat('Y-m-d H:i:s',
+                $event->repetitions()->first()->start_repeat);// TODO not first repetition!
+            $to = Carbon::createFromFormat('Y-m-d H:i:s',
+                $event->repetitions()->first()->end_repeat);// TODO not first repetition!
+            $link = Link::create($event->title, $from, $to)
+                ->description($event->description)
+                ->address($event->venue->address.', '.
+                    $event->venue->city.', '.
+                    $event->venue->zip_code.', '.
+                    $event->venue->state_province.', '.
+                    $event->venue->country->code
+                );
+            return $link;
+        } catch (Exception $e) {
+            return null;
+        }
+    }
 
 
 }
