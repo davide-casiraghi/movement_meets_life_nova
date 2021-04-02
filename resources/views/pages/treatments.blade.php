@@ -25,9 +25,12 @@
 
         @include('partials.pages.treatments.bodywork')
         @include('partials.pages.treatments.movementClasses')
+
         @include('partials.pages.treatments.big_feedbacks')
 
     </div>
+
+    @include('partials.pages.treatments.video_ilm_official')
 
     {{-- Galley --}}
     @include('partials.pages.treatments.treatment_gallery')
@@ -87,7 +90,6 @@ An Ilan Lev bodywork instead, allows the receiver to: restore the ability to get
             <p>
                 Please enjoy this video about the method: Youtube >
                 To keep updated on my latest articles and special offers you can follow my Facebook page
-                More about ILM >
             </p>
 
         </div>
@@ -100,10 +102,6 @@ An Ilan Lev bodywork instead, allows the receiver to: restore the ability to get
 
             <p>
                 If you are new to the somatic world I find very interesting and clear this description of somatic education provided by the Rolling Point association in Vienna.
-
-                I think that it can be also helpful this quote:
-                Somatic bodywork involves someone else's eyes and senses on your body, to help you find "lost" parts of yourself, areas subject to "sensori-motor amnesia" that only outside pair of hands can help you discover, because they have fallen out of your body image.
-                - Tom Meyers -
             </p>
 
         </div>
