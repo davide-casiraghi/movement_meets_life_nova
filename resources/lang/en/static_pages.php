@@ -37,7 +37,7 @@ return [
       'aaa' => 'aaa',
     ],
     'treatments' => [
-      'aaa' => 'aaa',
+        'a_breath_of_fresh_air' => "A breath of <span class='text-primary-600'>fresh air</span>",
     ],
     'top_menu' => [
         'about_me' => 'About me',
