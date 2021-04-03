@@ -84,24 +84,6 @@
                     </div>
                 </div>
             </div>
-            {{--<div class="mt-12 xl:mt-0">
-                <h4 class="text-sm leading-5 font-semibold text-gray-400 tracking-wider uppercase">
-                    Language
-                </h4>
-                <form class="mt-4 space-y-4 sm:max-w-xs">
-                    <fieldset class="w-full">
-                        <label for="language" class="sr-only">Language</label>
-
-                        <div class="relative">
-                            <select id="language" class="appearance-none block w-full bg-gray-700 border border-transparent rounded-md py-2 pl-3 pr-10 text-base leading-6 text-white focus:outline-none focus:ring-blue focus:border-blue-300 sm:text-sm sm:leading-5">
-                                @foreach (LaravelLocalization::getSupportedLocales() as $key => $locale)
-                                    <option value="{{$key}}" @if(app()->getLocale() == $key) selected @endif>{{$locale['name']}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                    </fieldset>
-                </form>
-            </div>--}}
             @include('partials.footer.languageDropdown')
         </div>
         <div class="border-t border-gray-700 pt-8 space-y-4 lg:space-y-0 lg:flex lg:items-center lg:justify-between xl:mt-0">
