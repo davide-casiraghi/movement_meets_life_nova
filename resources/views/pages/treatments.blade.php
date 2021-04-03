@@ -62,7 +62,7 @@ An Ilan Lev bodywork instead, allows the receiver to: restore the ability to get
               ],
               4 => [
                 'question' => "I have a fresh injury, can I get a bodywork ?",
-                'answer' =>  "Yes, it's gonna be much more slow and minimal compared with an usual bodywork, anyway it can support the process of healing from the injury.",
+                'answer' =>  "Yes, it's gonna be much more slow and minimal compared with the usual bodywork, anyway, it can support the process of healing from the injury.",
               ],
             ],
           'right' => [
@@ -72,7 +72,7 @@ An Ilan Lev bodywork instead, allows the receiver to: restore the ability to get
               ],
               2 => [
                 'question' => "How many treatments I should take?",
-                'answer' =>  "You can come for the first treatment to meet the method and see if it resonate you. After that I suggest a cycle of 5 treatment, after that we will check the how the condition is changed and decide if continue or not.",
+                'answer' =>  "You can come for the first treatment to meet the method and see if it resonate with you. After that, I suggest a cycle of 5 treatment, after that we will check how the condition is changed and decide if continue or not.",
               ],
               3 => [
                 'question' => "It is a bodywork good to address back pain ?",
