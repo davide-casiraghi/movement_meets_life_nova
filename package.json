@@ -41,7 +41,8 @@
         "justifiedGallery": "^3.8.1",
         "postcss": "^8.1.8",
         "select2": "^4.0.13",
-        "tinymce": "^5.6.2"
+        "tinymce": "^5.6.2",
+        "trix": "^1.3.1"
     },
     "name": "movement_meets_life_nova"
 }

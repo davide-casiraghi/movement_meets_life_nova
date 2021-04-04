@@ -7,6 +7,7 @@ require("@fancyapps/fancybox");
 require('bootstrap-datepicker');
 require('select2');
 require('livewire-sortable')
+require('trix');
 
 
 require('./vendors/tinymce');

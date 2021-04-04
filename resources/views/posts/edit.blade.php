@@ -94,7 +94,7 @@
                         </div>
 
                         <div class="col-span-6">
-                            @include('partials.forms.textarea', [
+                           {{-- @include('partials.forms.textarea', [
                                    'label' => __('views.body'),
                                    'name' => 'body',
                                    'placeholder' => '',
@@ -104,6 +104,9 @@
                                    'style' => 'tinymce',
                                    'extraDescription' => 'Anything to show jumbo style after the content',
                                ])
+                               --}}
+
+                            <x-trix name="body">{{$post->body}}</x-trix>
                         </div>
 
                         <div class="col-span-6">
