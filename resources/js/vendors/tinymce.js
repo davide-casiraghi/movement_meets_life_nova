@@ -58,7 +58,7 @@ var editor_config = {
     theme: 'silver',
     height: 400,
 
-    toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist | blockquote | link image media  | hr',
+    toolbar: 'code | undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist | blockquote | link image media  | hr',
     /*toolbar: 'bold | bullist  link ', */
 
     menubar: false,
