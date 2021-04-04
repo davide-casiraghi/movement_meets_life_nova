@@ -227,15 +227,16 @@ Route::group(
   Route::get('/tags/{slug}', [TagController::class, 'show'])->name('tags.show');
   Route::get('/next-events', [EventController::class, 'nextEvents'])->name('events.next');
   Route::get('/past-events', [EventController::class, 'pastEvents'])->name('events.past');
-  Route::get('/aboutMe', [StaticPageController::class, 'aboutMe'])->name('staticPages.aboutMe');
+  Route::get('/about-me', [StaticPageController::class, 'aboutMe'])->name('staticPages.aboutMe');
   Route::get('/treatments-ilan-lev-method', [StaticPageController::class, 'treatments'])->name('staticPages.treatments');
   Route::get('/contact-improvisation', [StaticPageController::class, 'contactImprovisation'])->name('staticPages.contactImprovisation');
+  Route::get('/water-contact', [StaticPageController::class, 'waterContact'])->name('staticPages.waterContact');
   Route::get('/events/{slug}', [EventController::class, 'show'])->name('events.show');
   Route::get('/testimonials/create', [TestimonialController::class, 'create'])->name('testimonials.create');
   Route::post('/testimonials', [TestimonialController::class, 'store'])->name('testimonials.store');
 
-  Route::get('/getATreatment', [GetATreatmentController::class, 'create'])->name('getATreatment.create');
-  Route::post('/getATreatment', [GetATreatmentController::class, 'store'])->name('getATreatment.store');
+  Route::get('/get-a-treatment', [GetATreatmentController::class, 'create'])->name('getATreatment.create');
+  Route::post('/get-a-treatment', [GetATreatmentController::class, 'store'])->name('getATreatment.store');
 
   Route::get('/teachers/{slug}', [TeacherController::class, 'show'])->name('teachers.show');
   Route::get('/organizers/{slug}', [OrganizerController::class, 'show'])->name('organizers.show');

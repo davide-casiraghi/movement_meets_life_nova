@@ -42,7 +42,7 @@
 
         </div>
 
-        <div class="">insights/edit.blade.php
+        <div class="">
             <h2>Contact Improvisation workshops in Trieste</h2>
             @include('partials.contents.image',[
                 'imageUrl' => 'images/images_pages/contact_improvisation/contact-improvisation-trieste-daniele-mariuz.jpg',
@@ -86,7 +86,7 @@
     </div>
 
     {{-- Galley --}}
-    @include('partials.pages.contact_improvisation.ci_gallery')
+    @include('partials.pages.contact_improvisation.gallery')
 
 
     {{--<div class="mb-10">

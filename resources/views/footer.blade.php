@@ -71,7 +71,7 @@
                         </h4>
                         <ul class="mt-4 space-y-4">
                             <li>
-                                <a href="#" class="text-base leading-6 text-gray-300 hover:text-white">
+                                <a href="{{route('staticPages.waterContact')}}" class="text-base leading-6 text-gray-300 hover:text-white">
                                     @lang('static_pages.footer.water_contact')
                                 </a>
                             </li>

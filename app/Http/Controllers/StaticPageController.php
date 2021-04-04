@@ -51,4 +51,17 @@ class StaticPageController extends Controller
             //'gallery1Html' => $gallery1Html,
         ]);
     }
+
+    /**
+     * Show the Water Contact page.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     * @throws \Spatie\ModelStatus\Exceptions\InvalidStatus
+     */
+    public function waterContact()
+    {
+        return view('pages.waterContact');
+    }
+
+
 }
