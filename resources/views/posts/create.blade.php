@@ -156,6 +156,19 @@
 
                                 <div class="col-span-6">
                                     @include('partials.forms.textarea', [
+                                            'label' => __('views.intro_text'),
+                                            'name' => 'intro_text_'.$countryCode,
+                                            'placeholder' => '',
+                                            'value' => old('intro_text_'.$countryCode),
+                                            'required' => false,
+                                            'disabled' => false,
+                                            'style' => 'plain',
+                                            'extraDescription' => '',
+                                    ])
+                                </div>
+
+                                <div class="col-span-6">
+                                    @include('partials.forms.textarea', [
                                            'label' => __('views.text'),
                                            'name' => 'body_'.$countryCode,
                                            'placeholder' => '',
