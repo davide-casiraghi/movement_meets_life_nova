@@ -6,7 +6,7 @@
                 What's Unique About an Ilan Lev treatment
             </p>
             <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
-                Lorem ipsum dolor sit amet consect adipisicing elit. Possimus magnam voluptatum cupiditate veritatis in accusamus quisquam.
+                The method works through a wide variety of movements and provocations to the skeleton of the receiver to provoke openness and release.
             </p>
         </div>
 

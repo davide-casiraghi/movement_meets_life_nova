@@ -26,12 +26,10 @@
         @include('partials.pages.treatments.bodywork')
         @include('partials.pages.treatments.movementClasses')
 
-        @include('partials.pages.treatments.big_feedbacks')
-
     </div>
 
 
-
+    @include('partials.pages.treatments.big_feedbacks')
 
     @include('partials.pages.treatments.video_ilm_official')
 
@@ -73,11 +71,19 @@ An Ilan Lev bodywork instead, allows the receiver to: restore the ability to get
               2 => [
                 'question' => "How many treatments I should take?",
                 'answer' =>  "You can come for the first treatment to meet the method and see if it resonate with you. After that, I suggest a cycle of 5 treatment, after that we will check how the condition is changed and decide if continue or not.",
+                //'answer' =>  "There is no minimum number of sessions that should be taken. Already at the first treatment, we can have some release and improvement of the motor functionalities. Although the first treatment it's something new for the body and it's too early to draw conclusions, and also each client and case is different. I usually suggest planning for 5 sessions within a month. A series of treatments can bring good improvements and a good perspective about the results.",
               ],
               3 => [
                 'question' => "It is a bodywork good to address back pain ?",
                 'answer' =>  "Yes it is.",
               ],
+              4 => [
+                'question' => "How do I need to dress to receive a treatment ?",
+                'answer' =>  "Please bring long, comfortable clothes and some fresh socks for treatment (or it can be barefoot). I recommend not drinking in the hour before. After the treatment, allow 30 minutes without a hectic rush. ",
+              ],
+
+
+
             ],
       ])
 

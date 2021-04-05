@@ -32,11 +32,14 @@ class GenerateSitemap extends Command
     private TagService $tagService;
     private GlossaryService $glossaryService;
 
-    /**
-     * Create a new command instance.
-     *
-     * @return void
-     */
+  /**
+   * Create a new command instance.
+   *
+   * @param  PostService  $postService
+   * @param  EventService  $eventService
+   * @param  TagService  $tagService
+   * @param  GlossaryService  $glossaryService
+   */
     public function __construct(
         PostService $postService,
         EventService $eventService,
