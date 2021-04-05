@@ -60,6 +60,15 @@ An Ilan Lev bodywork instead, allows the receiver to: restore the ability to get
                 'question' => "I have a fresh injury, can I get a bodywork ?",
                 'answer' =>  "Yes, it's gonna be much more slow and minimal compared with the usual bodywork, anyway, it can support the process of healing from the injury.",
               ],
+              5 => [
+                'question' => "Why do we need to refresh through movement?",
+                'answer' =>  "We are constantly accumulating <b>physical and mental tensions</b>. <br>
+                            In the body, this tension presents itself as difficulties in functioning.<br>
+                            Can be little pain, or discomfort, or can be bigger like a chronic difficulties.<br>
+                            And by the time we notice that we are injured and we don't know how it happened.<br>
+                            Just when it starts to destabilize us we notice it.<br>
+                            The only way to get rid of these interferences and stuckness in movement is through movement.",
+              ],
             ],
           'right' => [
               1 => [
