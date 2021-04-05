@@ -53,7 +53,7 @@ var editor_config = {
         "advlist autolink lists link image charmap print preview hr anchor pagebreak",
         "searchreplace wordcount visualblocks visualchars code fullscreen",
         "insertdatetime media nonbreaking save table contextmenu directionality",
-        "template paste textcolor colorpicker textpattern"
+        "template paste textcolor colorpicker textpattern imagetools advimage"
     ],
     theme: 'silver',
     height: 400,
@@ -64,6 +64,35 @@ var editor_config = {
     menubar: false,
     path_absolute : "/",
     relative_urls: false,
+
+
+
+    images_upload_handler: function (blobInfo, success, failure) {
+        var xhr, formData;
+        xhr = new XMLHttpRequest();
+        xhr.withCredentials = false;
+        xhr.open('POST', '/tinymce_upload');
+        var token = '{{ csrf_token() }}';
+        xhr.setRequestHeader("X-CSRF-Token", token);
+        xhr.onload = function() {
+            var json;
+            if (xhr.status != 200) {
+                failure('HTTP Error: ' + xhr.status);
+                return;
+            }
+            json = JSON.parse(xhr.responseText);
+
+            if (!json || typeof json.location != 'string') {
+                failure('Invalid JSON: ' + xhr.responseText);
+                return;
+            }
+            success(json.location);
+        };
+        formData = new FormData();
+        formData.append('file', blobInfo.blob(), blobInfo.filename());
+        xhr.send(formData);
+    }
+
 
     //forced_root_block : false, // force to add <br> instead of <p> - Better not to enable it - Warning: Not using p elements as the root block will impair the functionality of the editor. - https://www.tiny.cloud/docs/configure/content-filtering/#exampleusingforced_root_block
 

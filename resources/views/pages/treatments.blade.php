@@ -13,9 +13,6 @@
         @include('partials.pages.treatments.intro')
 
 
-
-
-
         <div class="">
             In April 2019 I've completed the first Ilan Lev Method training program in Europe and I'm a certified practitioner.
             I give private treatments in Ljubljana, Slovenia.

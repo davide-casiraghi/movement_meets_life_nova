@@ -18,6 +18,7 @@ use App\Http\Controllers\GetATreatmentController;
 use App\Http\Controllers\GlobalSearchController;
 use App\Http\Controllers\GlossaryController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ImageUploadController;
 use App\Http\Controllers\InsightController;
 use App\Http\Controllers\OrganizerController;
 use App\Http\Controllers\PermissionController;
@@ -187,6 +188,9 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
     });
 
     Route::get('/search', [GlobalSearchController::class, 'index'])->name('globalSearch');
+
+
+    Route::post('/tinymce_upload', [ImageUploadController::class, 'upload']);
 });
 
 

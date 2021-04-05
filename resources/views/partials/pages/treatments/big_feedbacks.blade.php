@@ -1,5 +1,5 @@
 
-<div class="md:grid md:grid-cols-6 md:gap-32 mt-20 px-28">
+<div class="md:grid md:grid-cols-6 md:gap-32 mt-20 px-10 md:px-28">
     <div class="md:col-span-3">
         <blockquote class=" text-base italic text-gray-700">
             "I find Ilan's work an amazing gift to dancers and people alike. His work helps the body's own regeneration. It brings movement to blocked areas in the body, it comes with positive energy and a sense of joy, it can help quicker recovery from "fresh injuries" as well as heal ״old״ ones... It helped me to become more efficient with my movement and gave me a more balanced body... His work is intelligent, thoughtful, considerate, and serves as a constant research method for growth, for Ilan himself as well as for those he works with."
