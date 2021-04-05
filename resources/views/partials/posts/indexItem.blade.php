@@ -1,6 +1,11 @@
 <li>
     <a href="{{route('posts.edit', $post->id)}}" class="block hover:bg-gray-50">
         <div class="px-4 py-4 sm:px-6">
+            <div class="mr-2 float-left">
+                @if($post->hasMedia('introimage'))
+                    <img class="h-14" src='{{$post->getMedia('introimage')->first()->getUrl('thumb')}}' />
+                @endif
+            </div>
             <div class="flex items-center justify-between">
                 <p class="text-sm font-medium text-indigo-600 truncate">
                     {{$post->title}}
