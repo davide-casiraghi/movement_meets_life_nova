@@ -67,7 +67,7 @@ An Ilan Lev bodywork instead, allows the receiver to: restore the ability to get
                             Can be little pain, or discomfort, or can be bigger like a chronic difficulties.<br>
                             And by the time we notice that we are injured and we don't know how it happened.<br>
                             Just when it starts to destabilize us we notice it.<br>
-                            The only way to get rid of these interferences and stuckness in movement is through movement.",
+                            The only way to <b>get rid</b> of these interferences and stuckness in movement and <b>refresh our body</b> is <b>through movement</b>.",
               ],
             ],
           'right' => [
