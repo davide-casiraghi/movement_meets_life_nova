@@ -13,9 +13,7 @@
         @include('partials.pages.treatments.intro')
 
 
-        <p class="border-solid box-border text-lg m-0 text-gray-500 mt-20">
-            The Ilan Lev method works towards improving human capabilities and removing functional difficulties. The treatment resolves body-circulation issues, relieves pain and skeletal and joint problems.
-        </p>
+
 
 
         <div class="">
