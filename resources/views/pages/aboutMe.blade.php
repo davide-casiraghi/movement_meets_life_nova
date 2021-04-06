@@ -97,7 +97,7 @@
                 'elements' => [
                     [
                         'title' => 'My Dev stack',
-                        'text' => "I'm a <b>senior web developer</b>, with more than ten years of experience.<br><br>
+                        'text' => "I'm a <b>Drupal Backend and Laravel TALL stack web developer</b>, with more than ten years of experience.<br><br>
                         Currently, I am exploring Drupal 8, Laravel 8, Laravel Livewire, Tailwind CSS, PhpUnit.<br>
                                     I'm an active member of <a href='https://stackoverflow.com/users/10075394/davide-casiraghi' class='textLink'>Stackoverflow</a>.<br><br>
 
