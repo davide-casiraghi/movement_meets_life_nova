@@ -53,7 +53,7 @@ var editor_config = {
         "advlist autolink lists link image charmap print preview hr anchor pagebreak",
         "searchreplace wordcount visualblocks visualchars code fullscreen",
         "insertdatetime media nonbreaking save table contextmenu directionality",
-        "template paste textcolor colorpicker textpattern imagetools advimage"
+        "template paste textcolor colorpicker textpattern imagetools"
     ],
     theme: 'silver',
     height: 400,
@@ -65,7 +65,10 @@ var editor_config = {
     path_absolute : "/",
     relative_urls: false,
 
-
+    image_class_list: [
+        { title: 'Left', value: '' },
+        { title: 'Right', value: 'float-left w-full md:w-6/12 md:float-right' }
+    ],
 
     images_upload_handler: function (blobInfo, success, failure) {
         var xhr, formData;
