@@ -85,7 +85,7 @@ class VideoService
         //dd($parameters);
 
         $width = "w-full sm:" . $parameters['width']; // 100% width mobile, then for bigger devices the one specified
-        $margin = "mb-6 sm:mb-0 ";
+        $margin = "mb-6 sm:mb-10 ";
 
         switch ($parameters['alignment']) {
             case 'right':
@@ -97,7 +97,7 @@ class VideoService
             case 'center':
                 $alignment = "float-right";
                 $width = "w-full ";
-                $height = "h-80 ";
+                $height = "h-96 ";
                 break;
 
             default:
