@@ -70,6 +70,9 @@ var editor_config = {
         { title: 'Right', value: 'float-left w-full md:w-6/12 md:float-right' }
     ],
 
+    content_style: "body img.md\\:float-right{ float: right; }" +
+                    "body img.md\\:w-6\\/12{ width: 50%; }",
+
     images_upload_handler: function (blobInfo, success, failure) {
         var xhr, formData;
         xhr = new XMLHttpRequest();
