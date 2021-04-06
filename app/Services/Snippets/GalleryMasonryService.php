@@ -51,8 +51,6 @@ class GalleryMasonryService
                     $galleryHtml = "<div class='p-4 bg-yellow-200' role='alert'>A gallery with this name not available for this element</div>";
                 }
 
-                $galleryHtml .= "</div>";
-
                 // Replace the TOKEN found in the article with the generatd gallery HTML
                 $postBody = str_replace($parameters['token'], $galleryHtml, $postBody);
             }
