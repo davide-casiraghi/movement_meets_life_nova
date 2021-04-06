@@ -16,6 +16,8 @@ class InsightNotification extends Notification
     /**
      * Create a new notification instance.
      *
+     * https://github.com/laravel-notification-channels/twitter#publish-twitter-status-update-with-images
+     *
      * @param array $data
      */
     public function __construct(array $data)
@@ -34,8 +36,18 @@ class InsightNotification extends Notification
         return [TwitterChannel::class];
     }
 
+    /**
+     * Send the notification to Twitter
+     *
+     * @param  mixed  $notifiable
+     * @return TwitterStatusUpdate
+     */
     public function toTwitter($notifiable)
     {
+        if ($notifiable->hasMedia('introimage')) {
+            return (new TwitterStatusUpdate($notifiable->body))->withImage('marcel.png');
+        }
+
         return new TwitterStatusUpdate($notifiable->body);
     }
 }

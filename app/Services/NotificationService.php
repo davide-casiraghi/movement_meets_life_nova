@@ -84,11 +84,19 @@ class NotificationService
      *
      * @return bool
      */
-      public function sendTwitterInsight(array $data, Insight $insight): bool
-      {
-          $insight->notify(new InsightNotification($data));
-          return true;
+    public function sendTwitterInsight(array $data, Insight $insight): bool
+    {
+
+      if($insight->hasMedia('introimage')){
+        $insight->notify(new InsightNotification($data))->withImage('marcel.png');
+      }
+
+      else{
+        $insight->notify(new InsightNotification($data));
       }
 
 
+
+        return true;
+    }
 }

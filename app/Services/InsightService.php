@@ -20,10 +20,9 @@ class InsightService
      * @param \App\Repositories\InsightRepositoryInterface $insightRepository
      */
     public function __construct(
-      InsightRepositoryInterface $insightRepository,
-      NotificationService $notificationService
-    )
-    {
+        InsightRepositoryInterface $insightRepository,
+        NotificationService $notificationService
+    ) {
         $this->insightRepository = $insightRepository;
         $this->notificationService = $notificationService;
     }
@@ -130,9 +129,9 @@ class InsightService
      *
      * @return bool
      */
-      public function sendInsightToTwitter(Insight $insight): bool
-      {
-          $data = $insight->toArray();
-          return $this->notificationService->sendTwitterInsight($data, $insight);
-      }
+    public function sendInsightToTwitter(Insight $insight): bool
+    {
+        $data = $insight->toArray();
+        return $this->notificationService->sendTwitterInsight($data, $insight);
+    }
 }
