@@ -12,31 +12,6 @@
 
         </p>
 
-        <h2>Web development</h2>
-
-        <p class="mb-3">
-           I work at <a href="https://www.agiledrop.com/" class="textLink" target="_blank">Agiledrop</a> as a PHP backend developer with Laravel and Drupal.<br>
-            I'm an active member of <a href="https://stackoverflow.com/users/10075394/davide-casiraghi" class="textLink">Stackoverflow</a>.
-        </p>
-
-        @include('partials.contents.accordion',[
-                'accordionNumber' => '1',
-                'elements' => [
-                    [
-                        'title' => 'My Dev stack',
-                        'text' => "I'm a <b>senior web developer</b>, with more than ten years of experience.<br><br>
-                        Currently, I am exploring Drupal 8, Laravel 8, Laravel Livewire, Tailwind CSS, PhpUnit.<br><br>
-
-                        My two other big passions that nourish my creativity are dancing and cooking.<br><br>
-
-                        <b>Education:</b> Bachelor of Science (Informatics).<br><br>
-
-                        <b>Degree:</b>
-                        2006 (BSc) in Computer Science at <a href='https://www.www.unimib.it' class='textLink' target='_blank'>Università Degli Studi di Milano Bicocca</a>, Milano Italia.",
-                    ],
-                ]
-            ])
-
         <h2>Movement</h2>
 
         <p>
@@ -51,8 +26,6 @@
         <p class="mb-3">
             Passionate free-diver and monofin swimmer he is researching about deep water CI dances and he has been co-organizer of <a class="textLink" href="https://deepwaterdancefestival.altervista.org">Deep Water Dance Festival 2018</a>
         </p>
-
-
 
         @include('partials.contents.accordion',[
                 'accordionNumber' => '2',
@@ -112,6 +85,30 @@
                     ],
                 ]
             ])
+
+        <h2>Web development</h2>
+
+        <p class="mb-3">
+            I work at <a href="https://www.agiledrop.com/" class="textLink" target="_blank">Agiledrop</a> as a PHP backend developer with Laravel and Drupal.<br>
+        </p>
+
+        @include('partials.contents.accordion',[
+                'accordionNumber' => '1',
+                'elements' => [
+                    [
+                        'title' => 'My Dev stack',
+                        'text' => "I'm a <b>senior web developer</b>, with more than ten years of experience.<br><br>
+                        Currently, I am exploring Drupal 8, Laravel 8, Laravel Livewire, Tailwind CSS, PhpUnit.<br>
+                                    I'm an active member of <a href='https://stackoverflow.com/users/10075394/davide-casiraghi' class='textLink'>Stackoverflow</a>.<br><br>
+
+                        <b>Education:</b> Bachelor of Science (Informatics).<br><br>
+
+                        <b>Degree:</b>
+                        2006 (BSc) in Computer Science at <a href='https://www.www.unimib.it' class='textLink' target='_blank'>Università Degli Studi di Milano Bicocca</a>, Milano Italia.",
+                    ],
+                ]
+            ])
+
 
 
     </div>
