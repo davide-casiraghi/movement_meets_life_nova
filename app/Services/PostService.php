@@ -10,6 +10,7 @@ use App\Repositories\PostRepositoryInterface;
 use App\Services\Snippets\AccordionService;
 use App\Services\Snippets\GalleryMasonryService;
 use App\Services\Snippets\ImageService;
+use App\Services\Snippets\VideoService;
 use Illuminate\Support\Collection;
 
 class PostService
@@ -19,6 +20,7 @@ class PostService
     private GalleryMasonryService $galleryService;
     private GlossaryService $glossaryService;
     private ImageService $imageService;
+    private VideoService $videoService;
 
     /**
      * PostService constructor.
@@ -34,13 +36,15 @@ class PostService
         AccordionService $accordionService,
         GalleryMasonryService $galleryService,
         GlossaryService $glossaryService,
-        ImageService $imageService
+        ImageService $imageService,
+        VideoService $videoService
     ) {
         $this->postRepository = $postRepository;
         $this->accordionService = $accordionService;
         $this->galleryService = $galleryService;
         $this->glossaryService = $glossaryService;
         $this->imageService = $imageService;
+        $this->videoService = $videoService;
     }
 
     /**
@@ -146,6 +150,7 @@ class PostService
         $postBody = $this->galleryService->snippetsToHTML($postBody, $post);
         $postBody = $this->glossaryService->markGlossaryTerms($postBody);
         $postBody = $this->imageService->snippetsToHTML($postBody);
+        $postBody = $this->videoService->snippetsToHTML($postBody);
 
         return $postBody;
     }
