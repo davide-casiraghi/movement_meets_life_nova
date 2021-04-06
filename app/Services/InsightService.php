@@ -12,15 +12,20 @@ use Illuminate\Support\Collection;
 class InsightService
 {
     private InsightRepositoryInterface $insightRepository;
+    private NotificationService $notificationService;
 
     /**
      * InsightService constructor.
      *
      * @param \App\Repositories\InsightRepositoryInterface $insightRepository
      */
-    public function __construct(InsightRepositoryInterface $insightRepository)
+    public function __construct(
+      InsightRepositoryInterface $insightRepository,
+      NotificationService $notificationService
+    )
     {
         $this->insightRepository = $insightRepository;
+        $this->notificationService = $notificationService;
     }
 
     /**
@@ -117,4 +122,17 @@ class InsightService
     {
         return $this->insightRepository->getLatest($numberOfInsights);
     }
+
+    /**
+     * Get all the Insights
+     *
+     * @param  \App\Models\Insight  $insight
+     *
+     * @return bool
+     */
+      public function sendInsightToTwitter(Insight $insight): bool
+      {
+          $data = $insight->toArray();
+          return $this->notificationService->sendTwitterInsight($data, $insight);
+      }
 }

@@ -179,6 +179,7 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
         Route::put('/insights/{id}', [InsightController::class, 'update'])->name('update');
         Route::get('/insights/{id}', [InsightController::class, 'show'])->name('show');
         Route::delete('/insights/{id}', [InsightController::class, 'destroy'])->name('destroy');
+        Route::get('/insights/twitter/{id}', [InsightController::class, 'twitter'])->name('twitter');
     });
 
     // Medias

@@ -9,6 +9,7 @@ use App\Models\Insight;
 use App\Services\InsightService;
 use App\Services\TagService;
 use App\Traits\CheckPermission;
+use Illuminate\Http\RedirectResponse;
 
 class InsightController extends Controller
 {
@@ -136,16 +137,16 @@ class InsightController extends Controller
 
         return redirect()->route('insights.index')
             ->with('success', 'Insight updated successfully');
-
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $insightId
-     * @return \Illuminate\Http\Response
+     *
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy($insightId)
+    public function destroy(int $insightId): RedirectResponse
     {
         $this->checkPermission('insights.delete');
 
@@ -153,5 +154,20 @@ class InsightController extends Controller
 
         return redirect()->route('insights.index')
             ->with('success', 'Insight deleted successfully');
+    }
+
+    /**
+     * Post the insight on Twitter
+     *
+     * @param int $insightId
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function twitter(int $insightId): RedirectResponse
+    {
+        $insight = $this->insightService->getInsightById($insightId);
+        $this->insightService->sendInsightToTwitter($insight);
+
+        return redirect()->back()->with('success', 'Insight tweeted successfully');
     }
 }
