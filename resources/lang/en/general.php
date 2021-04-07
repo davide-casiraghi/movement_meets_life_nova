@@ -53,5 +53,5 @@ return [
     'message' => 'Message',
     'optional' => '(optional)',
     'website_name' => 'Movement Meets Life',
-    'description' => 'Davide Casiraghi - Contact Improvisation Teacher and Ilan Lev Method Practitioner',
+    'website_description' => 'Davide Casiraghi - Contact Improvisation Teacher and Ilan Lev Method Practitioner',
 ];

@@ -10,7 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="{{$barsBackground}}"/> {{-- Theming the browser's address bar to match your brand's colors provides a more immersive user experience.--}}
-    <meta name="description" content="@hasSection('description')@yield('description')@else @lang('general.description')@endif">
+    <meta name="description" content="@hasSection('description')@yield('description')@else @lang('general.website_description')@endif">
 
     {{-- Facebook tags  --}}
     @yield('fb-tags')
