@@ -30,7 +30,7 @@
                         </h4>
                         <ul class="mt-4 space-y-4">
                             <li>
-                                <a href="/getATreatment" class="text-base leading-6 text-gray-300 hover:text-white">
+                                <a href="{{route('getATreatment.create')}}" class="text-base leading-6 text-gray-300 hover:text-white">
                                     @lang('static_pages.footer.get_a_treatment')
                                 </a>
                             </li>

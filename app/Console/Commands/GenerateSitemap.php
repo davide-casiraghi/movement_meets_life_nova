@@ -62,11 +62,11 @@ class GenerateSitemap extends Command
     {
         $sitemap = Sitemap::create()
             ->add(Url::create('/blog'))
-            ->add(Url::create('/next_events'))
+            ->add(Url::create('/next-events'))
             ->add(Url::create('/treatments-ilan-lev-method'))
             ->add(Url::create('/contact-improvisation'))
-            ->add(Url::create('/getATreatment'))
-            ->add(Url::create('/aboutMe'))
+            ->add(Url::create('/get-a-treatment'))
+            ->add(Url::create('/about-me'))
             ->add(Url::create('/contact'));
 
         // POSTS
