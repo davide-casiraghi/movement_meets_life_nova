@@ -76,7 +76,9 @@
                         </li>
                         <li class='pb-2'>
                             <h4 class='text-xl font-bold mb-1'>Free Diving</h4>
-                            2015 - 2016 Freediving certification <a class='textLink' href='https://www.fipsas.it' target='_self'>FIPSAS</a> PAp1 - Monofin Freediving certification FIPSAS PApm.
+                            2015 - Freediving certification <a class='textLink' href='https://www.fipsas.it' target='_self'>FIPSAS</a> PAp1. <br>
+                            2016 - Monofin Freediving certification FIPSAS PApm. <br>
+                            2016 - Marine memory Sensitive Dance® workshop in Maratea with Claude Coldy.
                         </li>
                         <li class='pb-2'>
                             <h4 class='text-xl font-bold mb-1'>Ilan Lev Method</h4>
