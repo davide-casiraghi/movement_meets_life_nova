@@ -26,11 +26,8 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @yield('css')
 
-    {{-- JS that need to stay in the head--}}
+    {{-- JS that need to stay in the head --}}
     @yield('javascript-head')
-
-    {{--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">--}}
 
     @livewireStyles
 
@@ -38,14 +35,12 @@
 
     {{-- SEO Structured Data  --}}
     @hasSection('structured-data')
-        <!-- Structured data -->
         @yield('structured-data')
-        <!-- End Structured data -->
     @endif
 
-    <!-- Blade UI Kit styles -->
-{{--    @bukStyles--}}
-    <!-- End Blade UI Kit styles -->
+    {{-- Blade UI Kit styles --}}
+        {{--  @bukStyles --}}
+    {{-- End Blade UI Kit styles --}}
 </head>
 
 <body class="bg-gray-100">
@@ -86,9 +81,9 @@
 
     @stack('modals')
 
-    <!-- Blade UI Kit scripts -->
-{{--    @bukScripts--}}
-    <!-- End Blade UI Kit scripts -->
+    {{--  Blade UI Kit scripts --}}
+        {{--  @bukScripts--}}
+    {{--  End Blade UI Kit scripts --}}
 </body>
 
 </html>

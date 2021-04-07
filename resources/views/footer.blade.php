@@ -1,7 +1,4 @@
-<!--
-  Tailwind UI components require Tailwind CSS v1.8 and the @tailwindcss/ui plugin.
-  Read the documentation to get started: https://tailwindui.com/documentation
--->
+
 <footer class="bg-gray-800">
     <div class="max-w-screen-xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
         <div class="pb-8 xl:grid xl:grid-cols-5 xl:gap-8">
