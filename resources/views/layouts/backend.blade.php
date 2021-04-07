@@ -9,7 +9,7 @@
     <meta name="theme-color" content="{{$barsBackground}}" />
 
     {{-- Theming the browser's address bar to match your brand's colors provides a more immersive user experience.--}}
-    <meta name="description" content="@hasSection('description')@yield('description')@else @lang('homepage-serach.find_information')@endif" />
+    <meta name="description" content="@hasSection('description')@yield('description')@else @lang('general.description')@endif" />
 
     {{-- CSRF Token --}}
     <meta name="csrf-token" content="{{ csrf_token() }}" />
