@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title')@lang('static_pages.about_me.title')@endsection
+
 @section('content')
 
     <div class="text-lg max-w-prose mx-auto px-8 lg:px-0 mb-6 mt-6">

@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title')@lang('static_pages.footer.get_a_treatment')@endsection
+
 @section('content')
 
     @include('partials.messages')

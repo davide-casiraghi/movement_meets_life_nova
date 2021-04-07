@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title')@lang('static_pages.footer.become_a_testimonial')@endsection
+
 @section('content')
 
     @include('partials.messages')

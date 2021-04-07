@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title')@lang('static_pages.footer.contact_me')@endsection
+
 @section('content')
 
     @include('partials.messages')
