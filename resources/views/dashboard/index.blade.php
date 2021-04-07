@@ -6,7 +6,6 @@
 
 @section('content')
 
-
     <!-- STATS -->
     <div>
         <h3 class="text-lg leading-6 font-medium text-gray-900">
@@ -56,9 +55,11 @@
             <div class="md:col-span-2">
                 <h2 class="mb-4">Glossary terms to complete</h2>
                 <ul class="bg-white overflow-hidden shadow rounded-lg p-6">
-                    @foreach($unpublishedGlossaryTerms as $glossaryTerm)
+                    @forelse($unpublishedGlossaryTerms as $glossaryTerm)
                         <li><a class="textLink" href="{{route('glossaries.edit', $glossaryTerm->id)}}">{{$glossaryTerm->term}}</a></li>
-                    @endforeach
+                    @empty
+                        <li>There are not glossary terms to complete.</li>
+                    @endforelse
                 </ul>
             </div>
 
@@ -75,18 +76,14 @@
                 <div>
                     <h2 class="mb-4">Latest insights</h2>
                     <ul class="bg-white overflow-hidden shadow rounded-lg p-6">
-                        @foreach($latestInsights as $insight)
+                        @forelse($latestInsights as $insight)
                             <li><a class="textLink" href="{{route('insights.edit', $insight->id)}}">{{$insight->title}}</a></li>
-                        @endforeach
+                        @empty
+                            <li>There are no insights</li>
+                        @endforelse
                     </ul>
                 </div>
-
-
             </div>
         </div>
-
-
     </div>
-
-
 @endsection
