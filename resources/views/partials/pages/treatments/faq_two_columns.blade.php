@@ -53,7 +53,7 @@
                                 <dt class="text-lg">
                                     <button x-description="Expand/collapse question button" @click="openPanel = (openPanel === {{$openPanelIndex}} ? null : {{$openPanelIndex}})" x-bind:aria-expanded="openPanel === {{$openPanelIndex}}" class="text-left w-full flex justify-between items-start text-gray-400">
                                         <span class="font-medium text-gray-900">
-                                            {{$faqItem['question']}}
+                                            {!! $faqItem['question']!!}
                                         </span>
                                         <span class="ml-6 h-7 flex items-center">
                                             <svg class="h-6 w-6 transform rotate-0" x-description="Expand/collapse icon, toggle classes based on question open state.
@@ -65,7 +65,7 @@
                                 </dt>
                                 <dd class="mt-2 pr-12" x-show="openPanel === {{$openPanelIndex}}" style="display: none;">
                                     <p class="text-base text-gray-500">
-                                        {{$faqItem['answer']}}
+                                        {!! $faqItem['answer'] !!}
                                     </p>
                                 </dd>
                             </div>

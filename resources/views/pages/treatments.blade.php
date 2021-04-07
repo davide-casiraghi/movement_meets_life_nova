@@ -87,9 +87,53 @@ An Ilan Lev bodywork instead, allows the receiver to: restore the ability to get
                 'question' => "How do I need to dress to receive a treatment ?",
                 'answer' =>  "Please bring long, comfortable clothes and some fresh socks for treatment (or it can be barefoot). I recommend not drinking in the hour before. After the treatment, allow 30 minutes without a hectic rush. ",
               ],
+              5 => [
+                'question' => "How is the treatment process of a bodywork session?",
+                'answer' =>  "
+                            <ul class='mt-6 space-y-4'>
+                                <li class='flex space-x-3'>
+                                    <svg class='flex-shrink-0 h-5 w-5 text-green-500' x-description='Heroicon name: solid/check' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor' aria-hidden='true'>
+                                    <path fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clip-rule='evenodd'></path>
+                                    </svg>
+                                    <span class='text-gray-700'>A conversation about complaints, general health, and mental state</span>
+                                </li>
 
+                                <li class='flex space-x-3'>
+                                    <svg class='flex-shrink-0 h-5 w-5 text-green-500' x-description='Heroicon name: solid/check' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor' aria-hidden='true'>
+                                    <path fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clip-rule='evenodd'></path>
+                                    </svg>
+                                    <span class='text-gray-700'>In comfortable clothing, the client finds a relaxed body position (usually lying down)</span>
+                                </li>
 
+                                <li class='flex space-x-3'>
+                                    <svg class='flex-shrink-0 h-5 w-5 text-green-500' x-description='Heroicon name: solid/check' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor' aria-hidden='true'>
+                                    <path fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clip-rule='evenodd'></path>
+                                    </svg>
+                                    <span class='text-gray-700'>Treatment</span>
+                                </li>
 
+                                <li class='flex space-x-3'>
+                                    <svg class='flex-shrink-0 h-5 w-5 text-green-500' x-description='Heroicon name: solid/check' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor' aria-hidden='true'>
+                                    <path fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clip-rule='evenodd'></path>
+                                    </svg>
+                                    <span class='text-gray-700'>The body of the client is treated systematically using various techniques</span>
+                                </li>
+
+                                <li class='flex space-x-3'>
+                                    <svg class='flex-shrink-0 h-5 w-5 text-green-500' x-description='Heroicon name: solid/check' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor' aria-hidden='true'>
+                                    <path fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clip-rule='evenodd'></path>
+                                    </svg>
+                                    <span class='text-gray-700'>Feedback from the client during the treatment to be able to implement wishes immediately</span>
+                                </li>
+
+                                <li class='flex space-x-3'>
+                                    <svg class='flex-shrink-0 h-5 w-5 text-green-500' x-description='Heroicon name: solid/check' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor' aria-hidden='true'>
+                                    <path fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clip-rule='evenodd'></path>
+                                    </svg>
+                                    <span class='text-gray-700'>Final conversation</span>
+                                </li>
+                            </ul>",
+              ],
             ],
       ])
 
