@@ -44,13 +44,13 @@ class InsightNotification extends Notification
      */
     public function toTwitter($notifiable)
     {
+        // With Image
         if ($notifiable->hasMedia('introimage')) {
-            return (new TwitterStatusUpdate($notifiable->body))->withImage('marcel.png');
-            // return new TwitterStatusUpdate($post->title .' https://laravel-news.com/'. $post->uri, [$post->featured_image]);
-
-
+            $imagePath = $notifiable->getMedia('introimage')->first()->getPath('twitter');
+            return (new TwitterStatusUpdate($notifiable->body))->withImage($imagePath);
         }
 
+        // Without Image
         return new TwitterStatusUpdate($notifiable->body);
     }
 }
