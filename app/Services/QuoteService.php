@@ -100,17 +100,12 @@ class QuoteService
     {
         $today = Carbon::today();
 
-        /*$quote = Quote::whereIn('show_where', [$where, 'both'])
-            ->where('is_published', true)
-            ->where("shown_{$where}_on", $today) //Quote already picked today
-            ->first();*/
-
         $quote = Quote::whereIn('show_where', [$where, 'both'])
-                        ->where('is_published', true)
-                        ->orWhere(function ($query) use ($where, $today) {
-                            $query->where("shown_{$where}_on", $today)
-                                  ->where("shown_{$where}_on", null);
-                        })->first();
+                    ->where('is_published', true)
+                    ->where(function ($query) use ($where, $today) {
+                        $query->where("shown_{$where}_on", $today)
+                              ->orWhere("shown_{$where}_on", null);
+                    })->first();
 
         // Reset the quotes shown when all the quotes has already been shown
         if ($quote == null) {
