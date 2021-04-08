@@ -130,7 +130,7 @@
                                ])
                         </div>
 
-                        <div class="col-span-6">
+                        {{--<div class="col-span-6">
                             @include('partials.forms.input', [
                                    'label' => __('views.post_url'),
                                    'name' => 'facebook_url',
@@ -139,7 +139,7 @@
                                    'required' => false,
                                    'disabled' => false,
                                ])
-                        </div>
+                        </div>--}}
 
                         <div class="col-span-6 sm:col-span-3">
                             @php
@@ -202,7 +202,7 @@
                                ])
                         </div>
 
-                        <div class="col-span-6">
+                        {{--<div class="col-span-6">
                             @include('partials.forms.input', [
                                    'label' => __('views.post_url'),
                                    'name' => 'twitter_url',
@@ -211,7 +211,7 @@
                                    'required' => false,
                                    'disabled' => false,
                                ])
-                        </div>
+                        </div>--}}
 
                         <div class="col-span-6 sm:col-span-3">
                             @php
@@ -273,7 +273,7 @@
                                ])
                         </div>
 
-                        <div class="col-span-6">
+                       {{-- <div class="col-span-6">
                             @include('partials.forms.input', [
                                    'label' => __('views.post_url'),
                                    'name' => 'instagram_url',
@@ -282,7 +282,7 @@
                                    'required' => false,
                                    'disabled' => false,
                                ])
-                        </div>
+                        </div>--}}
 
 
                         <div class="col-span-6 sm:col-span-3">

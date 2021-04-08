@@ -141,6 +141,5 @@ class InsightService
         $this->notificationService->sendTwitterInsight($data, $insight);
 
         $this->insightRepository->update($data, $insight->id);
-
     }
 }
