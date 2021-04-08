@@ -83,6 +83,18 @@ class InsightRepository implements InsightRepositoryInterface
         $insight->body = $data['body'] ?? null;
         $insight->is_published = (isset($data['is_published'])) ? 1 : 0;
 
+        $insight->facebook_body = $data['facebook_body'] ?? null;
+        $insight->twitter_body = $data['twitter_body'] ?? null;
+        $insight->instagram_body = $data['instagram_body'] ?? null;
+
+        $insight->published_on_facebook_on = $data['published_on_facebook_on'] ?? null;
+        $insight->published_on_twitter_on = $data['published_on_twitter_on'] ?? null;
+        $insight->published_on_instagram_on = $data['published_on_instagram_on'] ?? null;
+
+        $insight->facebook_url = $data['facebook_url'] ?? null;
+        $insight->twitter_url = $data['twitter_url'] ?? null;
+        $insight->instagram_url = $data['instagram_url'] ?? null;
+
         return $insight;
     }
 

@@ -47,10 +47,10 @@ class InsightNotification extends Notification
         // With Image
         if ($notifiable->hasMedia('introimage')) {
             $imagePath = $notifiable->getMedia('introimage')->first()->getPath('twitter');
-            return (new TwitterStatusUpdate($notifiable->body))->withImage($imagePath);
+            return (new TwitterStatusUpdate($notifiable->twitter_body))->withImage($imagePath);
         }
 
         // Without Image
-        return new TwitterStatusUpdate($notifiable->body);
+        return new TwitterStatusUpdate($notifiable->twitter_body);
     }
 }

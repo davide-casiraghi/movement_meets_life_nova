@@ -87,6 +87,7 @@ class NotificationService
     public function sendTwitterInsight(array $data, Insight $insight): bool
     {
         $insight->notify(new InsightNotification($data));
+
         return true;
     }
 }

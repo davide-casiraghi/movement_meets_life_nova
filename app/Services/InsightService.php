@@ -7,6 +7,7 @@ use App\Http\Requests\InsightSearchRequest;
 use App\Http\Requests\InsightStoreRequest;
 use App\Models\Insight;
 use App\Repositories\InsightRepositoryInterface;
+use Carbon\Carbon;
 use Illuminate\Support\Collection;
 
 class InsightService
@@ -127,11 +128,19 @@ class InsightService
      *
      * @param  \App\Models\Insight  $insight
      *
-     * @return bool
+     * @return void
      */
-    public function sendInsightToTwitter(Insight $insight): bool
+    public function sendInsightToTwitter(Insight $insight): void
     {
         $data = $insight->toArray();
-        return $this->notificationService->sendTwitterInsight($data, $insight);
+
+        $data['published_on_twitter_on'] = Carbon::today();
+
+        //dd($data);
+
+        $this->notificationService->sendTwitterInsight($data, $insight);
+
+        $this->insightRepository->update($data, $insight->id);
+
     }
 }
