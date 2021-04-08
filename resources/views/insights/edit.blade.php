@@ -159,7 +159,7 @@
                         <div class="col-span-6 sm:col-span-3 flex items-end">
                             @include('partials.forms.button',[
                                 'title' => 'Post on Facebook',
-                                'url' => route('venues.create'),
+                                'url' => "#",
                                 'color' => 'indigo',
                                 'icon' => '',
                                 'size' => 1,
@@ -303,7 +303,7 @@
                         <div class="col-span-6 sm:col-span-3 flex items-end">
                             @include('partials.forms.button',[
                                 'title' => 'Post on Instagram',
-                                'url' => route('venues.create'),
+                                'url' => "#",
                                 'color' => 'indigo',
                                 'icon' => '',
                                 'size' => 1,
