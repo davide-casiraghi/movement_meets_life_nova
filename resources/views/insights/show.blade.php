@@ -9,7 +9,7 @@
             <h2 class="mt-2 mb-8 text-3xl leading-8 font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-10">{{ $insight->title }}</h2>
         @endif
 
-        <div class="prose text-gray-500">
+        <div class="prose text-gray-500 text-lg">
             {!! $insight->body !!}
         </div>
     </div>

@@ -33,10 +33,10 @@
             {{$titleQuestion}}
         </h2>
 
-        <div class="mt-6 text-base">
+        <div class="mt-6 text-gray-700 text-lg">
             {{$glossaryTerm->definition}}
         </div>
-        <div class="text-sm mt-4">
+        <div class="text-gray-500 mt-4 text-lg">
             {!!$glossaryTerm->body!!}
         </div>
 

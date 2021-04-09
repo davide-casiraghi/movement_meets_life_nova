@@ -58,7 +58,7 @@
             @include('partials.events.mainInformation')
         @endif
 
-        <div class="prose text-gray-500 mb-10">
+        <div class="prose text-gray-500 text-lg mb-10">
             {!! $event->description !!}
         </div>
 

@@ -84,10 +84,10 @@
                 @endforeach
             </div>
 
-            <div class="text-lg leading-7 text-gray-500 mb-5">{!! $post->intro_text !!}</div>
+            <div class="text-lg leading-7 text-gray-700 mb-5">{!! $post->intro_text !!}</div>
         @endif
 
-        <div class="prose text-gray-500 mb-10">
+        <div class="prose text-gray-500 text-lg mb-10">
             {!! $post->body !!}
         </div>
 
