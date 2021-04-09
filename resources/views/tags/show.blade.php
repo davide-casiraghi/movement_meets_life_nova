@@ -6,9 +6,9 @@
         <div class="mb-12 text-lg text-gray-500">
             All the articles tagged with #{{$tag->tag}}.
         </div>
-        <div class="">
+        <div class="mb-20">
             @foreach($posts as $post)
-                <div class="mb-6">
+                <div class="mb-8">
                     <a class="textLink" href="{{ route('posts.show',$post->slug) }}">{{$post->title}}</a>
                     <div class="">
                     {{$post->intro_text}}
