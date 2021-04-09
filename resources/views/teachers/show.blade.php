@@ -1,21 +1,13 @@
 @extends('layouts.app')
 
 @section('fb-tags')
-    <!-- Social meta-tags -->
     <x-social-meta
         :title="$teacher->name . ' ' . $teacher->surname"
         :image="$teacher->hasMedia('profile_picture') ?
                 $teacher->getMedia('profile_picture')->first()->getUrl('facebook') :
                 '/storage/logo/fb_logo_cigc_red.jpg'"
     />
-    <!-- End Social meta-tags -->
-
-{{--    <meta property="og:title" content="{{ $teacher->name }} {{ $teacher->surname }}" />--}}
-{{--    @if($teacher->hasMedia('profile_picture'))--}}
-{{--        <meta property="og:image" content="{{$teacher->getMedia('profile_picture')->first()->getUrl('facebook')}}" />--}}
-{{--    @else--}}
-{{--        <meta property="og:image" content="/storage/logo/fb_logo_cigc_red.jpg" />--}}
-{{--    @endif--}}
+    <meta property="fb:app_id" content="188241685231123" />
 @endsection
 
 @section('structured-data')

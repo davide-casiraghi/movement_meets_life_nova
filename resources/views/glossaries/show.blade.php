@@ -4,21 +4,13 @@
 @section('description'){{$glossaryTerm->definition}}@endsection
 
 @section('fb-tags')
-    <!-- Social meta-tags -->
     <x-social-meta
         :title="$titleQuestion"
         :image="$glossaryTerm->hasMedia('introimage') ?
                 $glossaryTerm->getMedia('introimage')[0]->getUrl('facebook') :
                 '/storage/logo/fb_logo_cigc_red.jpg'"
     />
-    <!-- End Social meta-tags -->
-
-{{--    <meta property="og:title" content="{{ $titleQuestion }}" />--}}
-{{--    @if($glossaryTerm->hasMedia('introimage'))--}}
-{{--        <meta property="og:image" content="{{$glossaryTerm->getMedia('introimage')[0]->getUrl('facebook')}}" />--}}
-{{--    @else--}}
-{{--        <meta property="og:image" content="/storage/logo/fb_logo_cigc_red.jpg" />--}}
-{{--    @endif--}}
+    <meta property="fb:app_id" content="188241685231123" />
 @endsection
 
 @section('structured-data')

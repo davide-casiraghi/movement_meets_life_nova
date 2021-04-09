@@ -12,6 +12,7 @@
             :description="__('general.website_description')"
             :image="asset('images/static_pages/hp-intro-image.jpg')"
     />
+    <meta property="fb:app_id" content="188241685231123" />
 @endsection
 
 @section('content')

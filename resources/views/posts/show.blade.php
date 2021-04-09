@@ -16,6 +16,7 @@
                 $post->getMedia('introimage')[0]->getUrl('facebook') :
                 '/storage/logo/fb_logo_cigc_red.jpg'"
     />
+    <meta property="fb:app_id" content="188241685231123" />
 @endsection
 
 @section('structured-data')
