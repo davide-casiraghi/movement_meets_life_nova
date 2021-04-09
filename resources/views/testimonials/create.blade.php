@@ -9,6 +9,7 @@
     <div class="flex justify-center px-4 md:px-0">
         <form action="{{route('testimonials.store')}}" method="POST" class="max-w-3xl" enctype="multipart/form-data">
             @csrf
+            @honeypot
             <div class="bg-white shadow px-4 py-5 sm:rounded-lg sm:p-6 mt-4">
 
                 <div class="">

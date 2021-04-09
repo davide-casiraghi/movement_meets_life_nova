@@ -19,6 +19,7 @@
 
         <form action="{{route('getATreatment.store')}}" method="POST" class="max-w-3xl">
             @csrf
+            @honeypot
             <div class="bg-white shadow px-4 py-5 sm:rounded-lg sm:p-6 mt-4">
                 <div class="md:grid md:grid-cols-3 md:gap-6">
                     <div class="md:col-span-1">
