@@ -27,7 +27,13 @@ return [
     'secondary_complaint_intensity' => "Secondary complaint intensity (Light - Severe)",
     'decide_contact_method' => "Decide how you would like to be contacted",
     'contact' => "Contact",
+
+    'data_save_agreement' => "I agree to save my contact information",
+
+
     'send' => "Send",
+
+
 
 
 
@@ -35,6 +41,7 @@ return [
           'first_name' => "First name",
           'last_name' => "Last name",
           'your_email' => "Your email",
+          'phone' => "Phone",
         ]
       ],
 

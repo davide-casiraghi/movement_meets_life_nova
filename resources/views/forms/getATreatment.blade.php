@@ -148,23 +148,47 @@
                     <div class="mt-5 md:mt-0 md:col-span-2">
                         <div class="grid grid-cols-6 gap-6">
                             <div class="col-span-6 sm:col-span-3">
-                                <label for="first_name" class="block text-sm font-medium leading-5 text-gray-700">First name</label>
-                                <input id="first_name" name="name" class="mt-1 form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                                @include('partials.forms.input', [
+                                    'label' => __('forms.get_a_treatment.fields.first_name'),
+                                    'name' => 'name',
+                                    'placeholder' => '',
+                                    'value' => old('name'),
+                                    'required' => true,
+                                    'disabled' => false,
+                                ])
                             </div>
 
                             <div class="col-span-6 sm:col-span-3">
-                                <label for="last_name" class="block text-sm font-medium leading-5 text-gray-700">Last name</label>
-                                <input id="last_name" name="surname" class="mt-1 form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                                @include('partials.forms.input', [
+                                   'label' => __('forms.get_a_treatment.fields.last_name'),
+                                   'name' => 'surname',
+                                   'placeholder' => '',
+                                   'value' => old('surname'),
+                                   'required' => true,
+                                   'disabled' => false,
+                               ])
                             </div>
 
                             <div class="col-span-6 sm:col-span-3">
-                                <label for="email" class="block text-sm font-medium leading-5 text-gray-700">Email address</label>
-                                <input id="email" name="email" class="mt-1 form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                                @include('partials.forms.input', [
+                                    'label' => __('forms.get_a_treatment.fields.your_email'),
+                                    'name' => 'email',
+                                    'placeholder' => '',
+                                    'value' => old('email'),
+                                    'required' => true,
+                                    'disabled' => false,
+                                ])
                             </div>
 
                             <div class="col-span-6 sm:col-span-3">
-                                <label for="phone" class="block text-sm font-medium leading-5 text-gray-700">Phone</label>
-                                <input id="phone" name="phone" class="mt-1 form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                                @include('partials.forms.input', [
+                                    'label' => __('forms.get_a_treatment.fields.phone'),
+                                    'name' => 'phone',
+                                    'placeholder' => '',
+                                    'value' => old('phone'),
+                                    'required' => false,
+                                    'disabled' => false,
+                                ])
                             </div>
                             <div class="col-span-6">
                                 <div class="flex items-start">
@@ -173,7 +197,7 @@
                                     </div>
                                     <div class="ml-3 text-sm leading-5">
                                         <label for="personalDataAgreement" class="font-medium text-gray-700">Personal data agreement</label>
-                                        <p class="text-gray-500">I agree to save my contact information</p>
+                                        <p class="text-gray-500">{{__('forms.get_a_treatment.data_save_agreement')}}</p>
                                     </div>
                                 </div>
                             </div>
