@@ -30,9 +30,6 @@
                         <div class="text-lg text-gray-600 font-extrabold tracking-tight sm:text-xl">{{__('forms.contact_me.your_message')}}</div>
                     </div>
                     <div class="mt-5 md:mt-0 md:col-span-2">
-                        {{--<div class="">
-                            <textarea name="message" rows="3" class="form-textarea mt-1 block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary-300" placeholder="">{{ old('message') }}</textarea>
-                        </div>--}}
                         @include('partials.forms.textarea', [
                                    'label' => '',
                                    'name' => 'message',
@@ -53,16 +50,12 @@
                     <div class="md:col-span-1">
                         <div class="text-lg text-gray-600 font-extrabold tracking-tight sm:text-xl">{{__('forms.contact_me.personal_information')}}</div>
                         {{--<p class="mt-1 text-sm leading-5 text-gray-500">
-                            This information will be displayed publicly so be careful what you share.
+                            Lorem ipsum description
                         </p>--}}
                     </div>
                     <div class="mt-5 md:mt-0 md:col-span-2">
                         <div class="grid grid-cols-6 gap-6">
                             <div class="col-span-6 sm:col-span-3">
-                                {{--<label for="name" class="block text-sm font-medium leading-5 text-gray-700">First name</label>
-                                <input name="name" value="{{ old('name') }}" id="first_name" class="mt-1 form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 @error('name') is-invalid @enderror">
-
-                                <p class="mt-2 text-sm text-red-600" id="email-error">Your password must be less than 4 characters.</p>--}}
                                 @include('partials.forms.input', [
                                     'label' => __('forms.contact_me.fields.first_name'),
                                     'name' => 'name',
@@ -74,8 +67,6 @@
                             </div>
 
                             <div class="col-span-6 sm:col-span-3">
-                                {{--<label for="surname" class="block text-sm font-medium leading-5 text-gray-700">Last name</label>
-                                <input name="surname" value="{{ old('surname') }}" id="last_name" class="mt-1 form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">--}}
                                 @include('partials.forms.input', [
                                     'label' => __('forms.contact_me.fields.last_name'),
                                     'name' => 'surname',
@@ -87,8 +78,6 @@
                             </div>
 
                             <div class="col-span-6 sm:col-span-3">
-                                {{--<label for="email" class="block text-sm font-medium leading-5 text-gray-700">Your email</label>
-                                <input name="email" value="{{ old('email') }}" id="email" class="mt-1 form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">--}}
                                 @include('partials.forms.input', [
                                     'label' => __('forms.contact_me.fields.your_email'),
                                     'name' => 'email',
