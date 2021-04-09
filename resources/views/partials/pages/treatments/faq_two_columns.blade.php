@@ -9,6 +9,11 @@
             Frequently asked questions
         </h2>
 
+        <p class="mt-4 text-lg text-gray-500 text-center mb-4">Can’t find the answer you’re looking for? Feel free to <a href="{{route('contact.index')}}" class="font-medium text-primary-600 hover:text-primary-500">contact</a> me.</p>
+
+
+
+
         <div class="md:grid md:grid-cols-6 md:gap-x-24">
             {{-- COL LEFT --}}
             <div class="md:col-span-3">
