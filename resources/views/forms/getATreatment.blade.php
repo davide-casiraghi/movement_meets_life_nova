@@ -8,10 +8,10 @@
 
     <div class="text-center mt-5 px-4 md:px-0">
         <h2 class="text-3xl leading-9 tracking-tight font-extrabold text-gray-900 sm:text-4xl sm:leading-10">
-            Get a treatment
+            {{__('forms.get_a_treatment.get_a_treatment')}}
         </h2>
         <p class="mt-3 max-w-2xl mx-auto text-xl leading-7 text-gray-500 sm:mt-4">
-            To book a treatment please specify the required information to allow me to get an idea of your condition.<br>
+            {{__('forms.get_a_treatment.to_book')}}
         </p>
     </div>
 
@@ -23,9 +23,9 @@
             <div class="bg-white shadow px-4 py-5 sm:rounded-lg sm:p-6 mt-4">
                 <div class="md:grid md:grid-cols-3 md:gap-6">
                     <div class="md:col-span-1">
-                        <div class="text-lg text-gray-600 font-extrabold tracking-tight sm:text-xl">Your condition</div>
+                        <div class="text-lg text-gray-600 font-extrabold tracking-tight sm:text-xl">{{__('forms.get_a_treatment.your_condition')}}</div>
                         <p class="mt-1 text-sm leading-5 text-gray-500">
-                            Please specify which conditions worsen/facilitate and at what time of the day does the problem appear.
+                            {{__('forms.get_a_treatment.please_specify')}}
                         </p>
                     </div>
                     <div class="mt-5 md:mt-0 md:col-span-2">
@@ -33,20 +33,20 @@
                         {{-- Main complaint description --}}
                         <div class="">
                             <label for="mainComplaint" class="block text-sm leading-5 font-medium text-gray-700">
-                                Main complaint
+                                {{__('forms.get_a_treatment.main_complaint')}}
                             </label>
                             <div class="rounded-md shadow-sm">
                                 <textarea name="mainComplaint" id="mainComplaint" rows="3" class="form-textarea mt-1 block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary-300" placeholder="Brief description of the complaint."></textarea>
                             </div>
                             <p class="mt-2 text-sm text-gray-500">
-                                Please specify the physical locations if the problem is focused in specific spots.
+                                {{__('forms.get_a_treatment.specify_physical_locations')}}
                             </p>
                         </div>
 
                         {{-- Main complaint radio options --}}
                         <div class="mt-6">
                             <label for="main_complaint_intensity" class="block text-sm leading-5 font-medium text-gray-700">
-                                Main complaint intensity (Light - Severe)
+                                {{__('forms.get_a_treatment.main_complaint_intensity')}}
                             </label>
                             <div class="flex mt-2">
                                 <div class="w-1/5 bg-gray-100 h-12 text-center">
@@ -85,20 +85,20 @@
                         {{-- Secondary complaint description --}}
                         <div class="mt-6">
                             <label for="about" class="block text-sm leading-5 font-medium text-gray-700">
-                                Secondary complaint
+                                {{__('forms.get_a_treatment.secondary_complaint')}}
                             </label>
                             <div class="rounded-md shadow-sm">
                                 <textarea name="secondaryComplaint" id="secondaryComplaint" rows="3" class="form-textarea mt-1 block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary-300" placeholder="Brief description of the complaint."></textarea>
                             </div>
                             <p class="mt-2 text-sm text-gray-500">
-                                Please specify the physical locations if the problem is focused in specific spots.
+                                {{__('forms.get_a_treatment.specify_physical_locations')}}
                             </p>
                         </div>
 
                         {{-- Secondary complaint radio options --}}
                         <div class="mt-6">
                             <label for="secondary_complaint_intensity" class="block text-sm leading-5 font-medium text-gray-700">
-                                Secondary complaint intensity (Light - Severe)
+                                {{__('forms.get_a_treatment.secondary_complaint_intensity')}}
                             </label>
                             <div class="flex mt-2">
                                 <div class="w-1/5 bg-gray-100 h-12 text-center">
@@ -133,8 +133,6 @@
                                 </div>
                             </div>
                         </div>
-
-
                     </div>
                 </div>
             </div>
@@ -148,39 +146,38 @@
                         </p>--}}
                     </div>
                     <div class="mt-5 md:mt-0 md:col-span-2">
-                            <div class="grid grid-cols-6 gap-6">
-                                <div class="col-span-6 sm:col-span-3">
-                                    <label for="first_name" class="block text-sm font-medium leading-5 text-gray-700">First name</label>
-                                    <input id="first_name" name="name" class="mt-1 form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
-                                </div>
+                        <div class="grid grid-cols-6 gap-6">
+                            <div class="col-span-6 sm:col-span-3">
+                                <label for="first_name" class="block text-sm font-medium leading-5 text-gray-700">First name</label>
+                                <input id="first_name" name="name" class="mt-1 form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                            </div>
 
-                                <div class="col-span-6 sm:col-span-3">
-                                    <label for="last_name" class="block text-sm font-medium leading-5 text-gray-700">Last name</label>
-                                    <input id="last_name" name="surname" class="mt-1 form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
-                                </div>
+                            <div class="col-span-6 sm:col-span-3">
+                                <label for="last_name" class="block text-sm font-medium leading-5 text-gray-700">Last name</label>
+                                <input id="last_name" name="surname" class="mt-1 form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                            </div>
 
-                                <div class="col-span-6 sm:col-span-3">
-                                    <label for="email" class="block text-sm font-medium leading-5 text-gray-700">Email address</label>
-                                    <input id="email" name="email" class="mt-1 form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
-                                </div>
+                            <div class="col-span-6 sm:col-span-3">
+                                <label for="email" class="block text-sm font-medium leading-5 text-gray-700">Email address</label>
+                                <input id="email" name="email" class="mt-1 form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                            </div>
 
-                                <div class="col-span-6 sm:col-span-3">
-                                    <label for="phone" class="block text-sm font-medium leading-5 text-gray-700">Phone</label>
-                                    <input id="phone" name="phone" class="mt-1 form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
-                                </div>
-                                <div class="col-span-6">
-                                    <div class="flex items-start">
-                                        <div class="flex items-center h-5">
-                                            <input id="personalDataAgreement" name="personalDataAgreement" type="checkbox" class="form-checkbox h-4 w-4 text-primary-600 transition duration-150 ease-in-out">
-                                        </div>
-                                        <div class="ml-3 text-sm leading-5">
-                                            <label for="personalDataAgreement" class="font-medium text-gray-700">Personal data agreement</label>
-                                            <p class="text-gray-500">I agree to save my contact information</p>
-                                        </div>
+                            <div class="col-span-6 sm:col-span-3">
+                                <label for="phone" class="block text-sm font-medium leading-5 text-gray-700">Phone</label>
+                                <input id="phone" name="phone" class="mt-1 form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                            </div>
+                            <div class="col-span-6">
+                                <div class="flex items-start">
+                                    <div class="flex items-center h-5">
+                                        <input id="personalDataAgreement" name="personalDataAgreement" type="checkbox" class="form-checkbox h-4 w-4 text-primary-600 transition duration-150 ease-in-out">
+                                    </div>
+                                    <div class="ml-3 text-sm leading-5">
+                                        <label for="personalDataAgreement" class="font-medium text-gray-700">Personal data agreement</label>
+                                        <p class="text-gray-500">I agree to save my contact information</p>
                                     </div>
                                 </div>
-
                             </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -188,9 +185,9 @@
             <div class="my-6 bg-white shadow px-4 py-5 sm:rounded-lg sm:p-6">
                 <div class="md:grid md:grid-cols-3 md:gap-6">
                     <div class="md:col-span-1">
-                        <div class="text-lg text-gray-600 font-extrabold tracking-tight sm:text-xl">Contact</div>
+                        <div class="text-lg text-gray-600 font-extrabold tracking-tight sm:text-xl">{{__('forms.get_a_treatment.contact')}}</div>
                         <p class="mt-1 text-sm leading-5 text-gray-500">
-                            Decide how you would like to be contacted
+                            {{__('forms.get_a_treatment.decide_contact_method')}}
                         </p>
                     </div>
                     <div class="md:col-span-2">
@@ -231,7 +228,7 @@
                 <div class="flex justify-end">
                     <span class="ml-3 inline-flex rounded-md shadow-sm">
                         <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-primary-600 hover:bg-primary-500 focus:outline-none focus:border-primary-700 focus:ring-primary active:bg-primary-700 transition duration-150 ease-in-out">
-                            Send
+                            {{__('forms.get_a_treatment.send')}}
                         </button>
                     </span>
                 </div>
