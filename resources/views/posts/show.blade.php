@@ -9,7 +9,6 @@
 --}}
 
 @section('fb-tags')
-    <!-- Social meta-tags -->
     <x-social-meta
         :title="$post->title"
         :description="$post->intro_text"
@@ -17,23 +16,6 @@
                 $post->getMedia('introimage')[0]->getUrl('facebook') :
                 '/storage/logo/fb_logo_cigc_red.jpg'"
     />
-    <!-- End Social meta-tags -->
-
-{{--    <meta property="og:title" content="{{ $post->title }}" />--}}
-{{--    <meta property="og:description" content="{{ $post->intro_text }}" />--}}
-{{--    <meta property="og:url" content="http://bits.blogs.nytimes.com/2011/12/08/a-twitter-for-my-sister/" />--}}
-
-{{--    <meta name="twitter:card" content="summary_large_image" />--}}
-    {{--<meta name="twitter:site" content="@nytimesbits" />--}}
-{{--    <meta name="twitter:creator" content="@DaveCasiraghi" />--}}
-
-{{--    @if($post->hasMedia('introimage'))--}}
-{{--        <meta property="og:image" content="{{$post->getMedia('introimage')[0]->getUrl('facebook')}}" />--}}
-{{--        <meta property="og:image:width" content="1200" />--}}
-{{--        <meta property="og:image:height" content="630" />--}}
-{{--    @else--}}
-{{--        <meta property="og:image" content="/storage/logo/fb_logo_cigc_red.jpg" />--}}
-{{--    @endif--}}
 @endsection
 
 @section('structured-data')
