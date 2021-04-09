@@ -24,6 +24,11 @@
                         {{$post->title}}
                     </a>
                 </h2>
+                <div>
+                    @foreach($post->tags as $tag)
+                        <a class="textLink mr-1" href="{{route('tags.show', $tag->slug)}}">#{{$tag->tag}}</a>
+                    @endforeach
+                </div>
                 <div class="border-gray-400 border-0 text-base max-w-none text-gray-600">
                     <p class="border-solid box-border leading-7 mx-0 my-5 text-left">
                         {{$post->intro_text}}
@@ -31,7 +36,7 @@
 
                 </div>
             </div>
-            <div class="border-solid box-border font-medium text-base leading-normal text-left">
+            <div class="textLink">
                 <a href="{{route('posts.show', $post->slug)}}" class="bg-transparent border-gray-400 border-0 cursor-pointer leading-6 text-primary-600 hover:text-primary-700" aria-label='Read "{{$post->title}}"'>
                     Read more →
                 </a>
