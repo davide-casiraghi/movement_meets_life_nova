@@ -37,6 +37,9 @@ class EventStructuredDataScriptGenerator implements StructuredDataScriptGenerato
             ->if($this->event->hasMedia('introimage'), function (DanceEvent $schema) {
                 $schema->image($this->event->getMedia('introimage')->first()->getUrl());
             })
+            ->if(!$this->event->hasMedia('introimage'), function (DanceEvent $schema) {
+                $schema->image(asset('images/static_pages/mml_default.jpg'));
+            })
             ->about($this->event->category->name)
             ->startDate($this->event->repetitions()->first()->start_repeat)
             ->endDate($this->event->repetitions()->first()->end_repeat)
@@ -60,6 +63,12 @@ class EventStructuredDataScriptGenerator implements StructuredDataScriptGenerato
                     ->postalCode($this->event->venue->zip_code)
                     ->addressCountry($this->event->venue->country->code)
                 )
-            );
+            )
+            ->eventStatus(Schema::eventStatusType()::EventScheduled) // create a property for it
+            ->eventAttendanceMode(Schema::eventAttendanceModeEnumeration()::MixedEventAttendanceMode) // create a property for it
+            /*->offers(Schema::offer()
+                    ->url('https://www.googleform...') // link to the registration form
+            )*/
+            ;
     }
 }
