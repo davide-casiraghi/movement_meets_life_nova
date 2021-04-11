@@ -51,11 +51,12 @@
             {!! $videoIntro !!}--}}
 
             <div class="relative mx-auto w-full rounded-lg shadow-lg lg:max-w-md">
-                <img class="w-full" src="{{asset('images/static_pages/SlovakiaZlinaWorkshop.jpg')}}" alt="Woman making a sale">
+                <img class="w-full" src="{{asset('images/static_pages/hp/contact_improvisation_small.jpg')}}" alt="Woman making a sale">
+                {{--<iframe width="450" height="300" src="https://www.youtube.com/embed/MelWoO9J3E8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>--}}
             </div>
 
-        </div>
-    </div>
+</div>
+</div>
 </div>
 
 
