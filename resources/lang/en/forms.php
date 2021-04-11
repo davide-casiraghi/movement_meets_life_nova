@@ -27,22 +27,39 @@ return [
     'secondary_complaint_intensity' => "Secondary complaint intensity (Light - Severe)",
     'decide_contact_method' => "Decide how you would like to be contacted",
     'contact' => "Contact",
-
     'data_save_agreement' => "I agree to save my contact information",
-
-
     'send' => "Send",
-
-
-
-
-
     'fields' => [
           'first_name' => "First name",
           'last_name' => "Last name",
           'your_email' => "Your email",
           'phone' => "Phone",
         ]
-      ],
+    ],
+
+    'become_a_testimonial' => [
+        'become_a_testimonial' => "Become a Testimonial",
+        'brief_description' => 'A brief description of your experience.',
+        'did_you_enjoy' => "Did you enjoy receiving a bodywork and you would love to leave a feedback that I can publish on my website?",
+        'unique_experience' => "Since it's a quite unique experience to explain, this will support me to allow people know does it feel to receive an ILM treatment.",
+        'publish_agreement' => "Publish agreement",
+        'please_confirm' => "Please confirm below to allow me to publish",
+        'i_agree_publish' => 'I agree to publish my name, surname and profession and photo.',
+        'personal_data_agreement' => 'Personal data agreement',
+        'feedback_agreement' => 'Feedback agreement',
+        'agree_feedback' => 'I agree to publish my feedback on the testimonial section of this website.',
+        'select_a_file' => "Select a file",
+        'cancel' => "Cancel",
+        'save' => "Save",
+        'fields' => [
+            'your_experience' => "Your experience",
+            'your_email' => "Your email",
+            'your_country' => "Your country",
+            'your_profession' => "Your profession",
+            'your_surname' => "Last name",
+            'your_name' => "First name",
+            'photo' => "Photo",
+        ]
+    ],
 
 ];
