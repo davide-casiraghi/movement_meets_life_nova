@@ -12,10 +12,10 @@
                 <div class="text-center text-xl italic text-gray-500">
                     {{$quote->description}}
                 </div>
-                <div class="text-4xl text-primary-500 text-right leading-tight h-3 -mt-3 font-serif" aria-hidden="true">”</div>
+                <div class="text-4xl text-primary-500 text-right leading-tight h-3 font-serif" aria-hidden="true">”</div>
             </div>
             <cite>
-                <div class="text-md text-primary-500 font-bold text-center mt-6">
+                <div class="text-md text-primary-500 font-bold text-center mt-3">
                     {{$quote->author}}
                 </div>
             </cite>
