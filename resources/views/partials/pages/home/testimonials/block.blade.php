@@ -19,7 +19,7 @@
 
 <div class="mt-10 mx-4">
    <div class="text-center mt-28 mb-14 text-4xl tracking-tight leading-10 font-brand text-gray-900 sm:leading-none sm:text-6xl lg:text-4xl xl:text-5xl">
-       What people are say about my <span class='text-primary-600'>bodyworks</span>
+       What people are saying about my <span class='text-primary-600'>bodyworks</span>.
    </div>
    <div class="box-border mx-auto md:masonry-2-col lg:masonry-3-col before:box-inherit after:box-inherit">
        @foreach($testimonials as $testimonial)
