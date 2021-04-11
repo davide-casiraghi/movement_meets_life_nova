@@ -116,7 +116,7 @@ class EventRepetitionRepositoryTest extends TestCase
     }
 
     /** @test */
-    public function it_should_save_montly_repeat_dates_same_day_number_of_month()
+    public function it_should_save_monthly_repeat_dates_same_day_number_of_month()
     {
         $eventId = 3;
         $monthRepeatDatas = explode('|', '0|4'); // 4th day of the month
@@ -147,7 +147,7 @@ class EventRepetitionRepositoryTest extends TestCase
     }
 
     /** @test */
-    public function it_should_save_montly_repeat_dates_same_weekday_of_month()
+    public function it_should_save_monthly_repeat_dates_same_weekday_of_month()
     {
         $eventId = 3;
         $monthRepeatDatas = explode('|', '1|1|5'); // First Friday of the month
@@ -184,7 +184,7 @@ class EventRepetitionRepositoryTest extends TestCase
     }
 
     /** @test */
-    public function it_should_save_montly_repeat_dates_same_day_of_month_from_end()
+    public function it_should_save_monthly_repeat_dates_same_day_of_month_from_end()
     {
         $eventId = 3;
         $monthRepeatDatas = explode('|', '2|3'); // the 4rd to last day of the month
@@ -215,7 +215,7 @@ class EventRepetitionRepositoryTest extends TestCase
     }
 
     /** @test */
-    public function it_should_save_montly_repeat_dates_same_weekday_of_month_from_end()
+    public function it_should_save_monthly_repeat_dates_same_weekday_of_month_from_end()
     {
         $eventId = 3;
         $monthRepeatDatas = explode('|', '3|1|3'); // the 2nd to last Wednesday of the month
