@@ -5,9 +5,9 @@
 <div class="bg-white my-10" x-data="{ openPanel: null }">
     <div class="max-w-7xl mx-auto py-12 px-4 sm:pb-16 sm:pt-1 sm:px-6 lg:px-8">
 
-        <h2 class="text-center text-3xl font-extrabold text-gray-900 sm:text-4xl">
+        <div class="leading-headline text-gray-900 capitalize text-center font-brand text-4xl md:text-5xl pb-8 mt-10">
             Frequently asked questions
-        </h2>
+        </div>
 
         <p class="mt-4 text-lg text-gray-500 text-center mb-4">Can’t find the answer you’re looking for? Feel free to <a href="{{route('contact.index')}}" class="font-medium text-primary-600 hover:text-primary-500">contact</a> me.</p>
 

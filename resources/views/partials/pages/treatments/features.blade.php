@@ -24,7 +24,7 @@
                             Release
                         </dt>
                         <dd class="mt-2 text-base text-gray-500">
-                            Releases physical and mental tensions
+                            Releases physical and mental tensions.
                         </dd>
                     </div>
                 </div>
@@ -42,7 +42,7 @@
                             Refine
                         </dt>
                         <dd class="mt-2 text-base text-gray-500">
-                            Refining perceptions and sensitivity
+                            Refining perceptions and sensitivity.
                         </dd>
                     </div>
                 </div>
@@ -59,7 +59,7 @@
                             Enhance
                         </dt>
                         <dd class="mt-2 text-base text-gray-500">
-                            Awaken and enhance the body's motor functions and activate the senses
+                            Awaken and enhance the body's motor functions and activate the senses.
                         </dd>
                     </div>
                 </div>
@@ -76,7 +76,7 @@
                             Remove
                         </dt>
                         <dd class="mt-2 text-base text-gray-500">
-                            Remove obstacles in movements and functional difficulties
+                            Remove obstacles in movements and functional difficulties.
                         </dd>
                     </div>
                 </div>
