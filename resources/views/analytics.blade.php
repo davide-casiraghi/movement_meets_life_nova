@@ -1,4 +1,3 @@
-<!-- ANALYTICS -->
 {{-- Global site tag (gtag.js) - Google Analytics --}}
 @env('production')
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-E8J8KSDTGD"></script>
