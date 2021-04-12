@@ -118,6 +118,16 @@ Create the file storage symbolic link from public/storage to storage/app/public
 Access the local website at:   
 [https://movement_meets_life_nova.local/](https://movement_meets_life_nova.local/)
 
+### Code analysis
+Static code analysis:   
+```./vendor/bin/phpstan analyse```   
+or, in case of errors:   
+```./vendor/bin/phpstan analyse --memory-limit=2G```   
+
+PHP Insights:   
+```php artisan insights```
+
+
 ### Testing
 
 ```php artisan test```
