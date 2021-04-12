@@ -89,7 +89,7 @@ class AppServiceProvider extends ServiceProvider
             $view->with('posts', Post::currentStatus('Published')->orderBy('created_at', 'desc')->paginate(6));
         });*/
 
-        View::composer(['partials.quote_of_the_day'], QuoteComposer::class);
+        //View::composer(['partials.quote_of_the_day'], QuoteComposer::class);
 
 
 
