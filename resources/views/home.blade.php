@@ -35,6 +35,6 @@
 
     @include('partials.pages.home.testimonials.block')
 
-    @include('partials.quote_of_the_day')
+    {{--@include('partials.quote_of_the_day')--}}
 
 @endsection
