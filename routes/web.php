@@ -234,6 +234,7 @@ Route::group(
   Route::get('/past-events', [EventController::class, 'pastEvents'])->name('events.past');
   Route::get('/about-me', [StaticPageController::class, 'aboutMe'])->name('staticPages.aboutMe');
   Route::get('/treatments-ilan-lev-method', [StaticPageController::class, 'treatments'])->name('staticPages.treatments');
+  Route::get('/learn-more-ilan-lev-method', [StaticPageController::class, 'treatmentsLearnMore'])->name('staticPages.treatmentsLearnMore');
   Route::get('/contact-improvisation', [StaticPageController::class, 'contactImprovisation'])->name('staticPages.contactImprovisation');
   Route::get('/water-contact', [StaticPageController::class, 'waterContact'])->name('staticPages.waterContact');
   Route::get('/events/{slug}', [EventController::class, 'show'])->name('events.show');

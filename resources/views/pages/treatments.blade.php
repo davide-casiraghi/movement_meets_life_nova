@@ -14,27 +14,25 @@
 
         @include('partials.pages.treatments.intro')
 
-
-        <div class="">
-            In April 2019 I've completed the first Ilan Lev Method training program in Europe and I'm a certified practitioner.
-            <br>
-            {{--I give private treatments in Ljubljana, Slovenia at <a href="http://www.visja-vibracija.si/" class="textLink">Višja Vibracija</a>.--}}
+        {{--
+                <div class="">
+                    In April 2019 I've completed the first Ilan Lev Method training program in Europe and I'm a certified practitioner.
+                    <br>
+                    I give private treatments in Ljubljana, Slovenia at <a href="http://www.visja-vibracija.si/" class="textLink">Višja Vibracija</a>.
         </div>
-
-        @include('partials.pages.treatments.bodywork')
-        @include('partials.pages.treatments.movementClasses')
+--}}
 
     </div>
 
 
-    @include('partials.pages.treatments.big_feedbacks')
+    {{--@include('partials.pages.treatments.big_feedbacks')--}}
 
     @include('partials.pages.treatments.video_ilm_official')
 
     {{-- Galley --}}
     @include('partials.pages.treatments.treatment_gallery')
 
-    {{-- What is the treatment about--}}
+    {{-- What is the treatment about --}}
     @include('partials.pages.treatments.features')
 
     {{-- FAQs --}}
