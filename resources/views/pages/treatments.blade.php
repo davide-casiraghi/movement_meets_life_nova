@@ -17,7 +17,8 @@
 
         <div class="">
             In April 2019 I've completed the first Ilan Lev Method training program in Europe and I'm a certified practitioner.
-            I give private treatments in Ljubljana, Slovenia.
+            <br>
+            I give private treatments in Ljubljana, Slovenia at <a href="http://www.visja-vibracija.si/" class="textLink">Višja Vibracija</a>.
         </div>
 
         @include('partials.pages.treatments.bodywork')

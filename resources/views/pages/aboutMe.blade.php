@@ -53,7 +53,7 @@
                     ],
                     [
                         'title' => 'What is the movement for me?',
-                        'text' => "My path to self-development is rooted in body awareness, I deeply trust that working on our ability to be attentive to our inner sensitivity and improving our interoception enable us to connect with ourselves, to ground, to understand our needs, and through this clarity, we can work to express them healthily.<br>
+                        'text' => "My path to self-development is rooted in body awareness, I deeply trust that working on our ability to be attentive to our inner sensitivity and improving our interoception enable us to connect with ourselves, to ground, to understand our needs, and through this clarity, we can work to express them healthily.<br><br>
                                     I see <b>Contact Improvisation</b> as a way to re-awake and fully enjoy our sensations, playfulness and agility working on trust, explore curiosity about movement principles out of daily movement patterns. Rolling on the ground as we were children and even doing much more fun stuff.
                                     For me, CI is a kind of mindfulness practice that is also oriented to the relation with the other dance partners and the environment we are dancing in.
                                     The constant practice of this dance form affects in this way also my daily life out of the dance floor.<br>

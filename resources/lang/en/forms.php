@@ -52,7 +52,7 @@ return [
         'unique_experience' => "Since it's a quite unique experience to explain, this will support me to allow people know does it feel to receive an ILM treatment.",
         'publish_agreement' => "Publish agreement",
         'please_confirm' => "Please confirm below to allow me to publish",
-        'i_agree_publish' => 'I agree to publish my name, surname and profession and photo.',
+        'i_agree_publish' => 'I agree to save my contact information.',
         'personal_data_agreement' => 'Personal data agreement',
         'feedback_agreement' => 'Feedback agreement',
         'agree_feedback' => 'I agree to publish my feedback on the testimonial section of this website.',
