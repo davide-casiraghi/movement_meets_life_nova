@@ -119022,8 +119022,8 @@ $(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/vagrant/code/movement_meets_life/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/vagrant/code/movement_meets_life/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/davide/Projects/PERSONAL/movement_meets_life/DEV/movement_meets_life_nova/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/davide/Projects/PERSONAL/movement_meets_life/DEV/movement_meets_life_nova/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
