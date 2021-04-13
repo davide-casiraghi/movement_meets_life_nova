@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title')@lang('static_pages.treatments.title')@endsection
+@section('title')@lang('static_pages.treatments_learn_more.title')@endsection
 
 @section('content')
 

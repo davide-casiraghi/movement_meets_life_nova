@@ -40,6 +40,10 @@ return [
         'title' => 'Treatments',
         'a_breath_of_fresh_air' => "A breath of <span class='text-primary-600'>fresh air.</span>",
     ],
+    'treatments_learn_more' => [
+      'title' => 'Learn more about Ilan Lev Method Bodywork and Movement classes',
+
+    ],
     'water_contact' => [
       'title' => 'Water Contact',
     ],

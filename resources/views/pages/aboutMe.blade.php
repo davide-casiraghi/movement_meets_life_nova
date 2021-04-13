@@ -14,7 +14,7 @@
 
         </p>
 
-        <h2>Movement</h2>
+        <h2 class="mt-6 sm:mt-14 mb-4 text-xl text-primary-600 font-extrabold tracking-tight sm:text-2xl">Movement</h2>
 
         <p>
             He is currently giving <b>Contact Improvisation</b> regular classes and <b>Ilan Lev method</b> bodyworks in Ljubljana.<br><br>
@@ -90,7 +90,7 @@
                 ]
             ])
 
-        <h2>Web development</h2>
+        <h2 class="mt-6 sm:mt-14 mb-4 text-xl text-primary-600 font-extrabold tracking-tight sm:text-2xl">Web development</h2>
 
         <p class="mb-3">
             I work at <a href="https://www.agiledrop.com/" class="textLink" target="_blank">Agiledrop</a> as a PHP backend developer with Laravel and Drupal.<br>
