@@ -16,9 +16,13 @@
                         {{-- <span class="block">Ready to dive in?</span>--}}
                         <span class="block text-primary-600 mb-2">You can book online.</span>
                     </div>
-                    I give private treatments in Ljubljana, Slovenia at <a href="http://www.visja-vibracija.si/" class="textLink" target="_blank">Višja Vibracija</a>.
+
+                   <div class="mt-4">
+                       I give private treatments in Ljubljana, Slovenia at <a href="http://www.visja-vibracija.si/" class="textLink" target="_blank">Višja Vibracija</a>.
+                   </div>
+
                 </div>
-                <div class="mt-8">
+                <div class="mt-10">
                     <a href="{{route('getATreatment.create')}}" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700">
                         Get a treatment
                     </a>

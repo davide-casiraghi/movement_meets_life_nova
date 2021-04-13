@@ -38,7 +38,7 @@ return [
     ],
     'treatments' => [
         'title' => 'Treatments',
-        'a_breath_of_fresh_air' => "A breath of <span class='text-primary-600'>fresh air</span>",
+        'a_breath_of_fresh_air' => "A breath of <span class='text-primary-600'>fresh air.</span>",
     ],
     'water_contact' => [
       'title' => 'Water Contact',
