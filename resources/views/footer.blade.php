@@ -80,15 +80,11 @@
                         </ul>
                     </div>
                 </div>
-                
             </div>
             <div class="mt-12 xl:mt-0">
                 @include('partials.footer.languageDropdown')
                 @include('partials.footer.quoteOfTheDay')
             </div>
-
-
-
         </div>
         <div class="border-t border-gray-700 pt-8 space-y-4 lg:space-y-0 lg:flex lg:items-center lg:justify-between xl:mt-0">
             <div class="space-y-2">

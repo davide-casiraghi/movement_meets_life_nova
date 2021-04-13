@@ -140,7 +140,7 @@
             <div class="mt-6 bg-white shadow px-4 py-5 sm:rounded-lg sm:p-6">
                 <div class="md:grid md:grid-cols-3 md:gap-6">
                     <div class="md:col-span-1">
-                        <div class="text-lg text-gray-600 font-extrabold tracking-tight sm:text-xl">Personal Information</div>
+                        <div class="text-lg text-gray-600 font-extrabold tracking-tight sm:text-xl">{{__('forms.get_a_treatment.personal_information')}}</div>
                         {{--<p class="mt-1 text-sm leading-5 text-gray-500">
                             Use a permanent address where you can receive mail.
                         </p>--}}
@@ -196,7 +196,7 @@
                                         <input id="personalDataAgreement" name="personalDataAgreement" type="checkbox" class="form-checkbox h-4 w-4 text-primary-600 transition duration-150 ease-in-out">
                                     </div>
                                     <div class="ml-3 text-sm leading-5">
-                                        <label for="personalDataAgreement" class="font-medium text-gray-700">Personal data agreement</label>
+                                        <label for="personalDataAgreement" class="font-medium text-gray-700">{{__('forms.get_a_treatment.personal_data_agreement')}}</label>
                                         <p class="text-gray-500">{{__('forms.get_a_treatment.data_save_agreement')}}</p>
                                     </div>
                                 </div>
@@ -220,25 +220,25 @@
                                 <div class="mt-4 flex items-center">
                                     <input name="contactChoice" value="email" type="radio" id="contact_email" class="form-radio h-4 w-4 text-primary-600 transition duration-150 ease-in-out">
                                     <label for="contact_email" class="ml-3">
-                                        <span class="block text-sm leading-5 font-medium text-gray-700">Email</span>
+                                        <span class="block text-sm leading-5 font-medium text-gray-700">{{__('forms.get_a_treatment.contact_method.email')}}</span>
                                     </label>
                                 </div>
                                 <div class="mt-4 flex items-center">
                                     <input name="contactChoice" value="phone" type="radio" id="contact_phone" class="form-radio h-4 w-4 text-primary-600 transition duration-150 ease-in-out">
                                     <label for="contact_phone" class="ml-3">
-                                        <span class="block text-sm leading-5 font-medium text-gray-700">Phone call</span>
+                                        <span class="block text-sm leading-5 font-medium text-gray-700">{{__('forms.get_a_treatment.contact_method.phone_call')}}</span>
                                     </label>
                                 </div>
                                 <div class="mt-4 flex items-center">
                                     <input  name="contactChoice" value="sms_whatsapp" type="radio" id="contact_sms_whatsapp" class="form-radio h-4 w-4 text-primary-600 transition duration-150 ease-in-out">
                                     <label for="contact_sms_whatsapp" class="ml-3">
-                                        <span class="block text-sm leading-5 font-medium text-gray-700">SMS/Whatsapp</span>
+                                        <span class="block text-sm leading-5 font-medium text-gray-700">{{__('forms.get_a_treatment.contact_method.sms_whatsapp')}}</span>
                                     </label>
                                 </div>
                                 <div class="mt-4 flex items-center">
                                     <input name="contactChoice" value="everything" type="radio" id="contact_everything" class="form-radio h-4 w-4 text-primary-600 transition duration-150 ease-in-out">
                                     <label for="contact_everything" class="ml-3">
-                                        <span class="block text-sm leading-5 font-medium text-gray-700">All these ways are fine for me</span>
+                                        <span class="block text-sm leading-5 font-medium text-gray-700">{{__('forms.get_a_treatment.contact_method.all')}}</span>
                                     </label>
                                 </div>
                             </div>

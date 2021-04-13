@@ -26,9 +26,17 @@ return [
     'secondary_complaint' => "Secondary complaint",
     'secondary_complaint_intensity' => "Secondary complaint intensity (Light - Severe)",
     'decide_contact_method' => "Decide how you would like to be contacted",
+    'contact_method' => [
+      'email' => "Email",
+      'phone_call' => "Phone call",
+      'sms_whatsapp' => "SMS/Whatsapp",
+      'all' => "All these ways are fine for me",
+    ],
     'contact' => "Contact",
+    'personal_data_agreement' => "Personal data agreement",
     'data_save_agreement' => "I agree to save my contact information",
     'send' => "Send",
+    'personal_information' => "Personal Information",
     'fields' => [
           'first_name' => "First name",
           'last_name' => "Last name",
