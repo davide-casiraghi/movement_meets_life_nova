@@ -18,7 +18,7 @@
         <div class="">
             In April 2019 I've completed the first Ilan Lev Method training program in Europe and I'm a certified practitioner.
             <br>
-            I give private treatments in Ljubljana, Slovenia at <a href="http://www.visja-vibracija.si/" class="textLink">Višja Vibracija</a>.
+            {{--I give private treatments in Ljubljana, Slovenia at <a href="http://www.visja-vibracija.si/" class="textLink">Višja Vibracija</a>.--}}
         </div>
 
         @include('partials.pages.treatments.bodywork')
@@ -178,5 +178,6 @@ An Ilan Lev bodywork instead, allows the receiver to: restore the ability to get
             </div>
         </div>--}}
 
+    @include('partials.pages.treatments.cta')
 
 @endsection
