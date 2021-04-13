@@ -12,10 +12,10 @@
         <div class="flex flex-grow flex-col">
             <div class="m-auto">
                 <div class="">
-                    <div class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
                         {{-- <span class="block">Ready to dive in?</span>--}}
                         <span class="block text-primary-600 mb-2">You can book online.</span>
-                    </div>
+                    </h2>
 
                    <div class="mt-4">
                        I give private treatments in Ljubljana, Slovenia at <a href="http://www.visja-vibracija.si/" class="textLink" target="_blank">Višja Vibracija</a>.
