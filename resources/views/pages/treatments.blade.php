@@ -6,11 +6,11 @@
 
     <div class="max-w-2xl mx-auto px-8 lg:px-0 mb-10 md:mt-6">
 
-        <div class="leading-6 pt-6 pb-8 text-black">
+        {{--<div class="leading-6 pt-6 pb-8 text-black">
             <h1 class="sm:text-3xl md:text-5xl border-solid box-border font-extrabold text-3xl m-0 text-gray-900 tracking-tight mb-2">
                 Treatments - Ilan Lev Method
             </h1>
-        </div>
+        </div>--}}
 
         @include('partials.pages.treatments.intro')
 
