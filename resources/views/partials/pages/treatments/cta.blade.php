@@ -13,8 +13,9 @@
             <div class="m-auto">
                 <div class="mt-4">
                     <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-                        {{-- <span class="block">Ready to dive in?</span>--}}
-                        <span class="block text-primary-600 mb-2">You can book online.</span>
+                        <span class="block">Get a bodywork</span>
+                        {{--<span class="block">Want to try a bodywork?</span>--}}
+                        <span class="block text-primary-600 mb-2">You can book online</span>
                     </h2>
 
                    <div class="mt-4">
