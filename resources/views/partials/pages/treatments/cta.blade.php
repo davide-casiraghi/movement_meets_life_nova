@@ -11,7 +11,7 @@
     <div class="md:col-span-2 mt-5 md:mt-0 flex">
         <div class="flex flex-grow flex-col">
             <div class="m-auto">
-                <div class="">
+                <div class="mt-4">
                     <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
                         {{-- <span class="block">Ready to dive in?</span>--}}
                         <span class="block text-primary-600 mb-2">You can book online.</span>
@@ -22,7 +22,7 @@
                    </div>
 
                 </div>
-                <div class="mt-10">
+                <div class="mt-10 mb-8">
                     <a href="{{route('getATreatment.create')}}" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700">
                         Get a treatment
                     </a>
