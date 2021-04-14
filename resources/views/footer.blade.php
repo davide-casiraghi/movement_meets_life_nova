@@ -72,11 +72,11 @@
                                     @lang('static_pages.footer.water_contact')
                                 </a>
                             </li>
-                            <li>
+                            {{--<li>
                                 <a href="#" class="text-base leading-6 text-gray-300 hover:text-white">
                                     @lang('static_pages.footer.glossary')
                                 </a>
-                            </li>
+                            </li>--}}
                         </ul>
                     </div>
                 </div>
