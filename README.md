@@ -174,10 +174,17 @@ Code static Analysis is provided by PHPStan.
 Run using:
 ```./vendor/bin/phpstan analyse```
 
+### Maintenance mode
+
+To put the website in maintenance:   
+```php artisan down --render="maintenance"```
+
+To restore it:   
+```php artisan up```
+
 ### Staging server
 
 TBD
-
 
 ### Generate dummy data
 If you are using PHPStorm you can generate Dummy data with this plugin:
