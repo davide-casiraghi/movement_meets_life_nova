@@ -49,7 +49,7 @@ return [
         'become_a_testimonial' => "Become a Testimonial",
         'brief_description' => 'A brief description of your experience.',
         'did_you_enjoy' => "Did you enjoy receiving a bodywork and you would love to leave a feedback that I can publish on my website?",
-        'unique_experience' => "Since it's a quite unique experience to explain, this will support me to allow people know does it feel to receive an ILM treatment.",
+        'unique_experience' => "Since it's a quite unique experience to explain, this will support me to allow people to know does it feel to receive an ILM treatment.",
         'publish_agreement' => "Publish agreement",
         'please_confirm' => "Please confirm below to allow me to publish",
         'i_agree_publish' => 'I agree to save my contact information.',

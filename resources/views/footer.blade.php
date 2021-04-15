@@ -78,6 +78,16 @@
                                 </a>
                             </li>--}}
                         </ul>
+                        <h4 class="text-sm leading-5 font-semibold text-gray-400 tracking-wider uppercase mt-14">
+                            Other
+                        </h4>
+                        <ul class="mt-4 space-y-4">
+                            <li>
+                                <a href="/posts/privacy-policy" class="text-base leading-6 text-gray-300 hover:text-white">
+                                    Privacy policy
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
