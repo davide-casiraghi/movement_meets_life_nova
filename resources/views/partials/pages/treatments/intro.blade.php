@@ -9,9 +9,7 @@
 
 <div class="w-full mt-14">
     <h1 class="logo">
-        <a class="relative z-10" tabindex="2" accesskey="1" href="/">
-            <img class="w-4/5 lg:w-3/5 mb-10 md:mb-10 mx-auto" alt="Ilan Lev Method bodywork" src="{{asset('images/static_pages/treatments/ilan_lev_logo.png')}}">
-        </a>
+        <img class="relative z-10 w-4/5 lg:w-3/5 mb-10 md:mb-10 mx-auto" alt="Ilan Lev Method bodywork" src="{{asset('images/static_pages/treatments/ilan_lev_logo.png')}}">
         <span class="absolute z-0 -top-96">Treatments - Ilan Lev Method</span>
     </h1>
 </div>
