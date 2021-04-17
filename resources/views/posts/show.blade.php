@@ -30,7 +30,7 @@
                 <h2 class="text-4xl font-bold mb-2 text-white">
                     {{ $post->title }}
                 </h2>
-                <h3 class="text-2xl mb-8 text-gray-300 mt-10">
+                <h3 class="font-avenir text-2xl leading-9 mb-8 text-gray-300 mt-10">
                     {!! $post->intro_text !!}
                 </h3>
 
@@ -68,10 +68,10 @@
                 @endforeach
             </div>
 
-            <div class="text-lg leading-7 text-gray-700 mb-5">{!! $post->intro_text !!}</div>
+            <div class="font-avenir text-2xl leading-9 text-gray-700 mb-5">{!! $post->intro_text !!}</div>
         @endif
 
-        <div class="easyRead font-body text-gray-900 text-xl mb-10 leading-9"> {{-- prose text-gray-500 --}}
+        <div class="easyRead font-avenir text-gray-900 text-xl mb-10 leading-9"> {{-- prose text-gray-500 --}}
             {!! $post->body !!}
         </div>
 
