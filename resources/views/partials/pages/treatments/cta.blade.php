@@ -1,4 +1,4 @@
-<div class="md:grid md:grid-cols-4 md:gap-4 bg-white mb-10">
+<div class="mx-4 p-4 md:grid md:grid-cols-4 md:gap-4 bg-white my-24">
     <div class="md:col-span-2">
         @include('partials.events.gmap', [
               'venue_name' => "Višja Vibracija",
@@ -23,7 +23,7 @@
                    </div>
 
                 </div>
-                <div class="mt-10 mb-8">
+                <div class="mt-10">
                     <a href="{{route('getATreatment.create')}}" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700">
                         Get a treatment
                     </a>

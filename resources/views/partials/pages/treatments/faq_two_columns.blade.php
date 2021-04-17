@@ -2,7 +2,7 @@
     $openPanelIndex = 0;
 @endphp
 
-<div class="bg-white my-10" x-data="{ openPanel: null }">
+<div class="bg-white my-24" x-data="{ openPanel: null }">
     <div class="max-w-7xl mx-auto py-12 px-4 sm:pb-16 sm:pt-1 sm:px-6 lg:px-8">
 
         <h2 class="leading-headline text-gray-900 capitalize text-center font-brand text-4xl md:text-5xl pb-8 mt-10">

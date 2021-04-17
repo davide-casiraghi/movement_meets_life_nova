@@ -1,4 +1,4 @@
-<div class="py-12 bg-white mt-10">
+<div class="py-12 bg-white my-24">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="lg:text-center">
             <h2 class="text-base text-primary-600 font-semibold tracking-wide uppercase">About ILM treatment</h2>

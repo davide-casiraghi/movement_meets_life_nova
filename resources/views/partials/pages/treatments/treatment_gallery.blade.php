@@ -1,6 +1,6 @@
 
-
-@include('partials.pages.staticGallery', [
+<div class="my-24">
+    @include('partials.pages.staticGallery', [
             'path' => 'images/static_pages/treatments/gallery_1/',
             'images' => [
                 1 => [
@@ -29,3 +29,4 @@
                 ],
             ]
         ])
+</div>
