@@ -85,7 +85,7 @@ class VideoService
         //dd($parameters);
 
         $width = "w-full sm:" . $parameters['width']; // 100% width mobile, then for bigger devices the one specified
-        $margin = "mb-6 sm:mb-10 ";
+        $margin = "my-8 sm:mb-10 ";
 
         switch ($parameters['alignment']) {
             case 'right':
@@ -108,7 +108,7 @@ class VideoService
         }
 
         $imageHtml = "";
-        $imageHtml .= "<div class='relative {$width} {$margin} {$alignment} {$height} overflow-hidden max-w-full w-full'>";
+        $imageHtml .= "<div class='relative {$width} {$margin} {$alignment} {$height} overflow-hidden max-w-full'>";
             $imageHtml .= "<iframe class='absolute top-0 left-0 w-full h-full' src='https://www.youtube.com/embed/{$parameters['video_id']}' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>";
         $imageHtml .= "</div>";
 
