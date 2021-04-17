@@ -7,6 +7,7 @@ use App\Http\Requests\QuoteStoreRequest;
 use App\Models\Quote;
 use App\Repositories\QuoteRepository;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Cache;
 
 class QuoteService
 {
@@ -98,27 +99,31 @@ class QuoteService
      */
     public function getQuoteOfTheDay(string $where): ?Quote
     {
-        $today = Carbon::today();
+      $today = Carbon::today();
+      $cacheTag = 'quote_of_the_day';
+      $seconds = 86400; // One day
+      $quote = Cache::remember($cacheTag, $seconds, function () use ($where, $today){
+        return Quote::whereIn('show_where', [$where, 'both'])
+          ->where('is_published', true)
+          ->where(function ($query) use ($where, $today) {
+            $query->where("shown_{$where}_on", $today)
+              ->orWhere("shown_{$where}_on", null);
+          })->first();
+      });
 
-        $quote = Quote::whereIn('show_where', [$where, 'both'])
-                    ->where('is_published', true)
-                    ->where(function ($query) use ($where, $today) {
-                        $query->where("shown_{$where}_on", $today)
-                              ->orWhere("shown_{$where}_on", null);
-                    })->first();
+      // Reset the quotes shown when all the quotes has already been shown
+      if ($quote == null) {
+        Quote::whereIn('show_where', [$where, 'both'])
+          ->update(["shown_{$where}_on" => null]);
+        $quote = self::getQuoteOfTheDay($where);
+      }
 
-        // Reset the quotes shown when all the quotes has already been shown
-        if ($quote == null) {
-            Quote::whereIn('show_where', [$where, 'both'])
-                ->update(["shown_{$where}_on" => null]);
-            $quote = self::getQuoteOfTheDay($where);
-        }
-
-        $shownOnWhere = "shown_{$where}_on";
+      $shownOnWhere = "shown_{$where}_on";
+      if ($quote->$shownOnWhere != $today){
         $quote->$shownOnWhere = $today;
-
         $quote->save();
+      }
 
-        return $quote;
+      return $quote;
     }
 }

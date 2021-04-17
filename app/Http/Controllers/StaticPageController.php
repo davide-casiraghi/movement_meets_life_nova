@@ -38,6 +38,16 @@ class StaticPageController extends Controller
     }
 
     /**
+     * Show the treatmentsLearnMore page.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function treatmentsLearnMore()
+    {
+        return view('pages.treatmentsLearnMore');
+    }
+
+    /**
      * Show the Contact Improvisation page.
      *
      * @return \Illuminate\Contracts\Support\Renderable

@@ -5,14 +5,10 @@
 <div class="bg-white my-10" x-data="{ openPanel: null }">
     <div class="max-w-7xl mx-auto py-12 px-4 sm:pb-16 sm:pt-1 sm:px-6 lg:px-8">
 
-        <div class="leading-headline text-gray-900 capitalize text-center font-brand text-4xl md:text-5xl pb-8 mt-10">
+        <h2 class="leading-headline text-gray-900 capitalize text-center font-brand text-4xl md:text-5xl pb-8 mt-10">
             Frequently asked questions
-        </div>
-
+        </h2>
         <p class="mt-4 text-lg text-gray-500 text-center mb-4">Can’t find the answer you’re looking for? Feel free to <a href="{{route('contact.index')}}" class="font-medium text-primary-600 hover:text-primary-500">contact</a> me.</p>
-
-
-
 
         <div class="md:grid md:grid-cols-6 md:gap-x-24">
             {{-- COL LEFT --}}

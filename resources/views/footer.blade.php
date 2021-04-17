@@ -72,25 +72,29 @@
                                     @lang('static_pages.footer.water_contact')
                                 </a>
                             </li>
-                            <li>
+                            {{--<li>
                                 <a href="#" class="text-base leading-6 text-gray-300 hover:text-white">
                                     @lang('static_pages.footer.glossary')
+                                </a>
+                            </li>--}}
+                        </ul>
+                        <h4 class="text-sm leading-5 font-semibold text-gray-400 tracking-wider uppercase mt-14">
+                            Other
+                        </h4>
+                        <ul class="mt-4 space-y-4">
+                            <li>
+                                <a href="/posts/privacy-policy" class="text-base leading-6 text-gray-300 hover:text-white">
+                                    Privacy policy
                                 </a>
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>
-            <div class="relative inline-block text-left">
+            <div class="mt-12 xl:mt-0">
                 @include('partials.footer.languageDropdown')
-
                 @include('partials.footer.quoteOfTheDay')
-
-
-
             </div>
-
-
         </div>
         <div class="border-t border-gray-700 pt-8 space-y-4 lg:space-y-0 lg:flex lg:items-center lg:justify-between xl:mt-0">
             <div class="space-y-2">

@@ -5,6 +5,7 @@ namespace App\Generators;
 
 
 use App\Models\Event;
+use Carbon\Carbon;
 use Spatie\SchemaOrg\DanceEvent;
 use Spatie\SchemaOrg\Schema;
 use Spatie\SchemaOrg\Type;
@@ -41,8 +42,8 @@ class EventStructuredDataScriptGenerator implements StructuredDataScriptGenerato
                 $schema->image(asset('images/static_pages/mml_default.jpg'));
             })
             ->about($this->event->category->name)
-            ->startDate($this->event->repetitions()->first()->start_repeat)
-            ->endDate($this->event->repetitions()->first()->end_repeat)
+            ->startDate(Carbon::createFromFormat('Y-m-d H:i:s',  $this->event->repetitions()->first()->start_repeat)->setTimezone('Europe/Rome')->toIso8601String())
+            ->endDate(Carbon::createFromFormat('Y-m-d H:i:s',  $this->event->repetitions()->first()->end_repeat)->setTimezone('Europe/Rome')->toIso8601String())
             ->if($this->event->teachers()->count() > 0, function (\Spatie\SchemaOrg\DanceEvent $schema) {
               $schema->performer(Schema::person()
                 ->name($this->event->teachers()->first()->name)

@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\GetATreatmentStoreRequest;
+use App\Mail\GetATreatmentAutoResponse;
 use App\Services\NotificationService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class GetATreatmentController extends Controller
 {
@@ -29,7 +31,15 @@ class GetATreatmentController extends Controller
         //  Store data in database
         //Contact::create($request->all());
 
-        $this->notificationService->sendEmailGetATreatment($request->all(), 1);
+        $data = $request->all();
+
+        // Send notification to the website owner
+        $this->notificationService->sendEmailGetATreatment($data, 1);
+
+        // Send automatic response to client
+        //Mail::to($recipient)->send(new OrderShipped($order));
+
+        Mail::to($data['email'])->send(new GetATreatmentAutoResponse($data));
 
         return back()->with('success', 'Thank you for your treatment request, I will contact you soon.');
     }

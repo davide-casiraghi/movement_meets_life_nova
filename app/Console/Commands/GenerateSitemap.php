@@ -64,6 +64,7 @@ class GenerateSitemap extends Command
             ->add(Url::create('/blog'))
             ->add(Url::create('/next-events'))
             ->add(Url::create('/treatments-ilan-lev-method'))
+            ->add(Url::create('/learn-more-ilan-lev-method'))
             ->add(Url::create('/contact-improvisation'))
             ->add(Url::create('/get-a-treatment'))
             ->add(Url::create('/about-me'))

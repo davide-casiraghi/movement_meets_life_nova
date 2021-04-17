@@ -56,7 +56,7 @@ return [
         'blog' => 'Blog',
         'contact_improvisation' => 'Contact Improvisation',
         'events' => 'Eventi',
-        'research' => 'Rierca',
+        'research' => 'Ricerca',
         'water_contact' => 'Water contact',
         'glossary' => 'Glossario',
         'subscribe_to_newsletter' => 'Iscriviti alla newsletter',
