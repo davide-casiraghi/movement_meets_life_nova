@@ -71,7 +71,7 @@
             <div class="text-lg leading-7 text-gray-700 mb-5">{!! $post->intro_text !!}</div>
         @endif
 
-        <div class="prose text-gray-500 text-lg mb-10">
+        <div class="easyRead font-body text-gray-900 text-xl mb-10 leading-9"> {{-- prose text-gray-500 --}}
             {!! $post->body !!}
         </div>
 
