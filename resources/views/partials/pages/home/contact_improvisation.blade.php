@@ -52,7 +52,7 @@
 
             <div class="relative mx-auto w-full rounded-lg shadow-lg lg:max-w-md">
                 <a data-fancybox href="https://www.youtube.com/embed/MelWoO9J3E8">
-                    <img class="w-full" src="{{asset('images/static_pages/hp/contact_improvisation_small.jpg')}}" alt="Woman making a sale">
+                    <img class="w-full" src="{{asset('images/static_pages/hp/contact_improvisation_small.jpg')}}" alt="Contact Improvisation class in Slovenia Slovenija">
                     {{--<iframe width="450" height="300" src="https://www.youtube.com/embed/MelWoO9J3E8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>--}}
                     <div class="absolute inset-0 w-full h-full flex items-center justify-center">
                         <svg class="h-20 w-20 text-primary-500" fill="currentColor" viewBox="0 0 84 84">

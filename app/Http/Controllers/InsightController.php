@@ -168,6 +168,6 @@ class InsightController extends Controller
         $insight = $this->insightService->getInsightById($insightId);
         $this->insightService->sendInsightToTwitter($insight);
 
-        return redirect()->back()->with('success', 'Insight tweeted successfully');
+        return back()->with('success', 'Insight tweeted successfully');
     }
 }

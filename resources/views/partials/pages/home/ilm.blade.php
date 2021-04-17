@@ -51,7 +51,7 @@
             {!! $videoIntro !!}--}}
 
             <div class="relative mx-auto w-full rounded-lg shadow-lg lg:max-w-md">
-                <img class="w-full" src="{{asset('images/static_pages/hp/bodywork_small.jpg')}}" alt="Woman making a sale">
+                <img class="w-full" src="{{asset('images/static_pages/hp/bodywork_color.jpeg')}}" alt="Davide Casiraghi giving Ilan Lev method bodywork">
             </div>
 
         </div>
