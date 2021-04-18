@@ -50,7 +50,7 @@
             @include('partials.events.mainInformation')
         @endif
 
-        <div class="prose text-gray-500 text-lg mb-10">
+        <div class="easyRead font-avenir text-gray-900 text-xl mb-10 leading-9"> {{-- prose text-gray-500 text-lg mb-10 --}}
             {!! $event->description !!}
         </div>
 
@@ -79,7 +79,7 @@
                     </div>
                 @endif
 
-                <div class="mt-4">
+                <div class="easyRead font-avenir text-gray-900 text-xl leading-9 mt-4">
                 {!! $event->venue->description !!}
                 </div>
             </div>
