@@ -15,10 +15,10 @@
             <div class="bg-white overflow-hidden shadow rounded-lg">
                 <div class="px-4 py-5 sm:p-6">
                     <dt class="text-sm font-medium text-gray-500 truncate">
-                        Total Subscribers
+                        Published Insights
                     </dt>
                     <dd class="mt-1 text-3xl font-semibold text-gray-900">
-                        71,897
+                        {{$totalInsights}}
                     </dd>
                 </div>
             </div>
@@ -26,10 +26,10 @@
             <div class="bg-white overflow-hidden shadow rounded-lg">
                 <div class="px-4 py-5 sm:p-6">
                     <dt class="text-sm font-medium text-gray-500 truncate">
-                        Avg. Open Rate
+                        Published Posts
                     </dt>
                     <dd class="mt-1 text-3xl font-semibold text-gray-900">
-                        58.16%
+                        {{$totalPosts}}
                     </dd>
                 </div>
             </div>
@@ -37,10 +37,10 @@
             <div class="bg-white overflow-hidden shadow rounded-lg">
                 <div class="px-4 py-5 sm:p-6">
                     <dt class="text-sm font-medium text-gray-500 truncate">
-                        Avg. Click Rate
+                        Published Testimonials
                     </dt>
                     <dd class="mt-1 text-3xl font-semibold text-gray-900">
-                        24.57%
+                        {{$totalTestimonials}}
                     </dd>
                 </div>
             </div>
