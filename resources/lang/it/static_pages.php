@@ -63,7 +63,7 @@ return [
         'latest_news' => 'Le ultime notizie, articoli e risorse, inviati alla tua casella di posta ogni tre mesi.',
         'enter_email' => 'Inserisci la tua email',
         'subscribe_button' => 'Iscriviti',
-        'copyright' => '© 2020 Workflow, Inc. Tutti i diritti riservati.',
+        'copyright' => '© 2020 Davide Casiraghi, Inc. Tutti i diritti riservati.',
     ],
 
 ];

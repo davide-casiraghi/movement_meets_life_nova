@@ -71,7 +71,7 @@ return [
         'latest_news' => 'The latest news, articles, and resources, sent to your inbox every three months.',
         'enter_email' => 'Enter your email',
         'subscribe_button' => 'Subscribe',
-        'copyright' => '© 2020 Workflow, Inc. All rights reserved.',
+        'copyright' => '© 2020 Davide Casiraghi, Inc. All rights reserved.',
     ],
 
 ];
