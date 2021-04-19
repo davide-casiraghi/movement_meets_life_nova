@@ -18,6 +18,7 @@ return [
     'email' => 'Email',
     'title' => 'Title',
     'created_by' => 'Created by',
+    'created_on' => 'Created on',
     'phone' => 'Phone',
     'website' => 'Website',
     'description' => 'Description',
