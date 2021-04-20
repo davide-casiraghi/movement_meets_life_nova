@@ -133,6 +133,7 @@ class TestimonialRepository implements TestimonialRepositoryInterface
         $testimonial->surname = $data['surname'] ?? null;
         $testimonial->profession = $data['profession'] ?? null;
         $testimonial->country_id = $data['country_id'] ?? null;
+        $testimonial->email = $data['email'] ?? null;
 
         $testimonial->publish_agreement =  isset($data['publish_agreement']) ? 1 : 0;
         $testimonial->personal_data_agreement =  isset($data['personal_data_agreement']) ? 1 : 0;
