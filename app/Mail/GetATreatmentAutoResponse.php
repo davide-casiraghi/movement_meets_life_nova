@@ -35,10 +35,10 @@ class GetATreatmentAutoResponse extends Mailable
         return $this
                     ->from(env('ADMIN_MAIL'))
                     ->subject('Thank you for your bodywork request')
-                    ->markdown('emails.getATreatmentAutoResponse', ['data' => $this->data]);
+                    ->markdown('mail.getATreatmentAutoResponse', ['data' => $this->data]);
 
-        return (new MailMessage())
-          ->subject('Thank you for your bodywork request')
-          ->markdown('emails.getATreatmentAutoResponse', ['data' => $this->data]);
+//        return (new MailMessage())
+//          ->subject('Thank you for your bodywork request')
+//          ->markdown('emails.getATreatmentAutoResponse', ['data' => $this->data]);
     }
 }
