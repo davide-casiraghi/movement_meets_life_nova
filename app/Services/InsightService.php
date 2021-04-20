@@ -18,7 +18,8 @@ class InsightService
     /**
      * InsightService constructor.
      *
-     * @param \App\Repositories\InsightRepositoryInterface $insightRepository
+     * @param  \App\Repositories\InsightRepositoryInterface  $insightRepository
+     * @param  \App\Services\NotificationService  $notificationService
      */
     public function __construct(
         InsightRepositoryInterface $insightRepository,
@@ -141,5 +142,17 @@ class InsightService
         $this->notificationService->sendTwitterInsight($data, $insight);
 
         $this->insightRepository->update($data, $insight->id);
+    }
+
+    /**
+     * Get the total number of published insights.
+     *
+     * @return int
+     */
+    public function getPublishedInsightsNumber(): int
+    {
+        $searchParameters = ['is_published' => 1];
+        $publishedInsights = $this->insightRepository->getAll(null, $searchParameters);
+        return count($publishedInsights);
     }
 }

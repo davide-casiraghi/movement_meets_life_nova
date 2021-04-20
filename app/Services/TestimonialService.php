@@ -91,4 +91,16 @@ class TestimonialService
         $this->testimonialRepository->delete($testimonialId);
     }
 
+    /**
+     * Get the total number of published insights.
+     *
+     * @return int
+     */
+    public function getPublishedTestimonialsNumber(): int
+    {
+        $searchParameters = ['is_published' => 1];
+        $publishedTestimonials = $this->testimonialRepository->getAll(null, $searchParameters);
+        return count($publishedTestimonials);
+    }
+
 }

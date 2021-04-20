@@ -164,4 +164,16 @@ class PostService
     {
         return Post::whereDate('created_at', '>', date('Y-m-d', strtotime('-30 days')))->count();
     }
+
+    /**
+     * Get the total number of published posts.
+     *
+     * @return int
+     */
+    public function getPublishedPostsNumber(): int
+    {
+        $searchParameters = ['is_published' => 1];
+        $publishedPosts = $this->postRepository->getAll(null, $searchParameters);
+        return count($publishedPosts);
+    }
 }

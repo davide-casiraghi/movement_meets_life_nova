@@ -34,7 +34,7 @@ class UserStoreRequest extends FormRequest
         ];
 
         if ($this->getMethod() == 'POST') { //store
-            $rules += ['password' => 'required'];
+            $rules += ['password' => 'required|min:6'];
         } else {
             // update
         }
