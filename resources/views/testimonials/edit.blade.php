@@ -65,6 +65,17 @@
                         </div>
 
                         <div class="col-span-6">
+                            @include('partials.forms.input', [
+                                    'label' => __('general.email'),
+                                    'name' => 'email',
+                                    'placeholder' => '',
+                                    'value' => old('email', $testimonial->email),
+                                    'required' => false,
+                                    'disabled' => false,
+                            ])
+                        </div>
+
+                        <div class="col-span-6">
                             @include('partials.forms.select', [
                                 'label' => __('general.country'),
                                 'name' => 'country_id',
