@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ContactMeStoreRequest;
+use App\Mail\ContactMeAutoResponse;
 use App\Services\NotificationService;
 use Illuminate\Http\Request;
-use Mail;
+use Illuminate\Support\Facades\Mail;
 
 class ContactMeController extends Controller
 {
@@ -29,7 +30,12 @@ class ContactMeController extends Controller
         //  Store data in database
         //Contact::create($request->all());
 
-        $this->notificationService->sendEmailContactMe($request->all(), 1);
+        $data = $request->all();
+
+        $this->notificationService->sendEmailContactMe($data, 1);
+
+        // Send automatic response to client
+        Mail::to($data['email'])->send(new ContactMeAutoResponse($data));
 
         return back()->with('success', 'We have received your message and would like to thank you for writing to us.');
         //return redirect('/');

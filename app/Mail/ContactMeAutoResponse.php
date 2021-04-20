@@ -6,7 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class GetATreatmentAutoResponse extends Mailable
+class ContactMeAutoResponse extends Mailable
 {
     use Queueable;
     use SerializesModels;
@@ -32,11 +32,7 @@ class GetATreatmentAutoResponse extends Mailable
     {
         return $this
                     ->from(env('ADMIN_MAIL'))
-                    ->subject('Thank you for your bodywork request')
-                    ->markdown('mail.getATreatmentAutoResponse', ['data' => $this->data]);
-
-//        return (new MailMessage())
-//          ->subject('Thank you for your bodywork request')
-//          ->markdown('emails.getATreatmentAutoResponse', ['data' => $this->data]);
+                    ->subject('Thank you for your contact request')
+                    ->markdown('mail.contactMeAutoResponse', ['data' => $this->data]);
     }
 }
