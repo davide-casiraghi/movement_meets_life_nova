@@ -32,6 +32,11 @@ class TagController extends Controller
     {
         //$tag = Tag::find($tagId);
         $tag = $this->tagService->getBySlug($tagSlug);
+
+        if (is_null($tag)){
+            return redirect()->route('home');
+        }
+
         $posts = $tag->posts()->get();
 
         return view('tags.show', [

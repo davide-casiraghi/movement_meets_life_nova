@@ -59,7 +59,7 @@ class TagRepository implements TagRepositoryInterface
      *
      * @return Tag
      */
-    public function getBySlug(string $tagSlug): Tag
+    public function getBySlug(string $tagSlug): ?Tag
     {
         return Tag::where('slug', $tagSlug)->first();
     }

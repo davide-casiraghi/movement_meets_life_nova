@@ -74,7 +74,13 @@ class GlossaryService
         return $this->glossaryRepository->getById($glossaryId);
     }
 
-    public function getBySlug(string $glossarySlug): Glossary
+    /**
+     * Return the glossary term by SLUG
+     *
+     * @param string $glossarySlug
+     * @return Glossary|null
+     */
+    public function getBySlug(string $glossarySlug): ?Glossary
     {
         return $this->glossaryRepository->getBySlug($glossarySlug);
     }

@@ -128,6 +128,10 @@ class EventController extends Controller
     {
         $event = $this->eventService->getBySlug($eventSlug);
 
+        if (is_null($event)){
+            return redirect()->route('home');
+        }
+
         // todo - probably $eventFirstRepetition has to change since in the previous calendar was a show() parameter.
         $eventFirstRepetition = $this->eventRepetitionService->getFirstByEventId($event->id);
         $repetitionTextString = $this->eventService->getRepetitionTextString($event, $eventFirstRepetition);

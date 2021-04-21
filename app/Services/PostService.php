@@ -52,7 +52,7 @@ class PostService
      *
      * @param \App\Http\Requests\PostStoreRequest $request
      *
-     * @return \App\Models\Post
+     * @return Post
      * @throws \Spatie\ModelStatus\Exceptions\InvalidStatus
      */
     public function createPost(PostStoreRequest $request): Post
@@ -71,7 +71,7 @@ class PostService
      * @param \App\Http\Requests\PostStoreRequest $request
      * @param int $postId
      *
-     * @return \App\Models\Post
+     * @return Post
      */
     public function updatePost(PostStoreRequest $request, int $postId): Post
     {
@@ -90,7 +90,7 @@ class PostService
      *
      * @param int $postId
      *
-     * @return \App\Models\Post
+     * @return Post
      */
     public function getById(int $postId): Post
     {
@@ -101,10 +101,9 @@ class PostService
     * Return the post from the database by SLUG
     *
     * @param string $postSlug
-    *
-    * @return \App\Models\Post
+    * @return Post|null
     */
-    public function getBySlug(string $postSlug): Post
+    public function getBySlug(string $postSlug): ?Post
     {
         return $this->postRepository->getBySlug($postSlug);
     }

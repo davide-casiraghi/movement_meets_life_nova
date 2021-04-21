@@ -89,11 +89,15 @@ class TeacherController extends Controller
      * Display the specified resource.
      *
      * @param  string  $teacherSlug
-     * @return Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @return Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|RedirectResponse
      */
     public function show(string $teacherSlug)
     {
         $teacher = $this->teacherService->getBySlug($teacherSlug);
+
+        if (is_null($teacher)){
+            return redirect()->route('home');
+        }
 
         return view('teachers.show', compact('teacher'));
     }

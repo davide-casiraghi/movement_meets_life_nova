@@ -85,7 +85,7 @@ class PostRepository implements PostRepositoryInterface
      *
      * @return Post
      */
-    public function getBySlug(string $postSlug): Post
+    public function getBySlug(string $postSlug): ?Post
     {
         return Post::where('slug', $postSlug)->first();
     }

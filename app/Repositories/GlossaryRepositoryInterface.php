@@ -76,6 +76,6 @@ interface GlossaryRepositoryInterface
      * @param  string  $glossarySlug
      * @return Glossary
      */
-    public function getBySlug(string $glossarySlug): Glossary;
+    public function getBySlug(string $glossarySlug): ?Glossary;
 
 }

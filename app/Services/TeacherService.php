@@ -71,9 +71,9 @@ class TeacherService
      * Return the teacher from the database
      *
      * @param  string  $teacherSlug
-     * @return Teacher
+     * @return Teacher|null
      */
-    public function getBySlug(string $teacherSlug): Teacher
+    public function getBySlug(string $teacherSlug): ?Teacher
     {
         return $this->teacherRepository->getBySlug($teacherSlug);
     }

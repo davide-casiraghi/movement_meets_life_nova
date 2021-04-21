@@ -71,9 +71,9 @@ class OrganizerService
      * Get Organizer by slug
      *
      * @param  string  $organizerSlug
-     * @return Organizer
+     * @return Organizer|null
      */
-    public function getBySlug(string $organizerSlug): Organizer
+    public function getBySlug(string $organizerSlug): ?Organizer
     {
         return $this->organizerRepository->getBySlug($organizerSlug);
     }

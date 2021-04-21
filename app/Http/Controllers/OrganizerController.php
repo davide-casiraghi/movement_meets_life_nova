@@ -82,6 +82,10 @@ class OrganizerController extends Controller
     {
         $organizer = $this->organizerService->getBySlug($organizerSlug);
 
+        if (is_null($organizer)){
+            return redirect()->route('home');
+        }
+
         return view('organizers.show', compact('organizer'));
     }
 

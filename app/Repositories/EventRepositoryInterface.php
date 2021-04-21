@@ -34,7 +34,7 @@ interface EventRepositoryInterface
      * @param  string  $eventSlug
      * @return Event
      */
-    public function getBySlug(string $eventSlug): Event;
+    public function getBySlug(string $eventSlug): ?Event;
 
     /**
      * Store Event

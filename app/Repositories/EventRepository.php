@@ -83,7 +83,7 @@ class EventRepository implements EventRepositoryInterface
      * @param  string  $eventSlug
      * @return Event
      */
-    public function getBySlug(string $eventSlug): Event
+    public function getBySlug(string $eventSlug): ?Event
     {
         return Event::where('slug', $eventSlug)->first();
     }

@@ -115,6 +115,10 @@ class PostController extends Controller
         //$post = $this->postService->getById($postId);
         $post = $this->postService->getBySlug($postSlug);
 
+        if (is_null($post)){
+            return redirect()->route('home');
+        }
+
         $post['body'] = $this->postService->getPostBody($post);
 
         //dd($post->getMedia('gallery'));

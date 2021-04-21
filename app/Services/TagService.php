@@ -64,13 +64,13 @@ class TagService
     }
 
     /**
-     * Return the post from the database by SLUG
+     * Return the post by SLUG
      *
      * @param string $tagSlug
      *
-     * @return \App\Models\Tag
+     * @return Tag|null
      */
-    public function getBySlug(string $tagSlug): Tag
+    public function getBySlug(string $tagSlug): ?Tag
     {
         return $this->tagRepository->getBySlug($tagSlug);
     }

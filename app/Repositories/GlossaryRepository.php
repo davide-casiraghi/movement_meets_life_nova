@@ -75,7 +75,7 @@ class GlossaryRepository implements GlossaryRepositoryInterface
      * @param  string  $glossarySlug
      * @return Glossary
      */
-    public function getBySlug(string $glossarySlug): Glossary
+    public function getBySlug(string $glossarySlug): ?Glossary
     {
         return Glossary::where('slug', $glossarySlug)->first();
     }
