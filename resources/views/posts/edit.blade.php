@@ -228,16 +228,17 @@
                                 </div>
 
                                 <div class="col-span-6">
-                                   @include('partials.forms.textarea', [
-                                           'label' => __('views.text'),
-                                           'name' => 'body_'.$countryCode,
-                                           'placeholder' => '',
-                                           'value' => old('body_'.$countryCode, $post->getTranslation('body', $countryCode)), //, $post->body
-                                           'required' => false,
-                                           'disabled' => false,
-                                           'style' => 'tinymce',
-                                           'extraDescription' => 'Anything to show jumbo style after the content',
-                                       ])
+
+                                    @include('partials.forms.textarea', [
+                                   'label' => __('views.body'),
+                                   'name' => 'body_'.$countryCode,
+                                   'placeholder' => '',
+                                   'value' => old('body_'.$countryCode, $post->getTranslation('body', $countryCode)),
+                                   'required' => false,
+                                   'disabled' => false,
+                                   'style' => 'tinymce',
+                                   'extraDescription' => 'Anything to show jumbo style after the content',
+                               ])
 
                                     {{--<x-trix name="body_{{$countryCode}}">{{$post->getTranslation('body', $countryCode))}}</x-trix>--}}
                                 </div>

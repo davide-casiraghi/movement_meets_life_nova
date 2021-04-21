@@ -53,7 +53,7 @@ var editor_config = {
         "advlist autolink lists link image charmap print preview hr anchor pagebreak",
         "searchreplace wordcount visualblocks visualchars code fullscreen",
         "insertdatetime media nonbreaking save table contextmenu directionality",
-        "template paste textcolor colorpicker textpattern imagetools"
+        "template paste textcolor colorpicker textpattern"
     ],
     theme: 'silver',
     height: 400,
