@@ -3,9 +3,7 @@
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
-use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Queue\SerializesModels;
 
 class GetATreatmentAutoResponse extends Mailable
@@ -28,17 +26,17 @@ class GetATreatmentAutoResponse extends Mailable
     /**
      * Build the message.
      *
-     * @return \Illuminate\Notifications\Messages\MailMessage
+     * @return ContactMeAutoResponse
      */
     public function build()
     {
         return $this
                     ->from(env('ADMIN_MAIL'))
                     ->subject('Thank you for your bodywork request')
-                    ->markdown('emails.getATreatmentAutoResponse', ['data' => $this->data]);
+                    ->markdown('mail.getATreatmentAutoResponse', ['data' => $this->data]);
 
-        return (new MailMessage())
-          ->subject('Thank you for your bodywork request')
-          ->markdown('emails.getATreatmentAutoResponse', ['data' => $this->data]);
+//        return (new MailMessage())
+//          ->subject('Thank you for your bodywork request')
+//          ->markdown('emails.getATreatmentAutoResponse', ['data' => $this->data]);
     }
 }
