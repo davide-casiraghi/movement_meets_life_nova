@@ -24,6 +24,7 @@ class TestimonialFactory extends Factory
         return [
             'name' => $this->faker->firstName($gender = 'male' | 'female'),
             'surname' => $this->faker->lastName,
+            'email' => $this->faker->unique()->safeEmail,
             'profession' => [
                 'en' => $this->faker->sentence($nbWords = 2, $variableNbWords = true),
                 'it' => $this->faker->sentence($nbWords = 2, $variableNbWords = true),

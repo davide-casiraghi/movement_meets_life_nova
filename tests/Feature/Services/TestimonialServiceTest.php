@@ -53,6 +53,7 @@ class TestimonialServiceTest extends TestCase
         $data = [
             'name' => 'test name',
             'surname' => 'test surname',
+            'email' => 'test@test.com',
             'profession' => 'test profession',
             'feedback' => 'test feedback',
             'country_id' => 1,
@@ -72,6 +73,7 @@ class TestimonialServiceTest extends TestCase
         $data = [
             'name' => 'test name updated',
             'surname' => 'test surname updated',
+            'email' => 'test@test.com',
             'profession' => 'test profession updated',
             'feedback' => 'test feedback updated',
             'feedback_short' => 'test feedback short',

@@ -14,7 +14,7 @@ class AddEmailToTestimonials extends Migration
     public function up()
     {
         Schema::table('testimonials', function (Blueprint $table) {
-            $table->string('email')->after('surname');
+            $table->string('email')->after('surname')->nullable();
         });
     }
 
