@@ -182,6 +182,7 @@ class PostRepository implements PostRepositoryInterface
         foreach (LaravelLocalization::getSupportedLocales() as $countryCode => $countryAvTrans) {
             if ($countryCode != Config::get('app.fallback_locale')) {
                 $post->setTranslation('title', $countryCode, $data['title_' . $countryCode] ?? null);
+                $post->setTranslation('intro_text', $countryCode, $data['intro_text_' . $countryCode] ?? null);
                 $post->setTranslation('body', $countryCode, $data['body_' . $countryCode] ?? null);
             }
         }
