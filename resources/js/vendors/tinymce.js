@@ -33,7 +33,7 @@ require('tinymce/plugins/paste');
 require('tinymce/plugins/textcolor');
 require('tinymce/plugins/colorpicker');
 require('tinymce/plugins/textpattern');
-
+require('tinymce/plugins/imagetools');
 
 /**
  * Configuration
@@ -53,7 +53,7 @@ var editor_config = {
         "advlist autolink lists link image charmap print preview hr anchor pagebreak",
         "searchreplace wordcount visualblocks visualchars code fullscreen",
         "insertdatetime media nonbreaking save table contextmenu directionality",
-        "template paste textcolor colorpicker textpattern"
+        "template paste textcolor colorpicker textpattern imagetools"
     ],
     theme: 'silver',
     height: 400,
