@@ -25,11 +25,12 @@ class PostService
     /**
      * PostService constructor.
      *
-     * @param \App\Repositories\PostRepository $postRepository
-     * @param \App\Services\Snippets\AccordionService $accordionService
-     * @param \App\Services\Snippets\GalleryMasonryService $galleryService
-     * @param \App\Services\GlossaryService $glossaryService
-     * @param \App\Services\Snippets\ImageService $imageService
+     * @param  \App\Repositories\PostRepository  $postRepository
+     * @param  \App\Services\Snippets\AccordionService  $accordionService
+     * @param  \App\Services\Snippets\GalleryMasonryService  $galleryService
+     * @param  \App\Services\GlossaryService  $glossaryService
+     * @param  \App\Services\Snippets\ImageService  $imageService
+     * @param  \App\Services\Snippets\VideoService  $videoService
      */
     public function __construct(
         PostRepository $postRepository,

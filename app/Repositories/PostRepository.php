@@ -22,7 +22,7 @@ class PostRepository implements PostRepositoryInterface
      */
     public function getAll(int $recordsPerPage = null, array $searchParameters = null)
     {
-        $query = Post::orderBy('title', 'asc');
+        $query = Post::orderBy('created_at', 'asc');
 
         if (!is_null($searchParameters)) {
             if (!empty($searchParameters['title'])) {
