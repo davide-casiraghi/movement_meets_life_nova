@@ -30,6 +30,7 @@ return [
       'email' => "Email",
       'phone_call' => "Phone call",
       'sms_whatsapp' => "SMS/Whatsapp",
+      'viber' => "Viber",
       'all' => "All these ways are fine for me",
     ],
     'contact' => "Contact",

@@ -236,6 +236,12 @@
                                     </label>
                                 </div>
                                 <div class="mt-4 flex items-center">
+                                    <input  name="contactChoice" value="viber" type="radio" id="contact_viber" class="form-radio h-4 w-4 text-primary-600 transition duration-150 ease-in-out">
+                                    <label for="contact_viber" class="ml-3">
+                                        <span class="block text-sm leading-5 font-medium text-gray-700">{{__('forms.get_a_treatment.contact_method.viber')}}</span>
+                                    </label>
+                                </div>
+                                <div class="mt-4 flex items-center">
                                     <input name="contactChoice" value="everything" type="radio" id="contact_everything" class="form-radio h-4 w-4 text-primary-600 transition duration-150 ease-in-out">
                                     <label for="contact_everything" class="ml-3">
                                         <span class="block text-sm leading-5 font-medium text-gray-700">{{__('forms.get_a_treatment.contact_method.all')}}</span>
