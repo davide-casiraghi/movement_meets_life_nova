@@ -7,7 +7,6 @@ use App\Models\PostCategory;
 use App\Nova\Post;
 use Illuminate\Support\Collection;
 
-
 class PostCategoryRepository implements PostCategoryRepositoryInterface
 {
 
@@ -30,6 +29,18 @@ class PostCategoryRepository implements PostCategoryRepositoryInterface
     public function getById(int $id): PostCategory
     {
         return PostCategory::findOrFail($id);
+    }
+
+    /**
+     * Get PostCategory by name
+     *
+     * @param  string  $postCategoryName
+     *
+     * @return int
+     */
+    public function getCategoryIdByName(string $postCategoryName): int
+    {
+        return PostCategory::where('name', 'like', '%' . $postCategoryName . '%')->first()->id;
     }
 
     /**

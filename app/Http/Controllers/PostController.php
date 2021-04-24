@@ -192,8 +192,13 @@ class PostController extends Controller
      */
     public function blog()
     {
-        $posts = $this->postService->getPosts(5, ['status' => 'published']);
+        $blogCategoryId = $this->postCategoryService->getIdByCategoryName('blog');
 
+        $posts = $this->postService->getPosts(5, [
+          'status' => 'published',
+          'categoryId' => $blogCategoryId
+        ]);
+     
         return view('posts.blog', [
             'posts' => $posts,
         ]);

@@ -9,7 +9,6 @@ use Illuminate\Support\Collection;
 
 class PostCategoryService
 {
-
     private PostCategoryRepository $postCategoryRepository;
 
     /**
@@ -65,6 +64,18 @@ class PostCategoryService
     }
 
     /**
+     * Return the PostCategory id by category name
+     *
+     * @param  string  $postCategoryName
+     *
+     * @return int
+     */
+    public function getIdByCategoryName(string $postCategoryName): int
+    {
+        return $this->postCategoryRepository->getCategoryIdByName($postCategoryName);
+    }
+
+    /**
      * Get all the PostCategoriess
      *
      * @return Collection
@@ -83,5 +94,4 @@ class PostCategoryService
     {
         $this->postCategoryRepository->delete($postCategoryId);
     }
-
 }
