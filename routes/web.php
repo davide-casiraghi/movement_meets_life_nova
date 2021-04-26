@@ -11,6 +11,7 @@
 |
  */
 
+use App\Http\Controllers\BookATreatmentController;
 use App\Http\Controllers\ContactMeController;
 use App\Http\Controllers\EventCategoryController;
 use App\Http\Controllers\EventController;
@@ -233,4 +234,7 @@ Route::group(
 
   Route::get('/teachers/{teacher:slug}', [TeacherController::class, 'show'])->name('teachers.show');
   Route::get('/organizers/{organizer:slug}', [OrganizerController::class, 'show'])->name('organizers.show');
+
+//    /book-a-treatment
+    Route::get('/book-a-treatment', [BookATreatmentController::class, 'create'])->name('bookATreatment.create');
 });

@@ -51,6 +51,7 @@ return [
         'become_a_testimonial' => 'Diventa un testimonial',
         'services' => 'Servizi',
         'get_a_treatment' => 'Prenota un trattamento',
+        'book_a_treatment' => 'Prenota un trattamento',
         'pages' => 'Pagine',
         'about_me' => 'Su di me',
         'blog' => 'Blog',
