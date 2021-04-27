@@ -74,7 +74,7 @@ An Ilan Lev bodywork instead, allows the receiver to: restore the ability to get
                 'answer' =>  "60-90 minutes per session.",
               ],
               2 => [
-                'question' => "How many treatments I should take?",
+                'question' => "How many treatments should I take?",
                 //'answer' =>  "There is no minimum number of sessions that should be taken. Already at the first treatment, we can have some release and improvement of the motor functionalities. Although the first treatment it's something new for the body and it's too early to draw conclusions, and also each client and case is different. I usually suggest planning for 5 sessions within a month. A series of treatments can bring good improvements and a good perspective about the results.",
                 //'answer' =>  "You can come for the first treatment to meet the method and see if it resonate with you. I suggest then a cycle of 5 treatment, after that we will check how the condition is changed and decide if continue or not.",
                 'answer' =>  "Even if in the first session we may have some release and some good results, to address chronic pain conditions takes a series of treatments. You can come for the first treatment to meet the method and see if it resonate with you. I suggest then a cycle of 5 treatment and after that we will check how the condition is changed and decide if continue or not."
