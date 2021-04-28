@@ -7,7 +7,7 @@
     @include('partials.messages')
 
         <!-- Calendly inline widget begin -->
-        <div class="calendly-inline-widget" style="min-width:320px;height:660px;" data-auto-load="false">
+        <div class="calendly-inline-widget" style="position:relative; min-width:320px; height:750px;" data-auto-load="false">
             <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js"></script>
             <script>
                 Calendly.initInlineWidget({
