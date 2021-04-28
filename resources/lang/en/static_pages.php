@@ -59,6 +59,7 @@ return [
         'become_a_testimonial' => 'Become a testimonial',
         'services' => 'Services',
         'get_a_treatment' => 'Get a treatment',
+        'book_a_treatment' => 'Book a treatment',
         'pages' => 'Pages',
         'about_me' => 'About me',
         'blog' => 'Blog',
