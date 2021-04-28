@@ -17,7 +17,7 @@
         </div>
 
         <!-- Calendly inline widget begin -->
-        <div class="calendly-inline-widget" style="position:relative; min-width:320px; height:750px;" data-auto-load="false">
+        <div class="calendly-inline-widget mt-10 sm:mt-0" style="position:relative; min-width:320px; height:850px;" data-auto-load="false">
             <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js"></script>
             <script>
                 Calendly.initInlineWidget({
