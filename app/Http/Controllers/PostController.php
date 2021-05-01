@@ -198,7 +198,9 @@ class PostController extends Controller
           'status' => 'published',
           'categoryId' => $blogCategoryId
         ]);
-     
+
+        ray($posts);
+
         return view('posts.blog', [
             'posts' => $posts,
         ]);
