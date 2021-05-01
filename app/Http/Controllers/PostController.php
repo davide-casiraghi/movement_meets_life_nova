@@ -199,8 +199,6 @@ class PostController extends Controller
           'categoryId' => $blogCategoryId
         ]);
 
-        ray($posts);
-
         return view('posts.blog', [
             'posts' => $posts,
         ]);
