@@ -50,7 +50,7 @@ class PostServiceTest extends TestCase
         $this->postCategory3 = PostCategory::factory()->create();
         $this->post1 = Post::factory()->create(['category_id' => 1])->setStatus('published');
         $this->post2 = Post::factory()->create(['category_id' => 1])->setStatus('published');
-        $this->post3 = Post::factory()->create(['category_id' => 1])->setStatus('unpublished');
+        $this->post3 = Post::factory()->create(['category_id' => 2])->setStatus('unpublished');
     }
 
     /** @test */
@@ -114,6 +114,16 @@ class PostServiceTest extends TestCase
     }
 
     /** @test */
+    public function itShouldReturnAllThePublishedPostsOfASpecificCategory()
+    {
+      $posts = $this->postService->getPosts(5, [
+          'status' => 'published',
+          'categoryId' => 1
+      ]);
+      $this->assertCount(2, $posts);
+    }
+
+    /** @test */
     public function itShouldReturnAllPublishedPosts()
     {
         $posts = $this->postService->getPosts(20, ['status' => 'published']);
@@ -145,7 +155,7 @@ class PostServiceTest extends TestCase
         $this->assertEquals($numberPostsCreatedLastThirtyDays, 3);
     }
 
-//    /** @test  */
+    /** @test  */
 //    public function itShouldReturnSeoStructuredDataScript()
 //    {
 //        $script = $this->post2->toJsonLdScript();
