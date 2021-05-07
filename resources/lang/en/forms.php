@@ -16,8 +16,8 @@ return [
     ]
   ],
   'get_a_treatment' => [
-    'get_a_treatment' => "Get a treatment",
-    'to_book' => "To book a treatment please specify the required information to allow me to get an idea of your condition.",
+    'bodywork_intake_form' => "Bodywork intake form",
+    'to_book' => "Please specify the required information to allow me to get an idea of your condition.",
     'your_condition' => "Your condition",
     'please_specify' => "Please specify which conditions worsen/facilitate and at what time of the day does the problem appear.",
     'main_complaint' => "Main complaint",

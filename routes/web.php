@@ -235,6 +235,9 @@ Route::group(
   Route::get('/teachers/{teacher:slug}', [TeacherController::class, 'show'])->name('teachers.show');
   Route::get('/organizers/{organizer:slug}', [OrganizerController::class, 'show'])->name('organizers.show');
 
-//    /book-a-treatment
-    Route::get('/book-a-treatment', [BookATreatmentController::class, 'create'])->name('bookATreatment.create');
-});
+  // book-a-treatment
+  Route::get('/book-a-treatment', [BookATreatmentController::class, 'create'])->name('bookATreatment.create');
+  Route::get('/book-a-treatment-confirmation', [BookATreatmentController::class, 'confirmed'])->name('bookATreatment.confirmed');
+
+
+  });

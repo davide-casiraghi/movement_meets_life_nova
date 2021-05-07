@@ -11,4 +11,11 @@ class BookATreatmentController extends Controller
     {
         return view('forms.bookATreatment');
     }
+
+    // Show the confirmation message
+    public function confirmed(Request $request)
+    {
+        return view('forms.bookATreatmentConfirmation');
+    }
+
 }

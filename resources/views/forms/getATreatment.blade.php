@@ -8,7 +8,7 @@
 
     <div class="text-center mt-5 px-4 md:px-0">
         <h2 class="text-3xl leading-9 tracking-tight font-extrabold text-gray-900 sm:text-4xl sm:leading-10">
-            {{__('forms.get_a_treatment.get_a_treatment')}}
+            {{__('forms.get_a_treatment.bodywork_intake_form')}}
         </h2>
         <p class="mt-3 max-w-2xl mx-auto text-xl leading-7 text-gray-500 sm:mt-4">
             {{__('forms.get_a_treatment.to_book')}}
