@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title')Confirmed@endsection
+@section('title') Confirmed @endsection
 
 @section('content')
 
