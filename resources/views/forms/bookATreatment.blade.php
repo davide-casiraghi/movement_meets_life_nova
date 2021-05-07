@@ -11,7 +11,7 @@
                 Book a treatment
             </h2>
             <p class="mt-3 max-w-2xl mx-auto text-xl leading-7 text-gray-500 sm:mt-4">
-                To book a treatment, please select one of the available time frames. <br>
+                To book a treatment, please select one of the available dates and time frames. <br>
                 If no one fits your schedule, please <a class="textLink" href="contact" >contact me</a>, and we will find a solution.
             </p>
         </div>
