@@ -8,12 +8,12 @@
 
 <div class="text-xl text-gray-500 prose prose-primary mx-auto lg:ml-auto lg:mr-0">
     <p>
-        The Ilan Lev Method (ILM) is a revolutionary form of hands-on bodywork that addresses body aches, pains, and movement imbalances caused by physical or emotional strain.
+        @lang('static_pages.treatments.intro.the_ilan_lev_method')
     </p>
     <p>
-        The method works towards improving human capabilities and removing functional difficulties.
+        @lang('static_pages.treatments.intro.the_method_works')
     </p>
     <p>
-        The treatment resolves body-circulation issues, relieves pain and skeletal and joint problems.
+        @lang('static_pages.treatments.intro.the_treatment_resolves')
     </p>
 </div>

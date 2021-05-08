@@ -41,7 +41,19 @@ return [
     ],
     'treatments' => [
         'title' => 'Treatments',
+        'intro' => [
+            'the_ilan_lev_method' => 'The Ilan Lev Method (ILM) is a revolutionary form of hands-on bodywork that addresses body aches, pains, and movement imbalances caused by physical or emotional strain.',
+            'the_method_works' => 'The method works towards improving human capabilities and removing functional difficulties.',
+            'the_treatment_resolves' => 'The treatment resolves body-circulation issues, relieves pain and skeletal and joint problems.',
+        ],
         'a_breath_of_fresh_air' => "A breath of <span class='text-primary-600'>fresh air.</span>",
+        'each_cell' => 'Each cell of your body is vibrating, it’s like opening the window in a room and let the air circulate inside.',
+        'learn_more' => 'Learn more',
+        'about_ilm_treatment' => [
+            'about_ilm_treatment' => 'About ILM treatment',
+            'what_is_unique' => "What's Unique About an Ilan Lev treatment",
+            'the_method_works' => 'The method works through a wide variety of movements and provocations to the skeleton of the receiver to provoke openness and release.',
+        ],
     ],
     'treatments_learn_more' => [
       'title' => 'Learn more about Ilan Lev Method Bodywork and Movement classes',

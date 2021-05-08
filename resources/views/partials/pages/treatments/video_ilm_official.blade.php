@@ -5,10 +5,9 @@
                 @lang('static_pages.treatments.a_breath_of_fresh_air')
             </h3>
             <div class="mt-3 text-gray-500 sm:mt-5 text-xl lg:text-lg xl:text-xl">
-                {{--@lang('static_pages.home.blocks.contact.ci_is_liberating')--}}
-                Each cell of your body is vibrating, it’s like opening the window in a room and let the air circulate inside.
+                @lang('static_pages.treatments.each_cell')
                 <div class="mt-2">
-                    <a href="{{route('staticPages.treatmentsLearnMore')}}" class="textLink">Learn more</a>
+                    <a href="{{route('staticPages.treatmentsLearnMore')}}" class="textLink">@lang('static_pages.treatments.learn_more')</a>
                 </div>
             </div>
         </div>

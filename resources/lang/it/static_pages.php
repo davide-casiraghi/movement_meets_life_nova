@@ -40,7 +40,24 @@ return [
       'aaa' => 'aaa',
     ],
     'treatments' => [
-      'aaa' => 'aaa',
+        'title' => 'Trattamenti',
+        'intro' => [
+            'the_ilan_lev_method' => 'Il metodo Ilan Lev (ILM) è una forma rivoluzionaria di bodywork che affronta dolori e squilibri di movimento causati da sforzi fisici o emotivi.',
+            'the_method_works' => 'Il metodo lavora per migliorare le capacità motorie e rimuovere le difficoltà funzionali.',
+            'the_treatment_resolves' => 'I trattamenti aiutano a risolvere problemi di circolazione, alleviano dolori e problemi scheletrici e articolari.',
+        ],
+        'a_breath_of_fresh_air' => "Una ventata di <span class='text-primary-600'>aria fresca.</span>",
+        'each_cell' => "Ogni cellula del tuo corpo vibra, è come aprire la finestra di una stanza e lasciare che l'aria circoli all'interno.",
+        'learn_more' => 'Scopri di più',
+        'about_ilm_treatment' => [
+            'about_ilm_treatment' => 'A proposito di un trattamento',
+            'what_is_unique' => "Cosa c'è di unico in un trattamento Ilan Lev",
+            'the_method_works' => "Il metodo funziona attraverso un'ampia varietà di movimenti e provocazioni allo scheletro del ricevente per provocare apertura e rilascio.",
+        ],
+
+
+
+
     ],
     'top_menu' => [
         'about_me' => 'Su di me',
