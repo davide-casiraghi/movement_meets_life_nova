@@ -28,6 +28,9 @@ return [
           'ci_is_liberating' => "La danza di Contact Improvisation è liberatoria, creativa e divertente. Ci permette di esplorare il movimento, l'equilibrio, il peso, il contatto fisico e la relazione, coinvolgendo due o più persone contemporaneamente.",
           'more_about_ci' => 'Maggiori informazioni',
           ],
+        'testimonials' => [
+          'what_people_are_saying' => "Alcuni feedback sui miei <span class='text-primary-600'>bodywork</span>.",
+        ],
       ]
     ],
     'about_me' => [
@@ -53,6 +56,7 @@ return [
         'get_a_treatment' => 'Prenota un trattamento',
         'book_a_treatment' => 'Prenota un trattamento',
         'pages' => 'Pagine',
+        'other' => 'Altro',
         'about_me' => 'Su di me',
         'blog' => 'Blog',
         'contact_improvisation' => 'Contact Improvisation',
@@ -65,6 +69,7 @@ return [
         'enter_email' => 'Inserisci la tua email',
         'subscribe_button' => 'Iscriviti',
         'copyright' => '© 2020 Davide Casiraghi, Inc. Tutti i diritti riservati.',
+        'quote_of_the_day' => 'Citazione del giorno',
     ],
 
 ];

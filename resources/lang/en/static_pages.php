@@ -28,6 +28,9 @@ return [
           'ci_is_liberating' => "Contact Improvisation dance is liberating, creative and fun. It’s about exploring movement, balance, weight, physical contact and communication, involving two or more persons at the time.",
           'more_about_ci' => 'More about CI',
           ],
+        'testimonials' => [
+            'what_people_are_saying' => "What people are saying about my <span class='text-primary-600'>bodyworks</span>.",
+        ],
       ]
     ],
     'about_me' => [
@@ -61,6 +64,7 @@ return [
         'get_a_treatment' => 'Get a treatment',
         'book_a_treatment' => 'Book a treatment',
         'pages' => 'Pages',
+        'other' => 'Other',
         'about_me' => 'About me',
         'blog' => 'Blog',
         'contact_improvisation' => 'Contact Improvisation',
@@ -73,6 +77,7 @@ return [
         'enter_email' => 'Enter your email',
         'subscribe_button' => 'Subscribe',
         'copyright' => '© 2020 Davide Casiraghi, Inc. All rights reserved.',
+        'quote_of_the_day' => 'Quote of the day',
     ],
 
 ];

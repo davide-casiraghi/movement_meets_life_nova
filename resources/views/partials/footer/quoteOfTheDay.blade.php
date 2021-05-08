@@ -1,7 +1,7 @@
 @isset($quote)
     <div class="max-w-xs text-left"> {{-- m-auto text-center xl:text-left --}}
     <div class="text-sm leading-5 font-semibold text-gray-400 tracking-wider uppercase mt-6">
-        Quote of the day
+        @lang('static_pages.footer.quote_of_the_day')
     </div>
     <div class="text-base leading-6 text-gray-300 mt-4">
             <div>

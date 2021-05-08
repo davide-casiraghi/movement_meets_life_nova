@@ -37,7 +37,7 @@
                 <div class="md:grid md:grid-cols-2 md:gap-8">
                     <div>
                         <h4 class="text-sm leading-5 font-semibold text-gray-400 tracking-wider uppercase">
-                            Pages
+                            @lang('static_pages.footer.pages')
                         </h4>
                         <ul class="mt-4 space-y-4">
                             <li>
@@ -79,7 +79,7 @@
                             </li>--}}
                         </ul>
                         <h4 class="text-sm leading-5 font-semibold text-gray-400 tracking-wider uppercase mt-14">
-                            Other
+                            @lang('static_pages.footer.other')
                         </h4>
                         <ul class="mt-4 space-y-4">
                             <li>
