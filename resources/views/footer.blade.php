@@ -31,6 +31,11 @@
                                     @lang('static_pages.footer.get_a_treatment')
                                 </a>
                             </li>
+                            <li>
+                                <a href="{{route('intakeForm.create')}}" class="text-base leading-6 text-gray-300 hover:text-white">
+                                    @lang('static_pages.footer.intake_form')
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>

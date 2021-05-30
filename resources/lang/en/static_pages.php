@@ -162,6 +162,7 @@ An Ilan Lev bodywork instead, allows the receiver to: restore the ability to get
         'become_a_testimonial' => 'Become a testimonial',
         'services' => 'Services',
         'get_a_treatment' => 'Get a treatment',
+        'intake_form' => 'Intake form',
         'book_a_treatment' => 'Book a treatment',
         'pages' => 'Pages',
         'other' => 'Other',

@@ -14,7 +14,7 @@
             Your bodywork has been scheduled with Davide Casiraghi. <br>
             A calendar invitation has been sent to your email address. <br><br>
 
-            If it's your fist session or it's a while you don't receive a bodywork from me please fill <a class="textLink" href="get-a-treatment" >this intake form</a>.
+            If it's your fist session or it's a while you don't receive a bodywork from me please fill <a class="textLink" href="{{route('intakeForm.create')}}" >this intake form</a>.
         </p>
     </div>
 

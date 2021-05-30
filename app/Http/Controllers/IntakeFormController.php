@@ -8,7 +8,7 @@ use App\Services\NotificationService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
-class GetATreatmentController extends Controller
+class IntakeFormController extends Controller
 {
     private NotificationService $notificationService;
 
@@ -21,7 +21,7 @@ class GetATreatmentController extends Controller
     // Show Contact Form
     public function create(Request $request)
     {
-        return view('forms.getATreatment');
+        return view('forms.intakeForm');
     }
 
     // Store Contact Form data

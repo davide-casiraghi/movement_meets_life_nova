@@ -15,7 +15,7 @@ use App\Http\Controllers\BookATreatmentController;
 use App\Http\Controllers\ContactMeController;
 use App\Http\Controllers\EventCategoryController;
 use App\Http\Controllers\EventController;
-use App\Http\Controllers\GetATreatmentController;
+use App\Http\Controllers\IntakeFormController;
 use App\Http\Controllers\GlobalSearchController;
 use App\Http\Controllers\GlossaryController;
 use App\Http\Controllers\HomeController;
@@ -199,45 +199,46 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
  */
 
 Route::group(
-  [
-    'prefix' => LaravelLocalization::setLocale(),
-    'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
-  ], function(){
+    [
+        'prefix' => LaravelLocalization::setLocale(),
+        'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
+    ], function(){
 
-  Route::name('postComments.')->group(function () {
-    Route::post('/postComment', [PostCommentController::class, 'store'])->name('store')->middleware(ProtectAgainstSpam::class);
-  });
+    Route::name('postComments.')->group(function () {
+        Route::post('/postComment', [PostCommentController::class, 'store'])->name('store')->middleware(ProtectAgainstSpam::class);
+    });
 
-  //Route::get('tag/{tagId}',[ TagController::class, 'show'])->name('tags.show');
-  Route::get('glossaries/{glossary:slug}', [ GlossaryController::class, 'show'])->name('glossaries.show');
+    //Route::get('tag/{tagId}',[ TagController::class, 'show'])->name('tags.show');
+    Route::get('glossaries/{glossary:slug}', [ GlossaryController::class, 'show'])->name('glossaries.show');
 
-  Route::get('/contact', [ContactMeController::class, 'index'])->name('contact.index');
-  Route::post('/contact', [ContactMeController::class, 'store'])->name('contact.store')->middleware(ProtectAgainstSpam::class);
+    Route::get('/contact', [ContactMeController::class, 'index'])->name('contact.index');
+    Route::post('/contact', [ContactMeController::class, 'store'])->name('contact.store')->middleware(ProtectAgainstSpam::class);
 
-  Route::get('/', [ HomeController::class, 'index'])->name('home');
-  Route::get('/blog', [PostController::class, 'blog'])->name('posts.blog');
-  Route::get('/posts/{post:slug}', [PostController::class, 'show'])->name('posts.show');
-  Route::get('/tags/{tag:slug}', [TagController::class, 'show'])->name('tags.show');
-  Route::get('/next-events', [EventController::class, 'nextEvents'])->name('events.next');
-  Route::get('/past-events', [EventController::class, 'pastEvents'])->name('events.past');
-  Route::get('/about-me', [StaticPageController::class, 'aboutMe'])->name('staticPages.aboutMe');
-  Route::get('/treatments-ilan-lev-method', [StaticPageController::class, 'treatments'])->name('staticPages.treatments');
-  Route::get('/learn-more-ilan-lev-method', [StaticPageController::class, 'treatmentsLearnMore'])->name('staticPages.treatmentsLearnMore');
-  Route::get('/contact-improvisation', [StaticPageController::class, 'contactImprovisation'])->name('staticPages.contactImprovisation');
-  Route::get('/water-contact', [StaticPageController::class, 'waterContact'])->name('staticPages.waterContact');
-  Route::get('/events/{event:slug}', [EventController::class, 'show'])->name('events.show');
-  Route::get('/testimonials/create', [TestimonialController::class, 'create'])->name('testimonials.create');
-  Route::post('/testimonials', [TestimonialController::class, 'store'])->name('testimonials.store')->middleware(ProtectAgainstSpam::class);;
+    Route::get('/', [ HomeController::class, 'index'])->name('home');
+    Route::get('/blog', [PostController::class, 'blog'])->name('posts.blog');
+    Route::get('/posts/{post:slug}', [PostController::class, 'show'])->name('posts.show');
+    Route::get('/tags/{tag:slug}', [TagController::class, 'show'])->name('tags.show');
+    Route::get('/next-events', [EventController::class, 'nextEvents'])->name('events.next');
+    Route::get('/past-events', [EventController::class, 'pastEvents'])->name('events.past');
+    Route::get('/about-me', [StaticPageController::class, 'aboutMe'])->name('staticPages.aboutMe');
+    Route::get('/treatments-ilan-lev-method', [StaticPageController::class, 'treatments'])->name('staticPages.treatments');
+    Route::get('/learn-more-ilan-lev-method', [StaticPageController::class, 'treatmentsLearnMore'])->name('staticPages.treatmentsLearnMore');
+    Route::get('/contact-improvisation', [StaticPageController::class, 'contactImprovisation'])->name('staticPages.contactImprovisation');
+    Route::get('/water-contact', [StaticPageController::class, 'waterContact'])->name('staticPages.waterContact');
+    Route::get('/events/{event:slug}', [EventController::class, 'show'])->name('events.show');
+    Route::get('/testimonials/create', [TestimonialController::class, 'create'])->name('testimonials.create');
+    Route::post('/testimonials', [TestimonialController::class, 'store'])->name('testimonials.store')->middleware(ProtectAgainstSpam::class);;
 
-  Route::get('/get-a-treatment', [GetATreatmentController::class, 'create'])->name('getATreatment.create');
-  Route::post('/get-a-treatment', [GetATreatmentController::class, 'store'])->name('getATreatment.store')->middleware(ProtectAgainstSpam::class);;
+    Route::get('/teachers/{teacher:slug}', [TeacherController::class, 'show'])->name('teachers.show');
+    Route::get('/organizers/{organizer:slug}', [OrganizerController::class, 'show'])->name('organizers.show');
 
-  Route::get('/teachers/{teacher:slug}', [TeacherController::class, 'show'])->name('teachers.show');
-  Route::get('/organizers/{organizer:slug}', [OrganizerController::class, 'show'])->name('organizers.show');
+    // Intake form
+    Route::get('/intake-form', [IntakeFormController::class, 'create'])->name('intakeForm.create');
+    Route::post('/intake-form', [IntakeFormController::class, 'store'])->name('intakeForm.store')->middleware(ProtectAgainstSpam::class);;
 
-  // book-a-treatment
-  Route::get('/book-a-treatment', [BookATreatmentController::class, 'create'])->name('bookATreatment.create');
-  Route::get('/book-a-treatment-confirmation', [BookATreatmentController::class, 'confirmed'])->name('bookATreatment.confirmed');
+    // Book a treatment
+    Route::get('/book-a-treatment', [BookATreatmentController::class, 'create'])->name('bookATreatment.create');
+    Route::get('/book-a-treatment-confirmation', [BookATreatmentController::class, 'confirmed'])->name('bookATreatment.confirmed');
 
 
-  });
+    });
