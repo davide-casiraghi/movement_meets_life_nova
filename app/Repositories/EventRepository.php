@@ -3,8 +3,8 @@
 
 namespace App\Repositories;
 
+use App\Helpers\CollectionHelper;
 use App\Models\Event;
-use App\Models\EventRepetition;
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
@@ -57,10 +57,13 @@ class EventRepository implements EventRepositoryInterface
             }
         }
 
+        // For repetitive events only the upcoming one is shown
+        $uniqueResults = $query->get()->unique('id');
+
         if ($recordsPerPage) {
-            $results = $query->paginate($recordsPerPage)->withQueryString();
+            $results = CollectionHelper::paginate($uniqueResults, $recordsPerPage)->withQueryString();
         } else {
-            $results = $query->get();
+            $results = $uniqueResults;
         }
 
         return $results;
