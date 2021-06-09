@@ -24,7 +24,7 @@
 
                 </div>
                 <div class="mt-10">
-                    <a href="{{route('getATreatment.create')}}" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700">
+                    <a href="{{route('bookATreatment.create')}}" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700">
                         @lang('static_pages.treatments.cta.get_a_treatment')
                     </a>
                 </div>
