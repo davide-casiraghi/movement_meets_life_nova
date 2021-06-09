@@ -19,30 +19,35 @@ use Illuminate\Support\Collection;
  */
 class CollectionHelper
 {
-    public static function paginate(Collection $results, $pageSize)
+    /**
+     * Resolve current page number in the query metadata.
+     *
+     * @param  Collection  $results
+     * @param int $pageSize
+     * @return LengthAwarePaginator
+     */
+    public static function paginate(Collection $results, int $pageSize): LengthAwarePaginator
     {
         $page = Paginator::resolveCurrentPage('page');
-
         $total = $results->count();
 
         return self::paginator($results->forPage($page, $pageSize), $total, $pageSize, $page, [
             'path' => Paginator::resolveCurrentPath(),
             'pageName' => 'page',
         ]);
-
     }
 
     /**
      * Create a new length-aware paginator instance.
      *
-     * @param  \Illuminate\Support\Collection  $items
+     * @param  Collection  $items
      * @param  int  $total
      * @param  int  $perPage
      * @param  int  $currentPage
      * @param  array  $options
-     * @return \Illuminate\Pagination\LengthAwarePaginator
+     * @return LengthAwarePaginator
      */
-    protected static function paginator($items, $total, $perPage, $currentPage, $options)
+    protected static function paginator($items, int $total, int $perPage, int $currentPage, array $options): LengthAwarePaginator
     {
         return Container::getInstance()->makeWith(LengthAwarePaginator::class, compact(
             'items', 'total', 'perPage', 'currentPage', 'options'
