@@ -108,14 +108,14 @@ class EventService
     /**
      * Get all the Events.
      *
-     * @param int|null $recordsPerPage
-     * @param array|null $searchParameters
-     *
+     * @param  int|null  $recordsPerPage
+     * @param  array|null  $searchParameters
+     * @param  string  $orderDirection sorting direction: 'asc' = from oldest to newest | 'desc' = from newest to oldest
      * @return \Illuminate\Database\Eloquent\Collection|\Illuminate\Contracts\Pagination\LengthAwarePaginator
      */
-    public function getEvents(int $recordsPerPage = null, array $searchParameters = null)
+    public function getEvents(int $recordsPerPage = null, array $searchParameters = null, string $orderDirection = 'asc')
     {
-        return $this->eventRepository->getAll($recordsPerPage, $searchParameters);
+        return $this->eventRepository->getAll($recordsPerPage, $searchParameters, $orderDirection);
     }
 
     /**
