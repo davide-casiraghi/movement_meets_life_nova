@@ -9,14 +9,15 @@ interface EventRepositoryInterface
     /**
      * Get all Events.
      *
-     * @param int|null $recordsPerPage
-     * @param array|null $searchParameters
-     *
+     * @param  int|null  $recordsPerPage
+     * @param  array|null  $searchParameters
+     * @param  string  $orderDirection sorting direction: 'asc' = from oldest to newest | 'desc' = from newest to oldest
      * @return \App\Models\Event[]|\Illuminate\Contracts\Pagination\LengthAwarePaginator|\Illuminate\Database\Eloquent\Collection
      */
     public function getAll(
         int $recordsPerPage = null,
-        array $searchParameters = null
+        array $searchParameters = null,
+        string $orderDirection = 'asc'
     );
 
     /**

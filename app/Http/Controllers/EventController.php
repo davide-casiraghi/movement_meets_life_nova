@@ -257,7 +257,7 @@ class EventController extends Controller
         $searchParameters['endDate'] = Carbon::today()->format('d/m/Y');
         $searchParameters['is_published'] = true;
 
-        $events = $this->eventService->getEvents(10, $searchParameters);
+        $events = $this->eventService->getEvents(10, $searchParameters, 'desc');
 
         return view('events.past', [
             'events' => $events,

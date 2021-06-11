@@ -14,18 +14,18 @@ class EventRepository implements EventRepositoryInterface
     /**
      * Get all Events.
      *
-     * @param int|null $recordsPerPage
-     * @param array|null $searchParameters
-     *
+     * @param  int|null  $recordsPerPage
+     * @param  array|null  $searchParameters
+     * @param  string  $orderDirection sorting direction: 'asc' = from oldest to newest | 'desc' = from newest to oldest
      * @return \App\Models\Event[]|\Illuminate\Contracts\Pagination\LengthAwarePaginator|\Illuminate\Database\Eloquent\Collection
      */
-    public function getAll(int $recordsPerPage = null, array $searchParameters = null)
+    public function getAll(int $recordsPerPage = null, array $searchParameters = null, string $orderDirection = 'asc')
     {
         // Upcoming events are shown first
         $query = Event::select('events.*', 'event_repetitions.start_repeat', 'event_repetitions.end_repeat')
             ->with(['category', 'teachers', 'venue', 'venue.country'])
             ->leftJoin('event_repetitions', 'events.id', '=', 'event_repetitions.event_id')
-            ->orderBy('event_repetitions.start_repeat');
+            ->orderBy('event_repetitions.start_repeat', $orderDirection);
 
         if (!is_null($searchParameters)) {
             if (!empty($searchParameters['title'])) {
