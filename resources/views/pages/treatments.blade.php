@@ -35,6 +35,9 @@
     {{-- What is the treatment about --}}
     @include('partials.pages.treatments.features')
 
+    {{-- Curator.io --}}
+    @include('partials.pages.treatments.curator')
+
     {{-- FAQs --}}
     @include('partials.pages.treatments.faq_two_columns', [
           'left' => [
@@ -86,5 +89,6 @@
     {{--@include('partials.pages.treatments.benefits')--}}
 
     @include('partials.pages.treatments.cta')
+
 
 @endsection
