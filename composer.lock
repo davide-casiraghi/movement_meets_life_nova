@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c1b6223320973767361e5cec783cb768",
+    "content-hash": "56ac7c8189b51313925b0031ce69b271",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -4190,27 +4190,28 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "2.46.0",
+            "version": "2.53.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "2fd2c4a77d58a4e95234c8a61c5df1f157a91bf4"
+                "reference": "f4655858a784988f880c1b8c7feabbf02dfdf045"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/2fd2c4a77d58a4e95234c8a61c5df1f157a91bf4",
-                "reference": "2fd2c4a77d58a4e95234c8a61c5df1f157a91bf4",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/f4655858a784988f880c1b8c7feabbf02dfdf045",
+                "reference": "f4655858a784988f880c1b8c7feabbf02dfdf045",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
                 "php": "^7.1.8 || ^8.0",
                 "symfony/polyfill-mbstring": "^1.0",
+                "symfony/polyfill-php80": "^1.16",
                 "symfony/translation": "^3.4 || ^4.0 || ^5.0"
             },
             "require-dev": {
                 "doctrine/orm": "^2.7",
-                "friendsofphp/php-cs-fixer": "^2.14 || ^3.0",
+                "friendsofphp/php-cs-fixer": "^3.0",
                 "kylekatarnls/multi-tester": "^2.0",
                 "phpmd/phpmd": "^2.9",
                 "phpstan/extension-installer": "^1.0",
@@ -4224,8 +4225,8 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.x-dev",
-                    "dev-3.x": "3.x-dev"
+                    "dev-3.x": "3.x-dev",
+                    "dev-master": "2.x-dev"
                 },
                 "laravel": {
                     "providers": [
@@ -4251,15 +4252,15 @@
                 {
                     "name": "Brian Nesbitt",
                     "email": "brian@nesbot.com",
-                    "homepage": "http://nesbot.com"
+                    "homepage": "https://markido.com"
                 },
                 {
                     "name": "kylekatarnls",
-                    "homepage": "http://github.com/kylekatarnls"
+                    "homepage": "https://github.com/kylekatarnls"
                 }
             ],
             "description": "An API extension for DateTime that supports 281 different languages.",
-            "homepage": "http://carbon.nesbot.com",
+            "homepage": "https://carbon.nesbot.com",
             "keywords": [
                 "date",
                 "datetime",
@@ -4279,7 +4280,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-02-24T17:30:44+00:00"
+            "time": "2021-09-06T09:29:23+00:00"
         },
         {
             "name": "nette/schema",
@@ -4640,21 +4641,21 @@
         },
         {
             "name": "ocramius/package-versions",
-            "version": "2.1.0",
+            "version": "2.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Ocramius/PackageVersions.git",
-                "reference": "a7e35c34bc166a5684a1e2f13da7b1d6a821349d"
+                "reference": "f64411e9a63a35f8645d5fe04a9f55a2df2895c9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Ocramius/PackageVersions/zipball/a7e35c34bc166a5684a1e2f13da7b1d6a821349d",
-                "reference": "a7e35c34bc166a5684a1e2f13da7b1d6a821349d",
+                "url": "https://api.github.com/repos/Ocramius/PackageVersions/zipball/f64411e9a63a35f8645d5fe04a9f55a2df2895c9",
+                "reference": "f64411e9a63a35f8645d5fe04a9f55a2df2895c9",
                 "shasum": ""
             },
             "require": {
                 "composer-runtime-api": "^2.0.0",
-                "php": "^7.4.7 || ~8.0.0"
+                "php": "~8.0.0"
             },
             "replace": {
                 "composer/package-versions-deprecated": "*"
@@ -4686,7 +4687,7 @@
             "description": "Provides efficient querying for installed package versions (no runtime IO)",
             "support": {
                 "issues": "https://github.com/Ocramius/PackageVersions/issues",
-                "source": "https://github.com/Ocramius/PackageVersions/tree/2.1.0"
+                "source": "https://github.com/Ocramius/PackageVersions/tree/2.3.0"
             },
             "funding": [
                 {
@@ -4698,7 +4699,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-10-21T13:48:04+00:00"
+            "time": "2020-12-23T03:16:25+00:00"
         },
         {
             "name": "opis/closure",
@@ -6560,30 +6561,30 @@
         },
         {
             "name": "spatie/crawler",
-            "version": "6.0.2",
+            "version": "7.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/crawler.git",
-                "reference": "276ecb429a770474695a1278a9ad3e719fbef259"
+                "reference": "06a8651b653871de24749ccc06c2561250311a27"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/crawler/zipball/276ecb429a770474695a1278a9ad3e719fbef259",
-                "reference": "276ecb429a770474695a1278a9ad3e719fbef259",
+                "url": "https://api.github.com/repos/spatie/crawler/zipball/06a8651b653871de24749ccc06c2561250311a27",
+                "reference": "06a8651b653871de24749ccc06c2561250311a27",
                 "shasum": ""
             },
             "require": {
-                "guzzlehttp/guzzle": "^7.2",
-                "guzzlehttp/psr7": "^1.7",
-                "illuminate/collections": "^8.17",
+                "guzzlehttp/guzzle": "^7.3",
+                "guzzlehttp/psr7": "^1.8|^2.0",
+                "illuminate/collections": "^8.38",
                 "nicmart/tree": "^0.3.0",
-                "php": "^7.4|^8.0",
-                "spatie/browsershot": "^3.14",
-                "spatie/robots-txt": "^1.0.9|^2.0",
+                "php": "^8.0",
+                "spatie/browsershot": "^3.45",
+                "spatie/robots-txt": "^2.0",
                 "symfony/dom-crawler": "^5.2"
             },
             "require-dev": {
-                "phpunit/phpunit": "^9.4"
+                "phpunit/phpunit": "^9.5"
             },
             "type": "library",
             "autoload": {
@@ -6611,15 +6612,19 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/crawler/issues",
-                "source": "https://github.com/spatie/crawler/tree/6.0.2"
+                "source": "https://github.com/spatie/crawler/tree/7.0.2"
             },
             "funding": [
+                {
+                    "url": "https://spatie.be/open-source/support-us",
+                    "type": "custom"
+                },
                 {
                     "url": "https://github.com/spatie",
                     "type": "github"
                 }
             ],
-            "time": "2021-04-14T13:50:22+00:00"
+            "time": "2021-09-14T08:44:16+00:00"
         },
         {
             "name": "spatie/db-dumper",
@@ -6904,16 +6909,16 @@
         },
         {
             "name": "spatie/laravel-honeypot",
-            "version": "3.0.1",
+            "version": "4.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-honeypot.git",
-                "reference": "3dd4319c3d42a9db2bae30582844528799bb22d2"
+                "reference": "e13ee4ee3225313f18191c51fdd28f75075c69c0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-honeypot/zipball/3dd4319c3d42a9db2bae30582844528799bb22d2",
-                "reference": "3dd4319c3d42a9db2bae30582844528799bb22d2",
+                "url": "https://api.github.com/repos/spatie/laravel-honeypot/zipball/e13ee4ee3225313f18191c51fdd28f75075c69c0",
+                "reference": "e13ee4ee3225313f18191c51fdd28f75075c69c0",
                 "shasum": ""
             },
             "require": {
@@ -6923,7 +6928,8 @@
                 "illuminate/support": "^8.0",
                 "illuminate/validation": "^8.0",
                 "nesbot/carbon": "^2.0",
-                "php": "^7.4|^8.0",
+                "php": "^8.0",
+                "spatie/laravel-package-tools": "^1.6",
                 "symfony/http-foundation": "^5.1.2"
             },
             "require-dev": {
@@ -6964,7 +6970,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/laravel-honeypot/issues",
-                "source": "https://github.com/spatie/laravel-honeypot/tree/3.0.1"
+                "source": "https://github.com/spatie/laravel-honeypot/tree/4.0.0"
             },
             "funding": [
                 {
@@ -6972,7 +6978,7 @@
                     "type": "custom"
                 }
             ],
-            "time": "2020-11-03T12:56:39+00:00"
+            "time": "2021-04-13T17:50:21+00:00"
         },
         {
             "name": "spatie/laravel-medialibrary",
@@ -7512,24 +7518,25 @@
         },
         {
             "name": "spatie/laravel-sitemap",
-            "version": "5.9.2",
+            "version": "6.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-sitemap.git",
-                "reference": "df5c3db511e08a8e64a3d7e28613ab018a99e95d"
+                "reference": "4be02b73c35f73697e3ea6cd7b41da29f0005e13"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-sitemap/zipball/df5c3db511e08a8e64a3d7e28613ab018a99e95d",
-                "reference": "df5c3db511e08a8e64a3d7e28613ab018a99e95d",
+                "url": "https://api.github.com/repos/spatie/laravel-sitemap/zipball/4be02b73c35f73697e3ea6cd7b41da29f0005e13",
+                "reference": "4be02b73c35f73697e3ea6cd7b41da29f0005e13",
                 "shasum": ""
             },
             "require": {
                 "guzzlehttp/guzzle": "^7.2",
                 "illuminate/support": "^8.0",
                 "nesbot/carbon": "^2.0",
-                "php": "^7.4|^8.0",
-                "spatie/crawler": "^5.0|^6.0",
+                "php": "^8.0",
+                "spatie/crawler": "^7.0",
+                "spatie/laravel-package-tools": "^1.5",
                 "symfony/dom-crawler": "^5.1.14"
             },
             "require-dev": {
@@ -7537,7 +7544,7 @@
                 "orchestra/testbench": "^6.0",
                 "phpunit/phpunit": "^9.3",
                 "spatie/phpunit-snapshot-assertions": "^4.0",
-                "spatie/temporary-directory": "^1.1"
+                "spatie/temporary-directory": "^2.0"
             },
             "type": "library",
             "extra": {
@@ -7572,7 +7579,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/laravel-sitemap/issues",
-                "source": "https://github.com/spatie/laravel-sitemap/tree/5.9.2"
+                "source": "https://github.com/spatie/laravel-sitemap/tree/6.0.5"
             },
             "funding": [
                 {
@@ -7580,26 +7587,26 @@
                     "type": "custom"
                 }
             ],
-            "time": "2021-03-04T22:57:48+00:00"
+            "time": "2021-08-11T21:14:25+00:00"
         },
         {
             "name": "spatie/laravel-sluggable",
-            "version": "2.6.2",
+            "version": "3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-sluggable.git",
-                "reference": "297097239a675747d74fbd1ecb3ae0d4724a17de"
+                "reference": "03dd6b573efb66f2eb96892b3646a6a8b7722adf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-sluggable/zipball/297097239a675747d74fbd1ecb3ae0d4724a17de",
-                "reference": "297097239a675747d74fbd1ecb3ae0d4724a17de",
+                "url": "https://api.github.com/repos/spatie/laravel-sluggable/zipball/03dd6b573efb66f2eb96892b3646a6a8b7722adf",
+                "reference": "03dd6b573efb66f2eb96892b3646a6a8b7722adf",
                 "shasum": ""
             },
             "require": {
                 "illuminate/database": "^7.30|^8.0",
                 "illuminate/support": "^7.30|^8.0",
-                "php": "^7.4|^8.0"
+                "php": "^8.0"
             },
             "require-dev": {
                 "friendsofphp/php-cs-fixer": "^2.18",
@@ -7633,7 +7640,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/laravel-sluggable/issues",
-                "source": "https://github.com/spatie/laravel-sluggable/tree/2.6.2"
+                "source": "https://github.com/spatie/laravel-sluggable/tree/3.1.0"
             },
             "funding": [
                 {
@@ -7641,7 +7648,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-03-20T18:07:00+00:00"
+            "time": "2021-06-04T13:53:45+00:00"
         },
         {
             "name": "spatie/laravel-translatable",
