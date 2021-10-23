@@ -57,7 +57,6 @@ function calculateNumberOfSlidesToShow(){
 }
 
 // Reload Carousel on browser resize (to make it responsible)
-
 function reloadCarousel () {
     jQuery('.testimonialsList').slick('unslick');
     numberOfSlides = calculateNumberOfSlidesToShow();
