@@ -33,7 +33,9 @@
 
     {{--@include('partials.pages.home.blog.block')--}}
 
-    @include('partials.pages.home.testimonials.block')
+    {{--@include('partials.pages.home.testimonials.static.block')--}}
+
+    @include('partials.pages.home.testimonials.slick.block')
 
     {{--@include('partials.quote_of_the_day')--}}
 

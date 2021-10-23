@@ -3900,14 +3900,15 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;!function(e){ 
   var undefined;
 
   /** Used as the semantic version number. */
-  var VERSION = '4.17.20';
+  var VERSION = '4.17.21';
 
   /** Used as the size to enable large array optimizations. */
   var LARGE_ARRAY_SIZE = 200;
 
   /** Error message constants. */
   var CORE_ERROR_TEXT = 'Unsupported core-js use. Try https://npms.io/search?q=ponyfill.',
-      FUNC_ERROR_TEXT = 'Expected a function';
+      FUNC_ERROR_TEXT = 'Expected a function',
+      INVALID_TEMPL_VAR_ERROR_TEXT = 'Invalid `variable` option passed into `_.template`';
 
   /** Used to stand-in for `undefined` hash values. */
   var HASH_UNDEFINED = '__lodash_hash_undefined__';
@@ -4040,10 +4041,11 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;!function(e){ 
   var reRegExpChar = /[\\^$.*+?()[\]{}|]/g,
       reHasRegExpChar = RegExp(reRegExpChar.source);
 
-  /** Used to match leading and trailing whitespace. */
-  var reTrim = /^\s+|\s+$/g,
-      reTrimStart = /^\s+/,
-      reTrimEnd = /\s+$/;
+  /** Used to match leading whitespace. */
+  var reTrimStart = /^\s+/;
+
+  /** Used to match a single whitespace character. */
+  var reWhitespace = /\s/;
 
   /** Used to match wrap detail comments. */
   var reWrapComment = /\{(?:\n\/\* \[wrapped with .+\] \*\/)?\n?/,
@@ -4052,6 +4054,18 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;!function(e){ 
 
   /** Used to match words composed of alphanumeric characters. */
   var reAsciiWord = /[^\x00-\x2f\x3a-\x40\x5b-\x60\x7b-\x7f]+/g;
+
+  /**
+   * Used to validate the `validate` option in `_.template` variable.
+   *
+   * Forbids characters which could potentially change the meaning of the function argument definition:
+   * - "()," (modification of function parameters)
+   * - "=" (default value)
+   * - "[]{}" (destructuring of function parameters)
+   * - "/" (beginning of a comment)
+   * - whitespace
+   */
+  var reForbiddenIdentifierChars = /[()=,{}\[\]\/\s]/;
 
   /** Used to match backslashes in property paths. */
   var reEscapeChar = /\\(\\)?/g;
@@ -4882,6 +4896,19 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;!function(e){ 
   }
 
   /**
+   * The base implementation of `_.trim`.
+   *
+   * @private
+   * @param {string} string The string to trim.
+   * @returns {string} Returns the trimmed string.
+   */
+  function baseTrim(string) {
+    return string
+      ? string.slice(0, trimmedEndIndex(string) + 1).replace(reTrimStart, '')
+      : string;
+  }
+
+  /**
    * The base implementation of `_.unary` without support for storing metadata.
    *
    * @private
@@ -5212,6 +5239,21 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;!function(e){ 
     return hasUnicode(string)
       ? unicodeToArray(string)
       : asciiToArray(string);
+  }
+
+  /**
+   * Used by `_.trim` and `_.trimEnd` to get the index of the last non-whitespace
+   * character of `string`.
+   *
+   * @private
+   * @param {string} string The string to inspect.
+   * @returns {number} Returns the index of the last non-whitespace character.
+   */
+  function trimmedEndIndex(string) {
+    var index = string.length;
+
+    while (index-- && reWhitespace.test(string.charAt(index))) {}
+    return index;
   }
 
   /**
@@ -16382,7 +16424,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;!function(e){ 
       if (typeof value != 'string') {
         return value === 0 ? value : +value;
       }
-      value = value.replace(reTrim, '');
+      value = baseTrim(value);
       var isBinary = reIsBinary.test(value);
       return (isBinary || reIsOctal.test(value))
         ? freeParseInt(value.slice(2), isBinary ? 2 : 8)
@@ -18754,6 +18796,12 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;!function(e){ 
       if (!variable) {
         source = 'with (obj) {\n' + source + '\n}\n';
       }
+      // Throw an error if a forbidden character was found in `variable`, to prevent
+      // potential command injection attacks.
+      else if (reForbiddenIdentifierChars.test(variable)) {
+        throw new Error(INVALID_TEMPL_VAR_ERROR_TEXT);
+      }
+
       // Cleanup code by stripping empty strings.
       source = (isEvaluating ? source.replace(reEmptyStringLeading, '') : source)
         .replace(reEmptyStringMiddle, '$1')
@@ -18867,7 +18915,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;!function(e){ 
     function trim(string, chars, guard) {
       string = toString(string);
       if (string && (guard || chars === undefined)) {
-        return string.replace(reTrim, '');
+        return baseTrim(string);
       }
       if (!string || !(chars = baseToString(chars))) {
         return string;
@@ -18902,7 +18950,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;!function(e){ 
     function trimEnd(string, chars, guard) {
       string = toString(string);
       if (string && (guard || chars === undefined)) {
-        return string.replace(reTrimEnd, '');
+        return string.slice(0, trimmedEndIndex(string) + 1);
       }
       if (!string || !(chars = baseToString(chars))) {
         return string;
@@ -119789,7 +119837,7 @@ module.exports = function(module) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // VENDORS
+__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // Load vendor libraries
 
 
 __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/alpine.js");
@@ -119802,20 +119850,24 @@ __webpack_require__(/*! bootstrap-datepicker */ "./node_modules/bootstrap-datepi
 
 __webpack_require__(/*! select2 */ "./node_modules/select2/dist/js/select2.js");
 
+__webpack_require__(/*! slick-carousel */ "./node_modules/slick-carousel/slick/slick.js");
+
 __webpack_require__(/*! livewire-sortable */ "./node_modules/livewire-sortable/dist/livewire-sortable.js"); //require('trix');
+// Load my scripts related to vendor libraries
 
 
 __webpack_require__(/*! ./vendors/tinymce */ "./resources/js/vendors/tinymce.js");
 
 __webpack_require__(/*! ./vendors/select2 */ "./resources/js/vendors/select2.js");
 
+__webpack_require__(/*! ./vendors/slick_carousel */ "./resources/js/vendors/slick_carousel.js");
+
 __webpack_require__(/*! ./forms/uploadImage */ "./resources/js/forms/uploadImage.js"); //require("@staaky/tipped"); //imported in bootstrap.js
-// Custom js related to vendor packages
 
 
 __webpack_require__(/*! ./video_embed */ "./resources/js/video_embed.js");
 
-__webpack_require__(/*! ./gallery_mansonry */ "./resources/js/gallery_mansonry.js");
+__webpack_require__(/*! ./vendors/gallery_mansonry */ "./resources/js/vendors/gallery_mansonry.js");
 
 __webpack_require__(/*! ./vendors/bootstrap-datepicker */ "./resources/js/vendors/bootstrap-datepicker.js");
 
@@ -119881,29 +119933,6 @@ $(document).ready(function () {
     $(this).parent().parent().children('span').children("input[type='hidden']").val("true");
     $("img.uploadedImage").remove();
   });
-});
-
-/***/ }),
-
-/***/ "./resources/js/gallery_mansonry.js":
-/*!******************************************!*\
-  !*** ./resources/js/gallery_mansonry.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-/*
-    https://www.npmjs.com/package/justifiedGallery
-    http://miromannino.github.io/Justified-Gallery/
-    Options: http://miromannino.github.io/Justified-Gallery/options-and-events/
- */
-jQuery(document).ready(function () {
-  if ($('.lifeGallery').length > 0) {
-    $(".lifeGallery").justifiedGallery({
-      rowHeight: 180,
-      margins: 10
-    });
-  }
 });
 
 /***/ }),
@@ -119997,6 +120026,29 @@ $(document).ready(function () {
 
 /***/ }),
 
+/***/ "./resources/js/vendors/gallery_mansonry.js":
+/*!**************************************************!*\
+  !*** ./resources/js/vendors/gallery_mansonry.js ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/*
+    https://www.npmjs.com/package/justifiedGallery
+    http://miromannino.github.io/Justified-Gallery/
+    Options: http://miromannino.github.io/Justified-Gallery/options-and-events/
+ */
+jQuery(document).ready(function () {
+  if ($('.lifeGallery').length > 0) {
+    $(".lifeGallery").justifiedGallery({
+      rowHeight: 180,
+      margins: 10
+    });
+  }
+});
+
+/***/ }),
+
 /***/ "./resources/js/vendors/select2.js":
 /*!*****************************************!*\
   !*** ./resources/js/vendors/select2.js ***!
@@ -120019,6 +120071,28 @@ $(document).ready(function () {
   $(".select2-multiple").select2({
     placeholder: "Select one or more",
     width: '100%'
+  });
+});
+
+/***/ }),
+
+/***/ "./resources/js/vendors/slick_carousel.js":
+/*!************************************************!*\
+  !*** ./resources/js/vendors/slick_carousel.js ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  $('.testimonialsList').slick({
+    dots: true,
+    arrows: true,
+    infinite: true,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 6000,
+    pauseOnHover: true
   });
 });
 

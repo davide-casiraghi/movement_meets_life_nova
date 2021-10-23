@@ -38,6 +38,7 @@ mix.js('resources/js/app.js', 'public/js')
         'jquery',
         'alpinejs',
         'justifiedGallery',
+        'slick-carousel',
         '@fancyapps/fancybox',
         '@staaky/tipped',
     ]);
