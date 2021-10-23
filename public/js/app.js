@@ -120083,26 +120083,10 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-/*$(document).ready(function(){
-
-    // Create carousel
-    $('.testimonialsList').not('.slick-initialized').slick({
-        dots: true,
-        arrows: true,
-        infinite: true,
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 6000,
-        pauseOnHover: true
-    });
-});
-
- */
 // Create carousel
 function createTestimonialCarousel(numberOfSlides) {
   jQuery('.testimonialsList').not('.slick-initialized').slick({
-    dots: true,
+    dots: false,
     arrows: true,
     infinite: true,
     slidesToShow: numberOfSlides,
@@ -120142,7 +120126,7 @@ function calculateNumberOfSlidesToShow() {
 
 function reloadCarousel() {
   jQuery('.testimonialsList').slick('unslick');
-  numberOfSlides = calculateNumberOfSlidesToShow();
+  var numberOfSlides = calculateNumberOfSlidesToShow();
   createTestimonialCarousel(numberOfSlides);
 } // Call updateMaxHeight when browser resize event fires
 
@@ -120152,7 +120136,7 @@ jQuery(document).ready(function () {
   // Start carousel
   if (jQuery(".testimonialsList").length) {
     setTimeout(function () {
-      numberOfSlides = calculateNumberOfSlidesToShow();
+      var numberOfSlides = calculateNumberOfSlidesToShow();
       createTestimonialCarousel(numberOfSlides);
     }, 300);
   }

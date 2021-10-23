@@ -42,18 +42,15 @@ class HomeController extends Controller
     public function index()
     {
         $posts = $this->postService->getPosts();
-
         $videoIntro = $this->staticPageService->getStaticImageHtml('1');
-
         $lastPosts = $this->postService->getPosts(3, ['status' => 'published']);
-
         $testimonials = $this->testimonialService->getTestimonials(null, ['status' => 'published']);
-        $random = $testimonials->random(6);
+        //$random = $testimonials->random(6);
 
         return view('home', [
             'lastPosts' => $lastPosts,
             'videoIntro' => $videoIntro,
-            'testimonials' => $random,
+            'testimonials' => $testimonials,
             'quote' => $this->quoteService->getQuoteOfTheDay('frontend'),
         ]);
     }

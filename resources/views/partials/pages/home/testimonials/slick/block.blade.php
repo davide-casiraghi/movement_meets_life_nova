@@ -1,7 +1,7 @@
 
 
 
-<div class="mt-10 mx-4 mb-8">
+<div class="mt-10 mx-4 mb-12">
         <div class="text-center mt-28 mb-14 text-4xl tracking-tight leading-10 font-brand text-gray-900 sm:leading-none sm:text-6xl lg:text-4xl xl:text-5xl">
                 @lang('static_pages.home.blocks.testimonials.what_people_are_saying')
         </div>
@@ -29,9 +29,9 @@
 
 
                 @foreach($testimonials as $testimonial)
-                        <div class="mb-4 rounded-lg break-inside p-2">
-                                @include('partials.pages.home.testimonials.slick.block_testimonial')
-                        </div>
+                    <div class="mb-4 rounded-lg break-inside p-2">
+                        @include('partials.pages.home.testimonials.slick.block_testimonial')
+                    </div>
                 @endforeach
         </div>
 </div>
