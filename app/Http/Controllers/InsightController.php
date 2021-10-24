@@ -9,6 +9,7 @@ use App\Models\Insight;
 use App\Services\InsightService;
 use App\Services\TagService;
 use App\Traits\CheckPermission;
+use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
 
 class InsightController extends Controller
@@ -170,4 +171,22 @@ class InsightController extends Controller
 
         return back()->with('success', 'Insight tweeted successfully');
     }
+
+
+    /**
+     * Display a listing of the resource. (Insights feed)
+     *
+     * @return Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\View\View
+     */
+    public function feed()
+    {
+        $insights = $this->insightService->getInsights(5, [
+            'is_published' => 1,
+        ]);
+
+        return view('insights.feed', [
+            'insights' => $insights,
+        ]);
+    }
+
 }
