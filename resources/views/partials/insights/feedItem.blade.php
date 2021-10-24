@@ -29,7 +29,7 @@
                 </div>
                 <div class="mt-2 text-sm text-gray-700">
                     <p>
-                        {{$insight->body}}
+                        {!! $insight->body !!}
                     </p>
                 </div>
                 <div class="tags mt-2">
