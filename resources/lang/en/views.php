@@ -200,5 +200,6 @@ return [
     'post' => 'Post',
     'post_url' => 'Post url',
     'post_date' => 'Published on',
-    'public' => 'Public',
+    'insights_diary' => 'Insights diary',
+    'stream_of_insights' => 'My stream of meaningful insights from daily practices and encounters.',
 ];
