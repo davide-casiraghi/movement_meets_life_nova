@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\Insight;
+use Carbon\Carbon;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Config;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -82,6 +83,10 @@ class InsightRepository implements InsightRepositoryInterface
         $insight->title = $data['title'] ?? null;
         $insight->body = $data['body'] ?? null;
         $insight->is_published = (isset($data['is_published'])) ? 1 : 0;
+
+        if (isset($data['created_at'])) {
+            $insight->created_at = Carbon::createFromFormat('d/m/Y', $data['created_at']);
+        }
 
         $insight->facebook_body = $data['facebook_body'] ?? null;
         $insight->twitter_body = $data['twitter_body'] ?? null;

@@ -25,7 +25,6 @@
                     <p class="mt-0.5 text-sm text-gray-500">
                         {{$insight->created_at->format('M j, Y')}}
                     </p>
-
                 </div>
                 <div class="mt-2 text-sm text-gray-700">
                     <p>
