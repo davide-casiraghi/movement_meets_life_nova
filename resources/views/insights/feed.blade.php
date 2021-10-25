@@ -15,7 +15,7 @@
             </p>
         </div>
 
-        <div class="sm:w-10/12 md:w-8/12 m-auto">
+        <div class="insightsFeed sm:w-10/12 md:w-8/12 m-auto">
             <ul role="list" class="-mb-8 my-10 md:my-20">
                 @forelse($insights as $insight)
                     @include('partials.insights.feedItem')

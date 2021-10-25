@@ -1,5 +1,5 @@
 <li>
-    <div class="relative pb-16">
+    <div class="feedItem relative pb-16">
         {{--connecting line--}}
         @if (!$loop->last)
             <span class="absolute top-5 left-5 -ml-px h-full w-0.5 bg-gray-200" aria-hidden="true"></span>
@@ -20,8 +20,9 @@
             </div>
             <div class="min-w-0 flex-1">
                 <div>
-                    <div class="text-sm">
-                        <a href="#" class="font-medium text-gray-900">{{$insight->title}}</a>
+                    <div class="text-sm font-medium">
+                        {{--<a href="#" class="font-medium text-gray-900">{{$insight->title}}</a>--}}
+                        {{$insight->title}}
                     </div>
                     <p class="mt-0.5 text-sm text-gray-500">
                         {{$insight->created_at->format('M j, Y')}}

@@ -56,5 +56,13 @@
             @apply bg-transparent cursor-pointer text-primary-600 hover:text-primary-700;
         }
     }
+
+    .insightsFeed{
+        .feedItem{
+            a {
+                @apply bg-transparent cursor-pointer text-primary-600 hover:text-primary-700;
+            }
+        }
+    }
 }
 
