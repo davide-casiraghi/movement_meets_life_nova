@@ -2,25 +2,19 @@
 .lifeVideo {
   position: relative;
 
-
   .video-wrapper{
-    margin-top: 0px;
-
+    margin-top: 0;
 
     video{
       width: 100%;
       display: block;
 
-
       position: relative;
       z-index: 2;
-
 
       background-repeat: no-repeat;
       background-size: 30px 30px;
       background-position: center;
-
-
       background-image:  url("ajax-loader.gif")!important;
     }
   }
@@ -28,26 +22,15 @@
   .container{
     position: absolute;
     left: 50%;
-
-
     margin-left: 0 !important;
     transform: translate(-50%, -50%) !important;
-
-
     width: 80%;
-
-
     top: 35%;
     z-index: 4;
-
-
     color: white;
     text-align: center;
-
-
     font-size: 18px;
     line-height: 30px;
-
 
     h2{
       font-size: 36px;
@@ -58,7 +41,6 @@
   .bg-overlay{
     background:#282c37;
     opacity:0.5;
-
 
     width: 100%;
     position: absolute;
@@ -91,6 +73,5 @@
         margin: auto;
       }
     }*/
-
   }
 }
