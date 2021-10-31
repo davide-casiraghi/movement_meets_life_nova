@@ -26,18 +26,26 @@
 
 /* Arrows */
 .slick-prev:before, .slick-next:before {
-  color: #7a7a7a;
+  /*color: #7a7a7a;
   font-family: Font Awesome\ 5 Pro;
   font-weight: 400;
   font-style: normal;
-  font-size: 2rem;
+  font-size: 2rem;*/
+
+  background-image: url('../images/helpers/arrow-left.svg');
+  width: 16px;
+  height: 30px;
+  display: block;
+
+  content: "";
 }
 
 .slick-prev:before {
-  content: "\f104";
+  /*content: "\f104";*/
 }
 .slick-next:before {
-  content: "\f105";
+  /*content: "\f105";*/
+  transform: rotate(180deg);
 }
 
 .slick-dotted.slick-slider {
