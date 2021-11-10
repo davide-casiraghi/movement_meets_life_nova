@@ -35,7 +35,7 @@ class DatabaseBackupRepository
     {
         //return Storage::download('Laravel/'.$file_name);
 
-        $path = 'Laravel/'.$file_name;
+        $path = env('APP_NAME').'/'.$file_name;
         $zipNewName = $file_name;
         $headers = ['Content-Type: application/octet-stream'];
         //$headers = ["Content-Type"=>"application/zip"];
