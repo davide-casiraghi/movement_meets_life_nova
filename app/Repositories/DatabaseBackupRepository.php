@@ -15,7 +15,7 @@ class DatabaseBackupRepository
      */
     public function getAll(): array
     {
-        $fileNames = Storage::files("Laravel");
+        $fileNames = Storage::files(env('APP_NAME'));
         $backupFileNames = [];
         foreach($fileNames as $fileName){
             if (str_ends_with($fileName, '.zip')) {
@@ -52,6 +52,6 @@ class DatabaseBackupRepository
      */
     public function delete(string $file_name): void
     {
-        Storage::delete('Laravel/'.$file_name);
+        Storage::delete(env('APP_NAME').'/'.$file_name);
     }
 }
