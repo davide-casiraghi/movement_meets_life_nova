@@ -74,6 +74,7 @@
                 >
                     <a href="{{route('users.edit',Auth::id())}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Your Profile</a>
 
+                    <a href="{{route('databaseBackups.index')}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Database backups</a>
 
                     {{-- Logout button --}}
                     <a class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" href="{{ route('logout') }}"

@@ -35,6 +35,7 @@ use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VenueController;
 use App\Http\Controllers\MediaController;
+use App\Http\Controllers\DatabaseBackupsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -187,6 +188,13 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
     Route::name('medias.')->group(function () {
         Route::get('/medias', [MediaController::class, 'edit'])->name('edit');
         Route::put('/medias/{id}', [MediaController::class, 'update'])->name('update');
+    });
+
+    // Database backups (shows and allows to edit db backups created with Spatie db backup)
+    Route::name('databaseBackups.')->group(function () {
+        Route::get('/databaseBackups', [DatabaseBackupsController::class, 'index'])->name('index');
+        Route::get('/databaseBackups/{fileName}', [DatabaseBackupsController::class, 'download'])->name('download');
+        Route::delete('/databaseBackups/{fileName}', [DatabaseBackupsController::class, 'destroy'])->name('destroy');
     });
 
     Route::get('/search', [GlobalSearchController::class, 'index'])->name('globalSearch');
