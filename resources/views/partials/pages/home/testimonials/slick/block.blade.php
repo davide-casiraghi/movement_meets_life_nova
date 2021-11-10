@@ -6,7 +6,7 @@
 
     <div class="testimonialsList w-11/12 mx-auto"> {{-- w-11/12 means with 90% width to leave spaces for < > arrows--}}
         @foreach($testimonials as $testimonial)
-            <div class="mb-4 rounded-lg break-inside p-2">
+            <div class="mb-8 rounded-lg break-inside p-2">
                 @include('partials.pages.home.testimonials.slick.block_testimonial')
             </div>
         @endforeach

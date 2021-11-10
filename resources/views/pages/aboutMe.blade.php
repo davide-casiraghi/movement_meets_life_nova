@@ -101,13 +101,16 @@
                     [
                         'title' => 'My Dev stack',
                         'text' => "I'm a <b>Drupal Backend and Laravel TALL stack web developer</b>, with more than ten years of experience.<br><br>
-                        Currently, I am exploring Drupal 8, Laravel 8, Laravel Livewire, Tailwind CSS, PhpUnit.<br>
+                        Currently, I am exploring Drupal 7-8, Laravel 8, Laravel Livewire, Tailwind CSS, PhpUnit.<br>
                                     I'm an active member of <a href='https://stackoverflow.com/users/10075394/davide-casiraghi' class='textLink'>Stackoverflow</a>.<br><br>
 
                         <b>Education:</b> Bachelor of Science (Informatics).<br><br>
 
                         <b>Degree:</b>
-                        2006 (BSc) in Computer Science at <a href='https://www.www.unimib.it' class='textLink' target='_blank'>Università Degli Studi di Milano Bicocca</a>, Milano Italia.",
+                        2006 (BSc) in Computer Science at <a href='https://www.www.unimib.it' class='textLink' target='_blank'>Università Degli Studi di Milano Bicocca</a>, Milano Italia.<br><br>
+
+                        <b>Certification:</b> 2021 Laravel Certification at <a class='textLink' target='_blank' href='https://exam.laravelcert.com/is/davide-casiraghi/certified-since/2021-11-05'>Laravelcert.com</a>.<br><br>
+                        ",
                     ],
                 ]
             ])
