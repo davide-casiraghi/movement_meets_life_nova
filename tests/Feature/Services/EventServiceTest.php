@@ -95,14 +95,16 @@ class EventServiceTest extends TestCase
             'event_category_id' => 1,
             'repeat_type' => 1,
             'user_id' => 1,
-            'startDate' => '1/1/2020',
+            /*'startDate' => '1/1/2020',
             'endDate' => '3/1/2020',
             'timeStartHours' => '06',
             'timeStartMinutes' => '00',
             'timeStartAmpm' => 'pm',
             'timeEndHours' => '08',
             'timeEndMinutes' => '00',
-            'timeEndAmpm' => 'pm',
+            'timeEndAmpm' => 'pm',*/
+            'startDateAndTime' => '1/1/2020 06:00 PM',
+            'endDateAndTime' => '3/1/2020 08:00 PM',
         ];
         $request->merge($data);
 
@@ -125,14 +127,16 @@ class EventServiceTest extends TestCase
             'event_category_id' => 1,
             'repeat_type' => 1,
             'user_id' => 1,
-            'startDate' => '1/1/2020',
+            /*'startDate' => '1/1/2020',
             'endDate' => '3/1/2020',
             'timeStartHours' => '06',
             'timeStartMinutes' => '00',
             'timeStartAmpm' => 'pm',
             'timeEndHours' => '08',
             'timeEndMinutes' => '00',
-            'timeEndAmpm' => 'pm',
+            'timeEndAmpm' => 'pm',*/
+            'startDateAndTime' => '1/1/2020 06:00 PM',
+            'endDateAndTime' => '3/1/2020 08:00 PM',
         ];
         $request->merge($data);
 
@@ -157,14 +161,16 @@ class EventServiceTest extends TestCase
             'event_category_id' => 1,
             'repeat_type' => 2, // Weekly
             'user_id' => 1,
-            'startDate' => '11/01/2021',
+            /*'startDate' => '11/01/2021',
             'endDate' => '11/01/2021',
             'timeStartHours' => '06',
             'timeStartMinutes' => '00',
             'timeStartAmpm' => 'pm',
             'timeEndHours' => '08',
             'timeEndMinutes' => '00',
-            'timeEndAmpm' => 'pm',
+            'timeEndAmpm' => 'pm',*/
+            'startDateAndTime' => '1/1/2020 06:00 PM',
+            'endDateAndTime' => '3/1/2020 08:00 PM',
             "repeat_weekly_on" => [
                 2 => "on",
                 5 => "on",
@@ -221,14 +227,16 @@ class EventServiceTest extends TestCase
             'event_category_id' => 1,
             'repeat_type' => 3, // Monthly
             'user_id' => 1,
-            'startDate' => '1/01/2021',
+            /*'startDate' => '1/01/2021',
             'endDate' => '1/01/2021',
             'timeStartHours' => '06',
             'timeStartMinutes' => '00',
             'timeStartAmpm' => 'pm',
             'timeEndHours' => '08',
             'timeEndMinutes' => '00',
-            'timeEndAmpm' => 'pm',
+            'timeEndAmpm' => 'pm',*/
+            'startDateAndTime' => '1/1/2020 06:00 PM',
+            'endDateAndTime' => '3/1/2020 08:00 PM',
             "on_monthly_kind" => "1|1|5", // First Friday of the month
             'repeat_until' => '20/3/2021',
         ];
