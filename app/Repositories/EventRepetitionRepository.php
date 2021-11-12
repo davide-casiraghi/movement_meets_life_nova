@@ -43,6 +43,7 @@ class EventRepetitionRepository implements EventRepetitionRepositoryInterface
      */
     public function getFirstByEventId(int $eventId): EventRepetition
     {
+        //dd($eventId);
         return EventRepetition::select('id', 'start_repeat', 'end_repeat')
             ->where('event_id', '=', $eventId)
             ->first();

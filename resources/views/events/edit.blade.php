@@ -179,7 +179,7 @@
                 <div class="mt-5 md:mt-0 md:col-span-2">
 
                     {{-- Start date --}}
-                    <div class="grid grid-cols-6 gap-y-3 lg:gap-6">
+                    {{--<div class="grid grid-cols-6 gap-y-3 lg:gap-6">
                         <div class="col-span-6 lg:col-span-3">
                             @include('partials.forms.inputDatePicker',[
                                 'class' => 'datepicker all',
@@ -204,17 +204,17 @@
                                       'required' => true,
                                 ])
                         </div>
-                    </div>
+                    </div>--}}
 
                     {{-- End date --}}
-                    <div class="grid grid-cols-6 gap-y-3 lg:gap-6 mt-4 lg:mt-2">
+                    {{--<div class="grid grid-cols-6 gap-y-3 lg:gap-6 mt-4 lg:mt-2">
                         <div class="col-span-6 lg:col-span-3">
                             @include('partials.forms.inputDatePicker',[
                                     'class' => 'datepicker all',
                                     'label' => __('event.date_end'),
                                     'placeholder' => __('general.select_date'),
                                     'name' => 'endDate',
-                                    'value' => old('startDate', $eventDateTimeParameters['dateEnd']),
+                                    'value' => old('endDate', $eventDateTimeParameters['dateEnd']),
                                     'required' => true,
                                     'disabled' => false,
                                 ])
@@ -231,6 +231,33 @@
                                             ],
                                      'required' => true,
                                ])
+                        </div>
+                    </div>--}}
+
+                    <div class="grid grid-cols-6 gap-y-3 lg:gap-6 mt-4 lg:mt-2">
+                        <div class="col-span-6 lg:col-span-3">
+                            {{-- Start date and time --}}
+                            @include('partials.forms.inputFlatPickrDateTimePicker', [
+                                'class' => 'flatpickr dateTime future',
+                                'label' => __('event.date_start'),
+                                'placeholder' => __('views.select_date_and_time'),
+                                'name' => 'startDateAndTime',
+                                'value' => old('startDateAndTime', $eventDateTimeParameters['startDateAndTime']),
+                                'required' => true,
+                                'disabled' => false,
+                            ])
+                        </div>
+                        <div class="col-span-6 lg:col-span-3">
+                            {{-- End date and time --}}
+                            @include('partials.forms.inputFlatPickrDateTimePicker', [
+                                'class' => 'flatpickr dateTime future',
+                                'label' => __('event.date_end'),
+                                'placeholder' => __('views.select_date_and_time'),
+                                'name' => 'endDateAndTime',
+                                'value' => old('endDateAndTime', $eventDateTimeParameters['endDateAndTime']),
+                                'required' => true,
+                                'disabled' => false,
+                            ])
                         </div>
                     </div>
 
