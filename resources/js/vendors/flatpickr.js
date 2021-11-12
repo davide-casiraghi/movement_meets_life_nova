@@ -14,6 +14,7 @@ $(document).ready(function() {
         dateFormat: 'd/m/Y h:i K',
         enableTime: true,
         minDate: "today",
+        maxDate: new Date().fp_incr(365), // 365 days from now
         locale: {
             firstDayOfWeek: 1,
         }
