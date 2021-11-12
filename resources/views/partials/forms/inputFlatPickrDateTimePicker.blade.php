@@ -32,7 +32,7 @@
               placeholder="{{$placeholder}}"
               format="d-m-Y H:i"
               :options="['locale' => '{firstDayOfWeek: 3}']"
-              class="w-full inline shadow-sm sm:text-sm rounded-md border-gray-300 border-solid border p-2"
+              class="{{$class}} w-full inline shadow-sm sm:text-sm rounded-md border-gray-300 border-solid border p-2"
 />
 
 {{--:options="['dateFormat' => 'Y-m-d', 'time_24hr'=> 'true']"--}}
