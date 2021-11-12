@@ -19,6 +19,7 @@ return [
     'date_end' => 'Date End',
     'select_date' => 'Select date',
     'select_time' => 'Select time',
+    'select_date_and_time' => 'Select date and time',
     'time_start' => 'Time Start',
     'time_end' => 'Time End',
     'repeat_type' => 'Repeat type',

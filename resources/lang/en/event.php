@@ -13,6 +13,8 @@ return [
     'date_end' => 'Date End',
     'time_start' => 'Time Start',
     'time_end' => 'Time End',
+    'date_time_start' => 'Date and Time Start',
+    'date_time_end' => 'Date and Time End',
     'email_for_more_info' => 'Email for more info',
     'facebook_event' => 'Facebook event',
     'event_url' => 'Event URL',

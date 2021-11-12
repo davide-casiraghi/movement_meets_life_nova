@@ -37,6 +37,7 @@
         "alpinejs": "^2.7.3",
         "autoprefixer": "^10.0.2",
         "bootstrap-datepicker": "^1.9.0",
+        "flatpickr": "^4.6.9",
         "jquery": "^3.5.1",
         "justifiedGallery": "^3.8.1",
         "postcss": "^8.1.8",

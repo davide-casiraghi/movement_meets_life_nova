@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2a2b0272f05a57c1146749a06b59730a",
+    "content-hash": "0462b29387dcb03fdeb1f80d13b37cdb",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -178,16 +178,16 @@
         },
         {
             "name": "blade-ui-kit/blade-ui-kit",
-            "version": "0.3.1",
+            "version": "0.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/blade-ui-kit/blade-ui-kit.git",
-                "reference": "cb89908dffa4ae806fbbb711478043c70b153c0b"
+                "reference": "6de520bd54bf58b5bb655f5872f5d10922906520"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/blade-ui-kit/blade-ui-kit/zipball/cb89908dffa4ae806fbbb711478043c70b153c0b",
-                "reference": "cb89908dffa4ae806fbbb711478043c70b153c0b",
+                "url": "https://api.github.com/repos/blade-ui-kit/blade-ui-kit/zipball/6de520bd54bf58b5bb655f5872f5d10922906520",
+                "reference": "6de520bd54bf58b5bb655f5872f5d10922906520",
                 "shasum": ""
             },
             "require": {
@@ -254,7 +254,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-08-02T18:57:10+00:00"
+            "time": "2021-10-24T19:36:20+00:00"
         },
         {
             "name": "brick/math",

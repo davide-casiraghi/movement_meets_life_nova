@@ -39,7 +39,7 @@
     @endif
 
     {{-- Blade UI Kit styles --}}
-        {{--  @bukStyles --}}
+          {{-- @bukStyles --}}
     {{-- End Blade UI Kit styles --}}
 </head>
 
@@ -82,7 +82,7 @@
     @stack('modals')
 
     {{--  Blade UI Kit scripts --}}
-        {{--  @bukScripts--}}
+        {{-- @bukScripts --}}
     {{--  End Blade UI Kit scripts --}}
 </body>
 

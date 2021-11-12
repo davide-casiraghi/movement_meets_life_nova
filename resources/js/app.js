@@ -8,6 +8,7 @@ require('bootstrap-datepicker');
 require('select2');
 require('slick-carousel');
 require('livewire-sortable')
+require('flatpickr')
 //require('trix');
 
 // Load my scripts related to vendor libraries
@@ -20,6 +21,7 @@ require('./video_embed');
 require('./vendors/gallery_mansonry');
 require('./vendors/bootstrap-datepicker');
 require('./vendors/staaky_tipped');
+require('./vendors/flatpickr');
 
 // Helpers
 require('./snippets/accordion');

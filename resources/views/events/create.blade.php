@@ -230,6 +230,32 @@
                         </div>
                     </div>
 
+
+                    <div class="grid grid-cols-6 gap-y-3 lg:gap-6 mt-4 lg:mt-2">
+                        <div class="col-span-6 lg:col-span-3">
+                            @include('partials.forms.inputFlatPickrDateTimePicker', [
+                                'class' => '',
+                                'label' => __('event.date_start'),
+                                'placeholder' => __('views.select_date_and_time'),
+                                'name' => 'startDateAndTime',
+                                'value' => old('startDateAndTime'),
+                                'required' => true,
+                                'disabled' => false,
+                            ])
+                        </div>
+                        <div class="col-span-6 lg:col-span-3">
+                            @include('partials.forms.inputFlatPickrDateTimePicker', [
+                                'class' => '',
+                                'label' => __('event.date_end'),
+                                'placeholder' => __('views.select_date_and_time'),
+                                'name' => 'endDateAndTime',
+                                'value' => old('endDateAndTime'),
+                                'required' => true,
+                                'disabled' => false,
+                            ])
+                        </div>
+                    </div>
+
                     {{-- Repeat type --}}
                     @include('partials.events.repeat-event')
 
