@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Services\DatabaseBackupService;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class DatabaseBackupsController extends Controller
 {
@@ -35,20 +35,18 @@ class DatabaseBackupsController extends Controller
      * Download db backup file.
      *
      * @param  string  $databaseBackupFileName
+     * @return StreamedResponse
      */
-    public function download(string $databaseBackupFileName)
+    public function download(string $databaseBackupFileName): StreamedResponse
     {
-        $this->databaseBackupService->downloadDbBackupFile($databaseBackupFileName);
-
-        /*return redirect()->route('databaseBackups.index')
-            ->with('success', 'Database backups downloaded successfully');*/
+        return $this->databaseBackupService->downloadDbBackupFile($databaseBackupFileName);
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  string  $databaseBackupFileName
-     * @return \Illuminate\Http\RedirectResponse
+     * @return RedirectResponse
      */
     public function destroy(string $databaseBackupFileName): RedirectResponse
     {

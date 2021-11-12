@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Repositories\DatabaseBackupRepository;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class DatabaseBackupService
 {
@@ -33,10 +34,11 @@ class DatabaseBackupService
      * Download the db backup file
      *
      * @param  string  $fileName
+     * @return StreamedResponse
      */
-    public function downloadDbBackupFile(string $fileName): void
+    public function downloadDbBackupFile(string $fileName): StreamedResponse
     {
-        $this->databaseBackupRepository->downloadFile($fileName);
+        return $this->databaseBackupRepository->downloadFile($fileName);
     }
 
     /**

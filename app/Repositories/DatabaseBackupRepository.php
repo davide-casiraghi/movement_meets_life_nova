@@ -30,18 +30,11 @@ class DatabaseBackupRepository
      * Download db backup file
      *
      * @param $file_name
+     * @return StreamedResponse
      */
-    function downloadFile(string $file_name)
+    function downloadFile(string $file_name): StreamedResponse
     {
-        //return Storage::download('Laravel/'.$file_name);
-
-        $path = env('APP_NAME').'/'.$file_name;
-        $zipNewName = $file_name;
-        $headers = ['Content-Type: application/octet-stream'];
-        //$headers = ["Content-Type"=>"application/zip"];
-        return Storage::download($path, $zipNewName, $headers);
-
-        //return response()->download(storage_path('/app/Laravel/'. $file_name));
+        return Storage::download(env('APP_NAME').'/'.$file_name);
     }
 
     /**
