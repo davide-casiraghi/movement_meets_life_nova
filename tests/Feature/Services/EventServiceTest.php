@@ -324,18 +324,21 @@ class EventServiceTest extends TestCase
 
         $eventDateTimeParameters = $this->eventService->getEventDateTimeParameters($event, $eventFirstRepetition);
 
-        $this->assertArrayHasKey('dateStart', $eventDateTimeParameters);
-        $this->assertArrayHasKey('dateEnd', $eventDateTimeParameters);
+        /*$this->assertArrayHasKey('dateStart', $eventDateTimeParameters);
+        $this->assertArrayHasKey('dateEnd', $eventDateTimeParameters);*/
 
         //$this->assertArrayHasKey('timeStart', $eventDateTimeParameters);
         //$this->assertArrayHasKey('timeEnd', $eventDateTimeParameters);
 
-        $this->assertArrayHasKey('timeStartHours', $eventDateTimeParameters);
+        /*$this->assertArrayHasKey('timeStartHours', $eventDateTimeParameters);
         $this->assertArrayHasKey('timeStartMinutes', $eventDateTimeParameters);
         $this->assertArrayHasKey('timeStartAmpm', $eventDateTimeParameters);
         $this->assertArrayHasKey('timeEndHours', $eventDateTimeParameters);
         $this->assertArrayHasKey('timeEndMinutes', $eventDateTimeParameters);
-        $this->assertArrayHasKey('timeEndAmpm', $eventDateTimeParameters);
+        $this->assertArrayHasKey('timeEndAmpm', $eventDateTimeParameters);*/
+
+        $this->assertArrayHasKey('startDateAndTime', $eventDateTimeParameters);
+        $this->assertArrayHasKey('endDateAndTime', $eventDateTimeParameters);
 
         $this->assertArrayHasKey('repeatUntil', $eventDateTimeParameters);
         $this->assertArrayHasKey('multipleDates', $eventDateTimeParameters);
