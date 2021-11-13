@@ -269,6 +269,7 @@
     </div>
 
     <div class="hidden repeatUntilSelector mt-4">
+        {{--
         @include('partials.forms.inputDatePicker', [
                   'class' => 'datepicker all',
                   'label' => __('event.repeat_until'),
@@ -281,6 +282,17 @@
                   'required' => true,
                   'disabled' => false,
             ])
+            --}}
+        @include('partials.forms.inputFlatPickrDateTimePicker', [
+            'class' => 'flatpickr date all',
+            'label' => __('event.repeat_until'),
+            'placeholder' => __('views.select_date_and_time'),
+            'name' => 'repeat_until',
+            //'value' => old('repeatUntil', $eventDateTimeParameters['repeatUntil']),
+            'value' => $eventDateTimeParameters['repeatUntil'],
+            'required' => true,
+            'disabled' => false,
+        ])
     </div>
 
 

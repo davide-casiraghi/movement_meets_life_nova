@@ -2,6 +2,21 @@ $(document).ready(function() {
 
     // Check the options available: https://flatpickr.js.org/examples/
 
+    $('.flatpickr.date.all').flatpickr({
+        dateFormat: 'd/m/Y',
+        locale: {
+            firstDayOfWeek: 1,
+        }
+    });
+
+    $('.flatpickr.date.future').flatpickr({
+        dateFormat: 'd/m/Y',
+        minDate: "today",
+        locale: {
+            firstDayOfWeek: 1,
+        }
+    });
+
     $('.flatpickr.dateTime.all').flatpickr({
         dateFormat: 'd/m/Y h:i K',
         enableTime: true,
