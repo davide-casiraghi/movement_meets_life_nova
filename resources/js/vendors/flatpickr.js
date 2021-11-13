@@ -5,6 +5,7 @@ $(document).ready(function() {
     $('.flatpickr.dateTime.all').flatpickr({
         dateFormat: 'd/m/Y h:i K',
         enableTime: true,
+        minuteIncrement: 15,
         locale: {
             firstDayOfWeek: 1,
         }
@@ -13,6 +14,7 @@ $(document).ready(function() {
     $('.flatpickr.dateTime.future').flatpickr({
         dateFormat: 'd/m/Y h:i K',
         enableTime: true,
+        minuteIncrement: 15,
         minDate: "today",
         maxDate: new Date().fp_incr(365), // 365 days from now
         locale: {
@@ -23,6 +25,7 @@ $(document).ready(function() {
     $('.flatpickr.dateTime.past').flatpickr({
         dateFormat: 'd/m/Y h:i K',
         enableTime: true,
+        minuteIncrement: 15,
         maxDate: "today",
         locale: {
             firstDayOfWeek: 1,
@@ -30,7 +33,7 @@ $(document).ready(function() {
     });
 
     $('.flatpickr.date.multiple').flatpickr({
-        dateFormat: 'd/m/Y h:i K',
+        dateFormat: 'd/m/Y',
         mode: "multiple",
         enableTime: false,
         minDate: "today",
