@@ -11,6 +11,7 @@
         "php": "^7.4|^8.0",
         "ext-gd": "*",
         "ext-json": "*",
+        "andreiio/blade-remix-icon": "^1.0",
         "blade-ui-kit/blade-ui-kit": "^0.3.2",
         "composer/composer": "2.1.9",
         "composer/xdebug-handler": "^2.0",
