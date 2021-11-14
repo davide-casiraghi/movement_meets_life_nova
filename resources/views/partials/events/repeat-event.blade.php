@@ -106,7 +106,7 @@
         var request = $.ajax({
             url: "/event/monthSelectOptions",
             data: {
-                day: $("input[name='startDate']").val()
+                day: $("input[name='startDateAndTime']").val()
             },
             success: function( data ) {
                 $("#on_monthly_kind").html(data);
