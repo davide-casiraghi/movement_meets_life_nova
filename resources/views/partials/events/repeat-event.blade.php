@@ -24,8 +24,7 @@
     });
 
     {{-- UPDATE monthly select options every time the start date is changed --}}
-    $("input[name='startDate']").change(function(){
-    //alert('aaa');
+    $("input[name='startDateAndTime']").change(function(){
         updateMonthlySelectOptions();
     });
 
@@ -64,22 +63,37 @@
                 forceSameDateStartEnd();
             break;
         }
-
     }
 
     {{-- Force the same date start and end (this is to avoid mistakes of the users that set date end to the end of repetition) --}}
     function forceSameDateStartEnd(){
-        var dateStart = $("input[name='startDate']").val();
-        $("input[name='endDate']").val(dateStart);
-        $("input[name='endDate']").datepicker('destroy');
+        var dateStart = $("input[name='startDateAndTime']").val();
+        $("input[name='endDateAndTime']").val(dateStart);
+        var endDateFlatPicker = flatpickr("input[name='endDateAndTime']", {
+            enableTime: true,
+            dateFormat: 'd/m/Y h:i K',
+            minuteIncrement: 15,
+            minDate: "today",
+            maxDate: new Date().fp_incr(365), // 365 days from now
+            locale: {
+                firstDayOfWeek: 1,
+            }
+        });
+        endDateFlatPicker.setDate(dateStart, false, "d/m/Y h:i K");
     }
 
     {{-- Re-create the datepicker_end_date that has been destroyed in case of repetition --}}
     function recreateDateEnd(){
         var today = new Date();
-        $("input[name='endDate']").datepicker({
-            format: 'dd/mm/yyyy',
-            startDate: today
+        $("input[name='endDateAndTime']").flatpickr({
+            dateFormat: 'd/m/Y h:i K',
+            enableTime: true,
+            minuteIncrement: 15,
+            minDate: "today",
+            maxDate: new Date().fp_incr(365), // 365 days from now
+            locale: {
+                firstDayOfWeek: 1,
+            }
         });
     }
 
@@ -288,8 +302,7 @@
             'label' => __('event.repeat_until'),
             'placeholder' => __('views.select_date_and_time'),
             'name' => 'repeat_until',
-            //'value' => old('repeatUntil', $eventDateTimeParameters['repeatUntil']),
-            'value' => $eventDateTimeParameters['repeatUntil'],
+            'value' => old('repeat_until', $eventDateTimeParameters['repeatUntil']),
             'required' => true,
             'disabled' => false,
         ])
