@@ -110,8 +110,6 @@
             },
             success: function( data ) {
                 $("#on_monthly_kind").html(data);
-                //$("#on_monthly_kind").selectpicker('refresh');
-                //$("#on_monthly_kind").selectpicker('val', monthlyOnSelected);
             }
         });
 
