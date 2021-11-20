@@ -88,7 +88,7 @@
                         <div class="col-span-6">
 
                             @livewire('add-organizer', [
-                            'organizer' => $organizers,
+                            'organizers' => $organizers,
                             'selected' => null,
                             ])
 
