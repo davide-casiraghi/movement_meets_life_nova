@@ -97,14 +97,8 @@ class EventServiceTest extends TestCase
             'user_id' => 1,
             'startDate' => '1/1/2020',
             'endDate' => '3/1/2020',
-            'timeStartHours' => '06',
-            'timeStartMinutes' => '00',
-            'timeStartAmpm' => 'PM',
-            'timeEndHours' => '08',
-            'timeEndMinutes' => '00',
-            'timeEndAmpm' => 'PM',
-            /*'startDateAndTime' => '1/1/2020 06:00 PM',
-            'endDateAndTime' => '3/1/2020 08:00 PM',*/
+            'startTime' => '06:00 PM',
+            'endTime' => '08:00 PM',
         ];
         $request->merge($data);
 
@@ -129,14 +123,8 @@ class EventServiceTest extends TestCase
             'user_id' => 1,
             'startDate' => '1/1/2020',
             'endDate' => '3/1/2020',
-            'timeStartHours' => '06',
-            'timeStartMinutes' => '00',
-            'timeStartAmpm' => 'PM',
-            'timeEndHours' => '08',
-            'timeEndMinutes' => '00',
-            'timeEndAmpm' => 'PM',
-            /*'startDateAndTime' => '1/1/2020 06:00 PM',
-            'endDateAndTime' => '3/1/2020 08:00 PM',*/
+            'startTime' => '06:00 PM',
+            'endTime' => '08:00 PM',
         ];
         $request->merge($data);
 
@@ -163,14 +151,8 @@ class EventServiceTest extends TestCase
             'user_id' => 1,
             'startDate' => '11/01/2021',
             'endDate' => '11/01/2021',
-            'timeStartHours' => '06',
-            'timeStartMinutes' => '00',
-            'timeStartAmpm' => 'PM',
-            'timeEndHours' => '08',
-            'timeEndMinutes' => '00',
-            'timeEndAmpm' => 'PM',
-            /*'startDateAndTime' => '1/1/2020 06:00 PM',
-            'endDateAndTime' => '3/1/2020 08:00 PM',*/
+            'startTime' => '06:00 PM',
+            'endTime' => '08:00 PM',
             "repeat_weekly_on" => [
                 2 => "on",
                 5 => "on",
@@ -229,14 +211,8 @@ class EventServiceTest extends TestCase
             'user_id' => 1,
             'startDate' => '1/01/2021',
             'endDate' => '1/01/2021',
-            'timeStartHours' => '06',
-            'timeStartMinutes' => '00',
-            'timeStartAmpm' => 'PM',
-            'timeEndHours' => '08',
-            'timeEndMinutes' => '00',
-            'timeEndAmpm' => 'PM',
-            /*'startDateAndTime' => '1/1/2020 06:00 PM',
-            'endDateAndTime' => '3/1/2020 08:00 PM',*/
+            'startTime' => '06:00 PM',
+            'endTime' => '08:00 PM',
             "on_monthly_kind" => "1|1|5", // First Friday of the month
             'repeat_until' => '20/3/2021',
         ];
@@ -324,21 +300,10 @@ class EventServiceTest extends TestCase
 
         $eventDateTimeParameters = $this->eventService->getEventDateTimeParameters($event, $eventFirstRepetition);
 
-        /*$this->assertArrayHasKey('dateStart', $eventDateTimeParameters);
-        $this->assertArrayHasKey('dateEnd', $eventDateTimeParameters);*/
-
-        //$this->assertArrayHasKey('timeStart', $eventDateTimeParameters);
-        //$this->assertArrayHasKey('timeEnd', $eventDateTimeParameters);
-
-        $this->assertArrayHasKey('timeStartHours', $eventDateTimeParameters);
-        $this->assertArrayHasKey('timeStartMinutes', $eventDateTimeParameters);
-        $this->assertArrayHasKey('timeStartAmpm', $eventDateTimeParameters);
-        $this->assertArrayHasKey('timeEndHours', $eventDateTimeParameters);
-        $this->assertArrayHasKey('timeEndMinutes', $eventDateTimeParameters);
-        $this->assertArrayHasKey('timeEndAmpm', $eventDateTimeParameters);
-
-        //$this->assertArrayHasKey('startDateAndTime', $eventDateTimeParameters);
-        //$this->assertArrayHasKey('endDateAndTime', $eventDateTimeParameters);
+        $this->assertArrayHasKey('startDate', $eventDateTimeParameters);
+        $this->assertArrayHasKey('endDate', $eventDateTimeParameters);
+        $this->assertArrayHasKey('startTime', $eventDateTimeParameters);
+        $this->assertArrayHasKey('endTime', $eventDateTimeParameters);
 
         $this->assertArrayHasKey('repeatUntil', $eventDateTimeParameters);
         $this->assertArrayHasKey('multipleDates', $eventDateTimeParameters);
