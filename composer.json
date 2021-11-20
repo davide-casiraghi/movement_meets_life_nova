@@ -43,7 +43,7 @@
         "spatie/laravel-honeypot": "^4.0",
         "spatie/laravel-medialibrary": "^9.0.0",
         "spatie/laravel-model-status": "^1.10",
-        "spatie/laravel-permission": "^3.18",
+        "spatie/laravel-permission": "~5.4.0",
         "spatie/laravel-ray": "^1.9",
         "spatie/laravel-searchable": "^1.9",
         "spatie/laravel-sitemap": "6.0.5",
