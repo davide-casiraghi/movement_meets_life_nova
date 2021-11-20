@@ -94,13 +94,16 @@ class EventRepetitionRepository implements EventRepetitionRepositoryInterface
     public function updateEventRepetitions(array $data, int $eventId): void
     {
         self::deletePreviousRepetitions($eventId);
-        //dump($data);
+        //dd($data);
 
         //$timeStart = date('H:i:s', strtotime($data['timeStartHours'].':'.$data['timeStartMinutes'].' '.$data['timeStartAmpm']));
         //$timeEnd = date('H:i:s', strtotime($data['timeEndHours'].':'.$data['timeEndMinutes'].' '.$data['timeEndAmpm']));
 
-        $timeStart = date('H:i:s', strtotime(explode(' ', $data['startDateAndTime'], 2)[1]));
-        $timeEnd = date('H:i:s', strtotime(explode(' ', $data['endDateAndTime'], 2)[1]));
+        $timeStart = date('H:i:s',strtotime($data['startTime']));
+        $timeEnd = date('H:i:s',strtotime($data['endTime']));
+        //dd($timeStart);
+        //$timeStart = date('H:i:s', strtotime(explode(' ', $data['startDateAndTime'], 2)[1]));
+        //$timeEnd = date('H:i:s', strtotime(explode(' ', $data['endDateAndTime'], 2)[1]));
 
         //dd($timeStart2);
 
@@ -109,11 +112,11 @@ class EventRepetitionRepository implements EventRepetitionRepositoryInterface
                 $eventRepetition = new EventRepetition();
                 $eventRepetition->event_id = $eventId;
 
-                //$dateStart = implode('-', array_reverse(explode('/', $data['startDate'])));
-                $dateStart = implode('-', array_reverse(explode('/', strtok($data['startDateAndTime'],  ' '))));
+                $dateStart = implode('-', array_reverse(explode('/', $data['startDate'])));
+                //$dateStart = implode('-', array_reverse(explode('/', strtok($data['startDateAndTime'],  ' '))));
 
-                //$dateEnd = implode('-', array_reverse(explode('/', $data['endDate'])));
-                $dateEnd = implode('-', array_reverse(explode('/', strtok($data['endDateAndTime'],  ' '))));
+                $dateEnd = implode('-', array_reverse(explode('/', $data['endDate'])));
+                //$dateEnd = implode('-', array_reverse(explode('/', strtok($data['endDateAndTime'],  ' '))));
 
                 $eventRepetition->start_repeat = $dateStart . ' ' . $timeStart;
                 $eventRepetition->end_repeat = $dateEnd . ' ' . $timeEnd;
@@ -123,8 +126,8 @@ class EventRepetitionRepository implements EventRepetitionRepositoryInterface
 
             case '2':   // repeatWeekly
                 // Convert the start date in a format that can be used for strtotime
-                //$startDate = implode('-', array_reverse(explode('/', $data['startDate'])));
-                $startDate = implode('-', array_reverse(explode('/', strtok($data['startDateAndTime'],  ' '))));
+                $startDate = implode('-', array_reverse(explode('/', $data['startDate'])));
+                //$startDate = implode('-', array_reverse(explode('/', strtok($data['startDateAndTime'],  ' '))));
 
                 // Calculate repeat until day
                 $repeatUntilDate = implode('-', array_reverse(explode('/', $data['repeat_until'])));
@@ -134,8 +137,8 @@ class EventRepetitionRepository implements EventRepetitionRepositoryInterface
 
             case '3':  //repeatMonthly
                 // Same of repeatWeekly
-                //$startDate = implode('-', array_reverse(explode('/', $data['startDate'])));
-                $startDate = implode('-', array_reverse(explode('/', strtok($data['startDateAndTime'],  ' '))));
+                $startDate = implode('-', array_reverse(explode('/', $data['startDate'])));
+                //$startDate = implode('-', array_reverse(explode('/', strtok($data['startDateAndTime'],  ' '))));
                 $repeatUntilDate = implode('-', array_reverse(explode('/', $data['repeat_until'])));
 
                 // Get the array with month repeat details
@@ -146,8 +149,8 @@ class EventRepetitionRepository implements EventRepetitionRepositoryInterface
 
             case '4':  //repeatMultipleDays
                 // Same of repeatWeekly
-                //$startDate = implode('-', array_reverse(explode('/', $data['startDate'])));
-                $startDate = implode('-', array_reverse(explode('/', strtok($data['startDateAndTime'],  ' '))));
+                $startDate = implode('-', array_reverse(explode('/', $data['startDate'])));
+                //$startDate = implode('-', array_reverse(explode('/', strtok($data['startDateAndTime'],  ' '))));
 
                 // Get the array with single day repeat details
                 $singleDaysRepeatDatas = explode(',', $data['multiple_dates']);

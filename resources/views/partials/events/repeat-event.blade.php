@@ -24,7 +24,7 @@
     });
 
     {{-- UPDATE monthly select options every time the start date is changed --}}
-    $("input[name='startDateAndTime']").change(function(){
+    $("input[name='startDate']").change(function(){
         updateMonthlySelectOptions();
     });
 
@@ -67,11 +67,10 @@
 
     {{-- Force the same date start and end (this is to avoid mistakes of the users that set date end to the end of repetition) --}}
     function forceSameDateStartEnd(){
-        var dateStart = $("input[name='startDateAndTime']").val();
-        $("input[name='endDateAndTime']").val(dateStart);
-        var endDateFlatPicker = flatpickr("input[name='endDateAndTime']", {
-            enableTime: true,
-            dateFormat: 'd/m/Y h:i K',
+        var dateStart = $("input[name='startDate']").val();
+        var endDateFlatPicker = flatpickr("input[name='endDate']", {
+            enableTime: false,
+            dateFormat: 'd/m/Y',
             minuteIncrement: 15,
             minDate: "today",
             maxDate: new Date().fp_incr(365), // 365 days from now
@@ -80,15 +79,15 @@
                 firstDayOfWeek: 1,
             }
         });
-        endDateFlatPicker.setDate(dateStart, false, "d/m/Y h:i K");
+        endDateFlatPicker.setDate(dateStart, false, "d/m/Y");
     }
 
     {{-- Re-create the datepicker_end_date that has been destroyed in case of repetition --}}
     function recreateDateEnd(){
         var today = new Date();
-        $("input[name='endDateAndTime']").flatpickr({
-            dateFormat: 'd/m/Y h:i K',
-            enableTime: true,
+        $("input[name='endDate']").flatpickr({
+            dateFormat: 'd/m/Y',
+            enableTime: false,
             minuteIncrement: 15,
             minDate: "today",
             maxDate: new Date().fp_incr(365), // 365 days from now
@@ -106,7 +105,7 @@
         var request = $.ajax({
             url: "/event/monthSelectOptions",
             data: {
-                day: $("input[name='startDateAndTime']").val()
+                day: $("input[name='startDate']").val()
             },
             success: function( data ) {
                 $("#on_monthly_kind").html(data);

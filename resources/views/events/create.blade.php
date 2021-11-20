@@ -230,10 +230,62 @@
                         </div>
                     </div>--}}
 
+                    {{-- Start date --}}
+                    <div class="grid grid-cols-6 gap-y-3 lg:gap-6">
+                        <div class="col-span-6 lg:col-span-3">
+                            @include('partials.forms.inputFlatPickrDatePicker', [
+                                'class' => 'flatpickr date future',
+                                'label' => __('event.date_start'),
+                                'placeholder' => __('views.select_date_and_time'),
+                                'name' => 'startDate',
+                                'value' => old('startDate'),
+                                'required' => true,
+                                'disabled' => false,
+                            ])
+                        </div>
+                        <div class="col-span-6 lg:col-span-3">
+                            @include('partials.forms.inputFlatPickrTimePicker', [
+                               'class' => 'flatpickr justTime',
+                               'label' => __('event.time_start'),
+                               'placeholder' => __('views.select_time'),
+                               'name' => 'startTime',
+                               'value' => old('startTime'),
+                               'required' => true,
+                               'disabled' => false,
+                           ])
+                        </div>
+                    </div>
 
+                    {{-- End date --}}
                     <div class="grid grid-cols-6 gap-y-3 lg:gap-6 mt-4 lg:mt-2">
                         <div class="col-span-6 lg:col-span-3">
-                            {{-- Start date and time --}}
+                            @include('partials.forms.inputDatePicker',[
+                                    'class' => 'flatpickr date future',
+                                    'label' => __('event.date_end'),
+                                    'placeholder' => __('general.select_date'),
+                                    'name' => 'endDate',
+                                    'value' => old('endDate'),
+                                    'required' => true,
+                                    'disabled' => false,
+                                ])
+                        </div>
+                        <div class="col-span-6 lg:col-span-3">
+                            @include('partials.forms.inputFlatPickrTimePicker', [
+                               'class' => 'flatpickr justTime',
+                               'label' => __('event.time_end'),
+                               'placeholder' => __('views.select_time'),
+                               'name' => 'endTime',
+                               'value' => old('endTime'),
+                               'required' => true,
+                               'disabled' => false,
+                           ])
+                        </div>
+                    </div>
+
+                    {{--
+                    <div class="grid grid-cols-6 gap-y-3 lg:gap-6 mt-4 lg:mt-2">
+                        <div class="col-span-6 lg:col-span-3">
+                            <!-- Start date and time -->
                             @include('partials.forms.inputFlatPickrDateTimePicker', [
                                 'class' => 'flatpickr dateTime future',
                                 'label' => __('event.date_start'),
@@ -245,7 +297,7 @@
                             ])
                         </div>
                         <div class="col-span-6 lg:col-span-3">
-                            {{-- End date and time --}}
+                            <!-- End date and time -->
                             @include('partials.forms.inputFlatPickrDateTimePicker', [
                                 'class' => 'flatpickr dateTime future',
                                 'label' => __('event.date_end'),
@@ -257,6 +309,7 @@
                             ])
                         </div>
                     </div>
+                    --}}
 
                     {{-- Repeat type --}}
                     @include('partials.events.repeat-event')

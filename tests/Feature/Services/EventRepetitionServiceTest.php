@@ -85,16 +85,16 @@ class EventRepetitionServiceTest extends TestCase
             'event_category_id' => 1,
             'repeat_type' => 1,
             'user_id' => 1,
-            /*'startDate' => '1/1/2020',
+            'startDate' => '1/1/2020',
             'endDate' => '3/1/2020',
             'timeStartHours' => '06',
             'timeStartMinutes' => '00',
-            'timeStartAmpm' => 'pm',
+            'timeStartAmpm' => 'PM',
             'timeEndHours' => '08',
             'timeEndMinutes' => '00',
-            'timeEndAmpm' => 'pm',*/
-            'startDateAndTime' => '1/1/2020 06:00 PM',
-            'endDateAndTime' => '3/1/2020 08:00 PM',
+            'timeEndAmpm' => 'PM',
+            //'startDateAndTime' => '1/1/2020 06:00 PM',
+            //'endDateAndTime' => '3/1/2020 08:00 PM',
         ];
         $request->merge($data);
 

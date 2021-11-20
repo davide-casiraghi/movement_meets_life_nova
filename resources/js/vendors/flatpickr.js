@@ -17,6 +17,14 @@ $(document).ready(function() {
         }
     });
 
+    $('.flatpickr.date.past').flatpickr({
+        dateFormat: 'd/m/Y',
+        maxDate: "today",
+        locale: {
+            firstDayOfWeek: 1,
+        }
+    });
+
     $('.flatpickr.dateTime.all').flatpickr({
         dateFormat: 'd/m/Y h:i K',
         enableTime: true,
@@ -45,6 +53,13 @@ $(document).ready(function() {
         locale: {
             firstDayOfWeek: 1,
         }
+    });
+
+    $('.flatpickr.justTime').flatpickr({
+        dateFormat: 'h:i K',
+        enableTime: true,
+        noCalendar: true,
+        minuteIncrement: 15,
     });
 
     $('.flatpickr.date.multiple').flatpickr({
