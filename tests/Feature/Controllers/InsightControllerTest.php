@@ -207,7 +207,7 @@ class InsightControllerTest extends TestCase
 
         $response->assertStatus(302);
         $response->assertRedirect('/insights');
-        $this->assertDeleted($this->insight1);
+        $this->assertModelMissing($this->insight1);
     }
 
     /** @test */
