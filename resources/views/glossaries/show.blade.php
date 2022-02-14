@@ -19,7 +19,7 @@
 
 @section('content')
 
-    <div class="text-lg max-w-prose mx-auto mb-6 mt-6 easyRead">
+    <div class="text-lg max-w-prose mx-auto mb-6 mt-6 easyRead px-8 md:px-0">
 
         <h2 class="text-gray-900 text-3xl">
             {{$titleQuestion}}
