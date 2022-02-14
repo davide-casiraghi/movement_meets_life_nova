@@ -67,7 +67,7 @@ var editor_config = {
 
     image_class_list: [
         { title: 'Left', value: '' },
-        { title: 'Right', value: 'float-left w-full md:w-6/12 md:float-right' }
+        { title: 'Right', value: 'float-left w-full md:w-6/12 md:float-right mb-6' }
     ],
 
     // Add styles to align right the image in the editor
