@@ -19,16 +19,17 @@
 
 @section('content')
 
-    <div class="text-lg max-w-prose mx-auto mb-6 mt-6">
+    <div class="text-lg max-w-prose mx-auto mb-6 mt-6 easyRead">
 
         <h2 class="text-gray-900 text-3xl">
             {{$titleQuestion}}
         </h2>
 
-        <div class="mt-6 text-gray-700 text-lg">
+        <div class="font-avenir text-2xl leading-9 text-gray-700 mb-5">
             {{$glossaryTerm->definition}}
         </div>
-        <div class="text-gray-500 mt-4 text-lg">
+
+        <div class="easyRead font-avenir text-gray-900 text-xl mb-10 leading-9">
             {!!$glossaryTerm->body!!}
         </div>
 
