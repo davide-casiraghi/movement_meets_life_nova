@@ -43,6 +43,11 @@
                         </a>
                     @endforeach
                 </div>
+                <div class="mt-4">
+                    @if($insight->hasMedia('introimage'))
+                        <img class="w-full m-auto mb-4" src="{{$insight->getMedia('introimage')[0]->getUrl()}}" alt="insight image">
+                    @endif
+                </div>
             </div>
         </div>
     </div>

@@ -9,8 +9,8 @@ use App\Models\Insight;
 use App\Services\InsightService;
 use App\Services\TagService;
 use App\Traits\CheckPermission;
-use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\View\View;
 
 class InsightController extends Controller
 {
@@ -35,9 +35,9 @@ class InsightController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @param \App\Http\Requests\InsightSearchRequest $request
+     * @param  InsightSearchRequest  $request
      *
-     * @return \Illuminate\Http\Response
+     * @return View
      */
     public function index(InsightSearchRequest $request)
     {
@@ -58,7 +58,7 @@ class InsightController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return View
      */
     public function create()
     {
@@ -74,8 +74,8 @@ class InsightController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param  InsightStoreRequest  $request
+     * @return RedirectResponse
      */
     public function store(InsightStoreRequest $request)
     {
@@ -90,10 +90,10 @@ class InsightController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param int $insightId
+     * @return View
      */
-    public function show($insightId)
+    public function show(int $insightId)
     {
         $this->checkPermission('insights.view');
 
@@ -108,7 +108,7 @@ class InsightController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  int  $insightId
-     * @return \Illuminate\Http\Response
+     * @return View
      */
     public function edit($insightId)
     {
@@ -126,9 +126,9 @@ class InsightController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  InsightStoreRequest  $request
      * @param  int  $insightId
-     * @return \Illuminate\Http\Response
+     * @return RedirectResponse
      */
     public function update(InsightStoreRequest $request, $insightId)
     {
@@ -145,7 +145,7 @@ class InsightController extends Controller
      *
      * @param  int  $insightId
      *
-     * @return \Illuminate\Http\RedirectResponse
+     * @return RedirectResponse
      */
     public function destroy(int $insightId): RedirectResponse
     {
@@ -162,7 +162,7 @@ class InsightController extends Controller
      *
      * @param int $insightId
      *
-     * @return \Illuminate\Http\RedirectResponse
+     * @return RedirectResponse
      */
     public function twitter(int $insightId): RedirectResponse
     {
@@ -176,7 +176,7 @@ class InsightController extends Controller
     /**
      * Display a listing of the resource. (Insights feed)
      *
-     * @return Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\View\View
+     * @return View
      */
     public function feed()
     {
