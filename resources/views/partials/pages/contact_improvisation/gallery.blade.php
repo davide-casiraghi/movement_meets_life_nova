@@ -83,8 +83,12 @@
                 ],
                 18 => [
                   'name' => 'dna_staircase.jpg',
-                  'description' => 'DNA staircase project - Ljubljana Summer 2019 ñ Nicole Speletic & Davide Casiraghi',
+                  'description' => 'DNA staircase project - Ljubljana Summer 2019 - Nicole Speletic & Davide Casiraghi',
                   'youtube_url' => 'https://www.youtube.com/watch?v=-Pt4fa3QwHM',
+                ],
+                19 => [
+                  'name' => 'dancing_with_ema_foto_zan_11_2_2022.jpg',
+                  'description' => 'Dancing with Ema Weixler - Ljubljana February 2022',
                 ],
             ]
         ])
