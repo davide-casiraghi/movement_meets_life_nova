@@ -176,12 +176,12 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
     Route::name('insights.')->group(function () {
         Route::get('/insights', [InsightController::class, 'index'])->name('index');
         Route::get('/insights/create', [InsightController::class, 'create'])->name('create');
-        Route::get('/insights/{id}/edit', [InsightController::class, 'edit'])->name('edit');
+        Route::get('/insights/{insight}/edit', [InsightController::class, 'edit'])->name('edit');
         Route::post('/insights', [InsightController::class, 'store'])->name('store');
-        Route::put('/insights/{id}', [InsightController::class, 'update'])->name('update');
-        Route::get('/insights/{id}', [InsightController::class, 'show'])->name('show');
-        Route::delete('/insights/{id}', [InsightController::class, 'destroy'])->name('destroy');
-        Route::get('/insights/twitter/{id}', [InsightController::class, 'twitter'])->name('twitter');
+        Route::put('/insights/{insight}', [InsightController::class, 'update'])->name('update');
+        Route::get('/insights/{insight}', [InsightController::class, 'show'])->name('show');
+        Route::delete('/insights/{insight}', [InsightController::class, 'destroy'])->name('destroy');
+        Route::get('/insights/twitter/{insight}', [InsightController::class, 'twitter'])->name('twitter');
     });
 
     // Medias

@@ -72,7 +72,7 @@ class InsightServiceTest extends TestCase
         ];
         $request->merge($data);
 
-        $this->insightService->updateinsight($request, $this->insight1->id);
+        $this->insightService->updateinsight($request, $this->insight1);
 
         $this->assertDatabaseHas('insights', ['body' => 'test body updated']);
     }

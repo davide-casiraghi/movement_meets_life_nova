@@ -10,10 +10,16 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 class InsightRepository implements InsightRepositoryInterface
 {
-    public function getAll(
-        int $recordsPerPage = null,
-        array $searchParameters = null
-    ) {
+    /**
+     * Get all Insights.
+     *
+     * @param int|null $recordsPerPage
+     * @param array|null $searchParameters
+     *
+     * @return \Illuminate\Support\Collection|\Illuminate\Contracts\Pagination\LengthAwarePaginator
+     */
+    public function getAll(int $recordsPerPage = null, array $searchParameters = null)
+    {
         $query = Insight::orderBy('created_at', 'desc');
 
         if (!is_null($searchParameters)) {
@@ -38,11 +44,24 @@ class InsightRepository implements InsightRepositoryInterface
         return $results;
     }
 
+    /**
+     * Get Insight by id.
+     *
+     * @param $insightId
+     * @return Insight
+     */
     public function getById($insightId)
     {
         return Insight::findOrFail($insightId);
     }
 
+    /**
+     * Store Insight
+     *
+     * @param array $data
+     *
+     * @return Insight
+     */
     public function store(array $data)
     {
         $insight = new Insight();
@@ -55,9 +74,16 @@ class InsightRepository implements InsightRepositoryInterface
         return $insight->fresh();
     }
 
-    public function update(array $data, int $id)
+    /**
+     * Update Insight
+     *
+     * @param array $data
+     * @param int $id
+     *
+     * @return Insight
+     */
+    public function update(array $data, Insight $insight)
     {
-        $insight = $this->getById($id);
         $insight = self::assignDataAttributes($insight, $data);
 
         $insight->update();
@@ -65,6 +91,12 @@ class InsightRepository implements InsightRepositoryInterface
         return $insight;
     }
 
+    /**
+     * Delete Insight
+     *
+     * @param int $id
+     * @return void
+     */
     public function delete(int $id)
     {
         Insight::destroy($id);

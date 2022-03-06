@@ -71,12 +71,12 @@ class InsightService
      * Update the Insight
      *
      * @param  InsightStoreRequest  $request
-     * @param  int  $insightId
+     * @param  Insight  $insight
      * @return Insight
      */
-    public function updateInsight(InsightStoreRequest $request, int $insightId): Insight
+    public function updateInsight(InsightStoreRequest $request,  Insight $insight): Insight
     {
-        $insight = $this->insightRepository->update($request->all(), $insightId);
+        $insight = $this->insightRepository->update($request->all(), $insight);
 
         ImageHelpers::storeImages($insight, $request, 'introimage');
         ImageHelpers::deleteImages($insight, $request, 'introimage');

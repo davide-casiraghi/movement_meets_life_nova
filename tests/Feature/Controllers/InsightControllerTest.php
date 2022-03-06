@@ -149,7 +149,7 @@ class InsightControllerTest extends TestCase
         $this->withoutExceptionHandling();
         $this->expectException(AccessDeniedException::class);
 
-        $response = $this->get("/insights/{$this->insight1->id}/edit");
+        $response = $this->get("/insights/{$this->insight1->slug}/edit");
         $response->assertStatus(500);
     }
 
@@ -159,7 +159,7 @@ class InsightControllerTest extends TestCase
         $user = $this->authenticateAsAdmin();
         $user->givePermissionTo('insights.edit');
 
-        $response = $this->get("/insights/{$this->insight1->id}/edit");
+        $response = $this->get("/insights/{$this->insight1->slug}/edit");
 
         $response->assertStatus(200);
         $response->assertViewIs('insights.edit');
@@ -168,7 +168,7 @@ class InsightControllerTest extends TestCase
     /** @test */
     public function itShouldRedirectTheGuestUserAccessingTheInsightsEditPageToLoginPage()
     {
-        $response = $this->get("/insights/{$this->insight1->id}/edit");
+        $response = $this->get("/insights/{$this->insight1->slug}/edit");
         $response->assertRedirect('/login');
     }
 
@@ -176,7 +176,7 @@ class InsightControllerTest extends TestCase
     public function itShouldShowTheInsightsEditViewToTheSuperAdmin()
     {
         $user = $this->authenticateAsSuperAdmin();
-        $response = $this->get("/insights/{$this->insight1->id}/edit");
+        $response = $this->get("/insights/{$this->insight1->slug}/edit");
 
         $response->assertStatus(200);
         $response->assertViewIs('insights.edit');
@@ -191,7 +191,7 @@ class InsightControllerTest extends TestCase
             'title' => 'test title updated',
             'body' => 'test body',
         ];
-        $response = $this->put("/insights/{$this->insight1->id}", $parameters);
+        $response = $this->put("/insights/{$this->insight1->slug}", $parameters);
 
         $this->assertDatabaseHas('insights', [
             'slug' => 'test-title-updated',
@@ -203,7 +203,7 @@ class InsightControllerTest extends TestCase
     public function itShouldAllowSuperAdminToDeleteInsights()
     {
         $this->authenticateAsSuperAdmin();
-        $response = $this->delete("/insights/{$this->insight1->id}");
+        $response = $this->delete("/insights/{$this->insight1->slug}");
 
         $response->assertStatus(302);
         $response->assertRedirect('/insights');
@@ -216,7 +216,7 @@ class InsightControllerTest extends TestCase
         $user = $this->authenticateAsAdmin();
         $user->givePermissionTo('insights.delete');
 
-        $response = $this->delete("/insights/{$this->insight1->id}");
+        $response = $this->delete("/insights/{$this->insight1->slug}");
 
         $response->assertStatus(302);
         $response->assertRedirect('/insights');
@@ -231,7 +231,7 @@ class InsightControllerTest extends TestCase
         $this->withoutExceptionHandling();
         $this->expectException(AccessDeniedException::class);
 
-        $response = $this->delete("/insights/{$this->insight1->id}");
+        $response = $this->delete("/insights/{$this->insight1->slug}");
         $response->assertRedirect('/insights');
         $response->assertStatus(500);
     }
@@ -242,7 +242,7 @@ class InsightControllerTest extends TestCase
     {
         $user = $this->authenticateAsSuperAdmin();
 
-        $response = $this->get("/insights/{$this->insight1->id}");
+        $response = $this->get("/insights/{$this->insight1->slug}");
 
         $response->assertStatus(200);
         $response->assertViewIs('insights.show');
@@ -254,7 +254,7 @@ class InsightControllerTest extends TestCase
         $user = $this->authenticateAsAdmin();
         $user->givePermissionTo('insights.view');
 
-        $response = $this->get("/insights/{$this->insight1->id}");
+        $response = $this->get("/insights/{$this->insight1->slug}");
 
         $response->assertStatus(200);
         $response->assertViewIs('insights.show');
@@ -268,14 +268,14 @@ class InsightControllerTest extends TestCase
         $this->withoutExceptionHandling();
         $this->expectException(AccessDeniedException::class);
 
-        $response = $this->get("/insights/{$this->insight1->id}");
+        $response = $this->get("/insights/{$this->insight1->slug}");
         $response->assertStatus(500);
     }
 
     /** @test */
     public function itShouldRedirectTheGuestUserAccessingTheInsightsShowPageToLoginPage()
     {
-        $response = $this->get("/insights/{$this->insight1->id}");
+        $response = $this->get("/insights/{$this->insight1->slug}");
         $response->assertRedirect('/login');
     }
 }

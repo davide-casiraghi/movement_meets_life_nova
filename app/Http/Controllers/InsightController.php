@@ -90,14 +90,12 @@ class InsightController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param int $insightId
+     * @param  Insight  $insight
      * @return View
      */
-    public function show(int $insightId)
+    public function show(Insight $insight)
     {
         $this->checkPermission('insights.view');
-
-        $insight = $this->insightService->getInsightById($insightId);
 
         $insight['body'] = $this->insightService->getInsightBody($insight);
 
@@ -107,14 +105,13 @@ class InsightController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $insightId
+     * @param  Insight  $insight
      * @return View
      */
-    public function edit($insightId)
+    public function edit(Insight $insight)
     {
         $this->checkPermission('insights.edit');
 
-        $insight = $this->insightService->getInsightById($insightId);
         $tags = $this->tagService->getTags();
 
         return view('insights.edit', [
@@ -127,14 +124,14 @@ class InsightController extends Controller
      * Update the specified resource in storage.
      *
      * @param  InsightStoreRequest  $request
-     * @param  int  $insightId
+     * @param  Insight  $insight
      * @return RedirectResponse
      */
-    public function update(InsightStoreRequest $request, $insightId)
+    public function update(InsightStoreRequest $request, Insight $insight)
     {
         $this->checkPermission('insights.edit');
 
-        $this->insightService->updateInsight($request, $insightId);
+        $this->insightService->updateInsight($request, $insight);
 
         return redirect()->route('insights.index')
             ->with('success', 'Insight updated successfully');
@@ -143,15 +140,14 @@ class InsightController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $insightId
-     *
+     * @param  Insight  $insight
      * @return RedirectResponse
      */
-    public function destroy(int $insightId): RedirectResponse
+    public function destroy(Insight $insight): RedirectResponse
     {
         $this->checkPermission('insights.delete');
 
-        $this->insightService->deleteInsight($insightId);
+        $this->insightService->deleteInsight($insight->id);
 
         return redirect()->route('insights.index')
             ->with('success', 'Insight deleted successfully');
@@ -160,13 +156,11 @@ class InsightController extends Controller
     /**
      * Post the insight on Twitter
      *
-     * @param int $insightId
-     *
+     * @param  Insight  $insight
      * @return RedirectResponse
      */
-    public function twitter(int $insightId): RedirectResponse
+    public function twitter(Insight $insight): RedirectResponse
     {
-        $insight = $this->insightService->getInsightById($insightId);
         $this->insightService->sendInsightToTwitter($insight);
 
         return back()->with('success', 'Insight tweeted successfully');

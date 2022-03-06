@@ -113,7 +113,7 @@
                     <h2 class="mb-4">Latest insights</h2>
                     <ul class="bg-white overflow-hidden shadow rounded-lg p-6">
                         @forelse($latestInsights as $insight)
-                            <li><a class="textLink" href="{{route('insights.edit', $insight->id)}}">{{$insight->title}}</a></li>
+                            <li><a class="textLink" href="{{route('insights.edit', $insight->slug)}}">{{$insight->title}}</a></li>
                         @empty
                             <li>There are no insights</li>
                         @endforelse
