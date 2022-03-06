@@ -155,6 +155,7 @@ An Ilan Lev bodywork instead, allows the receiver to: restore the ability to get
         'treatments' => 'Treatments',
         'events' => 'Events',
         'blog' => 'Blog',
+        'insights' => 'Insights',
     ],
     'footer' => [
         'get_in_touch' => 'Get in touch',
