@@ -141,9 +141,6 @@ Un bodywork Ilan Lev, invece, consente a chi lo riceve di: ripristinare la capac
             'i_give_private_treatments' => 'Offro trattamenti a Ljubljana in Slovenia presso <a href="http://www.visja-vibracija.si/" class="textLink" target="_blank">Višja Vibracija</a>',
             'get_a_treatment' => 'Prenota un trattamento',
         ],
-
-
-
     ],
     'top_menu' => [
         'about_me' => 'Su di me',
