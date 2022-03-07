@@ -95,8 +95,6 @@ class InsightController extends Controller
      */
     public function show(Insight $insight)
     {
-        $this->checkPermission('insights.view');
-
         $insight['body'] = $this->insightService->getInsightBody($insight);
 
         return view('insights.show', compact('insight'));
