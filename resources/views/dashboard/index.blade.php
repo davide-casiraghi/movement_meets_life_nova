@@ -103,9 +103,13 @@
             <div class="md:col-span-4">
                 <div class="mb-4">
                     <h2 class="mb-4">Inspiration</h2>
-                    <div class="bg-white overflow-hidden shadow rounded-lg p-6">
-                        <div class="italic mb-2">{{$quote->description}}</div>
+                    <div class="bg-amber-100 overflow-hidden shadow rounded-lg p-6">
+                        <div class="text-6xl text-amber-500 text-left leading-tight h-3 font-serif mb-6" aria-hidden="true">“</div>
+                        <div class="italic mb-2 ml-10 -mt-6">{{$quote->description}}</div>
+                        <div class="text-4xl text-amber-500 text-right leading-tight h-3 font-serif -mt-6" aria-hidden="true">”</div>
+                        <div class="mt-4 ml-10">
                         {{$quote->author}}
+                        </div>
                     </div>
                 </div>
 
