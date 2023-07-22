@@ -72,7 +72,7 @@
             enableTime: false,
             dateFormat: 'd/m/Y',
             minuteIncrement: 15,
-            minDate: "today",
+            //minDate: "today",
             maxDate: new Date().fp_incr(365), // 365 days from now
             clickOpens: false,
             locale: {
@@ -89,7 +89,7 @@
             dateFormat: 'd/m/Y',
             enableTime: false,
             minuteIncrement: 15,
-            minDate: "today",
+            //minDate: "today",
             maxDate: new Date().fp_incr(365), // 365 days from now
             locale: {
                 firstDayOfWeek: 1,
