@@ -182,7 +182,7 @@
                     <div class="grid grid-cols-6 gap-y-3 lg:gap-6">
                         <div class="col-span-6 lg:col-span-3">
                             @include('partials.forms.inputFlatPickrDatePicker', [
-                                'class' => 'flatpickr date future',
+                                'class' => 'flatpickr date all', //past, future, all
                                 'label' => __('event.date_start'),
                                 'placeholder' => __('views.select_date_and_time'),
                                 'name' => 'startDate',
@@ -208,7 +208,7 @@
                     <div class="grid grid-cols-6 gap-y-3 lg:gap-6 mt-4 lg:mt-2">
                         <div class="col-span-6 lg:col-span-3">
                             @include('partials.forms.inputDatePicker',[
-                                    'class' => 'flatpickr date future',
+                                    'class' => 'flatpickr date all',
                                     'label' => __('event.date_end'),
                                     'placeholder' => __('general.select_date'),
                                     'name' => 'endDate',
