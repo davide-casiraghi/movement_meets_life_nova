@@ -9,15 +9,14 @@
         <h1>About me</h1>
 
         <p class="mb-3">
-            <b>Davide Casiraghi</b> (BSc) in Computer Science, Senior IT Web Developer, Contact Improvisation dance teacher, Ilan Lev method practitioner, based in Slovenia.<br>
-            He is co-creator with Nayeli Spela Peterlin of <a href="https://www.moave.si" class="textLink" target="_blank">Moave - Psychology in movement</a>.<br>
+            <b>Davide Casiraghi</b> (BSc) in Computer Science, Senior IT Web Developer, Contact Improvisation dance teacher, Ilan Lev method practitioner, based in Lecco, Italy.<br>
             Student at the faculty of physiotherapy at the Alma Mater University (Slovenia).
         </p>
 
         <h2 class="mt-6 sm:mt-14 mb-4 text-xl text-primary-600 font-extrabold tracking-tight sm:text-2xl">Movement</h2>
 
         <p class="mb-3">
-            He is currently giving <b>Contact Improvisation</b> regular classes and <b>Ilan Lev method</b> bodyworks in Ljubljana.
+            He is currently co-organizing <b>Contact Improvisation</b> regular jams every tuesday eveving in Milano.
         </p>
 
         <p class="mb-3">
@@ -120,5 +119,3 @@
 
     </div>
 @endsection
-
-
