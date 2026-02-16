@@ -9,8 +9,7 @@
         <h1>About me</h1>
 
         <p class="mb-3">
-            <b>Davide Casiraghi</b> (BSc) in Computer Science, Senior IT Web Developer, Contact Improvisation dance teacher, Ilan Lev method practitioner, based in Lecco, Italy.<br>
-            Student at the faculty of physiotherapy at the Alma Mater University (Slovenia).
+            <b>Davide Casiraghi</b> BSc in Physical therapy, BSc in Computer Science, Contact Improvisation dance teacher, Ilan Lev method practitioner, based in Lecco, Italy.
         </p>
 
         <h2 class="mt-6 sm:mt-14 mb-4 text-xl text-primary-600 font-extrabold tracking-tight sm:text-2xl">Movement</h2>
@@ -65,7 +64,7 @@
                         <li class='pb-2'>
                             <h4 class='text-xl font-bold mb-1'>Dance Studies</h4>
                             Workshops about CI <br>
-                            Marco Zontini ('10, '11), Roberto Lun (’10, ’11, ’12, ‘13), Nita Little ('13, '14, '15, '16, '21), Javier Curia ('10), Vera de Propris ('13), Bernd Knappe ('12, '12, '13), Thomas Kampe ('12, ’13), Daniel Lepkoff (’14), Itay Iatuv (’14, '15), Yaniv Mintzer (‘16, '19), Joerg Hassman (’16), Adrian Russi (’16), Kirstie Simson (’11, '21), Ester Momblance (’10), Katri Luukkonen(’11), Scott Wells(’11), Alicia Grayson(’11), Ray Chung ('12, '13), Nancy Stark Smith (’14), Martin Keogh (’15, ’16), Benno Voorham (’13), Ezster Gal (’14), Patricia Kuypers (’15), Alyssa Lynes (’14), Eckard Muller (’13), Frey Faust (’14), Angelica Dony (’16, ’17), Leonardo Lambruschini (’16), Jess Curtis(’17), Simone Magnani (’14), Anatolliy Layaskallo ('11), Tim O’Donnell (’10), Riccardo Meneghini (’15), Claus Springborg (’14), Nuria Urcelay Martinez ('18), Asaf Bachrach ('19), Romain Bigé ('19), Leilani Weiss ('20), Ramon Roig ('20), Charley Morrissey ('20)<br>
+                            Marco Zontini ('10, '11), Roberto Lun (’10, ’11, ’12, ‘13), Nita Little ('13, '14, '15, '16, '21, '25), Javier Curia ('10), Vera de Propris ('13), Bernd Knappe ('12, '12, '13), Thomas Kampe ('12, ’13), Daniel Lepkoff (’14), Itay Iatuv (’14, '15), Yaniv Mintzer (‘16, '19, '25), Joerg Hassman (’16), Adrian Russi (’16), Kirstie Simson (’11, '21), Ester Momblance (’10), Katri Luukkonen(’11), Scott Wells(’11), Alicia Grayson(’11), Ray Chung ('12, '13), Nancy Stark Smith (’14), Martin Keogh (’15, ’16), Benno Voorham (’13), Ezster Gal (’14), Patricia Kuypers (’15), Alyssa Lynes (’14), Eckard Muller (’13), Frey Faust (’14), Angelica Dony (’16, ’17), Leonardo Lambruschini (’16), Jess Curtis(’17), Simone Magnani (’14), Anatolliy Layaskallo ('11), Tim O’Donnell (’10), Riccardo Meneghini (’15), Claus Springborg (’14), Nuria Urcelay Martinez ('18), Asaf Bachrach ('19), Romain Bigé ('19), Leilani Weiss ('20), Ramon Roig ('20), Charley Morrissey ('20)<br>
                             Other dance workshops <br>
                             Yumiko, Claude coldy
                         </li>
@@ -89,11 +88,13 @@
                 ]
             ])
 
+        <!--
         <h2 class="mt-6 sm:mt-14 mb-4 text-xl text-primary-600 font-extrabold tracking-tight sm:text-2xl">Web development</h2>
 
         <p class="mb-3">
             I work at <a href="https://www.agiledrop.com/" class="textLink" target="_blank">Agiledrop</a> as a PHP backend developer with Laravel and Drupal.<br>
         </p>
+    -->
 
         @include('partials.contents.accordion',[
                 'accordionNumber' => '1',
@@ -104,10 +105,11 @@
                         Currently, I am exploring Drupal 7-8, Laravel 8, Laravel Livewire, Tailwind CSS, PhpUnit.<br>
                                     I'm an active member of <a href='https://stackoverflow.com/users/10075394/davide-casiraghi' class='textLink'>Stackoverflow</a>.<br><br>
 
-                        <b>Education:</b> Bachelor of Science (Informatics).<br><br>
+                        <b>Education:</b> Bachelor of Science (Informatics), Bachelor in Physical Therapy.<br><br>
 
                         <b>Degree:</b>
-                        2006 (BSc) in Computer Science at <a href='https://www.www.unimib.it' class='textLink' target='_blank'>Università Degli Studi di Milano Bicocca</a>, Milano Italia.<br><br>
+                        2006 BSc in Computer Science at <a href='https://www.unimib.it' class='textLink' target='_blank'>Università Degli Studi di Milano Bicocca</a>, Milano Italia.<br><br>
+                        2025 BSc in Physical therapy at <a href='https://www.almamater.si/it' class='textLink' target='_blank'>Università Alma Mater Europea</a>, Koper Slovenia.<br><br>
 
                         <b>Certification:</b> 2021 Laravel Certification at <a class='textLink' target='_blank' href='https://exam.laravelcert.com/is/davide-casiraghi/certified-since/2021-11-05'>Laravelcert.com</a>.<br><br>
                         ",
