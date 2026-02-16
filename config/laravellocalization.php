@@ -169,7 +169,7 @@ return [
         //'sid'         => ['name' => 'Sidamo',                 'script' => 'Latn', 'native' => 'Sidaamu Afo', 'regional' => 'sid_ET'],
         //'ss'          => ['name' => 'Swati',                  'script' => 'Latn', 'native' => 'Siswati', 'regional' => 'ss_ZA'],
         //'sk'          => ['name' => 'Slovak',                 'script' => 'Latn', 'native' => 'slovenčina', 'regional' => 'sk_SK'],
-        'sl'          => ['name' => 'Slovene',                'script' => 'Latn', 'native' => 'slovenščina', 'regional' => 'sl_SI'],
+        //'sl'          => ['name' => 'Slovene',                'script' => 'Latn', 'native' => 'slovenščina', 'regional' => 'sl_SI'],
         //'so'          => ['name' => 'Somali',                 'script' => 'Latn', 'native' => 'Soomaali', 'regional' => 'so_SO'],
         //'sr-Latn'     => ['name' => 'Serbian (Latin)',        'script' => 'Latn', 'native' => 'Srpski', 'regional' => 'sr_RS'],
         //'sh'          => ['name' => 'Serbo-Croatian',         'script' => 'Latn', 'native' => 'srpskohrvatski', 'regional' => ''],
