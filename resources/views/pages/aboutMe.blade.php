@@ -96,6 +96,7 @@
         </p>
     -->
 
+<!--
         @include('partials.contents.accordion',[
                 'accordionNumber' => '1',
                 'elements' => [
@@ -116,7 +117,7 @@
                     ],
                 ]
             ])
-
+-->
 
 
     </div>
