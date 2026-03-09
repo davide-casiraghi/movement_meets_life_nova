@@ -46,6 +46,7 @@ return [
             'how' => 'Through a personalized assessment and a targeted treatment plan that combines manual therapy, decontracting massage, and therapeutic exercises, the treatment not only relieves pain but also works to restore proper body movement.',
             'objective' => 'The objective is to help you return to daily activities with less pain, greater confidence, and improved well-being.',
         ],
+        'therapeutic_treatments' => "I offer the following <span class='text-primary-600'>therapeutic treatments</span>",
     ],
     'treatments' => [
         'title' => 'Treatments',

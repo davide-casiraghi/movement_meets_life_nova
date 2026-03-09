@@ -46,6 +46,7 @@ return [
           'how' => 'Attraverso una valutazione personalizzata e un percorso mirato che combina terapia manuale, massaggi decontratturanti ed esercizi terapeutici, il trattamento non si limita ad alleviare il dolore ma lavora per ripristinare il corretto movimento del corpo.',
           'objective' => 'L\’obiettivo è aiutarti a tornare alle attività quotidiane con meno dolore, più sicurezza e maggiore benessere.',
       ],
+      'therapeutic_treatments' => "Offro i seguenti <span class='text-primary-600'>trattamenti terapeutici</span>",
     ],
     'treatments' => [
         'title' => 'Trattamenti',
