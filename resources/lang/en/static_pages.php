@@ -154,8 +154,9 @@ An Ilan Lev bodywork instead, allows the receiver to: restore the ability to get
         'about_me' => 'About me',
         'treatments' => 'Treatments',
         'events' => 'Events',
-        'blog' => 'Blog',
-        'insights' => 'Insights',
+        'physiotherapy' => 'Physiotherapy',
+        //'blog' => 'Blog',
+        //'insights' => 'Insights',
     ],
     'footer' => [
         'get_in_touch' => 'Get in touch',

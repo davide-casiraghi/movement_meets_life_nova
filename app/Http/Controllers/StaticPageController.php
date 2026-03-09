@@ -61,6 +61,16 @@ class StaticPageController extends Controller
             //'gallery1Html' => $gallery1Html,
         ]);
     }
+    
+    /**
+     * Show the physiotherapy page.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function physiotherapy()
+    {
+        return view('pages.physiotherapy');
+    }
 
     /**
      * Show the Water Contact page.

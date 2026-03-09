@@ -39,6 +39,9 @@ return [
     'contact_improvisation' => [
       'aaa' => 'aaa',
     ],
+    'physiotherapy' => [
+      'title' => 'Fisioterapia',
+    ],
     'treatments' => [
         'title' => 'Trattamenti',
         'intro' => [
@@ -146,8 +149,9 @@ Un bodywork Ilan Lev, invece, consente a chi lo riceve di: ripristinare la capac
         'about_me' => 'Su di me',
         'treatments' => 'Trattamenti',
         'events' => 'Eventi',
-        'blog' => 'Blog',
-        'insights' => 'Curiosità',
+        'physiotherapy' => 'Fisioterapia',
+        //'blog' => 'Blog',
+        //'insights' => 'Curiosità',
     ],
     'footer' => [
         'get_in_touch' => 'Stiamo in contatto',

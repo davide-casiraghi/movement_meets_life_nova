@@ -232,6 +232,9 @@ Route::group(
     Route::get('/about-me', [StaticPageController::class, 'aboutMe'])->name('staticPages.aboutMe');
     Route::get('/treatments-ilan-lev-method', [StaticPageController::class, 'treatments'])->name('staticPages.treatments');
     Route::get('/learn-more-ilan-lev-method', [StaticPageController::class, 'treatmentsLearnMore'])->name('staticPages.treatmentsLearnMore');
+    
+    Route::get('/physiotherapy', [StaticPageController::class, 'physiotherapy'])->name('staticPages.physiotherapy');
+    
     Route::get('/contact-improvisation', [StaticPageController::class, 'contactImprovisation'])->name('staticPages.contactImprovisation');
     Route::get('/water-contact', [StaticPageController::class, 'waterContact'])->name('staticPages.waterContact');
     Route::get('/events/{event:slug}', [EventController::class, 'show'])->name('events.show');
