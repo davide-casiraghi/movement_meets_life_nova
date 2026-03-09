@@ -47,6 +47,14 @@ return [
             'objective' => 'The objective is to help you return to daily activities with less pain, greater confidence, and improved well-being.',
         ],
         'therapeutic_treatments' => "I offer the following <span class='text-primary-600'>therapeutic treatments</span>",
+        'offers' => [
+            'exercises' => 'Rehabilitation and therapeutic exercise',
+            'exercises_description' => 'To restore optimal function in cases of acute or persistent pain.',
+            'manual_therapy' => 'Manual therapy',
+            'manual_therapy_description' => 'To relieve joint pain and restore mobility.',
+            'massages' => 'Decontracting massages',
+            'massages_description' => 'To release muscle tension and restore a feeling of lightness.',           
+        ],
     ],
     'treatments' => [
         'title' => 'Treatments',

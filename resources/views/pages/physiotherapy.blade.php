@@ -27,64 +27,19 @@
 
     {{--@include('partials.pages.treatments.big_feedbacks')--}}
 
-    @include('partials.pages.treatments.video_ilm_official')
+    {{--@include('partials.pages.treatments.video_ilm_official')--}}
 
-    {{-- Galley --}}
-    @include('partials.pages.treatments.treatment_gallery')
+    @include('partials.pages.physiotherapy.therapeutic_treatments.manual_theraphy')
+    
+    @include('partials.pages.physiotherapy.therapeutic_treatments.therapeutic_exercise')   
+
+    @include('partials.pages.physiotherapy.therapeutic_treatments.massages') 
 
     {{-- What is the treatment about --}}
     @include('partials.pages.treatments.features')
 
-    {{-- Curator.io --}}
-    @include('partials.pages.treatments.curator')
 
-    {{-- FAQs --}}
-    @include('partials.pages.treatments.faq_two_columns', [
-          'left' => [
-              1 => [
-                'question' => __('static_pages.treatments.faq.why_to_get_a_bodywork'),
-                'answer' =>  __('static_pages.treatments.faq.somatic_bodywork_involves'),
-              ],
-              2 => [
-                'question' => __('static_pages.treatments.faq.why_ilm_is_different'),
-                'answer' =>  __('static_pages.treatments.faq.a_normal_massage'),
-              ],
-              3 => [
-                'question' => __('static_pages.treatments.faq.what_is_sensory_motor_amnesia'),
-                'answer' => __('static_pages.treatments.faq.the_more_we_are_stressed'),
-              ],
-              4 => [
-                'question' => __('static_pages.treatments.faq.i_have_a_fresh_injury'),
-                'answer' =>  __('static_pages.treatments.faq.yes_it_is_gonna_be_much_slow'),
-              ],
-              5 => [
-                'question' => __('static_pages.treatments.faq.why_do_we_need_to_refresh'),
-                'answer' =>  __('static_pages.treatments.faq.we_are_constantly_accumulating'),
-              ],
-            ],
-          'right' => [
-              1 => [
-                'question' => __('static_pages.treatments.faq.how_much_treatment_last'),
-                'answer' =>  __('static_pages.treatments.faq.minutes_per_session'),
-              ],
-              2 => [
-                'question' => __('static_pages.treatments.faq.how_many_treatments'),
-                'answer' =>  __('static_pages.treatments.faq.even_if_first_session'),
-              ],
-              3 => [
-                'question' => __('static_pages.treatments.faq.is_it_good_for_back_pain'),
-                'answer' =>  __('static_pages.treatments.faq.yes_it_is'),
-              ],
-              4 => [
-                'question' => __('static_pages.treatments.faq.how_do_i_need_to_dress'),
-                'answer' =>  __('static_pages.treatments.faq.long_comfortable_clothes'),
-              ],
-              5 => [
-                'question' => __('static_pages.treatments.faq.how_is'),
-                'answer' =>  __('static_pages.treatments.faq.how_is_list'),
-              ],
-            ],
-      ])
+    
 
     {{--@include('partials.pages.treatments.benefits')--}}
 

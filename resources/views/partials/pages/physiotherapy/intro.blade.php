@@ -21,6 +21,6 @@
 
 <div class="mt-10 mx-4 mb-12">
     <div class="text-center mt-28 mb-14 text-4xl tracking-tight leading-10 font-brand text-gray-900 sm:leading-none sm:text-6xl lg:text-4xl xl:text-5xl">
-        @lang('static_pages.physiotherapy.therapeutic_treatments')
+        <h2>@lang('static_pages.physiotherapy.therapeutic_treatments')</h2>
     </div>
 </div>

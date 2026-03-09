@@ -47,6 +47,14 @@ return [
           'objective' => 'L\’obiettivo è aiutarti a tornare alle attività quotidiane con meno dolore, più sicurezza e maggiore benessere.',
       ],
       'therapeutic_treatments' => "Offro i seguenti <span class='text-primary-600'>trattamenti terapeutici</span>",
+      'offers' => [
+          'exercises' => 'Riabilitazione ed esercizio terapeutico',
+          'exercises_description' => 'Per recuperare la funzionalità ottimale in caso di dolore acuto o persistente.',
+          'manual_theraphy' => 'Terapia manuale',
+          'manual_theraphy_description' => 'Per alleviare dolori articolari e recuperare mobilità.',
+          'massages' => 'Massaggi decontratturanti',
+          'massages_description' => 'Per sciogliere tensioni muscolari e ritrovare leggerezza.',            
+      ],
     ],
     'treatments' => [
         'title' => 'Trattamenti',
