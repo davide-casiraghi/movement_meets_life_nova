@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title')@lang('static_pages.physiotherapy.title')@endsection
+@section('title')@lang('static_pages.treatments.title')@endsection
 
 @section('content')
 
@@ -12,7 +12,7 @@
             </h1>
         </div>--}}
 
-        @include('partials.pages.treatments.intro')
+        @include('partials.pages.physiotherapy.intro')
 
         {{--
                 <div class="">

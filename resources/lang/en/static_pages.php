@@ -39,6 +39,14 @@ return [
     'contact_improvisation' => [
       'title' => 'Contact Improvisation',
     ],
+    'physiotherapy' => [
+        'title' => 'Physiotherapy',
+        'intro' => [
+            'purpose' => 'Physiotherapy helps restore movement, strength, and functionality in cases of acute or persistent pain, after injuries and surgical procedures.',
+            'how' => 'Through a personalized assessment and a targeted treatment plan that combines manual therapy, decontracting massage, and therapeutic exercises, the treatment not only relieves pain but also works to restore proper body movement.',
+            'objective' => 'The objective is to help you return to daily activities with less pain, greater confidence, and improved well-being.',
+        ],
+    ],
     'treatments' => [
         'title' => 'Treatments',
         'intro' => [

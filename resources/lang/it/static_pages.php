@@ -41,6 +41,11 @@ return [
     ],
     'physiotherapy' => [
       'title' => 'Fisioterapia',
+      'intro' => [
+          'purpose' => 'La fisioterapia aiuta a recuperare movimento, forza e funzionalità in caso di dolore acuto o persistente, dopo infortuni e interventi chirurgici.',
+          'how' => 'Attraverso una valutazione personalizzata e un percorso mirato che combina terapia manuale, massaggi decontratturanti ed esercizi terapeutici, il trattamento non si limita ad alleviare il dolore ma lavora per ripristinare il corretto movimento del corpo.',
+          'objective' => 'L\’obiettivo è aiutarti a tornare alle attività quotidiane con meno dolore, più sicurezza e maggiore benessere.',
+      ],
     ],
     'treatments' => [
         'title' => 'Trattamenti',
