@@ -6,19 +6,24 @@
 
     <div class="text-lg max-w-prose mx-auto px-8 lg:px-0 mb-6 mt-6">
 
-        <h1>About me</h1>
+        <h1>@lang('static_pages.about_me.title')</h1>
 
         {{--<p class="mb-3">
             <b>Davide Casiraghi</b> BSc in Physical therapy, BSc in Computer Science, Contact Improvisation dance teacher, Ilan Lev method practitioner, based in Lecco, Italy.
         </p>--}}
 
         
+        
+        
+        
         <div class="mb-3 mx-auto max-w-screen-xl">
             <div class="lg:grid lg:grid-cols-12 lg:gap-8">
                 <div class="sm:text-left md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left">
-                    <b>Davide Casiraghi</b> BSc in Physical therapy, BSc in Computer Science, Contact Improvisation dance teacher, Ilan Lev method practitioner, based in Lecco, Italy.
+                    <p>
+                        @lang('static_pages.about_me.intro')
+                    </p>
                     <p class="mb-3 mt-3">
-                        He is currently co-organizing <b>Contact Improvisation</b> regular jams every tuesday eveving in Milano and monthly workshops in Lecco.
+                        @lang('static_pages.about_me.currently_organizing')
                     </p>
                 </div>
                 <div class="mt-6 relative sm:max-w-lg sm:mx-auto lg:mt-0 lg:max-w-none lg:mx-0 lg:col-span-6 lg:flex lg:items-center">

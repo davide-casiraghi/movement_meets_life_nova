@@ -35,6 +35,8 @@ return [
     ],
     'about_me' => [
       'title' => 'About me',
+      'intro' => '<b>Davide Casiraghi</b>, BSc in Physical therapy, BSc in Computer Science, Contact Improvisation dance teacher, Ilan Lev method practitioner, based in Lecco, Italy.',
+      'currently_organizing' => 'He is currently co-organizing <b>Contact Improvisation</b> regular jams every tuesday evening in Milan and monthly workshops in Lecco.',
     ],
     'contact_improvisation' => [
       'title' => 'Contact Improvisation',

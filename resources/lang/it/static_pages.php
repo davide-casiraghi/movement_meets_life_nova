@@ -34,7 +34,12 @@ return [
       ]
     ],
     'about_me' => [
-      'aaa' => 'aaa',
+      'title' => 'Su di me',
+      'intro' => '<b>Davide Casiraghi</b>, laureato in Fisioterapia e in Informatica, insegnante di Contact Improvisation e praticante del metodo Ilan Lev. Opera a Lecco, Italia.',
+      'currently_organizing' => 'Attualmente co-organizza jam regolari di <b>Contact Improvisation</b> ogni martedì sera a Milano e workshop mensili a Lecco.',
+      
+      
+      
     ],
     'contact_improvisation' => [
       'aaa' => 'aaa',
