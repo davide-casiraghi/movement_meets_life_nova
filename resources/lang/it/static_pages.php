@@ -153,7 +153,7 @@ Un bodywork Ilan Lev, invece, consente a chi lo riceve di: ripristinare la capac
                             </ul>",
         ],
         'cta' => [
-            'get_a_bodywork' => 'Ricevi un bodywork',
+            'get_a_bodywork' => 'Ricevi un trattamento',
             'you_can_book_online' => 'Puoi prenotare online',
             'i_give_private_treatments' => 'Offro trattamenti a Lecco in Italia presso <a href="https://zenestesia.it/" class="textLink" target="_blank">Zenestesia</a> o a domicilio.',
             'get_a_treatment' => 'Prenota un trattamento',

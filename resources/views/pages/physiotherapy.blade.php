@@ -36,7 +36,7 @@
     @include('partials.pages.physiotherapy.therapeutic_treatments.massages') 
 
     {{-- What is the treatment about --}}
-    @include('partials.pages.treatments.features')
+    {{--@include('partials.pages.treatments.features')--}}
 
 
     
