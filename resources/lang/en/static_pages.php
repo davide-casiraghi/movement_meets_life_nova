@@ -49,11 +49,11 @@ return [
         'therapeutic_treatments' => "I offer the following <span class='text-primary-600'>therapeutic treatments</span>",
         'offers' => [
             'exercises' => 'Rehabilitation and therapeutic exercise',
-            'exercises_description' => 'To restore optimal function in cases of acute or persistent pain.',
+            'exercises_description' => 'Targeted exercise programs designed to restore strength, mobility, and movement control. Indicated in cases of acute or persistent pain, after injuries or periods of inactivity. Exercises are tailored to the individual’s needs and goals. To support a gradual recovery of function and overall well-being.',
             'manual_therapy' => 'Manual therapy',
-            'manual_therapy_description' => 'To relieve joint pain and restore mobility.',
+            'manual_therapy_description' => 'Specific manual techniques used to assess and treat painful or stiff joints. Through targeted joint mobilizations, the aim is to reduce pain and improve mobility. The treatment is adapted according to the response of the tissues during the session. The goal is to promote freer, smoother, and more functional movement.',
             'massages' => 'Decontracting massages',
-            'massages_description' => 'To release muscle tension and restore a feeling of lightness.',           
+            'massages_description' => 'Manual techniques aimed at reducing muscle tension and contractures. Specific maneuvers help promote tissue relaxation and improve circulation. Indicated in cases of stiffness, muscle fatigue, or accumulated stress. To restore a feeling of lightness and overall physical well-being.',          
         ],
     ],
     'treatments' => [
