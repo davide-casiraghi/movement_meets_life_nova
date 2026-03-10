@@ -17,8 +17,11 @@
             <div class="lg:grid lg:grid-cols-12 lg:gap-8">
                 <div class="sm:text-left md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left">
                     <b>Davide Casiraghi</b> BSc in Physical therapy, BSc in Computer Science, Contact Improvisation dance teacher, Ilan Lev method practitioner, based in Lecco, Italy.
+                    <p class="mb-3 mt-3">
+                        He is currently co-organizing <b>Contact Improvisation</b> regular jams every tuesday eveving in Milano and monthly workshops in Lecco.
+                    </p>
                 </div>
-                <div class="mt-12 relative sm:max-w-lg sm:mx-auto lg:mt-0 lg:max-w-none lg:mx-0 lg:col-span-6 lg:flex lg:items-center">
+                <div class="mt-6 relative sm:max-w-lg sm:mx-auto lg:mt-0 lg:max-w-none lg:mx-0 lg:col-span-6 lg:flex lg:items-center">
                     <div class="relative mx-auto w-full rounded-lg shadow-lg lg:max-w-md">
                         <img class="w-full" src="{{asset('images/static_pages/about_me/davide_portratit_web.jpg')}}" alt="Davide Casiraghi">
                     </div>
@@ -29,13 +32,13 @@
 
 
 
-        <h2 class="mt-6 sm:mt-14 mb-4 text-xl text-primary-600 font-extrabold tracking-tight sm:text-2xl">Movement</h2>
-
+        {{--<h2 class="mt-6 sm:mt-14 mb-4 text-xl text-primary-600 font-extrabold tracking-tight sm:text-2xl">Movement</h2>--}}
+{{-- 
         <p class="mb-3">
             He is currently co-organizing <b>Contact Improvisation</b> regular jams every tuesday eveving in Milano.
-        </p>
+        </p>--}}
 
-        <p class="mb-3">
+        <p class="mb-3 mt-6">
             Member of the <b>Round Robin Project</b> that has the aim to create tools for global networking of the worldwide Contact Improvisation community. He is web designer, developer and technical manager of the
             <a class="textLink" target="_self" href="https://www.ciglobalcalendar.net">Contact Improvisation Global Calendar (CIGG).</a><br>
             Previously from 2010 to 2018 webmaster of the <b>Contact Improvisation Italian website</b> - www.contactimprov.it (now closed)
