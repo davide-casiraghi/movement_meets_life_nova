@@ -8,9 +8,26 @@
 
         <h1>About me</h1>
 
-        <p class="mb-3">
+        {{--<p class="mb-3">
             <b>Davide Casiraghi</b> BSc in Physical therapy, BSc in Computer Science, Contact Improvisation dance teacher, Ilan Lev method practitioner, based in Lecco, Italy.
-        </p>
+        </p>--}}
+
+        
+        <div class="mb-3 mx-auto max-w-screen-xl">
+            <div class="lg:grid lg:grid-cols-12 lg:gap-8">
+                <div class="sm:text-left md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left">
+                    <b>Davide Casiraghi</b> BSc in Physical therapy, BSc in Computer Science, Contact Improvisation dance teacher, Ilan Lev method practitioner, based in Lecco, Italy.
+                </div>
+                <div class="mt-12 relative sm:max-w-lg sm:mx-auto lg:mt-0 lg:max-w-none lg:mx-0 lg:col-span-6 lg:flex lg:items-center">
+                    <div class="relative mx-auto w-full rounded-lg shadow-lg lg:max-w-md">
+                        <img class="w-full" src="{{asset('images/static_pages/about_me/davide_portratit_web.jpg')}}" alt="Davide Casiraghi">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
 
         <h2 class="mt-6 sm:mt-14 mb-4 text-xl text-primary-600 font-extrabold tracking-tight sm:text-2xl">Movement</h2>
 
@@ -42,13 +59,13 @@
                         I live them as a way to care my personal integrity.<br>
                         When I feel connected with myself and I listed yo my body, I'm more productive, more able to listen to others, more emphatic, I find more pleasure in what I'm doing, I respect my body, I don't get sick.<br>",
                     ],
-                    [
+                    /*[
                         'title' => 'What are my practices to cultivate my self connection?',
                         'text' => "At the moment I have a daily routine of yoga or ILM movement class.<br>
                                     Almost daily rollerblading.<br>
                                     Sometimes running or swimming.<br>
                                     Regualar weekly contact jam.<br>",
-                    ],
+                    ],*/
                     [
                         'title' => 'What is the movement for me?',
                         'text' => "My path to self-development is rooted in body awareness, I deeply trust that working on our ability to be attentive to our inner sensitivity and improving our interoception enable us to connect with ourselves, to ground, to understand our needs, and through this clarity, we can work to express them healthily.<br><br>
@@ -62,11 +79,14 @@
                         'text' => "
                         <ul>
                         <li class='pb-2'>
+                            <h4 class='text-xl font-bold mb-1'>University</h4>
+                            BSc in Computer Science - Milano Bicocca University.<br><br>
+                            BSc in Computer Science - Alma Mater Europea University.<br>
+                        </li>
+                        <li class='pb-2'>
                             <h4 class='text-xl font-bold mb-1'>Dance Studies</h4>
-                            Workshops about CI <br>
+                            Contact Improvisation Workshops:<br>
                             Marco Zontini ('10, '11), Roberto Lun (’10, ’11, ’12, ‘13), Nita Little ('13, '14, '15, '16, '21, '25), Javier Curia ('10), Vera de Propris ('13), Bernd Knappe ('12, '12, '13), Thomas Kampe ('12, ’13), Daniel Lepkoff (’14), Itay Iatuv (’14, '15), Yaniv Mintzer (‘16, '19, '25), Joerg Hassman (’16), Adrian Russi (’16), Kirstie Simson (’11, '21), Ester Momblance (’10), Katri Luukkonen(’11), Scott Wells(’11), Alicia Grayson(’11), Ray Chung ('12, '13), Nancy Stark Smith (’14), Martin Keogh (’15, ’16), Benno Voorham (’13), Ezster Gal (’14), Patricia Kuypers (’15), Alyssa Lynes (’14), Eckard Muller (’13), Frey Faust (’14), Angelica Dony (’16, ’17), Leonardo Lambruschini (’16), Jess Curtis(’17), Simone Magnani (’14), Anatolliy Layaskallo ('11), Tim O’Donnell (’10), Riccardo Meneghini (’15), Claus Springborg (’14), Nuria Urcelay Martinez ('18), Asaf Bachrach ('19), Romain Bigé ('19), Leilani Weiss ('20), Ramon Roig ('20), Charley Morrissey ('20)<br>
-                            Other dance workshops <br>
-                            Yumiko, Claude coldy
                         </li>
                         <li class='pb-2'>
                             <h4 class='text-xl font-bold mb-1'>Yoga</h4>

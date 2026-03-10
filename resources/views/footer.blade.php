@@ -50,9 +50,14 @@
                                     @lang('static_pages.footer.about_me')
                                 </a>
                             </li>
-                            <li>
+                            {{--<li>
                                 <a href="{{route('posts.blog')}}" class="text-base leading-6 text-gray-300 hover:text-white">
                                     @lang('static_pages.footer.blog')
+                                </a>
+                            </li>--}}
+                            <li>
+                                <a href="{{route('staticPages.physiotherapy')}}" class="text-base leading-6 text-gray-300 hover:text-white">
+                                    @lang('static_pages.footer.physiotherapy')
                                 </a>
                             </li>
                             <li>

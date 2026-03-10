@@ -187,6 +187,7 @@ An Ilan Lev bodywork instead, allows the receiver to: restore the ability to get
         'other' => 'Other',
         'about_me' => 'About me',
         'blog' => 'Blog',
+        'physiotherapy' => 'Physiotherapy',
         'contact_improvisation' => 'Contact Improvisation',
         'events' => 'Events',
         'research' => 'Research',
