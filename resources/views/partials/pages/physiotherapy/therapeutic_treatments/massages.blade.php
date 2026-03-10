@@ -15,7 +15,7 @@
         <div class="mt-12 relative sm:max-w-lg sm:mx-auto lg:mt-0 lg:max-w-none lg:mx-0 lg:col-span-6 lg:flex lg:items-center">
         
             <div class="relative mx-auto w-full rounded-lg shadow-lg lg:max-w-md">
-                <img class="w-full" src="{{asset('images/static_pages/hp/bodywork_color.jpeg')}}" alt="Davide Casiraghi giving Ilan Lev method bodywork">
+                <img class="w-full" src="{{asset('images/static_pages/physiotherapy/massage.jpg')}}" alt="Davide Casiraghi giving Ilan Lev method bodywork">
             </div>
 
         </div>
