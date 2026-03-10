@@ -49,7 +49,7 @@ return [
       'therapeutic_treatments' => "Offro i seguenti <span class='text-primary-600'>trattamenti terapeutici</span>",
       'offers' => [
           'exercises' => 'Riabilitazione ed esercizio terapeutico',
-          'exercises_description' => 'Percorsi di esercizio mirati per recuperare forza, mobilità e controllo del movimento. Indicati in presenza di dolore acuto o persistente, dopo infortuni o periodi di inattività. Gli esercizi vengono adattati alle esigenze e agli obiettivi della persona. Per favorire un recupero progressivo della funzionalità e del benessere..',
+          'exercises_description' => 'Percorsi di esercizio mirati per recuperare forza, mobilità e controllo del movimento. Indicati in presenza di dolore acuto o persistente, dopo infortuni o periodi di inattività. Gli esercizi vengono adattati alle esigenze e agli obiettivi della persona. Per favorire un recupero progressivo della funzionalità e del benessere.',
           'manual_theraphy' => 'Terapia manuale',
           'manual_theraphy_description' => 'Tecniche manuali specifiche utilizzate per valutare e trattare articolazioni dolorose o rigide. Attraverso mobilizzazioni articolari mirate si lavora per ridurre il dolore e migliorare la mobilità. Il trattamento viene adattato in base alla risposta dei tessuti durante la seduta. L’obiettivo è favorire un movimento più libero, fluido e funzionale.',
           'massages' => 'Massaggi decontratturanti',
