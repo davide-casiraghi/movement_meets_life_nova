@@ -171,7 +171,7 @@ An Ilan Lev bodywork instead, allows the receiver to: restore the ability to get
     ],
     'top_menu' => [
         'about_me' => 'About me',
-        'treatments' => 'Treatments',
+        'ilm' => 'Bodywork',
         'events' => 'Events',
         'physiotherapy' => 'Physiotherapy',
         //'blog' => 'Blog',

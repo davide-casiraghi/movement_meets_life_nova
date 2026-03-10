@@ -12,7 +12,7 @@
             </div>
             <div class="sm:col-span-4 font-medium z-10 block text-center sm:text-right font-semibold">
                 <a href="{{route('staticPages.physiotherapy')}}" class="pr-8">@lang('static_pages.top_menu.physiotherapy')</a>
-                <a href="{{route('staticPages.treatments')}}" class="pr-8">@lang('static_pages.top_menu.treatments')</a>
+                <a href="{{route('staticPages.treatments')}}" class="pr-8">@lang('static_pages.top_menu.ilm')</a>
                 <a href="{{route('events.next')}}" class="pr-8">@lang('static_pages.top_menu.events')</a>
                 <!--<a href="{{route('posts.blog')}}" class="pr-8">@lang('static_pages.top_menu.blog')</a>-->
                 <!--<a href="{{route('insightsFeed')}}" class="pr-8">@lang('static_pages.top_menu.insights')</a>-->

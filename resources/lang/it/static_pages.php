@@ -166,7 +166,7 @@ Un bodywork Ilan Lev, invece, consente a chi lo riceve di: ripristinare la capac
     ],
     'top_menu' => [
         'about_me' => 'Su di me',
-        'treatments' => 'Trattamenti',
+        'ilm' => 'Bodywork',
         'events' => 'Eventi',
         'physiotherapy' => 'Fisioterapia',
         //'blog' => 'Blog',
