@@ -48,6 +48,17 @@ return [
     ],
     'contact_improvisation' => [
       'title' => 'Contact Improvisation',
+      'subtitle' => 'Contact Improvisation dance is liberating, creative and fun. It’s about exploring movement, balance, weight, physical contact and communication, involving two or more persons at the time.',
+      'ci_description' => '<b>Contact Improvisation</b> is an improvised dance form based on the communication between two moving bodies that are in physical contact and their combined relationship to the physical laws that govern their motion: gravity, momentum, inertia. The body, to open to these sensations, learns to release excess muscular tension and abandon a certain quality of willfulness to experience the natural flow of movement.<br><br>
+      Alertness is developed to work in an energetic state of physical disorientation, trusting in one’s basic survival instincts. It is a free play with balance, self-correcting the wrong moves and reinforcing the right ones, bringing forth a physical/emotional truth about a shared moment of movement that leaves the participants informed, centered, and enlivened.<br><br>
+      I see CI as a way to re-awake and enjoy fully our sensitivity and playfulness, working on trust, explore curiosity about movement principles out of daily movement patterns.<br>',
+      'guidelines_jams' => 'Guidelines for the jams',
+      'guidelines_jams_description' => "These are the <a href='https://goo.gl/qbwzjY' class='textLink' target='_blank'>guidelines</a> that we use on Sunday Contact Jams in Slovenia.",
+      'guidelines_musicians' => 'Guidelines for Musicians during the jams',
+      'guidelines_musicians_description' => "
+                  These ideas have been written to clarify what are the needs of the dancers during a Contact Improvisation Jam.
+                  <br>The musicians are books to experiment spontaneously with musical forms and ideas to seek, during the dance, a continuous symbiotic exchange with the dancers.
+                  <br>Each influencing the other and vice versa. <br><br><a href='https://goo.gl/gFVAB4' class='textLink' target='_blank'>Guidelines for musicians ></a>",
     ],
     'physiotherapy' => [
         'title' => 'Physiotherapy',

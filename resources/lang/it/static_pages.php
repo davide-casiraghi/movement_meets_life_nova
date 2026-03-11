@@ -45,7 +45,20 @@ return [
       'where_does_my_path_start_description' => 'Sono un fratello gemello. Quando qualcuno mi chiede quando ho iniziato a praticare la Contact Improvisation, potrei rispondere: dal giorno zero della mia vita. Per molte persone la vita inizia come un’esperienza solitaria, in uno spazio che la madre custodisce per noi. Io invece galleggiavo in un liquido caldo insieme a un’altra persona: mio fratello Alessio. Per nove mesi abbiamo condiviso lo stesso spazio; la sua presenza influenzava profondamente la mia esperienza di vita, e la mia la sua. <br> Anni dopo, all’età di 27 anni, attraversando un momento di crisi personale, ho partecipato a un workshop di Contact Improvisation. In quell’occasione ho scoperto quanto fossi spesso dissociato dal mio corpo e dalle mie emozioni. <br> Da quel momento mi sono innamorato delle pratiche di consapevolezza di sé.<br> Le vivo come un modo per prendermi cura della mia integrità personale.<br> Quando mi sento connesso con me stesso e ascolto il mio corpo, sono più produttivo, più capace di ascoltare gli altri e più empatico. Trovo più piacere in ciò che faccio, rispetto il mio corpo e mi ammalo meno.',
     ],
     'contact_improvisation' => [
-      'aaa' => 'aaa',
+      'title' => 'Contact Improvisation',
+      'subtitle' => 'La Contact Improvisation è una danza liberatoria, creativa e giocosa. È un’esplorazione del movimento, dell’equilibrio, del peso, del contatto e della comunicazione tra due o più persone.',
+      'ci_description' => '<b>Contact Improvisation</b> è una forma di danza improvvisata basata sulla comunicazione tra due corpi in movimento che entrano in contatto fisico e sulla loro relazione con le leggi fisiche che governano il movimento: gravità, quantità di moto e inerzia. Per aprirsi a queste sensazioni, il corpo impara a lasciare andare le tensioni muscolari in eccesso e ad abbandonare un certo controllo volontario, permettendo al movimento di emergere in modo più naturale e fluido.<br><br>L’attenzione si sviluppa muovendosi in uno stato dinamico di disorientamento fisico, affidandosi ai propri istinti di base e alla capacità del corpo di auto-organizzarsi. È un gioco libero con l’equilibrio: i movimenti meno efficaci vengono spontaneamente corretti, mentre quelli funzionali si rafforzano, facendo emergere una verità fisica ed emotiva nel momento condiviso del movimento. I partecipanti ne escono più consapevoli, centrati e vitali.<br><br> Per me la CI è anche un modo per risvegliare e godere pienamente della nostra sensibilità e della nostra giocosità, lavorando sulla fiducia ed esplorando con curiosità nuovi principi di movimento, al di fuori degli schemi abituali della vita quotidiana.<br>',
+      'guidelines_jams' => 'Linee guida per le jam',
+
+'guidelines_jams_description' => "Queste sono le <a href='https://goo.gl/qbwzjY' class='textLink' target='_blank'>linee guida</a> che utilizziamo durante le jam di Contact Improvisation della domenica in Slovenia.",
+
+'guidelines_musicians' => 'Linee guida per i musicisti durante le jam',
+
+'guidelines_musicians_description' => "
+Queste indicazioni sono state scritte per chiarire quali sono le esigenze dei danzatori durante una jam di Contact Improvisation.
+<br>I musicisti sono invitati a sperimentare liberamente con forme e idee musicali, cercando durante la danza uno scambio continuo e simbiotico con i danzatori.
+<br>Ognuno influenza l’altro e ne viene influenzato.
+<br><br><a href='https://goo.gl/gFVAB4' class='textLink' target='_blank'>Linee guida per i musicisti ></a>",
     ],
     'physiotherapy' => [
       'title' => 'Fisioterapia',
