@@ -68,7 +68,7 @@ Queste indicazioni sono state scritte per chiarire quali sono le esigenze dei da
       'intro' => [
           'purpose' => 'La fisioterapia aiuta a recuperare movimento, forza e funzionalità in caso di dolore acuto o persistente, dopo infortuni e interventi chirurgici.',
           'how' => 'Attraverso una valutazione personalizzata e un percorso mirato che combina terapia manuale, massaggi decontratturanti ed esercizi terapeutici, il trattamento non si limita ad alleviare il dolore ma lavora per ripristinare il corretto movimento del corpo.',
-          'objective' => 'L\’obiettivo è aiutarti a tornare alle attività quotidiane con meno dolore, più sicurezza e maggiore benessere.',
+          'objective' => "L’obiettivo è aiutarti a tornare alle attività quotidiane con meno dolore, più sicurezza e maggiore benessere.",
       ],
       'therapeutic_treatments' => "Offro i seguenti <span class='text-primary-600'>trattamenti terapeutici</span>",
       'offers' => [
@@ -179,7 +179,7 @@ Un bodywork Ilan Lev, invece, consente a chi lo riceve di: ripristinare la capac
         'cta' => [
             'get_a_bodywork' => 'Ricevi un trattamento',
             'you_can_book_online' => 'Puoi prenotare online',
-            'i_give_private_treatments' => 'Offro trattamenti a Lecco in Italia presso <a href="https://zenestesia.it/" class="textLink" target="_blank">Zenestesia</a> o a domicilio.',
+            'i_give_private_treatments' => 'Offro trattamenti in zona Lecco presso <a href="https://zenestesia.it/" class="textLink" target="_blank">Zenestesia</a> o a domicilio.<br>Malgrate, via Roma 92.',
             'get_a_treatment' => 'Prenota un trattamento',
         ],
     ],

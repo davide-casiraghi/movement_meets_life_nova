@@ -184,7 +184,7 @@ An Ilan Lev bodywork instead, allows the receiver to: restore the ability to get
         'cta' => [
             'get_a_bodywork' => 'Get a treatment',
             'you_can_book_online' => 'You can book online',
-            'i_give_private_treatments' => 'I give private treatments in Lecco, Italy at <a href="https://zenestesia.it/" class="textLink" target="_blank">Zenestesia</a> or at home.',
+            'i_give_private_treatments' => 'I give private treatments close to Lecco at <a href="https://zenestesia.it/" class="textLink" target="_blank">Zenestesia</a> or at home.<br>Malgrate, via Roma 92.',
             'get_a_treatment' => 'Get a treatment',
         ],
     ],
