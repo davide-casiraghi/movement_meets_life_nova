@@ -90,6 +90,10 @@
                   'name' => 'dancing_with_ema_foto_zan_11_2_2022.jpg',
                   'description' => 'Dancing with Ema Weixler - Ljubljana February 2022',
                 ],
+                20 => [
+                  'name' => 'cristina_davide_torino.jpg',
+                  'description' => 'Dance with Cristina Da Ponte - Torino',
+                  'youtube_url' => 'https://youtu.be/1M8yBt5ARao',
+                ],
             ]
         ])
-
