@@ -74,9 +74,7 @@
                         'text' => "
                         <ul>
                         <li class='pb-2'>
-                            <h4 class='text-xl font-bold mb-1'>University</h4>
-                            BSc in Computer Science - Milano Bicocca University.<br><br>
-                            BSc in Computer Science - Alma Mater Europea University.<br>
+                            ".trans('static_pages.about_me.studies_universities')."
                         </li>
                         <li class='pb-2'>
                             <h4 class='text-xl font-bold mb-1'>Dance Studies</h4>
