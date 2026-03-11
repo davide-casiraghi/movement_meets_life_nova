@@ -54,16 +54,8 @@
                 'accordionNumber' => '2',
                 'elements' => [
                     [
-                        'title' => 'Where does my path of movement awareness start?',
-                        'text' => "I'm a twin brother, when somebody asks me when did I start to practice Contact Improvisation, I could answer, from day 0 of my life.<br>
-                        For the most of people life start as a solo, in a space that our mother hold for us.<br>
-                        There I was floating in a warm liquid and I was relating with another person, my brother Alessio.<br>
-                        For 9 months we shared the same space, his presence there was strongly affecting my experience of life and mine for him too.<br><br>
-
-                        Years later, at the age of 27, passing trough a moment of life crisis, I attended a Contact Improvisation workshop and I discovered that I was living mostly dissociate by my body and my emotions.<br>
-                        And from that moment I'm in love with self awareness practices.<br>
-                        I live them as a way to care my personal integrity.<br>
-                        When I feel connected with myself and I listed yo my body, I'm more productive, more able to listen to others, more emphatic, I find more pleasure in what I'm doing, I respect my body, I don't get sick.<br>",
+                        'title' => trans('static_pages.about_me.where_does_my_path_start'),
+                        'text' => trans('static_pages.about_me.where_does_my_path_start_description'),
                     ],
                     /*[
                         'title' => 'What are my practices to cultivate my self connection?',
@@ -73,15 +65,12 @@
                                     Regualar weekly contact jam.<br>",
                     ],*/
                     [
-                        'title' => 'What is the movement for me?',
-                        'text' => "My path to self-development is rooted in body awareness, I deeply trust that working on our ability to be attentive to our inner sensitivity and improving our interoception enable us to connect with ourselves, to ground, to understand our needs, and through this clarity, we can work to express them healthily.<br><br>
-                                    I see <b>Contact Improvisation</b> as a way to re-awake and fully enjoy our sensations, playfulness and agility working on trust, explore curiosity about movement principles out of daily movement patterns. Rolling on the ground as we were children and even doing much more fun stuff.
-                                    For me, CI is a kind of mindfulness practice that is also oriented to the relation with the other dance partners and the environment we are dancing in.
-                                    The constant practice of this dance form affects in this way also my daily life out of the dance floor.<br>
-                                    <b>Ilan Lev method</b> work also in this direction, softening the nervous system and muscle tone, releasing past traumas, re-enabling the body-mind to perceive and sense through his full potential.<br>",
+                        
+                        'title' => trans('static_pages.about_me.what_is_movement_for_me'),
+                        'text' => trans('static_pages.about_me.what_is_movement_for_me_description'),
                     ],
                     [
-                        'title' => 'Studies',
+                        'title' => trans('static_pages.about_me.studies'),
                         'text' => "
                         <ul>
                         <li class='pb-2'>
