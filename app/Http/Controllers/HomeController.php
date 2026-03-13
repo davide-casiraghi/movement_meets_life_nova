@@ -45,7 +45,6 @@ class HomeController extends Controller
         $videoIntro = $this->staticPageService->getStaticImageHtml('1');
         $lastPosts = $this->postService->getPosts(3, ['status' => 'published']);
         $testimonials = $this->testimonialService->getTestimonials(null, ['status' => 'published']);
-        //$random = $testimonials->random(6);
 
         return view('home', [
             'lastPosts' => $lastPosts,

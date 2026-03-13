@@ -16,10 +16,12 @@
 @endsection
 
 @section('content')
-
-    @include('partials.pages.home.ilm')
+    
+    @include('partials.pages.home.physiotherapy')
 
     @include('partials.pages.home.contact_improvisation')
+    
+    @include('partials.pages.home.ilm')
 
     {{--@include('partials.blocks.imageCallToAction', [
             'title' => 'Contact Improvisation',
@@ -33,9 +35,8 @@
 
     {{--@include('partials.pages.home.blog.block')--}}
 
+    {{-- nascosto perchè erano tutti testimonial ILM, raccogliere testimoni di fisioterapia. --}}
     {{--@include('partials.pages.home.testimonials.static.block')--}}
-
-    @include('partials.pages.home.testimonials.slick.block')
 
     {{--@include('partials.quote_of_the_day')--}}
 

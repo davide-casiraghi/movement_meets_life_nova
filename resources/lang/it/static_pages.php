@@ -28,6 +28,12 @@ return [
           'ci_is_liberating' => "La danza di Contact Improvisation è liberatoria, creativa e divertente. Ci permette di esplorare il movimento, l'equilibrio, il peso, il contatto fisico e la relazione, coinvolgendo due o più persone contemporaneamente.",
           'more_about_ci' => 'Maggiori informazioni',
           ],
+      'physiotherapy' => [
+        'physiotherapy' => 'Fisioterapia',
+        'evidence_based' => "Un approccio <span class='text-primary-600'>basato sulla scienza</span> per recuperare il movimento e ridurre il dolore.",
+        'physiotherapy_helps' => 'La fisioterapia aiuta a recuperare movimento, forza e funzionalità in caso di dolore acuto o persistente, dopo infortuni e interventi chirurgici.',
+        '111' => 'aaa',
+        ],
         'testimonials' => [
           'what_people_are_saying' => "Alcuni feedback sui miei <span class='text-primary-600'>bodywork</span>.",
         ],

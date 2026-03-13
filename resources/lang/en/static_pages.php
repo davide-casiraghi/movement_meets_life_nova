@@ -27,7 +27,13 @@ return [
           'more_than_a_dance' => "More than a dance, it's like a <span class='text-primary-600'>mindful practice</span> to fully awake our agility, release tensions and find a state of inner peace.",
           'ci_is_liberating' => "Contact Improvisation dance is liberating, creative and fun. It’s about exploring movement, balance, weight, physical contact and communication, involving two or more persons at the time.",
           'more_about_ci' => 'More about CI',
-          ],
+        ],
+        'physiotherapy' => [
+            'physiotherapy' => 'physiotherapy',
+            'evidence_based' => "A <span class='text-primary-600'>science-based approach</span> to restore movement and reduce pain.",
+            'physiotherapy_helps' => 'Physiotherapy helps restore movement, strength, and functionality in cases of acute or persistent pain, after injuries and surgical procedures.',
+            '111' => 'aaa',
+        ],
         'testimonials' => [
             'what_people_are_saying' => "What people are saying about my <span class='text-primary-600'>bodyworks</span>.",
         ],

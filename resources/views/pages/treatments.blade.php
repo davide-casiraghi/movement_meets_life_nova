@@ -35,6 +35,8 @@
     {{-- What is the treatment about --}}
     @include('partials.pages.treatments.features')
 
+    @include('partials.pages.home.testimonials.slick.block')
+
     {{-- Curator.io --}}
     @include('partials.pages.treatments.curator')
 

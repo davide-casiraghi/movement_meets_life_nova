@@ -6,15 +6,25 @@ use App\Models\Post;
 use App\Services\Snippets\GalleryMasonryService;
 use App\Services\StaticPageService;
 use Illuminate\Http\Request;
+use App\Services\TestimonialService;
 
 class StaticPageController extends Controller
 {
     private StaticPageService $staticPageService;
+    private TestimonialService $testimonialService;
 
+    /**
+     * Create a new controller instance.
+     *
+     * @param  StaticPageService  $staticPageService
+     * @param  TestimonialService  $testimonialService
+     */
     public function __construct(
-        StaticPageService $staticPageService
+        StaticPageService $staticPageService,
+        TestimonialService $testimonialService
     ) {
         $this->staticPageService = $staticPageService;
+        $this->testimonialService = $testimonialService;
     }
 
     /**
@@ -34,7 +44,11 @@ class StaticPageController extends Controller
      */
     public function treatments()
     {
-        return view('pages.treatments');
+        //return view('pages.treatments');
+        $testimonials = $this->testimonialService->getTestimonials(null, ['status' => 'published']);
+        return view('pages.treatments', [
+            'testimonials' => $testimonials,
+        ]);
     }
 
     /**
