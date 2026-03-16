@@ -37,53 +37,24 @@
         
         
         @include('partials.contents.accordion',[
-                'accordionNumber' => '1',
+                'accordionNumber' => '3',
                 'elements' => [
                     [
                         'title' => trans('static_pages.about_me.studies'),
-                        'text' => "
-                        <ul>
-                        <li class='pb-2'>
-                            ".trans('static_pages.about_me.studies_universities')."
-                        </li>
-                        <li class='pb-2'>
-                            <h4 class='text-xl font-bold mb-1'>Dance Studies</h4>
-                            Contact Improvisation Workshops:<br>
-                            Marco Zontini ('10, '11), Roberto Lun (’10, ’11, ’12, ‘13), Nita Little ('13, '14, '15, '16, '21, '25), Javier Curia ('10), Vera de Propris ('13), Bernd Knappe ('12, '12, '13), Thomas Kampe ('12, ’13), Daniel Lepkoff (’14), Itay Iatuv (’14, '15), Yaniv Mintzer (‘16, '19, '25), Joerg Hassman (’16), Adrian Russi (’16), Kirstie Simson (’11, '21), Ester Momblance (’10), Katri Luukkonen(’11), Scott Wells(’11), Alicia Grayson(’11), Ray Chung ('12, '13), Nancy Stark Smith (’14), Martin Keogh (’15, ’16), Benno Voorham (’13), Ezster Gal (’14), Patricia Kuypers (’15), Alyssa Lynes (’14), Eckard Muller (’13), Frey Faust (’14), Angelica Dony (’16, ’17), Leonardo Lambruschini (’16), Jess Curtis(’17), Simone Magnani (’14), Anatolliy Layaskallo ('11), Tim O’Donnell (’10), Riccardo Meneghini (’15), Claus Springborg (’14), Nuria Urcelay Martinez ('18), Asaf Bachrach ('19), Romain Bigé ('19), Leilani Weiss ('20), Ramon Roig ('20), Charley Morrissey ('20)<br>
-                        </li>
-                        <li class='pb-2'>
-                            <h4 class='text-xl font-bold mb-1'>Yoga</h4>
-                            2016 - RYT200 Yoga Alliance Certification @ <a class='textLink' href='https://www.hari-om.it' target='_self'>Hari Om</a> - Cascina Bellaria.
-                        </li>
-                        <li class='pb-2'>
-                            <h4 class='text-xl font-bold mb-1'>Free Diving</h4>
-                            2015 - Freediving certification <a class='textLink' href='https://www.fipsas.it' target='_self'>FIPSAS</a> PAp1. <br>
-                            2016 - Monofin Freediving certification FIPSAS PApm. <br>
-                            2016 - Marine memory Sensitive Dance® workshop in Maratea with Claude Coldy.
-                        </li>
-                        <li class='pb-2'>
-                            <h4 class='text-xl font-bold mb-1'>Ilan Lev Method</h4>
-                            2017-2019 - <a class='textLink' href='https://www.ilanlev.org' target='_self'>Ilan Lev Method</a> bodywork certification. <br><br>
-                            2019 - <a class='textLink' href='https://www.ilanlev.org' target='_self'>Ilan Lev Method</a> movement classes facilitator certification.
-                        </li>
-                    </ul>",
+                        'text' => trans('static_pages.about_me.studies_universities'),
                     ],
                     [
                         'title' => trans('static_pages.about_me.movement_studies'),
                         'text' => trans('static_pages.about_me.movement_studies_details'),
                     ],
+                    [
+                        'title' => trans('static_pages.about_me.projects'),
+                        'text' => trans('static_pages.about_me.member_of')."<br><br><br>".trans('static_pages.about_me.passionate_free_diver'),
+                    ],
                 ]
             ])
         
-        
-
-        <p class="mb-3 mt-6">
-            @lang('static_pages.about_me.member_of')
-        </p>
-        <p class="mb-3">
-            Passionate free-diver and monofin swimmer he is researching about deep water CI dances and he has been co-organizer of <a class="textLink" href="https://deepwaterdancefestival.altervista.org">Deep Water Dance Festival 2018</a>
-        </p>
-
+{{--
         @include('partials.contents.accordion',[
                 'accordionNumber' => '2',
                 'elements' => [
@@ -105,14 +76,16 @@
                     ],
                 ]
             ])
+            
+            --}}
 
-        <!--
+        {{--
         <h2 class="mt-6 sm:mt-14 mb-4 text-xl text-primary-600 font-extrabold tracking-tight sm:text-2xl">Web development</h2>
 
         <p class="mb-3">
             I work at <a href="https://www.agiledrop.com/" class="textLink" target="_blank">Agiledrop</a> as a PHP backend developer with Laravel and Drupal.<br>
         </p>
-    -->
+    --}}
 
 {{--
         @include('partials.contents.accordion',[

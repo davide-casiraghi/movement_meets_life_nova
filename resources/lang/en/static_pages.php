@@ -24,7 +24,7 @@ return [
         ],
         'contact' => [
           'contact_improvisation' => 'CONTACT IMPROVISATION',
-          'more_than_a_dance' => "More than a dance: a <span class='text-primary-600'>mindfulness practice</span> that awakens agility, releases tensions, and bestows inner peace.",
+          'more_than_a_dance' => "More than a dance: a <span class='text-primary-600'>mindfulness practice</span> that awakens agility and releases tensions.",
           'ci_is_liberating' => "Contact Improvisation dance is playful, creative and fun. It’s about exploring movement, balance, weight, physical contact and communication, involving two or more persons at the time.",
           'more_about_ci' => 'More about CI',
         ],
@@ -43,16 +43,31 @@ return [
       'title' => 'About me',
       'intro' => '<b>Davide Casiraghi</b>, BSc in Physical therapy, BSc in Computer Science, Contact Improvisation dance teacher, Ilan Lev method practitioner, based in Lecco, Italy.',
       'currently_organizing' => 'He is currently co-organizing <b>Contact Improvisation</b> regular jams every tuesday evening in Milan and monthly workshops in Lecco.',
-      'member_of' => 'Member of the <b>Round Robin Project</b> that has the aim to create tools for global networking of the worldwide Contact Improvisation community. He is web designer, developer and technical manager of the
-      <a class="textLink" target="_self" href="https://www.ciglobalcalendar.net">Contact Improvisation Global Calendar (CIGG).</a><br>
-      Previously from 2010 to 2018 webmaster of the <b>Contact Improvisation Italian website</b> - www.contactimprov.it (now closed)',
+      'member_of' => 'Member of the <b>Round Robin Project</b> that has the aim to create tools for global networking of the worldwide Contact Improvisation community. He is web designer, developer and technical manager of the <a class="textLink" target="_self" href="https://www.ciglobalcalendar.net">Contact Improvisation Global Calendar (CIGG).</a><br>Previously from 2010 to 2018 webmaster of the <b>Contact Improvisation Italian website</b> - www.contactimprov.it (now closed)',
+      'passionate_free_diver' => 'Free-diver and monofin swimmer he is researching about deep water CI dances and he has been co-organizer of <a class="textLink" href="https://deepwaterdancefestival.altervista.org">Deep Water Dance Festival 2018</a>',      
       'studies' => 'Studies',
       'studies_universities' => "<h4 class='text-xl font-bold mb-1'>University</h4>
       BSc in Computer Science - Milano Bicocca University.<br><br>
       BSc in Physiotherapy - Alma Mater Europea University.<br>
       I graduated in physiotherapy in 2025 with a thesis titled: Contextual factors that influence the outcome of low back pain and neck pain therapy, supervised by Dr. Francesco Frontani.",
       'movement_studies' => 'Movement studies',
-      'movement_studies_details' => 'aaa',
+      'movement_studies_details' => "<h4 class='text-xl font-bold mb-1'>Contact Improvisation</h4>
+                            Marco Zontini ('10, '11), Roberto Lun (’10, ’11, ’12, ‘13), Nita Little ('13, '14, '15, '16, '21, '25), Javier Curia ('10), Vera de Propris ('13), Bernd Knappe ('12, '12, '13), Thomas Kampe ('12, ’13), Daniel Lepkoff (’14), Itay Iatuv (’14, '15), Yaniv Mintzer (‘16, '19, '25), Joerg Hassman (’16), Adrian Russi (’16), Kirstie Simson (’11, '21), Ester Momblance (’10), Katri Luukkonen(’11), Scott Wells(’11), Alicia Grayson(’11), Ray Chung ('12, '13), Nancy Stark Smith (’14), Martin Keogh (’15, ’16), Benno Voorham (’13), Ezster Gal (’14), Patricia Kuypers (’15), Alyssa Lynes (’14), Eckard Muller (’13), Frey Faust (’14), Angelica Dony (’16, ’17), Leonardo Lambruschini (’16), Jess Curtis(’17), Simone Magnani (’14), Anatolliy Layaskallo ('11), Tim O’Donnell (’10), Riccardo Meneghini (’15), Claus Springborg (’14), Nuria Urcelay Martinez ('18), Asaf Bachrach ('19), Romain Bigé ('19), Leilani Weiss ('20), Ramon Roig ('20), Charley Morrissey ('20)<br><br>
+                        
+                            <h4 class='text-xl font-bold mb-1 mt-4'>Yoga</h4>
+                            2016 - RYT200 Yoga Alliance Certification @ <a class='textLink' href='https://www.hari-om.it' target='_self'>Hari Om</a> - Cascina Bellaria.
+                            <br><br>
+                        
+                            <h4 class='text-xl font-bold mb-1'>Free Diving</h4>
+                            2015 - Freediving certification <a class='textLink' href='https://www.fipsas.it' target='_self'>FIPSAS</a> PAp1. <br>
+                            2016 - Monofin Freediving certification FIPSAS PApm. <br>
+                            2016 - Marine memory Sensitive Dance® workshop in Maratea with Claude Coldy.
+                        <br><br>
+                            <h4 class='text-xl font-bold mb-1'>Ilan Lev Method</h4>
+                            2017-2019 - <a class='textLink' href='https://www.ilanlev.org' target='_self'>Ilan Lev Method</a> bodywork certification. <br>
+                            2019 - <a class='textLink' href='https://www.ilanlev.org' target='_self'>Ilan Lev Method</a> movement classes facilitator certification.
+                        <br>",
+      'projects' => 'Progetti',
       'what_is_movement_for_me' => 'What is the movement for me?',
       'what_is_movement_for_me_description' => 'My path to self-development is rooted in body awareness, I deeply trust that working on our ability to be attentive to our inner sensitivity and improving our interoception enable us to connect with ourselves, to ground, to understand our needs, and through this clarity, we can work to express them healthily. I see Contact Improvisation as a way to re-awake and fully enjoy our sensations, playfulness and agility working on trust, explore curiosity about movement principles out of daily movement patterns. Rolling on the ground as we were children and even doing much more fun stuff. For me, CI is a kind of mindfulness practice that is also oriented to the relation with the other dance partners and the environment we are dancing in. The constant practice of this dance form affects in this way also my daily life out of the dance floor. Ilan Lev method work also in this direction, softening the nervous system and muscle tone, releasing past traumas, re-enabling the body-mind to perceive and sense through his full potential.',
       'where_does_my_path_start' => 'Where does my path of movement awareness start?',

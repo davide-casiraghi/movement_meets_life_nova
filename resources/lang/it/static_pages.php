@@ -24,8 +24,8 @@ return [
         ],
         'contact' => [
           'contact_improvisation' => 'CONTACT IMPROVISATION',
-          'more_than_a_dance' => "Più che una danza: una <span class='text-primary-600'>pratica di mindfulness</span> che risveglia agilità, scioglie tensioni e dona pace interiore.",
-          'ci_is_liberating' => "La Contact Improvisation è una danza giocosa, creativa e divertente. Ci permette di esplorare movimento, equilibrio, peso, contatto fisico e la relazione, coinvolgendo due o più persone contemporaneamente.",
+          'more_than_a_dance' => "Più che una danza: una <span class='text-primary-600'>pratica di mindfulness</span> che risveglia agilità e scioglie tensioni.",
+          'ci_is_liberating' => "La Contact Improvisation è una danza giocosa, creativa e divertente. Permette di esplorare movimento, equilibrio, peso, contatto fisico e la relazione, coinvolgendo due o più persone contemporaneamente.",
           'more_about_ci' => 'Maggiori informazioni',
           ],
       'physiotherapy' => [
@@ -44,13 +44,31 @@ return [
       'intro' => '<b>Davide Casiraghi</b>, laureato in Fisioterapia e in Informatica, insegnante di Contact Improvisation e praticante del metodo Ilan Lev. Opera a Lecco, Italia.',
       'currently_organizing' => 'Attualmente co-organizza jam regolari di <b>Contact Improvisation</b> ogni martedì sera a Milano e workshop mensili a Lecco.',
       'member_of' => 'Membro del <b>Round Robin Project</b>, che ha l’obiettivo di creare strumenti per il networking globale della comunità mondiale di Contact Improvisation. È web designer, sviluppatore e responsabile tecnico del <a class="textLink" target="_self" href="https://www.ciglobalcalendar.net">Contact Improvisation Global Calendar (CIGG)</a>.<br>In precedenza, dal 2010 al 2018, è stato webmaster del <b>sito italiano di Contact Improvisation</b> – www.contactimprov.it (ora chiuso).',
+      'passionate_free_diver' => 'Apneista e nuotatore con monopinna, sta ricercando danze di Contact Improvisation in acque profonde ed è stato co-organizzatore del <a class="textLink" href="https://deepwaterdancefestival.altervista.org">Deep Water Dance Festival 2018</a>.',
       'studies' => 'Studi',
       'studies_universities' => "<h4 class='text-xl font-bold mb-1'>Università</h4>
       Laurea triennale in Informatica - Università Milano Bicocca.<br><br>
       Laurea triennale in Fisioterapia - Università Alma Mater Europea.<br>
       Mi sono laureato in fisioterapia nel 2025 con una tesi dal titolo: Fattori contestuali che influenzano l’esito della terapia per dolore muscolo scheletrico da lombalgia e cervicalgia, relatore Dott.Francesco Frontani.",
       'movement_studies' => 'Studi di movimento',
-      'movement_studies_details' => 'aaa',
+      'movement_studies_details' => "
+      <h4 class='text-xl font-bold mb-1'>Contact Improvisation</h4>
+                            Marco Zontini ('10, '11), Roberto Lun (’10, ’11, ’12, ‘13), Nita Little ('13, '14, '15, '16, '21, '25), Javier Curia ('10), Vera de Propris ('13), Bernd Knappe ('12, '12, '13), Thomas Kampe ('12, ’13), Daniel Lepkoff (’14), Itay Iatuv (’14, '15), Yaniv Mintzer (‘16, '19, '25), Joerg Hassman (’16), Adrian Russi (’16), Kirstie Simson (’11, '21), Ester Momblance (’10), Katri Luukkonen(’11), Scott Wells(’11), Alicia Grayson(’11), Ray Chung ('12, '13), Nancy Stark Smith (’14), Martin Keogh (’15, ’16), Benno Voorham (’13), Ezster Gal (’14), Patricia Kuypers (’15), Alyssa Lynes (’14), Eckard Muller (’13), Frey Faust (’14), Angelica Dony (’16, ’17), Leonardo Lambruschini (’16), Jess Curtis(’17), Simone Magnani (’14), Anatolliy Layaskallo ('11), Tim O’Donnell (’10), Riccardo Meneghini (’15), Claus Springborg (’14), Nuria Urcelay Martinez ('18), Asaf Bachrach ('19), Romain Bigé ('19), Leilani Weiss ('20), Ramon Roig ('20), Charley Morrissey ('20)<br><br>
+      
+                        <h4 class='text-xl font-bold mb-1 mt-4'>Yoga</h4>
+                        2016 - Certificazione RYT200 Yoga Alliance @ <a class='textLink' href='https://www.hari-om.it' target='_self'>Hari Om</a> - Cascina Bellaria.
+                        <br><br>
+                    
+                        <h4 class='text-xl font-bold mb-1'>Apnea</h4>
+                        2015 - Certificazione Apnea <a class='textLink' href='https://www.fipsas.it' target='_self'>FIPSAS</a> PAp1. <br>
+                        2016 - Certificazione Apnea con Monopinna FIPSAS PApm. <br>
+                        2016 - Workshop Marine memory Sensitive Dance® a Maratea con Claude Coldy.
+                    <br><br>
+                        <h4 class='text-xl font-bold mb-1'>Metodo Ilan Lev</h4>
+                        2017-2019 - Certificazione bodywork <a class='textLink' href='https://www.ilanlev.org' target='_self'>Metodo Ilan Lev</a>. <br>
+                        2019 - Certificazione facilitatore corsi di movimento <a class='textLink' href='https://www.ilanlev.org' target='_self'>Metodo Ilan Lev</a>.
+                    <br>",    
+      'projects' => 'Projects',   
       'what_is_movement_for_me' => 'Cos\'è per me il movimento?',
       'what_is_movement_for_me_description' => 'Il mio percorso di sviluppo personale è radicato nella consapevolezza corporea. Credo profondamente che lavorare sulla nostra capacità di prestare attenzione alla sensibilità interna e migliorare la nostra interocezione ci permetta di connetterci con noi stessi, radicarci, comprendere i nostri bisogni e, attraverso questa chiarezza, imparare a esprimerli in modo sano. <br>Vedo la Contact Improvisation come un modo per risvegliare e godere pienamente delle nostre sensazioni, della nostra giocosità e agilità, lavorando sulla fiducia ed esplorando con curiosità i principi del movimento al di fuori degli schemi motori quotidiani. Rotolare a terra come facevamo da bambini e fare molte altre cose divertenti. Per me la CI è una forma di pratica di mindfulness, orientata anche alla relazione con gli altri partner di danza e con l’ambiente in cui danziamo. La pratica costante di questa forma di danza influenza così anche la mia vita quotidiana al di fuori della pista da ballo. <br>Anche il lavoro con il metodo Ilan Lev va in questa direzione: ammorbidire il sistema nervoso e il tono muscolare, liberare traumi passati e riattivare il potenziale del sistema corpo-mente affinché possa percepire e sentire pienamente.',
       'where_does_my_path_start' => 'Dove ha inizio il mio percorso di consapevolezza del movimento?',
