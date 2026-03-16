@@ -56,7 +56,7 @@
         
 {{--
         @include('partials.contents.accordion',[
-                'accordionNumber' => '2',
+                'accordionNumber' => '1',
                 'elements' => [
                     [
                         'title' => trans('static_pages.about_me.where_does_my_path_start'),
