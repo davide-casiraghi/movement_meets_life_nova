@@ -210,6 +210,12 @@ Un bodywork Ilan Lev, invece, consente a chi lo riceve di: ripristinare la capac
             'get_a_treatment' => 'Prenota un trattamento',
         ],
     ],
+    'events' => [
+      'title' => 'Eventi',
+      'next_events' => 'Prossimi eventi in programma',
+      'no_events' => 'Nessun evento trovato',
+      'past_events' => 'Eventi passati',
+    ],
     'top_menu' => [
         'about_me' => 'Su di me',
         'ilm' => 'Bodywork',

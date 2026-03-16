@@ -219,6 +219,12 @@ An Ilan Lev bodywork instead, allows the receiver to: restore the ability to get
     'water_contact' => [
       'title' => 'Water Contact',
     ],
+    'events' => [
+      'title' => 'Events',
+      'next_events' => 'The next events in our agenda',
+      'no_events' => 'No events found',
+      'past_events' => 'Past events',
+    ],
     'top_menu' => [
         'about_me' => 'About me',
         'ilm' => 'Bodywork',

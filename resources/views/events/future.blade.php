@@ -8,10 +8,10 @@
 
         <div class="border-gray-400 border-solid border-0 box-border leading-6 pt-6 pb-8 text-black">
             <h1 class="sm:text-4xl md:text-6xl border-solid box-border font-extrabold text-3xl m-0 text-gray-900 tracking-tight mb-2">
-                Events
+                @lang('static_pages.events.title')
             </h1>
             <p class="border-solid box-border text-lg m-0 text-gray-500">
-                The next events in our agenda
+                @lang('static_pages.events.next_events')
             </p>
         </div>
 
@@ -19,7 +19,7 @@
             @forelse($events as $event)
                 @include('partials.events.eventItem')
             @empty
-                No events found
+                @lang('static_pages.events.no_events')
             @endforelse
         </div>
         @if( $events instanceof \Illuminate\Pagination\LengthAwarePaginator )
@@ -28,7 +28,7 @@
             </div>
         @endif
         <div class="text-center mt-6">
-            <a href="{{ route('events.past') }}" class="font-medium rounded-md text-white px-4 py-2 bg-primary-600 hover:bg-primary-500 focus:outline-none focus:border-primary-700 focus:ring-primary active:bg-primary-700 transition ease-in-out duration-150">Past events</a>
+            <a href="{{ route('events.past') }}" class="font-medium rounded-md text-white px-4 py-2 bg-primary-600 hover:bg-primary-500 focus:outline-none focus:border-primary-700 focus:ring-primary active:bg-primary-700 transition ease-in-out duration-150">@lang('static_pages.events.past_events')</a>
         </div>
     </div>
 
