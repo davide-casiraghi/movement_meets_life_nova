@@ -24,8 +24,8 @@ return [
         ],
         'contact' => [
           'contact_improvisation' => 'CONTACT IMPROVISATION',
-          'more_than_a_dance' => "More than a dance, it's like a <span class='text-primary-600'>mindful practice</span> to fully awake our agility, release tensions and find a state of inner peace.",
-          'ci_is_liberating' => "Contact Improvisation dance is liberating, creative and fun. It’s about exploring movement, balance, weight, physical contact and communication, involving two or more persons at the time.",
+          'more_than_a_dance' => "More than a dance: a <span class='text-primary-600'>mindfulness practice</span> that awakens agility, releases tensions, and bestows inner peace.",
+          'ci_is_liberating' => "Contact Improvisation dance is playful, creative and fun. It’s about exploring movement, balance, weight, physical contact and communication, involving two or more persons at the time.",
           'more_about_ci' => 'More about CI',
         ],
         'physiotherapy' => [
@@ -62,7 +62,7 @@ return [
     ],
     'contact_improvisation' => [
       'title' => 'Contact Improvisation',
-      'subtitle' => 'Contact Improvisation dance is liberating, creative and fun. It’s about exploring movement, balance, weight, physical contact and communication, involving two or more persons at the time.',
+      'subtitle' => 'Contact Improvisation dance is playful, creative and fun. It’s about exploring movement, balance, weight, physical contact and communication, involving two or more persons at the time.',
       'ci_description' => '<b>Contact Improvisation</b> is an improvised dance form based on the communication between two moving bodies that are in physical contact and their combined relationship to the physical laws that govern their motion: gravity, momentum, inertia. The body, to open to these sensations, learns to release excess muscular tension and abandon a certain quality of willfulness to experience the natural flow of movement.<br><br>
       Alertness is developed to work in an energetic state of physical disorientation, trusting in one’s basic survival instincts. It is a free play with balance, self-correcting the wrong moves and reinforcing the right ones, bringing forth a physical/emotional truth about a shared moment of movement that leaves the participants informed, centered, and enlivened.<br><br>
       I see CI as a way to re-awake and enjoy fully our sensitivity and playfulness, working on trust, explore curiosity about movement principles out of daily movement patterns.<br>',
