@@ -56,7 +56,7 @@ return [
     ],
     'contact_improvisation' => [
       'title' => 'Contact Improvisation',
-      'subtitle' => 'La Contact Improvisation è una danza creativa e giocosa. Un’esplorazione di movimento, equilibrio, peso, contatto e comunicazione tra due o più persone.',
+      'subtitle' => 'Una danza creativa e giocosa che ci permette di esplorare movimento, equilibrio, peso, contatto e comunicazione tra due o più persone.',
       'ci_description' => '<b>Contact Improvisation</b> è una forma di danza improvvisata basata sulla comunicazione tra due corpi in movimento che entrano in contatto fisico e sulla loro relazione con le leggi fisiche che governano il movimento: gravità, quantità di moto e inerzia. Per aprirsi a queste sensazioni, il corpo impara a lasciare andare le tensioni muscolari in eccesso e ad abbandonare un certo controllo volontario, permettendo al movimento di emergere in modo più naturale e fluido.<br><br>L’attenzione si sviluppa muovendosi in uno stato dinamico di disorientamento fisico, affidandosi ai propri istinti di base e alla capacità del corpo di auto-organizzarsi. È un gioco libero con l’equilibrio: i movimenti meno efficaci vengono spontaneamente corretti, mentre quelli funzionali si rafforzano, facendo emergere una verità fisica ed emotiva nel momento condiviso del movimento. I partecipanti ne escono più consapevoli, centrati e vitali.<br><br> Per me la CI è anche un modo per risvegliare e godere pienamente della nostra sensibilità e della nostra giocosità, lavorando sulla fiducia ed esplorando con curiosità nuovi principi di movimento, al di fuori degli schemi abituali della vita quotidiana.<br>',
       'guidelines_jams' => 'Linee guida per le jam',
 
