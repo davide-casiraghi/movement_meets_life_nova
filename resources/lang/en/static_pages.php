@@ -51,6 +51,8 @@ return [
       BSc in Computer Science - Milano Bicocca University.<br><br>
       BSc in Physiotherapy - Alma Mater Europea University.<br>
       I graduated in physiotherapy in 2025 with a thesis titled: Contextual factors that influence the outcome of low back pain and neck pain therapy, supervised by Dr. Francesco Frontani.",
+      'movement_studies' => 'Movement studies',
+      'movement_studies_details' => 'aaa',
       'what_is_movement_for_me' => 'What is the movement for me?',
       'what_is_movement_for_me_description' => 'My path to self-development is rooted in body awareness, I deeply trust that working on our ability to be attentive to our inner sensitivity and improving our interoception enable us to connect with ourselves, to ground, to understand our needs, and through this clarity, we can work to express them healthily. I see Contact Improvisation as a way to re-awake and fully enjoy our sensations, playfulness and agility working on trust, explore curiosity about movement principles out of daily movement patterns. Rolling on the ground as we were children and even doing much more fun stuff. For me, CI is a kind of mindfulness practice that is also oriented to the relation with the other dance partners and the environment we are dancing in. The constant practice of this dance form affects in this way also my daily life out of the dance floor. Ilan Lev method work also in this direction, softening the nervous system and muscle tone, releasing past traumas, re-enabling the body-mind to perceive and sense through his full potential.',
       'where_does_my_path_start' => 'Where does my path of movement awareness start?',

@@ -7,14 +7,6 @@
     <div class="text-lg max-w-prose mx-auto px-8 lg:px-0 mb-6 mt-6">
 
         <h1>@lang('static_pages.about_me.title')</h1>
-
-        {{--<p class="mb-3">
-            <b>Davide Casiraghi</b> BSc in Physical therapy, BSc in Computer Science, Contact Improvisation dance teacher, Ilan Lev method practitioner, based in Lecco, Italy.
-        </p>--}}
-
-        
-        
-        
         
         <div class="mb-3 mx-auto max-w-screen-xl">
             <div class="lg:grid lg:grid-cols-12 lg:gap-8">
@@ -42,33 +34,11 @@
         <p class="mb-3">
             He is currently co-organizing <b>Contact Improvisation</b> regular jams every tuesday eveving in Milano.
         </p>--}}
-
-        <p class="mb-3 mt-6">
-            @lang('static_pages.about_me.member_of')
-        </p>
-        <p class="mb-3">
-            Passionate free-diver and monofin swimmer he is researching about deep water CI dances and he has been co-organizer of <a class="textLink" href="https://deepwaterdancefestival.altervista.org">Deep Water Dance Festival 2018</a>
-        </p>
-
+        
+        
         @include('partials.contents.accordion',[
-                'accordionNumber' => '2',
+                'accordionNumber' => '1',
                 'elements' => [
-                    [
-                        'title' => trans('static_pages.about_me.where_does_my_path_start'),
-                        'text' => trans('static_pages.about_me.where_does_my_path_start_description'),
-                    ],
-                    /*[
-                        'title' => 'What are my practices to cultivate my self connection?',
-                        'text' => "At the moment I have a daily routine of yoga or ILM movement class.<br>
-                                    Almost daily rollerblading.<br>
-                                    Sometimes running or swimming.<br>
-                                    Regualar weekly contact jam.<br>",
-                    ],*/
-                    [
-                        
-                        'title' => trans('static_pages.about_me.what_is_movement_for_me'),
-                        'text' => trans('static_pages.about_me.what_is_movement_for_me_description'),
-                    ],
                     [
                         'title' => trans('static_pages.about_me.studies'),
                         'text' => "
@@ -98,6 +68,41 @@
                         </li>
                     </ul>",
                     ],
+                    [
+                        'title' => trans('static_pages.about_me.movement_studies'),
+                        'text' => trans('static_pages.about_me.movement_studies_details'),
+                    ],
+                ]
+            ])
+        
+        
+
+        <p class="mb-3 mt-6">
+            @lang('static_pages.about_me.member_of')
+        </p>
+        <p class="mb-3">
+            Passionate free-diver and monofin swimmer he is researching about deep water CI dances and he has been co-organizer of <a class="textLink" href="https://deepwaterdancefestival.altervista.org">Deep Water Dance Festival 2018</a>
+        </p>
+
+        @include('partials.contents.accordion',[
+                'accordionNumber' => '2',
+                'elements' => [
+                    [
+                        'title' => trans('static_pages.about_me.where_does_my_path_start'),
+                        'text' => trans('static_pages.about_me.where_does_my_path_start_description'),
+                    ],
+                    /*[
+                        'title' => 'What are my practices to cultivate my self connection?',
+                        'text' => "At the moment I have a daily routine of yoga or ILM movement class.<br>
+                                    Almost daily rollerblading.<br>
+                                    Sometimes running or swimming.<br>
+                                    Regualar weekly contact jam.<br>",
+                    ],*/
+                    [
+                        
+                        'title' => trans('static_pages.about_me.what_is_movement_for_me'),
+                        'text' => trans('static_pages.about_me.what_is_movement_for_me_description'),
+                    ],
                 ]
             ])
 
@@ -109,7 +114,7 @@
         </p>
     -->
 
-<!--
+{{--
         @include('partials.contents.accordion',[
                 'accordionNumber' => '1',
                 'elements' => [
@@ -130,8 +135,6 @@
                     ],
                 ]
             ])
--->
-
-
+--}}
     </div>
 @endsection
