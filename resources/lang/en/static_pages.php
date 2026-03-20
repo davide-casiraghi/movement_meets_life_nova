@@ -24,8 +24,10 @@ return [
         ],
         'contact' => [
           'contact_improvisation' => 'CONTACT IMPROVISATION',
-          'more_than_a_dance' => "More than a dance: a <span class='text-primary-600'>mindfulness practice</span> that awakens agility and releases tensions.",
-          'ci_is_liberating' => "Contact Improvisation dance is playful, creative and fun. It’s about exploring movement, balance, weight, physical contact and communication, involving two or more persons at the time.",
+          //'more_than_a_dance' => "More than a dance: a <span class='text-primary-600'>mindfulness practice</span> that awakens agility and releases tensions.",
+          'more_than_a_dance' => "A dance born from the <span class='text-primary-600'>dialogue between bodies</span> and trust",
+          //'ci_is_liberating' => "Contact Improvisation dance is playful, creative and fun. It’s about exploring movement, balance, weight, physical contact and communication, involving two or more persons at the time.",
+          'ci_is_liberating' => "Born in 1972, Contact Improvisation explores the body in relation to others through the sharing of weight, touch, and movement awareness. A space where falling becomes trust, and the body discovers possibilities the mind alone could never imagine.",
           'more_about_ci' => 'More about CI',
         ],
         'physiotherapy' => [
@@ -223,7 +225,7 @@ An Ilan Lev bodywork instead, allows the receiver to: restore the ability to get
       'title' => 'Events',
       'next_events' => 'The next events in our agenda',
       'no_events' => 'No events found',
-      'past_events' => 'Past events',
+      'past_events' => 'Past events passati',
     ],
     'top_menu' => [
         'about_me' => 'About me',

@@ -24,8 +24,10 @@ return [
         ],
         'contact' => [
           'contact_improvisation' => 'CONTACT IMPROVISATION',
-          'more_than_a_dance' => "Più che una danza: una <span class='text-primary-600'>pratica di mindfulness</span> che risveglia agilità e scioglie tensioni.",
-          'ci_is_liberating' => "La Contact Improvisation è una danza giocosa, creativa e divertente. Permette di esplorare movimento, equilibrio, peso, contatto fisico e la relazione, coinvolgendo due o più persone contemporaneamente.",
+          //'more_than_a_dance' => "Più che una danza: una <span class='text-primary-600'>pratica di mindfulness</span> che risveglia agilità e scioglie tensioni.",
+          'more_than_a_dance' => "Una danza che nasce dal <span class='text-primary-600'>dialogo tra corpi</span> e fiducia",
+          //'ci_is_liberating' => "La Contact Improvisation è una danza giocosa, creativa e divertente. Permette di esplorare movimento, equilibrio, peso, contatto fisico e la relazione, coinvolgendo due o più persone contemporaneamente.",
+          'ci_is_liberating' => "Nata nel 1972, la Contact Improvisation esplora il corpo in relazione all'altro attraverso la condivisione del peso, il tocco e la consapevolezza del movimento. Uno spazio dove cadere diventa fiducia, e il corpo scopre possibilità che la mente da sola non saprebbe immaginare.",
           'more_about_ci' => 'Maggiori informazioni',
           ],
       'physiotherapy' => [
