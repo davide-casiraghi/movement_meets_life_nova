@@ -17,8 +17,10 @@ return [
       'blocks' => [
         'ilm' => [
           'ilan_lev_method' => 'ILAN LEV METHOD',
-          'a_revolutionary_form' => "A revolutionary form of <span class='text-primary-600'>hands-on bodywork</span> that addresses body aches, pains and movement imbalances.",
-          'through_bodywork' => "Through bodywork we can get an external support to address this situations and to allow our body to find a new equilibrium and alignment free from tensions.",
+          //'a_revolutionary_form' => "A revolutionary form of <span class='text-primary-600'>hands-on bodywork</span> that addresses body aches, pains and movement imbalances.",
+          'a_revolutionary_form' => "A treatment that <span class='text-primary-600'>works on the skeleton</span> to release tension and pain",
+          //'through_bodywork' => "Through bodywork we can get an external support to address this situations and to allow our body to find a new equilibrium and alignment free from tensions.",
+          'through_bodywork' => "Acts deeply on the skeleton to release blocks and tension and rediscover free and natural movement.",
           'get_a_treatment' => 'Get a treatment',
           'more_info' => 'More info about ILM',
         ],

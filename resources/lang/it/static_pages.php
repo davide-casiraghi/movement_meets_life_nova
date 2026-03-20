@@ -17,8 +17,10 @@ return [
       'blocks' => [
         'ilm' => [
           'ilan_lev_method' => 'ILAN LEV METHOD',
-          'a_revolutionary_form' => "Una forma rivoluzionaria di <br><span class='text-primary-600'>bodywork</span> che affronta dolori muscolari  e squilibri del movimento",
-          'through_bodywork' => "Attraverso un bodywork possiamo ottenere un supporto esterno per affrontare queste situazioni e per permettere al nostro corpo di ritrovare un nuovo equilibrio e allineamento libero da tensioni.",
+          //'a_revolutionary_form' => "Una forma rivoluzionaria di <br><span class='text-primary-600'>bodywork</span> che affronta dolori muscolari  e squilibri del movimento",
+          'a_revolutionary_form' => "Un trattamento che <span class='text-primary-600'>lavora sullo scheletro</span> per sciogliere tensioni e dolori",
+          //'through_bodywork' => "Attraverso un bodywork possiamo ottenere un supporto esterno per affrontare queste situazioni e per permettere al nostro corpo di ritrovare un nuovo equilibrio e allineamento libero da tensioni.",
+          'through_bodywork' => "Agisce in profondità sullo scheletro per sciogliere blocchi e tensioni e ritrovare un movimento libero e naturale.",
           'get_a_treatment' => 'Prenota un trattamento',
           'more_info' => 'Maggiori informazioni',
         ],
