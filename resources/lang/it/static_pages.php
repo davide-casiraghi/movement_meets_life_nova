@@ -30,7 +30,7 @@ return [
           ],
       'physiotherapy' => [
         'physiotherapy' => 'Fisioterapia',
-        'evidence_based' => "Un approccio <span class='text-primary-600'>scientifico</span> per recuperare mobilità e ridurre il dolore.",
+        'evidence_based' => "Un <span class='text-primary-600'>approccio scientifico</span> per recuperare mobilità e ridurre il dolore.",
         'physiotherapy_helps' => 'La fisioterapia aiuta a recuperare movimento, forza e funzionalità in caso di dolore acuto o persistente, dopo infortuni e interventi chirurgici.',
         '111' => 'aaa',
         ],
