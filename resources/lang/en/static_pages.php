@@ -52,7 +52,7 @@ return [
       'studies' => 'Studies',
       'studies_universities' => "<h4 class='text-xl font-bold mb-1'>University</h4>
       BSc in Computer Science - Milano Bicocca University.<br><br>
-      BSc in Physiotherapy - Alma Mater Europea University.<br>
+      BSc in Physiotherapy - Alma Mater Europea University.<br><br>
       I graduated in physiotherapy in 2025 with a thesis titled: Contextual factors that influence the outcome of low back pain and neck pain therapy, supervised by Dr. Francesco Frontani.",
       'movement_studies' => 'Movement studies',
       'movement_studies_details' => "<h4 class='text-xl font-bold mb-1'>Contact Improvisation</h4>
