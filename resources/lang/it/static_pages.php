@@ -53,7 +53,7 @@ return [
       'studies_universities' => "<h4 class='text-xl font-bold mb-1'>Università</h4>
       Laurea triennale in Informatica - Università Milano Bicocca.<br><br>
       Laurea triennale in Fisioterapia - Università Alma Mater Europea.<br><br>
-      Mi sono laureato in fisioterapia nel 2025 con una tesi dal titolo: Fattori contestuali che influenzano l’esito della terapia per dolore muscolo scheletrico da lombalgia e cervicalgia, relatore Dott.Francesco Frontani.",
+      Mi sono laureato in fisioterapia nel 2025 con una tesi dal titolo: <a class='textLink' target=_blank' href='https://zenodo.org/records/19597847'>Fattori contestuali che influenzano l’esito della terapia per dolore muscolo scheletrico da lombalgia e cervicalgia</a>, relatore Dott.Francesco Frontani.",
       'movement_studies' => 'Studi di movimento',
       'movement_studies_details' => "
       <h4 class='text-xl font-bold mb-1'>Contact Improvisation</h4>
