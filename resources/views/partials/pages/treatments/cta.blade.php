@@ -1,11 +1,11 @@
 <div class="mx-4 p-4 md:grid md:grid-cols-4 md:gap-4 bg-white my-24">
     <div class="md:col-span-2">
         @include('partials.events.gmap', [
-              'venue_name' => "Zenestesia",
-              'venue_address' => "via Roma, 92",
-              'venue_city' => "Malgrate",
+              //'venue_name' => "Zenestesia",
+              'venue_address' => "corso Vercelli, 4",
+              'venue_city' => "Torino",
               'venue_country' => "Italia",
-              'venue_zip_code' => "23864",
+              'venue_zip_code' => "10152",
         ])
     </div>
     <div class="md:col-span-2 mt-5 md:mt-0 flex">
