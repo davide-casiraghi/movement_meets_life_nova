@@ -220,6 +220,11 @@ Un bodywork Ilan Lev, invece, consente a chi lo riceve di: ripristinare la capac
       'no_events' => 'Nessun evento trovato',
       'past_events' => 'Eventi passati',
     ],
+    'book_a_treatment' => [
+      'title' => 'Prenota un trattamento',
+      'call_to_action' => 'Per prenotare un trattamento, seleziona una delle date e fasce orarie disponibili.<br>Se nessuna di loro si adatta ai tuoi impegni, <a class="textLink" href="/contact">contattami</a> e troveremo una soluzione.',
+      'call_to_action_long' => 'Attraverso sedute personalizzate che uniscono terapia manuale e movimento, ti aiuto ad alleviare il dolore, recuperare da traumi e interventi chirurgici, migliorare la mobilità e ritrovare il benessere. <br> <br>Che tu voglia tornare in forma, riprendere l\'attività sportiva o semplicemente concederti un momento di cura e rilassamento, costruiremo insieme un piano terapeutico su misura, individuando il trattamento più adatto alle tue esigenze. Prenota un appuntamento e iniziamo insieme il tuo percorso!',
+    ],
     'top_menu' => [
         'about_me' => 'Su di me',
         'ilm' => 'Bodywork',
