@@ -1,0 +1,70 @@
+<?php
+return [
+  'contact_me' => [
+    'contact_me' => "Contattami",
+    'feel_free' => "Sentiti libero/a di contattarmi.",
+    'im_glad' => "Sono felice di entrare in contatto, rispondere a domande, ispirarmi e ricevere feedback sui miei corsi e trattamenti.",
+    'your_message' => "Il tuo messaggio",
+    'personal_information' => "Informazioni personali",
+    'send' => "Invia",
+    'fields' => [
+      'first_name' => "Nome",
+      'last_name' => "Cognome",
+      'your_email' => "La tua email",
+    ]
+  ],
+  'get_a_treatment' => [
+    'bodywork_intake_form' => "Scheda di accoglienza per il bodywork",
+    'to_book' => "Per favore, specifica le informazioni richieste in modo che io possa farmi un'idea della tua condizione.",
+    'your_condition' => "La tua condizione",
+    'please_specify' => "Per favore, specifica quali condizioni peggiorano o migliorano il problema e in quale momento della giornata si presenta.",
+    'main_complaint' => "Disturbo principale",
+    'specify_physical_locations' => "Per favore, specifica le zone del corpo se il problema è localizzato in punti specifici.",
+    'main_complaint_intensity' => "Intensità del disturbo principale (Lieve - Grave)",
+    'secondary_complaint' => "Disturbo secondario",
+    'secondary_complaint_intensity' => "Intensità del disturbo secondario (Lieve - Grave)",
+    'decide_contact_method' => "Scegli come preferisci essere contattato/a",
+    'contact_method' => [
+      'email' => "Email",
+      'phone_call' => "Telefonata",
+      'sms_whatsapp' => "SMS/WhatsApp",
+      'viber' => "Viber",
+      'all' => "Tutte queste modalità vanno bene per me",
+    ],
+    'contact' => "Contatto",
+    'personal_data_agreement' => "Consenso al trattamento dei dati personali",
+    'data_save_agreement' => "Acconsento al salvataggio dei miei dati di contatto",
+    'send' => "Invia",
+    'personal_information' => "Informazioni personali",
+    'fields' => [
+          'first_name' => "Nome",
+          'last_name' => "Cognome",
+          'your_email' => "La tua email",
+          'phone' => "Telefono",
+        ]
+    ],
+    'become_a_testimonial' => [
+        'become_a_testimonial' => "Diventa un testimonial",
+        'brief_description' => 'Una breve descrizione della tua esperienza.',
+        'did_you_enjoy' => "Ti è piaciuto ricevere un trattamento e ti farebbe piacere lasciare un feedback che io possa pubblicare sul mio sito web?",
+        'unique_experience' => "Dato che è un'esperienza piuttosto unica da spiegare, questo mi aiuterà a far capire alle persone che cosa si prova a ricevere un trattamento ILM.",
+        'publish_agreement' => "Consenso alla pubblicazione",
+        'please_confirm' => "Per favore, conferma qui sotto per consentirmi di pubblicare",
+        'i_agree_publish' => 'Acconsento al salvataggio dei miei dati di contatto.',
+        'personal_data_agreement' => 'Consenso al trattamento dei dati personali',
+        'feedback_agreement' => 'Consenso al feedback',
+        'agree_feedback' => 'Acconsento alla pubblicazione del mio feedback nella sezione testimonianze di questo sito web.',
+        'select_a_file' => "Seleziona un file",
+        'cancel' => "Annulla",
+        'save' => "Salva",
+        'fields' => [
+            'your_experience' => "La tua esperienza",
+            'your_email' => "La tua email",
+            'your_country' => "Il tuo paese",
+            'your_profession' => "La tua professione",
+            'your_surname' => "Cognome",
+            'your_name' => "Nome",
+            'photo' => "Foto",
+        ]
+    ],
+];

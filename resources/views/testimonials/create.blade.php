@@ -19,9 +19,9 @@
                     <div class="text-lg text-gray-500">
                         {{__('forms.become_a_testimonial.did_you_enjoy')}}
                     </div>
-                    <div class="text-lg text-gray-500">
+                    {{--<div class="text-lg text-gray-500">
                         {{__('forms.become_a_testimonial.unique_experience')}}
-                    </div>
+                    </div>--}}
 
                     <p class="text-gray-400 mb-8"></p>
                 </div>
