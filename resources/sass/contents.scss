@@ -19,9 +19,7 @@
         @apply text-lg text-gray-600 font-extrabold tracking-tight sm:text-xl;
         @apply mt-4 sm:mt-8 mb-4;
     }*/
-    h3{
-        @apply text-lg sm:text-xl md:text-2xl font-semibold md:mb-3 md:mt-10;
-    }
+    
 
     .prose{
         .imageSnippet{
@@ -34,6 +32,12 @@
     .easyRead{
         h2 {
             @apply text-2xl leading-5 font-bold text-gray-900 mt-6 mb-10; /*sm:text-4xl sm:leading-10*/
+        }
+        h3{
+            @apply text-xl sm:text-xl md:text-2xl font-semibold mt-5 mb-2 md:mb-3 md:mt-10;
+        }
+        strong{
+            @apply font-semibold;
         }
         p{
             @apply mb-5;
