@@ -2,7 +2,7 @@
     <div class="md:col-span-2">
         @include('partials.events.gmap', [
               //'venue_name' => "Zenestesia",
-              'venue_address' => "corso Vercelli, 4",
+              'venue_address' => "corso Vercelli, 5",
               'venue_city' => "Torino",
               'venue_country' => "Italia",
               'venue_zip_code' => "10152",
