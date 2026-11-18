@@ -236,6 +236,15 @@ An Ilan Lev bodywork instead, allows the receiver to: restore the ability to get
       //'call_to_action' => 'To book a treatment, please select one of the available dates and time frames.<br> If no one fits your schedule, please <a class="textLink" href="/contact">contact me</a>, and we will find a solution.',
       'call_to_action_long' => 'Through personalized sessions combining manual therapy and movement, I help you relieve pain, recover from injuries and surgeries, improve mobility, and restore your well-being.<br><br>Whether you want to get back in shape, return to sports, or simply treat yourself to a moment of care and relaxation, we will build a tailored treatment plan together, finding the best approach for your needs. Book an appointment and let\'s start your journey together!',
     ],
+    'water_contact' => [
+      'title' => 'Water contact',
+      'intro' => 'Surrended to the water element, trusting in the support we can receive from it, we can find space in our joints relating to gravity in a new way. This is the place where we meet and our dance begin.',
+      'text_1' => 'Since 2014 I\'m getting more and more into the research about how to bring Contact Improvisation dance in the water environment. The experimentation had taken place in thermal pools, in the sea and Y-40 pool combining tools from many practices such as Contact Improvisation, water bodywork, yoga, relaxation, and somatic techniques.',
+      'text_2' => 'I have been one of the organizers of the first Deep Water Dance Festival: <a class="textLink" target="_blank" href="deepwaterdancefestival.altervista.org">deepwaterdancefestival.altervista.org</a>, a meeting where people share their knowledge of dance and freediving in the Italian world’s deepest pool, the Y-40.
+                            The goal of the meeting is to practice freediving, dance, contact improvisation, watsu, yoga, relaxation, video making, living together in the same house for four days and participating in all these collective research activities.
+                        The festival is for certificated freedivers who want to try deep underwater contact improvisation, watsu and water dance.',
+      'text_3' => 'These photos and videos document the research about dancing Contact Improvisation in shallow and in deep water at the depth of 10 meters.',
+    ],
     'top_menu' => [
         'about_me' => 'About me',
         'ilm' => 'Bodywork',

@@ -227,6 +227,15 @@ Un bodywork Ilan Lev, invece, consente a chi lo riceve di: ripristinare la capac
       //'call_to_action' => 'Per prenotare un trattamento, seleziona una delle date e fasce orarie disponibili.<br>Se nessuna di loro si adatta ai tuoi impegni, <a class="textLink" href="/contact">contattami</a> e troveremo una soluzione.',
       'call_to_action_long' => 'Attraverso sedute personalizzate che uniscono terapia manuale e movimento, ti aiuto ad alleviare il dolore, recuperare da traumi e interventi chirurgici, migliorare la mobilità e ritrovare il benessere. <br> <br>Che tu voglia tornare in forma, riprendere l\'attività sportiva o semplicemente concederti un momento di cura e rilassamento, costruiremo insieme un piano terapeutico su misura, individuando il trattamento più adatto alle tue esigenze. Prenota un appuntamento e iniziamo insieme il tuo percorso!',
     ],
+    'water_contact' => [
+      'title' => 'Water contact',
+      'intro' => 'Abbandonandoci all\'elemento acqua e fidandoci del sostegno che possiamo ricevere da esso, possiamo trovare spazio nelle nostre articolazioni, mettendole in relazione con la gravità in un modo nuovo. Questo è il luogo in cui ci incontriamo e in cui inizia la nostra danza.',
+      'text_1' => 'Dal 2014 mi dedico sempre di più alla ricerca su come portare la danza Contact Improvisation nell\'ambiente acquatico. La sperimentazione si è svolta in piscine termali, in mare e nella piscina Y-40, combinando strumenti provenienti da molte pratiche come la Contact Improvisation, il lavoro corporeo in acqua, lo yoga, il rilassamento e le tecniche somatiche.',
+      'text_2' => 'Sono stato uno degli organizzatori del primo Deep Water Dance Festival: <a class="textLink" target="_blank" href="deepwaterdancefestival.altervista.org">deepwaterdancefestival.altervista.org</a>, un incontro in cui le persone condividono le proprie conoscenze di danza e di apnea nella piscina più profonda del mondo in Italia, la Y-40.
+                            L\'obiettivo dell\'incontro è praticare apnea, danza, contact improvisation, watsu, yoga, rilassamento e video making, vivendo insieme nella stessa casa per quattro giorni e partecipando a tutte queste attività di ricerca collettiva.
+                        Il festival è rivolto ad apneisti certificati che desiderano provare la contact improvisation in profondità sott\'acqua, il watsu e la danza in acqua.',
+      'text_3' => 'Queste foto e questi video documentano la ricerca sulla danza Contact Improvisation in acqua bassa e in acqua profonda, a una profondità di 10 metri.',
+    ],
     'top_menu' => [
         'about_me' => 'Su di me',
         'ilm' => 'Bodywork',
