@@ -19,6 +19,9 @@
         @apply text-lg text-gray-600 font-extrabold tracking-tight sm:text-xl;
         @apply mt-4 sm:mt-8 mb-4;
     }*/
+    h3{
+        @apply text-lg sm:text-xl md:text-2xl font-semibold md:mb-3 md:mt-10;
+    }
 
     .prose{
         .imageSnippet{
@@ -89,4 +92,3 @@
         }
     }
 }
-
