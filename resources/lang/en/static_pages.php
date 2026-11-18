@@ -233,7 +233,7 @@ An Ilan Lev bodywork instead, allows the receiver to: restore the ability to get
     ],
     'book_a_treatment' => [
       'title' => 'Book a treatment',
-      'call_to_action' => 'To book a treatment, please select one of the available dates and time frames.<br> If no one fits your schedule, please <a class="textLink" href="/contact">contact me</a>, and we will find a solution.',
+      //'call_to_action' => 'To book a treatment, please select one of the available dates and time frames.<br> If no one fits your schedule, please <a class="textLink" href="/contact">contact me</a>, and we will find a solution.',
       'call_to_action_long' => 'Through personalized sessions combining manual therapy and movement, I help you relieve pain, recover from injuries and surgeries, improve mobility, and restore your well-being.<br><br>Whether you want to get back in shape, return to sports, or simply treat yourself to a moment of care and relaxation, we will build a tailored treatment plan together, finding the best approach for your needs. Book an appointment and let\'s start your journey together!',
     ],
     'top_menu' => [

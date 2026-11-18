@@ -20,7 +20,7 @@
             <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js"></script>
             <script>
                 Calendly.initInlineWidget({
-                    url: 'https://calendly.com/davide-casiraghi/90min'
+                    url: 'https://calendly.com/davide-casiraghi/60min'
                 });
             </script>
         </div>
