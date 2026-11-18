@@ -214,7 +214,7 @@ An Ilan Lev bodywork instead, allows the receiver to: restore the ability to get
             'you_can_book_online' => 'You can book online',
             //'i_give_private_treatments' => 'I give private treatments in Turin at <a href="https://zenestesia.it/" class="textLink" target="_blank">Zenestesia</a> or at home.<br>Malgrate, via Roma 92.',
             //'i_give_private_treatments' => 'I give private treatments in Turin, corso Vercelli 4 or at your home, in the comfort of your own space.',
-            //'i_give_private_treatments' => 'I give private treatments at my studio in Turin or at your home, in the comfort of your own space.',
+            'i_give_private_treatments' => 'I give private treatments at my studio in Turin or at your home, in the comfort of your own space.',
             'get_a_treatment' => 'Get a treatment',
         ],
     ],
