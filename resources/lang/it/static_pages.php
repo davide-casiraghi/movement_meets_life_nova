@@ -45,8 +45,8 @@ return [
     ],
     'about_me' => [
       'title' => 'Su di me',
-      'intro' => '<b>Davide Casiraghi</b>, laureato in Fisioterapia e in Informatica, insegnante di Contact Improvisation e praticante del metodo Ilan Lev. Opera a Lecco, Italia.',
-      'currently_organizing' => 'Attualmente co-organizza jam regolari di <b>Contact Improvisation</b> ogni martedì sera a Milano e workshop mensili a Lecco.',
+      'intro' => '<b>Davide Casiraghi</b>, laureato in Fisioterapia e in Informatica, insegnante di Contact Improvisation e praticante del metodo Ilan Lev. Opera a Torino, Italia.',
+      'currently_organizing' => 'Attualmente co-organizza classi e jam settimanali di <b>Contact Improvisation</b> ogni giovedì sera a Torino e workshop mensili a Lecco.',
       'member_of' => 'Membro del <b>Round Robin Project</b>, che ha l’obiettivo di creare strumenti per il networking globale della comunità mondiale di Contact Improvisation. È web designer, sviluppatore e responsabile tecnico del <a class="textLink" target="_self" href="https://www.ciglobalcalendar.net">Contact Improvisation Global Calendar (CIGG)</a>.<br>In precedenza, dal 2010 al 2018, è stato webmaster del <b>sito italiano di Contact Improvisation</b> – www.contactimprov.it (ora chiuso).',
       'passionate_free_diver' => 'Apneista e nuotatore con monopinna, sta ricercando danze di Contact Improvisation in acque profonde ed è stato co-organizzatore del <a class="textLink" href="https://deepwaterdancefestival.altervista.org">Deep Water Dance Festival 2018</a>.',
       'studies' => 'Studi',
