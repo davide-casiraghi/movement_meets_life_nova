@@ -1,12 +1,12 @@
 import './bootstrap';
 import './tipped-global';
+import './jquery-plugins';
 
 // Load vendor libraries
 import 'alpinejs';
 import 'justifiedGallery';
 import '@fancyapps/fancybox';
 import 'bootstrap-datepicker';
-import 'select2';
 import 'slick-carousel';
 import 'livewire-sortable';
 import 'flatpickr';
