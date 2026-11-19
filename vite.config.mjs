@@ -31,4 +31,11 @@ export default defineConfig({
             },
         },
     },
+    server: {
+        proxy: {
+            '/webfonts': 'http://movement-meets-life-nova.test',
+            '/images': 'http://movement-meets-life-nova.test',
+            '/vendor/slick': 'http://movement-meets-life-nova.test',
+        },
+    },
 });

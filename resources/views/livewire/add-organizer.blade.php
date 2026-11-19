@@ -179,7 +179,7 @@
 
 @push('scripts')
     <script>
-        $(document).ready(function () {
+        document.addEventListener('DOMContentLoaded', function () {
 
             // When a value is selected in the dropdown, update the selected property in the Livewire component
             $('#organizer_ids').on('change', function (e) {
