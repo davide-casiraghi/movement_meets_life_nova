@@ -2,10 +2,16 @@ const defaultTheme = require('tailwindcss/defaultTheme');
 const colors = require('tailwindcss/colors');
 
 module.exports = {
-    purge: [
+    content: [
+        //'./vendor/laravel/jetstream/**/*.blade.php',
+        //'./storage/framework/views/*.php',
+        //'./resources/views/**/*.blade.php',
+        
         './vendor/laravel/jetstream/**/*.blade.php',
-        './storage/framework/views/*.php',
-        './resources/views/**/*.blade.php',
+       './storage/framework/views/*.php',
+       './resources/views/**/*.blade.php',
+       './resources/**/*.js',
+       './app/**/*.php', //Ho aggiunto ./app/**/*.php per le classi eventualmente scritte in componenti PHP (Livewire);
     ],
     theme: {
         extend: {
@@ -19,10 +25,10 @@ module.exports = {
             // Brand colors
             primary: colors.cyan,
             secondary: colors.amber,
-            neutral: colors.trueGray,
+            neutral: colors.neutral,
 
             // Direct colors
-            gray: colors.trueGray,
+            gray: colors.neutral,
             amber: colors.amber,
             cyan: colors.cyan,
             red: colors.red,
@@ -38,21 +44,9 @@ module.exports = {
         }
     },
 
-    variants: {
-        opacity: ['responsive', 'hover', 'focus', 'disabled'],
-    },
-
     plugins: [
-        //require('@tailwindcss/ui'),
         require('@tailwindcss/forms'),
         require('@tailwindcss/typography'),
-        require('@tailwindcss/aspect-ratio'),
     ],
 
-    future: {
-        removeDeprecatedGapUtilities: true,
-        purgeLayersByDefault: true,
-        defaultLineHeights: true,
-        standardFontWeights: true,
-    },
 };

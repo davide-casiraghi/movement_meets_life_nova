@@ -22,8 +22,9 @@
     <link rel="icon" type="image/png" href="{{ url('favicon.png') }}">
 
     {{-- CSS --}}
-    <link href="{{ asset('css/vendor.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
+
     @yield('css')
 
     {{-- JS that need to stay in the head --}}

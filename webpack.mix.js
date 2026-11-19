@@ -13,24 +13,17 @@ const tailwindcss = require('tailwindcss');
  */
 
 // Compile SCSS and JS
-/*mix.js('resources/js/app.js', 'public/js')
-    .postCss('resources/css/app.css', 'public/css', [
-        require('postcss-import'),
-        require('tailwindcss'),
-    ]);*/
+mix.postCss('resources/css/app.css', 'public/css', [
+    tailwindcss('./tailwind.config.js'),
+]);
 
-/*mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css')
-        .options({
-            processCssUrls: false,
-            postCss: [ tailwindcss('./tailwind.config.js') ],
-        });*/
-
-mix.sass('resources/sass/app.scss', 'public/css')
+mix.sass('resources/sass/custom.scss', 'public/css')
     .options({
         processCssUrls: false,
         postCss: [ tailwindcss('./tailwind.config.js') ],
     });
+
+
 
 // Vendor extraction - https://laravel.com/docs/8.x/mix#vendor-extraction
 mix.js('resources/js/app.js', 'public/js')
