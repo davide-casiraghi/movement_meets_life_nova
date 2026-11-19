@@ -45,5 +45,36 @@
 
     @include('partials.pages.treatments.cta')
 
+    {{-- FAQs - Bodywork --}}
+    @include('partials.pages.treatments.faq_two_columns', [
+          'left' => [
+              1 => [
+                'question' => __('static_pages.physiotherapy.faq_physio.how_much_physio'),            
+                'answer' =>  __('static_pages.physiotherapy.faq_physio.how_much_physio_answer'),
+              ],
+              2 => [
+                'question' => __('static_pages.physiotherapy.faq_physio.physio_duration'),
+                'answer' =>  __('static_pages.physiotherapy.faq_physio.physio_duration_answer'),
+              ],
+              3 => [
+                'question' => __('static_pages.physiotherapy.faq_physio.physio_timetable'),
+                'answer' =>  __('static_pages.physiotherapy.faq_physio.physio_timetable_answer'),
+              ],
+            ],
+          'right' => [
+              1 => [
+                'question' => __('static_pages.physiotherapy.faq_physio.physio_at_home_cost_time'),
+                'answer' =>  __('static_pages.physiotherapy.faq_physio.physio_at_home_cost_time_answer'),
+              ],
+              2 => [
+                'question' => __('static_pages.physiotherapy.faq_physio.physio_at_home_space'),
+                'answer' =>  __('static_pages.physiotherapy.faq_physio.physio_at_home_space_answer'),
+              ],
+              3 => [
+                'question' => __('static_pages.physiotherapy.faq_physio.physio_at_home_where'),
+                'answer' =>  __('static_pages.physiotherapy.faq_physio.physio_at_home_where_answer'),
+              ],
+            ],
+      ])
 
 @endsection

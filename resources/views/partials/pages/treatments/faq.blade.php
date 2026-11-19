@@ -3,6 +3,7 @@
         <div class="max-w-3xl mx-auto divide-y-2 divide-gray-200">
             <h2 class="text-center text-3xl font-extrabold text-gray-900 sm:text-4xl">
                 Frequently asked questions
+                @lang('static_pages.events.no_events')
             </h2>
             <dl class="mt-6 space-y-6 divide-y divide-gray-200">
                 <div class="pt-6">

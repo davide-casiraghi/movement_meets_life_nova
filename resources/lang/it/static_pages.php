@@ -94,6 +94,11 @@ Queste indicazioni sono state scritte per chiarire quali sono le esigenze dei da
 <br>Ognuno influenza l’altro e ne viene influenzato.
 <br><br><a href='https://goo.gl/gFVAB4' class='textLink' target='_blank'>Linee guida per i musicisti ></a>",
     ],
+    'faq_general' => [
+        'title'=> 'Domande frequenti',
+        'description'=> 'Non riesci a trovare la risposta che cerchi? Sentiti libero/a di',
+        'contact_me' => "contattarmi",
+    ],   
     'physiotherapy' => [
       'title' => 'Fisioterapia',
       'intro' => [
@@ -110,6 +115,39 @@ Queste indicazioni sono state scritte per chiarire quali sono le esigenze dei da
           'massages' => 'Massaggi decontratturanti',
           'massages_description' => 'Tecniche manuali mirate a ridurre le tensioni e le contratture muscolari. Attraverso manovre specifiche si favorisce il rilassamento dei tessuti e la circolazione. Indicati in presenza di rigidità, affaticamento muscolare o stress accumulato. Per ritrovare una sensazione di leggerezza e maggiore benessere nel corpo.',            
       ],
+      'faq_physio' => [
+          'how_much_physio' => 'Quanto costa una seduta di fisioterpia ?',
+          'how_much_physio_answer' => '19.90€ la prima valutazione per iniziare il percorso terapeutico, 40€ le seguenti.',
+          'physio_duration' => 'Quanto dura una seduta ?',
+          'physio_duration_answer' => '60 minuti',
+          
+          'physio_timetable' => 'Che orari fate ?',
+          'physio_timetable_answer' => 'Da lunedì a venerdì, dalle 8.00 alle 19.00',
+          'physio_at_home_cost_time' => 'Quanto costa e quanto dura una seduta di fisioterpia a domicilio ?',
+          'physio_at_home_cost_time_answer' => 'Da 40 € a seduta, per 50 minuti.',
+          'physio_at_home_space' => 'Quanto spazio serve per la fisioterapia a domicilio ?',
+          'physio_at_home_space_answer' => 'Uno spazio 2 metri per 2 metri',
+          'physio_at_home_where' => 'In quali zone di Torino offrite le sedute domiciliari?',
+          'physio_at_home_where_answer' => "Aurora, Barriera, San Salvario",
+          
+      ],
+      
+      /*'faq_physio' => [
+          'how_much_physio' => 'Quanto costa una seduta di fisioterpia ?',
+          'how_much_physio_answer' => '19.90€ la prima valutazione per iniziare il percorso terapeutico, 40€ le seguenti.',
+          'physio_duration' => 'Quanto dura una seduta ?',
+          'physio_duration_answer' => '60 minuti',
+          'physio_timetable' => 'Che orari fate ?',
+          'physio_timetable_answer' => 'Da lunedì a venerdì, dalle 8.00 alle 19.00',
+          
+          'physio_at_home_cost_time' => 'Quanto costa e quanto dura una seduta di fisioterpia a domicilio ?',
+          'physio_at_home_cost_time_answer' => 'Da 40 € a seduta, per 50 minuti.',
+          'physio_at_home_space' => 'Quanto spazio serve per la fisioterapia a domicilio ?',
+          'physio_at_home_space_answer' => 'Uno spazio 2 metri per 2 metri',
+          'physio_at_home_where' => 'In quali zone di Torino offrite le sedute domiciliari?',
+          'physio_at_home_where_answer' => "Aurora, Barriera, San Salvario",
+      ],
+      */
     ],
     'treatments' => [
         'title' => 'Trattamenti',
@@ -134,7 +172,7 @@ Queste indicazioni sono state scritte per chiarire quali sono le esigenze dei da
             'remove' => 'Rimuove',
             'remove_obstacles' => 'Rimuove ostacoli nei movimenti e difficoltà funsionali.',
         ],
-        'faq' => [
+        'faq_bodywork' => [
             'why_to_get_a_bodywork' => "Perchè ricevere un bodywork ?",
             'somatic_bodywork_involves' => "Un bodywork somatico coinvolge gli occhi e i sensi di qualcun altro sul tuo corpo, per aiutare a riconnettere con parti perse di te stesso, aree soggette ad amnesia sensomotoria che solo un paio di mani esterne possono aiutarti a riscoprire perché sono cadute fuori dalla tua immagine corporea. <br> - Tom Meyers -",
             'why_ilm_is_different' => "Perché un bodywork ILM è diverso da un normale massaggio?",

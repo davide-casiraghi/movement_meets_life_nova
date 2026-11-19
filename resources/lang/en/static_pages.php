@@ -95,6 +95,11 @@ return [
                   <br>The musicians are books to experiment spontaneously with musical forms and ideas to seek, during the dance, a continuous symbiotic exchange with the dancers.
                   <br>Each influencing the other and vice versa. <br><br><a href='https://goo.gl/gFVAB4' class='textLink' target='_blank'>Guidelines for musicians ></a>",
     ],
+    'faq_general' => [
+        'title'=> 'Frequently asked questions',
+        'description'=> 'Can’t find the answer you’re looking for? Feel free to',
+        'contact_me' => "contact me",
+    ], 
     'physiotherapy' => [
         'title' => 'Physiotherapy',
         'intro' => [
@@ -111,6 +116,35 @@ return [
             'massages' => 'Decontracting massages',
             'massages_description' => 'Manual techniques aimed at reducing muscle tension and contractures. Specific maneuvers help promote tissue relaxation and improve circulation. Indicated in cases of stiffness, muscle fatigue, or accumulated stress. To restore a feeling of lightness and overall physical well-being.',          
         ],
+        'faq_physio' => [            
+            'how_much_physio' => 'How much does a physiotherapy session cost?',
+            'how_much_physio_answer' => 'The first assessment to start the therapeutic pathway costs €19.90, and the following sessions cost €40.',
+            'physio_duration' => 'How long does a session last?',
+            'physio_duration_answer' => '60 minutes.',
+            'physio_timetable' => 'What are your opening hours?',
+            'physio_timetable_answer' => 'Monday to Friday, from 8:00 am to 7:00 pm.',
+            'physio_at_home_cost_time' => 'How much does a home physiotherapy session cost and how long does it last?',
+            'physio_at_home_cost_time_answer' => 'From €40 per session, lasting 50 minutes.',
+            'physio_at_home_space' => 'How much space is needed for home physiotherapy?',
+            'physio_at_home_space_answer' => 'A space of 2 metres by 2 metres.',
+            'physio_at_home_where' => 'Which areas of Turin do you offer home sessions in?',
+            'physio_at_home_where_answer' => 'Aurora, Barriera, San Salvario.',
+            
+        ],
+        /*'faq_physio' => [
+            'how_much_physio' => 'How much does a physiotherapy session cost?',
+            'how_much_physio_answer' => 'The first assessment to start the therapeutic pathway costs €19.90, and the following sessions cost €40.',
+            'physio_duration' => 'How long does a session last?',
+            'physio_duration_answer' => '60 minutes.',
+            'physio_timetable' => 'What are your opening hours?',
+            'physio_timetable_answer' => 'Monday to Friday, from 8:00 am to 7:00 pm.',
+            'physio_at_home_cost_time' => 'How much does a home physiotherapy session cost and how long does it last?',
+            'physio_at_home_cost_time_answer' => 'From €40 per session, lasting 50 minutes.',
+            'physio_at_home_space' => 'How much space is needed for home physiotherapy?',
+            'physio_at_home_space_answer' => 'A space of 2 metres by 2 metres.',
+            'physio_at_home_where' => 'Which areas of Turin do you offer home sessions in?',
+            'physio_at_home_where_answer' => 'Aurora, Barriera, San Salvario.',
+        ],*/
     ],
     'treatments' => [
         'title' => 'Treatments',
@@ -135,7 +169,7 @@ return [
             'remove' => 'Remove',
             'remove_obstacles' => 'Remove obstacles in movements and functional difficulties.',
         ],
-        'faq' => [
+        'faq_bodywork' => [
             'why_to_get_a_bodywork' => "Why to get a bodywork ?",
             'somatic_bodywork_involves' => "Somatic bodywork involves someone else's eyes and senses on your body, to help you find lost parts of yourself, areas subject to sensorimotor amnesia that only an outside pair of hands can help you discover because they have fallen out of your body image. <br>- Tom Meyers -",
             'why_ilm_is_different' => "Why ILM is different from a normal massage?",
