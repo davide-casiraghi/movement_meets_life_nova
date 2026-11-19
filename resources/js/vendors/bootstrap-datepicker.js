@@ -1,3 +1,5 @@
+import 'bootstrap-datepicker/dist/css/bootstrap-datepicker3.css';
+
 $(document).ready(function() {
 
     var today = new Date();

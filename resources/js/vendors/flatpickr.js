@@ -1,3 +1,5 @@
+import 'flatpickr/dist/flatpickr.css';
+
 $(document).ready(function() {
 
     // Check the options available: https://flatpickr.js.org/examples/
