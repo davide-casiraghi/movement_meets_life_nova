@@ -115,6 +115,8 @@ return [
             'manual_theraphy_description' => 'Specific manual techniques used to assess and treat painful or stiff joints. Through targeted joint mobilizations, the aim is to reduce pain and improve mobility. The treatment is adapted according to the response of the tissues during the session. The goal is to promote freer, smoother, and more functional movement.',
             'massages' => 'Decontracting massages',
             'massages_description' => 'Manual techniques aimed at reducing muscle tension and contractures. Specific maneuvers help promote tissue relaxation and improve circulation. Indicated in cases of stiffness, muscle fatigue, or accumulated stress. To restore a feeling of lightness and overall physical well-being.',          
+            'home_based_physiotherapy' => 'Home-based physiotherapy',
+            'home_based_physiotherapy_description' => 'A care pathway that comes to you at home, with the same attention and professionalism as a session in the clinic. Useful in cases of pain, reduced mobility or convalescence, when travelling is difficult or impractical. Assessment, manual techniques and exercises are adapted to the home environment and to each person’s goals. To support recovery with continuity, in the comfort of your own home.',
         ],
         'faq_physio' => [            
             'how_much_physio' => 'How much does a physiotherapy session cost?',

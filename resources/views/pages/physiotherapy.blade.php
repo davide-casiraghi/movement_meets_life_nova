@@ -34,6 +34,8 @@
     @include('partials.pages.physiotherapy.therapeutic_treatments.therapeutic_exercise')   
 
     @include('partials.pages.physiotherapy.therapeutic_treatments.massages') 
+    
+    @include('partials.pages.physiotherapy.therapeutic_treatments.home_based_physiotherapy')   
 
     {{-- What is the treatment about --}}
     {{--@include('partials.pages.treatments.features')--}}
