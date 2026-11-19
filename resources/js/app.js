@@ -1,27 +1,27 @@
-require('./bootstrap');
+import './bootstrap';
+import './tipped-global';
 
 // Load vendor libraries
-require('alpinejs');
-require('justifiedGallery');
-require("@fancyapps/fancybox");
-require('bootstrap-datepicker');
-require('select2');
-require('slick-carousel');
-require('livewire-sortable')
-require('flatpickr')
-//require('trix');
+import 'alpinejs';
+import 'justifiedGallery';
+import '@fancyapps/fancybox';
+import 'bootstrap-datepicker';
+import 'select2';
+import 'slick-carousel';
+import 'livewire-sortable';
+import 'flatpickr';
+// import 'trix';
 
 // Load my scripts related to vendor libraries
-require('./vendors/tinymce');
-require('./vendors/select2');
-require('./vendors/slick_carousel');
-require('./forms/uploadImage');
-//require("@staaky/tipped"); //imported in bootstrap.js
-require('./video_embed');
-require('./vendors/gallery_mansonry');
-require('./vendors/bootstrap-datepicker');
-require('./vendors/staaky_tipped');
-require('./vendors/flatpickr');
+import './vendors/tinymce';
+import './vendors/select2';
+import './vendors/slick_carousel';
+import './forms/uploadImage';
+import './video_embed';
+import './vendors/gallery_mansonry';
+import './vendors/bootstrap-datepicker';
+import './vendors/staaky_tipped';
+import './vendors/flatpickr';
 
 // Helpers
-require('./snippets/accordion');
+import './snippets/accordion';
