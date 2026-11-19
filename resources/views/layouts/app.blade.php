@@ -22,8 +22,7 @@
     <link rel="icon" type="image/png" href="{{ url('favicon.png') }}">
 
     {{-- CSS --}}
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
+    @vite(['resources/css/app.css', 'resources/sass/custom.scss', 'resources/js/app.js'])
 
     @yield('css')
 
@@ -66,17 +65,14 @@
     {{-- Load Livewire scripts before Alpine --}}
     @livewireScripts
 
-    {{-- JS --}}
-    <script src="{{ asset('js/manifest.js') }}" ></script>
-    <script src="{{ asset('js/vendor.js') }}" ></script>
-    <script src="{{ asset('js/app.js') }}" ></script>
-
     @stack('scripts')
     @yield('javascript')
 
     <script>
-        $(document).ready(function(){
-            @yield('javascript-document-ready')
+        document.addEventListener('DOMContentLoaded', function () {
+            $(function () {
+                @yield('javascript-document-ready')
+            });
         });
     </script>
 

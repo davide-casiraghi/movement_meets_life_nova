@@ -1,6 +1,8 @@
+$slick-font-path: "/vendor/slick/fonts/";
+$slick-loader-path: "/vendor/slick/";
 
-@import "~slick-carousel/slick/slick.scss";
-@import "~slick-carousel/slick/slick-theme.scss";
+@import "slick-carousel/slick/slick.scss";
+@import "slick-carousel/slick/slick-theme.scss";
 
 /* Dots */
 .slick-dots{
@@ -26,13 +28,7 @@
 
 /* Arrows */
 .slick-prev:before, .slick-next:before {
-  /*color: #7a7a7a;
-  font-family: Font Awesome\ 5 Pro;
-  font-weight: 400;
-  font-style: normal;
-  font-size: 2rem;*/
-
-  background-image: url('../images/helpers/arrow-left.svg');
+  background-image: url('/images/helpers/arrow-left.svg');
   width: 16px;
   height: 30px;
   display: block;
