@@ -1,4 +1,3 @@
-
 // Red frame for the required errors in from validations
 .is-invalid .select2-selection {
     border-color: #dc3545 !important;
@@ -17,7 +16,7 @@
 
     .select2-selection--single {
         /* Selection box itself */
-        @apply box-border cursor-pointer block select-none shadow border rounded select-none;
+        @apply box-border cursor-pointer block select-none shadow-sm border rounded-sm;
 
         .select2-selection__rendered {
             /* DIV inside Selection box with text, clear button and arrow down*/
@@ -75,11 +74,11 @@
     }
     .select2-dropdown--above {
         /* The left and right borders of the option rows */
-        @apply rounded border-gray-400 shadow;
+        @apply rounded-sm border-gray-400 shadow-sm;
     }
     .select2-dropdown--below {
         /* The left and right borders of the option rows */
-        @apply rounded border-gray-400 shadow;
+        @apply rounded-sm border-gray-400 shadow-sm;
     }
 }
 
@@ -89,7 +88,7 @@
 
     .select2-search__field {
         /* Search box itself where you can enter text*/
-        @apply h-10 p-1 box-border rounded border-2 border-blue-300 outline-none;
+        @apply h-10 p-1 box-border rounded-sm border-2 border-blue-300 outline-hidden;
         width: 100%;
 
         &::-webkit-search-cancel-button {
@@ -217,7 +216,7 @@
     .select2-search--inline {
         .select2-search__field {
             /* Search textbox */
-            @apply border-none bg-transparent outline-none shadow-none select-text;
+            @apply border-none bg-transparent outline-hidden shadow-none select-text;
         }
     }
     .select2-results > .select2-results__options {
@@ -279,6 +278,3 @@
     }
 
 }
-
-
-

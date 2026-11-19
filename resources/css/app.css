@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+/*
+ Tailwind masonry grid without JS
+ https://blog.marclucraft.co.uk/masonry-layout-with-tailwindcss
+ */
 @layer utilities {
     .masonry-3-col {
         column-count: 3;
