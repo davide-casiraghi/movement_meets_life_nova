@@ -179,7 +179,7 @@ class GalleryMasonryService
         $itemClass = ($hoverAnimate) ? 'transform transition hover:scale-110 motion-reduce:transform-none duration-500' : '';
 
         // Create Grid—A—Licious grid (id=devices) and print images
-        $ret = "<div class='lifeGallery'>";
+            $ret = "<div class='lifeGallery'>";
 
         foreach ($images as $k => $image) {
             // Get item link

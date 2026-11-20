@@ -1,12 +1,12 @@
-
-
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     {{-- CSS --}}
-    <link href="{{ asset('css/vendor.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @vite(['resources/sass/custom.scss', 'resources/css/app.css'])
 </head>
 
 <body class="bg-gray-200">
@@ -26,7 +26,7 @@
                                 Movement meets life is currently down for a scheduled maintenance.
                             </p>
                             <p class="text-md md:text-xl">
-                                We aspect to be back in a couple of hours.
+                                We expect to be back in a couple of hours.
                             </p>
                         </div>
 
@@ -38,6 +38,3 @@
 </body>
 
 </html>
-
-
-

@@ -21,8 +21,8 @@
     {{-- Favicon --}}
     <link rel="icon" type="image/png" href="{{ url('favicon.png') }}">
 
-    {{-- CSS --}}
-    @vite(['resources/css/app.css', 'resources/sass/custom.scss', 'resources/js/app.js'])
+    {{-- CSS e JS --}}
+    @vite(['resources/sass/custom.scss', 'resources/css/app.css', 'resources/js/app.js'])
 
     @yield('css')
 
