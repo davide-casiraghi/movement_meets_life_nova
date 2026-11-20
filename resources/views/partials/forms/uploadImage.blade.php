@@ -49,14 +49,14 @@
         @endisset
     </span>
 
-    <span class="ml-5 rounded-md shadow-sm">
-        <label class="py-2 px-3 border border-gray-300 rounded-md text-xs leading-4 font-medium text-gray-700 hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:ring-blue active:bg-gray-50 active:text-gray-800 transition duration-150 ease-in-out">
+    <span class="ml-5">
+        <label class="py-2 px-3 border border-gray-300 rounded-md shadow-xs text-xs leading-4 font-medium text-gray-700 hover:text-gray-500 focus:outline-hidden focus:border-blue-300 focus:ring-blue active:bg-gray-50 active:text-gray-800 transition duration-150 ease-in-out">
             <span class="mt-2 text-base leading-normal">Select a file</span>
             <input type='file' name="{{$name}}" class="hidden custom-file-input" />
         </label>
         @isset($entity)
             @if(!is_null($entity->getMedia($collection)->first()))
-            <label class="deleteImage ml-3 py-2 px-3 border border-gray-300 rounded-md text-xs leading-4 font-medium text-gray-700 hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:ring-blue active:bg-gray-50 active:text-gray-800 transition duration-150 ease-in-out">
+            <label class="deleteImage ml-3 py-2 px-3 border border-gray-300 rounded-md shadow-xs text-xs leading-4 font-medium text-gray-700 hover:text-gray-500 focus:outline-hidden focus:border-blue-300 focus:ring-blue active:bg-gray-50 active:text-gray-800 transition duration-150 ease-in-out">
                 <span class="mt-2 text-base leading-normal">
                     <i class="far fa-trash-alt"></i>
                     Delete image
