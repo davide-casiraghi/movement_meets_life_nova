@@ -12,7 +12,7 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
 
         <!-- Styles -->
-        @vite(['resources/css/app.css', 'resources/sass/custom.scss', 'resources/js/app.js'])
+        @vite(['resources/sass/custom.scss', 'resources/css/app.css', 'resources/js/app.js'])
 
         <!-- Scripts -->
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.0/dist/alpine.js" defer></script>
