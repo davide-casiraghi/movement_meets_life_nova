@@ -22,10 +22,10 @@
                         </h2>
                         <h3 class='text-xl md:text-3xl mt-10'>Coming Soon</h3>
                         <div class="text-gray-500">
-                            <p class="text-md md:text-xl mt-10">
+                            <p class="text-lg md:text-xl mt-10">
                                 Movement meets life is currently down for a scheduled maintenance.
                             </p>
-                            <p class="text-md md:text-xl">
+                            <p class="text-base md:text-xl">
                                 We expect to be back in a couple of hours.
                             </p>
                         </div>
