@@ -1,6 +1,6 @@
 
 <footer class="bg-gray-800">
-    <div class="max-w-screen-xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
+    <div class="max-w-[theme(screens.xl)] mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
         <div class="pb-8 xl:grid xl:grid-cols-5 xl:gap-8">
             <div class="grid grid-cols-2 gap-8 xl:col-span-4">
                 <div class="md:grid md:grid-cols-2 md:gap-8">

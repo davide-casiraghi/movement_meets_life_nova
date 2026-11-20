@@ -62,7 +62,7 @@
                     </svg>
                 </button>
             </div>
-            <div class="flex-shrink-0 flex items-center px-4">
+            <div class="shrink-0 flex items-center px-4">
                 <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg" alt="Workflow" />
             </div>
             <div class="mt-5 flex-1 h-0 overflow-y-auto">
@@ -151,7 +151,7 @@
                 </nav>
             </div>
         </div>
-        <div class="flex-shrink-0 w-14" aria-hidden="true">
+        <div class="shrink-0 w-14" aria-hidden="true">
             <!-- Dummy element to force sidebar to shrink to fit close icon -->
         </div>
     </div>

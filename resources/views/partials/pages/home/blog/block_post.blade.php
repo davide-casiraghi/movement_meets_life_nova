@@ -1,6 +1,6 @@
 <div class="flex flex-col rounded-lg shadow-lg overflow-hidden">
 
-    <div class="flex-shrink-0">
+    <div class="shrink-0">
         @if($post->hasMedia('introimage'))
             <img class="h-48 w-full object-cover" src="{{$post->getMedia('introimage')->first()->getUrl('thumb')}}?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80" alt="">
         @else
@@ -28,7 +28,7 @@
             </a>
         </div>
         <div class="mt-6 flex items-center">
-            <div class="flex-shrink-0">
+            <div class="shrink-0">
                 <a href="#">
                     <img class="h-10 w-10 rounded-full" src="https://source.unsplash.com/random&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
                 </a>

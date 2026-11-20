@@ -1,5 +1,5 @@
 
-<div class="mt-8 mx-auto max-w-screen-xl p-4 sm:mt-12 sm:px-6 md:mt-20 xl:mt-24">
+<div class="mt-8 mx-auto max-w-[theme(screens.xl)] p-4 sm:mt-12 sm:px-6 md:mt-20 xl:mt-24">
     <div class="lg:grid lg:grid-cols-12 lg:gap-8">
         <div class="sm:text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left lg:col-start-7 lg:row-start-1">
             <h3 class="mt-1 text-4xl tracking-tight leading-10 font-brand text-gray-900 sm:leading-none sm:text-6xl lg:text-4xl xl:text-5xl">

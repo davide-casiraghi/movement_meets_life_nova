@@ -8,7 +8,7 @@
 
         <h1>@lang('static_pages.about_me.title')</h1>
         
-        <div class="mb-3 mx-auto max-w-screen-xl">
+        <div class="mb-3 mx-auto max-w-[theme(screens.xl)]">
             <div class="lg:grid lg:grid-cols-12 lg:gap-8">
                 <div class="sm:text-left md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left">
                     <p>

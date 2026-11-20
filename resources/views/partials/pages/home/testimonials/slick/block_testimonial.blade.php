@@ -19,7 +19,7 @@
 
 <div class="mb-10 lg:mb-0">
     <blockquote class="col-span-3 md:col-span-1 rounded-md shadow-xl overflow-hidden bg-white">
-        <div class="flex-grow flex items-center p-6 text-lg leading-relaxed text-gray-500">
+        <div class="grow flex items-center p-6 text-lg leading-relaxed text-gray-500">
             <p class="">
                 {{$testimonial->feedback_short}}
             </p>

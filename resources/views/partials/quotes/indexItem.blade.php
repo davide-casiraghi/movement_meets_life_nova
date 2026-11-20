@@ -5,7 +5,7 @@
                 <p class="text-sm font-medium text-indigo-600 truncate">
                     {{$quote->author}}
                 </p>
-                <div class="ml-2 flex-shrink-0 flex">
+                <div class="ml-2 shrink-0 flex">
                     <div class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full @if($quote->isPublished())bg-green-100 text-green-800 @else bg-red-100 text-red-800 @endif">
                         {{ucfirst($quote->publishingStatus())}}
                     </div>

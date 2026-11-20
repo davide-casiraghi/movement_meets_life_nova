@@ -5,7 +5,7 @@
         <div class="relative shadow-xl sm:overflow-hidden"> {{-- sm:rounded-2xl --}}
             <div class="absolute inset-0">
                 <img class="h-full w-full object-cover" src="{{asset('storage/static_pages/ilan_lev_practice.jpg')}}" alt="People working on laptops">
-                {{--<div class="absolute inset-0 bg-gradient-to-r from-blue-200 to-primary-700 " style="mix-blend-mode: multiply;"></div>--}}
+                {{--<div class="absolute inset-0 bg-linear-to-r from-blue-200 to-primary-700 " style="mix-blend-mode: multiply;"></div>--}}
                 <div class="absolute inset-0 bg-gray-900 opacity-40"></div>
             </div>
             <div class="relative px-4 py-16 sm:px-6 sm:py-24 lg:py-32 lg:px-8">

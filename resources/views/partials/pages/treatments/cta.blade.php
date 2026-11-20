@@ -9,7 +9,7 @@
         ])
     </div>
     <div class="md:col-span-2 mt-5 md:mt-0 flex">
-        <div class="flex flex-grow flex-col">
+        <div class="flex grow flex-col">
             <div class="m-auto">
                 <div class="mt-4">
                     <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">

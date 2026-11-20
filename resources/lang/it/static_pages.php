@@ -205,42 +205,42 @@ Un bodywork Ilan Lev, invece, consente a chi lo riceve di: ripristinare la capac
             'how_is_list' => "
                             <ul class='mt-6 space-y-4'>
                                 <li class='flex space-x-3'>
-                                    <svg class='flex-shrink-0 h-5 w-5 text-green-500' x-description='Heroicon name: solid/check' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor' aria-hidden='true'>
+                                    <svg class='shrink-0 h-5 w-5 text-green-500' x-description='Heroicon name: solid/check' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor' aria-hidden='true'>
                                     <path fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clip-rule='evenodd'></path>
                                     </svg>
                                     <span class='text-gray-500'>Una conversazione sui disturbi, salute generale e stato mentale.</span>
                                 </li>
 
                                 <li class='flex space-x-3'>
-                                    <svg class='flex-shrink-0 h-5 w-5 text-green-500' x-description='Heroicon name: solid/check' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor' aria-hidden='true'>
+                                    <svg class='shrink-0 h-5 w-5 text-green-500' x-description='Heroicon name: solid/check' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor' aria-hidden='true'>
                                     <path fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clip-rule='evenodd'></path>
                                     </svg>
                                     <span class='text-gray-500'>In abiti comodi, chi riceve trova una posizione del corpo rilassata, di solito sdraiato.</span>
                                 </li>
 
                                 <li class='flex space-x-3'>
-                                    <svg class='flex-shrink-0 h-5 w-5 text-green-500' x-description='Heroicon name: solid/check' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor' aria-hidden='true'>
+                                    <svg class='shrink-0 h-5 w-5 text-green-500' x-description='Heroicon name: solid/check' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor' aria-hidden='true'>
                                     <path fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clip-rule='evenodd'></path>
                                     </svg>
                                     <span class='text-gray-500'>Trattamento.</span>
                                 </li>
 
                                 <li class='flex space-x-3'>
-                                    <svg class='flex-shrink-0 h-5 w-5 text-green-500' x-description='Heroicon name: solid/check' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor' aria-hidden='true'>
+                                    <svg class='shrink-0 h-5 w-5 text-green-500' x-description='Heroicon name: solid/check' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor' aria-hidden='true'>
                                     <path fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clip-rule='evenodd'></path>
                                     </svg>
                                     <span class='text-gray-500'>Il corpo del cliente viene trattato sistematicamente utilizzando varie tecniche.</span>
                                 </li>
 
                                 <li class='flex space-x-3'>
-                                    <svg class='flex-shrink-0 h-5 w-5 text-green-500' x-description='Heroicon name: solid/check' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor' aria-hidden='true'>
+                                    <svg class='shrink-0 h-5 w-5 text-green-500' x-description='Heroicon name: solid/check' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor' aria-hidden='true'>
                                     <path fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clip-rule='evenodd'></path>
                                     </svg>
                                     <span class='text-gray-500'>Chiedo sempre avere feedback durante il trattamento per essere in grado di regolarmi di conseguenza.</span>
                                 </li>
 
                                 <li class='flex space-x-3'>
-                                    <svg class='flex-shrink-0 h-5 w-5 text-green-500' x-description='Heroicon name: solid/check' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor' aria-hidden='true'>
+                                    <svg class='shrink-0 h-5 w-5 text-green-500' x-description='Heroicon name: solid/check' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor' aria-hidden='true'>
                                     <path fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clip-rule='evenodd'></path>
                                     </svg>
                                     <span class='text-gray-500'>Conversazione finale.</span>

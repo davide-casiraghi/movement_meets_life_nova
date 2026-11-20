@@ -36,7 +36,7 @@
                 <div class="tags mt-2">
                     @foreach($insight->tags as $tag)
                         <a href="{{route('tags.show', $tag->slug)}}" class="relative inline-flex items-center rounded-full border border-gray-300 px-3 py-0.5 text-sm">
-                            <span class="absolute flex-shrink-0 flex items-center justify-center">
+                            <span class="absolute shrink-0 flex items-center justify-center">
                                 <span class="h-1.5 w-1.5 rounded-full bg-indigo-500" aria-hidden="true"></span>
                             </span>
                             <span class="ml-3.5 font-medium text-gray-900">{{$tag->tag}}</span>
