@@ -29,7 +29,7 @@
     @endif
 @endif
 
-<div class="relative rounded-md shadow-sm {{$class}}" data-date-format="dd-mm-yyyy">
+<div class="relative rounded-md shadow-xs {{$class}}" data-date-format="dd-mm-yyyy">
     <input
             @isset($livewireSupport) wire:model.lazy="{{ $name }}" @else name="{{ $name }}" @endisset
             id="{{ $name }}"

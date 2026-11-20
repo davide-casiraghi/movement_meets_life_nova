@@ -25,7 +25,7 @@
         id="{{ $name }}"
         @isset($livewireSupport) wire:model.lazy="{{ $name }}" @else name="{{ $name }}" @endisset
         autocomplete="{{ $name }}"
-        class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm {{$extraClasses}}">
+        class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-xs focus:outline-hidden focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm {{$extraClasses}}">
     @if(!empty($placeholder))
         <option value="" class="text-gray-500">{{$placeholder}}</option>
     @endif

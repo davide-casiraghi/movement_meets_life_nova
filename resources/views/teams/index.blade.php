@@ -24,7 +24,7 @@
 @section('content')
 
     <form method="POST" action="{{ route('permissions.store') }}">
-        <div class="bg-white shadow px-4 py-5 sm:rounded-lg sm:p-6">
+        <div class="bg-white shadow-sm px-4 py-5 sm:rounded-lg sm:p-6">
             <div class="">
                 @csrf
                 @include('partials.messages')
@@ -153,7 +153,7 @@
                 </ul>
 
                 <div class="flex justify-end mt-4">
-                    <button type="submit" class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                    <button type="submit" class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-xs text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                         {{ __('teams.save_permissions') }}
                     </button>
                 </div>

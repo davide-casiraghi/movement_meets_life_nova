@@ -22,7 +22,7 @@
     @endif
 @endif
 
-<div class="relative rounded-md shadow-sm">
+<div class="relative rounded-md shadow-xs">
     <input
             @isset($livewireSupport) wire:model.lazy="{{ $name }}" @else name="{{ $name }}" @endisset
             id="{{ $name }}"

@@ -78,7 +78,7 @@
                 ],
                 17 => [
                   'name' => 'shadow_project_quartette.jpg',
-                  'description' => 'The shadow project - Quartette - Ljubljana Summer 2020 - Nayeli & Davide in Ljubljana',
+                  'description' => 'The shadow-sm project - Quartette - Ljubljana Summer 2020 - Nayeli & Davide in Ljubljana',
                   'youtube_url' => 'https://www.youtube.com/watch?v=m1ydQF5djBU',
                 ],
                 18 => [

@@ -22,7 +22,7 @@
                     </div>
                     <input
                         id="search_field"
-                        class="block w-full h-full pl-8 pr-3 py-2 border-transparent text-gray-900 placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-0 focus:border-transparent sm:text-sm"
+                        class="block w-full h-full pl-8 pr-3 py-2 border-transparent text-gray-900 placeholder:text-gray-500 focus:outline-none focus:placeholder:text-gray-400 focus:ring-0 focus:border-transparent sm:text-sm"
                         placeholder="Search"
                         type="search"
                         name="keyword"
@@ -62,7 +62,7 @@
                     From: "transform opacity-100 scale-100"
                     To: "transform opacity-0 scale-95"
                 --}}
-                <div class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5" role="menu" aria-orientation="vertical" aria-labelledby="user-menu"
+                <div class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black/5" role="menu" aria-orientation="vertical" aria-labelledby="user-menu"
                      x-show="open"
                      x-transition:enter="transition ease-out duration-300"
                      x-transition:enter-start="opacity-0 transform scale-90"

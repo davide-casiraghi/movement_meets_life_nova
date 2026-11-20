@@ -10,7 +10,7 @@
         <form action="{{route('contact.store')}}" method="POST" class="max-w-3xl">
             @csrf
             @honeypot
-            <div class="bg-white shadow px-4 py-5 sm:rounded-lg sm:p-6 mt-4">
+            <div class="bg-white shadow-sm px-4 py-5 sm:rounded-lg sm:p-6 mt-4">
 
                 <div class="mb-8">
                     <h1>
@@ -45,7 +45,7 @@
             </div>
 
             {{-- Personal Information --}}
-            <div class="mt-6 bg-white shadow px-4 py-5 sm:rounded-lg sm:p-6">
+            <div class="mt-6 bg-white shadow-sm px-4 py-5 sm:rounded-lg sm:p-6">
                 <div class="md:grid md:grid-cols-3 md:gap-6">
                     <div class="md:col-span-1">
                         <div class="text-lg text-gray-600 font-extrabold tracking-tight sm:text-xl">{{__('forms.contact_me.personal_information')}}</div>
@@ -95,8 +95,8 @@
             {{-- Send button --}}
             <div class="mt-6 py-5 mb-4">
                 <div class="flex justify-end">
-                    <span class="ml-3 inline-flex rounded-md shadow-sm">
-                        <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-primary-600 hover:bg-primary-500 focus:outline-none focus:border-primary-700 focus:ring-primary active:bg-primary-700 transition duration-150 ease-in-out">
+                    <span class="ml-3 inline-flex rounded-md shadow-xs">
+                        <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-primary-600 hover:bg-primary-500 focus:outline-hidden focus:border-primary-700 focus:ring-primary active:bg-primary-700 transition duration-150 ease-in-out">
                             {{__('forms.contact_me.send')}}
                         </button>
                     </span>

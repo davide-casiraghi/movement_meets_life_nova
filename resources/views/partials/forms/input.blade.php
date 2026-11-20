@@ -27,7 +27,7 @@
            placeholder="{{ $placeholder }}"
            aria-label="{{ $placeholder }}"
        @endif
-       class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm rounded-md
+       class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-xs sm:text-sm rounded-md
               border-gray-300 @if ($errors->has($name)) border-red-500 @endif
                 @if($disabled) bg-gray-200 @endif"
        value="{{ $value ?? '' }}"

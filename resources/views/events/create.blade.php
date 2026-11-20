@@ -12,7 +12,7 @@
           enctype="multipart/form-data">
         @csrf
 
-        <div class="bg-white shadow px-4 py-5 sm:rounded-lg sm:p-6">
+        <div class="bg-white shadow-sm px-4 py-5 sm:rounded-lg sm:p-6">
 
             <div class="md:grid md:grid-cols-3 md:gap-6">
 
@@ -395,12 +395,12 @@
                 <div class="flex justify-end mt-4">
                     <a href="{{ url()->previous() }}">
                         <button type="button"
-                                class="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                class="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-xs text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                             Cancel
                         </button>
                     </a>
                     <button type="submit"
-                            class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                            class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-xs text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                         Save
                     </button>
                 </div>

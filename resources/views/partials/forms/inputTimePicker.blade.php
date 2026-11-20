@@ -42,8 +42,8 @@
 />--}}
 
 <div class="">
-    <div class="inline shadow-sm sm:text-sm rounded-md border-gray-300 border-solid border p-2">
-        <select name="{{$name}}Hours" class="bg-transparent appearance-none outline-none border-none">
+    <div class="inline shadow-xs sm:text-sm rounded-md border-gray-300 border-solid border p-2">
+        <select name="{{$name}}Hours" class="bg-transparent appearance-none outline-hidden border-none">
             <option value="">...</option>
             <option value="1" {{  $value['hours'] == '1' ? 'selected' : '' }}>1</option>
             <option value="2" {{  $value['hours'] == '2' ? 'selected' : '' }}>2</option>
@@ -59,14 +59,14 @@
             <option value="12" {{  $value['hours'] == '12' ? 'selected' : '' }}>12</option>
         </select>
         <span class="text-xl px-1 pt-1">:</span>
-        <select name="{{$name}}Minutes" class="bg-transparent appearance-none outline-none border-none">
+        <select name="{{$name}}Minutes" class="bg-transparent appearance-none outline-hidden border-none">
             <option value="">...</option>
             <option value="00" {{  $value['minutes'] == '00' ? 'selected' : '' }}>00</option>
             <option value="15" {{  $value['minutes'] == '15' ? 'selected' : '' }}>15</option>
             <option value="30" {{  $value['minutes'] == '30' ? 'selected' : '' }}>30</option>
             <option value="45" {{  $value['minutes'] == '45' ? 'selected' : '' }}>45</option>
         </select>
-        <select name="{{$name}}Ampm" class="bg-transparent appearance-none outline-none border-none">
+        <select name="{{$name}}Ampm" class="bg-transparent appearance-none outline-hidden border-none">
             <option value="">...</option>
             <option value="am" {{  $value['ampm'] == 'AM' ? 'selected' : '' }}>AM</option>
             <option value="pm" {{  $value['ampm'] == 'PM' ? 'selected' : '' }}>PM</option>

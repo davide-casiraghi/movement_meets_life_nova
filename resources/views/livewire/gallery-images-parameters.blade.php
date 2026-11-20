@@ -9,7 +9,7 @@
                          <h3 class="mb-4 text-xl font-bold tracking-tighter text-center text-blue-800 lg:text-left lg:text-xl">{{$gallery}}</h3>
                     </div>
                     <div class="col-span-4">
-                        <div class="select-all text-sm border border-gray-500 bg-gray-100 rounded p-1 overflow-x-hidden whitespace-nowrap">
+                        <div class="select-all text-sm border border-gray-500 bg-gray-100 rounded-sm p-1 overflow-x-hidden whitespace-nowrap">
                             {# gallery name=[{{$gallery}}] hover_animate=[true] #}
                         </div>
                     </div>
@@ -20,7 +20,7 @@
                         @if($image->getCustomProperty('image_gallery') == $gallery)
                             <div class="w-44 relative">
                                 <img src="{{$image->getUrl('thumb')}}" class="" alt="">
-                                <button wire:click.prevent="edit({{$image->id}})" type="button" class="inline-flex items-center px-2.5 py-1.5 border border-gray-300 shadow-sm text-xs font-medium rounded text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 absolute top-1 right-1">
+                                <button wire:click.prevent="edit({{$image->id}})" type="button" class="inline-flex items-center px-2.5 py-1.5 border border-gray-300 shadow-xs text-xs font-medium rounded-sm text-gray-700 bg-white hover:bg-gray-50 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 absolute top-1 right-1">
                                     Properties
                                 </button>
                             </div>
@@ -50,7 +50,7 @@
                         @if($image->getCustomProperty('image_gallery') == null)
                             <div class="w-44 relative">
                                 <img src="{{$image->getUrl('thumb')}}" class="" alt="">
-                                <button wire:click.prevent="edit({{$image->id}})" type="button" class="inline-flex items-center px-2.5 py-1.5 border border-gray-300 shadow-sm text-xs font-medium rounded text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 absolute top-1 right-1">
+                                <button wire:click.prevent="edit({{$image->id}})" type="button" class="inline-flex items-center px-2.5 py-1.5 border border-gray-300 shadow-xs text-xs font-medium rounded-sm text-gray-700 bg-white hover:bg-gray-50 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 absolute top-1 right-1">
                                     Properties
                                 </button>
                             </div>
@@ -93,7 +93,7 @@
             -->
             <div class="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:p-6" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
                 <div class="hidden sm:block absolute top-0 right-0 pt-4 pr-4">
-                    <button wire:click="close" type="button" class="bg-white rounded-md text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                    <button wire:click="close" type="button" class="bg-white rounded-md text-gray-400 hover:text-gray-500 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                         <span class="sr-only">Close</span>
                         <!-- Heroicon name: x -->
                         <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -110,45 +110,45 @@
                         <div class="mt-2">
                             <label for="image_description" class="block text-sm font-medium text-gray-700">Description</label>
                             <div class="mt-1">
-                                <input type="text" wire:model="image_description" id="image_description" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="">
+                                <input type="text" wire:model="image_description" id="image_description" class="shadow-xs focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="">
                             </div>
                         </div>
 
                         <div>
                             <label for="image_video_url" class="block text-sm font-medium text-gray-700 mt-3">Video URL</label>
                             <div class="mt-1">
-                                <input type="text" wire:model="image_video_url" id="image_video_url" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="">
+                                <input type="text" wire:model="image_video_url" id="image_video_url" class="shadow-xs focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="">
                             </div>
                         </div>
 
                         <div>
                             <label for="image_caption" class="block text-sm font-medium text-gray-700 mt-3">Caption</label>
                             <div class="mt-1">
-                                <input type="text" wire:model="image_caption" id="image_caption" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="">
+                                <input type="text" wire:model="image_caption" id="image_caption" class="shadow-xs focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="">
                             </div>
                         </div>
 
                         <div class="mt-2">
                             <label for="image_gallery" class="block text-sm font-medium text-gray-700 mt-3">Gallery</label>
                             <div class="mt-1">
-                                <input type="text" wire:model="image_gallery" id="image_gallery" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="Name of the gallery to assign the image to">
+                                <input type="text" wire:model="image_gallery" id="image_gallery" class="shadow-xs focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="Name of the gallery to assign the image to">
                             </div>
                         </div>
 
                         <div class="mt-2">
                             <label for="snippet" class="block text-sm font-medium text-gray-700 mt-3">Snippet</label>
                             <div class="mt-1">
-                                <input type="text" wire:model="snippet" id="snippet" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="">
+                                <input type="text" wire:model="snippet" id="snippet" class="shadow-xs focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="">
                             </div>
                         </div>
 
                     </div>
                 </div>
                 <div class="mt-5 sm:mt-4 sm:flex sm:flex-row-reverse">
-                    <button wire:click="save" type="button" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-indigo-600 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:ml-3 sm:w-auto sm:text-sm">
+                    <button wire:click="save" type="button" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-xs px-4 py-2 bg-indigo-600 text-base font-medium text-white hover:bg-indigo-700 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:ml-3 sm:w-auto sm:text-sm">
                         Save
                     </button>
-                    <button wire:click="close" type="button" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:w-auto sm:text-sm">
+                    <button wire:click="close" type="button" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-xs px-4 py-2 bg-white text-base font-medium text-gray-700 hover:text-gray-500 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:w-auto sm:text-sm">
                         Cancel
                     </button>
                 </div>

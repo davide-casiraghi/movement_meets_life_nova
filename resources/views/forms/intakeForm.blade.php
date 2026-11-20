@@ -20,7 +20,7 @@
         <form action="{{route('intakeForm.store')}}" method="POST" class="max-w-3xl">
             @csrf
             @honeypot
-            <div class="bg-white shadow px-4 py-5 sm:rounded-lg sm:p-6 mt-4">
+            <div class="bg-white shadow-sm px-4 py-5 sm:rounded-lg sm:p-6 mt-4">
                 <div class="md:grid md:grid-cols-3 md:gap-6">
                     <div class="md:col-span-1">
                         <div class="text-lg text-gray-600 font-extrabold tracking-tight sm:text-xl">{{__('forms.get_a_treatment.your_condition')}}</div>
@@ -35,8 +35,8 @@
                             <label for="mainComplaint" class="block text-sm leading-5 font-medium text-gray-700">
                                 {{__('forms.get_a_treatment.main_complaint')}}
                             </label>
-                            <div class="rounded-md shadow-sm">
-                                <textarea name="mainComplaint" id="mainComplaint" rows="3" class="form-textarea mt-1 block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary-300" placeholder="Brief description of the complaint."></textarea>
+                            <div class="rounded-md shadow-xs">
+                                <textarea name="mainComplaint" id="mainComplaint" rows="3" class="form-textarea mt-1 block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5 border border-gray-300 rounded-md shadow-xs focus:outline-hidden focus:ring-primary focus:border-primary-300" placeholder="Brief description of the complaint."></textarea>
                             </div>
                             <p class="mt-2 text-sm text-gray-500">
                                 {{__('forms.get_a_treatment.specify_physical_locations')}}
@@ -87,8 +87,8 @@
                             <label for="about" class="block text-sm leading-5 font-medium text-gray-700">
                                 {{__('forms.get_a_treatment.secondary_complaint')}}
                             </label>
-                            <div class="rounded-md shadow-sm">
-                                <textarea name="secondaryComplaint" id="secondaryComplaint" rows="3" class="form-textarea mt-1 block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary-300" placeholder="Brief description of the complaint."></textarea>
+                            <div class="rounded-md shadow-xs">
+                                <textarea name="secondaryComplaint" id="secondaryComplaint" rows="3" class="form-textarea mt-1 block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5 border border-gray-300 rounded-md shadow-xs focus:outline-hidden focus:ring-primary focus:border-primary-300" placeholder="Brief description of the complaint."></textarea>
                             </div>
                             <p class="mt-2 text-sm text-gray-500">
                                 {{__('forms.get_a_treatment.specify_physical_locations')}}
@@ -137,7 +137,7 @@
                 </div>
             </div>
 
-            <div class="mt-6 bg-white shadow px-4 py-5 sm:rounded-lg sm:p-6">
+            <div class="mt-6 bg-white shadow-sm px-4 py-5 sm:rounded-lg sm:p-6">
                 <div class="md:grid md:grid-cols-3 md:gap-6">
                     <div class="md:col-span-1">
                         <div class="text-lg text-gray-600 font-extrabold tracking-tight sm:text-xl">{{__('forms.get_a_treatment.personal_information')}}</div>
@@ -206,7 +206,7 @@
                 </div>
             </div>
 
-            <div class="my-6 bg-white shadow px-4 py-5 sm:rounded-lg sm:p-6">
+            <div class="my-6 bg-white shadow-sm px-4 py-5 sm:rounded-lg sm:p-6">
                 <div class="md:grid md:grid-cols-3 md:gap-6">
                     <div class="md:col-span-1">
                         <div class="text-lg text-gray-600 font-extrabold tracking-tight sm:text-xl">{{__('forms.get_a_treatment.contact')}}</div>
@@ -256,8 +256,8 @@
             {{-- Send button --}}
             <div class="mt-6 py-5 mb-4">
                 <div class="flex justify-end">
-                    <span class="ml-3 inline-flex rounded-md shadow-sm">
-                        <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-primary-600 hover:bg-primary-500 focus:outline-none focus:border-primary-700 focus:ring-primary active:bg-primary-700 transition duration-150 ease-in-out">
+                    <span class="ml-3 inline-flex rounded-md shadow-xs">
+                        <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-primary-600 hover:bg-primary-500 focus:outline-hidden focus:border-primary-700 focus:ring-primary active:bg-primary-700 transition duration-150 ease-in-out">
                             {{__('forms.get_a_treatment.send')}}
                         </button>
                     </span>

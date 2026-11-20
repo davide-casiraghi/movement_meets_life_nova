@@ -10,7 +10,7 @@
         <form action="{{route('testimonials.store')}}" method="POST" class="max-w-3xl" enctype="multipart/form-data">
             @csrf
             @honeypot
-            <div class="bg-white shadow px-4 py-5 sm:rounded-lg sm:p-6 mt-4">
+            <div class="bg-white shadow-sm px-4 py-5 sm:rounded-lg sm:p-6 mt-4">
 
                 <div class="">
                     <h1>
@@ -55,7 +55,7 @@
             </div>
 
             {{-- Personal Information --}}
-            <div class="mt-6 bg-white shadow px-4 py-5 sm:rounded-lg sm:p-6">
+            <div class="mt-6 bg-white shadow-sm px-4 py-5 sm:rounded-lg sm:p-6">
                 <div class="md:grid md:grid-cols-3 md:gap-6">
                     <div class="md:col-span-1">
                         <div class="text-lg text-gray-600 font-extrabold tracking-tight sm:text-xl">Personal Information</div>
@@ -131,11 +131,11 @@
                                         <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
                                       </svg>
                                     </span>
-                                    <span class="ml-5 rounded-md shadow-sm">
-                                      {{--<button type="button" class="py-2 px-3 border border-gray-300 rounded-md text-sm leading-4 font-medium text-gray-700 hover:text-gray-500 focus:outline-none focus:border-primary-300 focus:ring-primary active:bg-gray-50 active:text-gray-800 transition duration-150 ease-in-out">
+                                    <span class="ml-5 rounded-md shadow-xs">
+                                      {{--<button type="button" class="py-2 px-3 border border-gray-300 rounded-md text-sm leading-4 font-medium text-gray-700 hover:text-gray-500 focus:outline-hidden focus:border-primary-300 focus:ring-primary active:bg-gray-50 active:text-gray-800 transition duration-150 ease-in-out">
                                         Change
                                       </button>--}}
-                                        <label class="py-2 px-3 border border-gray-300 rounded-md text-xs leading-4 font-medium text-gray-700 hover:text-gray-500 focus:outline-none focus:border-primary-300 focus:ring-primary active:bg-gray-50 active:text-gray-800 transition duration-150 ease-in-out">
+                                        <label class="py-2 px-3 border border-gray-300 rounded-md text-xs leading-4 font-medium text-gray-700 hover:text-gray-500 focus:outline-hidden focus:border-primary-300 focus:ring-primary active:bg-gray-50 active:text-gray-800 transition duration-150 ease-in-out">
                                             {{--<svg class="w-5 h-5 inline-block" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                                                 <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
                                             </svg>--}}
@@ -151,7 +151,7 @@
             </div>
 
             {{-- Publish agreement --}}
-            <div class="mt-6 bg-white shadow px-4 py-5 sm:rounded-lg sm:p-6 mb-4">
+            <div class="mt-6 bg-white shadow-sm px-4 py-5 sm:rounded-lg sm:p-6 mb-4">
                 <div class="md:grid md:grid-cols-3 md:gap-6">
                     <div class="md:col-span-1">
                         <div class="text-lg text-gray-600 font-extrabold tracking-tight sm:text-xl">{{__('forms.become_a_testimonial.publish_agreement')}}</div>
@@ -191,15 +191,15 @@
 
                         <div class="mt-8 border-t border-gray-200 pt-5">
                             <div class="flex justify-end">
-                                <span class="inline-flex rounded-md shadow-sm">
+                                <span class="inline-flex rounded-md shadow-xs">
                                     <a href="{{ url()->previous() }}">
-                                        <button type="button" class="py-2 px-4 border border-gray-300 rounded-md text-sm leading-5 font-medium text-gray-700 hover:text-gray-500 focus:outline-none focus:border-primary-300 focus:ring-primary active:bg-gray-50 active:text-gray-800 transition duration-150 ease-in-out">
+                                        <button type="button" class="py-2 px-4 border border-gray-300 rounded-md text-sm leading-5 font-medium text-gray-700 hover:text-gray-500 focus:outline-hidden focus:border-primary-300 focus:ring-primary active:bg-gray-50 active:text-gray-800 transition duration-150 ease-in-out">
                                             {{__('forms.become_a_testimonial.cancel')}}
                                         </button>
                                     </a>
                                 </span>
-                                <span class="ml-3 inline-flex rounded-md shadow-sm">
-                                    <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-primary-600 hover:bg-primary-500 focus:outline-none focus:border-primary-700 focus:ring-primary active:bg-primary-700 transition duration-150 ease-in-out">
+                                <span class="ml-3 inline-flex rounded-md shadow-xs">
+                                    <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-primary-600 hover:bg-primary-500 focus:outline-hidden focus:border-primary-700 focus:ring-primary active:bg-primary-700 transition duration-150 ease-in-out">
                                         {{__('forms.become_a_testimonial.save')}}
                                     </button>
                                 </span>
