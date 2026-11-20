@@ -5,8 +5,8 @@
                 Frequently asked questions
                 @lang('static_pages.events.no_events')
             </h2>
-            <dl class="mt-6 space-y-6 divide-y divide-gray-200">
-                <div class="pt-6">
+            <dl class="mt-6 divide-y divide-gray-200">
+                <div class="py-6 last:pb-0">
                     <dt class="text-lg">
                         <button x-description="Expand/collapse question button" @click="openPanel = (openPanel === 0 ? null : 0)" class="text-left w-full flex justify-between items-start text-gray-400" x-bind:aria-expanded="openPanel === 0">
                             <span class="font-medium text-gray-900">
@@ -26,7 +26,7 @@
                         </p>
                     </dd>
                 </div>
-                <div class="pt-6">
+                <div class="py-6 last:pb-0">
                     <dt class="text-lg">
                         <button x-description="Expand/collapse question button" @click="openPanel = (openPanel === 1 ? null : 1)" class="text-left w-full flex justify-between items-start text-gray-400" x-bind:aria-expanded="openPanel === 1">
                             <span class="font-medium text-gray-900">
@@ -46,7 +46,7 @@
                         </p>
                     </dd>
                 </div>
-                <div class="pt-6">
+                <div class="py-6 last:pb-0">
                     <dt class="text-lg">
                         <button x-description="Expand/collapse question button" @click="openPanel = (openPanel === 2 ? null : 2)" class="text-left w-full flex justify-between items-start text-gray-400" x-bind:aria-expanded="openPanel === 2">
                             <span class="font-medium text-gray-900">
@@ -66,7 +66,7 @@
                         </p>
                     </dd>
                 </div>
-                <div class="pt-6">
+                <div class="py-6 last:pb-0">
                     <dt class="text-lg">
                         <button x-description="Expand/collapse question button" @click="openPanel = (openPanel === 3 ? null : 3)" class="text-left w-full flex justify-between items-start text-gray-400" x-bind:aria-expanded="openPanel === 3">
                             <span class="font-medium text-gray-900">
@@ -86,7 +86,7 @@
                         </p>
                     </dd>
                 </div>
-                <div class="pt-6">
+                <div class="py-6 last:pb-0">
                     <dt class="text-lg">
                         <button x-description="Expand/collapse question button" @click="openPanel = (openPanel === 4 ? null : 4)" class="text-left w-full flex justify-between items-start text-gray-400" x-bind:aria-expanded="openPanel === 4">
                             <span class="font-medium text-gray-900">
@@ -106,7 +106,7 @@
                         </p>
                     </dd>
                 </div>
-                <div class="pt-6">
+                <div class="py-6 last:pb-0">
                     <dt class="text-lg">
                         <button x-description="Expand/collapse question button" @click="openPanel = (openPanel === 5 ? null : 5)" class="text-left w-full flex justify-between items-start text-gray-400" x-bind:aria-expanded="openPanel === 5">
                             <span class="font-medium text-gray-900">
