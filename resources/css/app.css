@@ -11,6 +11,7 @@
 @plugin "@tailwindcss/typography";
 
 @source "../../vendor/laravel/jetstream/resources/views";
+@source inline("{,hover:}{bg,text}-{primary,secondary,yellow,red,green,indigo,blue,gray,cyan,amber}-{100,200,600,700}");
 
 /* Alias dei colori: nomi usati nei template -> palette di Tailwind */
 @theme inline {

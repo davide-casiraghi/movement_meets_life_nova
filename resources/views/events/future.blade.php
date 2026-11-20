@@ -28,7 +28,7 @@
             </div>
         @endif
         <div class="text-center mt-6">
-            <a href="{{ route('events.past') }}" class="font-medium rounded-md text-white px-4 py-2 bg-primary-600 hover:bg-primary-500 focus:outline-none focus:border-primary-700 focus:ring-primary active:bg-primary-700 transition ease-in-out duration-150">@lang('static_pages.events.past_events')</a>
+            <a href="{{ route('events.past') }}" class="font-medium rounded-md text-white px-4 py-2 bg-primary-600 hover:bg-primary-500 focus:outline-hidden focus:border-primary-700 focus:ring-primary active:bg-primary-700 transition ease-in-out duration-150">@lang('static_pages.events.past_events')</a>
         </div>
     </div>
 

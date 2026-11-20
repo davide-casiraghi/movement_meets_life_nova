@@ -17,30 +17,30 @@
 
 @switch($size)
     @case(1)
-        @php ($sizeClasses = 'px-2.5 py-1.5 text-xs rounded shadow-sm')
+        @php ($sizeClasses = 'px-2.5 py-1.5 text-xs rounded-sm shadow-xs')
     @break
 
     @case(2)
-        @php ($sizeClasses = 'px-3 py-2 text-sm leading-4 rounded-md shadow-sm')
+        @php ($sizeClasses = 'px-3 py-2 text-sm leading-4 rounded-md shadow-xs')
     @break
 
     @case(3)
-        @php ($sizeClasses = 'px-4 py-2 text-sm rounded-md shadow-sm')
+        @php ($sizeClasses = 'px-4 py-2 text-sm rounded-md shadow-xs')
     @break
 
     @case(4)
-        @php ($sizeClasses = 'px-4 py-2 text-base rounded-md shadow-sm')
+        @php ($sizeClasses = 'px-4 py-2 text-base rounded-md shadow-xs')
     @break
 
     @case(5)
-        @php ($sizeClasses = 'px-6 py-3 text-base rounded-md shadow-sm')
+        @php ($sizeClasses = 'px-6 py-3 text-base rounded-md shadow-xs')
     @break
 
 @endswitch
 
 @switch($kind)
     @case('primary')
-        @php ($kindClasses = 'border-transparent shadow-sm text-white bg-'.$color.'-600 hover:bg-'.$color.'-700')
+        @php ($kindClasses = 'border-transparent shadow-xs text-white bg-'.$color.'-600 hover:bg-'.$color.'-700')
     @break
 
     @case('secondary')
@@ -48,7 +48,7 @@
     @break
 
     @case('white')
-        @php ($kindClasses = 'border-gray-300 shadow-sm text-gray-700 bg-white hover:bg-gray-50')
+        @php ($kindClasses = 'border-gray-300 shadow-xs text-gray-700 bg-white hover:bg-gray-50')
     @break
 
 @endswitch
@@ -56,7 +56,7 @@
 
 
 <a href="{{ $url }}" target="{{$target}}"
-   class="inline-flex items-center border font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 {{$kindClasses}} {{$sizeClasses}} {{$extraClasses}}">
+   class="inline-flex items-center border font-medium focus:outline-hidden focus:ring-2 focus:ring-offset-2 {{$kindClasses}} {{$sizeClasses}} {{$extraClasses}}">
     {!! $icon !!}
     <div class="inline-block">{{$title}}</div>
 </a>
