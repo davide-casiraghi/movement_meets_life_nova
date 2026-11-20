@@ -18,10 +18,10 @@
             {{-- COL LEFT --}}
             <div class="md:col-span-3">
                 <div class=" divide-y-2 divide-gray-200">
-                    <dl class="mt-6 space-y-6 divide-y divide-gray-200">
+                    <dl class="mt-6 divide-y divide-gray-200">
 
                         @foreach($left as $faqItem)
-                            <div class="pt-6">
+                            <div class="py-6 last:pb-0">
                                 <dt class="text-lg">
                                     <button x-description="Expand/collapse question button" @click="openPanel = (openPanel === {{$openPanelIndex}} ? null : {{$openPanelIndex}})" x-bind:aria-expanded="openPanel === {{$openPanelIndex}}" class="text-left w-full flex justify-between items-start text-gray-400">
                                         <span class="font-medium text-gray-900">
@@ -52,9 +52,9 @@
             {{-- COL RIGHT --}}
             <div class="md:col-span-3">
                 <div class=" divide-y-2 divide-gray-200">
-                    <dl class="mt-6 space-y-6 divide-y divide-gray-200">
+                    <dl class="mt-6 divide-y divide-gray-200">
                         @foreach($right as $faqItem)
-                            <div class="pt-6">
+                            <div class="py-6 last:pb-0">
                                 <dt class="text-lg">
                                     <button x-description="Expand/collapse question button" @click="openPanel = (openPanel === {{$openPanelIndex}} ? null : {{$openPanelIndex}})" x-bind:aria-expanded="openPanel === {{$openPanelIndex}}" class="text-left w-full flex justify-between items-start text-gray-400">
                                         <span class="font-medium text-gray-900">
