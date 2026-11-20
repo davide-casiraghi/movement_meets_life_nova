@@ -1,4 +1,4 @@
-import 'bootstrap-datepicker/dist/css/bootstrap-datepicker3.css';
+import 'bootstrap-datepicker/dist/css/bootstrap-datepicker.standalone.css';
 
 $(document).ready(function() {
 

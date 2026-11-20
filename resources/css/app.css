@@ -108,3 +108,12 @@
         border-color: var(--color-neutral-200, currentColor);
     }
 }
+.datepicker.dropdown-menu {
+    position: absolute;
+    z-index: 1000;
+    padding: 4px;
+    background-color: #fff;
+    border: 1px solid rgb(0 0 0 / 0.15);
+    border-radius: 0.375rem;
+    box-shadow: 0 6px 12px rgb(0 0 0 / 0.175);
+}
