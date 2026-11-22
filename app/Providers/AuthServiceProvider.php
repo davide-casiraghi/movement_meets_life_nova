@@ -24,7 +24,6 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->registerPolicies();
 
         // Give the admin full authorization to this resource
         Gate::before(function (User $user){
