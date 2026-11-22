@@ -28,14 +28,14 @@ class Insight extends Model implements HasMedia, Searchable
     protected $guarded = [];
 
     /**
-     * The attributes that should be mutated to dates.
+     * The attributes that should be cast.
      *
      * @var array
      */
-    protected $dates = [
-        'published_on_facebook_on',
-        'published_on_twitter_on',
-        'published_on_instagram_on'
+    protected $casts = [
+        'published_on_facebook_on' => 'datetime',
+        'published_on_twitter_on' => 'datetime',
+        'published_on_instagram_on' => 'datetime',
     ];
 
     /**
