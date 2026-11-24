@@ -49,7 +49,7 @@ class UserService
         ]);
 
         // Teams membership
-        $roles = $request->team_membership ?? [];
+        $roles = array_map('intval', (array) ($request->team_membership ?? []));
 
         // User level
         $roles[] = $request->role;
@@ -81,7 +81,7 @@ class UserService
         // Teams membership
         // (Just if the role is admin, for super admins we don't need them)
         if ($request->role == "Admin") {
-            $roles[] = $request->team_membership;
+            $roles = array_merge($roles, array_map('intval', (array) $request->team_membership));
         }
         $user->syncRoles($roles);
 
