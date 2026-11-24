@@ -46,7 +46,7 @@
             list-style: none;
             margin: 20px 0 20px 30px;
             li {
-                margin-bottom: 1rem;
+                margin-bottom: 0.25rem;
                 &:before {
                     @apply text-primary-600 inline-block text-3xl; /* w-4 -m-4 */
                     content: "•";
@@ -54,6 +54,8 @@
                     width: 1em;
                     margin-left: -1em;
                     font-family: arial;
+                    position: relative;
+                    top: 0.15em; /* lowers the bullet to the vertical center of the text */
                 }
             }
         }
