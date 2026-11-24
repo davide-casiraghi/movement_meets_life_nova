@@ -3,14 +3,12 @@ import './tipped-global';
 import './jquery-plugins';
 
 // Load vendor libraries
-import 'alpinejs';
 import 'justifiedGallery';
 import '@fancyapps/fancybox';
 import 'bootstrap-datepicker';
 import 'slick-carousel';
 import 'livewire-sortable';
 import 'flatpickr';
-// import 'trix';
 
 // Load my scripts related to vendor libraries
 import './vendors/tinymce';

@@ -31,7 +31,7 @@
 
 <div class="relative rounded-md shadow-xs {{$class}}" data-date-format="dd-mm-yyyy">
     <input
-            @isset($livewireSupport) wire:model.lazy="{{ $name }}" @else name="{{ $name }}" @endisset
+            @isset($livewireSupport) wire:model.blur="{{ $name }}" @else name="{{ $name }}" @endisset
             id="{{ $name }}"
             class="focus:ring-indigo-500 focus:border-indigo-500 block w-full pr-10 sm:text-sm
                     border-gray-300 rounded-md

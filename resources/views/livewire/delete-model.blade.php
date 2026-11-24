@@ -1,5 +1,5 @@
 <div>
-    <form wire:submit.prevent="delete">
+    <form wire:submit="delete">
         @csrf
         @method('DELETE')
         <button type="submit" class="inline-flex items-center border font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 border-transparent text-red-700 bg-red-100 hover:bg-red-200 px-2.5 py-1.5 text-xs rounded shadow-sm mt-4">

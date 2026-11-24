@@ -19,7 +19,7 @@
 @endif
 
 <input type="text"
-       @isset($livewireSupport) wire:model.lazy="{{ $name }}" @else name="{{ $name }}" @endisset
+       @isset($livewireSupport) wire:model.blur="{{ $name }}" @else name="{{ $name }}" @endisset
 
        id="{{ $name }}"
        autocomplete="{{ $name }}"

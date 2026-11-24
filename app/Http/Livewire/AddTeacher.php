@@ -16,6 +16,7 @@ use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Livewire\Attributes\On;
 
 class AddTeacher extends Component
 {
@@ -40,10 +41,7 @@ class AddTeacher extends Component
         'profilePicture' => ['nullable'], // 5MB Max - , 'image','mimes:jpg,jpeg,png','max:5120'
     ];
 
-    protected $listeners = [
-        'fileUpload' => 'handleFileUpload',
-    ];
-
+    #[On('fileUpload')]
     public function handleFileUpload($imageData)
     {
         $this->profilePicture = $imageData;
@@ -103,7 +101,7 @@ class AddTeacher extends Component
         $this->selected[] = $teacher->id;
         $this->teachers = $teacherRepository->getAll();
 
-        $this->emit('refreshTeachersDropdown', ['teacher' => $teacher]);
+        $this->dispatch('refreshTeachersDropdown', teacher: $teacher->toArray());
 
         $this->showModal = false;
 

@@ -35,7 +35,7 @@
                 @method('PUT')
 
                 {{-- Translations tabs - Default Contents --}}
-                <div class="translation en" x-show.transition.in="translationActive === '{{Config::get('app.fallback_locale')}}'">
+                <div class="translation en" x-show="translationActive === '{{Config::get('app.fallback_locale')}}'" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100">
                     <div class="grid grid-cols-6 gap-6">
                         <div class="col-span-6">
                             @include('partials.forms.input', [
@@ -53,7 +53,7 @@
                 {{-- Translations tabs - Contents translated other languages --}}
                 @foreach ($countriesAvailableForTranslations as $countryCode => $countryAvTrans)
                     @if($countryCode != Config::get('app.fallback_locale'))
-                        <div class="translation {{$countryCode}}" x-show.transition.in="translationActive === '{{$countryCode}}'">
+                        <div class="translation {{$countryCode}}" x-show="translationActive === '{{$countryCode}}'" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100">
                             <div class="grid grid-cols-6 gap-6">
 
                                 <div class="col-span-6">

@@ -19,7 +19,7 @@
 <div class="mt-1">
     <textarea
             id="{{ $name }}"
-            @isset($livewireSupport) wire:model.lazy="{{ $name }}" @else name="{{ $name }}" @endisset
+            @isset($livewireSupport) wire:model.blur="{{ $name }}" @else name="{{ $name }}" @endisset
             rows="3"
             class="shadow-xs focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md
                     @if ($errors->has($name)) border-red-500 @endif

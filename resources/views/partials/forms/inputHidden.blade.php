@@ -7,7 +7,7 @@
 --}}
 
 <input type="hidden"
-       @isset($livewireSupport) wire:model.lazy="{{ $name }}" @else name="{{ $name }}" @endisset
+       @isset($livewireSupport) wire:model.blur="{{ $name }}" @else name="{{ $name }}" @endisset
         "
        @if(!empty($placeholder)) placeholder="{{ $placeholder }}" @endif
        @if(!empty($value)) value="{{ $value }}" @endif

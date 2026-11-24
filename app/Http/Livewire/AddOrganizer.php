@@ -11,6 +11,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Str;
 use Livewire\Component;
+use Livewire\Attributes\On;
 
 class AddOrganizer extends Component
 {
@@ -30,10 +31,7 @@ class AddOrganizer extends Component
         'profilePicture' => ['nullable'], // 5MB Max - , 'image','mimes:jpg,jpeg,png','max:5120'
     ];
 
-    protected $listeners = [
-        'fileUpload' => 'handleFileUpload',
-    ];
-
+    #[On('fileUpload')]
     public function handleFileUpload($imageData)
     {
         $this->profilePicture = $imageData;
@@ -90,7 +88,7 @@ class AddOrganizer extends Component
         $this->selected[] = $organizer->id;
         $this->organizers = $organizerRepository->getAll();
 
-        $this->emit('refreshOrganizersDropdown', ['organizer' => $organizer]);
+        $this->dispatch('refreshOrganizersDropdown', organizer: $organizer->toArray());
         $this->showModal = false;
 
         $this->newOrganizer = [];

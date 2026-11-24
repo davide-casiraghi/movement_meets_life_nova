@@ -152,11 +152,11 @@
                                               'livewireSupport' => true,
                                           ])--}}
 
-                                    {{--<input type="file" id="image" wire:change="$emit('fileChoosen')">--}}
+                                    {{--<input type="file" id="image" wire:change="$dispatch('fileChoosen')">--}}
 
-                                    {{--<input type="file" wire:model="profilePicture">--}}
+                                    {{--<input type="file" wire:model.live="profilePicture">--}}
 
-                                    <input type="file" id="image" wire:change="$emit('organizerImageChoosen')">
+                                    <input type="file" id="image" wire:change="$dispatch('organizerImageChoosen')">
                                 </div>
 
                             </div>
@@ -179,7 +179,7 @@
 
 @push('scripts')
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('livewire:init', function () {
 
             // When a value is selected in the dropdown, update the selected property in the Livewire component
             $('#organizer_ids').on('change', function (e) {
@@ -194,13 +194,13 @@
                 $('#organizer_ids').append(newOption).trigger('change');
             });
 
-            window.livewire.on('organizerImageChoosen', () => {
+            Livewire.on('organizerImageChoosen', () => {
                 console.log('file chosen');
                 let inputField = document.getElementById('image')
                 let file = inputField.files[0]
                 let reader = new FileReader();
                 reader.onloadend = () => {
-                    window.livewire.emit('fileUpload', reader.result)
+                    Livewire.dispatch('fileUpload', { imageData: reader.result })
                 }
                 reader.readAsDataURL(file);
             });

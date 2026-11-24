@@ -20,7 +20,7 @@
                 <div class="mt-5 md:mt-0 md:col-span-2">
 
                     {{-- Translations tabs - Default Contents --}}
-                    <div class="translation en" x-show.transition.in="translationActive === '{{Config::get('app.fallback_locale')}}'">
+                    <div class="translation en" x-show="translationActive === '{{Config::get('app.fallback_locale')}}'" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100">
                         <div class="grid grid-cols-6 gap-6">
                             <div class="col-span-6">
                                 @include('partials.forms.input', [

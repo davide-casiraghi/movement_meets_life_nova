@@ -10,6 +10,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\App;
 use Livewire\Component;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+use Livewire\Attributes\On;
 
 /**
  * Class GlossaryVariants
@@ -32,7 +33,11 @@ class GlossaryVariants extends Component
         'newVariant.term' => ['required', 'string'],
     ];*/
 
-    protected $listeners = ['variantsRefresh' => 'mount'];
+    #[On('variantsRefresh')]
+    public function refreshVariants(int $glossaryId)
+    {
+        $this->mount($glossaryId);
+    }
 
     /**
      * The component constructor
@@ -104,7 +109,7 @@ class GlossaryVariants extends Component
         }
 
         // Reload variants
-        $this->emit('variantsRefresh', $this->glossaryTerm->id);
+        $this->dispatch('variantsRefresh', glossaryId: $this->glossaryTerm->id);
 
         $this->showModal = false;
         $this->newVariant = [];
@@ -129,7 +134,7 @@ class GlossaryVariants extends Component
         $glossaryVariantRepository->delete($variantId);
 
         // Reload variants
-        $this->emit('variantsRefresh', $this->glossaryTerm->id);
+        $this->dispatch('variantsRefresh', glossaryId: $this->glossaryTerm->id);
     }
 
     /**

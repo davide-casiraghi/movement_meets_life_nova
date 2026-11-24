@@ -27,7 +27,6 @@
     @livewireStyles
 
     {{-- Blade UI Kit styles --}}
-        @bukStyles(true)
     {{-- End Blade UI Kit styles --}}
 </head>
 
@@ -82,7 +81,6 @@
     @stack('modals')
 
     {{--  Blade UI Kit scripts --}}
-        @bukScripts(true)
     {{--  End Blade UI Kit scripts --}}
 </body>
 </html>

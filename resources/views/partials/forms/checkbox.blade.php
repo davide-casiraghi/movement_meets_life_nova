@@ -37,7 +37,7 @@ othewrise put all of them in the same if you want inline
     @if (!empty($label))
         <label class="flex items-center mr-6">
             <input id="{{$name}}"
-                   @isset($livewireSupport) wire:model.lazy="{{ $name }}" @else name="{{ $name }}" @endisset
+                   @isset($livewireSupport) wire:model.blur="{{ $name }}" @else name="{{ $name }}" @endisset
                    type="checkbox"
                    class="focus:ring-indigo-500 {{$sizeClass}} text-indigo-600 border-gray-300 rounded-sm @if ($errors->has($name)) border-red-500 @endif"
                     {{--value="{{$value}}"--}}

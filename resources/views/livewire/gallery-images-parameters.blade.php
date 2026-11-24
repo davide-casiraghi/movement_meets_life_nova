@@ -110,35 +110,35 @@
                         <div class="mt-2">
                             <label for="image_description" class="block text-sm font-medium text-gray-700">Description</label>
                             <div class="mt-1">
-                                <input type="text" wire:model="image_description" id="image_description" class="shadow-xs focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="">
+                                <input type="text" wire:model.live="image_description" id="image_description" class="shadow-xs focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="">
                             </div>
                         </div>
 
                         <div>
                             <label for="image_video_url" class="block text-sm font-medium text-gray-700 mt-3">Video URL</label>
                             <div class="mt-1">
-                                <input type="text" wire:model="image_video_url" id="image_video_url" class="shadow-xs focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="">
+                                <input type="text" wire:model.live="image_video_url" id="image_video_url" class="shadow-xs focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="">
                             </div>
                         </div>
 
                         <div>
                             <label for="image_caption" class="block text-sm font-medium text-gray-700 mt-3">Caption</label>
                             <div class="mt-1">
-                                <input type="text" wire:model="image_caption" id="image_caption" class="shadow-xs focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="">
+                                <input type="text" wire:model.live="image_caption" id="image_caption" class="shadow-xs focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="">
                             </div>
                         </div>
 
                         <div class="mt-2">
                             <label for="image_gallery" class="block text-sm font-medium text-gray-700 mt-3">Gallery</label>
                             <div class="mt-1">
-                                <input type="text" wire:model="image_gallery" id="image_gallery" class="shadow-xs focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="Name of the gallery to assign the image to">
+                                <input type="text" wire:model.live="image_gallery" id="image_gallery" class="shadow-xs focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="Name of the gallery to assign the image to">
                             </div>
                         </div>
 
                         <div class="mt-2">
                             <label for="snippet" class="block text-sm font-medium text-gray-700 mt-3">Snippet</label>
                             <div class="mt-1">
-                                <input type="text" wire:model="snippet" id="snippet" class="shadow-xs focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="">
+                                <input type="text" wire:model.live="snippet" id="snippet" class="shadow-xs focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="">
                             </div>
                         </div>
 

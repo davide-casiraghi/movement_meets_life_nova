@@ -70,7 +70,7 @@
                      x-transition:leave="transition ease-in duration-300"
                      x-transition:leave-start="opacity-100 transform scale-100"
                      x-transition:leave-end="opacity-0 transform scale-90"
-                     @click.away="open = false"
+                     @click.outside="open = false"
                 >
                     <a href="{{route('users.edit',Auth::id())}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Your Profile</a>
 
