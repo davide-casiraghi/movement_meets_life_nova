@@ -124,7 +124,7 @@ class EventController extends Controller
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\View\View
      */
-    public function show(string $eventSlug): View
+    public function show(string $eventSlug): View|RedirectResponse
     {
         $event = $this->eventService->getBySlug($eventSlug);
 
