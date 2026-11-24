@@ -240,19 +240,6 @@
                                     'disabled' => true,
                                 ])
                         </div>
-
-                        <div class="col-span-6 sm:col-span-3 flex items-end">
-                            @include('partials.forms.button',[
-                                'title' => 'Post on Twitter',
-                                'url' => route('insights.twitter', $insight->slug),
-                                'color' => 'indigo',
-                                'icon' => '',
-                                'size' => 1,
-                                'extraClasses' => 'mb-2',
-                                'kind' => 'primary',
-                                'target' => '_self',
-                            ])
-                        </div>
                     </div>
                 </div>
             </div>

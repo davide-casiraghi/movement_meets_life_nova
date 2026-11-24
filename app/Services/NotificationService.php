@@ -8,7 +8,6 @@ use App\Models\User;
 use App\Notifications\ContactMeMailNotification;
 use App\Notifications\ExpiringEventMailNotification;
 use App\Notifications\GetATreatmentMailNotification;
-use App\Notifications\InsightNotification;
 use App\Notifications\NewTestimonialMailNotification;
 
 class NotificationService
@@ -73,21 +72,6 @@ class NotificationService
     public function sendEmailExpiringEvent(array $data, Event $event): bool
     {
         $event->user->notify(new ExpiringEventMailNotification($data, $event));
-        return true;
-    }
-
-    /**
-     * Send a tweet with an insight
-     *
-     * @param  array  $data
-     * @param  Insight  $insight
-     *
-     * @return bool
-     */
-    public function sendTwitterInsight(array $data, Insight $insight): bool
-    {
-        $insight->notify(new InsightNotification($data));
-
         return true;
     }
 }

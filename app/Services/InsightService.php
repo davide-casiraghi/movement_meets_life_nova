@@ -125,26 +125,6 @@ class InsightService
     }
 
     /**
-     * Get all the Insights
-     *
-     * @param  \App\Models\Insight  $insight
-     *
-     * @return void
-     */
-    public function sendInsightToTwitter(Insight $insight): void
-    {
-        $data = $insight->toArray();
-
-        $data['published_on_twitter_on'] = Carbon::today();
-
-        //dd($data);
-
-        $this->notificationService->sendTwitterInsight($data, $insight);
-
-        $this->insightRepository->update($data, $insight->id);
-    }
-
-    /**
      * Get the total number of published insights.
      *
      * @return int

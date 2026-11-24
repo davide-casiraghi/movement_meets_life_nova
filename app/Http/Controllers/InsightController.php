@@ -151,19 +151,6 @@ class InsightController extends Controller
             ->with('success', 'Insight deleted successfully');
     }
 
-    /**
-     * Post the insight on Twitter
-     *
-     * @param  Insight  $insight
-     * @return RedirectResponse
-     */
-    public function twitter(Insight $insight): RedirectResponse
-    {
-        $this->insightService->sendInsightToTwitter($insight);
-
-        return back()->with('success', 'Insight tweeted successfully');
-    }
-
 
     /**
      * Display a listing of the resource. (Insights feed)

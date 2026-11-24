@@ -180,7 +180,6 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
         Route::post('/insights', [InsightController::class, 'store'])->name('store');
         Route::put('/insights/{insight}', [InsightController::class, 'update'])->name('update');
         Route::delete('/insights/{insight}', [InsightController::class, 'destroy'])->name('destroy');
-        Route::get('/insights/twitter/{insight}', [InsightController::class, 'twitter'])->name('twitter');
     });
 
     // Medias
