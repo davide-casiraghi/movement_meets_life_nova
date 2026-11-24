@@ -142,8 +142,10 @@ class GlossaryVariants extends Component
      *
      * @param int|null $variantId
      */
-    public function openModal(int $variantId = null): void
+    public function openModal(?int $variantId = null): void
     {
+        // Always start from a clean state, so "add" never reuses the id of a previous edit.
+        $this->newVariant = [];
         $this->showModal = true;
 
         if (!is_null($variantId)) {
@@ -165,6 +167,7 @@ class GlossaryVariants extends Component
     public function closeModal(): void
     {
         $this->showModal = false;
+        $this->newVariant = [];
     }
 
 

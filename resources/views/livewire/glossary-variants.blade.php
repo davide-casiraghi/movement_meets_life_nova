@@ -63,7 +63,7 @@
                     From: "opacity-100 translate-y-0 sm:scale-100"
                     To: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                 -->
-                <div class="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:p-6" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
+                <div class="relative inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:p-6" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
                     <div>
                         <div class="hidden sm:block absolute top-0 right-0 pt-4 pr-4">
                             <button wire:click="closeModal" type="button" class="bg-white rounded-md text-gray-400 hover:text-gray-500 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
@@ -78,7 +78,7 @@
 
                             <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
                                 <h3 class="text-lg leading-6 font-medium text-gray-900 mb-4" id="modal-headline">
-                                    Edit Variant
+                                    {{ isset($newVariant['id']) ? 'Edit Variant' : 'Add Variant' }}
                                 </h3>
 
                                 @foreach($locales as $key => $locale)
