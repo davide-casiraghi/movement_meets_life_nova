@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 
 /* CSS puro con @apply: Tailwind 4 non elabora i file Sass. */
 @import "./select2.css";
