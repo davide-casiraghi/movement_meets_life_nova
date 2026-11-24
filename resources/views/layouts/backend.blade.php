@@ -57,6 +57,16 @@
                         </div>
                     </div>
                     <div class="dashboard max-w-7xl mx-auto px-4 sm:px-6 md:px-8 mt-4">
+                        @if (session('sitemap_updated'))
+                            <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-sm mb-4" role="alert">
+                                {{ session('sitemap_updated') }}
+                            </div>
+                        @endif
+                        @if (session('sitemap_error'))
+                            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-sm mb-4" role="alert">
+                                {{ session('sitemap_error') }}
+                            </div>
+                        @endif
                         @yield('content')
                     </div>
                 </div>

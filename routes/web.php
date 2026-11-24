@@ -36,6 +36,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\VenueController;
 use App\Http\Controllers\MediaController;
 use App\Http\Controllers\DatabaseBackupsController;
+use App\Http\Controllers\SitemapController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -194,6 +195,9 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
         Route::get('/databaseBackups/{fileName}', [DatabaseBackupsController::class, 'download'])->name('download');
         Route::delete('/databaseBackups/{fileName}', [DatabaseBackupsController::class, 'destroy'])->name('destroy');
     });
+
+    // Sitemap (regenerates public/sitemap.xml)
+    Route::post('/sitemap/generate', [SitemapController::class, 'generate'])->name('sitemap.generate');
 
     Route::get('/search', [GlobalSearchController::class, 'index'])->name('globalSearch');
     Route::post('/tinymce_upload', [ImageUploadController::class, 'upload']);
