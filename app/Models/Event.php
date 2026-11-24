@@ -34,8 +34,8 @@ class Event extends Model implements HasMedia
      *
      * @var array
      */
-    protected $dates = [
-        'repeat_until',
+    protected $casts = [
+        'repeat_until' => 'datetime',
     ];
 
     /**
