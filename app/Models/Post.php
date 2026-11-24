@@ -73,6 +73,26 @@ class Post extends Model implements HasMedia, Searchable
     }
 
     /**
+     * Returns the hidden post used to attach the images of the static pages
+     * (Spatie media library needs a model to associate the media to).
+     *
+     * It is looked up by title only, so it is found whatever its category or
+     * author are. If it doesn't exist yet it is created with the first category.
+     */
+    public static function staticPagesImages(): self
+    {
+        return static::firstOrCreate(
+            ['title->en' => 'Static pages images'],
+            [
+                'intro_text->en' => 'Static pages images',
+                'body->en' => 'Static pages images',
+                'category_id' => PostCategory::query()->value('id'),
+                'user_id' => 1,
+            ]
+        );
+    }
+
+    /**
      * Returns the author of the post.
      */
     public function user()
