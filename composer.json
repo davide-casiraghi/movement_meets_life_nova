@@ -16,37 +16,37 @@
         "guzzlehttp/guzzle": "^7.17",
         "guzzlehttp/psr7": "^2.13.6",
         "laravel/framework": "^13.43",
-        "laravel/jetstream": ">=5.5.3",
-        "laravel/sanctum": ">=4.5",
-        "laravel/tinker": ">=3.2",
+        "laravel/jetstream": "^5.5.3",
+        "laravel/sanctum": "^4.5",
+        "laravel/tinker": "^3.2",
         "livewire/livewire": "^3.8.12",
-        "mcamara/laravel-localization": ">=2.4.2",
+        "mcamara/laravel-localization": "^2.4.2",
         "nesbot/carbon": "^3.15.1",
         "spatie/calendar-links": "^1.11.1",
-        "spatie/crawler": ">=9.4.3",
-        "spatie/laravel-backup": ">=10.5",
+        "spatie/crawler": "^9.4.3",
+        "spatie/laravel-backup": "^10.5",
         "spatie/laravel-honeypot": "^4.7.3",
-        "spatie/laravel-medialibrary": ">=11.23.14",
+        "spatie/laravel-medialibrary": "^11.23.14",
         "spatie/laravel-model-status": "^1.20",
-        "spatie/laravel-permission": ">=8.5",
+        "spatie/laravel-permission": "^8.5",
         "spatie/laravel-searchable": "^1.13.3",
-        "spatie/laravel-sitemap": ">=8.2",
+        "spatie/laravel-sitemap": "^8.2",
         "spatie/laravel-sluggable": "^3.8.1",
-        "spatie/laravel-translatable": ">=6.15",
+        "spatie/laravel-translatable": "^6.15",
         "spatie/schema-org": "^3.23.2",
-        "stevebauman/location": ">=7.8.2"
+        "stevebauman/location": "^7.8.2"
     },
     "require-dev": {
-        "barryvdh/laravel-ide-helper": ">=3.8",
+        "barryvdh/laravel-ide-helper": "^3.8",
         "fakerphp/faker": "^1.24.1",
         "friendsofphp/php-cs-fixer": "^3.95.32",
-        "larastan/larastan": ">=3.15",
+        "larastan/larastan": "^3.15",
         "mockery/mockery": "^1.6.15",
-        "nunomaduro/collision": ">=8.9.6",
-        "phpunit/phpunit": ">=13.4.8",
+        "nunomaduro/collision": "^8.9.6",
+        "phpunit/phpunit": "^13.4.8",
         "slevomat/coding-standard": "^7.2.1",
-        "spatie/laravel-ignition": ">=2.13",
-        "spatie/laravel-ray": ">=1.43.9",
+        "spatie/laravel-ignition": "^2.13",
+        "spatie/laravel-ray": "^1.43.9",
         "squizlabs/php_codesniffer": "^3.13.6"
     },
     "config": {
@@ -55,11 +55,6 @@
         "sort-packages": true,
         "allow-plugins": {
             "dealerdirect/phpcodesniffer-composer-installer": true
-        },
-        "policy": {
-            "advisories": {
-                "block": false
-            }
         }
     },
     "extra": {
