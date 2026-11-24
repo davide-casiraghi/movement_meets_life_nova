@@ -197,6 +197,7 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
     });
 
     // Sitemap (regenerates public/sitemap.xml)
+    Route::get('/sitemap', [SitemapController::class, 'show'])->name('sitemap.show');
     Route::post('/sitemap/generate', [SitemapController::class, 'generate'])->name('sitemap.generate');
 
     Route::get('/search', [GlobalSearchController::class, 'index'])->name('globalSearch');
@@ -207,6 +208,14 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
 /**
  *    Guest Routes
  */
+
+// The old Italian URL of the booking page now redirects to the translated one.
+Route::redirect('/it/book-a-treatment', '/it/prenota-un-trattamento', 301);
+Route::redirect('/it/next-events', '/it/eventi-futuri', 301);
+Route::redirect('/it/past-events', '/it/eventi-passati', 301);
+Route::redirect('/it/physiotherapy', '/it/fisioterapia', 301);
+Route::redirect('/it/about-me', '/it/su-di-me', 301);
+Route::redirect('/it/treatments-ilan-lev-method', '/it/trattamenti-ilan-lev-method', 301);
 
 Route::group(
     [
@@ -230,13 +239,13 @@ Route::group(
     Route::get('/insights/{insight}', [InsightController::class, 'show'])->name('insights.show');
     Route::get('/insightsFeed', [InsightController::class, 'feed'])->name('insightsFeed');
     Route::get('/tags/{tag:slug}', [TagController::class, 'show'])->name('tags.show');
-    Route::get('/next-events', [EventController::class, 'nextEvents'])->name('events.next');
-    Route::get('/past-events', [EventController::class, 'pastEvents'])->name('events.past');
-    Route::get('/about-me', [StaticPageController::class, 'aboutMe'])->name('staticPages.aboutMe');
-    Route::get('/treatments-ilan-lev-method', [StaticPageController::class, 'treatments'])->name('staticPages.treatments');
+    Route::get(LaravelLocalization::transRoute('routes.next-events'), [EventController::class, 'nextEvents'])->name('events.next');
+    Route::get(LaravelLocalization::transRoute('routes.past-events'), [EventController::class, 'pastEvents'])->name('events.past');
+    Route::get(LaravelLocalization::transRoute('routes.about-me'), [StaticPageController::class, 'aboutMe'])->name('staticPages.aboutMe');
+    Route::get(LaravelLocalization::transRoute('routes.treatments-ilan-lev-method'), [StaticPageController::class, 'treatments'])->name('staticPages.treatments');
     Route::get('/learn-more-ilan-lev-method', [StaticPageController::class, 'treatmentsLearnMore'])->name('staticPages.treatmentsLearnMore');
     
-    Route::get('/physiotherapy', [StaticPageController::class, 'physiotherapy'])->name('staticPages.physiotherapy');
+    Route::get(LaravelLocalization::transRoute('routes.physiotherapy'), [StaticPageController::class, 'physiotherapy'])->name('staticPages.physiotherapy');
     
     Route::get('/contact-improvisation', [StaticPageController::class, 'contactImprovisation'])->name('staticPages.contactImprovisation');
     Route::get('/water-contact', [StaticPageController::class, 'waterContact'])->name('staticPages.waterContact');
@@ -252,7 +261,7 @@ Route::group(
     Route::post('/intake-form', [IntakeFormController::class, 'store'])->name('intakeForm.store')->middleware(ProtectAgainstSpam::class);;
 
     // Book a treatment
-    Route::get('/book-a-treatment', [BookATreatmentController::class, 'create'])->name('bookATreatment.create');
+    Route::get(LaravelLocalization::transRoute('routes.book-a-treatment'), [BookATreatmentController::class, 'create'])->name('bookATreatment.create');
     Route::get('/book-a-treatment-confirmation', [BookATreatmentController::class, 'confirmed'])->name('bookATreatment.confirmed');
 
 

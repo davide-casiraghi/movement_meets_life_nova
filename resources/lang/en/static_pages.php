@@ -36,6 +36,7 @@ return [
             'physiotherapy' => 'physiotherapy',
             'evidence_based' => "A <span class='text-primary-600'>science-based approach</span> to restore movement and reduce pain.",
             'physiotherapy_helps' => 'Physiotherapy helps restore movement, strength, and functionality in cases of acute or persistent pain, after injuries and surgical procedures.',
+            'learn_more' => 'Learn more',
             '111' => 'aaa',
         ],
         'testimonials' => [

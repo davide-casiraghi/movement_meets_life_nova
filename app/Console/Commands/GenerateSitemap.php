@@ -3,11 +3,9 @@
 namespace App\Console\Commands;
 
 use App\Services\EventService;
-use App\Services\GlossaryService;
-use App\Services\PostService;
-use App\Services\TagService;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use Spatie\Sitemap\Sitemap;
 use Spatie\Sitemap\Tags\Url;
 
@@ -27,30 +25,18 @@ class GenerateSitemap extends Command
      */
     protected $description = 'Generate the sitemap';
 
-    private PostService $postService;
     private EventService $eventService;
-    private TagService $tagService;
-    private GlossaryService $glossaryService;
 
   /**
    * Create a new command instance.
    *
-   * @param  PostService  $postService
    * @param  EventService  $eventService
-   * @param  TagService  $tagService
-   * @param  GlossaryService  $glossaryService
    */
     public function __construct(
-        PostService $postService,
-        EventService $eventService,
-        TagService $tagService,
-        GlossaryService $glossaryService
+        EventService $eventService
     ) {
         parent::__construct();
-        $this->postService = $postService;
         $this->eventService = $eventService;
-        $this->tagService = $tagService;
-        $this->glossaryService = $glossaryService;
     }
 
     /**
@@ -60,21 +46,24 @@ class GenerateSitemap extends Command
      */
     public function handle()
     {
-        $sitemap = Sitemap::create()
-            ->add(Url::create('/blog'))
-            ->add(Url::create('/next-events'))
-            ->add(Url::create('/treatments-ilan-lev-method'))
-            ->add(Url::create('/learn-more-ilan-lev-method'))
-            ->add(Url::create('/contact-improvisation'))
-            ->add(Url::create('/get-a-treatment'))
-            ->add(Url::create('/about-me'))
-            ->add(Url::create('/contact'));
+        $sitemap = Sitemap::create();
 
-        // POSTS
-        $posts = $this->postService->getPosts(null, ['status' => 'published']);
-        foreach ($posts as $post) {
-            $sitemap->add(Url::create("/posts/{$post->slug}"));
+        $pages = [
+            '/blog',
+            '/learn-more-ilan-lev-method',
+            '/contact-improvisation',
+            '/contact',
+        ];
+
+        foreach ($pages as $page) {
+            $this->addLocalizedUrl($sitemap, $page);
         }
+
+        // Pages with a translated URL (see resources/lang/*/routes.php)
+        $this->addTranslatedRouteUrl($sitemap, 'routes.book-a-treatment');
+        $this->addTranslatedRouteUrl($sitemap, 'routes.physiotherapy');
+        $this->addTranslatedRouteUrl($sitemap, 'routes.about-me');
+        $this->addTranslatedRouteUrl($sitemap, 'routes.treatments-ilan-lev-method');
 
         // EVENTS
         $searchParameters = [];
@@ -82,22 +71,58 @@ class GenerateSitemap extends Command
         $searchParameters['is_published'] = true;
         $events = $this->eventService->getEvents(null, $searchParameters);
         foreach ($events as $event) {
-            $sitemap->add(Url::create("/events/{$event->slug}"));
-        }
-
-        // TAGS
-        $tags = $this->tagService->getTags();
-        foreach ($tags as $tag) {
-            $sitemap->add(Url::create("/tags/{$tag->slug}"));
-        }
-
-        // GLOSSARIES
-        $glossaries = $this->glossaryService->getGlossaries(null, ['is_published'=> true]);
-        foreach ($glossaries as $glossary) {
-            $sitemap->add(Url::create("/glossaryTerms/{$glossary->slug}"));
+            $this->addLocalizedUrl($sitemap, "/events/{$event->slug}");
         }
 
         // Write Sitemap to file
         $sitemap->writeToFile(public_path('sitemap.xml'));
+    }
+
+    /**
+     * Add a page once per supported language, each entry listing all the
+     * language versions as hreflang alternates (itself included).
+     *
+     * @param  Sitemap  $sitemap
+     * @param  string  $path
+     */
+    private function addLocalizedUrl(Sitemap $sitemap, string $path): void
+    {
+        $localizedUrls = [];
+        foreach (array_keys(LaravelLocalization::getSupportedLocales()) as $locale) {
+            $localizedUrls[$locale] = LaravelLocalization::getLocalizedURL($locale, url($path), [], true);
+        }
+
+        foreach ($localizedUrls as $url) {
+            $tag = Url::create($url);
+            foreach ($localizedUrls as $alternateLocale => $alternateUrl) {
+                $tag->addAlternate($alternateUrl, $alternateLocale);
+            }
+            $sitemap->add($tag);
+        }
+    }
+
+    /**
+     * Add a page whose URL is translated per language (see resources/lang/<locale>/routes.php).
+     *
+     * @param  Sitemap  $sitemap
+     * @param  string  $translationKey
+     */
+    private function addTranslatedRouteUrl(Sitemap $sitemap, string $translationKey): void
+    {
+        $localizedUrls = [];
+        foreach (array_keys(LaravelLocalization::getSupportedLocales()) as $locale) {
+            $url = LaravelLocalization::getURLFromRouteNameTranslated($locale, $translationKey, [], true);
+            if ($url !== false) {
+                $localizedUrls[$locale] = $url;
+            }
+        }
+
+        foreach ($localizedUrls as $url) {
+            $tag = Url::create($url);
+            foreach ($localizedUrls as $alternateLocale => $alternateUrl) {
+                $tag->addAlternate($alternateUrl, $alternateLocale);
+            }
+            $sitemap->add($tag);
+        }
     }
 }

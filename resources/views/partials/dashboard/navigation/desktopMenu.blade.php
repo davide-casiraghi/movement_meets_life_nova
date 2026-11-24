@@ -99,6 +99,14 @@
                         'url' => route('sitemap.generate'),
                     ])
 
+                @include('partials.dashboard.navigation.menuItem', [
+                        'active' => request()->routeIs('sitemap.show'),
+                        'kind' => 'desktop',
+                        'heroIconPath' => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16" />',
+                        'label' => 'Show sitemap',
+                        'url' => route('sitemap.show'),
+                    ])
+
                 </nav>
             </div>
         </div>

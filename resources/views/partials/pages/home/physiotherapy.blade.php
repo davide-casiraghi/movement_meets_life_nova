@@ -19,7 +19,7 @@
                 </div>
                 <div class="mt-3 sm:mt-0 sm:ml-3">
                     <a href="{{route('staticPages.physiotherapy')}}" class="w-full flex items-center justify-center px-8 py-3 border border-primary-600 text-base leading-6 font-medium rounded-md text-primary-700 bg-white hover:text-primary-600 hover:bg-primary-50 focus:outline-none focus:ring-primary focus:border-primary-300 transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10">
-                        @lang('static_pages.home.blocks.ilm.more_info')
+                        @lang('static_pages.home.blocks.physiotherapy.learn_more')
                     </a>
                 </div>
             </div>
