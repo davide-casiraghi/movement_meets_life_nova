@@ -18,6 +18,7 @@ if (pageHas('.select2, .select2-multiple')) import('./vendors/select2');
 if (pageHas('.datepicker, .datepickerMultiple')) import('./vendors/bootstrap-datepicker');
 if (pageHas('.flatpickr')) import('./vendors/flatpickr');
 if (pageHas('.testimonialsList')) import('./vendors/slick_carousel');
+if (pageHas('.postsCarousel')) import('./vendors/posts_carousel');
 if (pageHas('.lifeGallery')) import('./vendors/gallery_mansonry');
 if (pageHas('[data-fancybox]')) import('@fancyapps/fancybox');
 if (pageHas('.has-glossary-term')) import('./vendors/staaky_tipped');

@@ -9,4 +9,5 @@ return [
     'written_by' => 'Scritto da',
     'reading_time' => ':minutes min di lettura',
     'blog_subtitle' => 'Riflessioni e articoli per capire meglio il corpo, il dolore e il movimento',
+    'all_posts' => 'Tutti gli approfondimenti',
 ];

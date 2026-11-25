@@ -52,6 +52,11 @@ class PostRepository implements PostRepositoryInterface
             if (!empty($searchParameters['status'])) {
                 $query->currentStatus($searchParameters['status']);
             }
+            if (!empty($searchParameters['hasIntroImage'])) {
+                $query->whereHas('media', function ($mediaQuery) {
+                    $mediaQuery->where('collection_name', 'introimage');
+                })->with('media');
+            }
         }
 
         // Avoid retrieving the post used for the static image gallery

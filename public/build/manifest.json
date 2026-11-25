@@ -3,6 +3,14 @@
     "file": "assets/rolldown-runtime-WkwZ5CU-.js",
     "name": "rolldown-runtime"
   },
+  "_slick-BGP1awnH.js": {
+    "file": "assets/slick-BGP1awnH.js",
+    "name": "slick",
+    "imports": [
+      "_rolldown-runtime-WkwZ5CU-.js",
+      "resources/js/app.js"
+    ]
+  },
   "node_modules/@fancyapps/fancybox/dist/jquery.fancybox.js": {
     "file": "assets/jquery.fancybox-De-4OZ3E.js",
     "name": "jquery.fancybox",
@@ -10,7 +18,7 @@
     "isDynamicEntry": true
   },
   "resources/css/app.css": {
-    "file": "assets/app-DZa4lfgy.css",
+    "file": "assets/app-d9UysReC.css",
     "name": "app",
     "names": [
       "app.css"
@@ -19,7 +27,7 @@
     "isEntry": true
   },
   "resources/js/app.js": {
-    "file": "assets/app-DKdIK6at.js",
+    "file": "assets/app-DehEp09h.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
@@ -32,13 +40,14 @@
       "resources/js/vendors/bootstrap-datepicker.js",
       "resources/js/vendors/flatpickr.js",
       "resources/js/vendors/slick_carousel.js",
+      "resources/js/vendors/posts_carousel.js",
       "resources/js/vendors/gallery_mansonry.js",
       "node_modules/@fancyapps/fancybox/dist/jquery.fancybox.js",
       "resources/js/vendors/staaky_tipped.js"
     ]
   },
   "resources/js/vendors/bootstrap-datepicker.js": {
-    "file": "assets/bootstrap-datepicker-Bk5nO35H.js",
+    "file": "assets/bootstrap-datepicker-bPDGI-9p.js",
     "name": "bootstrap-datepicker",
     "src": "resources/js/vendors/bootstrap-datepicker.js",
     "isDynamicEntry": true,
@@ -60,7 +69,7 @@
     ]
   },
   "resources/js/vendors/gallery_mansonry.js": {
-    "file": "assets/gallery_mansonry-iH9Bpe3G.js",
+    "file": "assets/gallery_mansonry-CnGO6m5Y.js",
     "name": "gallery_mansonry",
     "src": "resources/js/vendors/gallery_mansonry.js",
     "isDynamicEntry": true,
@@ -69,8 +78,17 @@
       "resources/js/app.js"
     ]
   },
+  "resources/js/vendors/posts_carousel.js": {
+    "file": "assets/posts_carousel-i6yqent7.js",
+    "name": "posts_carousel",
+    "src": "resources/js/vendors/posts_carousel.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_slick-BGP1awnH.js"
+    ]
+  },
   "resources/js/vendors/select2.js": {
-    "file": "assets/select2-pD3PfWQ2.js",
+    "file": "assets/select2-BSf-r1jI.js",
     "name": "select2",
     "src": "resources/js/vendors/select2.js",
     "isDynamicEntry": true,
@@ -80,17 +98,16 @@
     ]
   },
   "resources/js/vendors/slick_carousel.js": {
-    "file": "assets/slick_carousel-Bzo0pJto.js",
+    "file": "assets/slick_carousel-CO77HnjJ.js",
     "name": "slick_carousel",
     "src": "resources/js/vendors/slick_carousel.js",
     "isDynamicEntry": true,
     "imports": [
-      "_rolldown-runtime-WkwZ5CU-.js",
-      "resources/js/app.js"
+      "_slick-BGP1awnH.js"
     ]
   },
   "resources/js/vendors/staaky_tipped.js": {
-    "file": "assets/staaky_tipped-BoJFpiu0.js",
+    "file": "assets/staaky_tipped-DZpk2XFu.js",
     "name": "staaky_tipped",
     "src": "resources/js/vendors/staaky_tipped.js",
     "isDynamicEntry": true,

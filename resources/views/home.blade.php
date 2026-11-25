@@ -42,4 +42,6 @@
 
     {{--@include('partials.quote_of_the_day')--}}
 
+    @include('partials.pages.home.blog_carousel')
+
 @endsection

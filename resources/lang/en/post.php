@@ -9,4 +9,5 @@ return [
   'written_by' => 'By',
   'reading_time' => ':minutes min read',
   'blog_subtitle' => 'Thoughts and articles to better understand the body, pain and movement',
+  'all_posts' => 'All articles',
 ];
