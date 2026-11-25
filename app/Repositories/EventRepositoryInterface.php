@@ -12,12 +12,14 @@ interface EventRepositoryInterface
      * @param  int|null  $recordsPerPage
      * @param  array|null  $searchParameters
      * @param  string  $orderDirection sorting direction: 'asc' = from oldest to newest | 'desc' = from newest to oldest
+     * @param  bool  $upcomingFirst if true the upcoming events come first (the nearest one on top), then the past ones (the most recent first), and $orderDirection is ignored
      * @return \App\Models\Event[]|\Illuminate\Contracts\Pagination\LengthAwarePaginator|\Illuminate\Database\Eloquent\Collection
      */
     public function getAll(
         int $recordsPerPage = null,
         array $searchParameters = null,
-        string $orderDirection = 'asc'
+        string $orderDirection = 'asc',
+        bool $upcomingFirst = false
     );
 
     /**

@@ -17,15 +17,30 @@ class EventRepository implements EventRepositoryInterface
      * @param  int|null  $recordsPerPage
      * @param  array|null  $searchParameters
      * @param  string  $orderDirection sorting direction: 'asc' = from oldest to newest | 'desc' = from newest to oldest
+     * @param  bool  $upcomingFirst if true the upcoming events come first (the nearest one on top), then the past ones (the most recent first), and $orderDirection is ignored
      * @return \App\Models\Event[]|\Illuminate\Contracts\Pagination\LengthAwarePaginator|\Illuminate\Database\Eloquent\Collection
      */
-    public function getAll(int $recordsPerPage = null, array $searchParameters = null, string $orderDirection = 'asc')
+    public function getAll(
+        int $recordsPerPage = null,
+        array $searchParameters = null,
+        string $orderDirection = 'asc',
+        bool $upcomingFirst = false
+    )
     {
-        // Upcoming events are shown first
         $query = Event::select('events.*', 'event_repetitions.start_repeat', 'event_repetitions.end_repeat')
             ->with(['category', 'teachers', 'venue', 'venue.country'])
-            ->leftJoin('event_repetitions', 'events.id', '=', 'event_repetitions.event_id')
-            ->orderBy('event_repetitions.start_repeat', $orderDirection);
+            ->leftJoin('event_repetitions', 'events.id', '=', 'event_repetitions.event_id');
+
+        if ($upcomingFirst) {
+            // Upcoming events first, the nearest one on top, then the past ones, the most recent first.
+            // For a repetitive event the row kept below is its next occurrence.
+            $now = Carbon::now()->toDateTimeString();
+            $query->orderByRaw('CASE WHEN event_repetitions.end_repeat >= ? THEN 0 ELSE 1 END', [$now])
+                ->orderByRaw('CASE WHEN event_repetitions.end_repeat >= ? THEN event_repetitions.start_repeat END ASC', [$now])
+                ->orderByRaw('CASE WHEN event_repetitions.end_repeat < ? THEN event_repetitions.start_repeat END DESC', [$now]);
+        } else {
+            $query->orderBy('event_repetitions.start_repeat', $orderDirection);
+        }
 
         if (!is_null($searchParameters)) {
             if (!empty($searchParameters['title'])) {

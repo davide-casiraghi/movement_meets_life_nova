@@ -59,7 +59,7 @@ class EventController extends Controller
 
         $searchParameters = Helper::getSearchParameters($request, Event::SEARCH_PARAMETERS);
 
-        $events = $this->eventService->getEvents(20, $searchParameters);
+        $events = $this->eventService->getEvents(20, $searchParameters, 'asc', true);
         $eventsCategories = $this->eventCategoryService->getEventCategories();
         $statuses = Event::PUBLISHING_STATUS;
 
