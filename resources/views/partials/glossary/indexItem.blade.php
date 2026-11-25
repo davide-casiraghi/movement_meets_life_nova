@@ -1,14 +1,19 @@
 <li>
-    <a href="{{route('glossaries.edit', $glossary->id)}}" class="block hover:bg-gray-50">
+    <div class="block">
         <div class="px-4 py-4 sm:px-6">
             <div class="flex items-center justify-between">
-                <p class="text-sm font-medium text-indigo-600 truncate">
+                <a href="{{route('glossaries.edit', $glossary->id)}}" class="text-sm font-medium text-indigo-600 truncate hover:underline">
                     {{$glossary->term}}
-                </p>
+                </a>
                 <div class="ml-2 shrink-0 flex">
-                    <p class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full @if($glossary->isPublished())bg-green-100 text-green-800 @else bg-red-100 text-red-800 @endif">
-                        {{ucfirst($glossary->publishingStatus())}}
-                    </p>
+                    <form action="{{ route('glossaries.toggleStatus', $glossary->id) }}" method="POST">
+                        @csrf
+                        <button type="submit"
+                                title="{{ $glossary->isPublished() ? 'Click to unpublish' : 'Click to publish' }}"
+                                class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full cursor-pointer hover:opacity-75 @if($glossary->isPublished())bg-green-100 text-green-800 @else bg-red-100 text-red-800 @endif">
+                            {{ucfirst($glossary->publishingStatus())}}
+                        </button>
+                    </form>
                 </div>
             </div>
             <div class="mt-2 sm:flex sm:justify-between">
@@ -34,5 +39,5 @@
                 </div>
             </div>
         </div>
-    </a>
+    </div>
 </li>

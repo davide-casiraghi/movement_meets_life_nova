@@ -1,14 +1,19 @@
 <li>
-    <a href="{{route('quotes.edit', $quote->id)}}" class="block hover:bg-gray-50">
+    <div class="block">
         <div class="px-4 py-4 sm:px-6">
             <div class="flex items-center justify-between">
-                <p class="text-sm font-medium text-indigo-600 truncate">
-                    {{$quote->author}}
-                </p>
+                <a href="{{route('quotes.edit', $quote->id)}}" class="text-sm font-medium text-indigo-600 truncate hover:underline">
+                    {{$quote->author ?: '(no author)'}}
+                </a>
                 <div class="ml-2 shrink-0 flex">
-                    <div class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full @if($quote->isPublished())bg-green-100 text-green-800 @else bg-red-100 text-red-800 @endif">
-                        {{ucfirst($quote->publishingStatus())}}
-                    </div>
+                    <form action="{{ route('quotes.toggleStatus', $quote->id) }}" method="POST">
+                        @csrf
+                        <button type="submit"
+                                title="{{ $quote->isPublished() ? 'Click to unpublish' : 'Click to publish' }}"
+                                class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full cursor-pointer hover:opacity-75 @if($quote->isPublished())bg-green-100 text-green-800 @else bg-red-100 text-red-800 @endif">
+                            {{ucfirst($quote->publishingStatus())}}
+                        </button>
+                    </form>
                 </div>
             </div>
             <div class="md:grid md:grid-cols-6 md:gap-2 mt-1">
@@ -24,5 +29,5 @@
                 </div>
             </div>
         </div>
-    </a>
+    </div>
 </li>

@@ -106,6 +106,27 @@ class QuoteController extends Controller
     }
 
     /**
+     * Switch the quote between published and unpublished.
+     *
+     * The update goes through the query builder so that the model events
+     * (and so the slug generation) are not triggered.
+     *
+     * @param int $quoteId
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function toggleStatus(int $quoteId): \Illuminate\Http\RedirectResponse
+    {
+        $quote = $this->quoteService->getById($quoteId);
+        $isPublished = ! $quote->isPublished();
+
+        Quote::whereKey($quote->id)->update(['is_published' => (int) $isPublished]);
+
+        return redirect()->back()
+            ->with('success', 'Quote ' . ($isPublished ? 'published' : 'unpublished') . ' successfully');
+    }
+
+    /**
      * Remove the specified resource from storage.
      *
      * @param int $quoteId

@@ -19,6 +19,8 @@
 
 @section('content')
 
+    @include('partials.messages')
+
     @include('partials.glossary.searchBar')
 
     {{-- Tailwind Component: https://tailwindui.com/components/application-ui/lists/stacked-lists--}}

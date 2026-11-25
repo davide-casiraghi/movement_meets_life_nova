@@ -100,6 +100,7 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
         Route::get('/glossaries', [GlossaryController::class, 'index'])->name('index');
         Route::get('/glossaries/{id}/edit', [GlossaryController::class, 'edit'])->name('edit');
         Route::put('/glossaries/{id}', [GlossaryController::class, 'update'])->name('update');
+        Route::post('/glossaries/{id}/toggleStatus', [GlossaryController::class, 'toggleStatus'])->name('toggleStatus');
         Route::get('/glossaries/create', [GlossaryController::class, 'create'])->name('create');
         Route::post('/glossaries', [GlossaryController::class, 'store'])->name('store');
         Route::delete('/glossaries/{id}', [GlossaryController::class, 'destroy'])->name('destroy');
@@ -160,6 +161,7 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
         Route::get('/quotes', [QuoteController::class, 'index'])->name('index');
         Route::get('/quotes/{id}/edit', [QuoteController::class, 'edit'])->name('edit');
         Route::put('/quotes/{id}', [QuoteController::class, 'update'])->name('update');
+        Route::post('/quotes/{id}/toggleStatus', [QuoteController::class, 'toggleStatus'])->name('toggleStatus');
         Route::get('/quotes/create', [QuoteController::class, 'create'])->name('create');
         Route::post('/quotes', [QuoteController::class, 'store'])->name('store');
         Route::delete('/quotes/{id}', [QuoteController::class, 'destroy'])->name('destroy');

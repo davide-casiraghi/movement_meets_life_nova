@@ -4,6 +4,14 @@
     @lang('eventVenue.edit_venue')
 @endsection
 
+@section('buttons')
+    @livewire('delete-model', [
+        'model' => $venue,
+        'modelName' => 'venue',
+        'redirectRoute' => 'venues.index'
+    ])
+@endsection
+
 @section('content')
 
     @include('partials.messages')

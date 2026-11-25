@@ -126,6 +126,27 @@ class GlossaryController extends Controller
     }
 
     /**
+     * Switch the glossary term between published and unpublished.
+     *
+     * The update goes through the query builder so that the model events
+     * (and so the slug generation) are not triggered.
+     *
+     * @param int $glossaryId
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function toggleStatus(int $glossaryId): \Illuminate\Http\RedirectResponse
+    {
+        $glossary = $this->glossaryService->getById($glossaryId);
+        $isPublished = ! $glossary->isPublished();
+
+        Glossary::whereKey($glossary->id)->update(['is_published' => (int) $isPublished]);
+
+        return redirect()->back()
+            ->with('success', 'Glossary term ' . ($isPublished ? 'published' : 'unpublished') . ' successfully');
+    }
+
+    /**
      * Remove the specified resource from storage.
      *
      * @param int $glossaryId
