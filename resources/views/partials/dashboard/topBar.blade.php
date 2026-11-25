@@ -49,7 +49,7 @@
                 <div>
                     <button class="max-w-xs bg-white flex items-center text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" id="user-menu" aria-haspopup="true">
                         <span class="sr-only">Open user menu</span>
-                        <img @click="open = true" class="h-8 w-8 rounded-full object-cover" src="{{ asset('images/static_pages/about_me/davide_portratit_web.jpg') }}" alt="" />
+                        <img @click="open = true" class="h-8 w-8 rounded-full object-cover" src="{{ asset('images/static_pages/about_me/davide_portratit_avatar.jpg') }}" alt="" />
                     </button>
                 </div>
                 {{--
