@@ -3,6 +3,8 @@
 namespace App\Console\Commands;
 
 use App\Services\EventService;
+use App\Services\PostCategoryService;
+use App\Services\PostService;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -27,16 +29,26 @@ class GenerateSitemap extends Command
 
     private EventService $eventService;
 
+    private PostService $postService;
+
+    private PostCategoryService $postCategoryService;
+
   /**
    * Create a new command instance.
    *
    * @param  EventService  $eventService
+   * @param  PostService  $postService
+   * @param  PostCategoryService  $postCategoryService
    */
     public function __construct(
-        EventService $eventService
+        EventService $eventService,
+        PostService $postService,
+        PostCategoryService $postCategoryService
     ) {
         parent::__construct();
         $this->eventService = $eventService;
+        $this->postService = $postService;
+        $this->postCategoryService = $postCategoryService;
     }
 
     /**
@@ -64,6 +76,16 @@ class GenerateSitemap extends Command
         $this->addTranslatedRouteUrl($sitemap, 'routes.physiotherapy');
         $this->addTranslatedRouteUrl($sitemap, 'routes.about-me');
         $this->addTranslatedRouteUrl($sitemap, 'routes.treatments-ilan-lev-method');
+
+        // BLOG POSTS (published posts of the blog category)
+        $blogCategoryId = $this->postCategoryService->getIdByCategoryName('blog');
+        $posts = $this->postService->getPosts(null, [
+            'status' => 'published',
+            'categoryId' => $blogCategoryId,
+        ]);
+        foreach ($posts as $post) {
+            $this->addLocalizedUrl($sitemap, "/posts/{$post->slug}");
+        }
 
         // EVENTS
         $searchParameters = [];
