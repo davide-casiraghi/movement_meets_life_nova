@@ -139,6 +139,25 @@ class TestimonialController extends Controller
     }
 
     /**
+     * Switch the testimonial between published and unpublished.
+     *
+     * @param int $testimonialId
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function toggleStatus(int $testimonialId): RedirectResponse
+    {
+        $this->checkPermission('testimonials.edit');
+
+        $testimonial = $this->testimonialService->getById($testimonialId);
+        $newStatus = $testimonial->isPublished() ? 'unpublished' : 'published';
+        $testimonial->setStatus($newStatus);
+
+        return redirect()->back()
+            ->with('success', "Testimonial {$newStatus} successfully");
+    }
+
+    /**
      * Remove the specified resource from storage.
      *
      * @param int $testimonialId

@@ -195,6 +195,29 @@ class EventController extends Controller
     }
 
     /**
+     * Switch the event between published and unpublished.
+     *
+     * The update goes through the query builder so that the model events
+     * (and so the slug generation) are not triggered.
+     *
+     * @param int $eventId
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function toggleStatus(int $eventId): RedirectResponse
+    {
+        $this->checkPermission('events.edit');
+
+        $event = $this->eventService->getById($eventId);
+        $isPublished = ! $event->isPublished();
+
+        Event::whereKey($event->id)->update(['is_published' => (int) $isPublished]);
+
+        return redirect()->back()
+            ->with('success', 'Event ' . ($isPublished ? 'published' : 'unpublished') . ' successfully');
+    }
+
+    /**
      * Remove the specified resource from storage.
      *
      * @param int $eventId

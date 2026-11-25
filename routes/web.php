@@ -141,6 +141,7 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
         Route::get('/events', [EventController::class, 'index'])->name('index');
         Route::get('/events/{id}/edit', [EventController::class, 'edit'])->name('edit');
         Route::put('/events/{id}', [EventController::class, 'update'])->name('update');
+        Route::post('/events/{id}/toggleStatus', [EventController::class, 'toggleStatus'])->name('toggleStatus');
         Route::get('/events/create', [EventController::class, 'create'])->name('create');
         Route::post('/events', [EventController::class, 'store'])->name('store');
         Route::delete('/events/{id}', [EventController::class, 'destroy'])->name('destroy');
@@ -170,6 +171,7 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
         Route::get('/testimonials', [TestimonialController::class, 'index'])->name('index');
         Route::get('/testimonials/{id}/edit', [TestimonialController::class, 'edit'])->name('edit');
         Route::put('/testimonials/{id}', [TestimonialController::class, 'update'])->name('update');
+        Route::post('/testimonials/{id}/toggleStatus', [TestimonialController::class, 'toggleStatus'])->name('toggleStatus');
         Route::delete('/testimonials/{id}', [TestimonialController::class, 'destroy'])->name('destroy');
         Route::get('/testimonials/{id}', [TestimonialController::class, 'show'])->name('show')->where('id', '[0-9]+');;
     });

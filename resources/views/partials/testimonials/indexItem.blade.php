@@ -1,14 +1,19 @@
 <li>
-    <a href="{{route('testimonials.edit', $testimonial->id)}}" class="block hover:bg-gray-50">
+    <div class="block">
         <div class="px-4 py-4 sm:px-6">
             <div class="flex items-center justify-between">
-                <p class="text-sm font-medium text-indigo-600 truncate">
+                <a href="{{route('testimonials.edit', $testimonial->id)}}" class="text-sm font-medium text-indigo-600 truncate hover:underline">
                     {{$testimonial->full_name}}
-                </p>
+                </a>
                 <div class="ml-2 shrink-0 flex">
-                    <p class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full @if($testimonial->isPublished())bg-green-100 text-green-800 @else bg-red-100 text-red-800 @endif">
-                        {{ucfirst($testimonial->publishingStatus())}}
-                    </p>
+                    <form action="{{ route('testimonials.toggleStatus', $testimonial->id) }}" method="POST">
+                        @csrf
+                        <button type="submit"
+                                title="{{ $testimonial->isPublished() ? 'Click to unpublish' : 'Click to publish' }}"
+                                class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full cursor-pointer hover:opacity-75 @if($testimonial->isPublished())bg-green-100 text-green-800 @else bg-red-100 text-red-800 @endif">
+                            {{ucfirst($testimonial->publishingStatus())}}
+                        </button>
+                    </form>
                 </div>
             </div>
 
@@ -66,5 +71,5 @@
             
             
         </div>
-    </a>
+    </div>
 </li>
