@@ -34,7 +34,7 @@
                     {!! $post->intro_text !!}
                 </h3>
 
-                @include('partials.post.userDateAndReadingTime', ['textColor' => 'text-white'])
+                @include('partials.post.userDateAndReadingTime', ['textColor' => 'text-white text-shadow-md text-shadow-black/60'])
 
             </div>
 
