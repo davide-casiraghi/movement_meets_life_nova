@@ -7,4 +7,5 @@ return [
     'next-events' => 'eventi-futuri',
     'past-events' => 'eventi-passati',
     'book-a-treatment' => 'prenota-un-trattamento',
+    'blog' => 'approfondimenti',
 ];

@@ -2,7 +2,7 @@
     <article class="xl:grid xl:items-baseline xl:grid-cols-4 border-solid box-border text-left">
         <dl class="border-gray-400 border-0 leading-6 m-0 text-black">
             <dt class="sr-only border-solid box-border text-left">
-                Published on
+                @lang('post.published_on')
             </dt>
             <dd class="border-solid box-border font-medium text-base leading-normal text-left text-gray-600" style="list-style: outside none none; quotes: auto;">
                 <time datetime="2021-02-01T13:35:00.0Z" class="border-gray-400 border-0 font-medium leading-6 text-gray-600" style="list-style: outside none none; quotes: auto;">
@@ -37,8 +37,8 @@
                 </div>
             </div>
             <div class="textLink">
-                <a href="{{route('posts.show', $post->slug)}}" class="bg-transparent border-gray-400 border-0 cursor-pointer leading-6 text-primary-600 hover:text-primary-700" aria-label='Read "{{$post->title}}"'>
-                    Read more →
+                <a href="{{route('posts.show', $post->slug)}}" class="bg-transparent border-gray-400 border-0 cursor-pointer leading-6 text-primary-600 hover:text-primary-700" aria-label="@lang('post.read_post', ['title' => $post->title])">
+                    @lang('post.read_more') →
                 </a>
             </div>
         </div>

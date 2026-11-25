@@ -7,4 +7,5 @@ return [
     'next-events' => 'next-events',
     'past-events' => 'past-events',
     'book-a-treatment' => 'book-a-treatment',
+    'blog' => 'blog',
 ];

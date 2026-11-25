@@ -282,7 +282,7 @@ Un bodywork Ilan Lev, invece, consente a chi lo riceve di: ripristinare la capac
         'ilm' => 'Bodywork',
         'events' => 'Eventi',
         'physiotherapy' => 'Fisioterapia',
-        //'blog' => 'Blog',
+        //'blog' => 'Approfondimenti',
         //'insights' => 'Curiosità',
     ],
     'footer' => [
@@ -295,7 +295,7 @@ Un bodywork Ilan Lev, invece, consente a chi lo riceve di: ripristinare la capac
         'pages' => 'Pagine',
         'other' => 'Altro',
         'about_me' => 'Su di me',
-        'blog' => 'Blog',
+        'blog' => 'Approfondimenti',
         'physiotherapy' => 'Fisioterapia',
         'contact_improvisation' => 'Contact Improvisation',
         'events' => 'Eventi',

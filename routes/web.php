@@ -221,6 +221,7 @@ Route::redirect('/it/past-events', '/it/eventi-passati', 301);
 Route::redirect('/it/physiotherapy', '/it/fisioterapia', 301);
 Route::redirect('/it/about-me', '/it/su-di-me', 301);
 Route::redirect('/it/treatments-ilan-lev-method', '/it/trattamenti-ilan-lev-method', 301);
+Route::redirect('/it/blog', '/it/approfondimenti', 301);
 
 Route::group(
     [
@@ -239,7 +240,7 @@ Route::group(
     Route::post('/contact', [ContactMeController::class, 'store'])->name('contact.store')->middleware(ProtectAgainstSpam::class);
 
     Route::get('/', [ HomeController::class, 'index'])->name('home');
-    Route::get('/blog', [PostController::class, 'blog'])->name('posts.blog');
+    Route::get(LaravelLocalization::transRoute('routes.blog'), [PostController::class, 'blog'])->name('posts.blog');
     Route::get('/posts/{post:slug}', [PostController::class, 'show'])->name('posts.show');
     Route::get('/insights/{insight}', [InsightController::class, 'show'])->name('insights.show');
     Route::get('/insightsFeed', [InsightController::class, 'feed'])->name('insightsFeed');

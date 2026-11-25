@@ -49,7 +49,6 @@ class GenerateSitemap extends Command
         $sitemap = Sitemap::create();
 
         $pages = [
-            '/blog',
             '/learn-more-ilan-lev-method',
             '/contact-improvisation',
             '/contact',
@@ -61,6 +60,7 @@ class GenerateSitemap extends Command
 
         // Pages with a translated URL (see resources/lang/*/routes.php)
         $this->addTranslatedRouteUrl($sitemap, 'routes.book-a-treatment');
+        $this->addTranslatedRouteUrl($sitemap, 'routes.blog');
         $this->addTranslatedRouteUrl($sitemap, 'routes.physiotherapy');
         $this->addTranslatedRouteUrl($sitemap, 'routes.about-me');
         $this->addTranslatedRouteUrl($sitemap, 'routes.treatments-ilan-lev-method');
