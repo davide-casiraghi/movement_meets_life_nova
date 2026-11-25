@@ -3,10 +3,10 @@
     <div class="flex flex-col w-64">
         <!-- Sidebar component, swap this element with another sidebar if you like -->
         <div class="flex flex-col h-0 flex-1">
-            <div class="flex items-center h-16 shrink-0 px-4 bg-gray-900">
-                <img class="h-8 w-auto"
-                     src="https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg"
-                     alt="Workflow"/>
+            <div class="flex items-center h-16 shrink-0 px-4 bg-white">
+                <img class="h-14 w-auto p-1"
+                     src="{{ asset('images/logo-davide-casiraghi.jpg') }}"
+                     alt="Davide Casiraghi Fisioterapia"/>
             </div>
             <div class="flex-1 flex flex-col overflow-y-auto">
                 <nav class="flex-1 px-2 py-4 bg-gray-800 space-y-1">

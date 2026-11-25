@@ -63,7 +63,7 @@
                 </button>
             </div>
             <div class="shrink-0 flex items-center px-4">
-                <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg" alt="Workflow" />
+                <img class="h-14 w-auto rounded-md bg-white p-1" src="{{ asset('images/logo-davide-casiraghi.jpg') }}" alt="Davide Casiraghi Fisioterapia" />
             </div>
             <div class="mt-5 flex-1 h-0 overflow-y-auto">
                 <nav class="px-2 space-y-1">
