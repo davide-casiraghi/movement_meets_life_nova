@@ -34,6 +34,7 @@ return [
         ],
         'physiotherapy' => [
             'physiotherapy' => 'physiotherapy',
+            'heading' => 'Physiotherapist in Turin',
             'evidence_based' => "A <span class='text-primary-600'>science-based approach</span> to restore movement and reduce pain.",
             'physiotherapy_helps' => 'Physiotherapy helps restore movement, strength, and functionality in cases of acute or persistent pain, after injuries and surgical procedures.',
             'learn_more' => 'Learn more',
@@ -104,7 +105,7 @@ return [
         'contact_me' => "contact me",
     ], 
     'physiotherapy' => [
-        'title' => 'Physiotherapy',
+        'title' => 'Physiotherapy in Turin',
         'meta_description' => 'Physiotherapy in Turin, at the practice or at home: personalised assessment, manual therapy and therapeutic exercise for pain, injuries and post-surgery recovery.',
         'meta_title' => 'Physiotherapy in Turin and at home',
         'intro' => [

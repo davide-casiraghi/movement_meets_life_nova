@@ -34,6 +34,7 @@ return [
           ],
       'physiotherapy' => [
         'physiotherapy' => 'Fisioterapia',
+        'heading' => 'Fisioterapista a Torino',
         'evidence_based' => "Un <span class='text-primary-600'>approccio scientifico</span> per recuperare mobilità e ridurre il dolore.",
         'physiotherapy_helps' => 'La fisioterapia aiuta a recuperare movimento, forza e funzionalità in caso di dolore acuto o persistente, dopo infortuni e interventi chirurgici.',
         'learn_more' => 'Maggiori informazioni',
@@ -103,7 +104,7 @@ Queste indicazioni sono state scritte per chiarire quali sono le esigenze dei da
         'contact_me' => "contattarmi",
     ],   
     'physiotherapy' => [
-      'title' => 'Fisioterapia',
+      'title' => 'Fisioterapia a Torino',
       'meta_description' => 'Fisioterapia a Torino, in studio e a domicilio: valutazione personalizzata, terapia manuale ed esercizio terapeutico per dolore, infortuni e post-operatorio.',
       'meta_title' => 'Fisioterapia a Torino e a domicilio',
       'intro' => [

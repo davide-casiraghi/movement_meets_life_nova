@@ -2,9 +2,10 @@
 <div class="mt-8 mx-auto max-w-[theme(screens.xl)] p-4 sm:mt-12 sm:px-6 md:mt-20 xl:mt-24">
     <div class="lg:grid lg:grid-cols-12 lg:gap-8">
         <div class="sm:text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left">
-            <h2 class="text-sm font-semibold uppercase tracking-wide text-gray-500 sm:text-base lg:text-sm xl:text-base">
-                {{ ucfirst(trans('static_pages.home.blocks.physiotherapy.physiotherapy')) }}
-            </h2>
+            {{-- "!" overrides the global .content h1 style (resources/css/contents.css): keep the small grey label look --}}
+            <h1 class="text-sm! font-semibold! uppercase tracking-wide! text-gray-500! sm:text-base! lg:text-sm! xl:text-base! m-0!">
+                @lang('static_pages.home.blocks.physiotherapy.heading')
+            </h1>
             <h3 class="mt-1 text-4xl tracking-tight leading-10 font-brand text-gray-900 sm:leading-none sm:text-6xl lg:text-4xl xl:text-5xl">
                 @lang('static_pages.home.blocks.physiotherapy.evidence_based')
             </h3>
