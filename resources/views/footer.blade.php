@@ -50,11 +50,6 @@
                                     @lang('static_pages.footer.about_me')
                                 </a>
                             </li>
-                            {{--<li>
-                                <a href="{{route('posts.blog')}}" class="text-base leading-6 text-gray-300 hover:text-white">
-                                    @lang('static_pages.footer.blog')
-                                </a>
-                            </li>--}}
                             <li>
                                 <a href="{{route('staticPages.physiotherapy')}}" class="text-base leading-6 text-gray-300 hover:text-white">
                                     @lang('static_pages.footer.physiotherapy')
@@ -78,6 +73,11 @@
                         </h4>
                         <ul class="mt-4 space-y-4">
                             <li>
+                                <a href="{{route('posts.blog')}}" class="text-base leading-6 text-gray-300 hover:text-white">
+                                    @lang('static_pages.footer.blog')
+                                </a>
+                            </li>
+                            <li>
                                 <a href="{{route('staticPages.waterContact')}}" class="text-base leading-6 text-gray-300 hover:text-white">
                                     @lang('static_pages.footer.water_contact')
                                 </a>
@@ -88,7 +88,7 @@
                                 </a>
                             </li>--}}
                         </ul>
-                        <h4 class="text-sm leading-5 font-semibold text-gray-400 tracking-wider uppercase mt-14">
+                        <h4 class="text-sm leading-5 font-semibold text-gray-400 tracking-wider uppercase mt-8">
                             @lang('static_pages.footer.other')
                         </h4>
                         <ul class="mt-4 space-y-4">
