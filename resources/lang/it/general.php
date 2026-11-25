@@ -48,4 +48,5 @@ return [
     'your_email' => 'La tua email',
     'message' => 'Messaggio',
     'optional' => '(facoltativo)',
+    'home_title' => 'Fisioterapista a Torino',
 ];

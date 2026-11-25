@@ -1,6 +1,8 @@
 
 @extends('layouts.app')
 
+@section('title')@lang('general.home_title')@endsection
+
 @section('jumbotron')
     {{--@include('partials.pages.home.video_embed')--}}
     {{--@include('partials.pages.home.jumboIntro')--}}
@@ -8,7 +10,7 @@
 
 @section('fb-tags')
     <x-social-meta
-            :title="__('general.website_name')"
+            :title="__('general.home_title').' - '.__('general.website_name')"
             :description="__('general.website_description')"
             :image="asset('images/static_pages/hp-intro-image.jpg')"
     />

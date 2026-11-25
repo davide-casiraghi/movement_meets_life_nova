@@ -103,6 +103,7 @@ return [
     ], 
     'physiotherapy' => [
         'title' => 'Physiotherapy',
+        'meta_title' => 'Physiotherapy in Turin and at home',
         'intro' => [
             'purpose' => 'Physiotherapy helps restore movement, strength, and functionality in cases of acute or persistent pain, after injuries and surgical procedures.',
             'how' => 'Through a personalized assessment and a targeted treatment plan that combines manual therapy, decontracting massage, and therapeutic exercises, the treatment not only relieves pain but also works to restore proper body movement.',

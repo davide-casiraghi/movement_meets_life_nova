@@ -102,6 +102,7 @@ Queste indicazioni sono state scritte per chiarire quali sono le esigenze dei da
     ],   
     'physiotherapy' => [
       'title' => 'Fisioterapia',
+      'meta_title' => 'Fisioterapia a Torino e a domicilio',
       'intro' => [
           'purpose' => 'La fisioterapia aiuta a recuperare movimento, forza e funzionalità in caso di dolore acuto o persistente, dopo infortuni e interventi chirurgici.',
           'how' => 'Attraverso una valutazione personalizzata e un percorso mirato che combina terapia manuale, massaggi decontratturanti ed esercizi terapeutici, il trattamento non si limita ad alleviare il dolore ma lavora per ripristinare il corretto movimento del corpo.',
