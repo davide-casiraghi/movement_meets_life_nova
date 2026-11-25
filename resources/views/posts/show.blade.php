@@ -27,7 +27,7 @@
     @if($post->hasMedia('introimage'))
         <div class="{{--bg-fixed--}} relative bg-cover bg-no-repeat" style="background-image: url('{{$post->getMedia('introimage')[0]->getUrl()}}'); ">
             <div class="container mx-auto px-6 py-40 max-w-prose relative z-10">
-                <h2 class="text-4xl font-bold mb-2 text-white">
+                <h2 class="text-4xl font-bold mb-2 text-white text-shadow-lg text-shadow-black/60">
                     {{ $post->title }}
                 </h2>
                 <h3 class="font-avenir text-2xl leading-9 mb-8 text-gray-300 mt-10">
