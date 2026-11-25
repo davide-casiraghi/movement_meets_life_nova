@@ -75,6 +75,10 @@ var editor_config = {
     content_style: "body img.md\\:float-right{ float: right; }" +
                     "body img.md\\:w-6\\/12{ width: 50%; }",
 
+    // Image types accepted by the upload tab (default excludes svg).
+    // Keep in sync with ALLOWED_EXTENSIONS in app/Http/Controllers/ImageUploadController.php
+    images_file_types: 'jpeg,jpg,jpe,jfi,jif,jfif,png,gif,bmp,webp,svg',
+
     images_upload_handler: function (blobInfo, success, failure) {
         var xhr, formData;
         xhr = new XMLHttpRequest();

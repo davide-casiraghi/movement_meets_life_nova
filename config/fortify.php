@@ -103,7 +103,8 @@ return [
     */
 
     'features' => [
-        Features::registration(),
+        // Public registration disabled: users are created from the admin panel
+        // Features::registration(),
         Features::resetPasswords(),
         // Features::emailVerification(),
         Features::updateProfileInformation(),

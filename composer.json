@@ -12,6 +12,7 @@
         "ext-gd": "*",
         "ext-json": "*",
         "andreiio/blade-remix-icon": "^1.2",
+        "enshrined/svg-sanitize": "^1.1",
         "geoip2/geoip2": "^2.13",
         "guzzlehttp/guzzle": "^7.17",
         "guzzlehttp/psr7": "^2.13.6",
