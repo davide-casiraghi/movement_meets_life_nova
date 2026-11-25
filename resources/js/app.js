@@ -1,28 +1,23 @@
 import './bootstrap';
-import './tipped-global';
-import './jquery-plugins';
 
-// Load vendor libraries
-import 'justifiedGallery';
-import '@fancyapps/fancybox';
-import 'bootstrap-datepicker';
-import 'slick-carousel';
-import 'livewire-sortable';
-import 'flatpickr';
-
-// Load my scripts related to vendor libraries
-// TinyMCE is big: load it (as a separate chunk) only on the pages that have an editor
-if (document.querySelector('.textarea_tinymce')) {
-    import('./vendors/tinymce');
-}
-import './vendors/select2';
-import './vendors/slick_carousel';
-import './forms/uploadImage';
+// Small scripts used on many pages: always loaded
+import 'livewire-sortable'; // Livewire directive: must be registered before Livewire starts
 import './video_embed';
-import './vendors/gallery_mansonry';
-import './vendors/bootstrap-datepicker';
-import './vendors/staaky_tipped';
-import './vendors/flatpickr';
-
-// Helpers
+import './forms/uploadImage';
 import './snippets/accordion';
+
+/**
+ * The vendor libraries are loaded (as separate chunks) only on the pages that use them,
+ * so the public pages don't download the admin libraries (editor, selects, date pickers).
+ * Each module imports its own library and initializes the elements on the page.
+ */
+const pageHas = (selector) => document.querySelector(selector) !== null;
+
+if (pageHas('.textarea_tinymce')) import('./vendors/tinymce');
+if (pageHas('.select2, .select2-multiple')) import('./vendors/select2');
+if (pageHas('.datepicker, .datepickerMultiple')) import('./vendors/bootstrap-datepicker');
+if (pageHas('.flatpickr')) import('./vendors/flatpickr');
+if (pageHas('.testimonialsList')) import('./vendors/slick_carousel');
+if (pageHas('.lifeGallery')) import('./vendors/gallery_mansonry');
+if (pageHas('[data-fancybox]')) import('@fancyapps/fancybox');
+if (pageHas('.has-glossary-term')) import('./vendors/staaky_tipped');

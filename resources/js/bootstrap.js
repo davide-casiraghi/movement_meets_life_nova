@@ -1,9 +1,4 @@
-import _ from 'lodash';
 import $ from 'jquery';
-import axios from 'axios';
 
-window._ = _;
+// jQuery is global: the plugins and the inline scripts in the views use it
 window.$ = window.jQuery = $;
-
-window.axios = axios;
-window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';

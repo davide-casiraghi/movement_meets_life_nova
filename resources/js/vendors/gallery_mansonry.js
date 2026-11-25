@@ -1,3 +1,6 @@
+import justifiedGallery from 'justifiedGallery';
+
+justifiedGallery(window, window.jQuery);
 
 /*
     https://www.npmjs.com/package/justifiedGallery

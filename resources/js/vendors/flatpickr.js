@@ -1,3 +1,4 @@
+import 'flatpickr'; // also sets window.flatpickr, used by the inline scripts
 import 'flatpickr/dist/flatpickr.css';
 
 $(document).ready(function() {

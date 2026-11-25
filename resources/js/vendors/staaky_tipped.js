@@ -1,8 +1,12 @@
+import Tipped from '@staaky/tipped';
+
+window.Tipped = Tipped;
+
 /**
  * We manage tooltips with
  * https://www.tippedjs.com/documentation
  *
- * Imported in resources/js/bootstrap.js
+ * Loaded by resources/js/app.js only on the pages with glossary terms
  **/
 
 $(document).ready(function () {

@@ -1,3 +1,4 @@
+import 'slick-carousel';
 
 // Create carousel
 function createTestimonialCarousel(numberOfSlides){
