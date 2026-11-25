@@ -79,6 +79,7 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
         Route::get('/posts', [PostController::class, 'index'])->name('index');
         Route::get('/posts/{id}/edit', [PostController::class, 'edit'])->name('edit');
         Route::put('/posts/{id}', [PostController::class, 'update'])->name('update');
+        Route::post('/posts/{id}/toggleStatus', [PostController::class, 'toggleStatus'])->name('toggleStatus');
         Route::get('/posts/create', [PostController::class, 'create'])->name('create');
         Route::post('/posts', [PostController::class, 'store'])->name('store');
         Route::delete('/posts/{id}', [PostController::class, 'destroy'])->name('destroy');

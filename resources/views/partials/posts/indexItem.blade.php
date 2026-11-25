@@ -1,5 +1,5 @@
 <li>
-    <a href="{{route('posts.edit', $post->id)}}" class="block hover:bg-gray-50">
+    <div class="block">
         <div class="px-4 py-4 sm:px-6">
             <div class="mr-2 float-left">
                 @if($post->hasMedia('introimage'))
@@ -7,13 +7,18 @@
                 @endif
             </div>
             <div class="flex items-center justify-between">
-                <p class="text-sm font-medium text-indigo-600 truncate">
+                <a href="{{route('posts.edit', $post->id)}}" class="text-sm font-medium text-indigo-600 truncate hover:underline">
                     {{$post->title}}
-                </p>
+                </a>
                 <div class="ml-2 shrink-0 flex">
-                    <p class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full @if($post->isPublished())bg-green-100 text-green-800 @else bg-red-100 text-red-800 @endif">
-                        {{ucfirst($post->publishingStatus())}}
-                    </p>
+                    <form action="{{ route('posts.toggleStatus', $post->id) }}" method="POST">
+                        @csrf
+                        <button type="submit"
+                                title="{{ $post->isPublished() ? 'Click to unpublish' : 'Click to publish' }}"
+                                class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full cursor-pointer hover:opacity-75 @if($post->isPublished())bg-green-100 text-green-800 @else bg-red-100 text-red-800 @endif">
+                            {{ucfirst($post->publishingStatus())}}
+                        </button>
+                    </form>
                 </div>
             </div>
             <div class="mt-2 sm:flex sm:justify-between">
@@ -43,5 +48,5 @@
                 </div>
             </div>
         </div>
-    </a>
+    </div>
 </li>

@@ -169,6 +169,25 @@ class PostController extends Controller
     }
 
     /**
+     * Switch the post between published and unpublished.
+     *
+     * @param int $postId
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function toggleStatus(int $postId): RedirectResponse
+    {
+        $this->checkPermission('posts.edit');
+
+        $post = $this->postService->getById($postId);
+        $newStatus = $post->isPublished() ? 'unpublished' : 'published';
+        $post->setStatus($newStatus);
+
+        return redirect()->back()
+            ->with('success', "Post {$newStatus} successfully");
+    }
+
+    /**
      * Remove the specified resource from storage.
      *
      * @param int $postId
