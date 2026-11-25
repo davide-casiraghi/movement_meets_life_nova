@@ -29,6 +29,6 @@ class PostCommentController extends Controller
         $this->commentService->createComment($request, $post);
 
         return redirect()->route('posts.show', $post->slug)
-            ->with('success', 'Comment added successfully');
+            ->with('success', __('comment.added_successfully'));
     }
 }

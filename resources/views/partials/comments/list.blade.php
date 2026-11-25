@@ -1,5 +1,5 @@
 <div class="border-t border-b border-gray-200 mb-4 mt-4">
-    <h3 class="my-4 mt-4">Comments</h3>
+    <h3 class="my-4 mt-4">@lang('comment.comments')</h3>
 
     @foreach ($post->comments as $comment)
         <div class="mb-4">

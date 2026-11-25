@@ -29,4 +29,19 @@ class CommentStoreRequest extends FormRequest
             'body' => ['required'],
         ];
     }
+
+    /**
+     * Get the translated validation messages.
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            'body.required' => __('comment.body_required'),
+            'name.required' => __('comment.name_required'),
+            'email.required' => __('comment.email_required'),
+            'email.email' => __('comment.email_invalid'),
+        ];
+    }
 }
