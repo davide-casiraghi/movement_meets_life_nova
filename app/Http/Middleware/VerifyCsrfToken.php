@@ -12,6 +12,6 @@ class VerifyCsrfToken extends Middleware
      * @var array
      */
     protected $except = [
-      '/tinymce_upload',
+        // The TinyMCE image upload sends the X-CSRF-TOKEN header: no exceptions needed
     ];
 }

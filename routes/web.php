@@ -46,7 +46,8 @@ use Spatie\Honeypot\ProtectAgainstSpam;
  *    Dashboard Routes
  */
 
-Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
+// Admin panel: only the editorial roles (users with other roles or no role get 403)
+Route::group(['middleware' => ['auth:sanctum', 'verified', 'role:Super Admin|Admin|Post editor|Event editor']], function () {
 
     Route::name('dashboard.')->group(function () {
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('index');
@@ -195,7 +196,8 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
     });
 
     // Database backups (shows and allows to edit db backups created with Spatie db backup)
-    Route::name('databaseBackups.')->group(function () {
+    // They contain all the site data: Super Admin only
+    Route::name('databaseBackups.')->middleware('role:Super Admin')->group(function () {
         Route::get('/databaseBackups', [DatabaseBackupsController::class, 'index'])->name('index');
         Route::get('/databaseBackups/{fileName}', [DatabaseBackupsController::class, 'download'])->name('download');
         Route::delete('/databaseBackups/{fileName}', [DatabaseBackupsController::class, 'destroy'])->name('destroy');
