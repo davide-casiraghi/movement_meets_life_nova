@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('title')@lang('static_pages.water_contact.title')@endsection
+@section('description'){{ __('static_pages.water_contact.meta_description') }}@endsection
 
 @section('content')
 

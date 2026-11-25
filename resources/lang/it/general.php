@@ -49,4 +49,5 @@ return [
     'message' => 'Messaggio',
     'optional' => '(facoltativo)',
     'home_title' => 'Fisioterapista a Torino',
+    'website_description' => 'Davide Casiraghi, fisioterapista a Torino. Fisioterapia in studio e a domicilio: terapia manuale, esercizio terapeutico, massaggi decontratturanti e metodo Ilan Lev.',
 ];

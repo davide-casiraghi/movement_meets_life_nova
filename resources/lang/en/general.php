@@ -55,5 +55,5 @@ return [
     'optional' => '(optional)',
     'website_name' => 'Movement Meets Life',
     'home_title' => 'Physiotherapist in Turin',
-    'website_description' => 'Davide Casiraghi - Contact Improvisation Teacher and Ilan Lev Method Practitioner',
+    'website_description' => 'Davide Casiraghi, physiotherapist in Turin. Physiotherapy at the practice and at home: manual therapy, therapeutic exercise, massage and the Ilan Lev Method.',
 ];

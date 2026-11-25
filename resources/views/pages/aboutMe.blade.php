@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('title')@lang('static_pages.about_me.title')@endsection
+@section('description'){{ __('static_pages.about_me.meta_description') }}@endsection
 
 @section('content')
 

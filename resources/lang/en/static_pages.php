@@ -46,6 +46,7 @@ return [
     ],
     'about_me' => [
       'title' => 'About me',
+      'meta_description' => 'Davide Casiraghi, physiotherapist in Turin, certified Ilan Lev Method practitioner and Contact Improvisation teacher: training and background.',
       'intro' => '<b>Davide Casiraghi</b>, BSc in Physical therapy, BSc in Computer Science, Contact Improvisation dance teacher, Ilan Lev method practitioner, based in Torino, Italy.',
       'currently_organizing' => 'He is currently co-organizing <b>Contact Improvisation</b> classes and regular jams every thursday evening in Turin and monthly workshops in Lecco.',
       'member_of' => 'Member of the <b>Round Robin Project</b> that has the aim to create tools for global networking of the worldwide Contact Improvisation community. He is web designer, developer and technical manager of the <a class="textLink" target="_self" href="https://www.ciglobalcalendar.net">Contact Improvisation Global Calendar (CIGG).</a><br>Previously from 2010 to 2018 webmaster of the <b>Contact Improvisation Italian website</b> - www.contactimprov.it (now closed)',
@@ -84,6 +85,7 @@ return [
     ],
     'contact_improvisation' => [
       'title' => 'Contact Improvisation',
+      'meta_description' => 'Contact Improvisation in Turin with Davide Casiraghi: an improvised dance based on physical contact, shared weight and listening to movement.',
       'subtitle' => 'A creative and playful dance that allows us to explore movement, balance, weight, touch, and communication between two or more people.',
       'ci_description' => '<b>Contact Improvisation</b> is an improvised dance form based on the communication between two moving bodies that are in physical contact and their combined relationship to the physical laws that govern their motion: gravity, momentum, inertia. The body, to open to these sensations, learns to release excess muscular tension and abandon a certain quality of willfulness to experience the natural flow of movement.<br><br>
       Alertness is developed to work in an energetic state of physical disorientation, trusting in one’s basic survival instincts. It is a free play with balance, self-correcting the wrong moves and reinforcing the right ones, bringing forth a physical/emotional truth about a shared moment of movement that leaves the participants informed, centered, and enlivened.<br><br>
@@ -103,6 +105,7 @@ return [
     ], 
     'physiotherapy' => [
         'title' => 'Physiotherapy',
+        'meta_description' => 'Physiotherapy in Turin, at the practice or at home: personalised assessment, manual therapy and therapeutic exercise for pain, injuries and post-surgery recovery.',
         'meta_title' => 'Physiotherapy in Turin and at home',
         'intro' => [
             'purpose' => 'Physiotherapy helps restore movement, strength, and functionality in cases of acute or persistent pain, after injuries and surgical procedures.',
@@ -152,6 +155,7 @@ return [
     ],
     'treatments' => [
         'title' => 'Treatments',
+        'meta_description' => 'Ilan Lev Method treatments in Turin, at the practice or at home: a bodywork that works through the skeleton to release tension and improve movement.',
         'intro' => [
             'the_ilan_lev_method' => 'The Ilan Lev Method (ILM) is a revolutionary form of hands-on bodywork that addresses body aches, pains, and movement imbalances caused by physical or emotional strain.',
             'the_method_works' => 'The method works towards improving human capabilities and removing functional difficulties.',
@@ -271,11 +275,13 @@ An Ilan Lev bodywork instead, allows the receiver to: restore the ability to get
     ],
     'book_a_treatment' => [
       'title' => 'Book a treatment',
+      'meta_description' => 'Book online a physiotherapy session or an Ilan Lev Method treatment in Turin, at the practice or at home, with Davide Casiraghi.',
       //'call_to_action' => 'To book a treatment, please select one of the available dates and time frames.<br> If no one fits your schedule, please <a class="textLink" href="/contact">contact me</a>, and we will find a solution.',
       'call_to_action_long' => 'Through personalized sessions combining manual therapy and movement, I help you relieve pain, recover from injuries and surgeries, improve mobility, and restore your well-being.<br><br>Whether you want to get back in shape, return to sports, or simply treat yourself to a moment of care and relaxation, we will build a tailored treatment plan together, finding the best approach for your needs. Book an appointment and let\'s start your journey together!',
     ],
     'water_contact' => [
       'title' => 'Water contact',
+      'meta_description' => 'Water Contact: research on Contact Improvisation dance in water, in shallow water and freediving down to 10 metres, in thermal pools, the sea and Y-40.',
       'intro' => 'Surrended to the water element, trusting in the support we can receive from it, we can find space in our joints relating to gravity in a new way. This is the place where we meet and our dance begin.',
       'text_1' => 'Since 2014 I\'m getting more and more into the research about how to bring Contact Improvisation dance in the water environment. The experimentation had taken place in thermal pools, in the sea and Y-40 pool combining tools from many practices such as Contact Improvisation, water bodywork, yoga, relaxation, and somatic techniques.',
       'text_2' => 'I have been one of the organizers of the first Deep Water Dance Festival: <a class="textLink" target="_blank" href="deepwaterdancefestival.altervista.org">deepwaterdancefestival.altervista.org</a>, a meeting where people share their knowledge of dance and freediving in the Italian world’s deepest pool, the Y-40.

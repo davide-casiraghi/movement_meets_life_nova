@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('title')@lang('static_pages.physiotherapy.meta_title')@endsection
+@section('description'){{ __('static_pages.physiotherapy.meta_description') }}@endsection
 
 @section('content')
 

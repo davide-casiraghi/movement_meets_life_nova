@@ -46,6 +46,7 @@ return [
     ],
     'about_me' => [
       'title' => 'Su di me',
+      'meta_description' => 'Davide Casiraghi, fisioterapista a Torino, praticante certificato del metodo Ilan Lev e insegnante di Contact Improvisation: formazione e percorso.',
       'intro' => '<b>Davide Casiraghi</b>, laureato in Fisioterapia e in Informatica, insegnante di Contact Improvisation e praticante del metodo Ilan Lev. Opera a Torino, Italia.',
       'currently_organizing' => 'Attualmente co-organizza classi e jam settimanali di <b>Contact Improvisation</b> ogni giovedì sera a Torino e workshop mensili a Lecco.',
       'member_of' => 'Membro del <b>Round Robin Project</b>, che ha l’obiettivo di creare strumenti per il networking globale della comunità mondiale di Contact Improvisation. È web designer, sviluppatore e responsabile tecnico del <a class="textLink" target="_self" href="https://www.ciglobalcalendar.net">Contact Improvisation Global Calendar (CIGG)</a>.<br>In precedenza, dal 2010 al 2018, è stato webmaster del <b>sito italiano di Contact Improvisation</b> – www.contactimprov.it (ora chiuso).',
@@ -81,6 +82,7 @@ return [
     ],
     'contact_improvisation' => [
       'title' => 'Contact Improvisation',
+      'meta_description' => 'Contact Improvisation a Torino con Davide Casiraghi: una danza improvvisata basata sul contatto, sulla condivisione del peso e sull\'ascolto del movimento.',
       'subtitle' => 'Una danza creativa e giocosa che ci permette di esplorare movimento, equilibrio, peso, contatto e comunicazione tra due o più persone.',
       'ci_description' => '<b>Contact Improvisation</b> è una forma di danza improvvisata basata sulla comunicazione tra due corpi in movimento che entrano in contatto fisico e sulla loro relazione con le leggi fisiche che governano il movimento: gravità, quantità di moto e inerzia. Per aprirsi a queste sensazioni, il corpo impara a lasciare andare le tensioni muscolari in eccesso e ad abbandonare un certo controllo volontario, permettendo al movimento di emergere in modo più naturale e fluido.<br><br>L’attenzione si sviluppa muovendosi in uno stato dinamico di disorientamento fisico, affidandosi ai propri istinti di base e alla capacità del corpo di auto-organizzarsi. È un gioco libero con l’equilibrio: i movimenti meno efficaci vengono spontaneamente corretti, mentre quelli funzionali si rafforzano, facendo emergere una verità fisica ed emotiva nel momento condiviso del movimento. I partecipanti ne escono più consapevoli, centrati e vitali.<br><br> Per me la CI è anche un modo per risvegliare e godere pienamente della nostra sensibilità e della nostra giocosità, lavorando sulla fiducia ed esplorando con curiosità nuovi principi di movimento, al di fuori degli schemi abituali della vita quotidiana.<br>',
       'guidelines_jams' => 'Linee guida per le jam',
@@ -102,6 +104,7 @@ Queste indicazioni sono state scritte per chiarire quali sono le esigenze dei da
     ],   
     'physiotherapy' => [
       'title' => 'Fisioterapia',
+      'meta_description' => 'Fisioterapia a Torino, in studio e a domicilio: valutazione personalizzata, terapia manuale ed esercizio terapeutico per dolore, infortuni e post-operatorio.',
       'meta_title' => 'Fisioterapia a Torino e a domicilio',
       'intro' => [
           'purpose' => 'La fisioterapia aiuta a recuperare movimento, forza e funzionalità in caso di dolore acuto o persistente, dopo infortuni e interventi chirurgici.',
@@ -155,6 +158,7 @@ Queste indicazioni sono state scritte per chiarire quali sono le esigenze dei da
     ],
     'treatments' => [
         'title' => 'Trattamenti',
+        'meta_description' => 'Trattamenti con il metodo Ilan Lev a Torino, in studio o a domicilio: un bodywork che lavora sullo scheletro per sciogliere tensioni e migliorare il movimento.',
         'intro' => [
             'the_ilan_lev_method' => 'Il metodo Ilan Lev (ILM) è una forma rivoluzionaria di bodywork che affronta dolori e squilibri di movimento causati da sforzi fisici o emotivi.',
             'the_method_works' => 'Il metodo lavora per migliorare le capacità motorie e rimuovere le difficoltà funzionali.',
@@ -266,11 +270,13 @@ Un bodywork Ilan Lev, invece, consente a chi lo riceve di: ripristinare la capac
     ],
     'book_a_treatment' => [
       'title' => 'Prenota un trattamento',
+      'meta_description' => 'Prenota online una seduta di fisioterapia o un trattamento con il metodo Ilan Lev a Torino, in studio o a domicilio, con Davide Casiraghi.',
       //'call_to_action' => 'Per prenotare un trattamento, seleziona una delle date e fasce orarie disponibili.<br>Se nessuna di loro si adatta ai tuoi impegni, <a class="textLink" href="/contact">contattami</a> e troveremo una soluzione.',
       'call_to_action_long' => 'Attraverso sedute personalizzate che uniscono terapia manuale e movimento, ti aiuto ad alleviare il dolore, recuperare da traumi e interventi chirurgici, migliorare la mobilità e ritrovare il benessere. <br> <br>Che tu voglia tornare in forma, riprendere l\'attività sportiva o semplicemente concederti un momento di cura e rilassamento, costruiremo insieme un piano terapeutico su misura, individuando il trattamento più adatto alle tue esigenze. Prenota un appuntamento e iniziamo insieme il tuo percorso!',
     ],
     'water_contact' => [
       'title' => 'Water contact',
+      'meta_description' => 'Water Contact: ricerca sulla danza Contact Improvisation in acqua, in acqua bassa e in apnea fino a 10 metri di profondità, tra piscine termali, mare e Y-40.',
       'intro' => 'Abbandonandoci all\'elemento acqua e fidandoci del sostegno che possiamo ricevere da esso, possiamo trovare spazio nelle nostre articolazioni, mettendole in relazione con la gravità in un modo nuovo. Questo è il luogo in cui ci incontriamo e in cui inizia la nostra danza.',
       'text_1' => 'Dal 2014 mi dedico sempre di più alla ricerca su come portare la danza Contact Improvisation nell\'ambiente acquatico. La sperimentazione si è svolta in piscine termali, in mare e nella piscina Y-40, combinando strumenti provenienti da molte pratiche come la Contact Improvisation, il lavoro corporeo in acqua, lo yoga, il rilassamento e le tecniche somatiche.',
       'text_2' => 'Sono stato uno degli organizzatori del primo Deep Water Dance Festival: <a class="textLink" target="_blank" href="deepwaterdancefestival.altervista.org">deepwaterdancefestival.altervista.org</a>, un incontro in cui le persone condividono le proprie conoscenze di danza e di apnea nella piscina più profonda del mondo in Italia, la Y-40.

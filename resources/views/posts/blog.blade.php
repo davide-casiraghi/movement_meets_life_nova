@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('title')@lang('post.blog_title')@endsection
+@section('description'){{ __('post.blog_subtitle') }}@endsection
 
 @section('content')
 
