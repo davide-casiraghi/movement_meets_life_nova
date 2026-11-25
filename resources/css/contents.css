@@ -4,6 +4,10 @@
             @apply bg-transparent cursor-pointer leading-6 text-primary-600 hover:text-primary-700;
         }
     }
+    /* Images aligned right in the TinyMCE content ("Right" class): space between image and text */
+    img.md\:float-right{
+        @apply md:ml-8;
+    }
     h1{
         @apply text-2xl sm:text-4xl md:text-5xl;
         @apply text-gray-900 font-extrabold;

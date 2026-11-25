@@ -116,7 +116,7 @@ const editorConfig = {
     ],
 
     // Add styles to align right the image in the editor
-    content_style: "body img.md\\:float-right{ float: right; }" +
+    content_style: "body img.md\\:float-right{ float: right; margin-left: 2rem; }" +
                     "body img.md\\:w-6\\/12{ width: 50%; }",
 
     // Image types accepted by the upload tab (default excludes svg).

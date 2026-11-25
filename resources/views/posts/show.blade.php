@@ -71,7 +71,8 @@
             <div class="font-avenir text-2xl leading-9 text-gray-700 mb-5">{!! $post->intro_text !!}</div>
         @endif
 
-        <div class="easyRead font-avenir text-gray-900 text-xl mb-10 leading-9"> {{-- prose text-gray-500 --}}
+        {{-- flow-root: contains the floated images (e.g. "Right" class) so they don't overlap the comments --}}
+        <div class="easyRead font-avenir text-gray-900 text-xl mb-10 leading-9 flow-root"> {{-- prose text-gray-500 --}}
             {!! $post->body !!}
         </div>
 

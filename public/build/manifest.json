@@ -1,6 +1,6 @@
 {
   "resources/css/app.css": {
-    "file": "assets/app-JjuDDR3e.css",
+    "file": "assets/app-BEqNA5aY.css",
     "name": "app",
     "names": [
       "app.css"
@@ -9,7 +9,7 @@
     "isEntry": true
   },
   "resources/js/app.js": {
-    "file": "assets/app-C0XbRmvG.js",
+    "file": "assets/app-D3HpdG5T.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
@@ -21,7 +21,7 @@
     ]
   },
   "resources/js/vendors/tinymce.js": {
-    "file": "assets/tinymce-DM-1rDwH.js",
+    "file": "assets/tinymce-DfZnsTWW.js",
     "name": "tinymce",
     "src": "resources/js/vendors/tinymce.js",
     "isDynamicEntry": true,
