@@ -63,6 +63,10 @@
                 'question' => __('static_pages.physiotherapy.faq_physio.physio_timetable'),
                 'answer' =>  __('static_pages.physiotherapy.faq_physio.physio_timetable_answer'),
               ],
+              4 => [
+                'question' => __('static_pages.physiotherapy.faq_physio.physio_tax_deductible'),
+                'answer' =>  __('static_pages.physiotherapy.faq_physio.physio_tax_deductible_answer'),
+              ],
             ],
           'right' => [
               1 => [

@@ -130,6 +130,8 @@ Queste indicazioni sono state scritte per chiarire quali sono le esigenze dei da
           
           'physio_timetable' => 'Che orari fate ?',
           'physio_timetable_answer' => 'Da lunedì a venerdì, dalle 8.00 alle 19.00',
+          'physio_tax_deductible' => 'I trattamenti sono detraibili come spese sanitarie?',
+          'physio_tax_deductible_answer' => 'Sì. Le sedute di fisioterapia, in studio e a domicilio, sono spese sanitarie detraibili al 19% nella dichiarazione dei redditi, anche senza prescrizione medica, per la parte che supera la franchigia di 129,11 € annui. Per ogni seduta ricevi una fattura intestata a te o al familiare a carico. Per poter detrarre la spesa il pagamento deve essere tracciabile: carta, bancomat o bonifico, non contanti. Le fatture vengono comunicate al Sistema Tessera Sanitaria, quindi le trovi già nella dichiarazione precompilata.',
           'physio_at_home_cost_time' => 'Quanto costa e quanto dura una seduta di fisioterpia a domicilio ?',
           'physio_at_home_cost_time_answer' => 'Da 40 € a seduta, per 50 minuti.',
           'physio_at_home_space' => 'Quanto spazio serve per la fisioterapia a domicilio ?',

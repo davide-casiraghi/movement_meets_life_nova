@@ -130,6 +130,8 @@ return [
             'physio_duration_answer' => '60 minutes.',
             'physio_timetable' => 'What are your opening hours?',
             'physio_timetable_answer' => 'Monday to Friday, from 8:00 am to 7:00 pm.',
+            'physio_tax_deductible' => 'Are the treatments tax-deductible as medical expenses?',
+            'physio_tax_deductible_answer' => 'Yes. Physiotherapy sessions, at the practice and at home, are medical expenses deductible at 19% in the Italian tax return, even without a medical prescription, for the part exceeding the annual threshold of €129.11. For each session you receive an invoice in your name or in the name of a dependent family member. To deduct the expense the payment must be traceable: credit card, debit card or bank transfer, not cash. The invoices are reported to the Sistema Tessera Sanitaria, so you will find them already in the pre-filled tax return.',
             'physio_at_home_cost_time' => 'How much does a home physiotherapy session cost and how long does it last?',
             'physio_at_home_cost_time_answer' => 'From €40 per session, lasting 50 minutes.',
             'physio_at_home_space' => 'How much space is needed for home physiotherapy?',
