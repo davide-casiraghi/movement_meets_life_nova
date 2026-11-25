@@ -6,7 +6,7 @@
             </dt>
             <dd class="border-solid box-border font-medium text-base leading-normal text-left text-gray-600" style="list-style: outside none none; quotes: auto;">
                 <time datetime="2021-02-01T13:35:00.0Z" class="border-gray-400 border-0 font-medium leading-6 text-gray-600" style="list-style: outside none none; quotes: auto;">
-                    {{$post->created_at->format('M j, Y')}}
+                    {{ app()->getLocale() === 'it' ? $post->created_at->day.' '.ucfirst($post->created_at->translatedFormat('M')).' '.$post->created_at->year : $post->created_at->format('M j, Y') }}
                 </time>
                 {{--
                 <div class="mt-8 mr-8">
