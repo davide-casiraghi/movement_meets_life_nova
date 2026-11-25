@@ -84,7 +84,8 @@ class GenerateSitemap extends Command
             'categoryId' => $blogCategoryId,
         ]);
         foreach ($posts as $post) {
-            $this->addLocalizedUrl($sitemap, "/posts/{$post->slug}");
+            // Each language has its own translated slug
+            $this->addAlternateUrls($sitemap, $this->postService->getLocalizedUrls($post));
         }
 
         // EVENTS
@@ -114,6 +115,18 @@ class GenerateSitemap extends Command
             $localizedUrls[$locale] = LaravelLocalization::getLocalizedURL($locale, url($path), [], true);
         }
 
+        $this->addAlternateUrls($sitemap, $localizedUrls);
+    }
+
+    /**
+     * Add one entry per language version of a page, each listing all the
+     * language versions as hreflang alternates (itself included).
+     *
+     * @param  Sitemap  $sitemap
+     * @param  array<string, string>  $localizedUrls  URLs keyed by locale
+     */
+    private function addAlternateUrls(Sitemap $sitemap, array $localizedUrls): void
+    {
         foreach ($localizedUrls as $url) {
             $tag = Url::create($url);
             foreach ($localizedUrls as $alternateLocale => $alternateUrl) {
@@ -139,12 +152,6 @@ class GenerateSitemap extends Command
             }
         }
 
-        foreach ($localizedUrls as $url) {
-            $tag = Url::create($url);
-            foreach ($localizedUrls as $alternateLocale => $alternateUrl) {
-                $tag->addAlternate($alternateUrl, $alternateLocale);
-            }
-            $sitemap->add($tag);
-        }
+        $this->addAlternateUrls($sitemap, $localizedUrls);
     }
 }

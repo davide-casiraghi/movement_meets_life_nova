@@ -14,14 +14,14 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media; //used for Gallery field
 use Spatie\ModelStatus\HasStatuses;
 use Spatie\Searchable\Searchable;
 use Spatie\Searchable\SearchResult;
-use Spatie\Sluggable\HasSlug;
+use Spatie\Sluggable\HasTranslatableSlug;
 use Spatie\Sluggable\SlugOptions;
 use Spatie\Translatable\HasTranslations;
 
 class Post extends Model implements HasMedia, Searchable
 {
     use HasFactory;
-    use HasSlug;
+    use HasTranslatableSlug;
     use HasTranslations;
     use HasStatuses;
     use InteractsWithMedia;
@@ -39,7 +39,7 @@ class Post extends Model implements HasMedia, Searchable
      *
      * @var array
      */
-    public $translatable = ['title','intro_text', 'body', 'introimage_alt'];
+    public $translatable = ['title', 'slug', 'intro_text', 'body', 'introimage_alt'];
 
     /**
      * The parameters used in the index view search filters.
@@ -63,7 +63,7 @@ class Post extends Model implements HasMedia, Searchable
     ];
 
     /**
-     * Generates a unique slug.
+     * Generates a unique slug for each language the title is translated into.
      */
     public function getSlugOptions(): SlugOptions
     {

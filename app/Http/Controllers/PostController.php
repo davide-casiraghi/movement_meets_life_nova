@@ -112,18 +112,27 @@ class PostController extends Controller
      */
     public function show(string $postSlug)
     {
-        //$post = $this->postService->getById($postId);
         $post = $this->postService->getBySlug($postSlug);
 
-        if (is_null($post)){
-            return redirect()->route('home');
+        if (is_null($post)) {
+            // Old address (slug before the translation of the slugs) or slug of another language
+            $post = $this->postService->getByLegacyOrOtherLanguageSlug($postSlug);
+
+            if (is_null($post)) {
+                return redirect()->route('home');
+            }
+
+            // Slug in the current language (or in the fallback one if the post is not translated)
+            $currentSlug = $post->slug;
+            if (filled($currentSlug) && $currentSlug !== $postSlug) {
+                return redirect()->route('posts.show', $currentSlug, 301);
+            }
         }
 
         $post['body'] = $this->postService->getPostBody($post);
+        $localizedUrls = $this->postService->getLocalizedUrls($post);
 
-        //dd($post->getMedia('gallery'));
-
-        return view('posts.show', compact('post'));
+        return view('posts.show', compact('post', 'localizedUrls'));
     }
 
     /**

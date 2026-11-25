@@ -79,15 +79,37 @@ class PostRepository implements PostRepositoryInterface
     }
 
     /**
-     * Get Post by slug
+     * Get Post by its slug in the current language
      *
      * @param string $postSlug
      *
-     * @return Post
+     * @return Post|null
      */
     public function getBySlug(string $postSlug): ?Post
     {
-        return Post::where('slug', $postSlug)->first();
+        return Post::where('slug->' . app()->getLocale(), $postSlug)->first();
+    }
+
+    /**
+     * Get Post by its old (pre-translation) slug or by its slug in any language.
+     * Used to redirect old or other-language addresses to the right one.
+     *
+     * @param string $postSlug
+     *
+     * @return Post|null
+     */
+    public function getByLegacyOrOtherLanguageSlug(string $postSlug): ?Post
+    {
+        $post = Post::where('legacy_slug', $postSlug)->first();
+        if ($post) {
+            return $post;
+        }
+
+        return Post::where(function ($query) use ($postSlug) {
+            foreach (array_keys(LaravelLocalization::getSupportedLocales()) as $locale) {
+                $query->orWhere('slug->' . $locale, $postSlug);
+            }
+        })->first();
     }
 
     /**

@@ -45,7 +45,7 @@ class PostStructuredDataScriptGenerator implements StructuredDataScriptGenerator
             ->datePublished($this->post->created_at)
             ->dateModified($this->post->updated_at)
             ->mainEntityOfPage(Schema::webPage()
-                ->url(env('APP_URL').'/posts/'.$this->post->slug)
+                ->url(route('posts.show', $this->post->slug))
             );
     }
 }

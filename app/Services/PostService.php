@@ -12,6 +12,7 @@ use App\Services\Snippets\GalleryMasonryService;
 use App\Services\Snippets\ImageService;
 use App\Services\Snippets\VideoService;
 use Illuminate\Support\Collection;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 class PostService
 {
@@ -107,6 +108,36 @@ class PostService
     public function getBySlug(string $postSlug): ?Post
     {
         return $this->postRepository->getBySlug($postSlug);
+    }
+
+    /**
+    * Return the post by its old (pre-translation) slug or by its slug in any language
+    *
+    * @param string $postSlug
+    * @return Post|null
+    */
+    public function getByLegacyOrOtherLanguageSlug(string $postSlug): ?Post
+    {
+        return $this->postRepository->getByLegacyOrOtherLanguageSlug($postSlug);
+    }
+
+    /**
+    * The address of the post in each supported language, keyed by locale.
+    *
+    * @param Post $post
+    * @return array<string, string>
+    */
+    public function getLocalizedUrls(Post $post): array
+    {
+        $urls = [];
+        foreach (array_keys(LaravelLocalization::getSupportedLocales()) as $locale) {
+            $slug = $post->getTranslation('slug', $locale);
+            if (filled($slug)) {
+                $urls[$locale] = LaravelLocalization::getLocalizedURL($locale, url('/posts/' . $slug), [], true);
+            }
+        }
+
+        return $urls;
     }
 
     /**

@@ -95,6 +95,81 @@ class PostControllerTest extends TestCase
     }
 
     /** @test */
+    public function itShouldGenerateATranslatedSlugForEachLanguageOfTheTitle()
+    {
+        $post = Post::factory()->create([
+            'title' => ['en' => 'Frozen shoulder', 'it' => 'Spalla congelata'],
+            'category_id' => 1,
+            'user_id' => 1,
+        ]);
+
+        $this->assertEquals('frozen-shoulder', $post->getTranslation('slug', 'en'));
+        $this->assertEquals('spalla-congelata', $post->getTranslation('slug', 'it'));
+    }
+
+    /** @test */
+    public function itShouldDisplayThePostFromItsSlugInTheCurrentLanguage()
+    {
+        Post::factory()->create([
+            'title' => ['en' => 'Frozen shoulder', 'it' => 'Spalla congelata'],
+            'category_id' => 1,
+            'user_id' => 1,
+        ])->setStatus('published');
+
+        $response = $this->get('/posts/spalla-congelata');
+
+        $response->assertStatus(200);
+        $response->assertViewIs('posts.show');
+    }
+
+    /** @test */
+    public function itShouldPermanentlyRedirectTheOldAddressToTheTranslatedSlug()
+    {
+        $post = Post::factory()->create([
+            'title' => ['en' => 'Frozen shoulder', 'it' => 'Spalla congelata'],
+            'category_id' => 1,
+            'user_id' => 1,
+        ]);
+        $post->legacy_slug = 'frozen-shoulder-what-it-is';
+        $post->saveQuietly();
+
+        $response = $this->get('/posts/frozen-shoulder-what-it-is');
+
+        $response->assertStatus(301);
+        $response->assertRedirect(route('posts.show', 'spalla-congelata'));
+    }
+
+    /** @test */
+    public function itShouldPermanentlyRedirectTheSlugOfAnotherLanguageToTheTranslatedSlug()
+    {
+        Post::factory()->create([
+            'title' => ['en' => 'Frozen shoulder', 'it' => 'Spalla congelata'],
+            'category_id' => 1,
+            'user_id' => 1,
+        ]);
+
+        $response = $this->get('/posts/frozen-shoulder');
+
+        $response->assertStatus(301);
+        $response->assertRedirect(route('posts.show', 'spalla-congelata'));
+    }
+
+    /** @test */
+    public function itShouldDisplayAPostNotTranslatedInTheCurrentLanguageWithoutRedirecting()
+    {
+        Post::factory()->create([
+            'title' => ['en' => 'Only in English'],
+            'category_id' => 1,
+            'user_id' => 1,
+        ])->setStatus('published');
+
+        $response = $this->get('/posts/only-in-english');
+
+        $response->assertStatus(200);
+        $response->assertViewIs('posts.show');
+    }
+
+    /** @test */
     public function itShouldRedirectTheGuestUserAccessingThePostsCreatePageToLoginPage()
     {
         $response = $this->get('/posts/create');

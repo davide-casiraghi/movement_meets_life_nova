@@ -22,7 +22,8 @@ https://tailwindui.com/components/application-ui/elements/dropdowns
             @foreach (LaravelLocalization::getSupportedLocales() as $localeCode => $locale)
                 {{--<option value="{{$key}}" @if(app()->getLocale() == $key) selected @endif>{{$locale['name']}}</option>--}}
 
-                <a href="{{ LaravelLocalization::getLocalizedURL($localeCode) }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">
+                {{-- $localizedUrls: pages with a translated slug (e.g. posts) pass the address of each language --}}
+                <a href="{{ $localizedUrls[$localeCode] ?? LaravelLocalization::getLocalizedURL($localeCode) }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">
                     <div class="flex">
                         <img class="shrink-0 mr-1.5 mt-1 h-3 w-5" src="/images/flags/{{ $localeCode }}.gif" alt="{{$locale['name']}} flag">
                         {{$locale['name']}}

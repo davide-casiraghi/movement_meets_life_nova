@@ -30,6 +30,24 @@ interface PostRepositoryInterface
     public function getById(int $postId): Post;
 
     /**
+     * Get Post by its slug in the current language
+     *
+     * @param string $postSlug
+     *
+     * @return Post|null
+     */
+    public function getBySlug(string $postSlug): ?Post;
+
+    /**
+     * Get Post by its old (pre-translation) slug or by its slug in any language
+     *
+     * @param string $postSlug
+     *
+     * @return Post|null
+     */
+    public function getByLegacyOrOtherLanguageSlug(string $postSlug): ?Post;
+
+    /**
      * Store Post
      *
      * @param array $data
