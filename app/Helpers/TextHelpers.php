@@ -31,12 +31,10 @@ class TextHelpers
         $str_minutes = ($minutes == 1) ? "minute" : "minutes";
         $str_seconds = ($seconds == 1) ? "second" : "seconds";
 
+        // Just the number: the views add the translated unit (e.g. "1 min di lettura").
+        // Short texts count as 1 minute.
         if ($format == 'minutes') {
-            if ($minutes == 0) {
-                return 'Less then one minute';
-            } else {
-                return "{$minutes}";
-            }
+            return (string) max(1, $minutes);
         }
 
         if ($format == 'minutesAndSeconds') {
