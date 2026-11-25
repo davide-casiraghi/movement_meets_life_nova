@@ -1,6 +1,6 @@
 {
   "resources/css/app.css": {
-    "file": "assets/app-Cpa4MdDO.css",
+    "file": "assets/app-JjuDDR3e.css",
     "name": "app",
     "names": [
       "app.css"
@@ -9,12 +9,24 @@
     "isEntry": true
   },
   "resources/js/app.js": {
-    "file": "assets/app-Cu0O02Pl.js",
+    "file": "assets/app-C0XbRmvG.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
+    "dynamicImports": [
+      "resources/js/vendors/tinymce.js"
+    ],
     "css": [
       "assets/app-z2R0DeUF.css"
+    ]
+  },
+  "resources/js/vendors/tinymce.js": {
+    "file": "assets/tinymce-DM-1rDwH.js",
+    "name": "tinymce",
+    "src": "resources/js/vendors/tinymce.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js"
     ]
   },
   "resources/sass/custom.scss": {

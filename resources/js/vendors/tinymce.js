@@ -1,17 +1,28 @@
-import tinymce from 'tinymce';
-import 'tinymce/themes/silver';
+/**
+ * TinyMCE 8 editor (self-hosted, bundled with Vite).
+ * Used by the textareas with the .textarea_tinymce class (see resources/views/partials/forms/textarea.blade.php).
+ **/
 
+import tinymce from 'tinymce';
+
+// Core: model, theme, icons
+import 'tinymce/models/dom';
+import 'tinymce/themes/silver';
 import 'tinymce/icons/default';
 
+// Skins bundled as JS: no need to serve the skin files from /public
+import 'tinymce/skins/ui/oxide/skin.js';
+import 'tinymce/skins/ui/oxide/content.js';
+import 'tinymce/skins/content/default/content.js';
+
+// Plugins (paste, text patterns, colors, context menu and hr are now part of the core)
 import 'tinymce/plugins/advlist';
 import 'tinymce/plugins/autolink';
 import 'tinymce/plugins/lists';
 import 'tinymce/plugins/link';
 import 'tinymce/plugins/image';
 import 'tinymce/plugins/charmap';
-import 'tinymce/plugins/print';
 import 'tinymce/plugins/preview';
-import 'tinymce/plugins/hr';
 import 'tinymce/plugins/anchor';
 import 'tinymce/plugins/pagebreak';
 import 'tinymce/plugins/searchreplace';
@@ -25,21 +36,61 @@ import 'tinymce/plugins/media';
 import 'tinymce/plugins/nonbreaking';
 import 'tinymce/plugins/save';
 import 'tinymce/plugins/table';
-import 'tinymce/plugins/contextmenu';
 import 'tinymce/plugins/directionality';
-import 'tinymce/plugins/template';
-import 'tinymce/plugins/paste';
-import 'tinymce/plugins/textcolor';
-import 'tinymce/plugins/colorpicker';
-import 'tinymce/plugins/textpattern';
-import 'tinymce/plugins/imagetools';
+
+/**
+ * Upload of the images to the server (see app/Http/Controllers/ImageUploadController.php).
+ * Must return a Promise resolving to the image URL.
+ */
+const uploadImage = (blobInfo) => {
+    const formData = new FormData();
+    formData.append('file', blobInfo.blob(), blobInfo.filename());
+
+    const csrfToken = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') ?? '';
+
+    return fetch('/tinymce_upload', {
+        method: 'POST',
+        body: formData,
+        credentials: 'same-origin',
+        headers: {
+            'X-CSRF-TOKEN': csrfToken,
+            'Accept': 'application/json',
+        },
+    }).then(async (response) => {
+        if (!response.ok) {
+            let message = 'HTTP Error: ' + response.status;
+            try {
+                const json = await response.json();
+                if (json?.message) {
+                    message = json.message;
+                }
+            } catch (e) {
+                // Not a JSON response: keep the HTTP status message
+            }
+            return Promise.reject({ message: message, remove: true });
+        }
+
+        const json = await response.json();
+        if (!json || typeof json.location !== 'string') {
+            return Promise.reject({ message: 'Invalid JSON response', remove: true });
+        }
+
+        return json.location;
+    });
+};
 
 /**
  * Configuration
  **/
-
-var editor_config = {
+const editorConfig = {
     selector: '.textarea_tinymce',
+
+    // Self-hosted under the GPL license (TinyMCE 7+)
+    license_key: 'gpl',
+    promotion: false,
+
+    // Skins loaded from the bundled JS imports above
+    content_css: 'default',
 
     // Remove Html tags from paste text
     paste_as_text: true, //!important
@@ -47,23 +98,16 @@ var editor_config = {
     // Allow link target blank
     extended_valid_elements: 'a[href|target]',
 
-    /*plugins : 'advlist autolink link image lists charmap print preview spellchecker media table',*/
     plugins: [
-        "advlist autolink lists link image charmap print preview hr anchor pagebreak",
-        "searchreplace wordcount visualblocks visualchars code fullscreen",
-        "insertdatetime media nonbreaking save table contextmenu directionality",
-        "template paste textcolor colorpicker textpattern imagetools"
+        'advlist', 'autolink', 'lists', 'link', 'image', 'charmap', 'preview', 'anchor', 'pagebreak',
+        'searchreplace', 'wordcount', 'visualblocks', 'visualchars', 'code', 'fullscreen',
+        'insertdatetime', 'media', 'nonbreaking', 'save', 'table', 'directionality',
     ],
-    theme: 'silver',
-    skin_url: '/js/skins/ui/oxide',
-    content_css: '/js/skins/content/default/content.min.css',
     height: 400,
 
-    toolbar: 'code | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist | link image media blockquote | hr',
-    /*toolbar: 'bold | bullist  link ', */
+    toolbar: 'code | styles | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist | link image media blockquote | hr',
 
     menubar: false,
-    path_absolute : "/",
     relative_urls: false,
 
     image_class_list: [
@@ -79,57 +123,7 @@ var editor_config = {
     // Keep in sync with ALLOWED_EXTENSIONS in app/Http/Controllers/ImageUploadController.php
     images_file_types: 'jpeg,jpg,jpe,jfi,jif,jfif,png,gif,bmp,webp,svg',
 
-    images_upload_handler: function (blobInfo, success, failure) {
-        var xhr, formData;
-        xhr = new XMLHttpRequest();
-        xhr.withCredentials = false;
-        xhr.open('POST', '/tinymce_upload');
-        var token = '{{ csrf_token() }}';
-        xhr.setRequestHeader("X-CSRF-Token", token);
-        xhr.onload = function() {
-            var json;
-            if (xhr.status != 200) {
-                failure('HTTP Error: ' + xhr.status);
-                return;
-            }
-            json = JSON.parse(xhr.responseText);
+    images_upload_handler: uploadImage,
+};
 
-            if (!json || typeof json.location != 'string') {
-                failure('Invalid JSON: ' + xhr.responseText);
-                return;
-            }
-            success(json.location);
-        };
-        formData = new FormData();
-        formData.append('file', blobInfo.blob(), blobInfo.filename());
-        xhr.send(formData);
-    }
-
-
-    //forced_root_block : false, // force to add <br> instead of <p> - Better not to enable it - Warning: Not using p elements as the root block will impair the functionality of the editor. - https://www.tiny.cloud/docs/configure/content-filtering/#exampleusingforced_root_block
-
-// do not delete the commented lines of tinymce! .. this is a file browser that can be useful for articles
-
-/*file_browser_callback : function(field_name, url, type, win) {
-    var x = window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
-    var y = window.innerHeight|| document.documentElement.clientHeight|| document.getElementsByTagName('body')[0].clientHeight;
-
-    var cmsURL = editor_config.path_absolute + 'laravel-filemanager?field_name=' + field_name;
-    if (type == 'image') {
-        cmsURL = cmsURL + "&type=Images";
-    } else {
-        cmsURL = cmsURL + "&type=Files";
-    }
-
-    tinyMCE.activeEditor.windowManager.open({
-        file : cmsURL,
-        title : 'Filemanager',
-        width : x * 0.8,
-        height : y * 0.8,
-        resizable : "yes",
-        close_previous : "no"
-    });
-} */
-}
-
-tinymce.init(editor_config);
+tinymce.init(editorConfig);

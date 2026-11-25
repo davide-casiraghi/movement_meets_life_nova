@@ -11,7 +11,10 @@ import 'livewire-sortable';
 import 'flatpickr';
 
 // Load my scripts related to vendor libraries
-import './vendors/tinymce';
+// TinyMCE is big: load it (as a separate chunk) only on the pages that have an editor
+if (document.querySelector('.textarea_tinymce')) {
+    import('./vendors/tinymce');
+}
 import './vendors/select2';
 import './vendors/slick_carousel';
 import './forms/uploadImage';
