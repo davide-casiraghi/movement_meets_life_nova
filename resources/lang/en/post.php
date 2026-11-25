@@ -6,5 +6,5 @@ return [
   'read_more' => 'Read more',
   'read_post' => 'Read ":title"',
   'published_on' => 'Published on',
-  'blog_subtitle' => 'Thoughts and articles to better understand the body, pain and movement.',
+  'blog_subtitle' => 'Thoughts and articles to better understand the body, pain and movement',
 ];
