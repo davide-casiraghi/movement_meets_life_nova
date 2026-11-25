@@ -6,5 +6,5 @@ return [
     'read_more' => 'Leggi tutto',
     'read_post' => 'Leggi ":title"',
     'published_on' => 'Pubblicato il',
-    'blog_subtitle' => 'Per capire meglio il corpo, il dolore e il movimento.',
+    'blog_subtitle' => 'Riflessioni e articoli per capire meglio il corpo, il dolore e il movimento.',
 ];
