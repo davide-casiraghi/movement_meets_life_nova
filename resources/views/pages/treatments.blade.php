@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title')@lang('static_pages.physiotherapy.title')@endsection
+@section('title')@lang('static_pages.treatments.title')@endsection
 
 @section('content')
 
