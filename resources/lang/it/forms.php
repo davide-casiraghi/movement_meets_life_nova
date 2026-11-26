@@ -44,7 +44,7 @@ return [
         ]
     ],
     'become_a_testimonial' => [
-        'become_a_testimonial' => "Diventa un testimonial",
+        'become_a_testimonial' => "Racconta la tua esperienza",
         'brief_description' => 'Una breve descrizione della tua esperienza.',
         'did_you_enjoy' => "Ti è piaciuto ricevere un trattamento e ti farebbe piacere lasciare un feedback che io possa pubblicare sul mio sito web?",
         'unique_experience' => "Dato che è un'esperienza piuttosto unica da spiegare, questo mi aiuterà a far capire alle persone che cosa si prova a ricevere un trattamento ILM.",

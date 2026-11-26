@@ -305,7 +305,7 @@ An Ilan Lev bodywork instead, allows the receiver to: restore the ability to get
     'footer' => [
         'get_in_touch' => 'Get in touch',
         'contact_me' => 'Contact me / Feedback',
-        'become_a_testimonial' => 'Become a testimonial',
+        'become_a_testimonial' => 'Share your experience',
         'whatsapp' => 'Message me on WhatsApp',
         'whatsapp_message' => 'Hi Davide, I would like some information.',
         'whatsapp_unavailable_title' => 'Service temporarily unavailable',

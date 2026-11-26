@@ -300,7 +300,7 @@ Un bodywork Ilan Lev, invece, consente a chi lo riceve di: ripristinare la capac
     'footer' => [
         'get_in_touch' => 'Stiamo in contatto',
         'contact_me' => 'Contattami / Feedback',
-        'become_a_testimonial' => 'Diventa un testimonial',
+        'become_a_testimonial' => 'Racconta la tua esperienza',
         'whatsapp' => 'Scrivimi su WhatsApp',
         'whatsapp_message' => 'Ciao Davide, vorrei avere delle informazioni.',
         'whatsapp_unavailable_title' => 'Servizio momentaneamente non disponibile',
