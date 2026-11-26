@@ -225,7 +225,10 @@ Route::redirect('/it/eventi-futuri', '/it/classi', 301);
 Route::redirect('/it/eventi-passati', '/it/classi-passate', 301);
 Route::redirect('/en/next-events', '/en/classes', 301);
 Route::redirect('/en/past-events', '/en/past-classes', 301);
-Route::redirect('/it/physiotherapy', '/it/fisioterapia', 301);
+// Physiotherapy page: the old addresses redirect to the new ones (with the city, for local SEO)
+Route::redirect('/it/physiotherapy', '/it/fisioterapia-a-torino', 301);
+Route::redirect('/it/fisioterapia', '/it/fisioterapia-a-torino', 301);
+Route::redirect('/en/physiotherapy', '/en/physiotherapy-in-turin', 301);
 Route::redirect('/it/about-me', '/it/su-di-me', 301);
 Route::redirect('/it/treatments-ilan-lev-method', '/it/trattamenti-ilan-lev-method', 301);
 Route::redirect('/it/blog', '/it/approfondimenti', 301);

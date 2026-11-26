@@ -2,7 +2,7 @@
 
 return [
     'treatments-ilan-lev-method' => 'trattamenti-ilan-lev-method',
-    'physiotherapy' => 'fisioterapia',
+    'physiotherapy' => 'fisioterapia-a-torino',
     'about-me' => 'su-di-me',
     'next-events' => 'classi',
     'past-events' => 'classi-passate',
