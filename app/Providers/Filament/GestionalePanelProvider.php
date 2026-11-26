@@ -47,6 +47,7 @@ class GestionalePanelProvider extends PanelProvider
             ->topbar(false)
             ->darkMode(false)
             ->renderHook(PanelsRenderHook::HEAD_END, fn () => view('filament.gestionale.theme'))
+            ->renderHook(PanelsRenderHook::SIDEBAR_FOOTER, fn () => view('filament.gestionale.site-button'))
             ->renderHook(TablesRenderHook::TOOLBAR_SEARCH_AFTER, fn () => view('filament.gestionale.patients-status-filter'), scopes: ListPatients::class)
             ->colors([
                 'primary' => Color::Indigo,

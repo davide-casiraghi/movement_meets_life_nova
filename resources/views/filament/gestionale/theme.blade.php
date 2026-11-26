@@ -214,6 +214,12 @@
     .gest-invoice-actions { display: flex; align-items: center; gap: 1.5rem; }
     .gest-invoice-back { display: inline-flex; align-items: center; gap: 0.35rem; color: #374151; }
 
+    /* ---------- "Gestione sito" button at the bottom of the sidebar (teal, like "Gestione studio") ---------- */
+    .gest-site-button-wrap { padding: 0.75rem 1rem 1rem; }
+    .gest-site-button { display: flex; align-items: center; justify-content: center; gap: 0.5rem; width: 100%; background: #0d9488; color: #fff; border-radius: 0.375rem; padding: 0.5rem 0.75rem; font-size: 0.875rem; font-weight: 500; box-shadow: 0 1px 2px #0000000d; }
+    .gest-site-button:hover { background: #0f766e; }
+    .gest-site-button:focus-visible { outline: 2px solid #14b8a6; outline-offset: 2px; }
+
     /* ---------- Shared bits ---------- */
     .gest-color-dot { display: inline-block; width: 0.625rem; height: 0.625rem; border-radius: 9999px; margin-right: 0.5rem; vertical-align: middle; }
     .gest-color-option { display: block; margin: -0.25rem -0.5rem; padding: 0.25rem 0.5rem; border-radius: 0.25rem; color: #111827; }

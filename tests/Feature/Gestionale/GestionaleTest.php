@@ -261,4 +261,18 @@ class GestionaleTest extends TestCase
             Livewire::test($page)->assertOk()->assertSee('Work in progress');
         }
     }
+
+    #[Test]
+    public function theSiteButtonIsShownOnlyToSiteEditors(): void
+    {
+        $user = $this->physiotherapist();
+        $this->actingAs($user);
+
+        $this->assertStringNotContainsString('Gestione sito', view('filament.gestionale.site-button')->render());
+
+        $user->assignRole('Admin');
+        $html = view('filament.gestionale.site-button')->render();
+        $this->assertStringContainsString('Gestione sito', $html);
+        $this->assertStringContainsString(route('dashboard.index'), $html);
+    }
 }
