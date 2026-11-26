@@ -49,7 +49,7 @@ return [
     'become_a_testimonial' => [
         'become_a_testimonial' => "Share your experience",
         'brief_description' => 'A brief description of your experience.',
-        'did_you_enjoy' => "Did you enjoy receiving a treatment and you would love to leave a feedback that I can publish on my website?",
+        'did_you_enjoy' => "Did you enjoy your treatment and would you like to leave some feedback that I can share on the site?",
         'unique_experience' => "Since it's a quite unique experience to explain, this will support me to allow people to know does it feel to receive an ILM treatment.",
         'publish_agreement' => "Publish agreement",
         'please_confirm' => "Please confirm below to allow me to publish",
