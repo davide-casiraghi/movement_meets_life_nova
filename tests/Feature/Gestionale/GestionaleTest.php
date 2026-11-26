@@ -232,4 +232,31 @@ class GestionaleTest extends TestCase
         Livewire::test(ListPatients::class)->assertOk();
     }
 
+    #[Test]
+    public function navigationFollowsTheRequestedOrderAndWorkInProgressPagesRender(): void
+    {
+        $this->actingAs($this->physiotherapist());
+        $panel = Filament::getPanel('gestionale');
+
+        $labels = collect($panel->getNavigation())
+            ->flatMap(fn ($group) => $group->getItems())
+            ->map(fn ($item) => $item->getLabel())
+            ->values()
+            ->all();
+
+        $this->assertSame([
+            'Calendario', 'Pazienti', 'Contabilità', 'Sistema TS', 'Modulistica',
+            'Schede di valutazione', 'Listino prezzi', 'Prenotazioni online', 'Impostazioni',
+            'Sedute', 'Registro accessi',
+        ], $labels);
+
+        foreach ([
+            \App\Filament\Pages\Contabilita::class,
+            \App\Filament\Pages\SistemaTs::class, \App\Filament\Pages\Modulistica::class,
+            \App\Filament\Pages\SchedeDiValutazione::class,
+            \App\Filament\Pages\PrenotazioniOnline::class, \App\Filament\Pages\Impostazioni::class,
+        ] as $page) {
+            Livewire::test($page)->assertOk()->assertSee('Work in progress');
+        }
+    }
 }
