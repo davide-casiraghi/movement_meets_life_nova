@@ -20,6 +20,16 @@ class ServiceTitleInput extends Field
 
     protected string $view = 'filament.forms.service-title-input';
 
+    protected bool $showDuration = true;
+
+    /** The invoice lines show only name and price. */
+    public function showDuration(bool $condition = true): static
+    {
+        $this->showDuration = $condition;
+
+        return $this;
+    }
+
     /**
      * @return array<int, array{id: int, name: string, price: string, duration: ?string}>
      */
@@ -33,7 +43,7 @@ class ServiceTitleInput extends Field
                 'id' => $s->id,
                 'name' => $s->name,
                 'price' => number_format((float) $s->price, 2, ',', '.').' €',
-                'duration' => $s->duration_minutes ? "({$s->duration_minutes}min)" : null,
+                'duration' => ($this->showDuration && $s->duration_minutes) ? "({$s->duration_minutes}min)" : null,
             ])
             ->all();
     }

@@ -254,7 +254,6 @@ class GestionaleTest extends TestCase
         ], $labels);
 
         foreach ([
-            \App\Filament\Pages\Contabilita::class,
             \App\Filament\Pages\SistemaTs::class, \App\Filament\Pages\Modulistica::class,
             \App\Filament\Pages\SchedeDiValutazione::class,
             \App\Filament\Pages\PrenotazioniOnline::class, \App\Filament\Pages\Impostazioni::class,

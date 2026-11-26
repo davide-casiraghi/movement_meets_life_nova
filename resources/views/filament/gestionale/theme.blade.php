@@ -161,6 +161,59 @@
     .gest-status-dot-off { background: #d1d5db; }
     .gest-status-select { max-width: 10rem; min-height: 2.25rem; }
 
+    /* ---------- Accounting page ---------- */
+    .gest-accounting { display: flex; flex-direction: column; gap: 1.25rem; }
+    .gest-accounting-cards { display: grid; grid-template-columns: minmax(16rem, 2fr) 4fr; gap: 1rem; }
+    @media (max-width: 64rem) { .gest-accounting-cards { grid-template-columns: 1fr; } }
+    .gest-month-card { background: linear-gradient(135deg, #111827, #374151); color: #fff; border-radius: var(--radius-xl); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2rem 1rem; text-align: center; }
+    .gest-month-card-title { font-size: 1.35rem; font-weight: 700; }
+    .gest-month-card-amount { font-size: 2.5rem; font-weight: 800; margin: 0.5rem 0; }
+    .gest-month-card-note { color: #e5e7eb; }
+    .gest-info-card { background: #fff; border-radius: var(--radius-xl); box-shadow: 0 1px 3px #0000001a; padding: 1.5rem; }
+    .gest-info-card-header { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 1rem; }
+    .gest-info-card-header h2 { font-size: 1.15rem; font-weight: 700; color: #111827; }
+    .gest-info-card-tools { display: flex; align-items: center; gap: 0.5rem; }
+    .gest-accent { color: var(--gest-accent); }
+    .gest-outline-select { border-color: var(--gest-accent); color: var(--gest-accent); max-width: 7rem; }
+    .gest-outline-btn { display: inline-flex; align-items: center; gap: 0.4rem; border: 1px solid var(--gest-accent); color: var(--gest-accent); border-radius: 0.5rem; padding: 0.35rem 0.75rem; font-size: 0.875rem; }
+    .gest-outline-btn:disabled { opacity: 0.55; cursor: not-allowed; }
+    .gest-info-card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .gest-figure-title { font-weight: 700; font-size: 1.05rem; color: #111827; }
+    .gest-figure-sub { color: #6b7280; font-size: 0.875rem; }
+    .gest-figure { font-size: 1.9rem; font-weight: 800; margin: 0.35rem 0; }
+    .gest-figure-indigo { color: var(--gest-accent); }
+    .gest-figure-green { color: #16a34a; }
+    .gest-figure-red { color: #dc2626; }
+    .gest-tabs { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+    .gest-tab { background: #e5e7eb; color: #374151; border-radius: 0.5rem; padding: 0.45rem 0.9rem; font-weight: 600; font-size: 0.95rem; }
+    .gest-tab:hover { background: #d1d5db; }
+    .gest-tab-active, .gest-tab-active:hover { background: var(--gest-accent); color: #fff; }
+    .gest-wip-box { background: #fff; border-radius: var(--radius-xl); box-shadow: 0 1px 3px #0000001a; padding: 3rem 1rem; text-align: center; }
+    .gest-wip-icon { width: 2.5rem; height: 2.5rem; margin: 0 auto 0.75rem; color: #9ca3af; }
+    .gest-wip-title { font-weight: 700; font-size: 1.1rem; color: #111827; }
+    .gest-wip-text { color: #6b7280; }
+
+    /* ---------- "Nuovo documento contabile" ---------- */
+    .gest-field-label { font-size: 0.875rem; font-weight: 500; color: #111827; }
+    .gest-required { color: #dc2626; margin-left: 0.1rem; }
+    .gest-paid-group { gap: 0.5rem; }
+    .gest-paid-box { border-radius: 0.5rem; padding: 0.55rem 0.75rem; }
+    .gest-paid-box-off { background: #fde2e2; }
+    .gest-paid-box-off .fi-fo-field-label-content { color: #991b1b; }
+    .gest-paid-box-on { background: #dcfce7; }
+    .gest-paid-box-on .fi-fo-field-label-content { color: #166534; }
+    .gest-invoice-lines .fi-fo-repeater-item { border: 0; box-shadow: none; }
+    .gest-invoice-lines .fi-fo-repeater-item-header { padding-inline: 0; }
+    .gest-invoice-lines .fi-fo-repeater-item-content { padding-inline: 0; }
+    .gest-badge-default { display: inline-block; background: #22c55e; color: #fff; border-radius: 9999px; padding: 0 0.6rem; font-size: 0.8rem; margin-left: 0.4rem; }
+    .gest-invoice-bar { position: sticky; bottom: 0; z-index: 20; display: flex; justify-content: space-between; align-items: flex-end; gap: 1rem; background: #fff; border-top: 1px solid #e5e7eb; box-shadow: 0 -4px 12px #0000000f; margin-inline: calc(var(--spacing) * -8); padding: 1rem calc(var(--spacing) * 8); }
+    .gest-invoice-totals { min-width: 16rem; }
+    .gest-invoice-row { display: flex; justify-content: space-between; gap: 2rem; color: #374151; }
+    .gest-invoice-total { font-weight: 700; font-size: 1.2rem; color: #111827; }
+    .gest-invoice-warning { color: #b45309; font-size: 0.85rem; margin-top: 0.25rem; }
+    .gest-invoice-actions { display: flex; align-items: center; gap: 1.5rem; }
+    .gest-invoice-back { display: inline-flex; align-items: center; gap: 0.35rem; color: #374151; }
+
     /* ---------- Shared bits ---------- */
     .gest-color-dot { display: inline-block; width: 0.625rem; height: 0.625rem; border-radius: 9999px; margin-right: 0.5rem; vertical-align: middle; }
     .gest-color-option { display: block; margin: -0.25rem -0.5rem; padding: 0.25rem 0.5rem; border-radius: 0.25rem; color: #111827; }
