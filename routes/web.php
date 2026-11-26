@@ -218,8 +218,13 @@ Route::group(['middleware' => ['auth:sanctum', 'verified', 'role:Super Admin|Adm
 
 // The old Italian URL of the booking page now redirects to the translated one.
 Route::redirect('/it/book-a-treatment', '/it/prenota-un-trattamento', 301);
-Route::redirect('/it/next-events', '/it/eventi-futuri', 301);
-Route::redirect('/it/past-events', '/it/eventi-passati', 301);
+// Events renamed to classes: the old addresses redirect to the new ones
+Route::redirect('/it/next-events', '/it/classi', 301);
+Route::redirect('/it/past-events', '/it/classi-passate', 301);
+Route::redirect('/it/eventi-futuri', '/it/classi', 301);
+Route::redirect('/it/eventi-passati', '/it/classi-passate', 301);
+Route::redirect('/en/next-events', '/en/classes', 301);
+Route::redirect('/en/past-events', '/en/past-classes', 301);
 Route::redirect('/it/physiotherapy', '/it/fisioterapia', 301);
 Route::redirect('/it/about-me', '/it/su-di-me', 301);
 Route::redirect('/it/treatments-ilan-lev-method', '/it/trattamenti-ilan-lev-method', 301);
