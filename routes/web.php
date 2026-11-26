@@ -225,6 +225,8 @@ Route::redirect('/it/eventi-futuri', '/it/classi', 301);
 Route::redirect('/it/eventi-passati', '/it/classi-passate', 301);
 Route::redirect('/en/next-events', '/en/classes', 301);
 Route::redirect('/en/past-events', '/en/past-classes', 301);
+Route::redirect('/it/events/{event}', '/it/classi/{event}', 301);
+Route::redirect('/en/events/{event}', '/en/classes/{event}', 301);
 // Physiotherapy page: the old addresses redirect to the new ones (with the city, for local SEO)
 Route::redirect('/it/physiotherapy', '/it/fisioterapia-a-torino', 301);
 Route::redirect('/it/fisioterapia', '/it/fisioterapia-a-torino', 301);
@@ -265,7 +267,7 @@ Route::group(
     
     Route::get('/contact-improvisation', [StaticPageController::class, 'contactImprovisation'])->name('staticPages.contactImprovisation');
     Route::get('/water-contact', [StaticPageController::class, 'waterContact'])->name('staticPages.waterContact');
-    Route::get('/events/{event:slug}', [EventController::class, 'show'])->name('events.show');
+    Route::get(LaravelLocalization::transRoute('routes.event'), [EventController::class, 'show'])->name('events.show');
     Route::get('/testimonials/create', [TestimonialController::class, 'create'])->name('testimonials.create');
     Route::post('/testimonials', [TestimonialController::class, 'store'])->name('testimonials.store')->middleware(ProtectAgainstSpam::class);;
 

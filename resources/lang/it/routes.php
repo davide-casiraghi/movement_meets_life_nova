@@ -6,6 +6,7 @@ return [
     'about-me' => 'su-di-me',
     'next-events' => 'classi',
     'past-events' => 'classi-passate',
+    'event' => 'classi/{event}',
     'book-a-treatment' => 'prenota-un-trattamento',
     'blog' => 'approfondimenti',
 ];

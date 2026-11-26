@@ -94,7 +94,7 @@ class GenerateSitemap extends Command
         $searchParameters['is_published'] = true;
         $events = $this->eventService->getEvents(null, $searchParameters);
         foreach ($events as $event) {
-            $this->addLocalizedUrl($sitemap, "/events/{$event->slug}");
+            $this->addTranslatedRouteUrl($sitemap, 'routes.event', ['event' => $event->slug]);
         }
 
         // Write Sitemap to file
@@ -141,12 +141,13 @@ class GenerateSitemap extends Command
      *
      * @param  Sitemap  $sitemap
      * @param  string  $translationKey
+     * @param  array<string, string>  $attributes  route parameters, e.g. ['event' => 'slug']
      */
-    private function addTranslatedRouteUrl(Sitemap $sitemap, string $translationKey): void
+    private function addTranslatedRouteUrl(Sitemap $sitemap, string $translationKey, array $attributes = []): void
     {
         $localizedUrls = [];
         foreach (array_keys(LaravelLocalization::getSupportedLocales()) as $locale) {
-            $url = LaravelLocalization::getURLFromRouteNameTranslated($locale, $translationKey, [], true);
+            $url = LaravelLocalization::getURLFromRouteNameTranslated($locale, $translationKey, $attributes, true);
             if ($url !== false) {
                 $localizedUrls[$locale] = $url;
             }

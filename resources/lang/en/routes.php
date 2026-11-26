@@ -6,6 +6,7 @@ return [
     'about-me' => 'about-me',
     'next-events' => 'classes',
     'past-events' => 'past-classes',
+    'event' => 'classes/{event}',
     'book-a-treatment' => 'book-a-treatment',
     'blog' => 'blog',
 ];
