@@ -34,6 +34,7 @@ use App\Http\Controllers\TeamController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VenueController;
+use App\Http\Controllers\WhatsAppController;
 use App\Http\Controllers\MediaController;
 use App\Http\Controllers\DatabaseBackupsController;
 use App\Http\Controllers\SitemapController;
@@ -249,6 +250,7 @@ Route::group(
     Route::get('glossaries/{glossary:slug}', [ GlossaryController::class, 'show'])->name('glossaries.show');
 
     Route::get('/contact', [ContactMeController::class, 'index'])->name('contact.index');
+    Route::get('/whatsapp', [WhatsAppController::class, 'redirect'])->name('whatsapp');
     Route::post('/contact', [ContactMeController::class, 'store'])->name('contact.store')->middleware(ProtectAgainstSpam::class);
 
     Route::get('/', [ HomeController::class, 'index'])->name('home');

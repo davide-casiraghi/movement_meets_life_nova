@@ -30,6 +30,11 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    // "Write me on WhatsApp" button in the footer: international number, e.g. 393331234567 (empty = service unavailable)
+    'whatsapp' => [
+        'number' => env('WHATSAPP_NUMBER'),
+    ],
+
     'twitter' => [
         'client_id' => env('TWITTER_CLIENT_ID'),
         'client_secret' => env('TWITTER_CLIENT_SECRET'),
