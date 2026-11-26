@@ -4,10 +4,12 @@ namespace App\Providers;
 
 use App\Contracts\ContainsHealthData;
 use App\Models\AccessLog;
+use App\Models\Appointment;
 use App\Models\Patient;
 use App\Models\TreatmentSession;
 use App\Models\User;
 use App\Policies\AccessLogPolicy;
+use App\Policies\AppointmentPolicy;
 use App\Policies\PatientPolicy;
 use App\Policies\TreatmentSessionPolicy;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
@@ -22,6 +24,7 @@ class AuthServiceProvider extends ServiceProvider
      */
     protected $policies = [
         Patient::class => PatientPolicy::class,
+        Appointment::class => AppointmentPolicy::class,
         TreatmentSession::class => TreatmentSessionPolicy::class,
         AccessLog::class => AccessLogPolicy::class,
     ];

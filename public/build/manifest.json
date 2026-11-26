@@ -18,7 +18,7 @@
     "isDynamicEntry": true
   },
   "resources/css/app.css": {
-    "file": "assets/app-uJJsk-On.css",
+    "file": "assets/app-Az_dh6QN.css",
     "name": "app",
     "names": [
       "app.css"
@@ -45,6 +45,12 @@
       "node_modules/@fancyapps/fancybox/dist/jquery.fancybox.js",
       "resources/js/vendors/staaky_tipped.js"
     ]
+  },
+  "resources/js/gestionale-calendar.js": {
+    "file": "assets/gestionale-calendar-4qHBQm5k.js",
+    "name": "gestionale-calendar",
+    "src": "resources/js/gestionale-calendar.js",
+    "isEntry": true
   },
   "resources/js/vendors/bootstrap-datepicker.js": {
     "file": "assets/bootstrap-datepicker-bPDGI-9p.js",

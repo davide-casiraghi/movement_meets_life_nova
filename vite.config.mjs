@@ -9,6 +9,7 @@ export default defineConfig({
                 'resources/css/app.css',
                 'resources/sass/custom.scss',
                 'resources/js/app.js',
+                'resources/js/gestionale-calendar.js',
             ],
             refresh: true,
         }),
