@@ -2,6 +2,7 @@
 
 namespace App\Providers\Filament;
 
+use App\Filament\Resources\Patients\Pages\ListPatients;
 use App\Http\Middleware\SetPanelLocale;
 use Filament\Auth\MultiFactor\App\AppAuthentication;
 use Filament\Http\Middleware\Authenticate;
@@ -11,6 +12,7 @@ use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
+use Filament\Tables\View\TablesRenderHook;
 use Filament\View\PanelsRenderHook;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
@@ -45,6 +47,7 @@ class GestionalePanelProvider extends PanelProvider
             ->topbar(false)
             ->darkMode(false)
             ->renderHook(PanelsRenderHook::HEAD_END, fn () => view('filament.gestionale.theme'))
+            ->renderHook(TablesRenderHook::TOOLBAR_SEARCH_AFTER, fn () => view('filament.gestionale.patients-status-filter'), scopes: ListPatients::class)
             ->colors([
                 'primary' => Color::Indigo,
             ])

@@ -316,10 +316,11 @@ class Calendario extends Page
                         Grid::make(2)->schema([
                             TextInput::make('first_name')->label('Nome')->required()->maxLength(255),
                             TextInput::make('last_name')->label('Cognome')->required()->maxLength(255),
-                            TextInput::make('phone')->label('Telefono')->tel()->maxLength(50),
-                            TextInput::make('email')->label('Email')->email()->maxLength(255),
+                            TextInput::make('mobile')->label(FormHelpers::optional('Cellulare'))->tel()->maxLength(50),
+                            TextInput::make('email')->label(FormHelpers::optional('Email'))->email()->maxLength(255),
                         ]),
                     ])
+                    // Quick entry: the full registry (fiscal code, address, ...) is completed later from Pazienti.
                     ->createOptionModalHeading('Nuovo paziente')
                     ->createOptionUsing(fn (array $data) => Patient::create($data)->getKey())
                     ->createOptionAction(fn (Action $action) => $action->icon(Heroicon::UserPlus)->color('gray')->tooltip('Nuovo paziente'))

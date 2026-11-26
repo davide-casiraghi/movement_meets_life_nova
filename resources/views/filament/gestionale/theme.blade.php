@@ -125,6 +125,42 @@
     .fi-modal .fi-section-content { padding-inline: 0; }
     .fi-modal .fi-section-header-heading { text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.8rem; font-weight: 700; }
     .fi-modal .fi-section + .fi-section { border-top: 1px solid #e5e7eb; padding-top: calc(var(--spacing) * 2); }
+    /* ---------- Dark page sections (patient form and page) ---------- */
+    /* Rounded header instead of overflow: hidden, which would cut off the select menus */
+    .gest-dark-section > .fi-section > .fi-section-header { border-top-left-radius: var(--radius-xl); border-top-right-radius: var(--radius-xl); }
+    .gest-dark-section > .fi-section.fi-collapsed > .fi-section-header { border-bottom-left-radius: var(--radius-xl); border-bottom-right-radius: var(--radius-xl); }
+    .gest-dark-section > .fi-section > .fi-section-header { background: var(--gest-sidebar-bg); padding: 1.1rem 1.5rem; }
+    .gest-dark-section > .fi-section > .fi-section-header > .fi-icon,
+    .gest-dark-section > .fi-section > .fi-section-header .fi-section-header-heading { color: #fff; }
+    .gest-dark-section > .fi-section > .fi-section-header .fi-section-header-heading { font-size: 1.2rem; font-weight: 500; }
+    .gest-dark-section > .fi-section > .fi-section-header .fi-section-header-text-ctn { display: grid; grid-template-columns: minmax(10rem, 30%) 1fr; align-items: center; gap: 1rem; }
+    .gest-dark-section > .fi-section > .fi-section-header .fi-section-header-description { color: #9ca3af; margin: 0; }
+    .gest-dark-section > .fi-section > .fi-section-header .fi-section-collapse-btn,
+    .gest-dark-section > .fi-section > .fi-section-header .fi-section-collapse-btn .fi-icon { color: #fff; }
+    .gest-dark-section > .fi-section > .fi-section-header .gest-section-header-link,
+    .gest-dark-section > .fi-section > .fi-section-header .gest-section-header-link .fi-icon { color: #fff; }
+    .gest-dark-section > .fi-section > .fi-section-content-ctn { border-top: 0; }
+    .gest-dark-section > .fi-section > .fi-section-content-ctn > .fi-section-content { padding: 1.5rem 2.5rem 2rem; }
+    .gest-divided { border-top: 4px solid #e5e7eb; padding-top: 1.25rem; }
+    .gest-representatives .fi-fo-repeater-item { border: 1px solid #e5e7eb; box-shadow: none; }
+    .gest-dark-section .fi-empty-state { padding-block: 1rem 1.5rem; }
+    .gest-representative-summary { color: #6b7280; font-size: 0.875rem; }
+
+    /* Modal with a dark header and the main button on the right (representatives) */
+    .fi-modal-window.gest-dark-modal > .fi-modal-header { background-color: #1f2937; }
+    .fi-modal-window.gest-dark-modal .fi-modal-footer { border-top: 1px solid #e5e7eb; background: #f9fafb; padding-top: 1rem; border-bottom-left-radius: var(--radius-xl); border-bottom-right-radius: var(--radius-xl); }
+    .fi-modal-window.gest-dark-modal .fi-modal-footer-actions { flex-direction: row-reverse; justify-content: space-between; width: 100%; }
+    .fi-modal-window.gest-dark-modal .fi-section-header-heading { text-transform: none; letter-spacing: normal; font-size: 1.05rem; }
+
+    /* ---------- Patient list ---------- */
+    .gest-patient-cell { display: flex; align-items: center; gap: 0.9rem; }
+    .gest-patient-name { font-weight: 500; color: #111827; }
+    .gest-patient-email { color: #6b7280; font-size: 0.875rem; }
+    .gest-status-dot { flex: none; width: 0.85rem; height: 0.85rem; border-radius: 9999px; }
+    .gest-status-dot-on { background: #4ade80; }
+    .gest-status-dot-off { background: #d1d5db; }
+    .gest-status-select { max-width: 10rem; min-height: 2.25rem; }
+
     /* ---------- Shared bits ---------- */
     .gest-color-dot { display: inline-block; width: 0.625rem; height: 0.625rem; border-radius: 9999px; margin-right: 0.5rem; vertical-align: middle; }
     .gest-color-option { display: block; margin: -0.25rem -0.5rem; padding: 0.25rem 0.5rem; border-radius: 0.25rem; color: #111827; }

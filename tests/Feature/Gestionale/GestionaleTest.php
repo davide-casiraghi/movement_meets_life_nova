@@ -202,12 +202,15 @@ class GestionaleTest extends TestCase
             ->assertCanSeeTableRecords([$sessions->first()]);
 
         Livewire::test(CreatePatient::class)
-            ->fillForm(['first_name' => 'Maria', 'last_name' => 'Rossi', 'allergies' => 'Lattice', 'fiscal_code' => 'rssmra80a41h501x'])
+            ->fillForm([
+                'first_name' => 'Maria', 'last_name' => 'Rossi', 'sex' => 'F', 'allergies' => 'Lattice', 'fiscal_code' => 'rssmra80a01h501u',
+                'address' => 'Via Roma 10', 'city' => 'Roma', 'province' => 'rm', 'postal_code' => '00100',
+            ])
             ->call('create')
             ->assertHasNoFormErrors();
         $created = Patient::where('last_name', 'Rossi')->firstOrFail();
         $this->assertSame('Lattice', $created->allergies);
-        $this->assertSame('RSSMRA80A41H501X', $created->fiscal_code);
+        $this->assertSame('RSSMRA80A01H501U', $created->fiscal_code);
 
         Livewire::withQueryParams(['patient' => $created->id])
             ->test(CreateTreatmentSession::class)

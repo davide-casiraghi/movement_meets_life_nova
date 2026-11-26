@@ -16,14 +16,36 @@ class ViewPatient extends ViewRecord
 
     protected static string $resource = PatientResource::class;
 
+    public function getTitle(): string
+    {
+        return $this->getRecord()->full_name;
+    }
+
+    public function getSubheading(): ?string
+    {
+        return $this->getRecord()->trashed() ? 'Paziente archiviato' : null;
+    }
+
+    public function getBreadcrumbs(): array
+    {
+        return [];
+    }
+
     protected function getHeaderActions(): array
     {
         return [
+            Action::make('back')
+                ->label('Indietro')
+                ->icon(Heroicon::ArrowLeft)
+                ->link()
+                ->color('gray')
+                ->url($this->getResource()::getUrl('index')),
             Action::make('newSession')
                 ->label('Nuova seduta')
                 ->icon(Heroicon::OutlinedPlus)
+                ->color('gray')
                 ->url(fn () => TreatmentSessionResource::getUrl('create', ['patient' => $this->getRecord()->getKey()])),
-            EditAction::make(),
+            EditAction::make()->label('Modifica'),
         ];
     }
 }

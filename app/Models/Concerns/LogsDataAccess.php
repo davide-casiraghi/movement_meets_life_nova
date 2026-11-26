@@ -27,10 +27,14 @@ trait LogsDataAccess
         });
 
         static::deleted(function ($model) {
-            AccessLog::record($model->isForceDeleting() ? 'force_deleted' : 'deleted', $model);
+            $forced = ! method_exists($model, 'isForceDeleting') || $model->isForceDeleting();
+            AccessLog::record($forced ? 'force_deleted' : 'deleted', $model);
         });
 
-        static::restored(fn ($model) => AccessLog::record('restored', $model));
+        // Only models with SoftDeletes can be restored.
+        if (method_exists(static::class, 'restored')) {
+            static::restored(fn ($model) => AccessLog::record('restored', $model));
+        }
     }
 
     public function logView(): void
