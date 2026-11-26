@@ -30,7 +30,7 @@
                 <h2 class="text-4xl font-bold mb-2 text-white text-shadow-lg text-shadow-black/60">
                     {{ $post->title }}
                 </h2>
-                <h3 class="font-avenir text-2xl leading-9 mb-8 text-gray-300 mt-10">
+                <h3 class="font-avenir text-2xl leading-9 mb-8 text-gray-300 mt-10 text-shadow-md text-shadow-black/60">
                     {!! $post->intro_text !!}
                 </h3>
 
