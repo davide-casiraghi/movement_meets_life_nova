@@ -1,6 +1,8 @@
 <?php
 
 return [
+    'next_events_title' => 'Classi',
+    'past_events_title' => 'Classi passate',
     'notice' => 'Nota',
     'add_new_event' => 'Aggiungi un nuovo evento',
     'create_new_event' => 'Crea un nuovo evento',

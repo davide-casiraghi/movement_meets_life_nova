@@ -1,8 +1,8 @@
 <?php
 
 return [
-    'next_events_title' => 'Events',
-    'past_events_title' => 'Past events',
+    'next_events_title' => 'Classes',
+    'past_events_title' => 'Past classes',
     'notice' => 'Notice',
     'add_new_event' => 'Add New event',
     'create_new_event' => 'Create new event',
