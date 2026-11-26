@@ -3,6 +3,13 @@
 namespace App\Models;
 
 use App\Models\UserProfile;
+use Filament\Auth\MultiFactor\App\Concerns\InteractsWithAppAuthentication;
+use Filament\Auth\MultiFactor\App\Concerns\InteractsWithAppAuthenticationRecovery;
+use Filament\Auth\MultiFactor\App\Contracts\HasAppAuthentication;
+use Filament\Auth\MultiFactor\App\Contracts\HasAppAuthenticationRecovery;
+use Filament\Models\Contracts\FilamentUser;
+use Filament\Models\Contracts\HasName;
+use Filament\Panel;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -14,9 +21,11 @@ use Laravel\Sanctum\HasApiTokens;
 use Spatie\ModelStatus\HasStatuses;
 use Spatie\Permission\Traits\HasRoles;
 
-class User extends Authenticatable
+class User extends Authenticatable implements FilamentUser, HasName, HasAppAuthentication, HasAppAuthenticationRecovery
 {
     use HasApiTokens;
+    use InteractsWithAppAuthentication;
+    use InteractsWithAppAuthenticationRecovery;
     use HasFactory;
     use HasRoles;
     use HasProfilePhoto;
@@ -87,6 +96,34 @@ class User extends Authenticatable
         'disabled' => 'disabled',
         'enabled' => 'enabled',
     ];
+
+    /** Role required to open the physiotherapy panel and its health data. */
+    public const PHYSIOTHERAPIST_ROLE = 'Fisioterapista';
+
+    /**
+     * Only physiotherapists can enter the physiotherapy panel (/gestionale).
+     * Being an Admin of the website is not enough.
+     */
+    public function canAccessPanel(Panel $panel): bool
+    {
+        return $this->isPhysiotherapist();
+    }
+
+    /**
+     * Name shown by Filament. On this website the name lives in the user profile
+     * (users.name is usually empty), so fall back to it and then to the email.
+     */
+    public function getFilamentName(): string
+    {
+        $profileName = trim(($this->profile?->name ?? '').' '.($this->profile?->surname ?? ''));
+
+        return $profileName ?: ($this->name ?: $this->email);
+    }
+
+    public function isPhysiotherapist(): bool
+    {
+        return $this->hasRole(self::PHYSIOTHERAPIST_ROLE);
+    }
 
     /**
      * Returns the posts written by this user.

@@ -3,6 +3,7 @@
 namespace App\Console;
 
 use App\Console\Commands\SendEmailsExpiringRepetitiveEvents;
+use App\Models\AccessLog;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -34,9 +35,14 @@ class Kernel extends ConsoleKernel
 
         $schedule->command('sitemap:generate')->daily();
 
-        // Backup
-//        $schedule->command('backup:clean')->weekly()->sundays()->at('00:00');
-        $schedule->command('backup:run')->weekly()->sundays()->at('00:30');
+        // Encrypted database backup every night, then retention clean-up and health check
+        // (the monitor emails if the latest backup is older than one day).
+        $schedule->command('gestionale:backup')->dailyAt('02:30')->appendOutputTo($logPath);
+        $schedule->command('backup:clean')->dailyAt('03:15')->appendOutputTo($logPath);
+        $schedule->command('backup:monitor')->dailyAt('09:00');
+
+        // Removes access log entries older than AccessLog::RETENTION_MONTHS.
+        $schedule->command('model:prune', ['--model' => [AccessLog::class]])->monthly();
     }
 
     /**

@@ -41,6 +41,7 @@ use App\Repositories\UserRepositoryInterface;
 use App\Repositories\VenueRepository;
 use App\Repositories\VenueRepositoryInterface;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Validation\Rules\Password;
 use Illuminate\Support\Facades\View;
 
 class AppServiceProvider extends ServiceProvider
@@ -79,6 +80,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        // Strong passwords (used by the physiotherapy panel profile page and by Password::defaults()).
+        Password::defaults(function () {
+            $rule = Password::min(12)->letters()->mixedCase()->numbers()->symbols();
+
+            return $this->app->isProduction() ? $rule->uncompromised() : $rule;
+        });
         //View::share('posts', Post::orderBy('title')->get());
 
       /*  View::composer('partials.pages.home.blog.block', function($view){
