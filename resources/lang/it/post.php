@@ -10,4 +10,5 @@ return [
     'reading_time' => ':minutes min di lettura',
     'blog_subtitle' => 'Riflessioni e articoli per capire meglio il corpo, il dolore e il movimento',
     'all_posts' => 'Tutti gli approfondimenti',
+    'home_carousel_subtitle' => "Consigli e approfondimenti di un fisioterapista per muoverti meglio e con meno dolore",
 ];

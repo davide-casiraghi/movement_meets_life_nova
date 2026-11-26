@@ -5,11 +5,17 @@
 --}}
 @if($carouselPosts->isNotEmpty())
     <div class="mt-20 mb-16 mx-auto max-w-[theme(screens.xl)] px-4 sm:px-6">
-        <div class="flex items-end justify-between mb-8 w-11/12 mx-auto">
-            <h2 class="text-4xl tracking-tight leading-10 font-brand text-gray-900 sm:leading-none lg:text-4xl xl:text-5xl">
-                @lang('post.blog_heading')
-            </h2>
-            <a href="{{ route('posts.blog') }}" class="text-base font-medium text-primary-600 hover:text-primary-500 whitespace-nowrap ml-4">
+        <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between mb-8 w-11/12 mx-auto">
+            <div>
+                <h2 class="text-4xl tracking-tight leading-10 font-brand text-gray-900 sm:leading-none lg:text-4xl xl:text-5xl">
+                    @lang('post.blog_heading')
+                </h2>
+                {{-- Same style as the other subtitles of the homepage blocks --}}
+                <p class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
+                    @lang('post.home_carousel_subtitle')
+                </p>
+            </div>
+            <a href="{{ route('posts.blog') }}" class="text-base font-medium text-primary-600 hover:text-primary-500 whitespace-nowrap sm:ml-4">
                 @lang('post.all_posts') &rarr;
             </a>
         </div>
